@@ -1,0 +1,8 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 80C0 124.183 35.8172 160 80 160C124.183 160 160 124.183 160 80C160 35.8172 124.183 0 80 0C35.8172 0 0 35.8172 0 80Z" fill="#FB9D45"/>
+<ellipse cx="51" cy="65.5" rx="11" ry="8.5" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M32 45C32 42.7909 33.7909 41 36 41H61C63.2091 41 65 42.7909 65 45C65 47.2091 63.2091 49 61 49H36C33.7909 49 32 47.2091 32 45Z" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<ellipse cx="11" cy="8.5" rx="11" ry="8.5" transform="matrix(-1 0 0 1 120 57)" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M128 45C128 42.7909 126.209 41 124 41H99C96.7909 41 95 42.7909 95 45C95 47.2091 96.7909 49 99 49H124C126.209 49 128 47.2091 128 45Z" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M40.7336 121.296C38.9132 120.045 38.452 117.554 39.7036 115.734C48.839 102.446 64.324 96.0001 79.6247 96.0001C94.9289 96.0001 110.606 102.442 120.232 115.643C121.533 117.428 121.141 119.931 119.356 121.232C117.571 122.534 115.069 122.142 113.768 120.357C105.893 109.558 92.8206 104 79.6247 104C66.4254 104 53.6604 109.554 46.2959 120.266C45.0443 122.087 42.554 122.548 40.7336 121.296Z" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+</svg>

@@ -1,0 +1,17 @@
+.FAQWrapper {
+  max-width: 1276px;
+  margin: auto;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .FAQWrapper {
+    padding: 0rem 2rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .FAQWrapper {
+    padding: 0rem 2rem;
+  }
+}

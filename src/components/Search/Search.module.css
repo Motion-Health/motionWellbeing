@@ -1,0 +1,9 @@
+.search {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search div > input {
+  flex-grow: 1;
+}

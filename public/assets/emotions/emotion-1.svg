@@ -1,0 +1,8 @@
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="80" cy="80" r="80" transform="matrix(-1 0 0 1 160 0)" fill="#FA4C41"/>
+<circle cx="51" cy="62.9998" r="11" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M38.288 36.7178C46.7698 42.626 55.4174 39.203 58.5923 36.8071C60.3557 35.4764 62.8639 35.8272 64.1946 37.5906C65.5253 39.354 65.1746 41.8622 63.4112 43.1929C58.5861 46.834 46.0337 51.8628 33.7154 43.2822C31.9027 42.0195 31.4568 39.5264 32.7195 37.7137C33.9822 35.901 36.4753 35.4551 38.288 36.7178Z" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<circle cx="11" cy="11" r="11" transform="matrix(-1 0 0 1 120.002 51.9998)" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M121.714 36.7173C113.232 42.6255 104.585 39.2025 101.41 36.8066C99.6463 35.4759 97.138 35.8267 95.8073 37.5901C94.4766 39.3535 94.8274 41.8617 96.5908 43.1924C101.416 46.8335 113.968 51.8623 126.287 43.2817C128.099 42.019 128.545 39.5259 127.282 37.7132C126.02 35.9005 123.527 35.4546 121.714 36.7173Z" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+<path d="M117 125L43 125C43 115.769 55 95 80 95C105 95 117 115.769 117 125Z" fill="black" fill-opacity="0.55" style="mix-blend-mode:multiply"/>
+</svg>

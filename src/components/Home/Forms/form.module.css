@@ -1,0 +1,126 @@
+.formWrapper {
+  background-image: url("/assets/images/background.jpg");
+  width: 100%;
+  background-size: cover;
+  margin: 4rem 0rem 0rem 0rem;
+  padding: 4rem 0rem;
+}
+
+.formWrapper h2 {
+  margin: auto;
+  max-width: 1224px;
+}
+
+@media (max-width: 992px) {
+  .formWrapper h2 {
+    padding: 0rem 2rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .formWrapper {
+    padding: 0rem 2rem;
+  }
+}
+
+.form {
+  display: flex;
+  margin: auto;
+  max-width: 1224px;
+}
+
+@media (max-width: 992px) {
+  .form {
+    padding: 2rem;
+    flex-direction: column;
+  }
+}
+
+.formInputs {
+  flex-grow: 1;
+  margin-top: 1rem;
+  padding-right: 8rem;
+}
+
+@media (max-width: 992px) {
+  .formInputs {
+    padding-right: 0rem;
+  }
+}
+
+.formInputs div {
+  margin-bottom: 1.5rem;
+}
+
+.formInputs input,
+.formInputs textarea {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 12px;
+  gap: 8px;
+  width: 100%;
+}
+
+.formInputs textarea {
+  height: 150px;
+}
+
+.formInputs label {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0c437d;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.formInputs button {
+  padding: 12px 16px;
+  gap: 8px;
+  text-transform: uppercase;
+  width: 210px;
+  height: 48px;
+  font-size: 1rem;
+  background: #0c437d;
+  border-radius: 24px;
+  color: #fff;
+  border: 0;
+  flex: none;
+  order: 1;
+  font-weight: 600;
+  flex-grow: 0;
+  cursor: pointer;
+}
+
+.formInputs button:hover {
+  background-color: #2565ae;
+}
+
+.companyDetails {
+  margin-top: 1.8rem;
+}
+
+.companyDetails a {
+  color: #0c437d;
+  text-decoration: none;
+}
+
+.companyDetails a:hover {
+  text-decoration: underline;
+}
+
+.companyDetails address {
+  font-style: normal;
+  margin-bottom: 3rem;
+}
+
+.socials {
+  margin-right: 1rem;
+}
+
+.socials svg rect:hover {
+  fill: #2565ae !important;
+}

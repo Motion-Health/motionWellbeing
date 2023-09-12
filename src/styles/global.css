@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url("/assets/images/background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media print {
+  body {
+    zoom: 89%;
+  }
+  .no-print,
+  .no-print *,
+  .fc-printButton-button,
+  .fc-scheduleButton-button,
+  .fc-header-toolbar {
+    display: none !important;
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 24px;
+  margin-top: 2rem;
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px 8px 0px 0px;
+}
+
+.announcements {
+  padding: 24px;
+  gap: 24px;
+  margin-top: 2rem;
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px 8px 0px 0px;
+}
+
+.announcementBtn {
+  margin-top: 2rem;
+}
+.fc-theme-standard td.fc-day-other {
+  background: transparent;
+}
+
+.fc-theme-standard td.fc-day-past:not(td.fc-day-other),
+.fc-theme-standard td.fc-day-future:not(td.fc-day-other),
+.fc-theme-standard th {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.fc-toolbar-chunk {
+  display: flex;
+}
+
+.fc-button.fc-prev-button,
+.fc-button.fc-next-button,
+.fc-button.fc-printButton-button {
+  background-color: transparent;
+  color: #0c437d;
+  border: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: relative;
+}
+.fc-button.fc-prev-button:active,
+.fc-button.fc-next-button:active,
+.fc-button.fc-printButton-button:active {
+  background-color: transparent !important;
+  color: #0c437d !important;
+}
+.fc-button.fc-prev-button:hover,
+.fc-button.fc-next-button:hover,
+.fc-button.fc-printButton-button:hover {
+  background-color: transparent;
+  color: #0c437d;
+}
+
+.fc-button.fc-printButton-button:before {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  left: -1.5rem;
+  background-image: url("/assets/icons/ph_printer.svg");
+  width: 100px;
+  height: 100px;
+}
+
+.fc-button.fc-scheduleButton-button {
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #ffffff;
+  background-color: #0f5298;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  border-radius: 28px;
+  padding: 0.75rem 1rem;
+}
+
+.fc-button.fc-scheduleButton-button:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #0c437d;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.event {
+  padding: 0rem 0.5rem;
+}
+.event h4,
+.event p {
+  margin: 0;
+}
+
+.event h4 {
+  font-size: 14px;
+  white-space: normal;
+}
+
+.fc-daygrid-day-events {
+  height: 100px;
+  display: inline-table;
+  width: 100%;
+}
+
+.fc-daygrid-event-harness {
+  padding-bottom: 0.5rem;
+}
+
+.white-background {
+  background-color: #fff;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.product-card img {
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+  height: 220px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.product-content {
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  height: 550px;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.product-content ul {
+  padding-left: 0;
+}
+
+.product-content ul li {
+  list-style: none;
+  color: #0c437d;
+}
+.product-content ul li h3 {
+  margin-bottom: 1.5rem;
+}
+.product-content button,
+.product-content a {
+  margin-top: auto;
+}
+
+.upgradeprompt {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  text-align: center;
+  padding: 2rem 4rem;
+}
+
+.upgradeprompt-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.activtyCardImageWrapper {
+  margin-bottom: 0.2rem;
+  overflow: hidden;
+}
+
+.landing-h2 {
+  font-size: 1.75rem;
+}
+
+.animatedButton {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  left: 0;
+  width: 366px;
+  transform: translateX(0px);
+  flex-direction: row;
+  gap: 16px;
+  height: 72px;
+  background: #0c437d;
+  box-shadow: inset 0px 0px 4px rgba(9, 37, 108, 0.25);
+  border-radius: 36px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+  border: none;
+  color: #ffffff;
+  transition: all 1s ease-in-out;
+}
+
+.animatedButtonSVG {
+  position: relative;
+  left: 0rem;
+  transition: all 0.5s ease-in-out;
+}
+.animatedButton:hover span {
+  transition: all 0.5s ease-in-out;
+
+  transform: translateX(-55px);
+}
+
+.animatedButton span {
+  position: relative;
+  left: 0rem;
+  transition: all 0.5s ease-in-out;
+}
+.animatedButton:hover .animatedButtonSVG {
+  transition: all 0.5s ease-in-out;
+
+  transform: translateX(295px);
+}
+
+.animatedButton:hover {
+  transition: all 1s ease-in-out;
+
+  display: flex;
+  background-color: #37603e;
+  position: relative;
+  right: 0;
+  align-items: center;
+}

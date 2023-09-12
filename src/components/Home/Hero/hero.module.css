@@ -1,0 +1,79 @@
+.hero {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  width: 100%;
+}
+
+video.herovideo {
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    250.8deg,
+    rgba(57, 195, 255, 0.7) 16.76%,
+    rgba(175, 57, 230, 0.7) 80.88%
+  );
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.heroContent {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0rem 2rem;
+  display: flex;
+  margin-bottom: 5rem;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 64px;
+  text-align: center;
+  display: flex;
+  color: #ffffff;
+  bottom: 10rem;
+}
+
+.herowrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.arrowButton {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.arrow {
+  width: 100px;
+  z-index: 1;
+}
