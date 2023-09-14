@@ -77,7 +77,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "imap": "^0.8.19",
     "imap-mailbox": "^1.0.1",
-    "jest": "^29.4.1",
+    "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.4.1",
     "lint-staged": "^13.1.1",
     "mailparser": "^3.6.3",
