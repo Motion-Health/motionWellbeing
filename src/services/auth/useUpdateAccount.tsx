@@ -1,6 +1,8 @@
-import { useMutation } from "react-query";
-import { API } from "../api";
-import { Account } from "@/models/Account";
+import { useMutation } from 'react-query';
+
+import { Account } from '@/models/Account';
+
+import { API } from '../api';
 
 export type AdditionalInformationResponse = {
   serviceProviderName: string;
@@ -12,7 +14,7 @@ export const useUpdateAccount = () => {
       `/account/update/${data.accountId}`,
       {
         ...data,
-      },
+      }
     );
   });
 };

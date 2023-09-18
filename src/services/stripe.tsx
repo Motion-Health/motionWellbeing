@@ -10,12 +10,13 @@ export const GetProductsFromStripe = async () => {
       },
     })
     .then((data) => {
-      return data.data.data.filter((price) => price.active);
+      return data.data.data.filter((price: { active: any }) => price.active);
     });
   return products;
 };
 
 export const GetPrice = async (priceCode) => {
+  console.log(priceCode);
   const price = await axios
     .get('https://api.stripe.com/v1/prices/' + priceCode, {
       headers: {
@@ -29,10 +30,11 @@ export const GetPrice = async (priceCode) => {
   return price.unit_amount / 100;
 };
 
-export const checkout = async (priceId, type) => {
+export const checkout = async (priceId, type, accountId) => {
   const session_url = await API.post('/create-checkout-session', {
     priceId,
     type,
+    accountId,
   }).then((data) => {
     window.location.href = data.data.url;
   });
