@@ -9,17 +9,19 @@ import { checkout, GetPrice, GetProductsFromStripe } from '@/services/stripe';
 export default function upgradeCard() {
   const [packages, setPackages] = useState([]);
   const {
-    account: { accountStatus },
+    account: { accountId, accountStatus },
   } = useAccountContext();
 
   useEffect(() => {
     async function fetchProducts() {
       const products = await GetProductsFromStripe();
-
       const productArr = [];
 
       for (const product of products) {
+        console.log(product);
+        console.log('default', product.default_price);
         const formattedPrice = await GetPrice(product.default_price);
+        console.log(formattedPrice);
         const formatted = {
           id: product.id,
           name: product.name,
@@ -31,11 +33,15 @@ export default function upgradeCard() {
           features: Object.values(product.metadata).filter((value, index) => {
             return Object.keys(product.metadata)[index].startsWith('feature-');
           }),
+
           image: product.images[0],
           price: formattedPrice,
         };
+        console.log(formatted);
         productArr.push(formatted);
       }
+      console.log('productArr');
+      console.log(productArr);
       setPackages(orderByOrder(productArr));
     }
 
@@ -103,7 +109,9 @@ export default function upgradeCard() {
                     <Button
                       variant="contained"
                       type="button"
-                      onClick={() => checkout(product.priceId, product.type)}
+                      onClick={() =>
+                        checkout(product.priceId, product.type, accountId)
+                      }
                       fullWidth
                     >
                       Upgrade Now
