@@ -1,46 +1,58 @@
-import ScheduleModal from "@/components/modals/ScheduleModal";
-import { Typography } from "@mui/material";
-
-import { Main } from "@/templates/Main";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
+import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import dayjs, { Dayjs } from "dayjs";
-import { useEffect, useState } from "react";
-import { useAccountContext } from "@/context/AccountContext";
-import { usePlannerEvents } from "@/services/planner/usePlannerEvents";
-import { Event } from "@/models/Event";
-import moment from "moment";
-import Head from "next/head"
+import FullCalendar from '@fullcalendar/react';
+import { Typography } from '@mui/material';
+import dayjs, { Dayjs } from 'dayjs';
+import moment from 'moment';
+import Head from 'next/head';
+import router from 'next/router';
+import { useEffect, useState } from 'react';
+
+import ScheduleModal from '@/components/modals/ScheduleModal';
+import { useAccountContext } from '@/context/AccountContext';
+import { Event } from '@/models/Event';
+import { usePlannerEvents } from '@/services/planner/usePlannerEvents';
+import { Main } from '@/templates/Main';
 
 const Planner = () => {
   const {
-    account: { accountId },
+    account: { accountId, accountStatus },
   } = useAccountContext();
 
-  const { data: events, refetch: refetchPlannerEvents } = usePlannerEvents(accountId)
+  const { data: events, refetch: refetchPlannerEvents } =
+    usePlannerEvents(accountId);
 
   const [toggleScheduleModal, setToggleScheduleModal] = useState<number>(1);
-  const [modalOpenAction, setModalOpenAction] = useState<'add-event' | 'edit-event' | null>(null);
+  const [modalOpenAction, setModalOpenAction] = useState<
+    'add-event' | 'edit-event' | null
+  >(null);
   const [editEventData, setEditEventData] = useState<Event | null>(null);
-  const [addEventStartDate, setAddEventStartDate] = useState<Dayjs | null>(null);
+  const [addEventStartDate, setAddEventStartDate] = useState<Dayjs | null>(
+    null
+  );
+  useEffect(() => {
+    if (accountStatus == 'standard') {
+      // Redirect to upgrade page
+      router.push('/wellbeing/upgrade');
+    }
+  }, [accountStatus]);
 
   useEffect(() => {
     refetchPlannerEvents();
   }, [modalOpenAction]);
 
   function handleDateClick(fullCalendarDateInfo: any) {
-    const selectedDate = fullCalendarDateInfo.date
+    const selectedDate = fullCalendarDateInfo.date;
 
     setToggleScheduleModal(Math.random());
-    setModalOpenAction("add-event");
-    setAddEventStartDate(dayjs(selectedDate))
+    setModalOpenAction('add-event');
+    setAddEventStartDate(dayjs(selectedDate));
   }
 
   function handleEventClick(eventData: Event) {
     if (!eventData.isProtected) {
       setToggleScheduleModal(Math.random());
-      setModalOpenAction("edit-event");
+      setModalOpenAction('edit-event');
       setEditEventData(eventData);
     }
   }
@@ -62,8 +74,8 @@ const Planner = () => {
       isProtected: eventInfo.event.extendedProps.isProtected,
     };
 
-    let timeText = moment(eventInfo.event.start).format('HH:mm')
-    if (timeText === '00:00') timeText = '' // remove labels for all-day events which start at midnight
+    let timeText = moment(eventInfo.event.start).format('HH:mm');
+    if (timeText === '00:00') timeText = ''; // remove labels for all-day events which start at midnight
 
     return (
       <>
@@ -94,30 +106,30 @@ const Planner = () => {
         themeSystem="bootstrap"
         customButtons={{
           printButton: {
-            text: "Print my planner",
+            text: 'Print my planner',
             click: function () {
               window.print();
             },
           },
           scheduleButton: {
-            text: "Schedule Activity",
+            text: 'Schedule Activity',
 
             click: function () {
               setToggleScheduleModal(Math.random());
-              setModalOpenAction("add-event");
+              setModalOpenAction('add-event');
             },
           },
         }}
         headerToolbar={{
-          left: "prev title next",
-          right: "printButton scheduleButton",
+          left: 'prev title next',
+          right: 'printButton scheduleButton',
         }}
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
         firstDay={1}
         eventTimeFormat={{
-          hour: "2-digit",
-          minute: "2-digit",
+          hour: '2-digit',
+          minute: '2-digit',
           meridiem: false,
           hour12: false,
         }}

@@ -1,35 +1,33 @@
-import { useEffect, useState, ChangeEvent } from "react";
+import 'dayjs/locale/en-gb';
 
+import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
   Button,
   Dialog,
   FormLabel,
   Grid,
+  MenuItem,
   Select,
   SelectChangeEvent,
+  TextField,
   Typography,
   useMediaQuery,
-  MenuItem,
-  TextField,
-} from "@mui/material";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+} from '@mui/material';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import dayjs, { Dayjs } from 'dayjs';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { Controller, FormProvider, useForm } from 'react-hook-form';
 
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs, { Dayjs } from "dayjs";
-import "dayjs/locale/en-gb";
-
-import CloseIcon from "@mui/icons-material/Close";
-import { Controller, FormProvider, useForm } from "react-hook-form";
-import { Event } from "@/models/Event";
-
-import theme from "@/styles/theme";
-import { DateTimePicker } from "@mui/x-date-pickers";
-import { useCreateEvent } from "@/services/planner/useCreateEvent";
-import { useAccountContext } from "@/context/AccountContext";
-import { useUpdateEvent } from "@/services/planner/useUpdateEvent";
-import { useListActivities } from "@/services/activities/useListActivities";
-import { useDeleteEvent } from "@/services/planner/useDeleteEvent"
+import { useAccountContext } from '@/context/AccountContext';
+import { Event } from '@/models/Event';
+import { useListActivities } from '@/services/activities/useListActivities';
+import { useCreateEvent } from '@/services/planner/useCreateEvent';
+import { useDeleteEvent } from '@/services/planner/useDeleteEvent';
+import { useUpdateEvent } from '@/services/planner/useUpdateEvent';
+import theme from '@/styles/theme';
 
 type Props = {
   toggleScheduleModal: number;
@@ -46,12 +44,15 @@ const ScheduleModal = ({
   addEventStartDate,
   onCloseScheduleModal,
 }: Props) => {
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const errorTextColour = theme.palette.error.main
-
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const errorTextColour = theme.palette.error.main;
+  const [durationHours, setDurationHours] = useState(0);
+  const [durationMinutes, setDurationMinutes] = useState(15);
   const {
     account: { accountId },
   } = useAccountContext();
+
+  const [selectedActivity, setSelectedActivity] = useState('');
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -59,67 +60,92 @@ const ScheduleModal = ({
 
   const { data: activitiesData } = useListActivities();
 
-  const [startDateValue, setStartDateValue] = useState<Dayjs | null>(null)
-  const [endDateValue, setEndDateValue] = useState<Dayjs | null>(null)
+  const [startDateValue, setStartDateValue] = useState<Dayjs | null>(null);
+  const [endDateValue, setEndDateValue] = useState<Dayjs | null>(null);
 
   const hideValidationErrors = () => {
-    setShowTitleError(false)
-    setShowStartError(false)
-    setShowEndError(false)
-  }
+    setShowTitleError(false);
+    setShowStartError(false);
+    setShowEndError(false);
+  };
 
   const resetFormData = () => {
-    setEventData(null)
+    setEventData(null);
 
-    setStartDateValue(null)
-    setEndDateValue(null)
+    setStartDateValue(null);
+    setEndDateValue(null);
 
-    hideValidationErrors()
-  }
+    hideValidationErrors();
+  };
+  useEffect(() => {
+    const calculatedEndDate = dayjs(startDateValue)
+      .add(durationHours, 'hour')
+      .add(durationMinutes, 'minute');
+
+    setEndDateValue(calculatedEndDate);
+    const endDateString = calculatedEndDate.format('YYYY-MM-DD HH:mm');
+
+    setEventData({
+      ...eventData,
+      end: endDateString,
+    });
+  }, [durationHours, durationMinutes]);
 
   useEffect(() => {
-    resetFormData()
+    resetFormData();
 
-    if (modalOpenAction === "add-event") {
-      setPopulateEventTitle("")
-      resetFormData()
+    if (modalOpenAction === 'add-event') {
+      setPopulateEventTitle('');
+      setSelectedActivity('');
+      resetFormData();
       if (addEventStartDate) {
-        setStartDateValue(addEventStartDate)
+        setStartDateValue(addEventStartDate);
         setEventData({
           ...editEventData,
-          start: dayjs(addEventStartDate)
-        })
+          start: dayjs(addEventStartDate),
+        });
       }
     }
 
     if (modalOpenAction === 'edit-event') {
-      setPopulateEventTitle(editEventData?.title)
+      setPopulateEventTitle(editEventData?.title);
 
       if (editEventData?.start) {
-        setStartDateValue(dayjs(editEventData.start))
+        setStartDateValue(dayjs(editEventData.start));
+      }
+      if (
+        Array.isArray(activitiesData) &&
+        activitiesData.some(
+          (activity) => activity.activityName == editEventData?.title
+        )
+      ) {
+        console.log('activity exists');
+
+        setSelectedActivity(editEventData?.title);
+        console.log('selected activity', editEventData?.title);
       }
 
       if (editEventData?.end) {
-        setEndDateValue(dayjs(editEventData.end))
+        setEndDateValue(dayjs(editEventData.end));
       }
 
       setEventData({
         ...editEventData,
         start: dayjs(editEventData?.start),
         end: dayjs(editEventData?.end),
-      })
+      });
     }
 
     if (toggleScheduleModal !== 1) {
       setIsModalOpen(true);
     }
-  }, [toggleScheduleModal]);
+  }, [toggleScheduleModal, activitiesData]);
 
   useEffect(() => {
     if (!isModalOpen) {
       onCloseScheduleModal();
     }
-  }, [isModalOpen])
+  }, [isModalOpen]);
 
   const methods = useForm({
     defaultValues: eventData,
@@ -127,11 +153,12 @@ const ScheduleModal = ({
 
   const { handleSubmit, control } = methods;
 
-  const [populateEventTitle, setPopulateEventTitle] = useState<string>("");
+  const [populateEventTitle, setPopulateEventTitle] = useState<string>('');
 
   const handleSelectActivityChange = (event: SelectChangeEvent) => {
     const selectedEventTitle = event.target.value;
     setPopulateEventTitle(selectedEventTitle);
+    setSelectedActivity(event.target.value);
 
     setEventData({
       ...eventData,
@@ -140,7 +167,7 @@ const ScheduleModal = ({
   };
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newTitle = event.target.value
+    const newTitle = event.target.value;
     setPopulateEventTitle(newTitle);
 
     setEventData({
@@ -152,26 +179,28 @@ const ScheduleModal = ({
   const createEvent = useCreateEvent();
   const updateEvent = useUpdateEvent();
 
-  const [showTitleError, setShowTitleError] = useState<boolean>(false)
-  const [showStartError, setShowStartError] = useState<boolean>(false)
-  const [showEndError, setShowEndError] = useState<boolean>(false)
-  
+  const [showTitleError, setShowTitleError] = useState<boolean>(false);
+  const [showStartError, setShowStartError] = useState<boolean>(false);
+  const [showEndError, setShowEndError] = useState<boolean>(false);
+
   const validateForm = (formSubmitData: Event) => {
-    hideValidationErrors()
-    
+    hideValidationErrors();
+
     if (!formSubmitData?.title) {
-      setShowTitleError(true)
+      setShowTitleError(true);
     }
-    
+
     if (!formSubmitData?.start) {
-      setShowStartError(true)
+      console.log('show start error');
+      console.log(formSubmitData);
+      setShowStartError(true);
     }
 
     if (!formSubmitData?.end) {
-      setShowEndError(true)
+      setShowEndError(true);
     }
-  }
-  
+  };
+
   const onSubmitHandler = (values: Event) => {
     const newEventData = {
       ...eventData,
@@ -181,11 +210,11 @@ const ScheduleModal = ({
       accountId,
     };
 
-    validateForm(newEventData)
-    
+    validateForm(newEventData);
+
     if (!newEventData.title || !newEventData.start || !newEventData.end) {
       // prevent submit
-      return null
+      return null;
     }
 
     if (!eventData?.eventId) {
@@ -210,41 +239,50 @@ const ScheduleModal = ({
   };
 
   const onStartDateChange = (date: Dayjs) => {
-    setStartDateValue(date)
+    setStartDateValue(date);
+    const formattedStartDate = dayjs(date).format('YYYY-MM-DD HH:mm');
 
-    const startDate = dayjs(date).format("YYYY-MM-DD HH:mm");
+    // Calculate the end date based on duration
+    const calculatedEndDate = dayjs(date)
+      .add(durationHours, 'hour')
+      .add(durationMinutes, 'minute');
 
+    setEndDateValue(calculatedEndDate);
+    const formattedEndDate = calculatedEndDate.format('YYYY-MM-DD HH:mm');
+
+    // Update your event data
     setEventData({
       ...eventData,
-      start: startDate,
+      start: formattedStartDate,
+      end: formattedEndDate,
     });
   };
 
   const onEndDateChange = (date: any) => {
-    setEndDateValue(date)
+    setEndDateValue(date);
 
-    const endDate = dayjs(date).format("YYYY-MM-DD HH:mm");
-  
+    const endDate = dayjs(date).format('YYYY-MM-DD HH:mm');
+
     setEventData({
       ...eventData,
       end: endDate,
     });
   };
 
-  const deleteEvent = useDeleteEvent()
+  const deleteEvent = useDeleteEvent();
 
   const handleDeleteEvent = () => {
     deleteEvent.mutate(eventData?.eventId, {
       onSuccess: (res) => {
-        setIsModalOpen(false)
-        onCloseScheduleModal()
+        setIsModalOpen(false);
+        onCloseScheduleModal();
       },
       onError: (err) => {
-        setIsModalOpen(false)
-        onCloseScheduleModal()
+        setIsModalOpen(false);
+        onCloseScheduleModal();
       },
     });
-  }
+  };
 
   return (
     <Dialog
@@ -255,10 +293,10 @@ const ScheduleModal = ({
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
         style={{
-          position: "absolute",
-          right: "1.5rem",
-          top: "1.5rem",
-          cursor: "pointer",
+          position: 'absolute',
+          right: '1.5rem',
+          top: '1.5rem',
+          cursor: 'pointer',
         }}
       />
 
@@ -267,33 +305,34 @@ const ScheduleModal = ({
         onSubmit={handleSubmit(onSubmitHandler)}
         noValidate
         sx={{
-          margin: "3rem",
+          margin: '3rem',
         }}
       >
-      <Grid container justifyContent="space-between">
-        {modalOpenAction === "edit-event" && (
-          <Typography variant="h1">Edit event</Typography>
-        )}
-        {modalOpenAction === "add-event" && (
-          <Typography variant="h1">Schedule event</Typography>
-        )}
+        <Grid container justifyContent="space-between">
+          {modalOpenAction === 'edit-event' && (
+            <Typography variant="h1">Edit event</Typography>
+          )}
+          {modalOpenAction === 'add-event' && (
+            <Typography variant="h1">Schedule event</Typography>
+          )}
 
-        {modalOpenAction === "edit-event" && (
-          <Button onClick={() => handleDeleteEvent()}>
-            <img
-              src="/assets/icons/ph_trash.svg"
-              alt="Delete event icon"
-            />
-          </Button>
-        )}
-      </Grid>
+          {modalOpenAction === 'edit-event' && (
+            <Button onClick={() => handleDeleteEvent()}>
+              <img src="/assets/icons/ph_trash.svg" alt="Delete event icon" />
+            </Button>
+          )}
+        </Grid>
 
         <FormProvider {...methods}>
           <Grid container spacing={{ sm: 0, md: 2 }}>
             <Grid item xs={12} sm={12} md={12}>
               <FormLabel>Select activity</FormLabel>
               <Grid item>
-                <Select fullWidth onChange={handleSelectActivityChange}>
+                <Select
+                  fullWidth
+                  onChange={handleSelectActivityChange}
+                  value={selectedActivity}
+                >
                   {activitiesData?.map((activity) => (
                     <MenuItem
                       key={activity.activityName}
@@ -323,7 +362,7 @@ const ScheduleModal = ({
 
             <Grid item xs={12} sm={12} md={6}>
               <Grid container>
-                <FormLabel>Start date *</FormLabel>
+                <FormLabel>Activity date and time *</FormLabel>
               </Grid>
               <Controller
                 name="start"
@@ -337,68 +376,84 @@ const ScheduleModal = ({
                     <DateTimePicker
                       onChange={onStartDateChange}
                       value={startDateValue}
-                      sx={{ width: "100%" }}
+                      sx={{ width: '100%' }}
                     />
                   </LocalizationProvider>
                 )}
               />
               {showStartError && (
-                <Typography variant="helper" sx={{color: errorTextColour}}>Start date is required</Typography>
+                <Typography variant="helper" sx={{ color: errorTextColour }}>
+                  Start date is required
+                </Typography>
               )}
             </Grid>
 
             <Grid item xs={12} sm={12} md={6}>
               <Grid container>
-                <FormLabel>End date *</FormLabel>
+                <FormLabel>Duration *</FormLabel>
               </Grid>
-              <Controller
-                name="end"
-                control={control}
-                defaultValue={eventData?.end}
-                render={({ field: { onChange, onBlur, value } }) => (
-                  <LocalizationProvider
-                    dateAdapter={AdapterDayjs}
-                    adapterLocale="en-gb"
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <Select
+                    value={durationHours}
+                    onChange={(e) => setDurationHours(e.target.value)}
+                    sx={{ width: '100%' }}
                   >
-                    <DateTimePicker
-                      onChange={onEndDateChange}
-                      value={endDateValue}
-                      sx={{ width: "100%" }}
-                    />
-                  </LocalizationProvider>
-                )}
-              />
-              {showEndError && (
-                <Typography variant="helper" sx={{color: errorTextColour}}>End date is required</Typography>
-              )}
+                    <MenuItem value={0}>0</MenuItem>
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={6}>6</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                    <MenuItem value={8}>8</MenuItem>
+                    {/* Add more options here */}
+                  </Select>
+                  <Typography variant="caption">Hours</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Select
+                    value={durationMinutes}
+                    onChange={(e) => setDurationMinutes(e.target.value)}
+                    sx={{ width: '100%' }}
+                  >
+                    <MenuItem value={0}>00</MenuItem>
+                    <MenuItem value={15}>15</MenuItem>
+                    <MenuItem value={30}>30</MenuItem>
+                    <MenuItem value={45}>45</MenuItem>
+                  </Select>
+                  <Typography variant="caption">Minutes</Typography>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
-          {modalOpenAction === "edit-event" && (
+          {modalOpenAction === 'edit-event' && (
             <Button
               variant="contained"
               name="create"
               fullWidth
               type="submit"
               sx={{
-                py: "0.8rem",
-                mt: "1rem",
-                width: "210px",
+                py: '0.8rem',
+                mt: '1rem',
+                width: '210px',
                 borderRadius: 50,
               }}
             >
               Update Event
             </Button>
           )}
-          {modalOpenAction === "add-event" && (
+          {modalOpenAction === 'add-event' && (
             <Button
               variant="contained"
               name="create"
               fullWidth
               type="submit"
               sx={{
-                py: "0.8rem",
-                mt: "1rem",
-                width: "210px",
+                py: '0.8rem',
+                mt: '1rem',
+                width: '210px',
                 borderRadius: 50,
               }}
             >
@@ -412,10 +467,10 @@ const ScheduleModal = ({
             fullWidth
             onClick={() => setIsModalOpen(false)}
             sx={{
-              py: "0.8rem",
-              mt: "1rem",
-              ml: "1rem",
-              width: "210px",
+              py: '0.8rem',
+              mt: '1rem',
+              ml: '1rem',
+              width: '210px',
               borderRadius: 50,
             }}
           >

@@ -1,31 +1,37 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Alert, Button, Grid, Typography } from '@mui/material';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-import PageHeader from "@/components/PageHeader/index";
-import ActivitySearch from "@/components/ActivitySearch";
-import { Main } from "@/templates/Main";
-import { useListActivities } from "@/services/activities/useListActivities";
-import { useEffect, useState } from "react";
-import ActivitiesFormModal from "@/components/modals/ActivitiesFormModal";
-import { ActivityData } from "@/services/activities/useCreateActivity";
-import { ActivityCard } from "@/components/ActivityCard";
-import { useAccountContext } from "@/context/AccountContext";
-import { useRouter } from "next/router";
-import { ActivitiesFilters } from "@/components/ActivitiesFilters";
-import { useActivityTags } from "@/services/activities/useActivityTags";
-import { useActivityTimeLengths } from "@/services/activities/useActivityTimeLengths";
-import Head from "next/head";
+import { ActivitiesFilters } from '@/components/ActivitiesFilters';
+import { ActivityCard } from '@/components/ActivityCard';
+import ActivitySearch from '@/components/ActivitySearch';
+import ActivitiesFormModal from '@/components/modals/ActivitiesFormModal';
+import PageHeader from '@/components/PageHeader/index';
+import { useAccountContext } from '@/context/AccountContext';
+import { useActivityTags } from '@/services/activities/useActivityTags';
+import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
+import { ActivityData } from '@/services/activities/useCreateActivity';
+import { useListActivities } from '@/services/activities/useListActivities';
+import { Main } from '@/templates/Main';
 
 const Activities = () => {
   const {
     account: { accountStatus },
   } = useAccountContext();
-
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [showSuccessBanner, setShowSuccessBanner] = useState(false);
+  const router = useRouter();
+  const categoryQuery: string | string[] = router.query.filter || '';
+  useEffect(() => {
+    if (router.query.task === 'complete') {
+      setSuccessMessage('Success, activity completed!');
+      setShowSuccessBanner(true);
+    }
+  }, [router.query]);
   const [toggleActivitiesFormModal, setToggleActivitiesFormModal] =
     useState<number>(1);
   const [modalOpenAction, setModalOpenAction] = useState<string | null>(null);
-
-  const router = useRouter();
-  const categoryQuery: string | string[] = router.query.filter || "";
 
   const [filterByCategory, setFilterByCategory] = useState<string | null>(null);
 
@@ -45,21 +51,21 @@ const Activities = () => {
   };
 
   useEffect(() => {
-    if (!filterValues.includes("all") && filterValues?.length) {
+    if (!filterValues.includes('all') && filterValues?.length) {
       const activityTagValues = activityTags?.map((tag) => tag.value);
       if (activityTagValues?.length) {
         const filterByTags = filterValues.filter((filter) =>
-          activityTagValues.includes(filter),
+          activityTagValues.includes(filter)
         );
         setFilterByTags(filterByTags);
       }
 
       const timeLengthsValues = timeLengths?.map(
-        (timeLength) => timeLength.value,
+        (timeLength) => timeLength.value
       );
       if (timeLengthsValues?.length) {
         const filterByTimeLengths = filterValues.filter((filter) =>
-          timeLengthsValues.includes(filter),
+          timeLengthsValues.includes(filter)
         );
         setFilterByTimeLengths(filterByTimeLengths);
       }
@@ -72,7 +78,7 @@ const Activities = () => {
   const { data: activities, refetch: refetchActivities } = useListActivities(
     filterByCategory,
     filterByTags,
-    filterByTimeLengths,
+    filterByTimeLengths
   );
 
   const [displayActivities, setDisplayActivities] = useState<
@@ -90,9 +96,9 @@ const Activities = () => {
   useEffect(() => {
     setAllActivitiesAreHidden(false);
 
-    if (accountStatus === "group" || accountStatus === "premium") {
+    if (accountStatus === 'group' || accountStatus === 'premium') {
       const hasPremiumActivities = displayActivities?.find((activity) =>
-        activity.visibleToUsers?.includes("premium"),
+        activity.visibleToUsers?.includes('premium')
       );
 
       setAllActivitiesAreHidden(!hasPremiumActivities);
@@ -112,7 +118,7 @@ const Activities = () => {
 
   const onCreateActivity = () => {
     setToggleActivitiesFormModal(Math.random());
-    setModalOpenAction("create-activity");
+    setModalOpenAction('create-activity');
   };
 
   const handleActivitySaved = (newActivity: ActivityData) => {
@@ -142,6 +148,19 @@ const Activities = () => {
       <Head>
         <title>Wellbeing activities | Motion Wellbeing</title>
       </Head>
+
+      {showSuccessBanner && successMessage && (
+        <>
+          <Alert
+            severity="success"
+            sx={{ mt: '1rem', mb: '1rem', width: '100%', position: 'relative' }}
+            onClose={() => setShowSuccessBanner(false)} // Add this line for close button
+          >
+            {successMessage}
+          </Alert>
+        </>
+      )}
+
       <ActivitiesFormModal
         toggleActivitiesFormModal={toggleActivitiesFormModal}
         modalOpenAction={modalOpenAction}
@@ -150,7 +169,7 @@ const Activities = () => {
       />
 
       <PageHeader title="Wellbeing activities">
-        {accountStatus === "admin" && (
+        {accountStatus === 'admin' && (
           <Button variant="contained" onClick={() => onCreateActivity()}>
             Create activity
           </Button>
@@ -163,7 +182,7 @@ const Activities = () => {
         searchKey="activityName"
         searchedData={handleSearchedData}
       >
-        <Grid item sx={{ position: "relative" }}>
+        <Grid container item sx={{ position: 'relative' }}>
           <Button variant="link" onClick={() => onFilterButtonClick()}>
             Filters &nbsp;
             {toggleFilterIsOpen ? (
@@ -182,13 +201,13 @@ const Activities = () => {
       <Grid
         container
         sx={{
-          bgcolor: "background.paper",
+          bgcolor: 'background.paper',
           boxShadow: 1,
           borderRadius: 2,
-          px: "1rem",
-          py: "1.5rem",
+          px: '1rem',
+          py: '1.5rem',
           minWidth: 300,
-          mt: "1.5rem",
+          mt: '1.5rem',
         }}
       >
         {displayActivities?.length !== 0 &&
@@ -197,7 +216,7 @@ const Activities = () => {
           ))}
 
         {(displayActivities?.length === 0 || allActivitiesAreHidden) && (
-          <Typography sx={{ textAlign: "center" }}>
+          <Typography sx={{ textAlign: 'center' }}>
             There are no activities to display
           </Typography>
         )}

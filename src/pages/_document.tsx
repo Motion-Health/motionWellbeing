@@ -1,7 +1,6 @@
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 
-import { AppConfig } from "@/utils/AppConfig";
-import Script from "next/script";
+import { AppConfig } from '@/utils/AppConfig';
 
 // Need to create a custom _document because i18n support is not compatible with `next export`.
 class MyDocument extends Document {
@@ -13,7 +12,7 @@ class MyDocument extends Document {
           <script
             type="text/javascript"
             src="https://app.termly.io/embed.min.js"
-            data-auto-block="on"
+            data-auto-block="off"
             data-website-uuid="cb23cb1a-800f-4e1c-8be6-2a04da33755f"
           ></script>
 
