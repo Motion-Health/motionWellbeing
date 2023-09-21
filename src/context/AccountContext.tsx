@@ -1,38 +1,40 @@
-import { createContext, useContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 
 type AccountProviderProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 type AccountContextMethods = {
-  account: Account, 
-  updateAccount: (updatedAccountData: Account) => void
-}
+  account: Account;
+  updateAccount: (updatedAccountData: Account) => void;
+};
 
 type Account = {
-  accountId?: string | null
-  accountStatus?: 'noAccess' | 'standard' | 'group' | 'premium' | 'admin'
-}
+  accountId?: string | null;
+  accountStatus?: 'noAccess' | 'standard' | 'group' | 'premium' | 'admin';
+};
 
 const AccountContext = createContext({} as AccountContextMethods);
 
 export function AccountProvider({ children }: AccountProviderProps) {
-  const [account, setAccount] = useState({})
+  const [account, setAccount] = useState({});
 
   const updateAccount = (updatedAccountData: Account) => {
     const updatedAccount = {
-      ...account, 
-      ...updatedAccountData
-    }
-    
-    setAccount(updatedAccount)
-  }
+      ...account,
+      ...updatedAccountData,
+    };
+
+    setAccount(updatedAccount);
+  };
 
   return (
-    <AccountContext.Provider value={{
-      account, 
-      updateAccount
-    }}>
+    <AccountContext.Provider
+      value={{
+        account,
+        updateAccount,
+      }}
+    >
       {children}
     </AccountContext.Provider>
   );

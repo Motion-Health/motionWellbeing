@@ -11,6 +11,31 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.manage-membership-container {
+  text-align: center;
+  border: 1px solid #7095c2;
+  border-radius: 25px;
+  margin-bottom: 20px;
+}
+.manage-membership-container .upgrade-button:hover {
+  border: none;
+  border-radius: 0px 0px 25px 25px;
+}
+
+.manage-membership-container .premium-text {
+  margin: 0px;
+  border: none;
+  border-bottom: 1px solid #7095c2;
+  padding: 15px;
+}
+
+.manage-membership-container .upgrade-button {
+  margin: 0px;
+  border: none;
+  text-transform: none;
+  font-weight: 500;
+}
+
 
 @media print {
   body {

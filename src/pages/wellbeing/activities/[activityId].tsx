@@ -1,27 +1,40 @@
-import YouTube from "react-youtube";
+import PrintIcon from '@mui/icons-material/Print';
+import { Button, Grid, Typography } from '@mui/material';
+import moment, { Moment } from 'moment';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
+import YouTube from 'react-youtube';
 
-import { Button, Grid, Typography } from "@mui/material";
-import PrintIcon from "@mui/icons-material/Print";
-import Link from "next/link";
-
-import PageHeader from "@/components/PageHeader/index";
-import { Main } from "@/templates/Main";
-import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
-import { useActivityDetails } from "@/services/activities/useActivityDetails";
-import { ActivityData } from "@/services/activities/useCreateActivity";
-import { ActivityCategoryAndTime } from "@/components/ActivityCategoryAndTime";
-import moment, { Moment } from "moment";
-import { ActivityRatingModal } from "@/components/modals/ActivityRatingModal";
-import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
-import { ActivityCommentModal } from "@/components/modals/ActivityCommentModal";
-import { ActivityParticipantsModal } from "@/components/modals/ActivityParticipantsModal";
-import { ActivityShareModal } from "@/components/modals/ActivityShareModal";
-import { ActivityCommentsList } from "@/components/ActivityCommentsList";
-import { useActivityMetrics } from "@/services/activities/useActivityMetrics";
-import Head from "next/head";
+import { ActivityCategoryAndTime } from '@/components/ActivityCategoryAndTime';
+import { ActivityCommentsList } from '@/components/ActivityCommentsList';
+import { ActivityStepper } from '@/components/modals/ActivitiesStepper';
+import { ActivityRatingModal } from '@/components/modals/ActivityRatingModal';
+import PageHeader from '@/components/PageHeader/index';
+import { useAccountContext } from '@/context/AccountContext';
+import { useActivityDetails } from '@/services/activities/useActivityDetails';
+import { useActivityMetrics } from '@/services/activities/useActivityMetrics';
+import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import { ActivityData } from '@/services/activities/useCreateActivity';
+import { Main } from '@/templates/Main';
 
 const ActivityDetails = () => {
+  const [open, setOpen] = useState(false);
+
+  const openStepper = () => {
+    setOpen(true);
+  };
+
+  const handleCloseStepper = () => {
+    setOpen(false);
+  };
+
+  const {
+    account: { accountStatus },
+  } = useAccountContext();
+  const [shouldRenderVideo, setShouldRenderVideo] = useState(true);
+
   const router = useRouter();
 
   const activityId = router.query.activityId as string;
@@ -30,13 +43,34 @@ const ActivityDetails = () => {
     useActivityDetails(activityId);
   const [activity, setActivity] = useState<ActivityData | null>(null);
 
+  //Has to be rendered after the rest of the code in order to overwrite the teamly function
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.addEventListener('pageFullyRendered', function () {
+        getUpdatedCookieWhitelistByTermly = function () {
+          window.location.reload();
+        };
+      });
+      document.dispatchEvent(new Event('pageFullyRendered'));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (
+      accountStatus == 'standard' &&
+      activity?.visibleToUsers.includes('premium') &&
+      !activity?.visibleToUsers.includes('standard')
+    ) {
+      setShouldRenderVideo(false);
+      router.push('/wellbeing/upgrade');
+    }
+  }, [accountStatus, activity]);
   const { data: activityMetrics, refetch: refetchMetrics } =
     useActivityMetrics(activityId);
   const [timesCompleted, setTimesCompleted] = useState<number | null>(null);
 
   const [roundedRating, setRoundedRating] = useState<number | null>(null);
   const [decimalRating, setDecimalRating] = useState<string | null>(null);
-
   useEffect(() => {
     if (activityMetrics?.timesCompleted) {
       setTimesCompleted(activityMetrics.timesCompleted);
@@ -55,20 +89,71 @@ const ActivityDetails = () => {
     setActivity(fetchedActivity);
   }, [fetchedActivity]);
 
+  const renderYouTubeOrCookieMessage = () => {
+    if (Termly.getConsentState().advertising == false) {
+      return (
+        <Grid item sm={20} height="10rem" sx={{ mb: '3rem' }}>
+          <Grid
+            container
+            height="10rem"
+            spacing={2}
+            alignItems="center"
+            justifyContent="center"
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              borderRadius: '10px',
+            }}
+          >
+            <Grid item xs={12}>
+              <Typography variant="body1" align="center">
+                Please accept analytics and anyadvertising cookies to view the
+                video
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => displayPreferenceModal()}
+                style={{ margin: 'auto', display: 'block' }}
+              >
+                Manage Cookies
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      );
+    } else {
+      return (
+        <Grid item sm={12} height="30rem" sx={{ mb: '3rem' }}>
+          <YouTube
+            videoId={parsedYouTubeEmbedCode}
+            onPlay={() => setVideoPlayTimestamp(moment())}
+            opts={{
+              width: '100%',
+              height: '500',
+            }}
+          />
+        </Grid>
+      );
+    }
+  };
+
   const [parsedYouTubeEmbedCode, setParsedYouTubeEmbedCode] = useState<
     string | null
   >(null);
 
   useEffect(() => {
     if (activity?.videoLink) {
-      const urlEnd = activity?.videoLink.split("youtu.be/")[1];
+      const urlEnd = activity?.videoLink.split('youtu.be/')[1];
       const embedCode = urlEnd?.slice(0, 11);
       setParsedYouTubeEmbedCode(embedCode);
     }
   }, [activity]);
 
   const [youtubePlayTimestamp, setVideoPlayTimestamp] = useState<Moment | null>(
-    null,
+    null
   );
   const clickRef = useRef(null);
 
@@ -82,24 +167,24 @@ const ActivityDetails = () => {
 
         if (secondsAfterVideoPlay > 60) {
           setVideoPlayTimestamp(null);
-          setToggleRatingModalAction("video-timer");
+          setToggleRatingModalAction('video-timer');
         }
       }
     }
 
-    document.addEventListener("mousedown", handleClick);
+    document.addEventListener('mousedown', handleClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener('mousedown', handleClick);
     };
   }, [clickRef, youtubePlayTimestamp]);
 
   const [toggleRatingModalAction, setToggleRatingModalAction] = useState<
-    "button-click" | "video-timer" | null
+    'button-click' | 'video-timer' | null
   >(null);
 
   const [activityCompletedId, setActivityCompletedId] = useState<string | null>(
-    null,
+    null
   );
 
   const completeActivity = useCompleteActivity();
@@ -110,18 +195,18 @@ const ActivityDetails = () => {
         onSuccess: (res) => {
           const { activityCompletedId } = res.data;
           setActivityCompletedId(activityCompletedId);
-          setToggleRatingModalAction("button-click");
+          setToggleRatingModalAction('button-click');
         },
       });
     }
   };
 
-  const [shouldOpenCommentsModal, setShouldOpenCommentsModal] =
+  const [shouldOpenStepperModal, setShouldOpenStepperModal] =
     useState<boolean>(false);
 
   const onCloseRatingModal = (
-    openCommentModal: boolean | null,
-    activityCompletedId?: string | null,
+    openStepperModal: boolean | null,
+    activityCompletedId?: string | null
   ) => {
     if (activityCompletedId) {
       setActivityCompletedId(activityCompletedId);
@@ -129,34 +214,15 @@ const ActivityDetails = () => {
 
     setToggleRatingModalAction(null);
 
-    if (openCommentModal) setShouldOpenCommentsModal(true);
+    if (openStepperModal) setShouldOpenStepperModal(true);
+    // if (activityCompletedId) openStepper();
 
     refetchActivity();
     refetchMetrics();
   };
-
-  const [shouldOpenParticipantsModal, setShouldOpenParticipantsModal] =
-    useState<boolean>(false);
-
-  const onCloseCommentsModal = () => {
-    setShouldOpenCommentsModal(false);
-    setShouldOpenParticipantsModal(true);
-  };
-
-  const [shouldOpenShareModal, setShouldOpenShareModal] =
-    useState<boolean>(false);
-
-  const onCloseParticipantsModal = () => {
-    setShouldOpenParticipantsModal(false);
-    setShouldOpenShareModal(true);
-  };
-
-  const onCloseShareModal = (shouldDisplayShareModal: boolean) => {
-    if (!shouldDisplayShareModal) {
-      setShouldOpenShareModal(false);
-      refetchActivity();
-      refetchMetrics();
-    }
+  const onCloseStepperModal = () => {
+    setShouldOpenStepperModal(false);
+    router.push('/wellbeing/activities?task=complete');
   };
 
   return (
@@ -173,21 +239,10 @@ const ActivityDetails = () => {
             activityData={activity}
           />
 
-          <ActivityCommentModal
-            toggleCommentModalAction={shouldOpenCommentsModal}
+          <ActivityStepper
+            toggleStepperModalAction={shouldOpenStepperModal}
             activityCompletedId={activityCompletedId}
-            onCloseCommentsModal={onCloseCommentsModal}
-          />
-
-          <ActivityParticipantsModal
-            toggleParticipantsModalAction={shouldOpenParticipantsModal}
-            activityCompletedId={activityCompletedId}
-            onCloseParticipantsModal={onCloseParticipantsModal}
-          />
-
-          <ActivityShareModal
-            toggleShareModalAction={shouldOpenShareModal}
-            onCloseShareModal={onCloseShareModal}
+            onCloseStepperModal={onCloseStepperModal}
           />
 
           <PageHeader title={activity.activityName}>
@@ -213,55 +268,52 @@ const ActivityDetails = () => {
             </button>
           </PageHeader>
 
-          <Grid container>
+          <Grid
+            container
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
             <ActivityCategoryAndTime
               category={activity?.category}
               timeLength={activity?.timeLength}
             />
 
             {timesCompleted && (
-              <Typography variant="helper" sx={{ mr: "3rem" }}>
+              <Typography variant="helper" sx={{ mr: '3rem' }}>
                 {`
                 Completed 
                 ${timesCompleted} 
-                ${timesCompleted !== 1 ? "times" : "time"}
+                ${timesCompleted !== 1 ? 'times' : 'time'}
                 `}
               </Typography>
             )}
 
             {roundedRating && (
-              <Grid item sx={{ mr: "3rem" }}>
-                <img
-                  style={{ position: "relative", top: "-6px" }}
-                  alt="rating"
-                  src={`/assets/emotions/emotion-${roundedRating}.svg`}
-                  width="24px"
-                  height="24px"
-                  alt="Face icon"
-                />
-                <Typography
-                  variant="helper"
-                  sx={{ ml: "0.5rem", position: "absolute" }}
-                >
-                  {decimalRating}
-                </Typography>
+              <Grid item sx={{ mr: '3rem' }}>
+                <Grid container alignItems="center">
+                  <img
+                    src={`/assets/emotions/emotion-${roundedRating}.svg`}
+                    width="24px"
+                    height="24px"
+                    alt="Face icon"
+                    sx={{ verticalAlign: 'middle' }}
+                  />
+                  <Typography
+                    variant="helper"
+                    sx={{ ml: '0.5rem', position: 'relative' }}
+                  >
+                    {decimalRating}
+                  </Typography>
+                </Grid>
               </Grid>
             )}
           </Grid>
-
-          <Grid container spacing={2} sx={{ mt: "0rem" }}>
-            {parsedYouTubeEmbedCode && (
-              <Grid item sm={12} height="30rem" sx={{ mb: "3rem" }}>
-                <YouTube
-                  videoId={parsedYouTubeEmbedCode}
-                  onPlay={() => setVideoPlayTimestamp(moment())}
-                  opts={{
-                    width: "100%",
-                    height: "500",
-                  }}
-                />
-              </Grid>
-            )}
+          <Grid container spacing={2} sx={{ mt: '0rem' }}>
+            {shouldRenderVideo &&
+              parsedYouTubeEmbedCode &&
+              renderYouTubeOrCookieMessage()}
 
             <Grid item sm={12} md={9}>
               <Typography variant="h3">Description</Typography>
@@ -271,7 +323,9 @@ const ActivityDetails = () => {
             <Grid item sm={12} md={3}>
               <Typography variant="h3">Equipment</Typography>
               <Typography variant="helper">
-                {activity?.equipmentRequired}
+                {activity?.equipmentRequired?.trim()
+                  ? activity.equipmentRequired
+                  : 'No Equipment Required'}
               </Typography>
 
               {activity?.documentFileName && (
@@ -299,16 +353,16 @@ const PrintActivitySheet = ({
       <Link
         href={`${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${documentFileName}`}
         target="_blank"
-        style={{ textDecoration: "none" }}
+        style={{ textDecoration: 'none' }}
       >
         <Button
           variant="text"
           size="small"
           startIcon={<PrintIcon />}
           sx={{
-            textTransform: "none",
+            textTransform: 'none',
             padding: 0,
-            mt: "1.5rem",
+            mt: '1.5rem',
           }}
         >
           Print activity sheet
