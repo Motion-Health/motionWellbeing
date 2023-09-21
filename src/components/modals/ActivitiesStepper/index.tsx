@@ -86,6 +86,8 @@ export const ActivityStepper = ({
           },
         }
       );
+    } else {
+      onCloseStepperModal(false);
     }
   };
 
