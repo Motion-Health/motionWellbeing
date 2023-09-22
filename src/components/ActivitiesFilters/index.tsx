@@ -94,6 +94,7 @@ export const ActivitiesFilters = (props: Props) => {
           borderRadius: 2,
           padding: '1.5rem',
           position: 'absolute',
+          marginTop: '3rem',
           zIndex: 1,
           right: 0,
           width: { xs: '10rem', sm: '20rem', md: '25rem' },

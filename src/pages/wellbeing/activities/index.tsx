@@ -182,7 +182,7 @@ const Activities = () => {
         searchKey="activityName"
         searchedData={handleSearchedData}
       >
-        <Grid container item sx={{ position: 'relative' }}>
+        <Grid container item sx={{ position: 'relative', width: 'auto' }}>
           <Button variant="link" onClick={() => onFilterButtonClick()}>
             Filters &nbsp;
             {toggleFilterIsOpen ? (
