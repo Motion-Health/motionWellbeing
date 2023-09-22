@@ -47,10 +47,6 @@ const Navigation = (props: IMainProps) => {
         }}
         sx={{
           display: { xs: 'block', sm: 'none' },
-
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-          },
         }}
       >
         <NavigationItems />
@@ -61,7 +57,6 @@ const Navigation = (props: IMainProps) => {
           display: { xs: 'none', sm: 'block' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
-            width: drawerWidth,
             backgroundColor: 'transparent',
             border: 'none',
           },

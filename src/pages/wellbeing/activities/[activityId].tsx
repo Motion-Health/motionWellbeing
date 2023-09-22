@@ -107,8 +107,7 @@ const ActivityDetails = () => {
           >
             <Grid item xs={12}>
               <Typography variant="body1" align="center">
-                Please accept analytics and anyadvertising cookies to view the
-                video
+                Accept cookies to view the activity
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -325,7 +324,7 @@ const ActivityDetails = () => {
               <Typography variant="helper">
                 {activity?.equipmentRequired?.trim()
                   ? activity.equipmentRequired
-                  : 'No Equipment Required'}
+                  : 'No equipment Required'}
               </Typography>
 
               {activity?.documentFileName && (

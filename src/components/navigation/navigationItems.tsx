@@ -64,8 +64,6 @@ const NavigationItems = () => {
           flexWrap: 'nowrap',
           justifyContent: 'space-between',
           height: '100%',
-          width: '16rem',
-          overflow: 'auto',
         }}
       >
         <List sx={{ paddingTop: 0 }} className={styles.appSections}>
@@ -191,7 +189,6 @@ const NavigationItems = () => {
           direction="column"
           alignItems="center"
           justifyContent="center"
-          spacing={2}
         >
           {account?.accountStatus != 'admin' &&
             account?.accountStatus != 'premium' && (

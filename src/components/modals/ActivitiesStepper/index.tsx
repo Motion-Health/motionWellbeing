@@ -19,6 +19,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import { FormInputText } from '@/components/FormInputText';
 import { FormSelect } from '@/components/FormSelect';
+import { useGetAccount } from '@/services/account/useGetAccount';
 import { useActivityParticipants } from '@/services/activities/useActivityParticipants';
 import { useUpdateCompletedActivity } from '@/services/activities/useUpdateCompletedActivity';
 
@@ -47,6 +48,7 @@ export const ActivityStepper = ({
       setAutocompleteOptions(existingParticipants.participants);
     }
   }, [existingParticipants]);
+  const { data: account } = useGetAccount();
 
   const [inputValue, setInputValue] = useState<string>('');
   const [participants, setParticipants] = useState<any[]>([]);
@@ -119,7 +121,11 @@ export const ActivityStepper = ({
             />
           )}
           {activeStep === 2 && (
-            <ShareFB handleNext={handleNext} handleBack={handleBack} />
+            <ShareFB
+              handleNext={handleNext}
+              account={account}
+              handleBack={handleBack}
+            />
           )}
         </DialogContent>
         <DialogActions>
@@ -163,7 +169,7 @@ export const ActivityStepper = ({
   );
 };
 
-const ShareFB = ({ handleNext, handleBack }) => {
+const ShareFB = ({ handleNext, handleBack, account }) => {
   return (
     <>
       <Box
@@ -180,7 +186,11 @@ const ShareFB = ({ handleNext, handleBack }) => {
             marginBottom: '0.5rem',
           }}
         >
-          Update Your Community by Sharing to {} Facebook Page
+          Update Your Community by Sharing to
+          {account?.serviceProviderName
+            ? ` ${account?.serviceProviderName}'s `
+            : ' '}
+          Facebook Page
         </Typography>
 
         <Button
