@@ -92,8 +92,6 @@ const Dashboard = () => {
         <Typography variant="h2">Favourite activities</Typography>
         <Box
           sx={{
-            bgcolor: 'background.paper',
-            boxShadow: 1,
             borderRadius: 2,
             p: 2,
             minWidth: 300,

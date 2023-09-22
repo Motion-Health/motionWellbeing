@@ -1,15 +1,17 @@
-import { useAccountContext } from "@/context/AccountContext";
-import { categoryIcons } from "@/data/categoryIcons";
-import { useActivityTimeLengths } from "@/services/activities/useActivityTimeLengths";
-import { ActivityData } from "@/services/activities/useCreateActivity";
-import { useListActivities } from "@/services/activities/useListActivities";
-import { Button, Chip, Grid, Typography } from "@mui/material";
-import moment from "moment";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import ActivitiesFormModal from "../modals/ActivitiesFormModal";
-import { UpgradeModal } from "../modals/UpgradeModal";
-import Image from "next/image";
+import { Button, Chip, Grid, Typography } from '@mui/material';
+import moment from 'moment';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
+import { useAccountContext } from '@/context/AccountContext';
+import { categoryIcons } from '@/data/categoryIcons';
+import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
+import { ActivityData } from '@/services/activities/useCreateActivity';
+import { useListActivities } from '@/services/activities/useListActivities';
+
+import ActivitiesFormModal from '../modals/ActivitiesFormModal';
+import { UpgradeModal } from '../modals/UpgradeModal';
 
 type Props = {
   activity: ActivityData;
@@ -41,30 +43,30 @@ export const ActivityCard = (props: Props) => {
   }, [timeLengths]);
 
   const [activityDisplayType, setActivityDisplayType] = useState<
-    "normal" | "greyed-out" | "invisible"
-  >("normal");
+    'normal' | 'greyed-out' | 'invisible'
+  >('normal');
 
   useEffect(() => {
-    const isAdmin = accountStatus === "admin";
+    const isAdmin = accountStatus === 'admin';
     const isVisibleToUser = activity?.visibleToUsers?.includes(accountStatus!);
 
     const notVisibleToUser =
       !activity?.visibleToUsers?.length ||
-      (accountStatus === "premium" &&
-        !activity.visibleToUsers?.includes("premium")) ||
-      (accountStatus === "group" &&
-        !activity.visibleToUsers?.includes("premium"));
+      (accountStatus === 'premium' &&
+        !activity.visibleToUsers?.includes('premium')) ||
+      (accountStatus === 'group' &&
+        !activity.visibleToUsers?.includes('premium'));
 
     const greyedOutToStandardUser =
-      accountStatus === "standard" &&
-      !activity.visibleToUsers?.includes("standard");
+      accountStatus === 'standard' &&
+      !activity.visibleToUsers?.includes('standard');
 
     if (isAdmin || isVisibleToUser) {
-      setActivityDisplayType("normal");
+      setActivityDisplayType('normal');
     } else if (notVisibleToUser) {
-      setActivityDisplayType("invisible");
+      setActivityDisplayType('invisible');
     } else if (greyedOutToStandardUser) {
-      setActivityDisplayType("greyed-out");
+      setActivityDisplayType('greyed-out');
     }
   }, []);
 
@@ -74,7 +76,7 @@ export const ActivityCard = (props: Props) => {
 
   const onEditActivity = () => {
     setToggleActivitiesFormModal(Math.random());
-    setModalOpenAction("edit-activity");
+    setModalOpenAction('edit-activity');
   };
 
   const handleActivitySaved = () => {
@@ -82,7 +84,7 @@ export const ActivityCard = (props: Props) => {
   };
 
   const handleActivityCardClick = () => {
-    if (activityDisplayType !== "greyed-out") {
+    if (activityDisplayType !== 'greyed-out') {
       router.push(`/wellbeing/activities/${activity.activityId}`);
     } else {
       setToggleUpgradeModal(true);
@@ -99,26 +101,27 @@ export const ActivityCard = (props: Props) => {
       item
       md={12}
       lg={4}
+      className="curved-corners activity"
       sx={{
         flexGrow: 1,
-        mb: "1.5rem",
-        px: "0.75rem",
-        position: "relative",
-        display: activityDisplayType !== "invisible" ? "auto" : "none",
+        mb: '1.5rem',
+        px: '0.75rem',
+        position: 'relative',
+        display: activityDisplayType !== 'invisible' ? 'auto' : 'none',
       }}
     >
-      {activityDisplayType === "greyed-out" && (
+      {activityDisplayType === 'greyed-out' && (
         <img
           src="/assets/icons/ph_premium-icon.svg"
           alt="Premium upgrade icon"
-          style={{ position: "absolute", right: "1.5rem", top: "0.5rem" }}
+          style={{ position: 'absolute', right: '1.5rem', top: '0.5rem' }}
         />
       )}
 
       <Grid
         item
         sx={{
-          opacity: activityDisplayType !== "greyed-out" ? "1" : "0.2",
+          opacity: activityDisplayType !== 'greyed-out' ? '1' : '0.2',
         }}
       >
         <UpgradeModal
@@ -139,13 +142,13 @@ export const ActivityCard = (props: Props) => {
               alt={`Image of ${activity.activityName}`}
               width={500}
               height={500}
+              class="curved-corners"
               style={{
-                width: "100%",
-                height: "200px",
-                objectFit: "cover",
-                objectPosition: "top",
-                cursor: "pointer",
-                borderRadius: 2,
+                width: '100%',
+                height: '200px',
+                objectFit: 'cover',
+                objectPosition: 'top',
+                cursor: 'pointer',
               }}
               onClick={() => handleActivityCardClick()}
             />
@@ -153,12 +156,12 @@ export const ActivityCard = (props: Props) => {
             <img
               src="/assets/images/exercises/activity-placeholder.png"
               alt="Motion placeholder image"
+              class="curved-corners"
               style={{
-                objectFit: "cover",
-                width: "100%",
-                height: "200px",
-                cursor: "pointer",
-                borderRadius: 2,
+                objectFit: 'cover',
+                width: '100%',
+                height: '200px',
+                cursor: 'pointer',
               }}
               onClick={() => handleActivityCardClick()}
             />
@@ -168,17 +171,17 @@ export const ActivityCard = (props: Props) => {
         <Grid container justifyContent="space-between">
           <Typography
             variant="h3"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: 'pointer' }}
             onClick={() => handleActivityCardClick()}
           >
             {activity.activityName}
           </Typography>
-          {accountStatus === "admin" && (
+          {accountStatus === 'admin' && (
             <Button
               sx={{
-                height: "1.5rem",
-                padding: "0",
-                minWidth: "auto",
+                height: '1.5rem',
+                padding: '0',
+                minWidth: 'auto',
               }}
               onClick={() => onEditActivity()}
             >
@@ -194,13 +197,13 @@ export const ActivityCard = (props: Props) => {
         <Grid
           container
           sx={{
-            justifyContent: "space-between",
-            mt: "1rem",
+            justifyContent: 'space-between',
+            mt: '1rem',
           }}
         >
-          <Grid item sx={{ display: "flex", alignItems: "center" }}>
+          <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
             <img src={categoryIcon} alt="Activity icon" />
-            <Typography variant="helper" sx={{ marginLeft: "0.5rem" }}>
+            <Typography variant="helper" sx={{ marginLeft: '0.5rem' }}>
               {timeLengthLabels?.[activity?.timeLength]}
             </Typography>
           </Grid>

@@ -199,11 +199,10 @@ const Activities = () => {
       </ActivitySearch>
 
       <Grid
+        className="curved-corners activities"
         container
         sx={{
           bgcolor: 'background.paper',
-          boxShadow: 1,
-          borderRadius: 2,
           px: '1rem',
           py: '1.5rem',
           minWidth: 300,
