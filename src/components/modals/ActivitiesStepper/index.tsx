@@ -189,7 +189,7 @@ const ShareFB = ({ handleNext, handleBack, account }) => {
           Update Your Community by Sharing to
           {account?.serviceProviderName
             ? ` ${account?.serviceProviderName}'s `
-            : ' '}
+            : ' your '}
           Facebook Page
         </Typography>
 
