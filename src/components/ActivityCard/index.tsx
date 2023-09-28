@@ -30,7 +30,7 @@ export const ActivityCard = (props: Props) => {
   const categoryIcon: string = categoryIcons[activity.category];
 
   const [timeLengthLabels, setTimeLengthLabels] = useState<null | object>(null);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     if (timeLengths?.length) {
       const timeLengthLabelsObject: any = {};
@@ -73,8 +73,9 @@ export const ActivityCard = (props: Props) => {
   const [toggleActivitiesFormModal, setToggleActivitiesFormModal] =
     useState<number>(1);
   const [modalOpenAction, setModalOpenAction] = useState<string | null>(null);
-
-  const onEditActivity = () => {
+  const onEditActivity = (e) => {
+    e.stopPropagation(); // This stops the event from bubbling up
+    setIsModalOpen(true);
     setToggleActivitiesFormModal(Math.random());
     setModalOpenAction('edit-activity');
   };
@@ -84,11 +85,16 @@ export const ActivityCard = (props: Props) => {
   };
 
   const handleActivityCardClick = () => {
-    if (activityDisplayType !== 'greyed-out') {
-      router.push(`/wellbeing/activities/${activity.activityId}`);
-    } else {
-      setToggleUpgradeModal(true);
+    if (isModalOpen) {
+      return;
     }
+
+    if (activityDisplayType == 'greyed-out') {
+      setToggleUpgradeModal(true);
+      return;
+    }
+    console.log('activityDisplayType', activityDisplayType);
+    router.push(`/wellbeing/activities/${activity.activityId}`);
   };
 
   const [toggleUpgradeModal, setToggleUpgradeModal] = useState<boolean>(false);
@@ -119,10 +125,10 @@ export const ActivityCard = (props: Props) => {
       )}
 
       <Grid
-        item
         sx={{
           opacity: activityDisplayType !== 'greyed-out' ? '1' : '0.2',
         }}
+        onClick={() => handleActivityCardClick()}
       >
         <UpgradeModal
           toggleUpgradeModal={toggleUpgradeModal}
@@ -134,6 +140,8 @@ export const ActivityCard = (props: Props) => {
           modalOpenAction={modalOpenAction}
           activityData={activity}
           onActivitySaved={handleActivitySaved}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
         />
         <div className="activtyCardImageWrapper">
           {activity.imageFileName ? (
@@ -142,7 +150,7 @@ export const ActivityCard = (props: Props) => {
               alt={`Image of ${activity.activityName}`}
               width={500}
               height={500}
-              class="curved-corners"
+              className="curved-corners"
               style={{
                 width: '100%',
                 height: '200px',
@@ -150,7 +158,6 @@ export const ActivityCard = (props: Props) => {
                 objectPosition: 'top',
                 cursor: 'pointer',
               }}
-              onClick={() => handleActivityCardClick()}
             />
           ) : (
             <img
@@ -163,17 +170,12 @@ export const ActivityCard = (props: Props) => {
                 height: '200px',
                 cursor: 'pointer',
               }}
-              onClick={() => handleActivityCardClick()}
             />
           )}
         </div>
 
         <Grid container justifyContent="space-between">
-          <Typography
-            variant="h3"
-            style={{ cursor: 'pointer' }}
-            onClick={() => handleActivityCardClick()}
-          >
+          <Typography variant="h3" style={{ cursor: 'pointer' }}>
             {activity.activityName}
           </Typography>
           {accountStatus === 'admin' && (
@@ -183,7 +185,7 @@ export const ActivityCard = (props: Props) => {
                 padding: '0',
                 minWidth: 'auto',
               }}
-              onClick={() => onEditActivity()}
+              onClick={(e) => onEditActivity(e)}
             >
               <img src="/assets/icons/ph_pencil-simple.svg" alt="Edit button" />
             </Button>

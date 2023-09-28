@@ -25,6 +25,9 @@ export const ActivityCommentsList = ({ activityId }: Props) => {
         >
           {activityCommentsContent?.map((commentContent, index) => {
             const { comment, rating, serviceProviderName } = commentContent;
+            if (rating === undefined || serviceProviderName === undefined) {
+              return null;
+            }
             return (
               <Grid
                 container

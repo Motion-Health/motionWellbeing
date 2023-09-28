@@ -51,12 +51,19 @@ type Props = {
   modalOpenAction: string | null;
   activityData: ActivityData | null;
   onActivitySaved: (newActivity: ActivityData) => void;
+  isModalOpen: boolean;
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ActivitiesFormModal = (props: Props) => {
-  const { toggleActivitiesFormModal, modalOpenAction, activityData } = props;
-
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const {
+    toggleActivitiesFormModal,
+    modalOpenAction,
+    activityData,
+    isModalOpen,
+    setIsModalOpen,
+  } = props;
+  const [hideVideoLink, setHideVideoLink] = useState(false);
   const {
     account: { accountStatus },
   } = useAccountContext();
@@ -362,13 +369,7 @@ const ActivitiesFormModal = (props: Props) => {
                 </Grid>
               </Grid>
 
-              <Grid
-                container
-                xs={12}
-                sm={12}
-                md={10}
-                spacing={{ sm: 0, md: 2 }}
-              >
+              <Grid container spacing={{ sm: 0, md: 2 }}>
                 <Grid item xs={12} sm={12} md={12}>
                   <FormInputText
                     name="activityName"
@@ -444,16 +445,32 @@ const ActivitiesFormModal = (props: Props) => {
             </Grid>
 
             <Grid item xs={12} sm={12} md={12}>
-              <FormInputText
-                name="videoLink"
-                label="Video link"
-                placeholder="youtu.be/xxx-xxx"
-                value={activityFormData?.videoLink || ''}
-                type="text"
-                fullWidth
-                sx={{ mb: 3 }}
-              ></FormInputText>
+              <FormGroup>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={hideVideoLink}
+                      onChange={(e) => setHideVideoLink(e.target.checked)}
+                    />
+                  }
+                  label="Doesn't contain video"
+                />
+              </FormGroup>
             </Grid>
+
+            {!hideVideoLink && (
+              <Grid item xs={12} sm={12} md={12}>
+                <FormInputText
+                  name="videoLink"
+                  label="Video link"
+                  placeholder="youtu.be/xxx-xxx"
+                  value={activityFormData?.videoLink || ''}
+                  type="text"
+                  fullWidth
+                  sx={{ mb: 3 }}
+                ></FormInputText>
+              </Grid>
+            )}
 
             <Grid item xs={12} sm={12} md={6}>
               <FormInputText
@@ -551,14 +568,7 @@ const ActivitiesFormModal = (props: Props) => {
               </FormGroup>
             </Grid>
 
-            <Grid
-              item
-              xs={6}
-              sm={6}
-              md={3}
-              sx={{ mt: '2rem' }}
-              direction="column"
-            >
+            <Grid item xs={6} sm={6} md={3} sx={{ mt: '2rem' }}>
               <FormGroup>
                 <FormControlLabel
                   control={

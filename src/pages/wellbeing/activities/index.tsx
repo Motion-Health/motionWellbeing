@@ -29,6 +29,7 @@ const Activities = () => {
       setShowSuccessBanner(true);
     }
   }, [router.query]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [toggleActivitiesFormModal, setToggleActivitiesFormModal] =
     useState<number>(1);
   const [modalOpenAction, setModalOpenAction] = useState<string | null>(null);
@@ -142,6 +143,30 @@ const Activities = () => {
       setToggleFilterIsOpen(false);
     }
   };
+  const [showScrollButton, setShowScrollButton] = useState(true);
+
+  const handleScrollForMore = () => {
+    document.body.scrollBy({
+      top: 300, // Scroll down by 300 pixels
+      behavior: 'smooth',
+    });
+  };
+
+  const checkScrollPosition = () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.body;
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+      setShowScrollButton(false);
+    } else {
+      setShowScrollButton(true);
+    }
+  };
+
+  useEffect(() => {
+    document.body.addEventListener('scroll', checkScrollPosition);
+    return () => {
+      document.body.removeEventListener('scroll', checkScrollPosition);
+    };
+  }, []);
 
   return (
     <Main>
@@ -166,6 +191,8 @@ const Activities = () => {
         modalOpenAction={modalOpenAction}
         activityData={null}
         onActivitySaved={handleActivitySaved}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
       />
 
       <PageHeader title="Wellbeing activities">
@@ -182,7 +209,7 @@ const Activities = () => {
         searchKey="activityName"
         searchedData={handleSearchedData}
       >
-        <Grid container item sx={{ position: 'relative' }}>
+        <Grid container item sx={{ position: 'relative', width: 'auto' }}>
           <Button variant="link" onClick={() => onFilterButtonClick()}>
             Filters &nbsp;
             {toggleFilterIsOpen ? (
@@ -202,7 +229,6 @@ const Activities = () => {
         className="curved-corners activities"
         container
         sx={{
-          bgcolor: 'background.paper',
           px: '1rem',
           py: '1.5rem',
           minWidth: 300,
@@ -220,6 +246,11 @@ const Activities = () => {
           </Typography>
         )}
       </Grid>
+      {showScrollButton && (
+        <div className="scroll-for-more" onClick={handleScrollForMore}>
+          <div className="arrow">↓</div>
+        </div>
+      )}
     </Main>
   );
 };

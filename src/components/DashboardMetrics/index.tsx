@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import router from "next/router";
-
 import {
   Grid,
   MenuItem,
   Select,
   SelectChangeEvent,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
+import router from 'next/router';
+import { useEffect, useState } from 'react';
 
-import { useAccountContext } from "@/context/AccountContext";
-import { useDashboardRatings } from "@/services/dashboard/useDashboardRatings";
-import { DashboardMetricBox } from "./DashboardMetricsBox";
+import { useAccountContext } from '@/context/AccountContext';
+import { useDashboardRatings } from '@/services/dashboard/useDashboardRatings';
+
+import { DashboardMetricBox } from './DashboardMetricsBox';
 
 export const DashboardMetrics = () => {
   const {
     account: { accountId, accountStatus },
   } = useAccountContext();
 
-  const [dateRangeFilter, setDateRangeFilter] = useState<string>("7-days");
+  const [dateRangeFilter, setDateRangeFilter] = useState<string>('7-days');
 
   const handleDateFilterChange = (event: SelectChangeEvent) => {
     setDateRangeFilter(event.target.value);
@@ -31,11 +31,13 @@ export const DashboardMetrics = () => {
   const { data: averageRating, refetch: refetchRatings } = useDashboardRatings(
     accountId,
     accountStatus,
-    dateRangeFilter,
+    dateRangeFilter
   );
 
-  const [averageActivitiesRatingsDecimal, setAverageActivitiesRatingsDecimal] = useState<number | string | null>(null)
-  const [averageActivitiesRatingsRounded, setAverageActivitiesRatingsRounded] = useState<number | null>(null)
+  const [averageActivitiesRatingsDecimal, setAverageActivitiesRatingsDecimal] =
+    useState<number | string | null>(null);
+  const [averageActivitiesRatingsRounded, setAverageActivitiesRatingsRounded] =
+    useState<number | null>(null);
 
   useEffect(() => {
     if (averageRating !== undefined) {
@@ -47,27 +49,27 @@ export const DashboardMetrics = () => {
 
   return (
     <>
-      <Grid container sx={{ display: "flex", flexWrap: "nowrap" }}>
+      <Grid container sx={{ display: 'flex', flexWrap: 'nowrap' }}>
         <Grid
           container
           sx={{
-            display: "flex",
-            flexWrap: "nowrap",
-            justifyContent: "space-between",
+            display: 'flex',
+            flexWrap: 'nowrap',
+            justifyContent: 'space-between',
           }}
         >
           <Typography variant="h2">Your report</Typography>
 
           <Select
             id="date-range-filter"
-            defaultValue={"7-days"}
+            defaultValue={'7-days'}
             label="Date range"
             onChange={handleDateFilterChange}
             sx={{
-              ml: "50%",
-              width: "10rem",
-              backgroundColor: "transparent",
-              border: "none",
+              ml: '50%',
+              width: '10rem',
+              backgroundColor: 'transparent',
+              border: 'none',
             }}
           >
             <MenuItem value="7-days">WEEKLY</MenuItem>
@@ -79,36 +81,37 @@ export const DashboardMetrics = () => {
       <Grid
         container
         sx={{
-          display: "flex",
-          flexWrap: "nowrap",
-          justifyContent: "space-between",
+          display: 'flex',
+          flexWrap: 'nowrap',
+          justifyContent: 'space-between',
         }}
         spacing={1}
       >
-        {averageActivitiesRatingsDecimal !== 0 && (
-          <Grid
-            item
-            sx={{
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-              mr: "3rem",
-              mt: "1.5rem",
-              flexGrow: 1,
-              display: "grid",
-            }}
-          >
-            <img
-              src={`/assets/emotions/emotion-${averageActivitiesRatingsRounded}.svg`}
-              alt={`${averageActivitiesRatingsRounded} / 5 face icon`}
-            />
-            <Typography variant="h3">
-              {averageActivitiesRatingsDecimal} avg.
-            </Typography>
-          </Grid>
-        )}
+        {averageActivitiesRatingsDecimal !== 0 &&
+          averageActivitiesRatingsRounded && (
+            <Grid
+              item
+              sx={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                mr: '3rem',
+                mt: '1.5rem',
+                flexGrow: 1,
+                display: 'grid',
+              }}
+            >
+              <img
+                src={`/assets/emotions/emotion-${averageActivitiesRatingsRounded}.svg`}
+                alt={`${averageActivitiesRatingsRounded} / 5 face icon`}
+              />
+              <Typography variant="h3">
+                {averageActivitiesRatingsDecimal} avg.
+              </Typography>
+            </Grid>
+          )}
 
-        {(accountStatus === "admin" || accountStatus === "group") && (
+        {(accountStatus === 'admin' || accountStatus === 'group') && (
           <DashboardMetricBox
             metricName="Service providers"
             serviceName="accounts"
@@ -131,30 +134,30 @@ export const DashboardMetrics = () => {
         <Grid
           item
           sx={{
-            maxWidth: "80%",
-            backgroundColor: "#CBE8F3",
+            maxWidth: '80%',
+            backgroundColor: '#CBE8F3',
             borderRadius: 2,
-            mt: "1.5rem",
+            mt: '1.5rem',
           }}
         >
           <Grid
             container
-            onClick={() => router.push("/wellbeing/planner")}
+            onClick={() => router.push('/wellbeing/planner')}
             sx={{
-              mr: "1.5rem",
-              cursor: "pointer",
-              height: "100%",
-              width: "250px",
-              position: "relative",
-              maxWidth: "100%",
+              mr: '1.5rem',
+              cursor: 'pointer',
+              height: '100%',
+              width: '250px',
+              position: 'relative',
+              maxWidth: '100%',
             }}
           >
             <Grid
               container
               sx={{
-                alignItems: "center",
-                justifyContent: "center",
-                mt: "1.5rem",
+                alignItems: 'center',
+                justifyContent: 'center',
+                mt: '1.5rem',
                 mb: 0,
               }}
             >
@@ -168,10 +171,10 @@ export const DashboardMetrics = () => {
             <Grid
               container
               sx={{
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
-                mb: "1.5rem",
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                mb: '1.5rem',
               }}
             >
               <Typography variant="h3">My planner</Typography>
@@ -179,7 +182,7 @@ export const DashboardMetrics = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container sx={{ flexWrap: "nowrap", flexGrow: 1 }}></Grid>
+      <Grid container sx={{ flexWrap: 'nowrap', flexGrow: 1 }}></Grid>
     </>
   );
 };

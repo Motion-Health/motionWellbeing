@@ -1,10 +1,12 @@
 import PrintIcon from '@mui/icons-material/Print';
 import { Button, Grid, Typography } from '@mui/material';
 import moment, { Moment } from 'moment';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
+import { Page, pdfjs } from 'react-pdf';
 import YouTube from 'react-youtube';
 
 import { ActivityCategoryAndTime } from '@/components/ActivityCategoryAndTime';
@@ -21,7 +23,13 @@ import { Main } from '@/templates/Main';
 
 const ActivityDetails = () => {
   const [open, setOpen] = useState(false);
-
+  console.log('0-0----------');
+  console.log(import.meta.url);
+  pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+  const DynamicDocument = dynamic(
+    () => import('react-pdf').then((module) => module.Document),
+    { ssr: false }
+  );
   const openStepper = () => {
     setOpen(true);
   };
@@ -58,13 +66,13 @@ const ActivityDetails = () => {
   useEffect(() => {
     if (
       accountStatus == 'standard' &&
-      activity?.visibleToUsers.includes('premium') &&
-      !activity?.visibleToUsers.includes('standard')
+      activity?.visibleToUsers?.includes('premium') &&
+      !activity?.visibleToUsers?.includes('standard')
     ) {
       setShouldRenderVideo(false);
       router.push('/wellbeing/upgrade');
     }
-  }, [accountStatus, activity]);
+  }, [accountStatus, activity?.visibleToUsers]);
   const { data: activityMetrics, refetch: refetchMetrics } =
     useActivityMetrics(activityId);
   const [timesCompleted, setTimesCompleted] = useState<number | null>(null);
@@ -88,6 +96,11 @@ const ActivityDetails = () => {
   useEffect(() => {
     setActivity(fetchedActivity);
   }, [fetchedActivity]);
+
+  const handleDownload = () => {
+    const url = `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`;
+    window.open(url, '_blank');
+  };
 
   const renderYouTubeOrCookieMessage = () => {
     if (Termly.getConsentState().advertising == false) {
@@ -124,17 +137,45 @@ const ActivityDetails = () => {
           </Grid>
         </Grid>
       );
-    } else {
+    } else if (shouldRenderVideo && parsedYouTubeEmbedCode) {
       return (
         <Grid item sm={12} height="30rem" sx={{ mb: '3rem' }}>
           <YouTube
             videoId={parsedYouTubeEmbedCode}
             onPlay={() => setVideoPlayTimestamp(moment())}
+            onStateChange={(e) => handleVideoStateChange(e)}
             opts={{
               width: '100%',
               height: '500',
             }}
           />
+        </Grid>
+      );
+    } else if (activity?.documentFileName) {
+      console.log(
+        `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`
+      );
+      return (
+        <Grid
+          item
+          sm={12}
+          justifyContent="center"
+          alignItems="center"
+          height="30rem"
+          sx={{ mb: '3rem' }}
+          className="pdf-container"
+          onClick={handleDownload}
+        >
+          <DynamicDocument
+            renderTextLayer={false}
+            file={`${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`}
+            onLoadError={(error) =>
+              console.error('Error while loading document:', error)
+            }
+          >
+            <div className="download-message">Click to Download</div>
+            <Page pageNumber={1} renderTextLayer={false} height={400} />
+          </DynamicDocument>
         </Grid>
       );
     }
@@ -143,7 +184,8 @@ const ActivityDetails = () => {
   const [parsedYouTubeEmbedCode, setParsedYouTubeEmbedCode] = useState<
     string | null
   >(null);
-
+  const [isSixtyPercentWatched, setIsSixtyPercentWatched] = useState(false);
+  const [openRatingModal, setOpenRatingModal] = useState(false);
   useEffect(() => {
     if (activity?.videoLink) {
       const urlEnd = activity?.videoLink.split('youtu.be/')[1];
@@ -157,27 +199,38 @@ const ActivityDetails = () => {
   );
   const clickRef = useRef(null);
 
-  useEffect(() => {
-    function handleClick() {
-      if (youtubePlayTimestamp) {
-        const timeClicked = moment();
-        const secondsAfterVideoPlay = moment
-          .duration(timeClicked.diff(youtubePlayTimestamp))
-          .asSeconds();
+  const handleVideoStateChange = (e) => {
+    const player = e.target;
+    const duration = player.getDuration();
+    const currentTime = player.getCurrentTime();
 
-        if (secondsAfterVideoPlay > 60) {
-          setVideoPlayTimestamp(null);
-          setToggleRatingModalAction('video-timer');
-        }
+    if (
+      currentTime / duration >= 0.6 &&
+      !isSixtyPercentWatched &&
+      !activityCompletedId
+    ) {
+      setIsSixtyPercentWatched(true);
+      // setToggleRatingModalAction('video-timer');
+      const newActivity = {
+        activityId: activity?.activityId,
+        rating: null,
+      };
+      if (toggleRatingModalAction !== 'video-timer') {
+        completeActivity.mutate(newActivity, {
+          onSuccess: (res) => {
+            console.log('res', res);
+            const { activityCompletedId } = res.data;
+            setActivityCompletedId(activityCompletedId);
+            setToggleRatingModalAction('video-timer');
+            console.log('activityCompletedId', activityCompletedId);
+          },
+          onError: (err) => {
+            console.log('err', err);
+          },
+        });
       }
     }
-
-    document.addEventListener('mousedown', handleClick);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClick);
-    };
-  }, [clickRef, youtubePlayTimestamp]);
+  };
 
   const [toggleRatingModalAction, setToggleRatingModalAction] = useState<
     'button-click' | 'video-timer' | null
@@ -191,14 +244,11 @@ const ActivityDetails = () => {
 
   const handleCompleteAndRate = () => {
     if (activity) {
-      completeActivity.mutate(activity, {
-        onSuccess: (res) => {
-          const { activityCompletedId } = res.data;
-          setActivityCompletedId(activityCompletedId);
-          setToggleRatingModalAction('button-click');
-        },
-      });
+      setToggleRatingModalAction('button-click');
+    } else {
+      setToggleRatingModalAction('video-timer');
     }
+    setOpenRatingModal(true);
   };
 
   const [shouldOpenStepperModal, setShouldOpenStepperModal] =
@@ -212,10 +262,9 @@ const ActivityDetails = () => {
       setActivityCompletedId(activityCompletedId);
     }
 
-    setToggleRatingModalAction(null);
-
     if (openStepperModal) setShouldOpenStepperModal(true);
     // if (activityCompletedId) openStepper();
+    setOpenRatingModal(false);
 
     refetchActivity();
     refetchMetrics();
@@ -233,6 +282,7 @@ const ActivityDetails = () => {
             <title>{activity.activityName} | Motion Wellbeing</title>
           </Head>
           <ActivityRatingModal
+            openRatingModal={openRatingModal}
             toggleRatingModalAction={toggleRatingModalAction}
             activityCompletedId={activityCompletedId}
             onCloseRatingModal={onCloseRatingModal}
@@ -311,9 +361,7 @@ const ActivityDetails = () => {
             )}
           </Grid>
           <Grid container spacing={2} sx={{ mt: '0rem' }}>
-            {shouldRenderVideo &&
-              parsedYouTubeEmbedCode &&
-              renderYouTubeOrCookieMessage()}
+            {renderYouTubeOrCookieMessage()}
 
             <Grid item sm={12} md={9}>
               <Typography variant="h3">Description</Typography>

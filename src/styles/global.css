@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  overflow: hidden;
+  height: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,6 +15,9 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-y: auto;
+  height: 100%;
+  overflow-x: hidden;
 }
 .manage-membership-container {
   text-align: center;
@@ -36,6 +44,50 @@ body {
   font-weight: 500;
 }
 
+.pdf-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.react-pdf__Document:hover .download-message {
+  display: flex;
+}
+
+
+.react-pdf__Document:hover .react-pdf__Page {
+  filter: brightness(50%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+} 
+
+.react-pdf__Page{
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+.react-pdf__Document  {
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+}
+
+
+.download-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 1;
+}
+
 
 @media print {
   body {
@@ -51,6 +103,38 @@ body {
 }
 .curved-corners{
   border-radius: 15px;
+}
+
+.scroll-for-more {
+  cursor: pointer;
+  position: absolute;
+  bottom: -5px;
+  padding: 0px 25px;
+  background-color: #0f5298;
+  color: white;
+  border-radius: 15px 15px 0px 0px;
+  text-align: center;
+  left: calc(50% + 120px - 34.6px);
+}
+.react-pdf__Document{
+  width: fit-content;
+}
+.react-pdf__Page{
+  --scale-factor: none !important;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.arrow{
+  animation: bounce 1s infinite;
+  display: inline-block;
+  font-size: 2em;
 }
 
 .activities{
