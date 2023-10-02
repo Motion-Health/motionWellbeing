@@ -15,15 +15,22 @@ import { Main } from '@/templates/Main';
 const useSuccessBanner = (query) => {
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [showFailBanner, setShowFailBanner] = useState(false);
+  const [failMessage, setFailMessage] = useState(null);
 
   useEffect(() => {
     const { task, success, upgrade } = query;
+    console.log('task', task);
     if (task === 'complete') {
       setSuccessMessage('Success, activity completed!');
       setShowSuccessBanner(true);
     } else if (success === 'true' && upgrade === 'premium') {
       setSuccessMessage('Success, you are now a premium member!');
       setShowSuccessBanner(true);
+    } else if (task === 'not-found') {
+      console.log('task not found');
+      setFailMessage('Activity not found!');
+      setShowFailBanner(true);
     }
   }, [query]);
 
@@ -57,6 +64,7 @@ const Dashboard = () => {
         <title>Dashboard | Motion Wellbeing</title>
       </Head>
       {isFirstLogin && <TutorialModal />}
+
       {showSuccessBanner && successMessage && (
         <Alert
           sx={{ position: 'inherit' }}

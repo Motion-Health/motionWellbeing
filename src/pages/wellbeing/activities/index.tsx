@@ -22,11 +22,33 @@ const Activities = () => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const router = useRouter();
+  const [showFailBanner, setShowFailBanner] = useState(false);
+  const [failMessage, setFailMessage] = useState(null);
   const categoryQuery: string | string[] = router.query.filter || '';
+
   useEffect(() => {
     if (router.query.task === 'complete') {
       setSuccessMessage('Success, activity completed!');
       setShowSuccessBanner(true);
+      router.replace(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, task: undefined },
+        },
+        undefined,
+        { shallow: true }
+      );
+    } else if (router.query.task === 'not-found') {
+      setFailMessage('Activity not found!');
+      setShowFailBanner(true);
+      router.replace(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, task: undefined },
+        },
+        undefined,
+        { shallow: true }
+      );
     }
   }, [router.query]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,6 +72,17 @@ const Activities = () => {
   const handleFilterChange = (filterValues: any[]) => {
     setFilterValues(filterValues);
   };
+
+  useEffect(() => {
+    // Get initial filter values from the URL
+    const initialFilterValues = Object.values(router.query);
+    setFilterValues(initialFilterValues);
+  }, []);
+  useEffect(() => {
+    // Restore filter values from the URL
+    const filterValuesFromURL = Object.values(router.query);
+    setFilterValues(filterValuesFromURL);
+  }, [router.query]);
 
   useEffect(() => {
     if (!filterValues.includes('all') && filterValues?.length) {
@@ -173,7 +206,15 @@ const Activities = () => {
       <Head>
         <title>Wellbeing activities | Motion Wellbeing</title>
       </Head>
-
+      {showFailBanner && failMessage && (
+        <Alert
+          sx={{ position: 'inherit', marginBottom: '1rem' }}
+          severity="error"
+          onClose={() => setShowFailBanner(false)}
+        >
+          {failMessage}
+        </Alert>
+      )}
       {showSuccessBanner && successMessage && (
         <>
           <Alert
@@ -220,7 +261,10 @@ const Activities = () => {
           </Button>
 
           {toggleFilterIsOpen && (
-            <ActivitiesFilters onFilterChange={handleFilterChange} />
+            <ActivitiesFilters
+              currentFilterValues={filterValues}
+              onFilterChange={handleFilterChange}
+            />
           )}
         </Grid>
       </ActivitySearch>

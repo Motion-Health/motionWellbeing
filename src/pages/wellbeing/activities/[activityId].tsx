@@ -23,8 +23,6 @@ import { Main } from '@/templates/Main';
 
 const ActivityDetails = () => {
   const [open, setOpen] = useState(false);
-  console.log('0-0----------');
-  console.log(import.meta.url);
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
   const DynamicDocument = dynamic(
     () => import('react-pdf').then((module) => module.Document),
@@ -95,6 +93,12 @@ const ActivityDetails = () => {
 
   useEffect(() => {
     setActivity(fetchedActivity);
+    if (fetchedActivity == undefined) {
+      console.log('Loading');
+    } else if (!fetchedActivity) {
+      console.log('no activity');
+      router.push('/wellbeing/activities?task=not-found');
+    }
   }, [fetchedActivity]);
 
   const handleDownload = () => {
@@ -120,7 +124,7 @@ const ActivityDetails = () => {
           >
             <Grid item xs={12}>
               <Typography variant="body1" align="center">
-                Please accept analytics and anyadvertising cookies to view the
+                Please accept analytics and any advertising cookies to view the
                 video
               </Typography>
             </Grid>

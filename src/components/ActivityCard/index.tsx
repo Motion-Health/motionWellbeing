@@ -163,7 +163,7 @@ export const ActivityCard = (props: Props) => {
             <img
               src="/assets/images/exercises/activity-placeholder.png"
               alt="Motion placeholder image"
-              class="curved-corners"
+              className="curved-corners"
               style={{
                 objectFit: 'cover',
                 width: '100%',

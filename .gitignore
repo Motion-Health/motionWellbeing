@@ -38,3 +38,7 @@ local
 
 # Local Netlify folder
 .netlify
+
+/trash
+
+.gitignore

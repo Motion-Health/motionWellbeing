@@ -1,23 +1,22 @@
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import {
+  Alert,
   Box,
   Button,
-  InputAdornment,
   IconButton,
-  Alert,
+  InputAdornment,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { object, string } from 'zod';
 
-import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import { object, string } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { AppConfig } from "@/utils/AppConfig";
-import { FormInputText } from "@/components/FormInputText";
-import { useRouter } from "next/router";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { useEffect, useState } from "react";
-import { useLoginAccount } from "@/services/auth/useLoginAccount";
-import { useAccountContext } from "@/context/AccountContext";
+import { FormInputText } from '@/components/FormInputText';
+import { useAccountContext } from '@/context/AccountContext';
+import { useLoginAccount } from '@/services/auth/useLoginAccount';
+import { AppConfig } from '@/utils/AppConfig';
 
 type Inputs = {
   email: string;
@@ -25,14 +24,14 @@ type Inputs = {
 };
 
 const registerSchema = object({
-  email: string({ required_error: "Email is required" }).email(
-    "Email is invalid",
+  email: string({ required_error: 'Email is required' }).email(
+    'Email is invalid'
   ),
-  password: string({ required_error: "Password is required" })
-    .min(8, "Password must be at least 8 characters")
-    .max(32, "Password must be less than 32 characters")
-    .regex(/\d/, "Password must contain a number")
-    .regex(/^[^\s]*$/, "Password must not contain a space"),
+  password: string({ required_error: 'Password is required' })
+    .min(8, 'Password must be at least 8 characters')
+    .max(32, 'Password must be less than 32 characters')
+    .regex(/\d/, 'Password must contain a number')
+    .regex(/^[^\s]*$/, 'Password must not contain a space'),
 });
 
 export const LoginForm = () => {
@@ -50,7 +49,7 @@ export const LoginForm = () => {
   useEffect(() => {
     if (router.query?.passwordResetExpired) {
       setAlertMessage(
-        "Password reset link expired. Please login or request a new reset link.",
+        'Password reset link expired. Please login or request a new reset link.'
       );
     } else {
       setAlertMessage(null);
@@ -65,7 +64,7 @@ export const LoginForm = () => {
       {
         onSuccess: (res) => {
           // TODO: get "additional-information" to make sure account setup completed
-          router.push("/wellbeing/dashboard");
+          router.push('/wellbeing/dashboard');
 
           const { accountId, accountStatus } = res.data;
 
@@ -75,18 +74,18 @@ export const LoginForm = () => {
         },
         onError: (error) => {
           if (
-            error?.response?.data?.message === "Incorrect username or password"
+            error?.response?.data?.message === 'Incorrect username or password'
           ) {
-            setError("email", { type: "custom", message: "" });
-            setError("password", {
-              type: "custom",
-              message: "Incorrect username or password. Please try again.",
+            setError('email', { type: 'custom', message: '' });
+            setError('password', {
+              type: 'custom',
+              message: 'Incorrect username or password. Please try again.',
             });
           } else {
-            setAlertMessage("Something went wrong - please try again");
+            setAlertMessage('Something went wrong - please try again');
           }
         },
-      },
+      }
     );
   };
 
@@ -99,9 +98,9 @@ export const LoginForm = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
       {alertMessage && (
@@ -109,7 +108,7 @@ export const LoginForm = () => {
           onClose={() => setAlertMessage(null)}
           icon={false}
           severity="error"
-          sx={{ width: "100%" }}
+          sx={{ width: '100%' }}
         >
           {alertMessage}
         </Alert>
@@ -120,17 +119,17 @@ export const LoginForm = () => {
         noValidate
         onSubmit={handleSubmit(onSubmitHandler)}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "27rem",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '27rem',
         }}
       >
-        <div style={{ padding: "3rem" }}>
+        <div style={{ padding: '3rem' }}>
           <img src={AppConfig.logo} alt="logo" />
         </div>
 
-        <Typography variant="h1" sx={{ mb: "2rem" }}>
+        <Typography variant="h1" sx={{ mb: '2rem' }}>
           Log in
         </Typography>
 
@@ -146,7 +145,7 @@ export const LoginForm = () => {
 
           <FormInputText
             name="password"
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             label="Password"
             required
             fullWidth
@@ -170,12 +169,12 @@ export const LoginForm = () => {
             variant="text"
             fullWidth
             sx={{
-              py: "0.8rem",
-              mt: "1rem",
+              py: '0.8rem',
+              mt: '1rem',
             }}
             name="navigate-reset-password"
             data-test-id="navigate-reset-password"
-            onClick={() => router.push("/wellbeing/reset-password")}
+            onClick={() => router.push('/wellbeing/reset-password')}
           >
             Forgotten password?
           </Button>
@@ -186,9 +185,9 @@ export const LoginForm = () => {
             fullWidth
             type="submit"
             sx={{
-              py: "0.8rem",
-              mt: "1rem",
-              width: "210px",
+              py: '0.8rem',
+              mt: '1rem',
+              width: '210px',
               borderRadius: 50,
             }}
           >
@@ -199,12 +198,12 @@ export const LoginForm = () => {
             variant="text"
             fullWidth
             sx={{
-              py: "0.8rem",
-              mt: "1rem",
+              py: '0.8rem',
+              mt: '1rem',
             }}
             name="navigate-create-account"
             data-test-id="navigate-create-account"
-            onClick={() => router.push("/wellbeing/create-account")}
+            onClick={() => router.push('/wellbeing/create-account')}
           >
             Don't have an account? Register now
           </Button>
