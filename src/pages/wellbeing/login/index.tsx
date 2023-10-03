@@ -1,26 +1,48 @@
-import { LoginForm } from "@/components/forms/LoginForm"
-import { useIsLoggedIn } from "@/services/isLoggedIn"
-import Head from "next/head"
-import { useRouter } from "next/router"
-import { useEffect } from "react"
+import { Alert } from '@mui/material';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
+import { LoginForm } from '@/components/forms/LoginForm';
+import { useIsLoggedIn } from '@/services/isLoggedIn';
 
 const Login = () => {
-  const { data: isLoggedIn } = useIsLoggedIn()
+  const { data: isLoggedIn } = useIsLoggedIn();
+  const router = useRouter();
+  const [notification, setNotification] = useState(router.query.notification);
 
-  const router = useRouter()
+  //check if resetPasswordSuccess is true
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push("/wellbeing/dashboard")
+      router.push('/wellbeing/dashboard');
     }
-  }, [isLoggedIn])
-  
+  }, [isLoggedIn]);
+
+  const handleLogin = async (credentials) => {
+    // Assume login function makes a request to your login endpoint
+    const success = await login(credentials);
+    if (success) {
+      router.push('/wellbeing/dashboard');
+    }
+  };
+
   return (
     <>
       <Head>
         <title>Login | Motion Wellbeing</title>
       </Head>
-      <LoginForm />
+      {notification == 'resetPasswordSuccess' && (
+        <Alert
+          sx={{ width: '100%' }}
+          onClose={() => setNotification(null)}
+          severity="success"
+        >
+          Your password has been reset successfully. Please login with your new
+          password.
+        </Alert>
+      )}
+      <LoginForm onLogin={handleLogin} />
     </>
   );
 };

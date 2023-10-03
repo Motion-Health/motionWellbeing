@@ -2,23 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-  overflow: hidden;
-  height: 100%;
-}
-
 * {
   box-sizing: border-box;
 }
-body {
-  background-image: url("/assets/images/background.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-y: auto;
-  height: 100%;
-  overflow-x: hidden;
-}
+
 .manage-membership-container {
   text-align: center;
   border: 1px solid #7095c2;

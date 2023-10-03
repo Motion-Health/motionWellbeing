@@ -96,7 +96,7 @@ export const NewPasswordForm = () => {
         { resetPasswordId, password },
         {
           onSuccess: () => {
-            router.push('/wellbeing/login');
+            router.push('/wellbeing/login?notification=resetPasswordSuccess');
           },
           onError: () => {
             setAlertMessage('Something went wrong - please try again');

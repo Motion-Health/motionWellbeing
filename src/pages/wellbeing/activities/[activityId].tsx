@@ -114,6 +114,7 @@ const ActivityDetails = () => {
             container
             height="10rem"
             spacing={2}
+            marginTop="0"
             alignItems="center"
             justifyContent="center"
             style={{
