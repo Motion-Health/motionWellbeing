@@ -1,39 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import styles from "./header.module.css";
-import { Button } from "../button/Button";
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
+import { useAccountContext } from '@/context/AccountContext';
+
+import { Button } from '../button/Button';
+import styles from './header.module.css';
 export const Header = () => {
   const router = useRouter();
+
   const [active, setActive] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+  const { account } = useAccountContext();
   const navigateToServices = () => {
-    document.getElementById("services").scrollIntoView({
+    document.getElementById('services').scrollIntoView({
       top: 140,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   const navigateToWhyUs = () => {
-    document.getElementById("about").scrollIntoView({
-      behavior: "smooth",
+    document.getElementById('about').scrollIntoView({
+      behavior: 'smooth',
     });
   };
 
   const navigateToFaqs = () => {
     const yOffset = -120;
-    const element = document.getElementById("faq");
+    const element = document.getElementById('faq');
     const y =
       element.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-    window.scrollTo({ top: y, behavior: "smooth" });
+    window.scrollTo({ top: y, behavior: 'smooth' });
   };
 
   const navigateToContact = () => {
-    document.getElementById("contact").scrollIntoView({
-      behavior: "smooth",
+    document.getElementById('contact').scrollIntoView({
+      behavior: 'smooth',
     });
   };
 
@@ -50,9 +52,9 @@ export const Header = () => {
   useEffect(() => {
     if (window.innerWidth < 960) {
       if (active) {
-        document.body.style.overflowY = "hidden";
+        document.body.style.overflowY = 'hidden';
       } else {
-        document.body.style.overflowY = "visible";
+        document.body.style.overflowY = 'visible';
       }
     }
   }, [active]);
@@ -61,10 +63,10 @@ export const Header = () => {
   }, []);
   // create an event listener
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
   });
   const navigateToLogIn = () => {
-    router.push("/wellbeing/login");
+    router.push('/wellbeing/login');
   };
 
   return (
@@ -191,7 +193,9 @@ export const Header = () => {
                   icon={true}
                   showDesktop
                 >
-                  <span className="hidden xl:inline">Log In</span>
+                  <span className="hidden xl:inline">
+                    {account?.accountStatus ? 'Dashboard' : 'Log In'}
+                  </span>
                 </Button>
               </li>
             </ul>
@@ -203,7 +207,9 @@ export const Header = () => {
               icon={true}
               showDesktop
             >
-              <span className=" inline xl:hidden">Log In</span>
+              <span className=" inline xl:hidden">
+                {account?.accountStatus ? 'Dashboard' : 'Log In'}
+              </span>
             </Button>
           )}
         </nav>

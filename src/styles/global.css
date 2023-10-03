@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+
 .manage-membership-container {
   text-align: center;
   border: 1px solid #7095c2;
@@ -92,6 +93,33 @@
   border-radius: 15px;
 }
 
+
+.activities{
+  background:none;
+  margin: 0;
+}
+
+.wellbeingBody>div{
+  height: 100%;
+
+}
+
+.wellbeingBody>div>div{
+  height: 100%;
+}
+
+
+.activities_parent{
+  position: relative;
+  height: 100%;
+}
+  
+.activities_parent>div{
+  position: absolute;
+    overflow: auto;
+    height: 100%;
+}
+
 .scroll-for-more {
   cursor: pointer;
   position: absolute;
@@ -101,7 +129,10 @@
   color: white;
   border-radius: 15px 15px 0px 0px;
   text-align: center;
-  left: calc(50% + 120px - 34.6px);
+  left: calc(50% - 34.6px);
+  height:  fit-content !important;   
+  bottom: 65px;
+
 }
 .react-pdf__Document{
   width: fit-content;

@@ -268,33 +268,34 @@ const Activities = () => {
           )}
         </Grid>
       </ActivitySearch>
+      <div className="activities_parent">
+        <Grid
+          className="curved-corners activities"
+          container
+          sx={{
+            px: '1rem',
+            py: '1.5rem',
+            minWidth: 300,
+            mt: '1.5rem',
+          }}
+        >
+          {displayActivities?.length !== 0 &&
+            displayActivities?.map((activity: ActivityData) => (
+              <ActivityCard key={activity.activityId} activity={activity} />
+            ))}
 
-      <Grid
-        className="curved-corners activities"
-        container
-        sx={{
-          px: '1rem',
-          py: '1.5rem',
-          minWidth: 300,
-          mt: '1.5rem',
-        }}
-      >
-        {displayActivities?.length !== 0 &&
-          displayActivities?.map((activity: ActivityData) => (
-            <ActivityCard key={activity.activityId} activity={activity} />
-          ))}
-
-        {(displayActivities?.length === 0 || allActivitiesAreHidden) && (
-          <Typography sx={{ textAlign: 'center' }}>
-            There are no activities to display
-          </Typography>
+          {(displayActivities?.length === 0 || allActivitiesAreHidden) && (
+            <Typography sx={{ textAlign: 'center' }}>
+              There are no activities to display
+            </Typography>
+          )}
+        </Grid>
+        {showScrollButton && (
+          <div className="scroll-for-more" onClick={handleScrollForMore}>
+            <div className="arrow">↓</div>
+          </div>
         )}
-      </Grid>
-      {showScrollButton && (
-        <div className="scroll-for-more" onClick={handleScrollForMore}>
-          <div className="arrow">↓</div>
-        </div>
-      )}
+      </div>
     </Main>
   );
 };
