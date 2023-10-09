@@ -6,6 +6,9 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: "Montserrat","Helvetica","Arial",sans-serif;
+}
 
 .manage-membership-container {
   text-align: center;
@@ -99,27 +102,6 @@
   margin: 0;
 }
 
-.wellbeingBody>div{
-  height: 100%;
-
-}
-
-.wellbeingBody>div>div{
-  height: 100%;
-}
-
-
-.activities_parent{
-  position: relative;
-  height: 100%;
-}
-  
-.activities_parent>div{
-  position: absolute;
-    overflow: auto;
-    height: 100%;
-}
-
 .scroll-for-more {
   cursor: pointer;
   position: absolute;
@@ -131,7 +113,7 @@
   text-align: center;
   left: calc(50% - 34.6px);
   height:  fit-content !important;   
-  bottom: 65px;
+  bottom: 0px;
 
 }
 .react-pdf__Document{

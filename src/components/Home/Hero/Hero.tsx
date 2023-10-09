@@ -1,43 +1,44 @@
-import React, { useState } from "react";
+import Image from 'next/image';
+import React, { memo, useCallback, useRef, useState } from 'react';
 
-import styles from "./hero.module.css";
+import styles from './hero.module.css';
 
 interface HeroProps {
   children: React.ReactNode;
-  mode?: "small" | "large";
-  theme?: "light" | "dark";
+  mode?: 'small' | 'large';
+  theme?: 'light' | 'dark';
   backgroundImage?: string;
   videoSrc?: string;
 }
 
-interface Video {
-  current: {
-    muted: boolean;
-  };
-}
-
-export const Hero = ({
+const Hero: React.FC<HeroProps> = ({
   children,
-  mode = "large",
-  theme = "light",
+  mode = 'large',
+  theme = 'light',
   backgroundImage,
   videoSrc,
-}: HeroProps) => {
+}) => {
   const [isMuted, setIsMuted] = useState<any>(true);
-  const video: any = React.useRef(null);
-  const navigateToServices = () => {
-    document.getElementById("services").scrollIntoView({
+  const video: any = useRef(null);
+
+  const navigateToServices = useCallback(() => {
+    document.getElementById('services')?.scrollIntoView({
       top: 140,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
-  };
+  }, []);
   return (
     <section className={styles.hero}>
       <div className={styles.herowrapper}>
         {videoSrc && (
-          <>
+          <div className={styles.videoContainer}>
+            <Image
+              src="/assets/home/FallbackImage.jpg"
+              alt="Video poster"
+              layout="fill"
+              objectFit="cover"
+            />
             <video
-              poster="../../assets/home/FallbackImage.jpg"
               className={styles.herovideo}
               ref={video}
               autoPlay={true}
@@ -47,18 +48,22 @@ export const Hero = ({
               height="240"
             >
               <source
-                src={"../../assets/home/video.mp4"}
+                src="/assets/home/video.mp4"
                 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
               ></source>
             </video>
-          </>
+          </div>
         )}
 
         <div className={styles.heroContent}>
           {children}
 
           <div className={styles.arrow}>
-            <button className={styles.arrowButton} onClick={navigateToServices}>
+            <button
+              className={styles.arrowButton}
+              onClick={navigateToServices}
+              aria-label="Navigate to Services"
+            >
               <svg
                 width="80"
                 height="48"
@@ -86,3 +91,4 @@ export const Hero = ({
     </section>
   );
 };
+export default memo(Hero);

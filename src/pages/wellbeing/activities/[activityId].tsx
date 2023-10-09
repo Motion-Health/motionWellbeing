@@ -215,7 +215,7 @@ const ActivityDetails = () => {
       !activityCompletedId
     ) {
       setIsSixtyPercentWatched(true);
-      // setToggleRatingModalAction('video-timer');
+      setToggleRatingModalAction('video-timer');
       const newActivity = {
         activityId: activity?.activityId,
         rating: null,

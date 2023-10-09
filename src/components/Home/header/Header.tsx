@@ -1,16 +1,18 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import { useAccountContext } from '@/context/AccountContext';
+import { useIsLoggedIn } from '@/services/isLoggedIn';
 
 import { Button } from '../button/Button';
 import styles from './header.module.css';
+
 export const Header = () => {
   const router = useRouter();
+  const { data: isLoggedIn } = useIsLoggedIn();
 
   const [active, setActive] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const { account } = useAccountContext();
+
   const navigateToServices = () => {
     document.getElementById('services').scrollIntoView({
       top: 140,
@@ -66,7 +68,11 @@ export const Header = () => {
     window.addEventListener('resize', handleResize);
   });
   const navigateToLogIn = () => {
-    router.push('/wellbeing/login');
+    if (isLoggedIn) {
+      router.push('/wellbeing/dashboard');
+    } else {
+      router.push('/wellbeing/login');
+    }
   };
 
   return (
@@ -194,7 +200,7 @@ export const Header = () => {
                   showDesktop
                 >
                   <span className="hidden xl:inline">
-                    {account?.accountStatus ? 'Dashboard' : 'Log In'}
+                    {isLoggedIn ? 'My Account' : 'Log In'}
                   </span>
                 </Button>
               </li>
@@ -208,7 +214,7 @@ export const Header = () => {
               showDesktop
             >
               <span className=" inline xl:hidden">
-                {account?.accountStatus ? 'Dashboard' : 'Log In'}
+                {isLoggedIn ? 'My Account' : 'Log In'}
               </span>
             </Button>
           )}

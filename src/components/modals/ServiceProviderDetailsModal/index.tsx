@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-
+import { zodResolver } from '@hookform/resolvers/zod';
+import CloseIcon from '@mui/icons-material/Close';
 import {
   Alert,
   Box,
@@ -12,22 +12,21 @@ import {
   RadioGroup,
   Typography,
   useMediaQuery,
-} from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+} from '@mui/material';
+import router from 'next/router';
+import { useEffect, useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { object, string } from 'zod';
+import * as z from 'zod';
 
-import theme from "@/styles/theme";
-import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { FormInputText } from "@/components/FormInputText";
-import { FormSelect } from "@/components/FormSelect";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { object, string } from "zod";
-import * as z from "zod";
-import { Account } from "@/models/Account";
-import { useUpdateAccount } from "@/services/auth/useUpdateAccount";
-import { useAddServiceProvider } from "@/services/account/useAddServiceProvider";
-import { useRequestNewPassword } from "@/services/auth/useRequestNewPassword";
-import { useAccountContext } from "@/context/AccountContext";
-import router from "next/router";
+import { FormInputText } from '@/components/FormInputText';
+import { FormSelect } from '@/components/FormSelect';
+import { useAccountContext } from '@/context/AccountContext';
+import { Account } from '@/models/Account';
+import { useAddServiceProvider } from '@/services/account/useAddServiceProvider';
+import { useRequestNewPassword } from '@/services/auth/useRequestNewPassword';
+import { useUpdateAccount } from '@/services/auth/useUpdateAccount';
+import theme from '@/styles/theme';
 
 type Props = {
   toggleServiceProviderModal: number;
@@ -48,53 +47,53 @@ const ServiceProviderDetailsModal = (props: Props) => {
   let registerSchema = object({
     serviceProviderName: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? "")
+      .transform((val) => val ?? '')
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: "Service provider name is required" },
+        { message: 'Service provider name is required' }
       ),
     mainContactName: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? "")
+      .transform((val) => val ?? '')
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: "Name of main contact is required" },
+        { message: 'Name of main contact is required' }
       ),
     mainContactRole: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? "")
+      .transform((val) => val ?? '')
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: "Main contact role is required" },
+        { message: 'Main contact role is required' }
       ),
     phoneNumber: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? "")
+      .transform((val) => val ?? '')
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: "Phone number is required" },
+        { message: 'Phone number is required' }
       ),
     city: string().nullable().optional(),
-    email: string({ required_error: "Email address is required" }).email(
-      "Please enter a valid email address",
+    email: string({ required_error: 'Email address is required' }).email(
+      'Please enter a valid email address'
     ),
     isPartOfAGroup: string().nullable().optional(),
     groupName: string().nullable().optional(),
-    accountStatus: string({ required_error: "Account status is required" }),
+    accountStatus: string({ required_error: 'Account status is required' }),
   });
 
-  if (accountStatus === "admin") {
+  if (accountStatus === 'admin') {
     registerSchema = object({
-      email: string({ required_error: "Email address is required" }).email(
-        "Please enter a valid email address",
+      email: string({ required_error: 'Email address is required' }).email(
+        'Please enter a valid email address'
       ),
       serviceProviderName: z.union([z.string(), z.null()]).optional(),
       mainContactName: z.union([z.string(), z.null()]).optional(),
@@ -108,7 +107,7 @@ const ServiceProviderDetailsModal = (props: Props) => {
   }
 
   useEffect(() => {
-    if (modalOpenAction === "edit-service-provider") {
+    if (modalOpenAction === 'edit-service-provider') {
       setServiceProviderFormData(serviceProviderData);
       methods.reset(serviceProviderData);
     } else {
@@ -121,7 +120,7 @@ const ServiceProviderDetailsModal = (props: Props) => {
     }
   }, [toggleServiceProviderModal]);
 
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   const methods = useForm({
     resolver: zodResolver(registerSchema),
@@ -135,7 +134,7 @@ const ServiceProviderDetailsModal = (props: Props) => {
 
   useEffect(() => {
     const subscription = watch((value) => {
-      if (value.isPartOfAGroup === "Yes") {
+      if (value.isPartOfAGroup === 'Yes') {
         setDisplayGroupNameField(true);
         setGroupDropdownWidth(6);
       } else {
@@ -162,16 +161,16 @@ const ServiceProviderDetailsModal = (props: Props) => {
           setIsModalOpen(false);
           router.push(
             {
-              pathname: "/wellbeing/community",
+              pathname: '/wellbeing/community',
               query: { passwordReset: email },
             },
-            "/wellbeing/community",
+            '/wellbeing/community'
           );
         },
         onError: (err) => {
           setShowServerErrorAlert(true);
         },
-      },
+      }
     );
   };
 
@@ -189,24 +188,24 @@ const ServiceProviderDetailsModal = (props: Props) => {
             setIsModalOpen(false);
             router.push(
               {
-                pathname: "/wellbeing/community",
+                pathname: '/wellbeing/community',
                 query: { accountUpdated: serviceProviderName },
               },
-              "/wellbeing/community",
+              '/wellbeing/community'
             );
           },
           onError: (err) => {
             if (err?.response?.data?.code === 23505) {
-              setError("email", {
-                type: "custom",
+              setError('email', {
+                type: 'custom',
                 message:
-                  "This email address is already registered. Please use a different email address.",
+                  'This email address is already registered. Please use a different email address.',
               });
             } else {
               setShowServerErrorAlert(true);
             }
           },
-        },
+        }
       );
     } else {
       addServiceProvider.mutate(
@@ -217,29 +216,29 @@ const ServiceProviderDetailsModal = (props: Props) => {
             setIsModalOpen(false);
             router.push(
               {
-                pathname: "/wellbeing/community",
+                pathname: '/wellbeing/community',
                 query: { accountCreated: serviceProviderName },
               },
-              "/wellbeing/community",
+              '/wellbeing/community'
             );
           },
           onError: (err) => {
             if (err?.response?.data?.code === 23505) {
-              setError("email", {
-                type: "custom",
+              setError('email', {
+                type: 'custom',
                 message:
-                  "This email address is already registered. Please log in or create a new account.",
+                  'This email address is already registered. Please log in or create a new account.',
               });
             } else {
               setShowServerErrorAlert(true);
             }
           },
-        },
+        }
       );
     }
   };
 
-  const onFormSubmitError = (err: any) => console.log("onFormSubmitError", err);
+  const onFormSubmitError = (err: any) => console.log('onFormSubmitError', err);
 
   return (
     <Dialog
@@ -250,10 +249,10 @@ const ServiceProviderDetailsModal = (props: Props) => {
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
         style={{
-          position: "absolute",
-          right: "1.5rem",
-          top: "1.5rem",
-          cursor: "pointer",
+          position: 'absolute',
+          right: '1.5rem',
+          top: '1.5rem',
+          cursor: 'pointer',
         }}
       />
 
@@ -262,14 +261,14 @@ const ServiceProviderDetailsModal = (props: Props) => {
         noValidate
         onSubmit={handleSubmit(onSubmitHandler, onFormSubmitError)}
         sx={{
-          margin: "3rem",
+          margin: '3rem',
         }}
       >
         {showServerErrorAlert && (
           <Alert
             icon={false}
             severity="error"
-            sx={{ position: "relative", my: "1rem" }}
+            sx={{ position: 'relative', my: '1rem' }}
             onClose={() => setShowServerErrorAlert(false)}
           >
             Something went wrong - please try again
@@ -286,9 +285,9 @@ const ServiceProviderDetailsModal = (props: Props) => {
                 label="Name of service provider"
                 type="text"
                 defaultValue={
-                  serviceProviderFormData?.serviceProviderName || ""
+                  serviceProviderFormData?.serviceProviderName || ''
                 }
-                required={accountStatus === "admin" ? false : true}
+                required={accountStatus === 'admin' ? false : true}
                 fullWidth
                 sx={{ mb: 3 }}
               ></FormInputText>
@@ -300,7 +299,7 @@ const ServiceProviderDetailsModal = (props: Props) => {
                 label="Name of main contact"
                 value={serviceProviderFormData?.mainContactName}
                 type="text"
-                required={accountStatus === "admin" ? false : true}
+                required={accountStatus === 'admin' ? false : true}
                 fullWidth
                 sx={{ mb: 3 }}
               ></FormInputText>
@@ -312,7 +311,7 @@ const ServiceProviderDetailsModal = (props: Props) => {
                 label="Main contact role"
                 value={serviceProviderFormData?.mainContactRole}
                 type="text"
-                required={accountStatus === "admin" ? false : true}
+                required={accountStatus === 'admin' ? false : true}
                 fullWidth
                 sx={{ mb: 3 }}
               ></FormInputText>
@@ -324,7 +323,7 @@ const ServiceProviderDetailsModal = (props: Props) => {
                 label="Telephone number"
                 value={serviceProviderFormData?.phoneNumber}
                 type="number"
-                required={accountStatus === "admin" ? false : true}
+                required={accountStatus === 'admin' ? false : true}
                 fullWidth
                 sx={{ mb: 3 }}
               ></FormInputText>
@@ -357,8 +356,8 @@ const ServiceProviderDetailsModal = (props: Props) => {
               <FormSelect
                 name="isPartOfAGroup"
                 label="Is your service provider part of a group?"
-                value={serviceProviderFormData?.isPartOfAGroup || ""}
-                defaultValue={""}
+                value={serviceProviderFormData?.isPartOfAGroup || ''}
+                defaultValue={''}
                 type="text"
                 fullWidth
                 sx={{ mb: 3 }}
@@ -397,8 +396,8 @@ const ServiceProviderDetailsModal = (props: Props) => {
                   fullWidth
                   onClick={() => onResetPassword()}
                   sx={{
-                    py: "0.8rem",
-                    width: "210px",
+                    py: '0.8rem',
+                    width: '210px',
                     borderRadius: 50,
                   }}
                 >
@@ -407,15 +406,15 @@ const ServiceProviderDetailsModal = (props: Props) => {
               </Grid>
             )}
 
-            {accountStatus === "admin" &&
-              serviceProviderFormData?.accountStatus !== "admin" && (
+            {accountStatus === 'admin' &&
+              serviceProviderFormData?.accountStatus !== 'admin' && (
                 <Grid>
                   <RadioGroup
                     row
                     aria-label="accountStatus"
                     name="accountStatus"
                     defaultValue={
-                      serviceProviderFormData?.accountStatus || "standard"
+                      serviceProviderFormData?.accountStatus || 'standard'
                     }
                   >
                     <FormControlLabel
@@ -424,26 +423,26 @@ const ServiceProviderDetailsModal = (props: Props) => {
                         <Typography variant="helper">No access</Typography>
                       }
                       control={<Radio />}
-                      {...register("accountStatus")}
+                      {...register('accountStatus')}
                     />
                     <FormControlLabel
                       value="standard"
                       label={<Typography variant="helper">Standard</Typography>}
                       control={<Radio />}
-                      {...register("accountStatus")}
+                      {...register('accountStatus')}
                     />
                     <FormControlLabel
                       value="premium"
                       label={<Typography variant="helper">Premium</Typography>}
                       control={<Radio />}
-                      {...register("accountStatus")}
+                      {...register('accountStatus')}
                     />
 
                     <FormControlLabel
                       value="group"
                       label={<Typography variant="helper">Group</Typography>}
                       control={<Radio />}
-                      {...register("accountStatus")}
+                      {...register('accountStatus')}
                     />
                   </RadioGroup>
                 </Grid>
@@ -456,9 +455,9 @@ const ServiceProviderDetailsModal = (props: Props) => {
             fullWidth
             type="submit"
             sx={{
-              py: "0.8rem",
-              mt: "1rem",
-              width: "210px",
+              py: '0.8rem',
+              mt: '1rem',
+              width: '210px',
               borderRadius: 50,
             }}
           >
@@ -471,10 +470,10 @@ const ServiceProviderDetailsModal = (props: Props) => {
             fullWidth
             onClick={() => setIsModalOpen(false)}
             sx={{
-              py: "0.8rem",
-              mt: "1rem",
-              ml: "1rem",
-              width: "210px",
+              py: '0.8rem',
+              mt: '1rem',
+              ml: '1rem',
+              width: '210px',
               borderRadius: 50,
             }}
           >

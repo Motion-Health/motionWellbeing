@@ -11,8 +11,6 @@ const Login = () => {
   const router = useRouter();
   const [notification, setNotification] = useState(router.query.notification);
 
-  //check if resetPasswordSuccess is true
-
   useEffect(() => {
     if (isLoggedIn) {
       router.push('/wellbeing/dashboard');
@@ -31,6 +29,10 @@ const Login = () => {
     <>
       <Head>
         <title>Login | Motion Wellbeing</title>
+        <meta
+          name="description"
+          content="Log in to access your account and explore our services."
+        />
       </Head>
       {notification == 'resetPasswordSuccess' && (
         <Alert

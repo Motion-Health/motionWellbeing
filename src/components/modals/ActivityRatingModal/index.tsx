@@ -29,13 +29,15 @@ export const ActivityRatingModal = ({
   const updateCompletedActivity = useUpdateCompletedActivity();
 
   const handleAddRating = (rating: number) => {
-    if (toggleRatingModalAction === 'button-click') {
-      console.log('Button click');
+    if (activityCompletedId) {
       const updatedCompletedActivity = {
-        rating,
+        rating: rating,
+        activityCompletedId: activityCompletedId,
+        // comment: null,
+        // participants: null,
       };
+
       console.log('updatedCompletedActivity', updatedCompletedActivity);
-      console.log('activityCompletedId', activityCompletedId);
 
       updateCompletedActivity.mutate(updatedCompletedActivity, {
         onSuccess: (res) => {
@@ -45,11 +47,10 @@ export const ActivityRatingModal = ({
         },
         onError: (err) => console.log('err', err),
       });
-    } else if (toggleRatingModalAction === 'video-timer') {
-      console.log('Video timer');
-      console.log('activityData', activityData);
+    } else {
+      const activityId = activityData?.activityId;
       const updatedCompletedActivity = {
-        activityCompletedId,
+        activityId,
         rating,
       };
       console.log('updatedCompletedActivity', updatedCompletedActivity);
@@ -57,7 +58,6 @@ export const ActivityRatingModal = ({
         onSuccess: (res) => {
           const { activityCompletedId } = res.data;
           onCloseRatingModal(true, activityCompletedId);
-          console.log('false 2');
         },
         onError: (err) => {
           console.log('err', err);

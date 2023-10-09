@@ -1,24 +1,28 @@
-import { Header } from "@/components/Home/header/Header";
-import { Hero } from "@/components/Home/Hero/Hero";
-import { Cards } from "@/components/Home/Cards";
-import { Clients } from "@/components/Home/Clients";
-import { Partners } from "@/components/Home/Partners";
-import { CTA } from "@/components/Home/CTA";
-import { About } from "@/components/Home/About";
-import { FAQs } from "@/components/Home/FAQs";
-import { Contact } from "@/components/Home/Forms";
-import { Footer } from "@/components/Home/Footer";
-import Head from "next/head";
+import Head from 'next/head';
+
+import { About } from '@/components/Home/About';
+import { Cards } from '@/components/Home/Cards';
+import { Clients } from '@/components/Home/Clients';
+import { CTA } from '@/components/Home/CTA';
+import { FAQs } from '@/components/Home/FAQs';
+import { Footer } from '@/components/Home/Footer';
+import { Contact } from '@/components/Home/Forms';
+import { Header } from '@/components/Home/header/Header';
+import Hero from '@/components/Home/Hero/Hero';
+import { Partners } from '@/components/Home/Partners';
+import { useAccountContext } from '@/context/AccountContext';
 
 const Index = () => {
+  const {
+    account: { accountStatus },
+  } = useAccountContext();
+  console.log(accountStatus);
+
   return (
     <div className="white-background">
       <Head>
         <title>Creating moments that move people | Motion Wellbeing</title>
-        <meta
-          property="og:url"
-          content="https://www.motionexercise.co.uk"
-        />
+        <meta property="og:url" content="https://www.motionexercise.co.uk" />
 
         <meta property="og:type" content="website" />
         <meta
@@ -27,6 +31,10 @@ const Index = () => {
         />
         <meta
           property="og:description"
+          content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
+        />
+        <meta
+          name="description"
           content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
         />
         <meta property="og:image" content="./og-image.jpg" />
@@ -43,7 +51,7 @@ const Index = () => {
       </Head>
 
       <Header />
-      <Hero videoSrc={"./home/video.mp4"}>
+      <Hero videoSrc={'./home/video.mp4'}>
         <h1>Creating moments that move people.</h1>
       </Hero>
       <Cards></Cards>

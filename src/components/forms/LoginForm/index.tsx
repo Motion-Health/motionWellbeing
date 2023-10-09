@@ -1,3 +1,4 @@
+// src/components/LoginForm.tsx
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import {
@@ -9,52 +10,45 @@ import {
   Typography,
 } from '@mui/material';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { object, string } from 'zod';
 
 import { FormInputText } from '@/components/FormInputText';
 import { useAccountContext } from '@/context/AccountContext';
+import { registerSchema } from '@/schemas/registerSchema';
 import { useLoginAccount } from '@/services/auth/useLoginAccount';
+import { Inputs } from '@/types/Inputs';
 import { AppConfig } from '@/utils/AppConfig';
 
-type Inputs = {
-  email: string;
-  password: string;
-};
+import styles from './LoginForm.module.css';
 
-const registerSchema = object({
-  email: string({ required_error: 'Email is required' }).email(
-    'Email is invalid'
-  ),
-  password: string({ required_error: 'Password is required' })
-    .min(8, 'Password must be at least 8 characters')
-    .max(32, 'Password must be less than 32 characters')
-    .regex(/\d/, 'Password must contain a number')
-    .regex(/^[^\s]*$/, 'Password must not contain a space'),
-});
+// Assuming you've created a CSS module
+
+const ERROR_MESSAGES = {
+  passwordResetExpired:
+    'Password reset link expired. Please login or request a new reset link.',
+  incorrectCredentials: 'Incorrect username or password. Please try again.',
+  unknownError: 'Something went wrong - please try again',
+};
 
 export const LoginForm = () => {
   const methods = useForm({
-    resolver: zodResolver(registerSchema),
+    resolver: useMemo(() => zodResolver(registerSchema), []),
   });
 
   const { handleSubmit, setError } = methods;
-
   const router = useRouter();
+  const { query } = router;
   const login = useLoginAccount();
-
   const { updateAccount } = useAccountContext();
+  const [showPassword, setShowPassword] = useState(false);
+  const [alertMessage, setAlertMessage] = useState<null | string>(null);
 
   useEffect(() => {
-    if (router.query?.passwordResetExpired) {
-      setAlertMessage(
-        'Password reset link expired. Please login or request a new reset link.'
-      );
-    } else {
-      setAlertMessage(null);
+    if (query?.passwordResetExpired) {
+      setAlertMessage(ERROR_MESSAGES.passwordResetExpired);
     }
-  }, [router.query?.passwordResetExpired]);
+  }, [query?.passwordResetExpired]);
 
   const onSubmitHandler: SubmitHandler<Inputs> = (values) => {
     const { email, password } = values;
@@ -63,13 +57,9 @@ export const LoginForm = () => {
       { email, password },
       {
         onSuccess: (res) => {
-          // TODO: get "additional-information" to make sure account setup completed
           router.push('/wellbeing/dashboard');
-
           const { accountId, accountStatus } = res.data;
-
           updateAccount({ accountId, accountStatus });
-
           setAlertMessage(null);
         },
         onError: (error) => {
@@ -79,36 +69,27 @@ export const LoginForm = () => {
             setError('email', { type: 'custom', message: '' });
             setError('password', {
               type: 'custom',
-              message: 'Incorrect username or password. Please try again.',
+              message: ERROR_MESSAGES.incorrectCredentials,
             });
           } else {
-            setAlertMessage('Something went wrong - please try again');
+            setAlertMessage(ERROR_MESSAGES.unknownError);
           }
         },
       }
     );
   };
 
-  const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
-  const [alertMessage, setAlertMessage] = useState<null | string>(null);
-
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
+    <Box className={styles.container}>
       {alertMessage && (
         <Alert
           onClose={() => setAlertMessage(null)}
           icon={false}
           severity="error"
-          sx={{ width: '100%' }}
+          className={styles.alert}
         >
           {alertMessage}
         </Alert>
@@ -118,18 +99,19 @@ export const LoginForm = () => {
         component="form"
         noValidate
         onSubmit={handleSubmit(onSubmitHandler)}
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '27rem',
-        }}
+        className={styles.form}
       >
-        <div style={{ padding: '3rem' }}>
-          <img src={AppConfig.logo} alt="logo" />
+        <div className={styles.logoContainer}>
+          <img
+            src={AppConfig.logo}
+            alt="logo"
+            width={144}
+            height={95}
+            layout="responsive"
+          />
         </div>
 
-        <Typography variant="h1" sx={{ mb: '2rem' }}>
+        <Typography variant="h1" className={styles.heading}>
           Log in
         </Typography>
 
@@ -140,16 +122,15 @@ export const LoginForm = () => {
             label="Email"
             required
             fullWidth
-            sx={{ mb: 3 }}
-          ></FormInputText>
-
+            className={styles.input}
+          />
           <FormInputText
             name="password"
             type={showPassword ? 'text' : 'password'}
             label="Password"
             required
             fullWidth
-            sx={{ mb: 3 }}
+            className={styles.input}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -163,15 +144,12 @@ export const LoginForm = () => {
                 </InputAdornment>
               ),
             }}
-          ></FormInputText>
+          />
 
           <Button
             variant="text"
             fullWidth
-            sx={{
-              py: '0.8rem',
-              mt: '1rem',
-            }}
+            className={styles.button}
             name="navigate-reset-password"
             data-test-id="navigate-reset-password"
             onClick={() => router.push('/wellbeing/reset-password')}
@@ -184,12 +162,7 @@ export const LoginForm = () => {
             name="login"
             fullWidth
             type="submit"
-            sx={{
-              py: '0.8rem',
-              mt: '1rem',
-              width: '210px',
-              borderRadius: 50,
-            }}
+            className={styles.loginButton}
           >
             Log in
           </Button>

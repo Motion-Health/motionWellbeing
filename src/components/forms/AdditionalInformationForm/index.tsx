@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import { Alert, Box, Button, Grid, MenuItem, Typography } from "@mui/material";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Alert, Box, Button, Grid, MenuItem, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { object, string } from 'zod';
 
-import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
-import { object, string } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { AppConfig } from "@/utils/AppConfig";
-import { FormInputText } from "@/components/FormInputText";
-import { FormSelect } from "@/components/FormSelect";
-import { useRouter } from "next/router";
-import { useUpdateAccount } from "@/services/auth/useUpdateAccount";
-
+import { FormInputText } from '@/components/FormInputText';
+import { FormSelect } from '@/components/FormSelect';
+import { useAccountContext } from '@/context/AccountContext';
+import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
+import { useUpdateAccount } from '@/services/auth/useUpdateAccount';
+import { AppConfig } from '@/utils/AppConfig';
 type Inputs = {
   serviceProviderName: string;
   mainContactName: string;
@@ -23,12 +23,12 @@ type Inputs = {
 
 const registerSchema = object({
   serviceProviderName: string({
-    required_error: "Name of service provider is required",
+    required_error: 'Name of service provider is required',
   }),
-  mainContactName: string({ required_error: "Your name is required" }),
-  phoneNumber: string({ required_error: "Phone number is required" }).regex(
+  mainContactName: string({ required_error: 'Your name is required' }),
+  phoneNumber: string({ required_error: 'Phone number is required' }).regex(
     /^[0-9\s]{7,15}$/,
-    "Please enter a valid phone number (between 7 and 15 numbers with no special characters)",
+    'Please enter a valid phone number (between 7 and 15 numbers with no special characters)'
   ),
   city: string().optional(),
   isPartOfAGroup: string().optional(),
@@ -40,7 +40,13 @@ export const AdditionalInformationForm = () => {
   const methods = useForm({
     resolver: zodResolver(registerSchema),
   });
+  const logout = useLogoutAccount();
+  const { account } = useAccountContext();
+  const logoutAccount = () => {
+    logout.mutate({ accountId: account.accountId! });
 
+    router.push('/wellbeing/login');
+  };
   const { handleSubmit, watch } = methods;
 
   const [displayGroupNameField, setDisplayGroupNameField] = useState(false);
@@ -48,7 +54,7 @@ export const AdditionalInformationForm = () => {
 
   useEffect(() => {
     const subscription = watch((value, { name, type }) => {
-      if (value.isPartOfAGroup === "Yes") {
+      if (value.isPartOfAGroup === 'Yes') {
         setDisplayGroupNameField(true);
         setGroupDropdownWidth(6);
       } else {
@@ -71,16 +77,16 @@ export const AdditionalInformationForm = () => {
         onSuccess: () => {
           router.push(
             {
-              pathname: "/wellbeing/dashboard",
+              pathname: '/wellbeing/dashboard',
               query: { isFirstLogin: true },
             },
-            "/",
+            '/'
           ); // hide query params in address bar
         },
         onError: () => {
-          setAlertMessage("Something went wrong - please try again");
+          setAlertMessage('Something went wrong - please try again');
         },
-      },
+      }
     );
   };
 
@@ -89,9 +95,9 @@ export const AdditionalInformationForm = () => {
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
       {alertMessage && (
@@ -99,7 +105,7 @@ export const AdditionalInformationForm = () => {
           onClose={() => setAlertMessage(null)}
           icon={false}
           severity="error"
-          sx={{ width: "100%" }}
+          sx={{ width: '100%' }}
         >
           {alertMessage}
         </Alert>
@@ -110,25 +116,25 @@ export const AdditionalInformationForm = () => {
         noValidate
         onSubmit={handleSubmit(onSubmitHandler)}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "100%",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          width: '100%',
         }}
       >
-        <div style={{ padding: "3rem" }}>
+        <div style={{ padding: '3rem' }}>
           <img src={AppConfig.logo} alt="logo" />
         </div>
 
-        <Typography variant="h1" sx={{ mb: "2rem", textAlign: "center" }}>
+        <Typography variant="h1" sx={{ mb: '2rem', textAlign: 'center' }}>
           Additional information
         </Typography>
 
         <FormProvider {...methods}>
           <Box
             sx={{
-              width: "60%",
-              maxWidth: "54.25rem",
+              width: '60%',
+              maxWidth: '54.25rem',
             }}
           >
             <Grid container spacing={{ sm: 0, md: 2 }}>
@@ -222,21 +228,40 @@ export const AdditionalInformationForm = () => {
               )}
             </Grid>
           </Box>
-
-          <Button
-            variant="contained"
-            name="complete"
-            fullWidth
-            type="submit"
-            sx={{
-              py: "0.8rem",
-              mt: "1rem",
-              width: "210px",
-              borderRadius: 50,
-            }}
-          >
-            Complete
-          </Button>
+          <Grid item xs={12} sm={12} md={12} width="60%" maxWidth="54.25rem">
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between', // This will ensure there's space between your buttons
+                mt: 2, // Adding some margin-top for spacing
+              }}
+            >
+              <Button
+                variant="outlined"
+                name="cancel"
+                onClick={logoutAccount}
+                sx={{
+                  py: '0.8rem',
+                  borderRadius: 50,
+                  width: '100px', // Specified a width to ensure consistent button size
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="contained"
+                name="complete"
+                type="submit"
+                sx={{
+                  py: '0.8rem',
+                  borderRadius: 50,
+                  width: '210px', // Maintained your width for the Complete button
+                }}
+              >
+                Complete
+              </Button>
+            </Box>
+          </Grid>
         </FormProvider>
       </Box>
     </Box>

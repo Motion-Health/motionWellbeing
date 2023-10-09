@@ -9,17 +9,18 @@ class MyDocument extends Document {
     return (
       <Html lang={AppConfig.locale}>
         <Head>
-          <script
-            type="text/javascript"
-            src="https://app.termly.io/embed.min.js"
-            data-auto-block="off"
-            data-website-uuid="cb23cb1a-800f-4e1c-8be6-2a04da33755f"
-          ></script>
-
+          <link rel="preconnect" href="https://www.googletagmanager.com" />
+          <link rel="preconnect" href="https://app.termly.io" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swa"
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
           />
+          <noscript>
+            <link
+              rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"
+            />
+          </noscript>
           <script
             type="text/javascript"
             async
@@ -50,6 +51,12 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script
+            src="https://app.termly.io/embed.min.js"
+            data-auto-block="off"
+            data-website-uuid="cb23cb1a-800f-4e1c-8be6-2a04da33755f"
+            strategy="lazyOnload"
+          />
         </body>
       </Html>
     );

@@ -10,4 +10,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+
+  position: absolute;
+  overflow: auto;
+  width: 100%;
+
 }
+

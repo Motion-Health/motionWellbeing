@@ -12,6 +12,7 @@ import { useListActivities } from '@/services/activities/useListActivities';
 
 import ActivitiesFormModal from '../modals/ActivitiesFormModal';
 import { UpgradeModal } from '../modals/UpgradeModal';
+import styles from './ActivityCard.module.css';
 
 type Props = {
   activity: ActivityData;
@@ -85,7 +86,8 @@ export const ActivityCard = (props: Props) => {
   };
 
   const handleActivityCardClick = () => {
-    if (isModalOpen) {
+    console.log('handleActivityCardClick');
+    if (isModalOpen || toggleUpgradeModal) {
       return;
     }
 
@@ -93,7 +95,6 @@ export const ActivityCard = (props: Props) => {
       setToggleUpgradeModal(true);
       return;
     }
-    console.log('activityDisplayType', activityDisplayType);
     router.push(`/wellbeing/activities/${activity.activityId}`);
   };
 
@@ -101,6 +102,12 @@ export const ActivityCard = (props: Props) => {
   const handleCloseUpgradeModal = () => {
     setToggleUpgradeModal(false);
   };
+  useEffect(() => {}, [toggleUpgradeModal]);
+  const imagePath = activity.imageFileName
+    ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${activity.imageFileName}`
+    : '/assets/images/exercises/activity-placeholder.png';
+
+  const isGreyedOut = activityDisplayType === 'greyed-out';
 
   return (
     <Grid
@@ -116,20 +123,7 @@ export const ActivityCard = (props: Props) => {
         display: activityDisplayType !== 'invisible' ? 'auto' : 'none',
       }}
     >
-      {activityDisplayType === 'greyed-out' && (
-        <img
-          src="/assets/icons/ph_premium-icon.svg"
-          alt="Premium upgrade icon"
-          style={{ position: 'absolute', right: '1.5rem', top: '0.5rem' }}
-        />
-      )}
-
-      <Grid
-        sx={{
-          opacity: activityDisplayType !== 'greyed-out' ? '1' : '0.2',
-        }}
-        onClick={() => handleActivityCardClick()}
-      >
+      <Grid onClick={() => handleActivityCardClick()}>
         <UpgradeModal
           toggleUpgradeModal={toggleUpgradeModal}
           onCloseUpgradeModal={handleCloseUpgradeModal}
@@ -144,34 +138,32 @@ export const ActivityCard = (props: Props) => {
           setIsModalOpen={setIsModalOpen}
         />
         <div className="activtyCardImageWrapper">
-          {activity.imageFileName ? (
+          <div className={styles.relative}>
             <Image
-              src={`${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${activity.imageFileName}`}
+              className={!isGreyedOut ? styles.imageHigh : styles.imageLow}
+              src={
+                activity.imageFileName
+                  ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${activity.imageFileName}`
+                  : '/assets/images/exercises/activity-placeholder.png'
+              }
               alt={`Image of ${activity.activityName}`}
               width={500}
               height={500}
-              className="curved-corners"
-              style={{
-                width: '100%',
-                height: '200px',
-                objectFit: 'cover',
-                objectPosition: 'top',
-                cursor: 'pointer',
-              }}
             />
-          ) : (
-            <img
-              src="/assets/images/exercises/activity-placeholder.png"
-              alt="Motion placeholder image"
-              className="curved-corners"
-              style={{
-                objectFit: 'cover',
-                width: '100%',
-                height: '200px',
-                cursor: 'pointer',
-              }}
-            />
-          )}
+
+            {activityDisplayType === 'greyed-out' && (
+              <img
+                src="/assets/icons/ph_premium-icon.svg"
+                alt="Premium upgrade icon"
+                width="30"
+                height="30"
+                className={styles.upgradeIcon}
+              />
+            )}
+            {activityDisplayType === 'greyed-out' && (
+              <p className={styles.upgradeText}>Upgrade now to unlock</p>
+            )}
+          </div>
         </div>
 
         <Grid container justifyContent="space-between">

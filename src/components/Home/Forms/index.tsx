@@ -1,5 +1,6 @@
-import styles from "./form.module.css";
-import { useRef } from "react";
+import { useRef } from 'react';
+
+import styles from './form.module.css';
 
 export const Contact = () => {
   const myRef: any = useRef(null);
@@ -20,18 +21,16 @@ export const Contact = () => {
 
           <div>
             <div>
-              <label>Name</label>
+              <label htmlFor="name">Name</label>
               <input required type="text" id="name" name="name" />
             </div>
             <div>
-              <label>Email</label>
-
+              <label htmlFor="email">Email</label>
               <input required type="email" id="email" name="email" />
             </div>
           </div>
-          <label>Message</label>
-
-          <textarea required name="message" />
+          <label htmlFor="message">Message</label>
+          <textarea required id="message" name="message" />
 
           <p>
             <button

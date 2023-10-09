@@ -1,7 +1,8 @@
-import PageHeader from "@/components/PageHeader/index";
-import { Main } from "@/templates/Main";
-import { Typography, Button } from "@mui/material";
-import { useRouter } from "next/router";
+import { Button, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+
+import PageHeader from '@/components/PageHeader/index';
+import { Main } from '@/templates/Main';
 
 const Prompt = () => {
   const router = useRouter();
@@ -12,14 +13,14 @@ const Prompt = () => {
       <div className="upgradeprompt-wrapper">
         <div className="upgradeprompt">
           <Typography variant="h3">
-            This feature isn't available in your current plan.
+            This activity isn't available in your current plan.
           </Typography>
           <Typography variant="body">
-            Upgrade to access this feature.
+            Upgrade to access this activity.
           </Typography>
           <Button
             onClick={() => {
-              router.push("/wellbeing/upgrade");
+              router.push('/wellbeing/upgrade');
             }}
             variant="contained"
           >

@@ -51,7 +51,7 @@ const ScheduleModal = ({
   const {
     account: { accountId },
   } = useAccountContext();
-
+  const [displayEventName, setDisplayEventName] = useState<boolean>(true);
   const [selectedActivity, setSelectedActivity] = useState('');
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -157,8 +157,13 @@ const ScheduleModal = ({
 
   const handleSelectActivityChange = (event: SelectChangeEvent) => {
     const selectedEventTitle = event.target.value;
-    setPopulateEventTitle(selectedEventTitle);
-    setSelectedActivity(event.target.value);
+    setSelectedActivity(selectedEventTitle);
+    if (selectedEventTitle === 'Other') {
+      setDisplayEventName(true);
+      return;
+    } else {
+      setDisplayEventName(false);
+    }
 
     setEventData({
       ...eventData,
@@ -341,24 +346,27 @@ const ScheduleModal = ({
                       {activity.activityName}
                     </MenuItem>
                   ))}
+                  <MenuItem value="Other">Other (Non-Motion activity)</MenuItem>
                 </Select>
               </Grid>
             </Grid>
 
-            <Grid item xs={12} sm={12} md={12}>
-              <FormLabel>Event name *</FormLabel>
-              <TextField
-                name="title"
-                type="text"
-                value={populateEventTitle}
-                onChange={handleTitleChange}
-                fullWidth
-                sx={{ mb: 3 }}
-                variant="standard"
-                error={showTitleError}
-                helperText={showTitleError ? 'Event name is required' : ''}
-              />
-            </Grid>
+            {displayEventName && (
+              <Grid item xs={12} sm={12} md={12}>
+                <FormLabel>Event name *</FormLabel>
+                <TextField
+                  name="title"
+                  type="text"
+                  value={populateEventTitle}
+                  onChange={handleTitleChange}
+                  fullWidth
+                  sx={{ mb: 3 }}
+                  variant="standard"
+                  error={showTitleError}
+                  helperText={showTitleError ? 'Event name is required' : ''}
+                />
+              </Grid>
+            )}
 
             <Grid item xs={12} sm={12} md={6}>
               <Grid container>
