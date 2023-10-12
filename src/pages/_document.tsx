@@ -11,6 +11,10 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://www.googletagmanager.com" />
           <link rel="preconnect" href="https://app.termly.io" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          ></meta>
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"

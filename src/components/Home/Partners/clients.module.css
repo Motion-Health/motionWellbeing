@@ -1,5 +1,5 @@
 .clientWrapper {
-  padding-top: 8rem;
+  padding-top: 2rem;
 
   margin: auto;
   box-sizing: border-box;
@@ -28,7 +28,7 @@
 @media (max-width: 992px) {
   .clients {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 33% 33% 33%;
   }
 
   .clients img {

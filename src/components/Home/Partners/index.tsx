@@ -12,7 +12,8 @@ export const Partners = () => {
           <Image
             src="/assets/partners/seuk.png"
             alt="SEUK"
-            width={200}
+            layout="responsive"
+            width={100}
             height={100}
           />
         </div>
@@ -20,7 +21,8 @@ export const Partners = () => {
           <Image
             src="/assets/partners/tnl.png"
             alt="TNL"
-            width={200}
+            layout="responsive"
+            width={143}
             height={100}
           />
         </div>
@@ -28,7 +30,8 @@ export const Partners = () => {
           <Image
             src="/assets/partners/shu.png"
             alt="SHU"
-            width={200}
+            layout="responsive"
+            width={143}
             height={100}
           />
         </div>
@@ -36,7 +39,8 @@ export const Partners = () => {
           <Image
             src="/assets/partners/uos.png"
             alt="UOS"
-            width={200}
+            layout="responsive"
+            width={143}
             height={100}
           />
         </div>
@@ -44,7 +48,8 @@ export const Partners = () => {
           <Image
             src="/assets/partners/sct.png"
             alt="SCT"
-            width={200}
+            layout="responsive"
+            width={143}
             height={100}
           />
         </div>
@@ -52,7 +57,8 @@ export const Partners = () => {
           <Image
             src="/assets/partners/ukri.jpg"
             alt="UKRI"
-            width={200}
+            layout="responsive"
+            width={143}
             height={100}
           />
         </div>

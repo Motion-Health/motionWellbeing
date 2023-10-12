@@ -20,7 +20,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   const isWellbeingPlatform = router.pathname.includes('/wellbeing');
 
   useEffect(() => {
-    console.log('isWellbeingPlatform', isWellbeingPlatform);
     if (isWellbeingPlatform) {
       document.documentElement.classList.add(styles.wellbeingHtml);
       document.body.classList.add(styles.wellbeingBody);

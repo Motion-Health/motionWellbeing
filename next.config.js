@@ -9,6 +9,7 @@ module.exports = withBundleAnalyzer({
       test: /\.node/,
       use: 'raw-loader',
     });
+    
     return config;
   },
   eslint: {

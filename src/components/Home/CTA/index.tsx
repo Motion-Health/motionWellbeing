@@ -1,4 +1,4 @@
-import styles from "./CTA.module.css";
+import styles from './CTA.module.css';
 
 export const CTA = () => {
   return (
@@ -11,7 +11,7 @@ export const CTA = () => {
           </blockquote>
           <cite>Claire - Sheffcare</cite>
         </div>
-        <div>
+        <div className={styles.googleReview}>
           <img
             src="../../assets/home/google-logo.png"
             alt="google review 5 stars"

@@ -14,6 +14,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import { useAccountContext } from '@/context/AccountContext';
+import { categories } from '@/data/categories.ts';
 import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
 import theme from '@/styles/theme';
 import { AppConfig } from '@/utils/AppConfig';
@@ -147,14 +148,14 @@ const NavigationItems = () => {
                     in={showActivitiesSubNavigation}
                   >
                     <List sx={{ paddingTop: 0 }}>
-                      {activitiesSubNavigation.map((activity) => (
+                      {categories.map((category) => (
                         <ListItem
-                          key={activity.title}
+                          key={category.title}
                           onClick={() =>
                             router.push(
                               {
                                 pathname: page.path,
-                                query: { filter: activity.filter },
+                                query: { filter: category.filter },
                               },
                               page.path
                             )
@@ -168,10 +169,10 @@ const NavigationItems = () => {
                           >
                             <ListItemIcon></ListItemIcon>
                             <ListItemText
-                              primary={activity.title}
+                              primary={category.title}
                               style={{
                                 color:
-                                  activityFilter === activity.filter
+                                  activityFilter === category.filter
                                     ? activeColour
                                     : defaultColour,
                               }}
@@ -288,41 +289,6 @@ export const appSections = [
     path: '/wellbeing/announcements',
     visibleTo: ['admin'],
     accessibleBy: ['admin'],
-  },
-];
-
-const activitiesSubNavigation = [
-  {
-    title: '* NEW *',
-    filter: 'new',
-  },
-  {
-    title: 'Armchair travel',
-    filter: 'armchairTravel',
-  },
-  {
-    title: 'Arts & Crafts',
-    filter: 'artsAndCrafts',
-  },
-  {
-    title: 'Culture & Religion',
-    filter: 'cultureAndReligion',
-  },
-  {
-    title: 'Education',
-    filter: 'education',
-  },
-  {
-    title: 'Movement & Sport',
-    filter: 'movementAndSport',
-  },
-  {
-    title: 'Music',
-    filter: 'music',
-  },
-  {
-    title: 'Staff wellbeing',
-    filter: 'staffWellbeing',
   },
 ];
 

@@ -104,14 +104,13 @@ body{
 
 .scroll-for-more {
   cursor: pointer;
-  position: absolute;
-  bottom: -5px;
+  position: fixed;
   padding: 0px 25px;
   background-color: #0f5298;
   color: white;
   border-radius: 15px 15px 0px 0px;
   text-align: center;
-  left: calc(50% - 34.6px);
+  left: calc(50% + 112px - 34.2px);
   height:  fit-content !important;   
   bottom: 0px;
 

@@ -6,7 +6,7 @@ import styles from './cards.module.css';
 export const Cards = () => {
   return (
     <section id="services" className={styles.cardWrapper}>
-      <div className={styles.card}>
+      {/* <div className={styles.card}>
         <div className={styles.imageWrapper}>
           <Image
             src="/assets/home/card1.jpg"
@@ -29,7 +29,7 @@ export const Cards = () => {
         >
           Try them out
         </a>
-      </div>
+      </div> */}
 
       <div className={styles.cardAlternative}>
         <div className={styles.imageWrapper}>

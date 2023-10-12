@@ -32,7 +32,7 @@ export const Contact = () => {
           <label htmlFor="message">Message</label>
           <textarea required id="message" name="message" />
 
-          <p>
+          <p className={styles.formButton}>
             <button
               name="Send Message"
               className="w-full lg:w-auto storybook-button storybook-button--large storybook-button--primary"
@@ -59,12 +59,13 @@ export const Contact = () => {
             S3 7HQ
           </address>
 
-          <div className=" mt-4 flex">
+          <div className={styles.grid}>
             <a
               className={styles.socials}
               href="https://www.facebook.com/motionexercise"
               target="_blank"
               rel="noreferrer"
+              aria-label="Facebook"
             >
               <svg
                 width="64"
@@ -83,6 +84,7 @@ export const Contact = () => {
             <a
               className={styles.socials}
               href="https://www.instagram.com/motionexercise/"
+              aria-label="Instagram"
               target="_blank"
               rel="noreferrer"
             >
@@ -105,6 +107,7 @@ export const Contact = () => {
               href="https://www.youtube.com/channel/UCWgS--l2ajsmlsA95r3_4uQ/videos"
               target="_blank"
               rel="noreferrer"
+              aria-label="Youtube"
             >
               <svg
                 width="64"
@@ -125,6 +128,7 @@ export const Contact = () => {
               href="https://www.linkedin.com/company/motion-exercise-cic/?originalSubdomain=uk"
               target="_blank"
               rel="noreferrer"
+              aria-label="Linkedin"
             >
               <svg
                 width="64"

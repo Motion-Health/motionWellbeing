@@ -1,5 +1,6 @@
 import 'dayjs/locale/en-gb';
 
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
@@ -7,9 +8,10 @@ import {
   Dialog,
   FormLabel,
   Grid,
+  IconButton,
+  Menu,
   MenuItem,
   Select,
-  SelectChangeEvent,
   TextField,
   Typography,
   useMediaQuery,
@@ -18,10 +20,13 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { NestedMenuItem } from 'mui-nested-menu';
+import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 
 import { useAccountContext } from '@/context/AccountContext';
+import { categories } from '@/data/categories.ts';
 import { Event } from '@/models/Event';
 import { useListActivities } from '@/services/activities/useListActivities';
 import { useCreateEvent } from '@/services/planner/useCreateEvent';
@@ -29,6 +34,8 @@ import { useDeleteEvent } from '@/services/planner/useDeleteEvent';
 import { useUpdateEvent } from '@/services/planner/useUpdateEvent';
 import theme from '@/styles/theme';
 
+import styles from './scheduleModal.module.css';
+import useValidation from './useValidation';
 type Props = {
   toggleScheduleModal: number;
   modalOpenAction: 'add-event' | 'edit-event' | null;
@@ -44,6 +51,13 @@ const ScheduleModal = ({
   addEventStartDate,
   onCloseScheduleModal,
 }: Props) => {
+  const {
+    showTitleError,
+    showStartError,
+    showEndError,
+    validateForm,
+    resetValidation,
+  } = useValidation();
   const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const errorTextColour = theme.palette.error.main;
   const [durationHours, setDurationHours] = useState(0);
@@ -51,7 +65,7 @@ const ScheduleModal = ({
   const {
     account: { accountId },
   } = useAccountContext();
-  const [displayEventName, setDisplayEventName] = useState<boolean>(true);
+  const [displayEventName, setDisplayEventName] = useState<boolean>(false);
   const [selectedActivity, setSelectedActivity] = useState('');
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -63,19 +77,11 @@ const ScheduleModal = ({
   const [startDateValue, setStartDateValue] = useState<Dayjs | null>(null);
   const [endDateValue, setEndDateValue] = useState<Dayjs | null>(null);
 
-  const hideValidationErrors = () => {
-    setShowTitleError(false);
-    setShowStartError(false);
-    setShowEndError(false);
-  };
-
   const resetFormData = () => {
     setEventData(null);
-
     setStartDateValue(null);
     setEndDateValue(null);
-
-    hideValidationErrors();
+    resetValidation();
   };
   useEffect(() => {
     const calculatedEndDate = dayjs(startDateValue)
@@ -155,22 +161,6 @@ const ScheduleModal = ({
 
   const [populateEventTitle, setPopulateEventTitle] = useState<string>('');
 
-  const handleSelectActivityChange = (event: SelectChangeEvent) => {
-    const selectedEventTitle = event.target.value;
-    setSelectedActivity(selectedEventTitle);
-    if (selectedEventTitle === 'Other') {
-      setDisplayEventName(true);
-      return;
-    } else {
-      setDisplayEventName(false);
-    }
-
-    setEventData({
-      ...eventData,
-      title: selectedEventTitle,
-    });
-  };
-
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newTitle = event.target.value;
     setPopulateEventTitle(newTitle);
@@ -183,28 +173,6 @@ const ScheduleModal = ({
 
   const createEvent = useCreateEvent();
   const updateEvent = useUpdateEvent();
-
-  const [showTitleError, setShowTitleError] = useState<boolean>(false);
-  const [showStartError, setShowStartError] = useState<boolean>(false);
-  const [showEndError, setShowEndError] = useState<boolean>(false);
-
-  const validateForm = (formSubmitData: Event) => {
-    hideValidationErrors();
-
-    if (!formSubmitData?.title) {
-      setShowTitleError(true);
-    }
-
-    if (!formSubmitData?.start) {
-      console.log('show start error');
-      console.log(formSubmitData);
-      setShowStartError(true);
-    }
-
-    if (!formSubmitData?.end) {
-      setShowEndError(true);
-    }
-  };
 
   const onSubmitHandler = (values: Event) => {
     const newEventData = {
@@ -243,6 +211,37 @@ const ScheduleModal = ({
     }
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const [value, setValue] = useState(''); // use '' instead of undefined
+
+  const handleClick = (event) => {
+    return setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => setAnchorEl(null);
+  const setSelectValue = (value) => {
+    setValue(value);
+    handleClose();
+    console.log('changed: ', value);
+  };
+
+  // Group activities by their category
+  const groupedActivities = useMemo(() => {
+    if (!Array.isArray(activitiesData)) {
+      console.error(
+        'Invalid input to groupByCategory, array expected:',
+        activitiesData
+      );
+      return {};
+    }
+    return activitiesData.reduce((result, activity) => {
+      (result[activity.category] = result[activity.category] || []).push(
+        activity
+      );
+      return result;
+    }, {});
+  }, [activitiesData]);
+
   const onStartDateChange = (date: Dayjs) => {
     setStartDateValue(date);
     const formattedStartDate = dayjs(date).format('YYYY-MM-DD HH:mm');
@@ -262,7 +261,7 @@ const ScheduleModal = ({
       end: formattedEndDate,
     });
   };
-
+  const [hoveredCategory, setHoveredCategory] = useState('');
   const onEndDateChange = (date: any) => {
     setEndDateValue(date);
 
@@ -293,7 +292,7 @@ const ScheduleModal = ({
     <Dialog
       open={isModalOpen}
       fullScreen={shouldDisplayFullScreen}
-      className="schedule-modal-wrapper"
+      className={styles.scheduleModalWrapper}
     >
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
@@ -314,12 +313,9 @@ const ScheduleModal = ({
         }}
       >
         <Grid container justifyContent="space-between">
-          {modalOpenAction === 'edit-event' && (
-            <Typography variant="h1">Edit event</Typography>
-          )}
-          {modalOpenAction === 'add-event' && (
-            <Typography variant="h1">Schedule event</Typography>
-          )}
+          <Typography variant="h1">
+            {modalOpenAction === 'edit-event' ? 'Edit event' : 'Schedule event'}
+          </Typography>
 
           {modalOpenAction === 'edit-event' && (
             <Button onClick={() => handleDeleteEvent()}>
@@ -333,40 +329,108 @@ const ScheduleModal = ({
             <Grid item xs={12} sm={12} md={12}>
               <FormLabel>Select activity</FormLabel>
               <Grid item>
-                <Select
-                  fullWidth
-                  onChange={handleSelectActivityChange}
-                  value={selectedActivity}
-                >
-                  {activitiesData?.map((activity) => (
+                <div>
+                  <div onClick={handleClick} className={styles.select}>
+                    <span className={styles.selectText}>
+                      {value || 'Select Activity'}
+                    </span>
+                    <IconButton size="small" edge="end" onClick={handleClick}>
+                      <ArrowDropDownIcon />
+                    </IconButton>
+                  </div>
+                  <Menu
+                    value={value}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    onChange={(e) => {
+                      setValue(e.target.value);
+                      handleSelectActivityChange(e);
+                      console.log('changed: ', e.target.value);
+                    }}
+                  >
+                    {activitiesData?.map((activity) => (
+                      <MenuItem
+                        key={activity.activityId}
+                        value={activity.activityName}
+                        sx={{ display: 'none' }}
+                      ></MenuItem>
+                    ))}
+                    {Object.keys(groupedActivities).map((category) => (
+                      <NestedMenuItem
+                        label={
+                          categories.find((cat) => cat.filter === category)
+                            ?.title
+                        }
+                        parentMenuOpen={open}
+                        key={category}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+
+                          console.log('clicked: ', category);
+                        }}
+                      >
+                        {Array.isArray(groupedActivities[category]) &&
+                          groupedActivities[category].map((activity) => (
+                            <MenuItem
+                              value={activity.activityName}
+                              key={activity.activityId} // Add key for each mapped item
+                              data-value={activity.activityName}
+                              onClick={(e) => {
+                                setSelectValue(e.currentTarget.dataset.value);
+                                setDisplayEventName(false);
+                                setSelectedActivity(
+                                  e.currentTarget.dataset.value
+                                );
+                                setEventData({
+                                  ...eventData,
+                                  title: e.currentTarget.dataset.value,
+                                });
+                              }}
+                            >
+                              {activity.activityName}
+                            </MenuItem>
+                          ))}
+                      </NestedMenuItem>
+                    ))}
                     <MenuItem
-                      key={activity.activityName}
-                      value={activity.activityName}
+                      value={'Other (Non-Motion activity)'}
+                      key={'Other'}
+                      onClick={(e) => {
+                        setSelectValue('Other (Non-Motion activity)');
+                        setDisplayEventName(true);
+                      }}
                     >
-                      {activity.activityName}
+                      Other (Non-Motion activity)
                     </MenuItem>
-                  ))}
-                  <MenuItem value="Other">Other (Non-Motion activity)</MenuItem>
-                </Select>
+                  </Menu>
+                </div>
               </Grid>
             </Grid>
 
-            {displayEventName && (
-              <Grid item xs={12} sm={12} md={12}>
-                <FormLabel>Event name *</FormLabel>
-                <TextField
-                  name="title"
-                  type="text"
-                  value={populateEventTitle}
-                  onChange={handleTitleChange}
-                  fullWidth
-                  sx={{ mb: 3 }}
-                  variant="standard"
-                  error={showTitleError}
-                  helperText={showTitleError ? 'Event name is required' : ''}
-                />
-              </Grid>
-            )}
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              style={
+                displayEventName ? { display: 'block' } : { display: 'none' }
+              }
+            >
+              <FormLabel>Event name *</FormLabel>
+              <TextField
+                name="title"
+                type="text"
+                value={populateEventTitle}
+                onChange={handleTitleChange}
+                fullWidth
+                sx={{ mb: 3 }}
+                variant="standard"
+                error={showTitleError}
+                helperText={showTitleError ? 'Event name is required' : ''}
+              />
+            </Grid>
 
             <Grid item xs={12} sm={12} md={6}>
               <Grid container>

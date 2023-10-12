@@ -23,6 +23,7 @@ export const Clients = () => {
             alt="sheffcare"
             width={250}
             height={150}
+            layout="responsive"
           />
         </div>
         <div className={styles.clientLogo}>
@@ -31,6 +32,7 @@ export const Clients = () => {
             alt="twelvetrees"
             width={250}
             height={150}
+            layout="responsive"
           />
         </div>
         <div className={styles.clientLogo}>
@@ -39,6 +41,7 @@ export const Clients = () => {
             alt="ageuk"
             width={250}
             height={150}
+            layout="responsive"
           />
         </div>
         <div className={styles.clientLogo}>
@@ -47,6 +50,7 @@ export const Clients = () => {
             alt="idealcarehomes"
             width={250}
             height={150}
+            layout="responsive"
           />
         </div>
         <div className={styles.clientLogo}>
@@ -55,6 +59,7 @@ export const Clients = () => {
             alt="hcone"
             width={150}
             height={150}
+            layout="responsive"
           />
         </div>
       </div>

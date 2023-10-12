@@ -1,0 +1,18 @@
+.scheduleModalWrapper>div>div{
+  width:62rem;
+}
+.select{
+  width:100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selectText {
+  text-align: left;
+  flex-grow: 1;
+}

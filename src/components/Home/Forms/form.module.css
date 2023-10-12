@@ -15,11 +15,14 @@
   .formWrapper h2 {
     padding: 0rem 2rem;
   }
+  .formButton{
+    text-align: center;
+  }
 }
 
 @media (max-width: 1280px) {
   .formWrapper {
-    padding: 0rem 2rem;
+    padding: 1rem 2rem;
   }
 }
 
@@ -31,9 +34,11 @@
 
 @media (max-width: 992px) {
   .form {
-    padding: 2rem;
     flex-direction: column;
   }
+  .grid {display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    place-items: center;}
 }
 
 .formInputs {
@@ -119,6 +124,7 @@
 
 .socials {
   margin-right: 1rem;
+  display: contents;
 }
 
 .socials svg rect:hover {
