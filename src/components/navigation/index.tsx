@@ -1,4 +1,5 @@
-import { Box, Drawer } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import { Box, Drawer, IconButton } from '@mui/material';
 import React, { useEffect } from 'react';
 
 import NavigationItems from './navigationItems';
@@ -33,7 +34,7 @@ const Navigation = (props: IMainProps) => {
       className="no-print"
       component="nav"
       sx={{
-        width: { sm: drawerWidth },
+        width: { md: drawerWidth },
         flexShrink: { sm: 0 },
       }}
     >
@@ -46,19 +47,22 @@ const Navigation = (props: IMainProps) => {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: 'block', sm: 'none' },
+          display: { xs: 'block', sm: 'block', md: 'none' },
 
           '& .MuiDrawer-paper': {
             width: drawerWidth,
           },
         }}
       >
+        <IconButton onClick={handleDrawerToggle} sx={{ alignSelf: 'flex-end' }}>
+          <CloseIcon />
+        </IconButton>
         <NavigationItems />
       </Drawer>
       <Drawer
         variant="permanent"
         sx={{
-          display: { xs: 'none', sm: 'block' },
+          display: { xs: 'none', md: 'block' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: drawerWidth,

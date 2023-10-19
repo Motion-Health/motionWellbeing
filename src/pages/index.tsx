@@ -16,14 +16,12 @@ const Index = () => {
   const {
     account: { accountStatus },
   } = useAccountContext();
-  console.log(accountStatus);
 
   return (
     <div className="white-background">
       <Head>
         <title>Creating moments that move people | Motion Wellbeing</title>
         <meta property="og:url" content="https://www.motionexercise.co.uk" />
-
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
@@ -51,7 +49,7 @@ const Index = () => {
       </Head>
 
       <Header />
-      <Hero videoSrc={'./home/video.mp4'}>
+      <Hero videoSrc={'/assets/home/video.mp4'}>
         <h1>Creating moments that move people.</h1>
       </Hero>
       <Cards></Cards>

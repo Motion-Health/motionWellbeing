@@ -1,6 +1,6 @@
 import { Button, Chip, Grid, Typography } from '@mui/material';
 import moment from 'moment';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 

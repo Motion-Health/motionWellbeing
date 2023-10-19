@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import React, { memo, useCallback, useRef, useState } from 'react';
 
 import styles from './hero.module.css';
@@ -39,18 +39,15 @@ const Hero: React.FC<HeroProps> = ({
               objectFit="cover"
             />
             <video
-              className={styles.herovideo}
               ref={video}
-              autoPlay={true}
-              loop
+              autoPlay
               muted={isMuted}
-              width="320"
-              height="240"
+              loop
+              playsInline
+              poster="/assets/home/FallbackImage.jpg"
+              className={styles.herovideo}
             >
-              <source
-                src="/assets/home/video.mp4"
-                type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-              ></source>
+              <source src={videoSrc} type="video/mp4" />
             </video>
           </div>
         )}

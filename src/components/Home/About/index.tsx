@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 
 import styles from './about.module.css';
 export const About = () => {
@@ -37,9 +37,8 @@ export const About = () => {
         <div className={styles.videoWrapper}>
           <iframe
             className={styles.videoAlternative}
-            src="https://www.youtube.com/embed/3wcCZ0G_yak"
+            src="https://www.youtube.com/embed/3wcCZ0G_yak?rel=0"
             title="Motion Moments YouTube video"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
@@ -62,9 +61,8 @@ export const About = () => {
         <div className={styles.videoWrapper}>
           <iframe
             className={styles.video}
-            src="https://www.youtube.com/embed/BvIoTdYOPTE"
+            src="https://www.youtube.com/embed/BvIoTdYOPTE?rel=0"
             title="Events YouTube video"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>

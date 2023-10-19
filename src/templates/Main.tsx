@@ -16,7 +16,7 @@ type IMainProps = {
   children: ReactNode;
 };
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 const Main = (props: IMainProps) => {
   const { children } = props;
@@ -65,7 +65,7 @@ const Main = (props: IMainProps) => {
       <AppBar
         position="fixed"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
           backgroundColor: 'transparent',
           boxShadow: 'none',
         }}
@@ -76,7 +76,7 @@ const Main = (props: IMainProps) => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
@@ -90,7 +90,7 @@ const Main = (props: IMainProps) => {
         sx={{
           flexGrow: 1,
           p: 6,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         {children}

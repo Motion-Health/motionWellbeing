@@ -1,4 +1,4 @@
-import Image from 'next/image'; // Import the Image component from next/image
+import Image from "next/legacy/image"; // Import the Image component from next/image
 import React from 'react';
 
 import styles from './clients.module.css';

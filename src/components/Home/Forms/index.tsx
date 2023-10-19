@@ -21,16 +21,22 @@ export const Contact = () => {
 
           <div>
             <div>
-              <label htmlFor="name">Name</label>
-              <input required type="text" id="name" name="name" />
+              <label>
+                Name
+                <input required type="text" id="name" name="name" />
+              </label>
             </div>
             <div>
-              <label htmlFor="email">Email</label>
-              <input required type="email" id="email" name="email" />
+              <label>
+                Email
+                <input required type="email" id="email" name="email" />
+              </label>
             </div>
           </div>
-          <label htmlFor="message">Message</label>
-          <textarea required id="message" name="message" />
+          <label>
+            Message
+            <textarea required id="message" name="message" />
+          </label>
 
           <p className={styles.formButton}>
             <button

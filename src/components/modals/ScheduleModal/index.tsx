@@ -103,6 +103,13 @@ const ScheduleModal = ({
     if (modalOpenAction === 'add-event') {
       setPopulateEventTitle('');
       setSelectedActivity('');
+      setEventData({
+        accountId: accountId,
+        title: '',
+        start: '',
+        end: '',
+        isProtected: false,
+      });
       resetFormData();
       if (addEventStartDate) {
         setStartDateValue(addEventStartDate);
@@ -125,14 +132,14 @@ const ScheduleModal = ({
           (activity) => activity.activityName == editEventData?.title
         )
       ) {
-        console.log('activity exists');
-
         setSelectedActivity(editEventData?.title);
-        console.log('selected activity', editEventData?.title);
       }
 
       if (editEventData?.end) {
-        setEndDateValue(dayjs(editEventData.end));
+        // find hours and minjutes from end date
+        const endDate = dayjs(editEventData?.end);
+        setDurationHours(endDate.diff(editEventData?.start, 'hour'));
+        setDurationMinutes(endDate.diff(editEventData?.start, 'minute') % 60);
       }
 
       setEventData({
@@ -167,7 +174,6 @@ const ScheduleModal = ({
 
     setEventData({
       ...eventData,
-      title: newTitle,
     });
   };
 
@@ -175,23 +181,24 @@ const ScheduleModal = ({
   const updateEvent = useUpdateEvent();
 
   const onSubmitHandler = (values: Event) => {
-    const newEventData = {
+    validateForm(eventData);
+    console.log(eventData);
+    const updatedEventData = {
       ...eventData,
-      ...values,
-      start: eventData?.start,
-      end: eventData?.end,
-      accountId,
+      accountId: accountId,
     };
-
-    validateForm(newEventData);
-
-    if (!newEventData.title || !newEventData.start || !newEventData.end) {
+    if (
+      !updatedEventData.title ||
+      !updatedEventData.start ||
+      !updatedEventData.end
+    ) {
       // prevent submit
       return null;
     }
 
-    if (!eventData?.eventId) {
-      createEvent.mutate(newEventData, {
+    if (!updatedEventData?.eventId) {
+      console.log('create event');
+      createEvent.mutate(updatedEventData, {
         onSuccess: (res) => {
           setIsModalOpen(false);
         },
@@ -200,7 +207,7 @@ const ScheduleModal = ({
         },
       });
     } else {
-      updateEvent.mutate(newEventData, {
+      updateEvent.mutate(updatedEventData, {
         onSuccess: (res) => {
           setIsModalOpen(false);
         },
@@ -288,6 +295,29 @@ const ScheduleModal = ({
     });
   };
 
+  const EventTitleField = ({ showTitleError, value, onChange }) => (
+    <Grid
+      item
+      xs={12}
+      sm={12}
+      md={12}
+      style={{ display: value ? 'block' : 'none' }}
+    >
+      <FormLabel>Event name *</FormLabel>
+      <TextField
+        name="title"
+        type="text"
+        value={value}
+        onChange={onChange}
+        fullWidth
+        sx={{ mb: 3 }}
+        variant="standard"
+        error={showTitleError}
+        helperText={showTitleError ? 'Event name is required' : ''}
+      />
+    </Grid>
+  );
+
   return (
     <Dialog
       open={isModalOpen}
@@ -332,7 +362,7 @@ const ScheduleModal = ({
                 <div>
                   <div onClick={handleClick} className={styles.select}>
                     <span className={styles.selectText}>
-                      {value || 'Select Activity'}
+                      {selectedActivity || 'Select Activity'}
                     </span>
                     <IconButton size="small" edge="end" onClick={handleClick}>
                       <ArrowDropDownIcon />
@@ -346,7 +376,7 @@ const ScheduleModal = ({
                     onChange={(e) => {
                       setValue(e.target.value);
                       handleSelectActivityChange(e);
-                      console.log('changed: ', e.target.value);
+                      console.log('changed: ', e.target.selectedActivity);
                     }}
                   >
                     {activitiesData?.map((activity) => (
@@ -386,6 +416,7 @@ const ScheduleModal = ({
                                 setEventData({
                                   ...eventData,
                                   title: e.currentTarget.dataset.value,
+                                  activityId: activity.activityId,
                                 });
                               }}
                             >
@@ -409,28 +440,13 @@ const ScheduleModal = ({
               </Grid>
             </Grid>
 
-            <Grid
-              item
-              xs={12}
-              sm={12}
-              md={12}
-              style={
-                displayEventName ? { display: 'block' } : { display: 'none' }
-              }
-            >
-              <FormLabel>Event name *</FormLabel>
-              <TextField
-                name="title"
-                type="text"
+            {displayEventName && (
+              <EventTitleField
+                showTitleError={showTitleError}
                 value={populateEventTitle}
                 onChange={handleTitleChange}
-                fullWidth
-                sx={{ mb: 3 }}
-                variant="standard"
-                error={showTitleError}
-                helperText={showTitleError ? 'Event name is required' : ''}
               />
-            </Grid>
+            )}
 
             <Grid item xs={12} sm={12} md={6}>
               <Grid container>

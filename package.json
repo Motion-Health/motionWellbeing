@@ -29,6 +29,7 @@
     "axios": "^1.5.1",
     "dayjs": "^1.11.7",
     "depcheck": "^1.4.6",
+    "dotenv": "^16.3.1",
     "js-cookie": "^3.0.5",
     "moment": "^2.29.4",
     "mui-nested-menu": "^3.2.2",

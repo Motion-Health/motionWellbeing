@@ -9,15 +9,17 @@
 }
 
 .alert {
-  width: 100%;
   margin-bottom: 1rem;
+  width: 80%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 27rem;
 }
 
 .logoContainer {

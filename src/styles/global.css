@@ -5,7 +5,16 @@
 * {
   box-sizing: border-box;
 }
+td {
 
+  overflow: hidden;
+}
+.fc-daygrid-event{
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
 body{
   font-family: "Montserrat","Helvetica","Arial",sans-serif;
 }
@@ -110,10 +119,17 @@ body{
   color: white;
   border-radius: 15px 15px 0px 0px;
   text-align: center;
-  left: calc(50% + 112px - 34.2px);
+  left: calc(50% + 125px - 34.2px);
   height:  fit-content !important;   
   bottom: 0px;
 
+}
+
+/* screnwidth under 900px */
+@media (max-width: 900px) {
+  .scroll-for-more {
+    left: calc(50% - 34.2px);
+  }
 }
 .react-pdf__Document{
   width: fit-content;
@@ -257,14 +273,17 @@ body{
   margin: 0;
 }
 
+.fc .fc-view-harness {
+  max-height:80vh;
+}
 .event h4 {
   font-size: 14px;
   white-space: normal;
 }
 
-.fc-daygrid-day-events {
-  height: 100px;
-  display: inline-table;
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+  min-height: 100px;
+  display: block;
   width: 100%;
 }
 

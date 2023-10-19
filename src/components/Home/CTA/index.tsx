@@ -1,5 +1,6 @@
-import styles from './CTA.module.css';
+import Image from 'next/legacy/image';
 
+import styles from './CTA.module.css';
 export const CTA = () => {
   return (
     <section className={styles.CTAWrapper}>
@@ -12,9 +13,11 @@ export const CTA = () => {
           <cite>Claire - Sheffcare</cite>
         </div>
         <div className={styles.googleReview}>
-          <img
-            src="../../assets/home/google-logo.png"
-            alt="google review 5 stars"
+          <Image
+            src="/assets/home/google-logo.png"
+            alt="Google review"
+            width={212}
+            height={90}
           />
           <a
             href="https://www.google.com/search?rls=en&q=motion+exercise+cic&ie=UTF-8&oe=UTF-8#lrd=0x4879798012de9795:0xff19ecac76d5c760,1"

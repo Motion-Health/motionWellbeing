@@ -45,7 +45,7 @@ const Dashboard = () => {
     useSuccessBanner(router.query);
 
   const { data: favoriteActivities } = useFavoriteActivities();
-  const [favoriteActivitiesList, setFavoriteActivitiesList] = useState(null);
+  const [favoriteActivitiesList, setFavoriteActivitiesList] = useState([]);
   useEffect(() => {
     if (favoriteActivities?.length) {
       setFavoriteActivitiesList(favoriteActivities.slice(0, 3));
@@ -107,9 +107,10 @@ const Dashboard = () => {
           }}
         >
           <Grid container>
-            {favoriteActivitiesList?.map((activity) => (
-              <ActivityCard key={activity.activityId} activity={activity} />
-            ))}
+            {Array.isArray(favoriteActivitiesList) &&
+              favoriteActivitiesList?.map((activity) => (
+                <ActivityCard key={activity.activityId} activity={activity} />
+              ))}
           </Grid>
         </Box>
       </Grid>

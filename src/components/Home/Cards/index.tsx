@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import React from 'react';
 
 import styles from './cards.module.css';
@@ -39,6 +39,7 @@ export const Cards = () => {
             width={600}
             height={400}
             layout="responsive"
+            priority
           />
         </div>
         <h2>Motion Wellbeing</h2>

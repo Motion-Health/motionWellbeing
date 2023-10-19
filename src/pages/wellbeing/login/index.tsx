@@ -1,4 +1,5 @@
-import { Alert } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Alert, IconButton } from '@mui/material';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -44,6 +45,14 @@ const Login = () => {
           password.
         </Alert>
       )}
+      <IconButton
+        color="primary"
+        onClick={() => router.push('/')}
+        sx={{ padding: 3 }}
+      >
+        <ArrowBackIcon />
+      </IconButton>
+
       <LoginForm onLogin={handleLogin} />
     </>
   );
