@@ -13,7 +13,7 @@ import { queryClient } from '@/services/query';
 
 // Import the special styles
 import theme from '../styles/theme';
-import styles from './wellbeing.module.css';
+import stylesApp from './wellbeing.module.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -21,12 +21,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     if (isWellbeingPlatform) {
-      document.documentElement.classList.add(styles.wellbeingHtml);
-      document.body.classList.add(styles.wellbeingBody);
+      document.documentElement.classList.add(stylesApp?.wellbeingHtml || '');
+      document.body.classList.add(stylesApp?.wellbeingBody || '');
       document.body.classList.add('wellbeingBody');
     } else {
-      document.documentElement.classList.remove(styles.wellbeingHtml);
-      document.body.classList.remove(styles.wellbeingBody);
+      document.documentElement.classList.remove(stylesApp?.wellbeingHtml || '');
+      document.body.classList.remove(stylesApp?.wellbeingBody || '');
     }
   }, [isWellbeingPlatform]);
 
