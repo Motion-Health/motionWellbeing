@@ -20,6 +20,7 @@ body{
 }
 
 .manage-membership-container {
+  margin-top: 1rem;
   text-align: center;
   border: 1px solid #7095c2;
   border-radius: 25px;
