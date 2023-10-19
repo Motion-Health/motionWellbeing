@@ -142,20 +142,6 @@ const ActivityDetails = () => {
           </Grid>
         </Grid>
       );
-    } else if (shouldRenderVideo && parsedYouTubeEmbedCode) {
-      return (
-        <Grid item sm={12} height="30rem" sx={{ mb: '3rem' }}>
-          <YouTube
-            videoId={parsedYouTubeEmbedCode}
-            onPlay={() => setVideoPlayTimestamp(moment())}
-            onStateChange={(e) => handleVideoStateChange(e)}
-            opts={{
-              width: '100%',
-              height: '500',
-            }}
-          />
-        </Grid>
-      );
     } else if (activity?.documentFileName) {
       console.log(
         `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`
@@ -183,6 +169,20 @@ const ActivityDetails = () => {
             <div className="download-message">Click to Download</div>
             <Page pageNumber={1} renderTextLayer={false} height={400} />
           </DynamicDocument>
+        </Grid>
+      );
+    } else if (shouldRenderVideo && parsedYouTubeEmbedCode) {
+      return (
+        <Grid item sm={12} height="30rem" sx={{ mb: '3rem' }}>
+          <YouTube
+            videoId={parsedYouTubeEmbedCode}
+            onPlay={() => setVideoPlayTimestamp(moment())}
+            onStateChange={(e) => handleVideoStateChange(e)}
+            opts={{
+              width: '100%',
+              height: '500',
+            }}
+          />
         </Grid>
       );
     }
