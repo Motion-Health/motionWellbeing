@@ -1,6 +1,6 @@
 import { Button, Chip, Grid, Typography } from '@mui/material';
 import moment from 'moment';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
@@ -12,7 +12,7 @@ import { useListActivities } from '@/services/activities/useListActivities';
 
 import ActivitiesFormModal from '../modals/ActivitiesFormModal';
 import { UpgradeModal } from '../modals/UpgradeModal';
-import styles from './ActivityCard.module.css';
+import styles from './activityCard.module.css';
 
 type Props = {
   activity: ActivityData;
