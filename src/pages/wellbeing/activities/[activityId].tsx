@@ -160,6 +160,8 @@ const ActivityDetails = () => {
       console.log(
         `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`
       );
+      console.log('activity?.documentFileName', activity?.documentFileName);
+      console.log('rendering document');
       return (
         <Grid
           item
