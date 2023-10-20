@@ -117,8 +117,6 @@ export const ActivityCard = (props: Props) => {
       className="curved-corners activity"
       sx={{
         flexGrow: 1,
-        mb: '1.5rem',
-        px: '0.75rem',
         position: 'relative',
         display: activityDisplayType !== 'invisible' ? 'auto' : 'none',
       }}
