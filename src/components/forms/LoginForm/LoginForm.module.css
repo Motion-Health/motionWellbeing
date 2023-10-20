@@ -34,8 +34,8 @@
   font-weight: bold;
 }
 
-.container .form .input {
-  margin-bottom: 1rem;
+.input {
+  margin-bottom: 1rem !important;
   width: 100%;
 }
 
