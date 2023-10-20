@@ -21,9 +21,10 @@ import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 import { ActivityData } from '@/services/activities/useCreateActivity';
 import { Main } from '@/templates/Main';
 
-const ActivityDetails = () => {
+const ActivityDetails = (a) => {
   const [open, setOpen] = useState(false);
-  pdfjs.GlobalWorkerOptions.workerSrc = '/assets/js/pdf.worker.min.js';
+  pdfjs.GlobalWorkerOptions.workerSrc =
+    'https://motionexercise.co.uk/assets/js/pdf.worker.min.js';
   const DynamicDocument = dynamic(
     () => import('react-pdf').then((module) => module.Document),
     { ssr: false }
