@@ -138,6 +138,7 @@ export const ActivityCard = (props: Props) => {
         <div className="activtyCardImageWrapper">
           <div className={styles.relative}>
             <Image
+              loading="eager"
               className={!isGreyedOut ? styles.imageHigh : styles.imageLow}
               src={
                 activity.imageFileName

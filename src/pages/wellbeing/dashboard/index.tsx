@@ -106,7 +106,16 @@ const Dashboard = () => {
             mt: '1.5rem',
           }}
         >
-          <Grid container>
+          <Grid
+            className="curved-corners activities"
+            container
+            sx={{
+              px: '1rem',
+              py: '1.5rem',
+              minWidth: 300,
+              mt: '1.5rem',
+            }}
+          >
             {Array.isArray(favoriteActivitiesList) &&
               favoriteActivitiesList?.map((activity) => (
                 <ActivityCard key={activity.activityId} activity={activity} />
