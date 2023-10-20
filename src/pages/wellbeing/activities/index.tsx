@@ -180,7 +180,7 @@ const Activities = () => {
 
   const handleScrollForMore = () => {
     document.body.scrollBy({
-      top: 300, // Scroll down by 300 pixels
+      top: 400, // Scroll down by 400 pixels
       behavior: 'smooth',
     });
   };
@@ -195,6 +195,7 @@ const Activities = () => {
   };
 
   useEffect(() => {
+    checkScrollPosition();
     document.body.addEventListener('scroll', checkScrollPosition);
     return () => {
       document.body.removeEventListener('scroll', checkScrollPosition);
@@ -284,7 +285,6 @@ const Activities = () => {
           className="curved-corners activities"
           container
           sx={{
-            px: '1rem',
             py: '1.5rem',
             minWidth: 300,
             mt: '1.5rem',

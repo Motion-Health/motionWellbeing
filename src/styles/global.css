@@ -109,7 +109,7 @@ body{
 
 .activities{
   background:none;
-  margin: 0;
+  margin: 0% -1%;
 }
 
 .scroll-for-more {
@@ -153,10 +153,6 @@ body{
   font-size: 2em;
 }
 
-.activities{
-  background:none;
-  margin: 0;
-}
 .activities .activity{
   padding: 1.5%;
   background: white;

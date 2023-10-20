@@ -101,19 +101,14 @@ const Dashboard = () => {
         <Box
           sx={{
             borderRadius: 2,
-            p: 2,
             minWidth: 300,
-            mt: '1.5rem',
           }}
         >
           <Grid
             className="curved-corners activities"
             container
             sx={{
-              px: '1rem',
-              py: '1.5rem',
               minWidth: 300,
-              mt: '1.5rem',
             }}
           >
             {Array.isArray(favoriteActivitiesList) &&
