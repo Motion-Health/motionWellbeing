@@ -23,7 +23,7 @@ import { Main } from '@/templates/Main';
 
 const ActivityDetails = () => {
   const [open, setOpen] = useState(false);
-  pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+  pdfjs.GlobalWorkerOptions.workerSrc = '/assets/js/pdf.worker.min.js';
   const DynamicDocument = dynamic(
     () => import('react-pdf').then((module) => module.Document),
     { ssr: false }

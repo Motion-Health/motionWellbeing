@@ -165,8 +165,6 @@ const ScheduleModal = ({
     }
   }, [isModalOpen]);
 
-  console.log('eventData', eventData);
-
   const methods = useForm({
     defaultValues: {
       title: eventData?.title,
@@ -193,7 +191,6 @@ const ScheduleModal = ({
 
   const onSubmitHandler = (values: Event) => {
     validateForm(eventData);
-    console.log(eventData);
     const updatedEventData = {
       ...eventData,
       accountId: accountId,
@@ -209,7 +206,6 @@ const ScheduleModal = ({
     }
 
     if (!updatedEventData?.eventId) {
-      console.log('create event');
       createEvent.mutate(updatedEventData, {
         onSuccess: (res) => {
           setIsModalOpen(false);
@@ -241,7 +237,6 @@ const ScheduleModal = ({
   const setSelectValueMethod = (value) => {
     setSelectValue(value);
     handleClose();
-    console.log('changed: ', value);
   };
 
   // Group activities by their category
@@ -365,7 +360,6 @@ const ScheduleModal = ({
                     onChange={(e) => {
                       setValue(e.target.value);
                       handleSelectActivityChange(e);
-                      console.log('changed: ', e.target.selectedActivity);
                     }}
                   >
                     {activitiesData?.map((activity) => (
@@ -386,8 +380,6 @@ const ScheduleModal = ({
                         onClick={(e) => {
                           e.stopPropagation();
                           e.preventDefault();
-
-                          console.log('clicked: ', category);
                         }}
                       >
                         {Array.isArray(groupedActivities[category]) &&
@@ -434,8 +426,6 @@ const ScheduleModal = ({
                           ...eventData,
                           title: 'Other (Non-Motion activity)',
                         });
-                        console.log('clicked: ', e.target.value);
-                        console.log('clicked: ', displayEventName);
                       }}
                     >
                       Other (Non-Motion activity)

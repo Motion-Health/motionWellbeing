@@ -59,6 +59,7 @@ const NavigationItems = () => {
       </div>
       <Grid
         container
+        className={styles.navigationContainer}
         direction="column"
         sx={{
           flexDirection: 'column',
