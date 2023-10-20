@@ -133,6 +133,10 @@ const ScheduleModal = ({
         )
       ) {
         setSelectedActivity(editEventData?.title);
+        setDisplayEventName(false);
+      } else {
+        setDisplayEventName(true);
+        setSelectedActivity('Other (Non-Motion activity)');
       }
 
       if (editEventData?.end) {
@@ -144,6 +148,7 @@ const ScheduleModal = ({
 
       setEventData({
         ...editEventData,
+
         start: dayjs(editEventData?.start),
         end: dayjs(editEventData?.end),
       });
@@ -160,11 +165,17 @@ const ScheduleModal = ({
     }
   }, [isModalOpen]);
 
+  console.log('eventData', eventData);
+
   const methods = useForm({
-    defaultValues: eventData,
+    defaultValues: {
+      title: eventData?.title,
+      start: eventData?.start,
+      end: eventData?.end,
+    },
   });
 
-  const { handleSubmit, control } = methods;
+  const { handleSubmit, setValue, control } = methods;
 
   const [populateEventTitle, setPopulateEventTitle] = useState<string>('');
 
@@ -186,6 +197,7 @@ const ScheduleModal = ({
     const updatedEventData = {
       ...eventData,
       accountId: accountId,
+      title: document.getElementById('title')?.value || '',
     };
     if (
       !updatedEventData.title ||
@@ -220,14 +232,14 @@ const ScheduleModal = ({
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const [value, setValue] = useState(''); // use '' instead of undefined
+  const [selectValue, setSelectValue] = useState(''); // use '' instead of undefined
 
   const handleClick = (event) => {
     return setAnchorEl(event.currentTarget);
   };
   const handleClose = () => setAnchorEl(null);
-  const setSelectValue = (value) => {
-    setValue(value);
+  const setSelectValueMethod = (value) => {
+    setSelectValue(value);
     handleClose();
     console.log('changed: ', value);
   };
@@ -295,29 +307,6 @@ const ScheduleModal = ({
     });
   };
 
-  const EventTitleField = ({ showTitleError, value, onChange }) => (
-    <Grid
-      item
-      xs={12}
-      sm={12}
-      md={12}
-      style={{ display: value ? 'block' : 'none' }}
-    >
-      <FormLabel>Event name *</FormLabel>
-      <TextField
-        name="title"
-        type="text"
-        value={value}
-        onChange={onChange}
-        fullWidth
-        sx={{ mb: 3 }}
-        variant="standard"
-        error={showTitleError}
-        helperText={showTitleError ? 'Event name is required' : ''}
-      />
-    </Grid>
-  );
-
   return (
     <Dialog
       open={isModalOpen}
@@ -369,7 +358,7 @@ const ScheduleModal = ({
                     </IconButton>
                   </div>
                   <Menu
-                    value={value}
+                    value={selectValue}
                     open={open}
                     anchorEl={anchorEl}
                     onClose={handleClose}
@@ -408,15 +397,24 @@ const ScheduleModal = ({
                               key={activity.activityId} // Add key for each mapped item
                               data-value={activity.activityName}
                               onClick={(e) => {
-                                setSelectValue(e.currentTarget.dataset.value);
+                                setSelectValueMethod(
+                                  e.currentTarget.dataset.value
+                                );
+                                document.getElementById('title').value =
+                                  e.currentTarget.dataset.value;
                                 setDisplayEventName(false);
                                 setSelectedActivity(
-                                  e.currentTarget.dataset.value
+                                  e.currentTarget.dataset.value || ''
+                                );
+                                // set title to value
+                                setValue(
+                                  'title',
+                                  e.currentTarget.dataset.value || ''
                                 );
                                 setEventData({
                                   ...eventData,
-                                  title: e.currentTarget.dataset.value,
-                                  activityId: activity.activityId,
+                                  title: e.currentTarget.dataset.value || '',
+                                  activityId: activity.activityId || '',
                                 });
                               }}
                             >
@@ -429,8 +427,15 @@ const ScheduleModal = ({
                       value={'Other (Non-Motion activity)'}
                       key={'Other'}
                       onClick={(e) => {
-                        setSelectValue('Other (Non-Motion activity)');
+                        setSelectValueMethod('Other (Non-Motion activity)');
                         setDisplayEventName(true);
+                        setSelectedActivity('Other (Non-Motion activity)');
+                        setEventData({
+                          ...eventData,
+                          title: 'Other (Non-Motion activity)',
+                        });
+                        console.log('clicked: ', e.target.value);
+                        console.log('clicked: ', displayEventName);
                       }}
                     >
                       Other (Non-Motion activity)
@@ -440,13 +445,25 @@ const ScheduleModal = ({
               </Grid>
             </Grid>
 
-            {displayEventName && (
-              <EventTitleField
-                showTitleError={showTitleError}
-                value={populateEventTitle}
-                onChange={handleTitleChange}
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              style={{ display: displayEventName ? 'block' : 'none' }}
+            >
+              <FormLabel>Event name *</FormLabel>
+              <TextField
+                name="title"
+                type="text"
+                defaultValue={populateEventTitle}
+                fullWidth
+                id="title"
+                sx={{ mb: 3 }}
+                variant="standard"
+                required
               />
-            )}
+            </Grid>
 
             <Grid item xs={12} sm={12} md={6}>
               <Grid container>
@@ -532,6 +549,7 @@ const ScheduleModal = ({
               Update Event
             </Button>
           )}
+
           {modalOpenAction === 'add-event' && (
             <Button
               variant="contained"
