@@ -20,4 +20,5 @@
 .navigationContainer{
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow: scroll;
 }
