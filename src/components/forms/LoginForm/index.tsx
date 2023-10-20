@@ -20,7 +20,7 @@ import { useLoginAccount } from '@/services/auth/useLoginAccount';
 import { Inputs } from '@/types/Inputs';
 import { AppConfig } from '@/utils/AppConfig';
 
-import styles from './loginForm.module.css';
+import styles from './LoginForm.module.css';
 
 // Assuming you've created a CSS module
 
