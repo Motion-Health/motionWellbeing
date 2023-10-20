@@ -3,7 +3,6 @@ import {
   Button,
   Collapse,
   Grid,
-  Link,
   List,
   ListItem,
   ListItemButton,
@@ -55,7 +54,7 @@ const NavigationItems = () => {
   return (
     <div className={styles.drawer}>
       <div className={styles.logo}>
-        <img src={AppConfig.logo} alt="logo" />
+        <img src={AppConfig.logo} width="144" height="95" alt="logo" />
       </div>
       <Grid
         container
@@ -89,6 +88,8 @@ const NavigationItems = () => {
                       <img
                         src={page.icon}
                         alt="icon"
+                        height="24"
+                        width="24"
                         style={{
                           filter:
                             pathname === page.path
@@ -124,6 +125,8 @@ const NavigationItems = () => {
                         <img
                           src={page.icon}
                           alt="icon"
+                          width="24"
+                          height="24"
                           style={{
                             filter:
                               pathname === page.path
@@ -239,7 +242,7 @@ const NavigationItems = () => {
               Get support
             </Button>
           )}
-          <Link
+          <Button
             onClick={logoutAccount}
             underline="none"
             sx={{
@@ -248,7 +251,7 @@ const NavigationItems = () => {
             }}
           >
             Log out
-          </Link>
+          </Button>
         </Grid>
       </Grid>
     </div>

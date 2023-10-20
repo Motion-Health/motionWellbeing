@@ -195,7 +195,12 @@ export const ActivityCard = (props: Props) => {
           }}
         >
           <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
-            <img src={categoryIcon} alt="Activity icon" />
+            <img
+              src={categoryIcon}
+              alt="Activity icon"
+              width="19"
+              height="19"
+            />
             <Typography variant="helper" sx={{ marginLeft: '0.5rem' }}>
               {timeLengthLabels?.[activity?.timeLength]}
             </Typography>

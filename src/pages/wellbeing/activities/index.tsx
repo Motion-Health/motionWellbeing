@@ -205,6 +205,7 @@ const Activities = () => {
     <Main>
       <Head>
         <title>Wellbeing activities | Motion Wellbeing</title>
+        <meta name="description" content="Wellbeing activities" />
       </Head>
       {showFailBanner && failMessage && (
         <Alert
@@ -254,9 +255,19 @@ const Activities = () => {
           <Button variant="link" onClick={() => onFilterButtonClick()}>
             Filters &nbsp;
             {toggleFilterIsOpen ? (
-              <img src="/assets/icons/ph_x.svg" alt="close" />
+              <img
+                src="/assets/icons/ph_x.svg"
+                width="24"
+                height="24"
+                alt="close"
+              />
             ) : (
-              <img src="/assets/icons/ph_sliders.svg" alt="slider" />
+              <img
+                src="/assets/icons/ph_sliders.svg"
+                width="24"
+                height="24"
+                alt="slider"
+              />
             )}
           </Button>
 

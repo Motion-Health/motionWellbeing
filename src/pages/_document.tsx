@@ -52,6 +52,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script
+            defer
             src="https://app.termly.io/embed.min.js"
             data-auto-block="off"
             data-website-uuid="cb23cb1a-800f-4e1c-8be6-2a04da33755f"
