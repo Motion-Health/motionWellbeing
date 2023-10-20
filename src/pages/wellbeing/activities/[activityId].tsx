@@ -51,15 +51,28 @@ const ActivityDetails = () => {
 
   //Has to be rendered after the rest of the code in order to overwrite the teamly function
   useEffect(() => {
+    const handlePageFullyRendered = () => {
+      const currentCookieState = getUpdatedCookieWhitelistByTermly(); // Assume this function gets the current cookie state
+      if (currentCookieState !== previousCookieState) {
+        // Assume previousCookieState is stored somewhere
+        window.location.reload();
+      }
+    };
+
     if (typeof document !== 'undefined') {
-      document.addEventListener('pageFullyRendered', function () {
-        getUpdatedCookieWhitelistByTermly = function () {
-          window.location.reload();
-        };
-      });
-      document.dispatchEvent(new Event('pageFullyRendered'));
+      document.addEventListener('pageFullyRendered', handlePageFullyRendered);
     }
-  }, []);
+
+    // Cleanup
+    return () => {
+      if (typeof document !== 'undefined') {
+        document.removeEventListener(
+          'pageFullyRendered',
+          handlePageFullyRendered
+        );
+      }
+    };
+  }, []); // Empty dependency array means this runs once when component mounts
 
   useEffect(() => {
     if (
