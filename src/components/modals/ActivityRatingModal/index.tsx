@@ -1,4 +1,3 @@
-import CloseIcon from '@mui/icons-material/Close';
 import { Dialog, Grid, Typography, useMediaQuery } from '@mui/material';
 
 import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
@@ -14,6 +13,7 @@ type Props = {
   ) => void;
   activityCompletedId: string | null;
   activityData: ActivityData | null;
+  openRatingModal: boolean | null;
 };
 
 export const ActivityRatingModal = ({
@@ -21,6 +21,7 @@ export const ActivityRatingModal = ({
   onCloseRatingModal,
   activityCompletedId,
   activityData,
+  openRatingModal,
 }: Props) => {
   const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -28,28 +29,32 @@ export const ActivityRatingModal = ({
   const updateCompletedActivity = useUpdateCompletedActivity();
 
   const handleAddRating = (rating: number) => {
-    if (toggleRatingModalAction === 'button-click') {
+    if (activityCompletedId) {
       const updatedCompletedActivity = {
-        activityCompletedId,
-        rating,
+        rating: rating,
+        activityCompletedId: activityCompletedId,
+        // comment: null,
+        // participants: null,
       };
+
+      console.log('updatedCompletedActivity', updatedCompletedActivity);
 
       updateCompletedActivity.mutate(updatedCompletedActivity, {
         onSuccess: (res) => {
           const { activityCompletedId } = res.data;
           onCloseRatingModal(true, activityCompletedId);
+          console.log('false 1');
         },
         onError: (err) => console.log('err', err),
       });
-    }
-
-    if (toggleRatingModalAction === 'video-timer') {
-      const newActivity = {
-        ...activityData,
+    } else {
+      const activityId = activityData?.activityId;
+      const updatedCompletedActivity = {
+        activityId,
         rating,
       };
-
-      completeActivity.mutate(newActivity, {
+      console.log('updatedCompletedActivity', updatedCompletedActivity);
+      completeActivity.mutate(updatedCompletedActivity, {
         onSuccess: (res) => {
           const { activityCompletedId } = res.data;
           onCloseRatingModal(true, activityCompletedId);
@@ -63,11 +68,11 @@ export const ActivityRatingModal = ({
 
   return (
     <Dialog
-      open={!!toggleRatingModalAction}
+      open={openRatingModal}
       fullScreen={shouldDisplayFullScreen}
       className="activity-rating-modal-wrapper"
     >
-      {toggleRatingModalAction === 'video-timer' && (
+      {/* {toggleRatingModalAction === "video-timer" && (
         <CloseIcon
           onClick={() => onCloseRatingModal(false)}
           style={{
@@ -77,7 +82,7 @@ export const ActivityRatingModal = ({
             cursor: 'pointer',
           }}
         />
-      )}
+      )} */}
 
       <Grid container sx={{ padding: '1.5rem' }}>
         <Grid container>

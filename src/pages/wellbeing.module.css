@@ -1,0 +1,19 @@
+.wellbeingHtml {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.wellbeingBody {
+  background-image: url("/assets/images/background.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+
+  position: absolute;
+  overflow: auto;
+  width: 100%;
+
+}
+

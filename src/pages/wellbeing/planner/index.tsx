@@ -1,7 +1,6 @@
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
-import { Typography } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
 import moment from 'moment';
 import Head from 'next/head';
@@ -14,10 +13,13 @@ import { Event } from '@/models/Event';
 import { usePlannerEvents } from '@/services/planner/usePlannerEvents';
 import { Main } from '@/templates/Main';
 
+import styles from './planner.module.css';
+
 const Planner = () => {
   const {
     account: { accountId, accountStatus },
   } = useAccountContext();
+  const [showButtons, setShowButtons] = useState<null | Event>(null);
 
   const { data: events, refetch: refetchPlannerEvents } =
     usePlannerEvents(accountId);
@@ -49,11 +51,21 @@ const Planner = () => {
     setAddEventStartDate(dayjs(selectedDate));
   }
 
-  function handleEventClick(eventData: Event) {
+  function handleEdit(eventData: Event) {
     if (!eventData.isProtected) {
       setToggleScheduleModal(Math.random());
       setModalOpenAction('edit-event');
       setEditEventData(eventData);
+    }
+  }
+  function handleEventClick(eventData: Event) {
+    setShowButtons(eventData); // set the event data on click
+  }
+
+  function handleOpen(eventData: Event) {
+    console.log(eventData);
+    if (!eventData.isProtected && eventData.activityId) {
+      router.push(`/wellbeing/activities/${eventData.activityId}`);
     }
   }
 
@@ -68,6 +80,7 @@ const Planner = () => {
     const eventData = {
       eventId: eventInfo.event.extendedProps.eventId,
       accountId: eventInfo.event.extendedProps.accountId,
+      activityId: eventInfo.event.extendedProps.activityId,
       title: eventInfo.event.title,
       start: eventInfo.event.start,
       end: eventInfo.event.end,
@@ -78,16 +91,39 @@ const Planner = () => {
     if (timeText === '00:00') timeText = ''; // remove labels for all-day events which start at midnight
 
     return (
-      <>
+      <div className={styles.eventContainer}>
         <div
-          className="event"
-          onClick={() => handleEventClick(eventData)}
+          className={styles.event}
+          onClick={() => handleEventClick(eventData)} // this now sets the showButtons state
           variant="link"
         >
-          <Typography variant="h4">{eventInfo.event.title} </Typography>
-          <Typography variant="helper">{timeText}</Typography>
+          {/* {(showButtons === null ||
+            showButtons.eventId != eventData.eventId) && ( */}
+          <>
+            <div className={styles.eventTitle}>{eventInfo.event.title}</div>
+            <div className={styles.eventTime}>{timeText}</div>
+          </>
+          {/* )} */}
         </div>
-      </>
+        {showButtons && showButtons.eventId === eventData.eventId && (
+          <div>
+            <button
+              className={styles.editButton}
+              onClick={() => handleEdit(eventData)}
+            >
+              Edit
+            </button>
+            {showButtons.activityId && (
+              <button
+                className={styles.openButton}
+                onClick={() => handleOpen(eventData)}
+              >
+                Open
+              </button>
+            )}
+          </div>
+        )}
+      </div>
     );
   }
   return (

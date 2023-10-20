@@ -1,5 +1,6 @@
 import 'dayjs/locale/en-gb';
 
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
@@ -7,9 +8,10 @@ import {
   Dialog,
   FormLabel,
   Grid,
+  IconButton,
+  Menu,
   MenuItem,
   Select,
-  SelectChangeEvent,
   TextField,
   Typography,
   useMediaQuery,
@@ -18,10 +20,13 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { NestedMenuItem } from 'mui-nested-menu';
+import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 
 import { useAccountContext } from '@/context/AccountContext';
+import { categories } from '@/data/categories.ts';
 import { Event } from '@/models/Event';
 import { useListActivities } from '@/services/activities/useListActivities';
 import { useCreateEvent } from '@/services/planner/useCreateEvent';
@@ -29,6 +34,8 @@ import { useDeleteEvent } from '@/services/planner/useDeleteEvent';
 import { useUpdateEvent } from '@/services/planner/useUpdateEvent';
 import theme from '@/styles/theme';
 
+import styles from './scheduleModal.module.css';
+import useValidation from './useValidation';
 type Props = {
   toggleScheduleModal: number;
   modalOpenAction: 'add-event' | 'edit-event' | null;
@@ -44,6 +51,13 @@ const ScheduleModal = ({
   addEventStartDate,
   onCloseScheduleModal,
 }: Props) => {
+  const {
+    showTitleError,
+    showStartError,
+    showEndError,
+    validateForm,
+    resetValidation,
+  } = useValidation();
   const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const errorTextColour = theme.palette.error.main;
   const [durationHours, setDurationHours] = useState(0);
@@ -51,7 +65,7 @@ const ScheduleModal = ({
   const {
     account: { accountId },
   } = useAccountContext();
-
+  const [displayEventName, setDisplayEventName] = useState<boolean>(false);
   const [selectedActivity, setSelectedActivity] = useState('');
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -63,19 +77,11 @@ const ScheduleModal = ({
   const [startDateValue, setStartDateValue] = useState<Dayjs | null>(null);
   const [endDateValue, setEndDateValue] = useState<Dayjs | null>(null);
 
-  const hideValidationErrors = () => {
-    setShowTitleError(false);
-    setShowStartError(false);
-    setShowEndError(false);
-  };
-
   const resetFormData = () => {
     setEventData(null);
-
     setStartDateValue(null);
     setEndDateValue(null);
-
-    hideValidationErrors();
+    resetValidation();
   };
   useEffect(() => {
     const calculatedEndDate = dayjs(startDateValue)
@@ -97,6 +103,13 @@ const ScheduleModal = ({
     if (modalOpenAction === 'add-event') {
       setPopulateEventTitle('');
       setSelectedActivity('');
+      setEventData({
+        accountId: accountId,
+        title: '',
+        start: '',
+        end: '',
+        isProtected: false,
+      });
       resetFormData();
       if (addEventStartDate) {
         setStartDateValue(addEventStartDate);
@@ -119,18 +132,23 @@ const ScheduleModal = ({
           (activity) => activity.activityName == editEventData?.title
         )
       ) {
-        console.log('activity exists');
-
         setSelectedActivity(editEventData?.title);
-        console.log('selected activity', editEventData?.title);
+        setDisplayEventName(false);
+      } else {
+        setDisplayEventName(true);
+        setSelectedActivity('Other (Non-Motion activity)');
       }
 
       if (editEventData?.end) {
-        setEndDateValue(dayjs(editEventData.end));
+        // find hours and minjutes from end date
+        const endDate = dayjs(editEventData?.end);
+        setDurationHours(endDate.diff(editEventData?.start, 'hour'));
+        setDurationMinutes(endDate.diff(editEventData?.start, 'minute') % 60);
       }
 
       setEventData({
         ...editEventData,
+
         start: dayjs(editEventData?.start),
         end: dayjs(editEventData?.end),
       });
@@ -148,23 +166,16 @@ const ScheduleModal = ({
   }, [isModalOpen]);
 
   const methods = useForm({
-    defaultValues: eventData,
+    defaultValues: {
+      title: eventData?.title,
+      start: eventData?.start,
+      end: eventData?.end,
+    },
   });
 
-  const { handleSubmit, control } = methods;
+  const { handleSubmit, setValue, control } = methods;
 
   const [populateEventTitle, setPopulateEventTitle] = useState<string>('');
-
-  const handleSelectActivityChange = (event: SelectChangeEvent) => {
-    const selectedEventTitle = event.target.value;
-    setPopulateEventTitle(selectedEventTitle);
-    setSelectedActivity(event.target.value);
-
-    setEventData({
-      ...eventData,
-      title: selectedEventTitle,
-    });
-  };
 
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newTitle = event.target.value;
@@ -172,53 +183,30 @@ const ScheduleModal = ({
 
     setEventData({
       ...eventData,
-      title: newTitle,
     });
   };
 
   const createEvent = useCreateEvent();
   const updateEvent = useUpdateEvent();
 
-  const [showTitleError, setShowTitleError] = useState<boolean>(false);
-  const [showStartError, setShowStartError] = useState<boolean>(false);
-  const [showEndError, setShowEndError] = useState<boolean>(false);
-
-  const validateForm = (formSubmitData: Event) => {
-    hideValidationErrors();
-
-    if (!formSubmitData?.title) {
-      setShowTitleError(true);
-    }
-
-    if (!formSubmitData?.start) {
-      console.log('show start error');
-      console.log(formSubmitData);
-      setShowStartError(true);
-    }
-
-    if (!formSubmitData?.end) {
-      setShowEndError(true);
-    }
-  };
-
   const onSubmitHandler = (values: Event) => {
-    const newEventData = {
+    validateForm(eventData);
+    const updatedEventData = {
       ...eventData,
-      ...values,
-      start: eventData?.start,
-      end: eventData?.end,
-      accountId,
+      accountId: accountId,
+      title: document.getElementById('title')?.value || '',
     };
-
-    validateForm(newEventData);
-
-    if (!newEventData.title || !newEventData.start || !newEventData.end) {
+    if (
+      !updatedEventData.title ||
+      !updatedEventData.start ||
+      !updatedEventData.end
+    ) {
       // prevent submit
       return null;
     }
 
-    if (!eventData?.eventId) {
-      createEvent.mutate(newEventData, {
+    if (!updatedEventData?.eventId) {
+      createEvent.mutate(updatedEventData, {
         onSuccess: (res) => {
           setIsModalOpen(false);
         },
@@ -227,7 +215,7 @@ const ScheduleModal = ({
         },
       });
     } else {
-      updateEvent.mutate(newEventData, {
+      updateEvent.mutate(updatedEventData, {
         onSuccess: (res) => {
           setIsModalOpen(false);
         },
@@ -237,6 +225,36 @@ const ScheduleModal = ({
       });
     }
   };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const [selectValue, setSelectValue] = useState(''); // use '' instead of undefined
+
+  const handleClick = (event) => {
+    return setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => setAnchorEl(null);
+  const setSelectValueMethod = (value) => {
+    setSelectValue(value);
+    handleClose();
+  };
+
+  // Group activities by their category
+  const groupedActivities = useMemo(() => {
+    if (!Array.isArray(activitiesData)) {
+      console.error(
+        'Invalid input to groupByCategory, array expected:',
+        activitiesData
+      );
+      return {};
+    }
+    return activitiesData.reduce((result, activity) => {
+      (result[activity.category] = result[activity.category] || []).push(
+        activity
+      );
+      return result;
+    }, {});
+  }, [activitiesData]);
 
   const onStartDateChange = (date: Dayjs) => {
     setStartDateValue(date);
@@ -257,7 +275,7 @@ const ScheduleModal = ({
       end: formattedEndDate,
     });
   };
-
+  const [hoveredCategory, setHoveredCategory] = useState('');
   const onEndDateChange = (date: any) => {
     setEndDateValue(date);
 
@@ -288,7 +306,7 @@ const ScheduleModal = ({
     <Dialog
       open={isModalOpen}
       fullScreen={shouldDisplayFullScreen}
-      className="schedule-modal-wrapper"
+      className={styles.scheduleModalWrapper}
     >
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
@@ -309,12 +327,9 @@ const ScheduleModal = ({
         }}
       >
         <Grid container justifyContent="space-between">
-          {modalOpenAction === 'edit-event' && (
-            <Typography variant="h1">Edit event</Typography>
-          )}
-          {modalOpenAction === 'add-event' && (
-            <Typography variant="h1">Schedule event</Typography>
-          )}
+          <Typography variant="h1">
+            {modalOpenAction === 'edit-event' ? 'Edit event' : 'Schedule event'}
+          </Typography>
 
           {modalOpenAction === 'edit-event' && (
             <Button onClick={() => handleDeleteEvent()}>
@@ -328,35 +343,115 @@ const ScheduleModal = ({
             <Grid item xs={12} sm={12} md={12}>
               <FormLabel>Select activity</FormLabel>
               <Grid item>
-                <Select
-                  fullWidth
-                  onChange={handleSelectActivityChange}
-                  value={selectedActivity}
-                >
-                  {activitiesData?.map((activity) => (
+                <div>
+                  <div onClick={handleClick} className={styles.select}>
+                    <span className={styles.selectText}>
+                      {selectedActivity || 'Select Activity'}
+                    </span>
+                    <IconButton size="small" edge="end" onClick={handleClick}>
+                      <ArrowDropDownIcon />
+                    </IconButton>
+                  </div>
+                  <Menu
+                    value={selectValue}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    onChange={(e) => {
+                      setValue(e.target.value);
+                      handleSelectActivityChange(e);
+                    }}
+                  >
+                    {activitiesData?.map((activity) => (
+                      <MenuItem
+                        key={activity.activityId}
+                        value={activity.activityName}
+                        sx={{ display: 'none' }}
+                      ></MenuItem>
+                    ))}
+                    {Object.keys(groupedActivities).map((category) => (
+                      <NestedMenuItem
+                        label={
+                          categories.find((cat) => cat.filter === category)
+                            ?.title
+                        }
+                        parentMenuOpen={open}
+                        key={category}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          e.preventDefault();
+                        }}
+                      >
+                        {Array.isArray(groupedActivities[category]) &&
+                          groupedActivities[category].map((activity) => (
+                            <MenuItem
+                              value={activity.activityName}
+                              key={activity.activityId} // Add key for each mapped item
+                              data-value={activity.activityName}
+                              onClick={(e) => {
+                                setSelectValueMethod(
+                                  e.currentTarget.dataset.value
+                                );
+                                document.getElementById('title').value =
+                                  e.currentTarget.dataset.value;
+                                setDisplayEventName(false);
+                                setSelectedActivity(
+                                  e.currentTarget.dataset.value || ''
+                                );
+                                // set title to value
+                                setValue(
+                                  'title',
+                                  e.currentTarget.dataset.value || ''
+                                );
+                                setEventData({
+                                  ...eventData,
+                                  title: e.currentTarget.dataset.value || '',
+                                  activityId: activity.activityId || '',
+                                });
+                              }}
+                            >
+                              {activity.activityName}
+                            </MenuItem>
+                          ))}
+                      </NestedMenuItem>
+                    ))}
                     <MenuItem
-                      key={activity.activityName}
-                      value={activity.activityName}
+                      value={'Other (Non-Motion activity)'}
+                      key={'Other'}
+                      onClick={(e) => {
+                        setSelectValueMethod('Other (Non-Motion activity)');
+                        setDisplayEventName(true);
+                        setSelectedActivity('Other (Non-Motion activity)');
+                        setEventData({
+                          ...eventData,
+                          title: 'Other (Non-Motion activity)',
+                        });
+                      }}
                     >
-                      {activity.activityName}
+                      Other (Non-Motion activity)
                     </MenuItem>
-                  ))}
-                </Select>
+                  </Menu>
+                </div>
               </Grid>
             </Grid>
 
-            <Grid item xs={12} sm={12} md={12}>
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={12}
+              style={{ display: displayEventName ? 'block' : 'none' }}
+            >
               <FormLabel>Event name *</FormLabel>
               <TextField
                 name="title"
                 type="text"
-                value={populateEventTitle}
-                onChange={handleTitleChange}
+                defaultValue={populateEventTitle}
                 fullWidth
+                id="title"
                 sx={{ mb: 3 }}
                 variant="standard"
-                error={showTitleError}
-                helperText={showTitleError ? 'Event name is required' : ''}
+                required
               />
             </Grid>
 
@@ -444,6 +539,7 @@ const ScheduleModal = ({
               Update Event
             </Button>
           )}
+
           {modalOpenAction === 'add-event' && (
             <Button
               variant="contained"

@@ -15,15 +15,22 @@ import { Main } from '@/templates/Main';
 const useSuccessBanner = (query) => {
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
+  const [showFailBanner, setShowFailBanner] = useState(false);
+  const [failMessage, setFailMessage] = useState(null);
 
   useEffect(() => {
     const { task, success, upgrade } = query;
+    console.log('task', task);
     if (task === 'complete') {
       setSuccessMessage('Success, activity completed!');
       setShowSuccessBanner(true);
     } else if (success === 'true' && upgrade === 'premium') {
       setSuccessMessage('Success, you are now a premium member!');
       setShowSuccessBanner(true);
+    } else if (task === 'not-found') {
+      console.log('task not found');
+      setFailMessage('Activity not found!');
+      setShowFailBanner(true);
     }
   }, [query]);
 
@@ -38,7 +45,7 @@ const Dashboard = () => {
     useSuccessBanner(router.query);
 
   const { data: favoriteActivities } = useFavoriteActivities();
-  const [favoriteActivitiesList, setFavoriteActivitiesList] = useState(null);
+  const [favoriteActivitiesList, setFavoriteActivitiesList] = useState([]);
   useEffect(() => {
     if (favoriteActivities?.length) {
       setFavoriteActivitiesList(favoriteActivities.slice(0, 3));
@@ -57,6 +64,7 @@ const Dashboard = () => {
         <title>Dashboard | Motion Wellbeing</title>
       </Head>
       {isFirstLogin && <TutorialModal />}
+
       {showSuccessBanner && successMessage && (
         <Alert
           sx={{ position: 'inherit' }}
@@ -92,18 +100,21 @@ const Dashboard = () => {
         <Typography variant="h2">Favourite activities</Typography>
         <Box
           sx={{
-            bgcolor: 'background.paper',
-            boxShadow: 1,
             borderRadius: 2,
-            p: 2,
             minWidth: 300,
-            mt: '1.5rem',
           }}
         >
-          <Grid container>
-            {favoriteActivitiesList?.map((activity) => (
-              <ActivityCard key={activity.activityId} activity={activity} />
-            ))}
+          <Grid
+            className="curved-corners activities"
+            container
+            sx={{
+              minWidth: 300,
+            }}
+          >
+            {Array.isArray(favoriteActivitiesList) &&
+              favoriteActivitiesList?.map((activity) => (
+                <ActivityCard key={activity.activityId} activity={activity} />
+              ))}
           </Grid>
         </Box>
       </Grid>

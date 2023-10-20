@@ -4,6 +4,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.node/,
+      use: 'raw-loader',
+    });
+    
+    return config;
+  },
   eslint: {
     dirs: ['.'],
     ignoreDuringBuilds: true,
@@ -22,8 +30,8 @@ module.exports = withBundleAnalyzer({
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'motion-web-assets.s3.eu-west-2.amazonaws.com'
-      }
-    ]
-  }
+        hostname: 'motion-web-assets.s3.eu-west-2.amazonaws.com',
+      },
+    ],
+  },
 });

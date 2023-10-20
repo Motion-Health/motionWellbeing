@@ -22,13 +22,36 @@ const Activities = () => {
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const router = useRouter();
+  const [showFailBanner, setShowFailBanner] = useState(false);
+  const [failMessage, setFailMessage] = useState(null);
   const categoryQuery: string | string[] = router.query.filter || '';
+
   useEffect(() => {
     if (router.query.task === 'complete') {
       setSuccessMessage('Success, activity completed!');
       setShowSuccessBanner(true);
+      router.replace(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, task: undefined },
+        },
+        undefined,
+        { shallow: true }
+      );
+    } else if (router.query.task === 'not-found') {
+      setFailMessage('Activity not found!');
+      setShowFailBanner(true);
+      router.replace(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, task: undefined },
+        },
+        undefined,
+        { shallow: true }
+      );
     }
   }, [router.query]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [toggleActivitiesFormModal, setToggleActivitiesFormModal] =
     useState<number>(1);
   const [modalOpenAction, setModalOpenAction] = useState<string | null>(null);
@@ -49,6 +72,17 @@ const Activities = () => {
   const handleFilterChange = (filterValues: any[]) => {
     setFilterValues(filterValues);
   };
+
+  useEffect(() => {
+    // Get initial filter values from the URL
+    const initialFilterValues = Object.values(router.query);
+    setFilterValues(initialFilterValues);
+  }, []);
+  useEffect(() => {
+    // Restore filter values from the URL
+    const filterValuesFromURL = Object.values(router.query);
+    setFilterValues(filterValuesFromURL);
+  }, [router.query]);
 
   useEffect(() => {
     if (!filterValues.includes('all') && filterValues?.length) {
@@ -142,13 +176,47 @@ const Activities = () => {
       setToggleFilterIsOpen(false);
     }
   };
+  const [showScrollButton, setShowScrollButton] = useState(true);
+
+  const handleScrollForMore = () => {
+    document.body.scrollBy({
+      top: 400, // Scroll down by 400 pixels
+      behavior: 'smooth',
+    });
+  };
+
+  const checkScrollPosition = () => {
+    const { scrollTop, scrollHeight, clientHeight } = document.body;
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+      setShowScrollButton(false);
+    } else {
+      setShowScrollButton(true);
+    }
+  };
+
+  useEffect(() => {
+    checkScrollPosition();
+    document.body.addEventListener('scroll', checkScrollPosition);
+    return () => {
+      document.body.removeEventListener('scroll', checkScrollPosition);
+    };
+  }, []);
 
   return (
     <Main>
       <Head>
         <title>Wellbeing activities | Motion Wellbeing</title>
+        <meta name="description" content="Wellbeing activities" />
       </Head>
-
+      {showFailBanner && failMessage && (
+        <Alert
+          sx={{ position: 'inherit', marginBottom: '1rem' }}
+          severity="error"
+          onClose={() => setShowFailBanner(false)}
+        >
+          {failMessage}
+        </Alert>
+      )}
       {showSuccessBanner && successMessage && (
         <>
           <Alert
@@ -166,6 +234,8 @@ const Activities = () => {
         modalOpenAction={modalOpenAction}
         activityData={null}
         onActivitySaved={handleActivitySaved}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
       />
 
       <PageHeader title="Wellbeing activities">
@@ -186,41 +256,57 @@ const Activities = () => {
           <Button variant="link" onClick={() => onFilterButtonClick()}>
             Filters &nbsp;
             {toggleFilterIsOpen ? (
-              <img src="/assets/icons/ph_x.svg" alt="close" />
+              <img
+                src="/assets/icons/ph_x.svg"
+                width="24"
+                height="24"
+                alt="close"
+              />
             ) : (
-              <img src="/assets/icons/ph_sliders.svg" alt="slider" />
+              <img
+                src="/assets/icons/ph_sliders.svg"
+                width="24"
+                height="24"
+                alt="slider"
+              />
             )}
           </Button>
 
           {toggleFilterIsOpen && (
-            <ActivitiesFilters onFilterChange={handleFilterChange} />
+            <ActivitiesFilters
+              currentFilterValues={filterValues}
+              onFilterChange={handleFilterChange}
+            />
           )}
         </Grid>
       </ActivitySearch>
+      <div className="activities_parent">
+        <Grid
+          className="curved-corners activities"
+          container
+          sx={{
+            py: '1.5rem',
+            minWidth: 300,
+            mt: '1.5rem',
+          }}
+        >
+          {displayActivities?.length !== 0 &&
+            displayActivities?.map((activity: ActivityData) => (
+              <ActivityCard key={activity.activityId} activity={activity} />
+            ))}
 
-      <Grid
-        container
-        sx={{
-          bgcolor: 'background.paper',
-          boxShadow: 1,
-          borderRadius: 2,
-          px: '1rem',
-          py: '1.5rem',
-          minWidth: 300,
-          mt: '1.5rem',
-        }}
-      >
-        {displayActivities?.length !== 0 &&
-          displayActivities?.map((activity: ActivityData) => (
-            <ActivityCard key={activity.activityId} activity={activity} />
-          ))}
-
-        {(displayActivities?.length === 0 || allActivitiesAreHidden) && (
-          <Typography sx={{ textAlign: 'center' }}>
-            There are no activities to display
-          </Typography>
+          {(displayActivities?.length === 0 || allActivitiesAreHidden) && (
+            <Typography sx={{ textAlign: 'center' }}>
+              There are no activities to display
+            </Typography>
+          )}
+        </Grid>
+        {showScrollButton && (
+          <div className="scroll-for-more" onClick={handleScrollForMore}>
+            <div className="arrow">↓</div>
+          </div>
         )}
-      </Grid>
+      </div>
     </Main>
   );
 };

@@ -5,13 +5,22 @@
 * {
   box-sizing: border-box;
 }
-body {
-  background-image: url("/assets/images/background.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+td {
+
+  overflow: hidden;
 }
+.fc-daygrid-event{
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+body{
+  font-family: "Montserrat","Helvetica","Arial",sans-serif;
+}
+
 .manage-membership-container {
+  margin-top: 1rem;
   text-align: center;
   border: 1px solid #7095c2;
   border-radius: 25px;
@@ -36,6 +45,50 @@ body {
   font-weight: 500;
 }
 
+.pdf-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+
+.react-pdf__Document:hover .download-message {
+  display: flex;
+}
+
+
+.react-pdf__Document:hover .react-pdf__Page {
+  filter: brightness(50%);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+} 
+
+.react-pdf__Page{
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+.react-pdf__Document  {
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+}
+
+
+.download-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 1;
+}
+
 
 @media print {
   body {
@@ -49,6 +102,71 @@ body {
     display: none !important;
   }
 }
+.curved-corners{
+  border-radius: 15px;
+}
+
+
+.activities{
+  background:none;
+  margin: 0% -1%;
+}
+
+.scroll-for-more {
+  cursor: pointer;
+  position: fixed;
+  padding: 0px 25px;
+  background-color: #0f5298;
+  color: white;
+  border-radius: 15px 15px 0px 0px;
+  text-align: center;
+  left: calc(50% + 125px - 34.2px);
+  height:  fit-content !important;   
+  bottom: 0px;
+
+}
+
+/* screnwidth under 900px */
+@media (max-width: 900px) {
+  .scroll-for-more {
+    left: calc(50% - 34.2px);
+  }
+}
+.react-pdf__Document{
+  width: fit-content;
+}
+.react-pdf__Page{
+  --scale-factor: none !important;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.arrow{
+  animation: bounce 1s infinite;
+  display: inline-block;
+  font-size: 2em;
+}
+
+.activities .activity{
+  padding: 1.5%;
+  background: white;
+  margin: 1%;
+  flex-basis: 31.333333%;
+  transition: all 0.2s ease-in-out;
+}
+.activity:hover{
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transform: scale(1.03);
+
+}
+
 
 .page {
   display: flex;
@@ -152,14 +270,17 @@ body {
   margin: 0;
 }
 
+.fc .fc-view-harness {
+  max-height:80vh;
+}
 .event h4 {
   font-size: 14px;
   white-space: normal;
 }
 
-.fc-daygrid-day-events {
-  height: 100px;
-  display: inline-table;
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+  min-height: 100px;
+  display: block;
   width: 100%;
 }
 

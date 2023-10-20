@@ -1,7 +1,5 @@
 .cardWrapper {
-  padding-top: 8.75rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 2rem;
   max-width: 1224px;
   margin: auto;
   box-sizing: border-box;
@@ -18,7 +16,7 @@
 .card {
   background: #f1d5ff;
   border-radius: 16px;
-  max-width: 600px;
+  /* max-width: 600px; */
   margin-right: 1.5rem;
   padding-bottom: 2rem;
   text-align: center;
@@ -27,9 +25,10 @@
 }
 
 .cardAlternative {
+  margin: auto;
   background: #d5f3fe;
   border-radius: 16px;
-  max-width: 600px;
+  /* max-width: 600px; */
   padding-bottom: 2rem;
   text-align: center;
   margin-bottom: 1rem;
@@ -37,7 +36,7 @@
 
 @media (max-width: 992px) {
   .card,
-  .cardAlternative {
+  .cardAlternative {  
     width: 100%;
     max-width: 100%;
     margin-bottom: 4rem;
@@ -47,13 +46,13 @@
 .card img,
 .cardAlternative img {
   max-width: 600px;
-  height: 400px;
-  background-color: red;
+  height: 400px;  
   object-fit: contain;
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
+
 
 @media (max-width: 992px) {
   .card img,

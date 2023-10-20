@@ -1,13 +1,17 @@
-import styles from "./about.module.css";
+import Image from 'next/legacy/image';
 
+import styles from './about.module.css';
 export const About = () => {
   return (
     <section id="about" className={styles.aboutWrapper}>
       <div>
-        <img
+        <Image
           className={styles.image}
-          src="../../assets/home/about.jpg"
+          src="/assets/home/about.jpg" // Adjust the path if necessary
           alt="About us image"
+          width={891}
+          height={594}
+          layout="responsive"
         />
         <div className={styles.about}>
           <h2 className="landing-h2">About us</h2>
@@ -33,8 +37,8 @@ export const About = () => {
         <div className={styles.videoWrapper}>
           <iframe
             className={styles.videoAlternative}
-            src="https://www.youtube.com/embed/3wcCZ0G_yak"
-            frameBorder="0"
+            src="https://www.youtube.com/embed/3wcCZ0G_yak?rel=0"
+            title="Motion Moments YouTube video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>
@@ -57,9 +61,8 @@ export const About = () => {
         <div className={styles.videoWrapper}>
           <iframe
             className={styles.video}
-            src="https://www.youtube.com/embed/BvIoTdYOPTE"
-            title="YouTube video player"
-            frameBorder="0"
+            src="https://www.youtube.com/embed/BvIoTdYOPTE?rel=0"
+            title="Events YouTube video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>

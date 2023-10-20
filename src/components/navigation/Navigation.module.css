@@ -13,3 +13,11 @@
   text-decoration: none;
   color:#0c437d;
 }
+.navigationContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.navigationContainer{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

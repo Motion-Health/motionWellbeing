@@ -8,6 +8,7 @@
   width: 100%;
 }
 
+
 video.herovideo {
   object-fit: cover;
   width: 100%;
@@ -48,7 +49,6 @@ video.herovideo {
   padding: 0rem 2rem;
   display: flex;
   margin-bottom: 5rem;
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 2rem;

@@ -1,5 +1,6 @@
-import styles from "./form.module.css";
-import { useRef } from "react";
+import { useRef } from 'react';
+
+import styles from './form.module.css';
 
 export const Contact = () => {
   const myRef: any = useRef(null);
@@ -20,20 +21,24 @@ export const Contact = () => {
 
           <div>
             <div>
-              <label>Name</label>
-              <input required type="text" id="name" name="name" />
+              <label>
+                Name
+                <input required type="text" id="name" name="name" />
+              </label>
             </div>
             <div>
-              <label>Email</label>
-
-              <input required type="email" id="email" name="email" />
+              <label>
+                Email
+                <input required type="email" id="email" name="email" />
+              </label>
             </div>
           </div>
-          <label>Message</label>
+          <label>
+            Message
+            <textarea required id="message" name="message" />
+          </label>
 
-          <textarea required name="message" />
-
-          <p>
+          <p className={styles.formButton}>
             <button
               name="Send Message"
               className="w-full lg:w-auto storybook-button storybook-button--large storybook-button--primary"
@@ -60,12 +65,13 @@ export const Contact = () => {
             S3 7HQ
           </address>
 
-          <div className=" mt-4 flex">
+          <div className={styles.grid}>
             <a
               className={styles.socials}
               href="https://www.facebook.com/motionexercise"
               target="_blank"
               rel="noreferrer"
+              aria-label="Facebook"
             >
               <svg
                 width="64"
@@ -84,6 +90,7 @@ export const Contact = () => {
             <a
               className={styles.socials}
               href="https://www.instagram.com/motionexercise/"
+              aria-label="Instagram"
               target="_blank"
               rel="noreferrer"
             >
@@ -106,6 +113,7 @@ export const Contact = () => {
               href="https://www.youtube.com/channel/UCWgS--l2ajsmlsA95r3_4uQ/videos"
               target="_blank"
               rel="noreferrer"
+              aria-label="Youtube"
             >
               <svg
                 width="64"
@@ -126,6 +134,7 @@ export const Contact = () => {
               href="https://www.linkedin.com/company/motion-exercise-cic/?originalSubdomain=uk"
               target="_blank"
               rel="noreferrer"
+              aria-label="Linkedin"
             >
               <svg
                 width="64"

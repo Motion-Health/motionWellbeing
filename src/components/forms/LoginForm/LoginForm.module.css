@@ -1,0 +1,54 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 500px;
+  margin: auto;
+}
+
+.alert {
+  margin-bottom: 1rem;
+  width: 80%;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoContainer {
+  padding: 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.heading {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.container .form .input {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.button {
+  padding: 0.8rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.loginButton {
+  padding: 0.8rem;
+  margin-top: 1rem;
+  width: 210px;
+  border-radius: 50px;
+  color: white;
+}

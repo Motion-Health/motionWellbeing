@@ -58,69 +58,76 @@ export default function upgradeCard() {
   return (
     <Grid container>
       {packages.length > 1 &&
-        packages?.map((product) => (
-          <Grid key={product.id} item xs={12} lg={4} md={6} sm={12}>
-            <div className="product-card">
-              <img src={product.image} alt={product.name} />
-              <div className="product-content">
-                <Typography variant="h2">{product.name}</Typography>
-                <Typography variant="body" sx={{ my: '1rem' }}>
-                  {product.description}
-                </Typography>
-                {product.type == 'group' && (
-                  <Typography variant="h1">POA</Typography>
-                )}
-                {product.type == 'standard' && (
-                  <Typography variant="h1">Free</Typography>
-                )}
-                {product.type != 'group' && product.type != 'standard' && (
-                  <>
-                    <div>
-                      <Typography variant="h1">£{product.price}</Typography>
-                      <Typography variant="body">per month</Typography>
-                    </div>
-                  </>
-                )}
-                <ul>
-                  <li>
-                    {' '}
-                    <Typography variant="h3">You get..</Typography>
-                  </li>
-                  {product.features.map((feature) => (
-                    <li key={feature}>
-                      <Typography variant="body" component="p">
-                        {feature}
-                      </Typography>
+        packages
+          ?.filter(
+            (product) =>
+              product.name === 'Standard' ||
+              product.name === 'Premium' ||
+              product.name === 'Group'
+          )
+          .map((product) => (
+            <Grid key={product.id} item xs={12} lg={4} md={6} sm={12}>
+              <div className="product-card">
+                <img src={product.image} alt={product.name} />
+                <div className="product-content">
+                  <Typography variant="h2">{product.name}</Typography>
+                  <Typography variant="body" sx={{ my: '1rem' }}>
+                    {product.description}
+                  </Typography>
+                  {product.type == 'group' && (
+                    <Typography variant="h1">POA</Typography>
+                  )}
+                  {product.type == 'standard' && (
+                    <Typography variant="h1">Free</Typography>
+                  )}
+                  {product.type != 'group' && product.type != 'standard' && (
+                    <>
+                      <div>
+                        <Typography variant="h1">£{product.price}</Typography>
+                        <Typography variant="body">per month</Typography>
+                      </div>
+                    </>
+                  )}
+                  <ul>
+                    <li>
+                      {' '}
+                      <Typography variant="h3">You get..</Typography>
                     </li>
-                  ))}
-                </ul>
-                {accountStatus == product.type && (
-                  <Button variant="contained" fullWidth disabled>
-                    Your Current Plan
-                  </Button>
-                )}
-                {product.type == 'group' && accountStatus != product.type && (
-                  <Button variant="contained" fullWidth href="/#contact">
-                    GET A QUOTE
-                  </Button>
-                )}
-                {product.type === 'premium' &&
-                  accountStatus != product.type && (
-                    <Button
-                      variant="contained"
-                      type="button"
-                      onClick={() =>
-                        checkout(product.priceId, product.type, accountId)
-                      }
-                      fullWidth
-                    >
-                      Upgrade Now
+                    {product.features.map((feature) => (
+                      <li key={feature}>
+                        <Typography variant="body" component="p">
+                          {feature}
+                        </Typography>
+                      </li>
+                    ))}
+                  </ul>
+                  {accountStatus == product.type && (
+                    <Button variant="contained" fullWidth disabled>
+                      Your Current Plan
                     </Button>
                   )}
+                  {product.type == 'group' && accountStatus != product.type && (
+                    <Button variant="contained" fullWidth href="/#contact">
+                      GET A QUOTE
+                    </Button>
+                  )}
+                  {product.type === 'premium' &&
+                    accountStatus != product.type && (
+                      <Button
+                        variant="contained"
+                        type="button"
+                        onClick={() =>
+                          checkout(product.priceId, product.type, accountId)
+                        }
+                        fullWidth
+                      >
+                        Upgrade Now
+                      </Button>
+                    )}
+                </div>
               </div>
-            </div>
-          </Grid>
-        ))}
+            </Grid>
+          ))}
     </Grid>
   );
 }

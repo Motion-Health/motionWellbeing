@@ -1,10 +1,11 @@
-import React from "react";
-import styles from "./faqs.module.css";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import React from 'react';
+
+import styles from './faqs.module.css';
 
 export const FAQs = () => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -19,8 +20,8 @@ export const FAQs = () => {
       <h3>Tailored Exercise Programme</h3>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
+        expanded={expanded === 'panel1'}
+        onChange={handleChange('panel1')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -43,8 +44,8 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel2"}
-        onChange={handleChange("panel2")}
+        expanded={expanded === 'panel2'}
+        onChange={handleChange('panel2')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -65,13 +66,13 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel3"}
-        onChange={handleChange("panel3")}
+        expanded={expanded === 'panel3'}
+        onChange={handleChange('panel3')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3bh-content"
-          id="panel1bh-header"
+          id="panel3bh-header"
         >
           <Typography>
             <strong>
@@ -92,13 +93,13 @@ export const FAQs = () => {
 
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel5"}
-        onChange={handleChange("panel5")}
+        expanded={expanded === 'panel4'}
+        onChange={handleChange('panel4')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel5bh-content"
-          id="panel5bh-header"
+          aria-controls="panel4bh-content"
+          id="panel4bh-header"
         >
           <Typography>
             <strong>How often do sessions take place?</strong>
@@ -114,13 +115,13 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel6"}
-        onChange={handleChange("panel6")}
+        expanded={expanded === 'panel5'}
+        onChange={handleChange('panel5')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel6bh-content"
-          id="panel6bh-header"
+          aria-controls="panel5bh-content"
+          id="panel5bh-header"
         >
           <Typography>
             <strong>
@@ -140,13 +141,13 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel7"}
-        onChange={handleChange("panel7")}
+        expanded={expanded === 'panel6'}
+        onChange={handleChange('panel6')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel7bh-content"
-          id="panel7bh-header"
+          aria-controls="panel6bh-content"
+          id="panel6bh-header"
         >
           <Typography>
             <strong>How often do sessions take place?</strong>
@@ -162,13 +163,13 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel8"}
-        onChange={handleChange("panel8")}
+        expanded={expanded === 'panel7'}
+        onChange={handleChange('panel7')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel8bh-content"
-          id="panel8bh-header"
+          aria-controls="panel7bh-content"
+          id="panel7bh-header"
         >
           <Typography>
             <strong>Who delivers the sessions?</strong>
@@ -186,13 +187,13 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel9"}
-        onChange={handleChange("panel9")}
+        expanded={expanded === 'panel8'}
+        onChange={handleChange('panel8')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel9bh-content"
-          id="panel9bh-header"
+          aria-controls="panel8bh-content"
+          id="panel8bh-header"
         >
           <Typography>
             <strong>What technology do I need?</strong>
@@ -205,8 +206,8 @@ export const FAQs = () => {
       <h3>Motion Wellbeing</h3>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel10"}
-        onChange={handleChange("panel10")}
+        expanded={expanded === 'panel10'}
+        onChange={handleChange('panel10')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -230,8 +231,8 @@ export const FAQs = () => {
 
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel12"}
-        onChange={handleChange("panel12")}
+        expanded={expanded === 'panel12'}
+        onChange={handleChange('panel12')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -255,8 +256,8 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel13"}
-        onChange={handleChange("panel13")}
+        expanded={expanded === 'panel13'}
+        onChange={handleChange('panel13')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -278,8 +279,8 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel14"}
-        onChange={handleChange("panel14")}
+        expanded={expanded === 'panel14'}
+        onChange={handleChange('panel14')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -303,13 +304,13 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel3"}
-        onChange={handleChange("panel3")}
+        expanded={expanded === 'panel15'}
+        onChange={handleChange('panel15')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls="panel15bh-content"
+          id="panel15bh-header"
         >
           <Typography>
             <strong>What technology do I need?</strong>
@@ -324,13 +325,13 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === "panel15"}
-        onChange={handleChange("panel15")}
+        expanded={expanded === 'panel16'}
+        onChange={handleChange('panel16')}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel15bh-content"
-          id="panel15bh-header"
+          aria-controls="panel16bh-content"
+          id="panel16bh-header"
         >
           <Typography>
             <strong>Who creates the activities?</strong>

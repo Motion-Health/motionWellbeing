@@ -3,7 +3,6 @@ import {
   Button,
   Collapse,
   Grid,
-  Link,
   List,
   ListItem,
   ListItemButton,
@@ -14,6 +13,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 import { useAccountContext } from '@/context/AccountContext';
+import { categories } from '@/data/categories.ts';
 import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
 import theme from '@/styles/theme';
 import { AppConfig } from '@/utils/AppConfig';
@@ -54,10 +54,11 @@ const NavigationItems = () => {
   return (
     <div className={styles.drawer}>
       <div className={styles.logo}>
-        <img src={AppConfig.logo} alt="logo" />
+        <img src={AppConfig.logo} width="144" height="95" alt="logo" />
       </div>
       <Grid
         container
+        className={styles.navigationContainer}
         direction="column"
         sx={{
           flexDirection: 'column',
@@ -85,6 +86,8 @@ const NavigationItems = () => {
                       <img
                         src={page.icon}
                         alt="icon"
+                        height="24"
+                        width="24"
                         style={{
                           filter:
                             pathname === page.path
@@ -120,6 +123,8 @@ const NavigationItems = () => {
                         <img
                           src={page.icon}
                           alt="icon"
+                          width="24"
+                          height="24"
                           style={{
                             filter:
                               pathname === page.path
@@ -145,14 +150,14 @@ const NavigationItems = () => {
                     in={showActivitiesSubNavigation}
                   >
                     <List sx={{ paddingTop: 0 }}>
-                      {activitiesSubNavigation.map((activity) => (
+                      {categories.map((category) => (
                         <ListItem
-                          key={activity.title}
+                          key={category.title}
                           onClick={() =>
                             router.push(
                               {
                                 pathname: page.path,
-                                query: { filter: activity.filter },
+                                query: { filter: category.filter },
                               },
                               page.path
                             )
@@ -166,10 +171,10 @@ const NavigationItems = () => {
                           >
                             <ListItemIcon></ListItemIcon>
                             <ListItemText
-                              primary={activity.title}
+                              primary={category.title}
                               style={{
                                 color:
-                                  activityFilter === activity.filter
+                                  activityFilter === category.filter
                                     ? activeColour
                                     : defaultColour,
                               }}
@@ -234,7 +239,7 @@ const NavigationItems = () => {
               Get support
             </Button>
           )}
-          <Link
+          <Button
             onClick={logoutAccount}
             underline="none"
             sx={{
@@ -243,7 +248,7 @@ const NavigationItems = () => {
             }}
           >
             Log out
-          </Link>
+          </Button>
         </Grid>
       </Grid>
     </div>
@@ -285,41 +290,6 @@ export const appSections = [
     path: '/wellbeing/announcements',
     visibleTo: ['admin'],
     accessibleBy: ['admin'],
-  },
-];
-
-const activitiesSubNavigation = [
-  {
-    title: '* NEW *',
-    filter: 'new',
-  },
-  {
-    title: 'Armchair travel',
-    filter: 'armchairTravel',
-  },
-  {
-    title: 'Arts & Crafts',
-    filter: 'artsAndCrafts',
-  },
-  {
-    title: 'Culture & Religion',
-    filter: 'cultureAndReligion',
-  },
-  {
-    title: 'Education',
-    filter: 'education',
-  },
-  {
-    title: 'Movement & Sport',
-    filter: 'movementAndSport',
-  },
-  {
-    title: 'Music',
-    filter: 'music',
-  },
-  {
-    title: 'Staff wellbeing',
-    filter: 'staffWellbeing',
   },
 ];
 

@@ -36,13 +36,7 @@
   margin-bottom: 4rem;
 }
 
-@media (max-width: 992px) {
-  .alternative {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-  }
-}
+
 .about {
   display: flex;
   text-align: left;
@@ -53,6 +47,17 @@
   margin-right: 8rem;
   max-width: 600px;
   border-radius: 12px;
+}
+
+@media (max-width: 992px) {
+  .alternative {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .about{
+    text-align: center;
+  }
 }
 
 @media (max-width: 992px) {
@@ -100,6 +105,8 @@
 }
 
 .clearButton {
+  margin: auto;
+  width: 90%;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -107,7 +114,6 @@
   align-items: center;
   padding: 12px 16px;
   gap: 8px;
-  width: 210px;
   height: 48px;
   margin-top: 1rem;
   color: #0c437d;
