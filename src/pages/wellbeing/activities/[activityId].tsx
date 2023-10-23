@@ -6,7 +6,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
-import { Page, pdfjs } from 'react-pdf';
+import { Page } from 'react-pdf';
 import YouTube from 'react-youtube';
 
 import { ActivityCategoryAndTime } from '@/components/ActivityCategoryAndTime';
@@ -23,8 +23,6 @@ import { Main } from '@/templates/Main';
 
 const ActivityDetails = (a) => {
   const [open, setOpen] = useState(false);
-  pdfjs.GlobalWorkerOptions.workerSrc =
-    'https://motionexercise.co.uk/assets/js/pdf.worker.min.js';
   const DynamicDocument = dynamic(
     () => import('react-pdf').then((module) => module.Document),
     { ssr: false }
