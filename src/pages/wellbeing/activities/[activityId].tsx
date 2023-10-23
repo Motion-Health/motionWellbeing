@@ -20,7 +20,11 @@ import { useActivityMetrics } from '@/services/activities/useActivityMetrics';
 import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 import { ActivityData } from '@/services/activities/useCreateActivity';
 import { Main } from '@/templates/Main';
+import { pdfjs } from 'react-pdf';
+pdfjs.GlobalWorkerOptions.workerSrc =
+    'https://motionexercise.co.uk/assets/js/pdf.worker.min.js';
 
+    
 const ActivityDetails = (a) => {
   const [open, setOpen] = useState(false);
   const DynamicDocument = dynamic(

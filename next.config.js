@@ -9,6 +9,7 @@ module.exports = withBundleAnalyzer({
       test: /\.node/,
       use: 'raw-loader',
     });
+    config.resolve.alias.canvas = false;
     
     return config;
   },

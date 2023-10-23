@@ -1,3 +1,4 @@
+'use client';
 import '../styles/global.css';
 
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,13 +15,11 @@ import { queryClient } from '@/services/query';
 // Import the special styles
 import theme from '../styles/theme';
 import stylesApp from './wellbeing.module.css';
-import { pdfjs } from 'react-pdf';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   const isWellbeingPlatform = router.pathname.includes('/wellbeing');
-    pdfjs.GlobalWorkerOptions.workerSrc =
-    'https://motionexercise.co.uk/assets/js/pdf.worker.min.js';
+
   useEffect(() => {
     if (isWellbeingPlatform) {
       document.documentElement.classList.add(stylesApp?.wellbeingHtml || '');
