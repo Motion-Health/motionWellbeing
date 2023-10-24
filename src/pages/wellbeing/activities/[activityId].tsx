@@ -174,6 +174,10 @@ const ActivityDetails = (a) => {
           onClick={handleDownload}
         >
           <DynamicDocument
+            options={{
+              cMapUrl: `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,
+              cMapPacked: true,
+            }}
             renderTextLayer={false}
             file={`${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`}
             onLoadError={(error) =>
@@ -301,6 +305,7 @@ const ActivityDetails = (a) => {
         <Main>
           <Head>
             <title>{activity.activityName} | Motion Wellbeing</title>
+            <script src="/assets/js/pdf.worker.min.js"></script>
           </Head>
           <ActivityRatingModal
             openRatingModal={openRatingModal}
