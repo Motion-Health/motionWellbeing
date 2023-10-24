@@ -9,8 +9,15 @@ module.exports = withBundleAnalyzer({
       test: /\.node/,
       use: 'raw-loader',
     });
+    config.module.rules.push({
+      test: /pdfjs-dist\/build\/pdf\.worker\.js$/,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/chunks/[name].[hash][ext]',
+      },
+    });
     config.resolve.alias.canvas = false;
-    
+
     return config;
   },
   eslint: {

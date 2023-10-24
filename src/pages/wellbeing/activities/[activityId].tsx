@@ -5,9 +5,9 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import url from 'pdfjs-dist/build/pdf.worker';
 import { useEffect, useRef, useState } from 'react';
-import { Page } from 'react-pdf';
-import { pdfjs } from 'react-pdf';
+import { Page, pdfjs } from 'react-pdf';
 import YouTube from 'react-youtube';
 
 import { ActivityCategoryAndTime } from '@/components/ActivityCategoryAndTime';
@@ -21,7 +21,8 @@ import { useActivityMetrics } from '@/services/activities/useActivityMetrics';
 import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 import { ActivityData } from '@/services/activities/useCreateActivity';
 import { Main } from '@/templates/Main';
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+pdfjs.GlobalWorkerOptions.workerSrc = url;
 const ActivityDetails = (a) => {
   const [open, setOpen] = useState(false);
   const DynamicDocument = dynamic(
