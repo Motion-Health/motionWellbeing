@@ -21,8 +21,7 @@ import { useActivityMetrics } from '@/services/activities/useActivityMetrics';
 import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 import { ActivityData } from '@/services/activities/useCreateActivity';
 import { Main } from '@/templates/Main';
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
-
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 const ActivityDetails = (a) => {
   const [open, setOpen] = useState(false);
   const DynamicDocument = dynamic(
