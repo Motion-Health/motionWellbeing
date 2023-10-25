@@ -21,6 +21,9 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 15% 15% 15% 15% 15% 15%;
+
 }
 .clients img {
   padding: 1rem;
