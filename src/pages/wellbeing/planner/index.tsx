@@ -91,7 +91,17 @@ const Planner = () => {
     if (timeText === '00:00') timeText = ''; // remove labels for all-day events which start at midnight
 
     return (
-      <div className={styles.eventContainer}>
+      <div
+        className={styles.eventContainer}
+        style={{
+          backgroundColor:
+            showButtons &&
+            showButtons.eventId === eventData.eventId &&
+            !showButtons.isProtected
+              ? '#f0f0f0'
+              : 'transparent',
+        }}
+      >
         <div
           className={styles.event}
           onClick={() => handleEventClick(eventData)} // this now sets the showButtons state
@@ -105,24 +115,48 @@ const Planner = () => {
           </>
           {/* )} */}
         </div>
-        {showButtons && showButtons.eventId === eventData.eventId && (
-          <div>
-            <button
-              className={styles.editButton}
-              onClick={() => handleEdit(eventData)}
-            >
-              Edit
-            </button>
-            {showButtons.activityId && (
-              <button
-                className={styles.openButton}
-                onClick={() => handleOpen(eventData)}
-              >
-                Open
-              </button>
-            )}
-          </div>
-        )}
+        {showButtons &&
+          showButtons.eventId === eventData.eventId &&
+          !showButtons.isProtected && (
+            <div className={styles.showButtons}>
+              {showButtons.activityId && (
+                <div>
+                  <button
+                    className={styles.editButton}
+                    onClick={() => handleEdit(eventData)}
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    className={styles.openButton}
+                    onClick={() => handleOpen(eventData)}
+                  >
+                    Open
+                  </button>
+                </div>
+              )}
+              {!showButtons.activityId && (
+                <div>
+                  <button
+                    className={styles.fullEditButton}
+                    onClick={() => handleEdit(eventData)}
+                  >
+                    Edit
+                  </button>
+                </div>
+              )}
+
+              <div>
+                <button
+                  className={styles.closeButton}
+                  onClick={() => setShowButtons(null)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
       </div>
     );
   }

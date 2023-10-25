@@ -16,8 +16,10 @@
   white-space: normal;
   margin: 0;
 }
-
-.editButton, .openButton{
+.showButtons{
+  background-color: #eeeeee;
+}
+.editButton, .openButton, .closeButton, .fullEditButton{
   background-color: #008CBA;
   border: none;
   color: white;
@@ -31,6 +33,12 @@
   padding: 5%;
   width: 45%;
   margin: 2%;
+}
+.fullEditButton, .closeButton {
+  width: 96%;
+}
+.closeButton{
+  background-color: #f44336;
 }
 
 .editButton:hover, .openButton:hover{

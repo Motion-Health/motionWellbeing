@@ -17,7 +17,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { DesktopDateTimePicker } from '@mui/x-date-pickers/DesktopDateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
 import { NestedMenuItem } from 'mui-nested-menu';
@@ -238,7 +238,7 @@ const ScheduleModal = ({
     setSelectValue(value);
     handleClose();
   };
-
+  const [openDT, setOpenDT] = useState(false);
   // Group activities by their category
   const groupedActivities = useMemo(() => {
     if (!Array.isArray(activitiesData)) {
@@ -459,6 +459,7 @@ const ScheduleModal = ({
               <Grid container>
                 <FormLabel>Activity date and time *</FormLabel>
               </Grid>
+
               <Controller
                 name="start"
                 control={control}
@@ -468,10 +469,17 @@ const ScheduleModal = ({
                     dateAdapter={AdapterDayjs}
                     adapterLocale="en-gb"
                   >
-                    <DateTimePicker
+                    <DesktopDateTimePicker
                       onChange={onStartDateChange}
                       value={startDateValue}
                       sx={{ width: '100%' }}
+                      open={openDT}
+                      onClose={() => setOpenDT(false)}
+                      slotProps={{
+                        textField: {
+                          onClick: () => setOpenDT(true),
+                        },
+                      }}
                     />
                   </LocalizationProvider>
                 )}
