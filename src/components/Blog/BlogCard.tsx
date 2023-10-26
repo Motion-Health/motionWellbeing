@@ -9,7 +9,10 @@ export default function BlogCard({ blog }) {
 
   return (
     <Grid key={blog.id} item xs={12} lg={4} md={6} sm={12}>
-      <div className={styles.Card}>
+      <div
+        className={styles.Card}
+        onClick={() => router.push('/blog/[name]', `/blog/${blog.name}`)}
+      >
         <img src={blog.image} alt={blog.name} />
         <div className={styles.Content}>
           <Typography variant="h2">{blog.name}</Typography>
