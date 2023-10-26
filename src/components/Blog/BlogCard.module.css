@@ -24,7 +24,7 @@ heaight: 400px;
   flex-direction: column;
   justify-content: flex-start;
 }
-.learnMore{
+.Card .learnMore{
   background: none;
   color: #130c7d;
   box-shadow: none;
@@ -37,7 +37,7 @@ heaight: 400px;
   height: auto;
   margin: 0px 7px;
 }
-.learnMore:hover {
+.Card .learnMore:hover {
   background: none;
   box-shadow: none;
 }
