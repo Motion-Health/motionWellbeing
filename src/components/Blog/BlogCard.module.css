@@ -1,0 +1,43 @@
+.Card{
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+border-radius: 20px;
+margin-right: 2rem;
+margin-bottom: 2rem;
+background: rgba(255, 255, 255, 0.7);
+width: 400px;
+heaight: 400px;
+}
+.Card img{
+  -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
+    width: 100%;
+    height: 220px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.Content{
+  text-align: left;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.learnMore{
+  background: none;
+  color: #130c7d;
+  box-shadow: none;
+  width: fit-content;
+  padding: 10px 0px;
+  text-transform: initial;
+}
+.Card .Content .arrow{
+  width: 18px;
+  height: auto;
+  margin: 0px 7px;
+}
+.learnMore:hover {
+  background: none;
+  box-shadow: none;
+}

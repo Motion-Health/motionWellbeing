@@ -1,0 +1,36 @@
+.blogHero{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-align: center;
+  background-color: #73b1f9;
+  font-size: 2rem;
+  width: 100%;
+  border-radius: 0px 0px 50px 50px;
+}
+.blogContainer{
+  padding : 4rem;
+}
+.blogHeroContent{
+  margin: 7vh 0;
+  padding-top: 8vh;
+}
+
+.Cards{
+  max-width: 90%;
+}
+.blogHeroContent h1{
+  font-size: 1.5em;
+  margin-bottom: 0px;
+}
+.blogHeroContent h2{
+  font-size: 0.5em;
+  margin-bottom: 0px;
+}
+
+.blogHeroContent p{
+  font-size: 0.5em;
+  margin-bottom: 0px;
+}
