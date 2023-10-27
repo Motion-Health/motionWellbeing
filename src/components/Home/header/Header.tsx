@@ -49,7 +49,7 @@ export const Header = () => {
     if (isLoggedIn) {
       router.push('/wellbeing/dashboard');
     } else {
-      router.push('/discovery');
+      router.push('https://calendly.com/zeezy-1/motion');
     }
   };
 
