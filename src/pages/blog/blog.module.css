@@ -20,6 +20,10 @@
 
 .Cards{
   max-width: 90%;
+
+}
+.Cards>div{
+  max-width: 50%;
 }
 .blogHeroContent h1{
   font-size: 1.5em;

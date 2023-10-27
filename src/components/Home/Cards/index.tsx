@@ -6,38 +6,13 @@ import styles from './cards.module.css';
 export const Cards = () => {
   return (
     <section id="services" className={styles.cardWrapper}>
-      {/* <div className={styles.card}>
-        <div className={styles.imageWrapper}>
-          <Image
-            src="/assets/home/card1.jpg"
-            alt="Tailored Exercise Sessions"
-            width={451}
-            height={440}
-            layout="responsive"
-          />
-        </div>
-        <h2>Tailored exercise sessions</h2>
-        <p>
-          Person-centred, engaging exercise sessions live-streamed exclusively
-          to your residents with the same Motivator (instructor) each time.
-          Equipment included FREE of charge. £45/session.
-        </p>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSfZBMCd1K_foSowiax_FqGJfVYp5kAtzgu-OqOQioaiUk1URQ/viewform"
-          target="_blank"
-          rel="noopener noreferrer" // Added rel for security
-        >
-          Try them out
-        </a>
-      </div> */}
-
       <div className={styles.cardAlternative}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/assets/home/card2.jpg"
+            src="/assets/home/card3.png"
             alt="Motion Wellbeing"
-            width={600}
-            height={400}
+            width={2848}
+            height={1642}
             layout="responsive"
             priority
           />

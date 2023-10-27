@@ -11,7 +11,7 @@ export default function BlogCard({ blog }) {
     <Grid key={blog.id} item xs={12} lg={4} md={6} sm={12}>
       <div
         className={styles.Card}
-        onClick={() => router.push('/blog/[name]', `/blog/${blog.name}`)}
+        onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
       >
         <img src={blog.image} alt={blog.name} />
         <div className={styles.Content}>
@@ -30,7 +30,7 @@ export default function BlogCard({ blog }) {
             <img
               src="/assets/icons/ph_arrow-right.svg"
               className={styles.arrow}
-              alt="arrow"
+              alt={blog.name}
             />
           </Button>
         </div>

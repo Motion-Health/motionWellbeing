@@ -98,3 +98,11 @@ left: 55px;
 .blogHero .title{
   font-size:0.65em;
 }
+
+.image{
+  max-width: 60%;
+  margin: auto;
+  display: block;
+  border-radius: 20px;
+  padding: 10px;
+}

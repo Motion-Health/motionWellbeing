@@ -1,34 +1,11 @@
 import { Grid } from '@mui/material';
 import Head from 'next/head';
 
-import BlogCard from '@/components/Blog/BlogCard';
 import { Footer } from '@/components/Home/Footer';
 import { Header } from '@/components/Home/header/Header';
-import { useAccountContext } from '@/context/AccountContext';
 
-import styles from './blog.module.css';
+import styles from '../blog/blog.module.css';
 const Index = () => {
-  const {
-    account: { accountStatus },
-  } = useAccountContext();
-  const blog1 = {
-    id: 1,
-    link: 'Boosting-Care-Home-Enquiries-with-Wellbeing-Activities',
-    name: 'Boosting Care Home Enquiries with Wellbeing Activities',
-    image: '/assets/images/blogs/blog1/thumbnail.webp',
-    description:
-      "Want to boost your care home's occupancy rates? Dive into our blog to discover the power of wellbeing activities. Learn how they not only elevate residents' quality of life but also serve as a potent marketing tool. Five killer strategies unveiled for turning happy residents into your best advertisers!",
-  };
-  const blog2 = {
-    id: 2,
-
-    link: 'Creating-high-quality-content',
-    name: 'Creating high quality content',
-    image: '/assets/images/blogs/blog-hero.png',
-    description:
-      "Struggling to create content that clicks? Tune in as we dive into the art of crafting high-quality content that not only grabs attention but holds it. From understanding your audience to the importance of authenticity, we've got the tips and tricks to make your next post a hit. Don't miss out—your ultimate guide to content creation is just a click away!",
-  };
-
   return (
     <div className="white-background">
       <Head>
@@ -69,10 +46,7 @@ const Index = () => {
         </div>
       </div>
       <div className={styles.blogContainer}>
-        <Grid container className={styles.Cards}>
-          <BlogCard blog={blog1}></BlogCard>
-          <BlogCard blog={blog2}></BlogCard>
-        </Grid>
+        <Grid container className={styles.Cards}></Grid>
       </div>
 
       <Footer></Footer>

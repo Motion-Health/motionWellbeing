@@ -1,17 +1,14 @@
-import Image from 'next/legacy/image';
-
 import styles from './about.module.css';
 export const About = () => {
   return (
     <section id="about" className={styles.aboutWrapper}>
       <div>
-        <Image
+        <img
           className={styles.image}
           src="/assets/home/about.jpg" // Adjust the path if necessary
           alt="About us image"
           width={891}
           height={594}
-          layout="responsive"
         />
         <div className={styles.about}>
           <h2 className="landing-h2">About us</h2>

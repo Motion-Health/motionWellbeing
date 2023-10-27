@@ -13,34 +13,12 @@ export const Header = () => {
   const [active, setActive] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  const navigateToServices = () => {
-    document.getElementById('services').scrollIntoView({
-      top: 140,
-      behavior: 'smooth',
-    });
+  const navigateToHome = () => {
+    router.push('/');
   };
-
-  const navigateToWhyUs = () => {
-    document.getElementById('about').scrollIntoView({
-      behavior: 'smooth',
-    });
+  const navigateToKnowledgeHub = () => {
+    router.push('/blog');
   };
-
-  const navigateToFaqs = () => {
-    const yOffset = -120;
-    const element = document.getElementById('faq');
-    const y =
-      element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-    window.scrollTo({ top: y, behavior: 'smooth' });
-  };
-
-  const navigateToContact = () => {
-    document.getElementById('contact').scrollIntoView({
-      behavior: 'smooth',
-    });
-  };
-
   //choose the screen size
   const handleResize = () => {
     if (window.innerWidth < 960) {
@@ -67,11 +45,11 @@ export const Header = () => {
   useEffect(() => {
     window.addEventListener('resize', handleResize);
   });
-  const navigateToLogIn = () => {
+  const navigateToAccount = () => {
     if (isLoggedIn) {
       router.push('/wellbeing/dashboard');
     } else {
-      router.push('/wellbeing/login');
+      router.push('/discovery');
     }
   };
 
@@ -172,35 +150,28 @@ export const Header = () => {
                 <button
                   className={styles.link}
                   type="button"
-                  onClick={navigateToServices}
+                  onClick={navigateToHome}
                 >
-                  Services
+                  Home
                 </button>
               </li>
               <li>
-                <button className={styles.link} onClick={navigateToWhyUs}>
-                  About Us
-                </button>
-              </li>
-              <li>
-                <button className={styles.link} onClick={navigateToFaqs}>
-                  FAQs
-                </button>
-              </li>
-              <li>
-                <button className={styles.link} onClick={navigateToContact}>
-                  Contact Us
+                <button
+                  className={styles.link}
+                  onClick={navigateToKnowledgeHub}
+                >
+                  Knowledge Hub
                 </button>
               </li>
               <li>
                 <Button
-                  name="navigateToLogIn"
-                  onclick={navigateToLogIn}
+                  name="navigateAccount"
+                  onclick={navigateToAccount}
                   icon={true}
                   showDesktop
                 >
                   <span className="hidden xl:inline">
-                    {isLoggedIn ? 'My Account' : 'Log In'}
+                    {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
                   </span>
                 </Button>
               </li>
@@ -208,13 +179,13 @@ export const Header = () => {
           )}
           {isMobile && (
             <Button
-              name="navigateToLogIn"
-              onclick={navigateToLogIn}
+              name="navigateAccount"
+              onclick={navigateToAccount}
               icon={true}
               showDesktop
             >
               <span className=" inline xl:hidden">
-                {isLoggedIn ? 'My Account' : 'Log In'}
+                {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
               </span>
             </Button>
           )}
