@@ -59,7 +59,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1> 5-Tried-Tested-Fundraising-Ideas-for-Care-Home-Activities</h1>
+          <h1> 5 Tried & Tested Fundraising Ideas for Care Home Activities</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
