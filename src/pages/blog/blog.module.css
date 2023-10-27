@@ -13,7 +13,7 @@
 
 
 .blogContainer{
-  padding : 4rem;
+  padding: 6vh 6vw;
 }
 .blogHeroContent{
   margin: 7vh 0;
@@ -42,5 +42,22 @@
 .blogHeroContent p{
   font-size: 0.5em;
   margin-bottom: 0px;
+}
+@media screen and (max-width: 900px) {
+  .Cards{
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .Cards{
+    grid-template-columns: 1fr;
+  }
+  .blogContainer{
+    padding: 6vh 0vw;
+  }
+  .Cards>div{
+    padding: 30px;
+  }
 }
 

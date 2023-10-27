@@ -4,13 +4,9 @@ import Head from 'next/head';
 import BlogCard from '@/components/Blog/BlogCard';
 import { Footer } from '@/components/Home/Footer';
 import { Header } from '@/components/Home/header/Header';
-import { useAccountContext } from '@/context/AccountContext';
 
 import styles from './blog.module.css';
 const Index = () => {
-  const {
-    account: { accountStatus },
-  } = useAccountContext();
   const blog1 = {
     id: 1,
     link: 'Boosting-Care-Home-Enquiries-with-Wellbeing-Activities',
