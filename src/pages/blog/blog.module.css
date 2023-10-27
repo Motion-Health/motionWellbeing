@@ -10,6 +10,8 @@
   width: 100%;
   border-radius: 0px 0px 50px 50px;
 }
+
+
 .blogContainer{
   padding : 4rem;
 }
@@ -19,11 +21,14 @@
 }
 
 .Cards{
-  max-width: 90%;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
 
 }
 .Cards>div{
-  max-width: 50%;
+  max-width: 100%;
+  margin: 0px 15px 15px 15px;
 }
 .blogHeroContent h1{
   font-size: 1.5em;
@@ -38,3 +43,4 @@
   font-size: 0.5em;
   margin-bottom: 0px;
 }
+

@@ -16,17 +16,19 @@ const Index = () => {
     link: 'Boosting-Care-Home-Enquiries-with-Wellbeing-Activities',
     name: 'Boosting Care Home Enquiries with Wellbeing Activities',
     image: '/assets/images/blogs/blog1/thumbnail.webp',
-    description:
-      "Want to boost your care home's occupancy rates? Dive into our blog to discover the power of wellbeing activities. Learn how they not only elevate residents' quality of life but also serve as a potent marketing tool. Five killer strategies unveiled for turning happy residents into your best advertisers!",
   };
   const blog2 = {
     id: 2,
 
-    link: 'Creating-high-quality-content',
-    name: 'Creating high quality content',
-    image: '/assets/images/blogs/blog-hero.png',
-    description:
-      "Struggling to create content that clicks? Tune in as we dive into the art of crafting high-quality content that not only grabs attention but holds it. From understanding your audience to the importance of authenticity, we've got the tips and tricks to make your next post a hit. Don't miss out—your ultimate guide to content creation is just a click away!",
+    link: 'The-Power-of-High-Quality-Visual-Content-in-Care-Home-Lead-Generation',
+    name: 'The Power of High-Quality Visual Content in Care Home Lead Generation',
+    image: '/assets/images/blogs/blog2/Thumbnail.webp',
+  };
+  const blog3 = {
+    id: 3,
+    name: '5 Tried & Tested Fundraising Ideas for Care Home Activities',
+    link: '5-Tried-Tested-Fundraising-Ideas-for-Care-Home-Activities',
+    image: '/assets/images/blogs/blog3/Thumbnail.webp',
   };
 
   return (
@@ -65,13 +67,18 @@ const Index = () => {
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
           <h1>Knowledge Hub</h1>
-          <p>The go to place for all things wellbeing.</p>
+          <p>
+            Learn about how wellbeing activities and marketing can improve
+            quality of life of residents, improve staff wellbeing and increase
+            enquiries with our quick-read blogs and resources.
+          </p>
         </div>
       </div>
       <div className={styles.blogContainer}>
         <Grid container className={styles.Cards}>
           <BlogCard blog={blog1}></BlogCard>
           <BlogCard blog={blog2}></BlogCard>
+          <BlogCard blog={blog3}></BlogCard>
         </Grid>
       </div>
 

@@ -15,7 +15,7 @@ import { Header } from '@/components/Home/header/Header';
 import styles from '../blogPost.module.css';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
-
+  const [linkCopied, setLinkCopied] = useState(false);
   return (
     <div className="white-background">
       <Head>
@@ -59,7 +59,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Creating high quality content</h1>
+          <h1> 5-Tried-Tested-Fundraising-Ideas-for-Care-Home-Activities</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -70,14 +70,21 @@ const Index = () => {
                 <p>Share</p>
                 <img src="/assets/icons/ph_share.svg" alt="share" />
               </button>
+              {linkCopied && (
+                <div className={styles.notification}>
+                  Link copied to clipboard!
+                </div>
+              )}
               {showSocialLinks && (
                 <div className="social-links">
                   <IconButton
                     color="primary"
                     aria-label="copy"
-                    onClick={() =>
-                      navigator.clipboard.writeText(window.location.href)
-                    }
+                    onClick={() => {
+                      navigator.clipboard.writeText(window.location.href);
+                      setLinkCopied(true);
+                      setTimeout(() => setLinkCopied(false), 3000); // Hide after 3 seconds
+                    }}
                   >
                     <FileCopyIcon />
                   </IconButton>
@@ -133,65 +140,83 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            In the digital age, content is king. But what sets exceptional
-            content apart from mere filler? Quality. Let's explore what makes
-            content "high-quality" and how you can master the art of crafting
-            content that not only captivates but converts.
+            Activity Coordinators play a vital role in the wellbeing, happiness
+            and health of residents in care homes. To provide the best possible
+            experiences and activities, care homes sometimes rely on fundraising
+            efforts to supplement their budgets. In this blog, we'll explore
+            various creative and effective ways for carers to fundraise for
+            their care home's activities budget, ensuring that residents
+            continue to enjoy a fulfilling and vibrant lifestyle.
           </p>
+          <img
+            src="/assets/images/blogs/blog3/Image-1.webp"
+            alt="Interactive tablet in care home"
+            className={styles.image}
+          />
+          <h2 className={styles.title}>1. Organise Fun Events</h2>
 
-          <img src="/assets/images/blogs/blog-hero.png" alt="Quality Content" />
-
-          <h2 className={styles.title}>1. Understand Your Audience</h2>
           <p>
-            The first step in creating compelling content is to know who you're
-            speaking to. Understanding your audience's needs, pain points, and
-            preferences will enable you to create content that resonates.
+            One of the most engaging ways to raise funds is by organising fun
+            events within the care home or in the local community. Consider
+            hosting events like bake sales, craft fairs, talent shows, or themed
+            parties. Get residents involved in the planning and execution of
+            these events, making them more enjoyable for everyone.
           </p>
 
-          <h2 className={styles.title}>2. Research, Research, Research</h2>
+          <h2 className={styles.title}>2. Crowdfunding Campaigns</h2>
           <p>
-            You can't provide value without understanding what you're talking
-            about. Doing your homework on a subject will not only make your
-            content more credible but also more engaging.
+            Embrace technology and use crowdfunding platforms for raising funds.
+            Create a compelling campaign by telling a story on platforms like
+            GoFundMe, Kickstarter, or Indiegogo, outlining the activities and
+            experiences you aim to provide for the residents. Encourage friends,
+            family, and the community to contribute. This works well if you are
+            fundraising for a specific item or activity, e.g. an interactive
+            tablet or a day out.
           </p>
-
-          <h2 className={styles.title}>3. Prioritize Quality Over Quantity</h2>
+          <h2 className={styles.title}>4. Sponsorship Opportunities</h2>
           <p>
-            It's better to publish one high-quality blog post than five subpar
-            ones. Always prioritize the quality of your content. This will not
-            only improve your credibility but also your visibility in search
-            engines.
+            Reach out to local businesses for sponsorship opportunities. Offer
+            advertising space within the care home or at events in exchange for
+            financial support. This can be a mutually beneficial arrangement, as
+            businesses gain exposure while helping fund activities for
+            residents.
           </p>
+          <img
+            src="/assets/images/blogs/blog3/Image-2.webp"
+            alt="Motion and Activity Coordinator Community"
+            className={styles.image}
+          />
+          <h2 className={styles.title}>5. Resident Art Sales</h2>
 
-          <h2 className={styles.title}>4. Keep It Authentic</h2>
           <p>
-            Authenticity builds trust. Be yourself and be transparent in your
-            content. People are more likely to engage with brands that they feel
-            are human and genuine.
+            Many care home residents have hidden talents, including painting,
+            crafts, or knitting. Plan an activity where you encourage them to
+            create art or craft items that can be sold to the community, staff
+            and families. These sales not only contribute to the activities
+            budget but also boost residents' self-esteem and provide a sense of
+            purpose.
           </p>
 
-          <h2 className={styles.title}>5. Keep it Visual</h2>
+          <h2 className={styles.title}>6. Grant Applications</h2>
           <p>
-            Visual aids can significantly improve the engagement of your
-            content. Whether it's through pictures, infographics, or videos,
-            visual content is more likely to be consumed and shared.
+            Explore grant opportunities from local or national foundations or
+            non-profit organisations that support older adults, social care
+            and/or wellbeing. Most areas have a ‘Community Foundation’ that have
+            grants you can apply for. A good application will have a specific
+            request with a strong justification of the impact it will create.
           </p>
-
           <h2 className={styles.title}>Summary</h2>
           <p>
-            Creating high-quality content isn't a walk in the park, but the
-            benefits far outweigh the efforts. By focusing on the audience,
-            doing thorough research, prioritizing quality, being authentic, and
-            adding visual elements, you'll be well on your way to crafting
-            content that engages and converts.
-          </p>
-
-          <p>
-            Want to get better at content creation? &nbsp;
+            Activity Coordinators in care homes go above and beyond to provide
+            enriching experiences and activities for their residents. Funding
+            these activities can be challenging, but we’re here to share our
+            years of experience supporting Activity Coordinators to raise funds
+            and improve the quality of life of residents.&nbsp;
             <a href="https://calendly.com/zeezy-1/motion">
-              Book a 30-minute demo
+              Book a 30 minute discovery call
             </a>
-            &nbsp; of our content marketing platform today.
+            &nbsp;today to chat about how we can help you to fundraise. of our
+            wellbeing and marketing platform today.
           </p>
         </div>
       </div>

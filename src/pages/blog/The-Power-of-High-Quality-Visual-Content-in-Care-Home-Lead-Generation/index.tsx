@@ -16,6 +16,7 @@ import styles from '../blogPost.module.css';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+
   return (
     <div className="white-background">
       <Head>
@@ -57,9 +58,13 @@ const Index = () => {
       >
         <ArrowBackIcon />
       </IconButton>
+
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1> Boosting Care Home Enquiries with Wellbeing Activities</h1>
+          <h1>
+            The Power of High-Quality Visual Content in Care Home Lead
+            Generation
+          </h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -138,103 +143,103 @@ const Index = () => {
               )}
             </div>
           </div>
-          <h2 className={styles.title}>Introduction</h2>
           <p>
-            Care homes are a place where older adults and vulnerable people are
-            given the support they need. It’s important that a care home can
-            maintain occupancy levels to continue to deliver outstanding care
-            and invest in developing the team and support on offer. One
-            effective strategy to increase leads and maintain high occupancy
-            rates is to focus on showcasing the activities that residents get up
-            to on a day-to-day basis. By ‘wellbeing activities’ we mean anything
-            that can improve someone's physical, psychological or emotional
-            wellbeing — from chair-based exercise to arts & crafts.. It’s about
-            being person centred after all!
-          </p>
-
-          <p>
-            In this blog, we'll explore 5 ways that care home activities can be
-            a powerful tool for generating leads and fostering a positive
-            culture
-          </p>
-
-          <img
-            src="/assets/images/blogs/blog1/Image-1.webp"
-            alt="Care home residents performing stretches"
-            className={styles.image}
-          />
-          <h2 className={styles.title}>1. Enhanced Quality of Life</h2>
-          <p>
-            Engaging activities can significantly enhance the quality of life
-            for residents in a care home. When potential residents and their
-            families see that a care home prioritises the emotional, mental, and
-            physical well-being of its residents, it naturally becomes a more
-            attractive choice. Quality of life is a key selling point for care
-            homes, and activities are a tangible way to demonstrate this
-            commitment.
-          </p>
-          <h2 className={styles.title}>2. Word of Mouth and Referrals</h2>
-          <p>
-            When residents and their families are happy with the activities and
-            social life in a care home, they're more likely to share their
-            positive experiences with others. Word of mouth and referrals is one
-            of the strong forms of leads. Satisfied residents and their families
-            may recommend the care home to their friends and family, increasing
-            the chances of new residents moving in.
-          </p>
-          <h2 className={styles.title}>3. Building a Strong Online Presence</h2>
-          <p>
-            In today's digital age, an online presence is crucial for generating
-            leads. Care homes that regularly share their activities and events
-            on their website and social media platforms tend to attract more
-            interest. Potential residents and their families often research care
-            homes online, and engaging content can set your home apart. Share
-            stories, photos, and videos of residents enjoying activities to give
-            a sense of the community's vibrancy.
+            In the age of the internet and digital marketing, care homes seeking
+            to generate leads must recognise and leverage the profound impact of
+            visual content. A picture is worth a thousand words, they say, and
+            in the context of care homes, this couldn't be more accurate. In
+            this blog, we'll delve into the importance of high-quality visual
+            content for care homes striving to attract potential residents and
+            their families.
           </p>
           <img
-            src="/assets/images/blogs/blog1/Image-2.webp"
-            alt="Motion team and care home resident smiling"
+            src="/assets/images/blogs/blog2/Image-1.webp"
+            alt="Landscape shot of care home"
             className={styles.image}
           />
-          <h2 className={styles.title}>4. Community Partnerships</h2>
-          <p>
-            Engaging with the local community can be an excellent way to
-            increase leads. By hosting activities that involve the broader
-            community, care homes can foster positive relationships with
-            potential residents and their families. Community partnerships can
-            lead to more inquiries and applications, as well as a positive
-            reputation in the area.
-          </p>
-          <h2 className={styles.title}>
-            5. Offering person-centred activities
-          </h2>
-          <p>
-            Being person-centred is all about meeting the needs and interests of
-            a resident. Having a full and varied activity plan, and showcasing
-            this online tells your potential clients that you are able to cater
-            to their need and take a person-centred approach across all aspect
-            of your home.
-          </p>
+          <ul>
+            <li>
+              <p>
+                <b>First Impressions Matter</b> — When individuals or families
+                are researching care homes for their loved ones, the first
+                impression often comes from visual content. High-quality images
+                and videos create a positive and welcoming initial impression. A
+                clean, well-organised, and aesthetically pleasing website with
+                appealing visuals can set the tone for a successful customer
+                journey.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Conveying a Sense of Comfort and Care</b> — Visual content,
+                such as photos of well-designed living spaces and communal areas
+                can communicate a sense of comfort, care, and attention to
+                detail. Potential residents and their families want to see where
+                they'll be living and understand that the care home provides a
+                safe and inviting environment.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Showcasing Activities</b> — Activities are a major way to
+                demonstrate that residents in your home have a positive quality
+                of life. Whether it's arts & crafts or exercise, photos and
+                videos of residents participating in activities conveys the
+                vibrancy of life within the care home.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>Emotional Connection</b> — Visual content has the unique
+                ability to create an emotional connection.. When potential
+                residents and their families see happy residents, compassionate
+                caregivers, and a warm, welcoming environment, they are more
+                likely to feel a connection and envision their loved ones being
+                part of the community.
+              </p>
+            </li>
+            <li>
+              <p>
+                <b>
+                  Search Engine Optimisation (SEO) & Social Media Engagement
+                </b>{' '}
+                - Search engines and social media platforms are valuable tools
+                for lead generation. High-quality visual content on your website
+                and platforms like Facebook can attract a targetted audience and
+                encourage sharing, increasing the care home's reach and
+                generating leads from interested parties.
+              </p>
+            </li>
+          </ul>
+
+          <img
+            src="/assets/images/blogs/blog2/Image-2.webp"
+            alt="Care home residents performing physical activity"
+            className={styles.image}
+          />
+
           <h2 className={styles.title}>Summary</h2>
           <p>
-            Care homes that prioritise wellbeing activities and showcase these
-            well are more likely to increase leads and maintain high occupancy
-            rates. These activities not only improve the wellbeing of residents
-            but also serve as a powerful marketing tool. Through word of mouth,
-            online presence, community engagement, person-centred activities,
-            and positive testimonials, care homes can build a strong reputation
-            that attracts new residents and their families. In the end, it's a
-            win-win situation – residents benefit from a fulfilling life, and
-            care homes benefit from increased leads and a thriving community.
+            The importance of high-quality visual content for care homes in
+            their lead generation efforts cannot be overstated. It forms the
+            foundation for creating a positive first impression, showcasing
+            wellbeing activities and building trust and credibility. Visual
+            content not only allows care homes to showcase their amenities and
+            activities but also forges emotional connections with potential
+            residents and their families. By harnessing the power of visual
+            content, care homes can enhance their online presence and ultimately
+            attract and convert more leads, helping families find the best care
+            solution for their loved ones. Book a 30 minute discovery call today
+            to learn about how we can support you to generate more leads through
+            wellbeing and marketing.
           </p>
+
           <p>
-            If you’d like to know more about how you can generate more enquiries
-            with wellbeing activities,&nbsp;
+            Want to get better at content creation? &nbsp;
             <a href="https://calendly.com/zeezy-1/motion">
-              book a 30 minute discovery call
+              Book a 30-minute demo
             </a>
-            &nbsp;of our wellbeing and marketing platform today.
+            &nbsp; of our content marketing platform today.
           </p>
         </div>
       </div>

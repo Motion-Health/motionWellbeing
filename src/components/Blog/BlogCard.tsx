@@ -16,14 +16,12 @@ export default function BlogCard({ blog }) {
         <img src={blog.image} alt={blog.name} />
         <div className={styles.Content}>
           <Typography variant="h2">{blog.name}</Typography>
-          <Typography variant="body2" sx={{ my: '1rem' }}>
-            {blog.description}
-          </Typography>
+
           <Button
             variant="contained"
             type="button"
             className={styles.learnMore}
-            onClick={() => router.push('/blog/[name]', `/blog/${blog.name}`)}
+            onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
             fullWidth
           >
             Learn more
