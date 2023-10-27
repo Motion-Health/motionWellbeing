@@ -5,6 +5,7 @@
   width: 100%;
   height: 500px;
   cursor: pointer;
+  position: relative;
 }
 .Card img{
   -o-object-fit: cover;
@@ -26,6 +27,8 @@
 .Content h2{
   line-height: 1.2;
   margin-bottom:1.5em;
+  font-size: 1.2rem !important;
+
 }
 .Card .learnMore{
   background: none;
@@ -34,8 +37,11 @@
   width: fit-content;
   padding: 10px 0px;
   text-transform: initial;
+  bottom: 1rem;
+  left: 2rem;
+  position: absolute;
 }
-.Card .Content .arrow{
+.Card .learnMore .arrow{
   width: 18px;
   height: auto;
   margin: 0px 7px;
