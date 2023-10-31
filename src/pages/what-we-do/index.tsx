@@ -1,33 +1,29 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
 
-import { About } from '@/components/Home/About';
-import { Cards } from '@/components/Home/Cards';
-import { Clients } from '@/components/Home/Clients';
-import { CTA } from '@/components/Home/CTA';
-import { FAQs } from '@/components/Home/FAQs';
 import { Footer } from '@/components/Home/Footer';
-import { Contact } from '@/components/Home/Forms';
 import { Header } from '@/components/Home/header/Header';
-import Hero from '@/components/Home/Hero/Hero';
-import { Partners } from '@/components/Home/Partners';
-import { useAccountContext } from '@/context/AccountContext';
 
+import styles from './product.module.css';
 const Index = () => {
-  const {
-    account: { accountStatus },
-  } = useAccountContext();
-  useEffect(() => {
-    if (!document.getElementById('calendly-inline-widget')) return;
+  const blog1 = {
+    id: 1,
+    link: 'Boosting-Care-Home-Enquiries-with-Wellbeing-Activities',
+    name: 'Boosting Care Home Enquiries with Wellbeing Activities',
+    image: '/assets/images/blogs/blog1/thumbnail.webp',
+  };
+  const blog2 = {
+    id: 2,
 
-    if (!window.Calendly.initialized) {
-      window.Calendly.initInlineWidget({
-        url: 'https://calendly.com/zeezy-1?hide_landing_page_details=1&hide_gdpr_banner=1',
-        parentElement: document.getElementById('calendly-inline-widget'),
-      });
-      window.Calendly.initialized = true;
-    }
-  }, []);
+    link: 'The-Power-of-High-Quality-Visual-Content-in-Care-Home-Lead-Generation',
+    name: 'The Power of High-Quality Visual Content in Care Home Lead Generation',
+    image: '/assets/images/blogs/blog2/Thumbnail.webp',
+  };
+  const blog3 = {
+    id: 3,
+    name: '5 Tried & Tested Fundraising Ideas for Care Home Activities',
+    link: '5-Tried-Tested-Fundraising-Ideas-for-Care-Home-Activities',
+    image: '/assets/images/blogs/blog3/Thumbnail.webp',
+  };
 
   return (
     <div className="white-background">
@@ -58,29 +54,20 @@ const Index = () => {
           property="twitter:description"
           content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
         />
-        <script
-          type="text/javascript"
-          src="https://assets.calendly.com/assets/external/widget.js"
-          async
-        ></script>
       </Head>
 
       <Header />
-      <Hero videoSrc={'/assets/home/video.mp4'}>
-        <h1>Creating moments that move people.</h1>
-      </Hero>
-      <Cards></Cards>
-      <Clients></Clients>
-      <CTA></CTA>
-      <About></About>
-      <div
-        id="calendly-inline-widget"
-        style={{ minWidth: 320, height: 650 }}
-        data-auto-load="false"
-      ></div>
-      <FAQs></FAQs>
-      <Contact />
-      <Partners />
+
+      <div className={styles.blogHero}>
+        <div className={styles.blogHeroContent}>
+          <h1>Knowledge Hub</h1>
+          <p>
+            Learn about how wellbeing activities and marketing can improve
+            quality of life of residents, improve staff wellbeing and increase
+            enquiries with our quick-read blogs and resources.
+          </p>
+        </div>
+      </div>
 
       <Footer></Footer>
     </div>
