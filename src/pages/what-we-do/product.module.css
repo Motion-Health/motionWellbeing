@@ -1,63 +1,115 @@
-.blogHero{
-  position: relative;
+.steps{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  text-align: center;
-  background-color: #73b1f9;
-  font-size: 2rem;
+  padding-top: 10rem;
+}
+.productCard{
+  border-radius: 75px 75px 0px 0px;
+  padding: 30px;
+  color: white;
+  transition: all 0.3s ease-in-out;  /* This gives a smooth transition effect */
+  max-height: 200px;  /* example collapsed height */
+  overflow: hidden;
+  cursor: pointer;
+  height: 3000px;
+  
+}
+
+.productCard.expanded {
+  max-height: 1000px;  
+  transition: max-height 0.3s ease;
+  padding-bottom: 200px;
+  transition: all 0.3s ease-in-out;
+}
+
+.productCard:nth-child(2) {
+  transform: translateY(-95px); 
+}
+.flexDisplay{
+  display: flex;
+}
+.productCard:nth-child(3) {
+  transform: translateY(-190px);  
+}
+
+
+.laptopFrame, .screenContent {
+  grid-area: 1 / 1 / 2 / 2; 
+}
+
+.laptopFrame {
+  z-index: 2;
+}
+
+.screenContent {
+  z-index: 1;
   width: 100%;
-  border-radius: 0px 0px 50px 50px;
+  height: 100%;
+  object-fit: cover; 
+  position: absolute; /* Make it absolute so they can overlap */
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease; 
+  transform: translateX(100%); 
+}
+.screenContent {
+  position: absolute; /* Make it absolute so they can overlap */
+  top: 0;
+  left: 0;
+  transition: transform 0.5s ease; 
+  transform: translateX(100%); /* Initially move the image to the right */
 }
 
-
-.blogContainer{
-  padding: 6vh 6vw;
-}
-.blogHeroContent{
-  margin: 7vh 0;
-  padding-top: 8vh;
-}
-
-.Cards{
-
-  grid-template-columns: 1fr 1fr 1fr;
-  display: grid !important;
-
-}
-.Cards>div{
-  max-width: 100%;
-  margin: 0px 15px 15px 15px;
-}
-.blogHeroContent h1{
-  font-size: 1.5em;
-  margin-bottom: 0px;
-}
-.blogHeroContent h2{
-  font-size: 0.5em;
-  margin-bottom: 0px;
+.laptopContainer {
+  position: relative;
+  width: -webkit-fill-available;
+  display: grid;
+  height: 694px;
+  margin-bottom: -201px;
 }
 
-.blogHeroContent p{
-  font-size: 0.5em;
-  margin-bottom: 0px;
+.laptopFrame {
+  margin-top: -120px;
+  height: 100%;
+  z-index: 2;
 }
-@media screen and (max-width: 900px) {
-  .Cards{
-    grid-template-columns: 1fr 1fr;
+
+.screenContent {
+  position: absolute;
+
+  width: 609px;
+  height: 383px;
+  z-index: 1;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* Assuming you have a CSS module for your product as styles */
+.screenContent {
+  transition: transform 0.3s ease;   /* smooth slide transition */
+  transform: translateX(0%);       /* initially position it outside the frame */
+}
+
+/* These classes will determine the position of the screen content */
+.slideOut {
+  transform: translateX(100%);
+}
+
+.fillAvailable{
+  width: -webkit-fill-available;
+}
+
+.featureButton{
+  padding: 29px;
+    border: 2px dashed;
+    width: 100%;
+    cursor: pointer;
+    margin: 20px 0px;
+}
+
+@media (max-width: 900px){
+  .flexDisplay
+  {
+    display: inline-block;
   }
 
 }
-@media screen and (max-width: 600px) {
-  .Cards{
-    grid-template-columns: 1fr;
-  }
-  .blogContainer{
-    padding: 6vh 0vw;
-  }
-  .Cards>div{
-    padding: 30px;
-  }
-}
-

@@ -5,7 +5,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import moment from 'moment';
 import Head from 'next/head';
 import router from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import ScheduleModal from '@/components/modals/ScheduleModal';
 import { useAccountContext } from '@/context/AccountContext';
@@ -16,6 +16,30 @@ import { Main } from '@/templates/Main';
 import styles from './planner.module.css';
 
 const Planner = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Listen for window resize and adjust isMobile state
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const calendarRef = useRef(null);
+
+  useEffect(() => {
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.changeView(isMobile ? 'dayGridDay' : 'dayGridMonth');
+  }, [isMobile]);
   const {
     account: { accountId, accountStatus },
   } = useAccountContext();
@@ -173,6 +197,12 @@ const Planner = () => {
         onCloseScheduleModal={onCloseScheduleModal}
       />
       <FullCalendar
+        initialView={isMobile ? 'dayGridDay' : 'dayGridMonth'}
+        headerToolbar={{
+          left: isMobile ? 'prev,next' : 'prev title next',
+          right: isMobile ? '' : 'printButton scheduleButton',
+        }}
+        ref={calendarRef}
         themeSystem="bootstrap"
         customButtons={{
           printButton: {
@@ -190,12 +220,7 @@ const Planner = () => {
             },
           },
         }}
-        headerToolbar={{
-          left: 'prev title next',
-          right: 'printButton scheduleButton',
-        }}
         plugins={[dayGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
         firstDay={1}
         eventTimeFormat={{
           hour: '2-digit',

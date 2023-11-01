@@ -21,6 +21,13 @@
     color: #ffffff;
     transition: all 1s ease-in-out;
 }
+body main .youtubeGrid{
+  height: auto;
+  margin-bottom: 10px;
+}
+.container {
+  width: inherit;
+}
 @media (max-width:900px){
 .youtubeGrid{
 width:100%;
@@ -43,7 +50,7 @@ body .container .column div{
   margin: auto;
 }
 .videoDetails{
-  margin: auto;
+  margin: auto !important;
   padding: 0;
   text-align: center;
 }
