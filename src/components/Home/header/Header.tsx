@@ -57,8 +57,8 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <svg
-          width="108"
-          height="72"
+          width="70"
+          height="47"
           viewBox="0 0 108 72"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
