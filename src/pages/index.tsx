@@ -52,7 +52,7 @@ const Index = () => {
         src="https://assets.calendly.com/assets/external/widget.js"
         onLoad={() => {
           window.Calendly.initInlineWidget({
-            url: 'https://calendly.com/zeezy-1?hide_landing_page_details=1&hide_gdpr_banner=1',
+            url: 'https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1',
             parentElement: document.getElementById('calendly-inline-widget'),
           });
         }}

@@ -1,3 +1,8 @@
+.main p{
+  font-size: 1.3vw;
+  padding: 20px;
+  text-align: left;
+}
 .steps{
 
   display: flex;
@@ -7,42 +12,53 @@
 .main{
   padding-top: 6rem;
 }
+
 .productCard{
-  border-radius: 75px 75px 0px 0px;
-  padding: 10px;
+  border-radius: 15px;
+  padding: 0px 10px;
   transition: all 0.3s ease-in-out;
-  max-height: 200px;
+  max-height: 90px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 -5px 8px rgba(0,0,0,.1);
   color: black;
-  max-width: 60%;
+  max-width: 90%;
   text-align: center;
   margin: auto;
 }
+.productCard .flexText{
+  /* display: inline-flex; */
+  padding: 0% 4%;
+
+}
 .startedImage{
-  width: 50%;
+  width: 40%;
   margin: auto;
   display: block;
   border-radius: 20px;
 }
 
-.productCard.expanded {
+.main .productCard.expanded {
+  max-height: fit-content;
+  border-radius:30px;
   max-height: 1000px;  
   transition: max-height 0.3s ease;
-  padding-bottom: 110px;
+  padding-bottom: 0px;
   transition: all 0.3s ease-in-out;
 }
 
 .productCard:nth-child(2) {
-  transform: translateY(-110px); 
+  /* transform: translateY(-85px);  */
+  margin: 10px auto;
 }
 .flexDisplay{
   display: flex;
 }
 .productCard:nth-child(3) {
-  transform: translateY(-215px);  
+  /* transform: translateY(-215px);   */
+  margin: 10px auto 15px auto;
   padding-bottom: 20px;
+
 }
 
 
@@ -155,7 +171,6 @@ body .laptopFrame {
 }
 .productCard h1{
   text-align: center;
-  margin-bottom: 1rem;
 }
 .stepsImage{
   text-align: center;
@@ -171,7 +186,7 @@ body .laptopFrame {
   cursor: pointer;
 }
 .stepsImage h1{
-  font-size: 15px;
+  font-size: 20px;
 }
 .arrow{
   position: absolute;
@@ -186,8 +201,37 @@ body .laptopFrame {
 
 
 .boost, .started, .spread{
+  width:150px;
   cursor: pointer;
-  margin: 0px 50px;
+  margin: 0px 60px;
+  text-align: -webkit-center;
+}
+.boost div{
+  background-color:hwb(336.67deg 92.55% 0.39%);
+}
+.started div{
+  background-color:hwb(163.85deg 87.84% 1.96%);
+}
+.spread div{
+  background-color:hwb(211.3deg 81.96% 0%);
+}
+.spread div img, .started div img, .boost div img{
+  width: 55%;
+  object-fit: cover;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.boost div, .started div, .spread div{
+  padding:15px;
+  height:80px;
+  width:80px;
+  border-radius:100%;
+  position: relative;
 }
 
 /* on hover */
@@ -224,10 +268,24 @@ body .laptopFrame {
   }
 
 }
-
-@media (max-width: 600px) {
+.phoneContainer{
+  display: none;
+}
+@media (max-width: 900px) {
+  .screenContent{
+    max-width: 358px;
+    height: 88%;
+  }
   .laptopContainer{
     display: none;
+  }
+  .phoneContainer{
+    display: flex;
+    position: relative;
+
+    justify-content: center;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 
 }
@@ -236,11 +294,37 @@ body .laptopFrame {
   position: relative;
   background: white; /* Replace with your color */
   z-index: 1;
+  padding-top: 20px;
 }
 
 .main{
-  background-color: #c4e6f55c;
-  border-bottom-left-radius: 13% 13%;
-  border-bottom-right-radius: 13% 13%;
+  border-bottom-left-radius: 5% 8%;
+  border-bottom-right-radius: 5% 8%;
+  background: linear-gradient(to bottom, #fff, #6bcefa5c);
 }
-.stepsContent{    margin-bottom: -130px;}
+.stepsContent{    margin-bottom: -0px;
+  padding-bottom: 25px;}
+
+.closeButton {
+  display: block;
+  position: absolute; /* Positions the button in relation to the parent's position */
+  top: 15px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  background: none; /* No background */
+  border: none; /* No border */
+  font-size: 24px; /* Large text */
+  cursor: pointer; /* Cursor indicates it's clickable */
+  color: #333; /* Color of the 'X', change as needed */
+}
+
+/* .closeButton{
+  display: none;
+} */
+
+/* Add some styles to ensure the parent (.productCard) is positioned relatively */
+.productCard {
+  position: relative; /* This makes sure the closeButton is positioned correctly within the card */
+  /* Other styles remain unchanged */
+}
+
+

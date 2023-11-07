@@ -1,3 +1,4 @@
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Head from 'next/head';
 import Script from 'next/script';
 import { useState } from 'react';
@@ -7,7 +8,7 @@ import { Header } from '@/components/Home/header/Header';
 
 import styles from './product.module.css';
 const Index = () => {
-  const [expandedCard, setExpandedCard] = useState('');
+  const [expandedCard, setExpandedCard] = useState('discover');
   const [currentScreen, setCurrentScreen] = useState(
     '/assets/images/product/dashboard.png'
   ); // Default screen
@@ -50,7 +51,7 @@ const Index = () => {
         src="https://assets.calendly.com/assets/external/widget.js"
         onLoad={() => {
           window.Calendly.initInlineWidget({
-            url: 'https://calendly.com/zeezy-1?hide_landing_page_details=1&hide_gdpr_banner=1',
+            url: 'https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1',
             parentElement: document.getElementById('calendly-inline-widget'),
           });
         }}
@@ -58,58 +59,64 @@ const Index = () => {
       <Header />
       <main className={styles.main}>
         <div className={styles.motionTitle}>
-          <h2>How Motion Wellbeing Works</h2>
+          <h2>How Motion Wellbeing works</h2>
         </div>
         <div className={styles.steps}>
           <div className={styles.stepsImage}>
-            <div className={styles.started}>
-              <div onClick={() => setExpandedCard('discover')}>
+            <div
+              className={styles.started}
+              onClick={() => setExpandedCard('discover')}
+            >
+              <div>
                 <img
                   className={styles.icon}
-                  src={'/assets/images/product/Icons/startedIcon.png'}
+                  src={'/assets/images/product/Icons/Vectorstarted.svg'}
                   alt="Motion icon"
                 />
               </div>
-              <h1>1. Get Started</h1>
+              <h1>1. Get started</h1>
             </div>
             <img
               className={styles.arrowTwo}
               style={{
-                transform: 'translateX(97px) translateY(-70px)',
+                transform: 'translateX(140px) translateY(5px)',
               }}
-              src={'/assets/images/product/Icons/arrowTwo.png'}
+              src={'/assets/images/product/Icons/ArrowOne.png'}
               alt="arrow"
             />
             <div
               className={styles.boost}
               onClick={() => setExpandedCard('deliver')}
             >
-              <img
-                className={styles.icon}
-                src={'/assets/images/product/Icons/boostIcon.png'}
-                alt="Motion icon"
-              />
-
-              <h1>2. Boost Wellbeing</h1>
+              <div>
+                <img
+                  className={styles.icon}
+                  src={'/assets/images/product/Icons/Vectorboost.svg'}
+                  alt="Motion icon"
+                />
+              </div>
+              <h1>2. Boost wellbeing</h1>
             </div>
             <img
               className={styles.arrowTwo}
               style={{
-                transform: 'translateX(-142px) translateY(-70px)',
+                transform: 'translateX(-130px) translateY(-50px)',
               }}
-              src={'/assets/images/product/Icons/arrowTwo.png'}
+              src={'/assets/images/product/Icons/ArrowTwo.png'}
               alt="arrow"
             />
             <div
               className={styles.spread}
               onClick={() => setExpandedCard('spread')}
             >
-              <img
-                className={styles.icon}
-                src={'/assets/images/product/Icons/generateIcon.png'}
-                alt="Motion icon"
-              />
-              <h1>3. Spread the Word</h1>
+              <div>
+                <img
+                  className={styles.icon}
+                  src={'/assets/images/product/Icons/Vectorleads.svg'}
+                  alt="Motion icon"
+                />
+              </div>
+              <h1>3. Spread the word</h1>
             </div>
           </div>
           <div className={styles.stepsContent}>
@@ -117,31 +124,75 @@ const Index = () => {
               className={`${styles.productCard} ${
                 expandedCard === 'discover' ? styles.expanded : ''
               }`}
-              style={{ backgroundColor: '#efd1ff' }}
+              style={{
+                // backgroundColor: '#efd1ff',
+                // backgroundColor: 'hwb(194deg 63% 0% / 100%)',
+                backgroundColor: '#e0faf3',
+                paddingBottom: `80px`,
+                borderRadius: `15px 15px 0px 0px`,
+              }}
               onClick={() => setExpandedCard('discover')}
             >
+              <button
+                className={styles.closeButton}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent the card from expanding
+                  if (expandedCard === 'discover') {
+                    setExpandedCard('');
+                  } else {
+                    setExpandedCard('discover');
+                  }
+                }}
+              >
+                {expandedCard === 'discover' ? 'X' : <KeyboardArrowDownIcon />}
+              </button>
               <h1>Get started</h1>
-              <img
-                className={styles.startedImage}
-                src={'/assets/images/product/get-started.jpg'}
-                alt="Zeezy demonstrating the Motion platform"
-              />
-              <p>
-                Start your Motion journey with hands-on support from our
-                wellbeing and marketing experts. We will work with your team to
-                understand how we can tailor our support to meet the wellbeing
-                needs of your residents and marketing needs of your service.
-                Once this has been established we deliver comprehensive training
-                to your team to ensure we hit the ground running together!
-              </p>
+              <div className={styles.flexText}>
+                <img
+                  className={styles.startedImage}
+                  src={'/assets/images/product/get-started.jpg'}
+                  alt="Zeezy demonstrating the Motion platform"
+                />
+                <p>
+                  Start your Motion journey with hands-on support from our
+                  wellbeing and marketing experts. We will work with your team
+                  to understand how we can tailor our support to meet the
+                  wellbeing needs of your residents and marketing needs of your
+                  service. Once this has been established we deliver
+                  comprehensive training to your team to ensure we hit the
+                  ground running together!
+                </p>
+              </div>
             </div>
             <div
               className={`${styles.productCard} ${
                 expandedCard === 'deliver' ? styles.expanded : ''
               }`}
-              style={{ backgroundColor: '#d1d5ff' }}
+              style={{
+                // backgroundColor: '#d1d5ff',
+                // backgroundColor: 'hwb(207deg 52% 0% / 114%)',
+                // backgroundColor: '#f68eb7',
+                backgroundColor: '#feecf3',
+
+                marginTop: `-15px`,
+                paddingBottom: `169px`,
+                borderRadius: `15px 15px 10px 10px`,
+              }}
               onClick={() => setExpandedCard('deliver')}
             >
+              <button
+                className={styles.closeButton}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent the card from expanding
+                  if (expandedCard === 'deliver') {
+                    setExpandedCard('');
+                  } else {
+                    setExpandedCard('deliver');
+                  }
+                }}
+              >
+                {expandedCard === 'deliver' ? 'X' : <KeyboardArrowDownIcon />}
+              </button>
               <h1>Boost wellbeing</h1>
               <div className={styles.flexDisplay}>
                 <div className={styles.laptopContainer}>
@@ -177,6 +228,42 @@ const Index = () => {
                   <img
                     className={styles.laptopFrame}
                     src="/assets/images/product/laptop-frame.png"
+                    alt="Laptop frame"
+                  />
+                </div>
+                <div className={styles.phoneContainer}>
+                  <div
+                    className={`${styles.screenContent} `}
+                    style={{ overflow: 'hidden' }}
+                  >
+                    <img
+                      style={{ transform: `translateX(${slideNumber}%)` }}
+                      className={`${styles.screenContent} ${
+                        slideOut && styles.slideOut
+                      }`}
+                      src={'/assets/images/product/schedual.webp'}
+                      alt="Schedule activities"
+                    />
+
+                    <img
+                      style={{ transform: `translateX(${slideNumber + 100}%)` }}
+                      className={`${styles.screenContent} 
+                  }`}
+                      src={'/assets/images/product/activity.png'}
+                      alt="Activity"
+                    />
+                    <img
+                      style={{ transform: `translateX(${slideNumber + 200}%)` }}
+                      className={`${styles.screenContent} 
+                  }`}
+                      src={'/assets/images/product/dashboard.png'}
+                      alt="Motion dashboard"
+                    />
+                  </div>
+
+                  <img
+                    className={styles.laptopFrame}
+                    src="/assets/images/product/phone-frame.png"
                     alt="Laptop frame"
                   />
                 </div>
@@ -232,20 +319,44 @@ const Index = () => {
               className={`${styles.productCard} ${
                 expandedCard === 'spread' ? styles.expanded : ''
               }`}
-              style={{ backgroundColor: '#d1f1ff', borderRadius: `75px` }}
+              style={{
+                // backgroundColor: '#d1f1ff',
+                // backgroundColor: 'hwb(228 47% 0% / 1)',
+                backgroundColor: `#d1e7ff`,
+                marginTop: `-95px`,
+                zIndex: `2`,
+              }}
               onClick={() => setExpandedCard('spread')}
             >
+              <button
+                className={styles.closeButton}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent the card from expanding
+                  // toggleCard('spread');
+                  if (expandedCard === 'spread') {
+                    setExpandedCard('');
+                  } else {
+                    setExpandedCard('spread');
+                  }
+                }}
+              >
+                {expandedCard === 'spread' ? 'X' : <KeyboardArrowDownIcon />}
+              </button>
               <h1>Generate leads</h1>
-              <img
-                className={styles.startedImage}
-                src={'/assets/images/product/communityGame.webp'}
-              />
-              <p>
-                As a care provider one of your biggest marketing assets is your
-                wellbeing provision. Our marketing experts support you to
-                showcase your activities in order to increase the attractiveness
-                of your care service and ultimately generate more leads.
-              </p>
+              <div className={styles.flexText}>
+                <img
+                  className={styles.startedImage}
+                  src={'/assets/images/product/communityGame.webp'}
+                  alt="Zeezy demonstrating the Motion platform"
+                />
+                <p>
+                  As a care provider one of your biggest marketing assets is
+                  your wellbeing provision. Our marketing experts support you to
+                  showcase your activities in order to increase the
+                  attractiveness of your care service and ultimately generate
+                  more leads.
+                </p>
+              </div>
             </div>
           </div>
         </div>
