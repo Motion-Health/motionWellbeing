@@ -19,6 +19,10 @@ export const Header = () => {
   const navigateToKnowledgeHub = () => {
     router.push('/blog');
   };
+  const navigateToWhatWeDo = () => {
+    router.push('/what-we-do');
+  };
+
   //choose the screen size
   const handleResize = () => {
     if (window.innerWidth < 960) {
@@ -161,6 +165,11 @@ export const Header = () => {
                   onClick={navigateToKnowledgeHub}
                 >
                   Knowledge Hub
+                </button>
+              </li>
+              <li>
+                <button className={styles.link} onClick={navigateToWhatWeDo}>
+                  What we do
                 </button>
               </li>
               <li>
