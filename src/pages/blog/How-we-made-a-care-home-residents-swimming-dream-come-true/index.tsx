@@ -235,16 +235,11 @@ const Index = () => {
           </p>
           <p>
             If you’d like to know more about how we can help to boost wellbeing
-            and make residents' dreams come true, book a 30 minute discovery
-            call with Zeezy today.
-          </p>
-
-          <p>
-            Want to get better at content creation? &nbsp;
+            and make residents&rsquo; dreams come true,{' '}
             <a href="https://calendly.com/zeezy-1/motion">
-              Book a 30-minute demo
-            </a>
-            &nbsp; of our content marketing platform today.
+              book a 30-minute demo
+            </a>{' '}
+            call with Zeezy today.
           </p>
         </div>
       </div>
