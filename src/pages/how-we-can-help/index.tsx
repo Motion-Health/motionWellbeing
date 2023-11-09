@@ -18,7 +18,7 @@ const Index = () => {
   const [slideNumber, setSlideNumber] = useState(0);
   const [slideOut, setSlideOut] = useState(false);
   return (
-    <div>
+    <div className={styles.productBody}>
       <Head>
         <title>Creating moments that move people | Motion Wellbeing</title>
         <meta property="og:url" content="https://www.motionexercise.co.uk" />
@@ -50,6 +50,7 @@ const Index = () => {
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
         onLoad={() => {
+          console.log('loading calendly');
           window.Calendly.initInlineWidget({
             url: 'https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1',
             parentElement: document.getElementById('calendly-inline-widget'),
@@ -116,7 +117,7 @@ const Index = () => {
                   alt="Motion icon"
                 />
               </div>
-              <h1>3. Spread the word</h1>
+              <h1>3. Generate leads</h1>
             </div>
           </div>
           <div className={styles.stepsContent}>
@@ -173,9 +174,8 @@ const Index = () => {
                 // backgroundColor: 'hwb(207deg 52% 0% / 114%)',
                 // backgroundColor: '#f68eb7',
                 backgroundColor: '#feecf3',
-
+                marginBottom: `80px`,
                 marginTop: `-15px`,
-                paddingBottom: `169px`,
                 borderRadius: `15px 15px 10px 10px`,
               }}
               onClick={() => setExpandedCard('deliver')}
@@ -213,7 +213,7 @@ const Index = () => {
                       style={{ transform: `translateX(${slideNumber + 100}%)` }}
                       className={`${styles.screenContent} 
                   }`}
-                      src={'/assets/images/product/activity.png'}
+                      src={'/assets/images/product/activity.webp'}
                       alt="Activity"
                     />
                     <img
@@ -233,7 +233,7 @@ const Index = () => {
                 </div>
                 <div className={styles.phoneContainer}>
                   <div
-                    className={`${styles.screenContent} `}
+                    className={`${styles.phoneContent} `}
                     style={{ overflow: 'hidden' }}
                   >
                     <img
@@ -241,7 +241,7 @@ const Index = () => {
                       className={`${styles.screenContent} ${
                         slideOut && styles.slideOut
                       }`}
-                      src={'/assets/images/product/schedual.webp'}
+                      src={'/assets/images/product/phone/Schedule.png'}
                       alt="Schedule activities"
                     />
 
@@ -249,14 +249,14 @@ const Index = () => {
                       style={{ transform: `translateX(${slideNumber + 100}%)` }}
                       className={`${styles.screenContent} 
                   }`}
-                      src={'/assets/images/product/activity.png'}
+                      src={'/assets/images/product/phone/Activity.png'}
                       alt="Activity"
                     />
                     <img
                       style={{ transform: `translateX(${slideNumber + 200}%)` }}
                       className={`${styles.screenContent} 
                   }`}
-                      src={'/assets/images/product/dashboard.png'}
+                      src={'/assets/images/product/phone/Dashboard.png'}
                       alt="Motion dashboard"
                     />
                   </div>
@@ -265,6 +265,7 @@ const Index = () => {
                     className={styles.laptopFrame}
                     src="/assets/images/product/phone-frame.png"
                     alt="Laptop frame"
+                    style={{ width: '100%', margin: '10px' }}
                   />
                 </div>
 
@@ -345,9 +346,9 @@ const Index = () => {
               <h1>Generate leads</h1>
               <div className={styles.flexText}>
                 <img
-                  className={styles.startedImage}
-                  src={'/assets/images/product/communityGame.webp'}
-                  alt="Zeezy demonstrating the Motion platform"
+                  className={styles.leadImage}
+                  src={'/assets/images/product/Generate-leads.webp'}
+                  alt="Improved Wellbeing and High Quality Content equals More Enquiries"
                 />
                 <p>
                   As a care provider one of your biggest marketing assets is
@@ -368,11 +369,23 @@ const Index = () => {
           recommendations for your wellbeing activities and how to use these in
           your marketing!
         </div>
-        <div
-          id="calendly-inline-widget"
-          style={{ minWidth: 320, height: 650 }}
-          data-auto-load="false"
-        ></div>
+        <div className={styles.bookMeetingContainer}>
+          <div className={styles.bookMeeting}>
+            <img
+              src="/assets/images/product/book-meeting-image.webp"
+              alt="Zeezy at motion community games"
+            />
+            <div className={styles.calendlyContainer}>
+              <div
+                id="calendly-inline-widget"
+                className={styles.calendly}
+                height="100%"
+                width="100%"
+                data-auto-load="false"
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
       <Footer />
     </div>

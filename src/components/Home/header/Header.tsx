@@ -19,8 +19,8 @@ export const Header = () => {
   const navigateToKnowledgeHub = () => {
     router.push('/blog');
   };
-  const navigateToWhatWeDo = () => {
-    router.push('/what-we-do');
+  const navigateToHowWeCanHelp = () => {
+    router.push('/how-we-can-help');
   };
 
   //choose the screen size
@@ -168,8 +168,11 @@ export const Header = () => {
                 </button>
               </li>
               <li>
-                <button className={styles.link} onClick={navigateToWhatWeDo}>
-                  What we do
+                <button
+                  className={styles.link}
+                  onClick={navigateToHowWeCanHelp}
+                >
+                  How we can help
                 </button>
               </li>
               <li>

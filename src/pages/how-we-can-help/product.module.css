@@ -1,7 +1,10 @@
 .main p{
   font-size: 1.3vw;
   padding: 20px;
-  text-align: left;
+  text-align: center;
+}
+.productBody footer{
+  padding-top: 10px;
 }
 .steps{
 
@@ -38,10 +41,17 @@
   border-radius: 20px;
 }
 
+.leadImage{
+  display: block;
+  border-radius: 20px;
+  width: 55%;
+  margin: -30px auto;
+}
+
 .main .productCard.expanded {
   max-height: fit-content;
   border-radius:30px;
-  max-height: 1000px;  
+  max-height: fit-content;  
   transition: max-height 0.3s ease;
   padding-bottom: 0px;
   transition: all 0.3s ease-in-out;
@@ -73,7 +83,7 @@ body .laptopFrame {
   margin: auto;
   margin-top: 0px;
   width: -webkit-fill-available;
-  height: auto;
+  height: min-content;
   margin-bottom: 0;
 }
 
@@ -127,7 +137,9 @@ body .laptopFrame {
 }
 
 .fillAvailable{
-  width: -webkit-fill-available;
+  width: fit-content;
+  margin-left: 40px;
+
 }
 .blueBackground{
   background-color: #c4e6f55c;
@@ -154,11 +166,16 @@ body .laptopFrame {
   background-color: #fff;
   color: #000;
 }
+.flexDisplay {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap onto the next line on small screens */
+  justify-content: center;
+}
+
 
 @media (max-width: 900px){
-  .flexDisplay
-  {
-    display: inline-block;
+  .main p{
+    font-size: 2.3vw;
   }
 
 }
@@ -241,16 +258,11 @@ body .laptopFrame {
 }
 
 
-.flexDisplay {
-  display: flex;
-  flex-wrap: wrap; /* Allow items to wrap onto the next line on small screens */
-  justify-content: center;
-}
 
 .screenContent{    overflow: hidden;
   display: inline-flex;
   height: -webkit-fill-available;
-  padding: 8px 0px 40px 0px;
+  padding: 7px 0px 55px 1px;
   max-width: 436px;
 
 }
@@ -262,7 +274,7 @@ body .laptopFrame {
   }
 }
 
-@media (max-width: 00px) {
+@media (max-width: 900px) {
   .steps{
     display: block;
   }
@@ -271,13 +283,33 @@ body .laptopFrame {
 .phoneContainer{
   display: none;
 }
+
+.discoveryText{
+  margin-bottom: 40px;
+}
+
+
+
+
 @media (max-width: 900px) {
   .screenContent{
-    max-width: 358px;
-    height: 88%;
+    padding: 0;
   }
+  .featureButton{
+    padding: 15px;
+  }
+  .fillAvailable{
+    display: flex;
+    margin-left: 0px;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin: auto;
+  }
+ 
   .laptopContainer{
     display: none;
+  }
+  .discoveryText{margin: 0px 0px 75px 0px;
   }
   .phoneContainer{
     display: flex;
@@ -287,20 +319,25 @@ body .laptopFrame {
     width: -moz-fit-content;
     width: fit-content;
   }
+  .main p {
+    font-size: 2vh;
+  }
+  
 
 }
 
 .discoveryBackground {
   position: relative;
-  background: white; /* Replace with your color */
   z-index: 1;
   padding-top: 20px;
+  background: linear-gradient(to bottom, #fff, #6bc6fa29);
+  padding-bottom: 10px
 }
 
 .main{
   border-bottom-left-radius: 5% 8%;
   border-bottom-right-radius: 5% 8%;
-  background: linear-gradient(to bottom, #fff, #6bcefa5c);
+  background: linear-gradient(to bottom, #fff, #6bc6fa29);
 }
 .stepsContent{    margin-bottom: -0px;
   padding-bottom: 25px;}
@@ -326,5 +363,92 @@ body .laptopFrame {
   position: relative; /* This makes sure the closeButton is positioned correctly within the card */
   /* Other styles remain unchanged */
 }
+.bookMeetingContainer{
+  width: 1000px;
+  margin: auto;
+}
 
+.bookMeeting{
+  display: inline-flex;
+}
 
+.bookMeeting img{
+  width: 35%;
+    height: -moz-fit-content;
+    height: -webkit-fill-available;
+    border-radius: 20px;
+    padding: 0px 10px;
+    object-fit: cover;
+    object-position: 23% 0%;
+    height: 850px;
+}
+ 
+
+.calendly{
+  overflow: hidden;
+  height: -webkit-fill-available;
+}
+.bookMeeting{
+  display: inline-flex;
+}
+.calendlyContainer{
+  width: 70%;
+  height: 860px;
+  overflow: auto;
+}
+
+@media (max-width: 1000px){
+  .bookMeetingContainer{
+    width: 100%;
+  }
+  .bookMeeting{
+    display: flex;
+  }
+  .bookMeeting img{
+    display: none;
+  }
+  .calendlyContainer{
+    width: 654px;
+    overflow: auto;
+    margin: auto;
+    display: inline-block;
+    height: 860px;
+  }
+  .calendly{
+    overflow: hidden;
+    height: -webkit-fill-available;
+    margin-right: -30px!important;
+    width: 100%;
+  }
+}
+@media (max-width: 800px){
+  .arrow, .arrowTwo{
+    display: none;
+  }
+  .spread, .started, .boost{
+    margin: 0px;
+  }
+  .stepsImage{
+    align-items: stretch;
+  }
+  .productCard{
+    max-height:80px;
+  }
+  .startedImage, .leadImage{
+    width:100%;
+  }
+
+}
+
+.phoneContent{
+  overflow: hidden;
+  margin: 20px 55px;
+  width: 88%;
+  height: 93.5%;
+  padding: 0px;
+  display: inline-flex;
+  position: absolute;
+  z-index: 1;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

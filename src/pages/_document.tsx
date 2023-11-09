@@ -40,7 +40,7 @@ class MyDocument extends Document {
           />
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=G-B3HKLTG9M3"
+              src="https://www.googletagmanager.com/gtag/js?id=G-QY7KK1XGCT"
               height="0"
               width="0"
               className="invisible hidden"
