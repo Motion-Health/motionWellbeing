@@ -234,7 +234,7 @@ const NavigationItems = () => {
               sx={{
                 marginBottom: '2rem',
               }}
-              href="/#faq"
+              href="/wellbeing/support"
             >
               Get support
             </Button>

@@ -29,7 +29,11 @@ export const ActivityCommentsList = ({ activityId }: Props) => {
         >
           {activityCommentsContent?.map((commentContent, index) => {
             const { comment, rating, serviceProviderName } = commentContent;
-            if (rating === undefined || serviceProviderName === undefined) {
+            if (
+              rating === undefined ||
+              serviceProviderName === undefined ||
+              rating <= 3
+            ) {
               return null;
             }
             return (
