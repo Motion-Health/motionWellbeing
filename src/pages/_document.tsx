@@ -35,12 +35,12 @@ class MyDocument extends Document {
                     j.async = true
                     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
                     f.parentNode.insertBefore(j, f)
-                  })(window,document,'script','dataLayer',"G-B3HKLTG9M3")`,
+                  })(window,document,'script','dataLayer',"G-QY7KK1XGCT")`,
             }}
           />
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=G-B3HKLTG9M3"
+              src="https://www.googletagmanager.com/ns.html?id=G-QY7KK1XGCT"
               height="0"
               width="0"
               className="invisible hidden"
