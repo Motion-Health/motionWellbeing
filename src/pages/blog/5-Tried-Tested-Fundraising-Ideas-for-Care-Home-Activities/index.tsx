@@ -212,7 +212,7 @@ const Index = () => {
             these activities can be challenging, but we’re here to share our
             years of experience supporting Activity Coordinators to raise funds
             and improve the quality of life of residents.&nbsp;
-            <a href="https://calendly.com/zeezy-1/motion">
+            <a href="/how-we-can-help">
               Book a 30 minute discovery call
             </a>
             &nbsp;today to chat about how we can help you to fundraise. of our

@@ -26,6 +26,12 @@ const Index = () => {
     link: '5-Tried-Tested-Fundraising-Ideas-for-Care-Home-Activities',
     image: '/assets/images/blogs/blog3/Thumbnail.webp',
   };
+  const blog4 = {
+    id: 4,
+    name: 'How we made a care home residents swimming dream come true!',
+    link: 'How-we-made-a-care-home-residents-swimming-dream-come-true',
+    image: '/assets/images/blogs/blog4/Thumbnail.webp',
+  };
 
   return (
     <div className="white-background">
@@ -75,6 +81,7 @@ const Index = () => {
           <BlogCard blog={blog1}></BlogCard>
           <BlogCard blog={blog2}></BlogCard>
           <BlogCard blog={blog3}></BlogCard>
+          <BlogCard blog={blog4}></BlogCard>
         </Grid>
       </div>
 

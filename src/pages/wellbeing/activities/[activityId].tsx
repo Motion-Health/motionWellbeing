@@ -22,6 +22,8 @@ import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 import { ActivityData } from '@/services/activities/useCreateActivity';
 import { Main } from '@/templates/Main';
 
+import style from './activity.module.css';
+
 pdfjs.GlobalWorkerOptions.workerSrc = url;
 const ActivityDetails = (a) => {
   const [open, setOpen] = useState(false);
@@ -191,14 +193,19 @@ const ActivityDetails = (a) => {
       );
     } else if (shouldRenderVideo && parsedYouTubeEmbedCode) {
       return (
-        <Grid item sm={12} height="30rem" sx={{ mb: '3rem' }}>
+        <Grid
+          item
+          sm={12}
+          height="30rem"
+          sx={{ mb: '3rem' }}
+          className={style.youtubeGrid}
+        >
           <YouTube
             videoId={parsedYouTubeEmbedCode}
             onPlay={() => setVideoPlayTimestamp(moment())}
             onStateChange={(e) => handleVideoStateChange(e)}
             opts={{
               width: '100%',
-              height: '500',
             }}
           />
         </Grid>
@@ -320,10 +327,9 @@ const ActivityDetails = (a) => {
             activityCompletedId={activityCompletedId}
             onCloseStepperModal={onCloseStepperModal}
           />
-
           <PageHeader title={activity.activityName}>
             <button
-              className="animatedButton"
+              className={style.animatedbutton}
               onClick={() => handleCompleteAndRate()}
             >
               <svg
@@ -343,58 +349,54 @@ const ActivityDetails = (a) => {
               <span>Complete and rate activity</span>
             </button>
           </PageHeader>
-
           <Grid
             container
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
+            className={style.container}
+            alignItems="center"
+            spacing={3}
           >
-            <ActivityCategoryAndTime
-              category={activity?.category}
-              timeLength={activity?.timeLength}
-            />
+            <Grid item xs={3} className={style.column}>
+              <ActivityCategoryAndTime
+                category={activity?.category}
+                timeLength={activity?.timeLength}
+              />
+            </Grid>
 
             {timesCompleted && (
-              <Typography variant="helper" sx={{ mr: '3rem' }}>
-                {`
-                Completed 
-                ${timesCompleted} 
-                ${timesCompleted !== 1 ? 'times' : 'time'}
-                `}
-              </Typography>
+              <Grid item xs={3} className={style.column}>
+                <Typography variant="helper">
+                  {`Completed ${timesCompleted} ${
+                    timesCompleted !== 1 ? 'times' : 'time'
+                  }`}
+                </Typography>
+              </Grid>
             )}
 
             {roundedRating && (
-              <Grid item sx={{ mr: '3rem' }}>
+              <Grid item xs={6} className={style.column}>
                 <Grid container alignItems="center">
                   <img
                     src={`/assets/emotions/emotion-${roundedRating}.svg`}
                     width="24px"
                     height="24px"
                     alt="Face icon"
-                    sx={{ verticalAlign: 'middle' }}
                   />
-                  <Typography
-                    variant="helper"
-                    sx={{ ml: '0.5rem', position: 'relative' }}
-                  >
+                  <Typography variant="helper" sx={{ ml: '0.5rem' }}>
                     {decimalRating}
                   </Typography>
                 </Grid>
               </Grid>
             )}
           </Grid>
+
           <Grid container spacing={2} sx={{ mt: '0rem' }}>
             {renderYouTubeOrCookieMessage()}
 
-            <Grid item sm={12} md={9}>
+            <Grid item sm={12} md={9} className={style.videoDetails}>
               <Typography variant="h3">Description</Typography>
               <Typography variant="helper">{activity?.description}</Typography>
             </Grid>
-
-            <Grid item sm={12} md={3}>
+            <Grid item sm={12} md={3} className={style.videoDetails}>
               <Typography variant="h3">Equipment</Typography>
               <Typography variant="helper">
                 {activity?.equipmentRequired?.trim()
@@ -408,7 +410,6 @@ const ActivityDetails = (a) => {
                 />
               )}
             </Grid>
-
             <ActivityCommentsList activityId={activityId} />
           </Grid>
         </Main>

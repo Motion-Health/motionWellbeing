@@ -1,0 +1,61 @@
+.animatedbutton{
+  cursor: pointer;
+    display: flex;
+    align-items: center;
+    left: 0;
+    width: 366px;
+    transform: translateX(0px);
+    flex-direction: row;
+    gap: 16px;
+    height: 72px;
+    background: #0c437d;
+    box-shadow: inset 0px 0px 4px rgba(9, 37, 108, 0.25);
+    border-radius: 36px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    border: none;
+    color: #ffffff;
+    transition: all 1s ease-in-out;
+}
+body main .youtubeGrid{
+  height: auto;
+  margin-bottom: 10px;
+}
+.container {
+  width: inherit;
+}
+@media (max-width:900px){
+.youtubeGrid{
+width:100%;
+height: auto;
+    margin: auto;
+}
+body .container{
+  margin: 0 auto;
+  width: 100%;
+}
+
+body .container .column{
+  flex-grow: 1;
+  max-width: 33%;
+  padding-left:0px;
+  display: flex;
+  padding-top: 10px;
+}
+body .container .column div{
+  margin: auto;
+}
+.videoDetails{
+  margin: auto !important;
+  padding: 0;
+  text-align: center;
+}
+.animatedbutton {
+  margin: auto;
+    margin-bottom: 10px;
+}
+}

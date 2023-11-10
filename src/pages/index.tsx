@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 
 import { About } from '@/components/Home/About';
 import { Cards } from '@/components/Home/Cards';
@@ -47,6 +48,15 @@ const Index = () => {
           content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
         />
       </Head>
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        onLoad={() => {
+          window.Calendly.initInlineWidget({
+            url: 'https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1',
+            parentElement: document.getElementById('calendly-inline-widget'),
+          });
+        }}
+      />
 
       <Header />
       <Hero videoSrc={'/assets/home/video.mp4'}>
@@ -56,9 +66,15 @@ const Index = () => {
       <Clients></Clients>
       <CTA></CTA>
       <About></About>
+      <div
+        id="calendly-inline-widget"
+        style={{ minWidth: 320, height: 650 }}
+        data-auto-load="false"
+      ></div>
       <FAQs></FAQs>
       <Contact />
       <Partners />
+
       <Footer></Footer>
     </div>
   );

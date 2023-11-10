@@ -19,6 +19,13 @@ export const Header = () => {
   const navigateToKnowledgeHub = () => {
     router.push('/blog');
   };
+  const navigateToHowWeCanHelp = () => {
+    router.push('/how-we-can-help');
+  };
+  const navigateToLogin = () => {
+    router.push('/wellbeing/login');
+  };
+
   //choose the screen size
   const handleResize = () => {
     if (window.innerWidth < 960) {
@@ -57,8 +64,8 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <svg
-          width="108"
-          height="72"
+          width="70"
+          height="47"
           viewBox="0 0 108 72"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -164,6 +171,26 @@ export const Header = () => {
                 </button>
               </li>
               <li>
+                <button
+                  className={styles.link}
+                  onClick={navigateToHowWeCanHelp}
+                >
+                  How we can help
+                </button>
+              </li>
+
+              <li>
+                {!isLoggedIn && (
+                  <Button
+                    name="navigateAccount"
+                    onclick={navigateToLogin}
+                    className={styles.loginButton}
+                    icon={true}
+                    showDesktop
+                  >
+                    <span className="hidden xl:inline">Login</span>
+                  </Button>
+                )}
                 <Button
                   name="navigateAccount"
                   onclick={navigateToAccount}
