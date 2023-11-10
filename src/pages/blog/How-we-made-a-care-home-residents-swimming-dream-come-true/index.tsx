@@ -236,7 +236,7 @@ const Index = () => {
           <p>
             If you’d like to know more about how we can help to boost wellbeing
             and make residents&rsquo; dreams come true,{' '}
-            <a href="https://calendly.com/zeezy-1/motion">
+            <a href="/how-we-can-help">
               book a 30-minute demo
             </a>{' '}
             call with Zeezy today.

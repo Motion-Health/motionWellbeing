@@ -236,7 +236,7 @@ const Index = () => {
 
           <p>
             Want to get better at content creation? &nbsp;
-            <a href="https://calendly.com/zeezy-1/motion">
+            <a href="/how-we-can-help">
               Book a 30-minute demo
             </a>
             &nbsp; of our content marketing platform today.

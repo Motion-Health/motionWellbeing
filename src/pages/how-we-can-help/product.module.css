@@ -230,7 +230,7 @@ body .laptopFrame {
   background-color:hwb(163.85deg 87.84% 1.96%);
 }
 .spread div{
-  background-color:hwb(211.3deg 81.96% 0%);
+  background-color:#d1e7ff;
 }
 .spread div img, .started div img, .boost div img{
   width: 55%;

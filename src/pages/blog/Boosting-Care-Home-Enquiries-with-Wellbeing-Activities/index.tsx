@@ -231,7 +231,7 @@ const Index = () => {
           <p>
             If you’d like to know more about how you can generate more enquiries
             with wellbeing activities,&nbsp;
-            <a href="https://calendly.com/zeezy-1/motion">
+            <a href="/how-we-can-help">
               book a 30 minute discovery call
             </a>
             &nbsp;of our wellbeing and marketing platform today.
