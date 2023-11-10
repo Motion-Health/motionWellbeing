@@ -27,6 +27,7 @@
 .navigation ul li {
   padding: 0rem 2rem;
   list-style: none;
+  display: flex;
 }
 
 .navigation ul li .link {
@@ -52,4 +53,17 @@
   left: calc(50% - 5px);
   border-radius: 100%;
   position: absolute;
+}
+
+.loginButton{
+  border: 1px solid #0c437d;
+  color: 0c437d;
+  text-decoration: none;
+  position: relative;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 12px 26px;
+  border-radius: 24px;
+  margin-right: 10px;
 }

@@ -151,7 +151,7 @@ const Index = () => {
               <div className={styles.flexText}>
                 <img
                   className={styles.startedImage}
-                  src={'/assets/images/product/get-started.jpg'}
+                  src={'/assets/images/product/get-started.png'}
                   alt="Zeezy demonstrating the Motion platform"
                 />
                 <p>

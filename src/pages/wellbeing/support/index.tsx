@@ -26,7 +26,7 @@ const Login = () => {
       </IconButton>
       <div className={styles.supportContainer}>
         <div className={styles.support}>
-          <img src="/assets/images/support/zeezy.png" />
+          <img src="/assets/images/support/zeezy.webp" />
           <div>
             <h1>Get Support</h1>
             <p>
@@ -44,6 +44,7 @@ const Login = () => {
               <strong>Phone:</strong>
               <a href="tel:07543858684">07543 858684</a>
             </p>
+
             <button
               className={styles.supportButton}
               // go to previous Page
@@ -52,6 +53,14 @@ const Login = () => {
             >
               Go Back
             </button>
+            <div className={styles.actionButtons}>
+              <button
+                className={styles.callButton}
+                onClick={() => window.open('tel:07543858684')}
+              >
+                Call Now
+              </button>
+            </div>
           </div>
         </div>
       </div>

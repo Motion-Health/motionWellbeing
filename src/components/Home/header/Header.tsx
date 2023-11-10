@@ -22,6 +22,9 @@ export const Header = () => {
   const navigateToHowWeCanHelp = () => {
     router.push('/how-we-can-help');
   };
+  const navigateToLogin = () => {
+    router.push('/wellbeing/login');
+  };
 
   //choose the screen size
   const handleResize = () => {
@@ -175,7 +178,19 @@ export const Header = () => {
                   How we can help
                 </button>
               </li>
+
               <li>
+                {!isLoggedIn && (
+                  <Button
+                    name="navigateAccount"
+                    onclick={navigateToLogin}
+                    className={styles.loginButton}
+                    icon={true}
+                    showDesktop
+                  >
+                    <span className="hidden xl:inline">Login</span>
+                  </Button>
+                )}
                 <Button
                   name="navigateAccount"
                   onclick={navigateToAccount}

@@ -24,9 +24,27 @@
   padding: 20px;
   margin: 14px;
 }
+.actionButtons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
 .supportButton{
-  margin: auto;
-  display: block;
+
+  padding: 20px;
+  border: 1px solid #0c437d;
+  background-color: white;
+  color: #0c437d;
+  font-size: 17px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.callButton{
+
   padding: 20px;
   border-radius: 25px;
   border: none;
