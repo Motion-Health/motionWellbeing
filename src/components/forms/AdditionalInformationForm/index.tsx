@@ -12,6 +12,7 @@ import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
 import { useUpdateAccount } from '@/services/auth/useUpdateAccount';
 import { AppConfig } from '@/utils/AppConfig';
 type Inputs = {
+  UserRole: string;
   serviceProviderName: string;
   mainContactName: string;
   phoneNumber: string;
@@ -34,6 +35,10 @@ const registerSchema = object({
   isPartOfAGroup: string().optional(),
   howDidYouHearAboutUs: string().optional(),
   groupName: string().optional(),
+  UserRole: string({
+    required_error:
+      'Please select which of these roles most closely matches yours',
+  }),
 });
 
 export const AdditionalInformationForm = () => {
@@ -72,7 +77,9 @@ export const AdditionalInformationForm = () => {
 
   const onSubmitHandler: SubmitHandler<Inputs> = async (values) => {
     additionalInformation.mutate(
-      { ...values },
+      {
+        ...values,
+      },
       {
         onSuccess: () => {
           router.push(
@@ -200,7 +207,7 @@ export const AdditionalInformationForm = () => {
                 </FormSelect>
               </Grid>
 
-              <Grid item xs={12} sm={12} md={groupDropdownWidth}>
+              <Grid item xs={12} sm={12} md={6}>
                 <FormSelect
                   name="isPartOfAGroup"
                   label="Is your service provider part of a group?"
@@ -212,6 +219,25 @@ export const AdditionalInformationForm = () => {
                   <MenuItem value="Yes">Yes</MenuItem>
                   <MenuItem value="No">No</MenuItem>
                   <MenuItem value="Not sure">Not sure</MenuItem>
+                </FormSelect>
+              </Grid>
+
+              <Grid item xs={12} sm={12} md={6}>
+                <FormSelect
+                  name="UserRole"
+                  label="Please select which best describes your role"
+                  // defaultValue="No"
+                  type="text"
+                  fullWidth
+                  sx={{ mb: 3 }}
+                >
+                  <MenuItem value="Activity Coordinator">
+                    Activity Coordinator
+                  </MenuItem>
+                  <MenuItem value="Home Manager">Home Manager</MenuItem>
+                  <MenuItem value="Home Director">Home Director</MenuItem>
+                  <MenuItem value="Partner">Partner</MenuItem>
+                  <MenuItem value="Other">Other</MenuItem>
                 </FormSelect>
               </Grid>
 
