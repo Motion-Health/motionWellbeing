@@ -9,7 +9,7 @@ export const Cards = () => {
       <div className={styles.cardAlternative}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/assets/home/card3.png"
+            src="/assets/home/card3.webp"
             alt="Motion Wellbeing"
             width={2848}
             height={1642}
