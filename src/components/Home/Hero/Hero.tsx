@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({
               poster="/assets/home/FallbackImage.webp"
               className={styles.herovideo}
             >
-              <source src={videoSrc} type="video/mp4" />
+              <source src={videoSrc} type="video/webm" />
             </video>
           </div>
         )}
