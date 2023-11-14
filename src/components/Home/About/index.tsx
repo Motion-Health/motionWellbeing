@@ -5,7 +5,7 @@ export const About = () => {
       <div>
         <img
           className={styles.image}
-          src="/assets/home/about.jpg" // Adjust the path if necessary
+          src="/assets/home/about.webp" // Adjust the path if necessary
           alt="About us image"
           width={891}
           height={594}
