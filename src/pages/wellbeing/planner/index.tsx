@@ -1,6 +1,7 @@
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import dayjs, { Dayjs } from 'dayjs';
 import moment from 'moment';
 import Head from 'next/head';
@@ -17,7 +18,7 @@ import styles from './planner.module.css';
 
 const Planner = () => {
   const [isMobile, setIsMobile] = useState(false);
-
+  const [calendarApi, setCalendarApi] = useState(null);
   // Listen for window resize and adjust isMobile state
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
@@ -35,11 +36,15 @@ const Planner = () => {
   }, []);
 
   const calendarRef = useRef(null);
-
   useEffect(() => {
-    const calendarApi = calendarRef.current.getApi();
-    calendarApi.changeView(isMobile ? 'dayGridDay' : 'dayGridMonth');
+    // Check if the calendar API is available and set it
+    if (calendarRef.current) {
+      const api = calendarRef.current.getApi();
+      setCalendarApi(api); // Update the state with the calendar API
+      api.changeView(isMobile ? 'dayGridDay' : 'dayGridMonth');
+    }
   }, [isMobile]);
+
   const {
     account: { accountId, accountStatus },
   } = useAccountContext();
@@ -47,7 +52,11 @@ const Planner = () => {
 
   const { data: events, refetch: refetchPlannerEvents } =
     usePlannerEvents(accountId);
+  const [isToggled, setIsToggled] = useState(false);
 
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+  };
   const [toggleScheduleModal, setToggleScheduleModal] = useState<number>(1);
   const [modalOpenAction, setModalOpenAction] = useState<
     'add-event' | 'edit-event' | null
@@ -101,6 +110,7 @@ const Planner = () => {
   };
 
   function renderEventContent(eventInfo: any) {
+    const isDayGridMonth = calendarApi?.view?.type === 'dayGridMonth';
     const eventData = {
       eventId: eventInfo.event.extendedProps.eventId,
       accountId: eventInfo.event.extendedProps.accountId,
@@ -121,7 +131,8 @@ const Planner = () => {
           backgroundColor:
             showButtons &&
             showButtons.eventId === eventData.eventId &&
-            !showButtons.isProtected
+            !showButtons.isProtected &&
+            isDayGridMonth === 'dayGridMonth'
               ? '#f0f0f0'
               : 'transparent',
         }}
@@ -131,13 +142,8 @@ const Planner = () => {
           onClick={() => handleEventClick(eventData)} // this now sets the showButtons state
           variant="link"
         >
-          {/* {(showButtons === null ||
-            showButtons.eventId != eventData.eventId) && ( */}
-          <>
-            <div className={styles.eventTitle}>{eventInfo.event.title}</div>
-            <div className={styles.eventTime}>{timeText}</div>
-          </>
-          {/* )} */}
+          <div className={styles.eventTitle}>{eventInfo.event.title}</div>
+          <div className={styles.eventTime}>{timeText}</div>
         </div>
         {showButtons &&
           showButtons.eventId === eventData.eventId &&
@@ -196,31 +202,47 @@ const Planner = () => {
         addEventStartDate={addEventStartDate}
         onCloseScheduleModal={onCloseScheduleModal}
       />
+      <div className={styles.topButtons}>
+        <button
+          className={styles.printButton}
+          onClick={() => {
+            window.print();
+          }}
+        >
+          Print my planner
+        </button>
+        <div className={styles.toggle}>
+          <label className={styles.toggleSwitch}>
+            <input
+              type="checkbox"
+              className={styles.toggleSwitchInput}
+              checked={isToggled}
+              onChange={handleToggle}
+            />
+            <span className={styles.switch} />
+          </label>
+          <div className={styles.toggleSwitchLabel}>Show default events</div>
+        </div>
+        <button
+          className={styles.scheduleButton}
+          onClick={() => {
+            setToggleScheduleModal(Math.random());
+            setModalOpenAction('add-event');
+          }}
+        >
+          Schedule Activity
+        </button>
+      </div>
+
       <FullCalendar
+        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView={isMobile ? 'dayGridDay' : 'dayGridMonth'}
         headerToolbar={{
-          left: isMobile ? 'prev,next' : 'prev title next',
-          right: isMobile ? '' : 'printButton scheduleButton',
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay',
         }}
         ref={calendarRef}
-        themeSystem="bootstrap"
-        customButtons={{
-          printButton: {
-            text: 'Print my planner',
-            click: function () {
-              window.print();
-            },
-          },
-          scheduleButton: {
-            text: 'Schedule Activity',
-
-            click: function () {
-              setToggleScheduleModal(Math.random());
-              setModalOpenAction('add-event');
-            },
-          },
-        }}
-        plugins={[dayGridPlugin, interactionPlugin]}
         firstDay={1}
         eventTimeFormat={{
           hour: '2-digit',
@@ -228,7 +250,13 @@ const Planner = () => {
           meridiem: false,
           hour12: false,
         }}
-        events={events}
+        events={
+          isToggled
+            ? events
+            : events
+            ? events.filter((e) => !e.isProtected)
+            : []
+        }
         eventColor="#378006"
         eventBackgroundColor="00aeff"
         eventContent={renderEventContent}

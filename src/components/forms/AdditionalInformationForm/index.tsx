@@ -1,5 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Alert, Box, Button, Grid, MenuItem, Typography } from '@mui/material';
+import {
+  Alert,
+  Backdrop,
+  Box,
+  Button,
+  CircularProgress,
+  Grid,
+  MenuItem,
+  Typography,
+} from '@mui/material';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
@@ -23,25 +32,23 @@ type Inputs = {
 };
 
 const registerSchema = object({
-  serviceProviderName: string({
-    required_error: 'Name of service provider is required',
-  }),
-  mainContactName: string({ required_error: 'Your name is required' }),
-  phoneNumber: string({ required_error: 'Phone number is required' }).regex(
-    /^[0-9\s]{7,15}$/,
-    'Please enter a valid phone number (between 7 and 15 numbers with no special characters)'
-  ),
+  serviceProviderName: string().min(1, 'Name of service provider is required'),
+  mainContactName: string().min(1, 'Your name is required'),
+  phoneNumber: string()
+    .min(1, 'Phone number is required')
+    .regex(
+      /^[0-9\s]{7,15}$/,
+      'Please enter a valid phone number (between 7 and 15 numbers with no special characters)'
+    ),
   city: string().optional(),
   isPartOfAGroup: string().optional(),
   howDidYouHearAboutUs: string().optional(),
   groupName: string().optional(),
-  UserRole: string({
-    required_error:
-      'Please select which of these roles most closely matches yours',
-  }),
+  UserRole: string().min(1, 'Please select a role'),
 });
 
 export const AdditionalInformationForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const methods = useForm({
     resolver: zodResolver(registerSchema),
   });
@@ -84,14 +91,16 @@ export const AdditionalInformationForm = () => {
         onSuccess: () => {
           router.push(
             {
-              pathname: '/wellbeing/dashboard',
+              pathname: '/wellbeing/dashboard/',
               query: { isFirstLogin: true },
             },
-            '/'
+            '/wellbeing/dashboard/'
           ); // hide query params in address bar
+          setIsLoading(true);
         },
         onError: () => {
           setAlertMessage('Something went wrong - please try again');
+          setIsLoading(false);
         },
       }
     );
@@ -290,6 +299,15 @@ export const AdditionalInformationForm = () => {
           </Grid>
         </FormProvider>
       </Box>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={isLoading}
+      >
+        <CircularProgress color="inherit" />
+        <Typography variant="h6" sx={{ ml: 2 }}>
+          Creating Account...
+        </Typography>
+      </Backdrop>
     </Box>
   );
 };

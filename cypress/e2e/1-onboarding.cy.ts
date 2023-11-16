@@ -5,7 +5,7 @@ const newAccountId = (Math.random() * 100000).toFixed(0);
 describe('Onboarding', () => {
   Cypress.Commands.add('login', (email, password) => {
     cy.session([email, password], () => {
-      cy.visit('http://localhost:3000/login');
+      cy.visit('http://localhost:3000/wellbeing/login');
       cy.get('input[name="email"]').clear().type(email);
       cy.get('input[name="password"]').clear().type(password);
       cy.intercept('POST', '/auth/login').as('login');
@@ -17,17 +17,17 @@ describe('Onboarding', () => {
     });
   });
 
-  describe('/create-account', () => {
+  describe('/wellbeing/create-account', () => {
     it('Create account page navigation', () => {
-      cy.visit('http://localhost:3000/create-account/');
+      cy.visit('http://localhost:3000/wellbeing/create-account/');
       cy.get('button[name="navigate-login"]').click();
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/login/');
+        expect(loc.pathname).to.eq('/wellbeing/login/');
       });
     });
 
     it('Create account > view tutorial modal > view dashboard', () => {
-      cy.visit('http://localhost:3000/create-account/');
+      cy.visit('http://localhost:3000/wellbeing/create-account/');
 
       cy.get('button[name="sign-up"]').click();
 
@@ -35,6 +35,9 @@ describe('Onboarding', () => {
       cy.contains('Email is required');
       cy.contains('Password is required');
       cy.contains('Please accept the Terms and Privacy Policy');
+
+      //click termly accept
+      cy.get('button').contains('Accept').click();
 
       // displays invalid email error
       cy.get('input[name="email"]').type(`dan.stevenson+motion`);
@@ -85,7 +88,7 @@ describe('Onboarding', () => {
 
       // redirects to 'additional-information' screen
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/additional-information/');
+        expect(loc.pathname).to.eq('/wellbeing/additional-information/');
       });
 
       cy.get('button[name="complete"]').click();
@@ -93,6 +96,7 @@ describe('Onboarding', () => {
       cy.contains('Name of service provider is required');
       cy.contains('Your name is required');
       cy.contains('Phone number is required');
+      cy.contains('Please select a role');
 
       cy.get('input[name="serviceProviderName"]').type('REYT');
       cy.get('input[name="mainContactName"]').type('Dan Stevenson');
@@ -131,11 +135,21 @@ describe('Onboarding', () => {
 
       cy.get('input[name="groupName"]').type('REYT/Motion');
 
-      cy.get('button[name="complete"]').click();
+      cy.get('div[data-test-id="UserRole"]').click();
+      cy.get('li[data-value="Home Manager"');
+      cy.get('li[data-value="Home Director"');
+      cy.get('li[data-value="Partner"');
+      cy.get('li[data-value="Other"');
+      cy.get('li[data-value="Activity Coordinator"').click();
 
+      cy.get('button[name="complete"]').click();
+      // log the pathname
+      cy.contains('Creating Account...');
+      // wait for the account to be created and check redirected
+      cy.wait(4000);
       // redirects to 'dashboard' screen
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/');
+        expect(loc.pathname).to.eq('/wellbeing/dashboard/');
       });
 
       // dashboard includes tutorial modal on first login
@@ -181,23 +195,25 @@ describe('Onboarding', () => {
     });
   });
 
-  describe('/login', () => {
+  describe('/wellbeing/login', () => {
     it('Login page navigation', () => {
-      cy.visit('http://localhost:3000/login/');
+      cy.visit('http://localhost:3000/wellbeing/login/');
+      //click termly accept
+      cy.get('button').contains('Accept').click();
       cy.get('button[name="navigate-create-account"]').click();
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/create-account/');
+        expect(loc.pathname).to.eq('/wellbeing/create-account/');
       });
+      cy.visit('http://localhost:3000/wellbeing/login');
 
-      cy.visit('http://localhost:3000/login');
       cy.get('button[name="navigate-reset-password"]').click();
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/reset-password/');
+        expect(loc.pathname).to.eq('/wellbeing/reset-password/');
       });
     });
 
     it('Login with validation', () => {
-      cy.visit('http://localhost:3000/login');
+      cy.visit('http://localhost:3000/wellbeing/login');
 
       cy.get('button[name="login"]').click();
 
@@ -220,7 +236,8 @@ describe('Onboarding', () => {
       // displays password must not contain a space
       cy.get('input[name="password"]').clear().type(`reytmotion 1`);
       cy.contains('Password must not contain a space');
-
+      //click termly accept
+      cy.get('button').contains('Accept').click();
       // display account not found and receive server error
       cy.get('input[name="email"]')
         .clear()
@@ -260,7 +277,7 @@ describe('Onboarding', () => {
       });
       // redirects to dashboard screen
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/');
+        expect(loc.pathname).to.eq('/wellbeing/dashboard/');
       });
 
       // tutorial modal is not visible on subsequent login
@@ -270,7 +287,7 @@ describe('Onboarding', () => {
   });
 
   // TODO: fix issues with Ethereal mail and Cypress tasks
-  describe('/reset-password', () => {
+  describe('/wellbeing/reset-password', () => {
     let etherealEmail: string;
     let etherealPassword: string;
 
@@ -299,9 +316,12 @@ describe('Onboarding', () => {
 
     it('Reset password and login with new one', () => {
       // create account
-      cy.visit('http://localhost:3000/create-account/');
+      cy.visit('http://localhost:3000/wellbeing/create-account/');
       cy.get('input[name="email"]').clear().type(etherealEmail);
       cy.get('input[name="password"]').clear().type(etherealPassword);
+      //click termly accept
+      cy.get('button').contains('Accept').click();
+
       cy.get('input[name="terms"]').click();
 
       cy.intercept('POST', '/auth/register').as('registerAccount');
@@ -309,7 +329,7 @@ describe('Onboarding', () => {
       cy.get('button[name="sign-up"]').click();
       cy.wait('@registerAccount');
 
-      cy.visit('http://localhost:3000/reset-password');
+      cy.visit('http://localhost:3000/wellbeing/reset-password');
 
       // check required error message is visible
       cy.get('button[name="reset-password"]').click();
@@ -324,8 +344,9 @@ describe('Onboarding', () => {
       cy.intercept('POST', '/auth/reset-password').as('resetPassword');
       cy.get('button[name="reset-password"]').click();
       cy.wait('@resetPassword');
-      cy.contains(`If that email is linked to an account, we will send a password
-      reset email to ${etherealEmail}`);
+      cy.contains(
+        `If that email is linked to an account, we will send a password reset email to ${etherealEmail}`
+      );
 
       // fetch the email
       cy.wait(5000);
@@ -357,7 +378,7 @@ describe('Onboarding', () => {
 
       // redirects to 'new-password' screen
       cy.location().should((loc) => {
-        expect(loc.pathname).to.contain('/new-password');
+        expect(loc.pathname).to.contain('/wellbeing/new-password');
       });
 
       // check required error message
@@ -383,7 +404,7 @@ describe('Onboarding', () => {
 
       cy.get('button[type="submit"]').click();
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/login/');
+        expect(loc.pathname).to.eq('/wellbeing/login/');
       });
 
       // enter email and new password
@@ -391,6 +412,7 @@ describe('Onboarding', () => {
       cy.get('input[name="password"]')
         .clear()
         .type(`reytmotion${newAccountId}`);
+      cy.intercept('POST', '/auth/login').as('login');
       cy.get('button[name="login"]').click();
       cy.wait('@login').then(({ response }) => {
         cy.log(response);
@@ -398,18 +420,17 @@ describe('Onboarding', () => {
       });
       // redirects to dashboard screen
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/');
+        expect(loc.pathname).to.eq('/wellbeing/dashboard/');
       });
     });
   });
 
   describe('logout', () => {
     it('logs account out and and revokes access to the app', () => {
-      cy.visit('http://localhost:3000/login/');
-      cy.get('input[name="email"]')
-        .clear()
-        .type(`dan.stevenson+motion1@reyt.co.uk`);
-      cy.get('input[name="password"]').clear().type(`reytmotion1`);
+      cy.visit('http://localhost:3000/wellbeing/login/');
+      cy.get('input[name="email"]').clear().type(`testingAccount1@gmail.com`);
+      cy.get('input[name="password"]').clear().type(`Motion29`);
+      cy.get('button').contains('Accept').click();
       cy.intercept('POST', '/auth/login').as('login');
       cy.get('button[name="login"]').click();
       cy.wait('@login').then(({ response }) => {
@@ -419,27 +440,28 @@ describe('Onboarding', () => {
       });
       // redirects to dashboard screen
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/');
+        expect(loc.pathname).to.eq('/wellbeing/dashboard/');
       });
 
       // can navigate to app page
       cy.get('li').contains('Wellbeing activities').click();
+      cy.wait(1000);
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq(`/activities/`);
+        expect(loc.pathname).to.eq(`/wellbeing/activities/`);
       });
 
       cy.intercept('POST', '/auth/logout').as('logout');
-      cy.get('a').contains('Log out').click();
+      cy.get('a').contains('LOG OUT').click();
       cy.wait('@logout').then(({ response }) => {
         cy.log(response);
         expect(response?.statusCode).to.eq(200);
       });
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq(`/login/`);
+        expect(loc.pathname).to.eq(`/wellbeing/login/`);
       });
 
       // revokes access to the app
-      cy.intercept('GET', '/activities/').as('getActivities');
+      cy.intercept('GET', '/wellbeing/activities/').as('getActivities');
       cy.go('back');
       cy.wait('@getActivities').then(({ response }) => {
         cy.log(response);
@@ -447,14 +469,14 @@ describe('Onboarding', () => {
       });
 
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq(`/login/`);
+        expect(loc.pathname).to.eq(`/wellbeing/login/`);
       });
     });
   });
 
   describe('Server errors - display error banner', () => {
-    it('/login', () => {
-      cy.visit('http://localhost:3000/login');
+    it('/wellbeing/login', () => {
+      cy.visit('http://localhost:3000/wellbeing/login');
 
       cy.intercept('POST', '**/auth/login', { statusCode: 500 }).as(
         'getLoginFailure'
@@ -464,6 +486,8 @@ describe('Onboarding', () => {
         .clear()
         .type(`dan.stevenson+motion1@reyt.co.uk`);
       cy.get('input[name="password"]').clear().type(`reytmotion1`);
+      //click termly accept
+      cy.get('button').contains('Accept').click();
       cy.get('button[name="login"]').click();
 
       cy.wait('@getLoginFailure');
@@ -471,8 +495,8 @@ describe('Onboarding', () => {
       cy.contains('Something went wrong - please try again');
     });
 
-    it('/create-account', () => {
-      cy.visit('http://localhost:3000/create-account');
+    it('/wellbeing/create-account', () => {
+      cy.visit('http://localhost:3000/wellbeing/create-account');
 
       cy.intercept('POST', '**/auth/register', { statusCode: 500 }).as(
         'getAccountCreateFailure'
@@ -481,8 +505,12 @@ describe('Onboarding', () => {
       cy.get('input[name="email"]')
         .clear()
         .type(`dan.stevenson+motion1@reyt.co.uk`);
+
       cy.get('input[name="password"]').clear().type(`reytmotion1`);
+      //click termly accept
+      cy.get('button').contains('Accept').click();
       cy.get('input[name="terms"]').click();
+
       cy.get('button[name="sign-up"]').click();
 
       cy.wait('@getAccountCreateFailure');
@@ -490,10 +518,10 @@ describe('Onboarding', () => {
       cy.contains('Something went wrong - please try again');
     });
 
-    it('/additional-information', () => {
+    it('/wellbeing/additional-information', () => {
       // accountId does not exist
       cy.visit(
-        'http://localhost:3000/additional-information/?accountId=51ca7f48-d1ca-48e8-8cb2-43b4084f8708&email=dan.stevenson+motion1@reyt.co.uk'
+        'http://localhost:3000/wellbeing/additional-information/?accountId=51ca7f48-d1ca-48e8-8cb2-43b4084f8708&email=dan.stevenson+motion1@reyt.co.uk'
       );
 
       cy.intercept('PATCH', '**/account/update/*', {
@@ -506,9 +534,13 @@ describe('Onboarding', () => {
       cy.get('input[name="city"]').type('Sheffield');
       cy.get('div[data-test-id="howDidYouHearAboutUs"]').click();
       cy.get('li[data-value="Word of mouth"').click();
+      //click termly accept
+      cy.get('button').contains('Accept').click();
       cy.get('div[data-test-id="isPartOfAGroup"]').click();
       cy.get('li[data-value="Yes"').click();
       cy.get('input[name="groupName"]').type('REYT/Motion');
+      cy.get('div[data-test-id="UserRole"]').click();
+      cy.get('li[data-value="Activity Coordinator"').click();
       cy.get('button[name="complete"]').click();
 
       cy.wait('@getUpdateAccountFailure');
@@ -517,8 +549,8 @@ describe('Onboarding', () => {
       cy.contains('Something went wrong - please try again');
     });
 
-    it('/reset-password', () => {
-      cy.visit('http://localhost:3000/reset-password');
+    it('/wellbeing/reset-password', () => {
+      cy.visit('http://localhost:3000/wellbeing/reset-password');
 
       cy.intercept('POST', '**/auth/reset-password', { statusCode: 500 }).as(
         'getResetPasswordFailure'
@@ -534,11 +566,11 @@ describe('Onboarding', () => {
       cy.contains('Something went wrong - please try again');
     });
 
-    it('/new-password', () => {
-      cy.visit('http://localhost:3000/new-password');
+    it('/wellbeing/new-password', () => {
+      cy.visit('http://localhost:3000//wellbeing/new-password');
 
       cy.location().should((loc) => {
-        expect(loc.pathname).to.eq('/login/');
+        expect(loc.pathname).to.eq('/wellbeing/login/');
       });
 
       cy.contains(

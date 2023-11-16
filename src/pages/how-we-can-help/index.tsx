@@ -1,7 +1,9 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Head from 'next/head';
+import { Router } from 'next/router';
 import Script from 'next/script';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 import { Footer } from '@/components/Home/Footer';
 import { Header } from '@/components/Home/header/Header';
@@ -17,6 +19,43 @@ const Index = () => {
   ); // Default screen
   const [slideNumber, setSlideNumber] = useState(0);
   const [slideOut, setSlideOut] = useState(false);
+
+  const [isCalendlyLoaded, setIsCalendlyLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadCalendly = () => {
+      // Check if Calendly is available and not already loaded
+      if (window.Calendly && !isCalendlyLoaded) {
+        window.Calendly.initInlineWidget({
+          url: 'https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1',
+          parentElement: document.getElementById('calendly-inline-widget'),
+        });
+        setIsCalendlyLoaded(true); // Set the flag to true after loading
+      } else if (!window.Calendly) {
+        // If Calendly is not available, check again after a short delay
+        setTimeout(loadCalendly, 1000); // Check every 1 second
+      }
+    };
+
+    // Start the Calendly load process
+    loadCalendly();
+
+    // Define the route change handler
+    const handleRouteChange = () => {
+      // Reset the loaded state on route change
+      setIsCalendlyLoaded(false);
+      loadCalendly();
+    };
+
+    // Set up route change listener
+    Router.events.on('routeChangeComplete', handleRouteChange);
+
+    // Clean up
+    return () => {
+      Router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, []);
+
   return (
     <div className={styles.productBody}>
       <Head>
@@ -47,16 +86,7 @@ const Index = () => {
           content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
         />
       </Head>
-      <Script
-        src="https://assets.calendly.com/assets/external/widget.js"
-        onLoad={() => {
-          console.log('loading calendly');
-          window.Calendly.initInlineWidget({
-            url: 'https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1',
-            parentElement: document.getElementById('calendly-inline-widget'),
-          });
-        }}
-      />
+      <Script src="https://assets.calendly.com/assets/external/widget.js" />
       <Header />
       <main className={styles.main}>
         <div className={styles.motionTitle}>
@@ -126,8 +156,6 @@ const Index = () => {
                 expandedCard === 'discover' ? styles.expanded : ''
               }`}
               style={{
-                // backgroundColor: '#efd1ff',
-                // backgroundColor: 'hwb(194deg 63% 0% / 100%)',
                 backgroundColor: '#e0faf3',
                 paddingBottom: `80px`,
                 borderRadius: `15px 15px 0px 0px`,
@@ -170,9 +198,6 @@ const Index = () => {
                 expandedCard === 'deliver' ? styles.expanded : ''
               }`}
               style={{
-                // backgroundColor: '#d1d5ff',
-                // backgroundColor: 'hwb(207deg 52% 0% / 114%)',
-                // backgroundColor: '#f68eb7',
                 backgroundColor: '#feecf3',
                 marginBottom: `80px`,
                 marginTop: `-15px`,
@@ -321,8 +346,6 @@ const Index = () => {
                 expandedCard === 'spread' ? styles.expanded : ''
               }`}
               style={{
-                // backgroundColor: '#d1f1ff',
-                // backgroundColor: 'hwb(228 47% 0% / 1)',
                 backgroundColor: `#d1e7ff`,
                 marginTop: `-95px`,
                 zIndex: `2`,

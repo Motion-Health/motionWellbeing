@@ -30,10 +30,11 @@ type Inputs = {
 };
 
 const registerSchema = object({
-  email: string({ required_error: 'Email is required' }).email(
-    'Email is invalid'
-  ),
-  password: string({ required_error: 'Password is required' })
+  email: string()
+    .min(1, { message: 'Email is required' })
+    .email('Email is invalid'),
+  password: string()
+    .min(1, { message: 'Password is required' })
     .min(8, 'Password must be at least 8 characters')
     .max(32, 'Password must be less than 32 characters')
     .regex(/\d/, 'Password must contain a number')

@@ -1,4 +1,5 @@
 export type Account = {
+  logo: string;
   accountId: string;
   serviceProviderName?: string;
   mainContactName?: string;

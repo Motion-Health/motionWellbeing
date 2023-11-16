@@ -19,6 +19,9 @@ td {
     text-overflow: ellipsis;
     max-width: 100%;
 }
+.fc-timegrid-event-harness{
+  min-height: 20px;
+}
 body{
   font-family: "Montserrat","Helvetica","Arial",sans-serif;
 }

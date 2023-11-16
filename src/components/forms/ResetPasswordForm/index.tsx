@@ -15,9 +15,7 @@ type Inputs = {
 };
 
 const registerSchema = object({
-  email: string({ required_error: 'Email is required' }).email(
-    'Email is invalid'
-  ),
+  email: string().min(1, 'Email is required').email('Email is invalid'),
 });
 
 export const ResetPasswordForm = () => {

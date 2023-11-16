@@ -279,8 +279,15 @@ export const appSections = [
   },
   {
     title: 'Community',
-    icon: '/assets/icons/ph_user-circle.svg',
+    icon: '/assets/icons/community.svg',
     path: '/wellbeing/community',
+    visibleTo: ['standard', 'group', 'premium', 'admin'],
+    accessibleBy: ['standard', 'group', 'premium', 'admin'],
+  },
+  {
+    title: 'My Profile',
+    icon: '/assets/icons/ph_user-circle.svg',
+    path: '/wellbeing/profile',
     visibleTo: ['standard', 'group', 'premium', 'admin'],
     accessibleBy: ['standard', 'group', 'premium', 'admin'],
   },
