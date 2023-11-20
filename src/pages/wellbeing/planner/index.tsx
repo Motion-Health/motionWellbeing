@@ -240,7 +240,7 @@ const Planner = () => {
     account: { accountId, accountStatus },
   } = useAccountContext();
   const [showButtons, setShowButtons] = useState<null | Event>(null);
-
+  const [threeDots, setThreeDots] = useState(false);
   const { data: events, refetch: refetchPlannerEvents } =
     usePlannerEvents(accountId);
   const [isToggled, setIsToggled] = useState(false);
@@ -304,6 +304,15 @@ const Planner = () => {
     refetchPlannerEvents();
     setEditEventData(null);
     setAddEventStartDate(null);
+  };
+  const changeView = (view) => {
+    const api = calendarRef.current.getApi();
+    api.changeView(view);
+  };
+
+  const goToToday = () => {
+    const api = calendarRef.current.getApi();
+    api.today();
   };
 
   function renderEventContent(eventInfo: any) {
@@ -399,21 +408,14 @@ const Planner = () => {
         addEventStartDate={addEventStartDate}
         onCloseScheduleModal={onCloseScheduleModal}
       />
-      <div className={styles.topButtons}>
-        <button
-          className={styles.printButton}
-          onClick={() => {
-            console.log('print button clicked');
 
-            if (events) {
-              console.log('printing calendar');
-              printCalendarPDF(events, isToggled); // This will create and open the PDF for printing
-            }
-          }}
-        >
-          Print my planner
-        </button>
+      <div
+        className={`${styles.threeDotsContainer} ${
+          threeDots ? styles.open : ''
+        }`}
+      >
         <div className={styles.toggle}>
+          <div className={styles.toggleSwitchLabel}>Days of the Year</div>
           <label className={styles.toggleSwitch}>
             <input
               type="checkbox"
@@ -423,26 +425,62 @@ const Planner = () => {
             />
             <span className={styles.switch} />
           </label>
-          <div className={styles.toggleSwitchLabel}>Show default events</div>
         </div>
-        <button
-          className={styles.scheduleButton}
-          onClick={() => {
-            setToggleScheduleModal(Math.random());
-            setModalOpenAction('add-event');
-          }}
-        >
-          Schedule Activity
+
+        <div className={styles.optionsMenu}>
+          <button
+            className={styles.dayButton}
+            onClick={() => changeView('dayGridDay')}
+          >
+            Day
+          </button>
+          <button
+            className={styles.weekButton}
+            onClick={() => changeView('timeGridWeek')}
+          >
+            Week
+          </button>
+          <button
+            className={styles.monthButton}
+            onClick={() => changeView('dayGridMonth')}
+          >
+            Month
+          </button>
+        </div>
+        <button className={styles.today} onClick={() => goToToday()}>
+          Return to today
         </button>
       </div>
+
       <div className={styles.calendar}>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          initialView={isMobile ? 'dayGridDay' : 'dayGridMonth'}
+          initialView={isMobile ? 'dayGridDay' : 'timeGridWeek'}
           headerToolbar={{
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay',
+            left: isMobile ? 'prev,next' : 'prev title next',
+            right: isMobile ? '' : 'printButton scheduleButton threeDots',
+          }}
+          customButtons={{
+            printButton: {
+              text: 'Print my planner',
+              click: function () {
+                if (events) {
+                  printCalendarPDF(events, isToggled); // This will create and open the PDF for printing
+                }
+              },
+            },
+            scheduleButton: {
+              text: 'Schedule Activity',
+              click: function () {
+                setToggleScheduleModal(Math.random());
+                setModalOpenAction('add-event');
+              },
+            },
+            threeDots: {
+              click: function () {
+                setThreeDots(!threeDots);
+              },
+            },
           }}
           ref={calendarRef}
           firstDay={1}
@@ -452,6 +490,8 @@ const Planner = () => {
             meridiem: false,
             hour12: false,
           }}
+          slotMinTime="09:00:00"
+          slotMaxTime="18:00:00"
           events={
             isToggled
               ? events
@@ -463,6 +503,11 @@ const Planner = () => {
           eventBackgroundColor="00aeff"
           eventContent={renderEventContent}
           dateClick={handleDateClick}
+          views={{
+            timeGridWeek: {
+              dayHeaderFormat: { month: 'short', day: 'numeric' },
+            },
+          }}
         />
       </div>
     </Main>
