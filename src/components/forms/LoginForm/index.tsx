@@ -58,8 +58,8 @@ export const LoginForm = () => {
       {
         onSuccess: (res) => {
           router.push('/wellbeing/dashboard');
-          const { accountId, accountStatus } = res.data;
-          updateAccount({ accountId, accountStatus });
+          const { accountId, accountStatus, serviceProviderName } = res.data;
+          updateAccount({ accountId, accountStatus, serviceProviderName });
           setAlertMessage(null);
         },
         onError: (error) => {

@@ -26,6 +26,19 @@ body{
   font-family: "Montserrat","Helvetica","Arial",sans-serif;
 }
 
+.calendar button{
+  background-color: #0f5298 !important;
+  border-color: #0f5298 !important;
+}
+.calendar .fc-button-active{
+  background-color: #005266 !important;
+  border-color: #005266 !important;
+}
+.calendar button:disabled{
+  background-color: #eeeeee !important;
+  border-color: #eeeeee !important;
+}
+
 .manage-membership-container {
   margin-top: 1rem;
   text-align: center;
@@ -182,7 +195,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 24px;
+  /* padding: 24px; */
   gap: 24px;
   margin-top: 2rem;
   min-height: 100%;

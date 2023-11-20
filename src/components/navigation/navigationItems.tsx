@@ -285,7 +285,7 @@ export const appSections = [
     accessibleBy: ['standard', 'group', 'premium', 'admin'],
   },
   {
-    title: 'My Profile',
+    title: 'My profile',
     icon: '/assets/icons/ph_user-circle.svg',
     path: '/wellbeing/profile',
     visibleTo: ['standard', 'group', 'premium', 'admin'],

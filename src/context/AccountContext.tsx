@@ -17,6 +17,7 @@ type AccountContextMethods = {
 };
 
 type Account = {
+  serviceProviderName: any;
   accountId?: string | null;
   accountStatus?: 'noAccess' | 'standard' | 'group' | 'premium' | 'admin';
 };
