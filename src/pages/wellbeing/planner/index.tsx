@@ -122,13 +122,17 @@ const Planner = () => {
 
     // Constants for the calendar layout
     const daysInWeek = 7;
-    const cellWidth = pdf.internal.pageSize.getWidth() / daysInWeek;
-    const cellHeight = 33; // Increased cell height to accommodate more text
-    const startY = 45; // Y start position for the first row, leaving space for headers
+    const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / daysInWeek;
 
-    const weekCount = Math.ceil(
-      (daysInMonth + startOfMonth.day()) / daysInWeek
-    );
+    const startY = 45; // Y start position for the first row, leaving space for headers
+    const startX = 5; // X start position for the first column, leaving space for headers
+    //the week day the month starts on monday = 0, sunday = 6
+    const startDayAdjusted = (startOfMonth.day() + 6) % 7;
+
+    // Calculate the total number of weeks
+    const weekCount = Math.ceil((daysInMonth + startDayAdjusted) / daysInWeek);
+    const totalHeightAvailable = pdf.internal.pageSize.getHeight() - startY - 5; // 20 for bottom margin
+    const cellHeight = totalHeightAvailable / weekCount;
     pdf.setFont('helvetica', 'bold');
     pdf.text(accountName, 10, 10);
     pdf.addImage(fullAccount.logo, 'PNG', 10, 15, 60, 20);
@@ -152,10 +156,11 @@ const Planner = () => {
     // Populate daySlots with dates
     for (let i = 0; i < daysInMonth; i++) {
       const date = startOfMonth.add(i, 'day');
-      const dayOfWeek = date.day();
+      const dayOfWeek = (date.day() + 6) % 7; // Adjust so Monday is 0, Sunday is 6
       const weekOfMonth = Math.floor(
-        (date.date() - 1 + startOfMonth.day()) / daysInWeek
+        (date.date() - 1 + ((startOfMonth.day() + 6) % 7)) / daysInWeek
       );
+
       const index = weekOfMonth * daysInWeek + dayOfWeek;
       daySlots[index] = date.format('D'); // Store only the day number for simplicity
     }
@@ -163,38 +168,49 @@ const Planner = () => {
     // Drawing the grid for the calendar
     for (let i = 0; i < daysInWeek; i++) {
       for (let j = 0; j < weekCount; j++) {
-        const x = i * cellWidth;
+        const x = startX + i * cellWidth;
         const y = j * cellHeight + startY;
-        pdf.rect(x, y, cellWidth, cellHeight);
+
+        // Get the index for daySlots
+        const index = j * daysInWeek + i;
+        const day = daySlots[index];
+        console.log(day);
+        console.log(index);
+
+        // Alternate background fill
+        const fill = j % 2 == 0 ? 'DF' : 'S';
+        pdf.setFillColor(230, 230, 230);
+        if (!day) pdf.setFillColor(0, 0, 0);
+
+        pdf.rect(x, y, cellWidth, cellHeight, fill);
       }
     }
 
     // Adding day labels
-    const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const dayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     pdf.setFontSize(12);
     // draw rectangle for day labels
 
     dayLabels.forEach((label, index) => {
-      const x = index * cellWidth;
+      const x = startX + index * cellWidth;
       const y = startY - 10;
       pdf.setFillColor(230, 230, 230);
-      pdf.rect(x, y, cellWidth, 10, 'F');
+      pdf.roundedRect(x + 2, y, cellWidth - 4, 8, 4, 4, 'DF');
 
       pdf.text(
         label,
-        index * cellWidth + cellWidth / 2,
+        index * cellWidth + (cellWidth - 4) / 2,
         startY - 5,
         null,
         'center'
       );
     });
-
     // Set font size smaller to fit more text
     pdf.setFontSize(10);
 
     // Adding day numbers and events to the calendar
     daySlots.forEach((day, index) => {
-      const x = (index % daysInWeek) * cellWidth;
+      const x = startX + (index % daysInWeek) * cellWidth;
       const y = Math.floor(index / daysInWeek) * cellHeight + startY + 5;
 
       // If there's a day for this slot, add the day number to the cell
@@ -208,25 +224,28 @@ const Planner = () => {
             (event) => event.isProtected == isToggled || !event.isProtected
           )
           .filter((event) => dayjs(event.start).date() == day)
-          .map((event) => event.title);
+          .slice(0, 2);
 
-        // Add the events for this day
-        eventsForDay.forEach((title, eventIndex) => {
-          const lines = splitTextToLines(title, cellWidth - 4, pdf);
-          lines.forEach((line, lineIndex) => {
-            if (lineIndex === 0) {
-              // Only display the first line, and truncate if necessary
-              const text = truncateString(line, cellWidth - 25);
-              const timeText = moment(eventsForDay[eventIndex].start).format(
-                'HH:mm'
-              );
+        eventsForDay.forEach((event, eventIndex) => {
+          const lines = splitTextToLines(
+            event.title.split('|')[0],
+            cellWidth - 4,
+            pdf
+          );
+          const timeText = moment(event.start).format('hh:mm A');
 
-              pdf.text(text, x + 2, y + 5 + eventIndex * 6);
-              if (timeText !== '00:00') {
-                pdf.text(timeText, x + 33, y + 5 + eventIndex * 6);
-              }
+          pdf.text(lines[0], x + 2, y + 5 + eventIndex * 12);
+          if (lines[1] && lines[1].length != 0) {
+            const text = truncateString(lines[1], cellWidth - 31);
+            pdf.text(text, x + 2, y + 9 + eventIndex * 12);
+            if (timeText !== '00:00') {
+              pdf.text(timeText, x + 24, y + 9 + eventIndex * 12);
             }
-          });
+          } else {
+            if (timeText !== '00:00') {
+              pdf.text(timeText, x + 2, y + 9 + eventIndex * 12);
+            }
+          }
         });
       }
     });
@@ -287,7 +306,6 @@ const Planner = () => {
   }
 
   function handleOpen(eventData: Event) {
-    console.log(eventData);
     if (!eventData.isProtected && eventData.activityId) {
       router.push(`/wellbeing/activities/${eventData.activityId}`);
     }
