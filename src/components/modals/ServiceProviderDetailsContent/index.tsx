@@ -396,6 +396,31 @@ const ServiceProviderDetailContent = (props: Props) => {
             </Grid>
           )}
 
+          {!serviceProviderFormData?.logo && (
+            <Grid item xs={12} sm={12} md={12}>
+              <Button
+                variant="outlined"
+                name="uploadLogo"
+                fullWidth
+                onClick={handleEditIconClick}
+                sx={{
+                  py: '0.8rem',
+                  width: '210px',
+                  borderRadius: 50,
+                }}
+              >
+                Upload logo
+              </Button>
+              <input
+                type="file"
+                ref={logoInputRef}
+                onChange={handleLogoSelect}
+                hidden
+              />
+              {logo && <Typography>{logo.name}</Typography>}
+            </Grid>
+          )}
+
           <Grid item xs={12} sm={12} md={6}>
             <FormInputText
               name="serviceProviderName"
