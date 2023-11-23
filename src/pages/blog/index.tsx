@@ -36,7 +36,7 @@ const Index = () => {
     id: 5,
     name: 'The new CQC Single Assessment Framework and wellbeing activities',
     link: 'The-new-CQC-Single-Assessment-Framework-and-wellbeing-activities',
-    image: '/assets/images/blogs/blog5/Thumbnail.webp',
+    image: '/assets/images/blogs/blog5/thumbnail.webp',
   };
 
   return (
@@ -88,6 +88,7 @@ const Index = () => {
           <BlogCard blog={blog2}></BlogCard>
           <BlogCard blog={blog3}></BlogCard>
           <BlogCard blog={blog4}></BlogCard>
+          <BlogCard blog={blog5}></BlogCard>
         </Grid>
       </div>
 
