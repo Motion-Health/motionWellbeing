@@ -32,6 +32,12 @@ const Index = () => {
     link: 'How-we-made-a-care-home-residents-swimming-dream-come-true',
     image: '/assets/images/blogs/blog4/Thumbnail.webp',
   };
+  const blog5 = {
+    id: 5,
+    name: 'The new CQC Single Assessment Framework and wellbeing activities',
+    link: 'The-new-CQC-Single-Assessment-Framework-and-wellbeing-activities',
+    image: '/assets/images/blogs/blog5/thumbnail.webp',
+  };
 
   return (
     <div className="white-background">
@@ -82,6 +88,7 @@ const Index = () => {
           <BlogCard blog={blog2}></BlogCard>
           <BlogCard blog={blog3}></BlogCard>
           <BlogCard blog={blog4}></BlogCard>
+          <BlogCard blog={blog5}></BlogCard>
         </Grid>
       </div>
 

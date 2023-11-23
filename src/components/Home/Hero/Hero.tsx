@@ -33,7 +33,7 @@ const Hero: React.FC<HeroProps> = ({
         {videoSrc && (
           <div className={styles.videoContainer}>
             <Image
-              src="/assets/home/FallbackImage.jpg"
+              src="/assets/home/FallbackImage.webp"
               alt="Video poster"
               layout="fill"
               objectFit="cover"
@@ -44,10 +44,10 @@ const Hero: React.FC<HeroProps> = ({
               muted={isMuted}
               loop
               playsInline
-              poster="/assets/home/FallbackImage.jpg"
+              poster="/assets/home/FallbackImage.webp"
               className={styles.herovideo}
             >
-              <source src={videoSrc} type="video/mp4" />
+              <source src={videoSrc} type="video/webm" />
             </video>
           </div>
         )}

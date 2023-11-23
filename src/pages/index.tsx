@@ -59,7 +59,7 @@ const Index = () => {
       />
 
       <Header />
-      <Hero videoSrc={'/assets/home/video.mp4'}>
+      <Hero videoSrc={'/assets/home/video-small.webm'}>
         <h1>Creating moments that move people.</h1>
       </Hero>
       <Cards></Cards>
