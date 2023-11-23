@@ -41,6 +41,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "cypress/plugins/index.js"
+    "cypress/plugins/index.js",
+    "src/utils/makePlannerPrintable.js"
   ]
 }

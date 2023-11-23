@@ -1,47 +1,50 @@
-// printPdfPlanner.js
-
 import jsPDF from 'jspdf';
 import dayjs from 'dayjs';
-// ... other necessary imports
 
-export function createPDF() {
+function createPDF() {
   return new jsPDF({ orientation: 'landscape' });
 }
-
-export function printMonthHeader(startOfMonth, pdf, accountName, logo) {
-  pdf.setFont('helvetica', 'bold');
-  pdf.text(accountName, 10, 10);
-  pdf.addImage(logo, 'PNG', 10, 15, 60, 20);
-
-  pdf.setFontSize(17);
+function printMonthHeader(startOfMonth, pdf, accountName) {
+  pdf.setFontSize(25);
+  pdf.text(accountName, 10, 20);
+  pdf.addImage('/assets/logos/PoweredByMotion.png', 'PNG', 250, 10, 36, 8);
+  pdf.setFontSize(40);
   pdf.text(
-    startOfMonth.format('MMMM YYYY'),
+    startOfMonth,
     pdf.internal.pageSize.getWidth() / 2,
-    10,
+    20,
     null,
     'center'
   );
-  pdf.setFont('helvetica', 'normal');
 }
-
-export function printDayLabels(pdf, startX, startY) {
-  const dayLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+function printDayLabels(pdf, startX, startY) {
+  const dayLabels = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
   const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / dayLabels.length;
 
   pdf.setFontSize(12);
   dayLabels.forEach((label, index) => {
     const x = startX + index * cellWidth;
     const y = startY - 10;
-    pdf.setFillColor(230, 230, 230);
+    pdf.setFillColor(15, 82, 152);
+    pdf.setTextColor(255);
     pdf.roundedRect(x + 2, y, cellWidth - 4, 8, 4, 4, 'DF');
     pdf.text(
       label,
-      index * cellWidth + (cellWidth - 4) / 2,
+      index * cellWidth + 5 + cellWidth / 2,
       startY - 5,
       null,
       'center'
     );
   });
+  pdf.setTextColor(0);
 }
 
 export function createDaySlots(startOfMonth, daysInMonth) {
@@ -59,39 +62,85 @@ export function createDaySlots(startOfMonth, daysInMonth) {
   return daySlots;
 }
 
-export function drawCalendarGrid(daySlots, pdf, startX, startY) {
+function drawCalendarGrid(daySlots, pdf, startX, startY) {
   const daysInWeek = 7;
-  const weekCount = Math.ceil(daySlots.length / daysInWeek);
+  const firstDayIndex = daySlots.findIndex((day) => day != null); // Find the first non-null index
+  const lastDayIndex =
+    daySlots.length -
+    1 -
+    [...daySlots].reverse().findIndex((day) => day != null);
+
+  // Calculate weekCount based on the indexes of the first and last days
+  const weekCount = Math.ceil((lastDayIndex + 1) / daysInWeek);
+
   const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / daysInWeek;
-  const totalHeightAvailable = pdf.internal.pageSize.getHeight() - startY - 20;
+  const totalHeightAvailable = pdf.internal.pageSize.getHeight() - startY - 5;
   const cellHeight = totalHeightAvailable / weekCount;
 
   for (let i = 0; i < daysInWeek; i++) {
     for (let j = 0; j < weekCount; j++) {
       const x = startX + i * cellWidth;
       const y = j * cellHeight + startY;
-      const index = j * daysInWeek + i;
+      const index = j * daysInWeek + i; // Use a direct index without offset
       const day = daySlots[index];
 
-      const fill = j % 2 === 0 ? 'DF' : 'S';
-      pdf.setFillColor(day ? 230 : 0, day ? 230 : 0, day ? 230 : 0);
-      pdf.rect(x, y, cellWidth, cellHeight, fill);
+      pdf.setDrawColor(0);
+      pdf.setFillColor(255); // White color for days
+      if (day) {
+        pdf.setFillColor(191, 209, 231);
+        pdf.rect(x, y, cellWidth, cellHeight, j % 2 == 0 ? 'DF' : 'S');
+      } else {
+        pdf.setFillColor(200, 200, 200);
+        pdf.rect(x, y, cellWidth, cellHeight, 'DF');
+      }
+    }
+  }
+}
+function drawWeeklyCalendarGrid(daySlots, pdf, startX, startY) {
+  const daysInWeek = 7; // Assuming a week has 7 days
+
+  // The week's data can be a subset of daySlots, or directly the daySlots if it already represents one week
+  // Here, I'm assuming daySlots already represents a single week
+
+  const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / daysInWeek;
+  const cellHeight = pdf.internal.pageSize.getHeight() - startY - 5;
+
+  for (let i = 0; i < daysInWeek; i++) {
+    const x = startX + i * cellWidth;
+    const y = startY;
+    const day = daySlots[i];
+
+    pdf.setDrawColor(0);
+    pdf.setFillColor(255); // White color for days
+    if (day) {
+      pdf.setFillColor(191, 209, 231); // Highlighted color for days with data
+      pdf.rect(x, y, cellWidth, cellHeight, 'DF');
+    } else {
+      pdf.setFillColor(200, 200, 200); // Grey color for empty days
+      pdf.rect(x, y, cellWidth, cellHeight, 'DF');
     }
   }
 }
 
-export function addEventsToCalendar(
+function addEventsToCalendar(
   daySlots,
   events,
   isToggled,
   pdf,
   startX,
-  startY
+  startY,
+  month
 ) {
   const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / 7; // 7 days in a week
   const daysInWeek = 7;
-  const totalHeightAvailable = pdf.internal.pageSize.getHeight() - startY - 20;
-  const weekCount = Math.ceil(daySlots.length / daysInWeek);
+  const totalHeightAvailable = pdf.internal.pageSize.getHeight() - startY - 5;
+  const lastDayIndex =
+    daySlots.length -
+    1 -
+    [...daySlots].reverse().findIndex((day) => day != null);
+
+  // Calculate weekCount based on the indexes of the first and last days
+  const weekCount = Math.ceil((lastDayIndex + 1) / daysInWeek);
   const cellHeight = totalHeightAvailable / weekCount;
 
   pdf.setFontSize(10);
@@ -107,7 +156,7 @@ export function addEventsToCalendar(
         .filter(
           (event) =>
             dayjs(event.start).format('D') === day &&
-            dayjs(event.start).month() === dayjs().month()
+            dayjs(event.start).month() === month
         )
         .filter(
           (event) => event.isProtected === isToggled || !event.isProtected
@@ -115,32 +164,202 @@ export function addEventsToCalendar(
         .slice(0, 2); // Limiting to 2 events for simplicity
 
       eventsForDay.forEach((event, eventIndex) => {
-        const eventTitle = event.title.split('|')[0]; // Assuming title is separated by '|'
-        const timeText = dayjs(event.start).format('HH:mm'); // Assuming 24-hour format
-
-        pdf.text(eventTitle, x + 2, y + 10 + eventIndex * 10); // Positioning might need adjustment
-        pdf.text(timeText, x + cellWidth - 15, y + 10 + eventIndex * 10); // Adjust as needed
+        const lines = splitTextToLines(
+          event.title.split('|')[0],
+          cellWidth - 4,
+          pdf
+        );
+        const timeText = dayjs(event.start).format('hh:mm A');
+        pdf.text(lines[0], x + 2, y + 5 + eventIndex * 11);
+        if (lines[1] && lines[1].length != 0) {
+          const text = truncateString(lines[1], cellWidth - 31);
+          pdf.text(text, x + 2, y + 9 + eventIndex * 12);
+          if (timeText !== '00:00') {
+            pdf.text(timeText, x + 24, y + 9 + eventIndex * 11);
+          }
+        } else {
+          if (timeText !== '00:00') {
+            pdf.text(timeText, x + 2, y + 9 + eventIndex * 11);
+          }
+        }
       });
     }
   });
 }
 
-export function openPDF(pdf) {
+function addWeeklyEventsToCalendar(
+  daySlots,
+  events,
+  isToggled,
+  pdf,
+  startX,
+  startY,
+  week
+) {
+  console.log('week', week);
+  const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / 7; // 7 days in a week
+  const daysInWeek = 7;
+  const totalHeightAvailable = pdf.internal.pageSize.getHeight() - startY - 5;
+  const start = dayjs(String(week).split('-')[0]);
+  const currentDay = week.day();
+  console.log('currentDay', currentDay);
+  const lastDayIndex =
+    daySlots.length -
+    1 -
+    [...daySlots].reverse().findIndex((day) => day != null);
+
+  // Calculate weekCount based on the indexes of the first and last days
+  const weekCount = Math.ceil((lastDayIndex + 1) / daysInWeek);
+  const cellHeight = totalHeightAvailable / weekCount;
+
+  // look 7 times
+  for (let i = 0; i < daysInWeek; i++) {
+    let day = start;
+    if (i != 0) {
+      day = start.add(i, 'day');
+    }
+    const x = 5 + i * cellWidth;
+    const y = startY + 10; // Adjust as necessary
+    pdf.setFontSize(20);
+    pdf.text(day.format('DD'), x + cellWidth / 2, y, 'center'); // Add the day of the month
+    pdf.setFontSize(10);
+    const eventsForDay = events
+      .filter(
+        (event) =>
+          dayjs(event.start).format('D') === day.format('D') &&
+          dayjs(event.start).month() === day.month()
+      )
+      .filter((event) => event.isProtected === isToggled || !event.isProtected);
+
+    eventsForDay.forEach((event, eventIndex) => {
+      const lines = splitTextToLines(
+        event.title.split('|')[0],
+        cellWidth - 4,
+        pdf
+      );
+      const timeText = dayjs(event.start).format('hh:mm A');
+      pdf.text(lines[0], x + 2, y + 5 + eventIndex * 11);
+      if (lines[1] && lines[1].length != 0) {
+        const text = truncateString(lines[1], cellWidth - 31);
+        pdf.text(text, x + 2, y + 9 + eventIndex * 12);
+        if (timeText !== '00:00') {
+          pdf.text(timeText, x + 24, y + 9 + eventIndex * 11);
+        }
+      } else {
+        if (timeText !== '00:00') {
+          pdf.text(timeText, x + 2, y + 9 + eventIndex * 11);
+        }
+      }
+    });
+  }
+}
+
+function truncateString(str, num) {
+  if (str.length > num) {
+    return str.slice(0, num - 1) + '...'; // Subtract 1 to account for the length of the ellipsis
+  } else {
+    return str;
+  }
+}
+export function createWeeklyDaySlots(startOfWeek) {
+  let daySlots = new Array(7).fill(null); // 1 week * 7 days
+  for (let i = 0; i < 7; i++) {
+    const date = startOfWeek.add(i, 'day');
+    daySlots[i] = date.format('D');
+  }
+  return daySlots;
+}
+function splitTextToLines(text, maxWidth, pdf) {
+  let lines = [];
+  let currentLine = text.split(' ')[0];
+  text
+    .split(' ')
+    .slice(1)
+    .forEach((word) => {
+      let width =
+        (pdf.getStringUnitWidth(currentLine + ' ' + word) *
+          pdf.internal.getFontSize()) /
+        pdf.internal.scaleFactor;
+      if (width < maxWidth) {
+        currentLine += ' ' + word;
+      } else {
+        lines.push(currentLine);
+        currentLine = word;
+      }
+    });
+  if (currentLine) {
+    lines.push(currentLine);
+  }
+  // Check if the last line is too long and add an ellipsis
+  const lastLineWidth =
+    (pdf.getStringUnitWidth(lines[lines.length - 1]) *
+      pdf.internal.getFontSize()) /
+    pdf.internal.scaleFactor;
+  if (lastLineWidth > maxWidth) {
+    lines[lines.length - 1] =
+      lines[lines.length - 1].substring(0, lines[lines.length - 1].length - 3) +
+      '...';
+  }
+  return lines;
+}
+
+function openPDF(pdf) {
   window.open(pdf.output('bloburl'), '_blank');
 }
 
-function printCalendarPDF(events, isToggled, accountName, logo) {
+export function printCalendarPDF(
+  events,
+  isToggled,
+  accountName,
+  calendarApi,
+  week
+) {
   const pdf = createPDF();
-  const startOfMonth = dayjs().startOf('month'); // or any other start date you want
-  printMonthHeader(startOfMonth, pdf, accountName, logo);
+  pdf.setFont('Montserrat');
+  const startOfMonth = dayjs(calendarApi.getDate()).startOf('month');
+  console.log(week);
+  const startOfWeek = week ? dayjs(week).startOf('week') : null;
+  console.log(week);
+  console.log('startOfWeek', startOfWeek);
+
+  printMonthHeader(
+    week ? week : startOfMonth.format('MMMM YYYY'),
+    pdf,
+    accountName
+  );
+
   const startX = 5,
     startY = 45;
   printDayLabels(pdf, startX, startY);
 
-  const daysInMonth = dayjs().endOf('month').date();
-  const daySlots = createDaySlots(startOfMonth, daysInMonth);
-  drawCalendarGrid(daySlots, pdf, startX, startY);
-  addEventsToCalendar(daySlots, events, isToggled, pdf, startX, startY);
+  let daySlots;
+  if (week) {
+    daySlots = createWeeklyDaySlots(startOfWeek);
+    drawWeeklyCalendarGrid(daySlots, pdf, startX, startY);
+  } else {
+    const daysInMonth = startOfMonth.endOf('month').date();
+    daySlots = createDaySlots(startOfMonth, daysInMonth);
+    drawCalendarGrid(daySlots, pdf, startX, startY);
+  }
+  week
+    ? addWeeklyEventsToCalendar(
+        daySlots,
+        events,
+        isToggled,
+        pdf,
+        startX,
+        startY,
+        dayjs(week, 'MMM DD')
+      )
+    : addEventsToCalendar(
+        daySlots,
+        events,
+        isToggled,
+        pdf,
+        startX,
+        startY,
+        startOfMonth.month()
+      );
 
   openPDF(pdf);
 }
