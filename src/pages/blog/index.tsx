@@ -84,11 +84,11 @@ const Index = () => {
       </div>
       <div className={styles.blogContainer}>
         <Grid container className={styles.Cards}>
-          <BlogCard blog={blog1}></BlogCard>
-          <BlogCard blog={blog2}></BlogCard>
-          <BlogCard blog={blog3}></BlogCard>
-          <BlogCard blog={blog4}></BlogCard>
           <BlogCard blog={blog5}></BlogCard>
+          <BlogCard blog={blog4}></BlogCard>
+          <BlogCard blog={blog3}></BlogCard>
+          <BlogCard blog={blog2}></BlogCard>
+          <BlogCard blog={blog1}></BlogCard>
         </Grid>
       </div>
 

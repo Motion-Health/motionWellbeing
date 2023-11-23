@@ -322,6 +322,11 @@ const ServiceProviderDetailContent = (props: Props) => {
   };
 
   const onFormSubmitError = (err: any) => console.log('onFormSubmitError', err);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleEditIconClick = () => {
+    logoInputRef.current && logoInputRef.current.click();
+  };
 
   return (
     <Box
@@ -342,34 +347,55 @@ const ServiceProviderDetailContent = (props: Props) => {
       <FormProvider {...methods}>
         <Grid container spacing={{ sm: 0, md: 2 }}>
           {serviceProviderFormData?.logo && (
-            <Grid item xs={12} sm={12} md={6}>
-              <Image
-                src={logoPreview}
-                alt="Logo preview"
-                width={200}
-                height={200}
-                objectFit="contain"
+            <Grid item xs={12} sm={12} md={12}>
+              <div
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+                style={{ position: 'relative' }}
+                className="uploadLogo"
+              >
+                <Image
+                  src={logoPreview}
+                  alt="Logo preview"
+                  width={200}
+                  height={200}
+                  objectFit="contain"
+                />
+                {isHovering && (
+                  <div
+                    style={{
+                      color: 'white',
+                      position: 'absolute',
+                      top: 0,
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: '#0000007d',
+                      cursor: 'pointer',
+                      display: 'grid',
+                      placeItems: 'center',
+                    }}
+                    onClick={handleEditIconClick}
+                  >
+                    <Image
+                      src="/assets/icons/ph_pencil-simple-white.svg"
+                      alt="Edit icon"
+                      width={30}
+                      height={30}
+                      objectFit="contain"
+                    />
+                  </div>
+                )}
+              </div>
+              <input
+                type="file"
+                ref={logoInputRef}
+                onChange={handleLogoSelect}
+                hidden
               />
+              {logo && <Typography>{logo.name}</Typography>}
             </Grid>
           )}
 
-          <Grid item xs={12} sm={12} md={6}>
-            <input
-              type="file"
-              ref={logoInputRef}
-              onChange={handleLogoSelect}
-              hidden
-            />
-            <Button
-              variant="outlined"
-              onClick={() =>
-                logoInputRef.current && logoInputRef.current.click()
-              }
-            >
-              Upload Logo
-            </Button>
-            {logo && <Typography>{logo.name}</Typography>}
-          </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <FormInputText
               name="serviceProviderName"

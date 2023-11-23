@@ -74,7 +74,12 @@ const Profile = () => {
         <Alert
           icon={false}
           severity={alertSeverity}
-          sx={{ position: 'relative', my: '3rem', padding: '1rem' }}
+          sx={{
+            position: 'relative',
+            my: '3rem',
+            padding: '1rem',
+            marginTop: 0,
+          }}
           onClose={() => setAlertMessage(null)}
         >
           {alertMessage}

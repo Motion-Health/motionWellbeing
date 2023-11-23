@@ -5,7 +5,10 @@
 iframe{
   border-radius: 20px;
 }
-
+.uploadLogo span{
+  display: block !important;
+  margin:auto  !important;;
+}
 * {
   box-sizing: border-box;
 }

@@ -29,11 +29,11 @@ const Index = () => {
         />
         <meta
           property="og:description"
-          content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
+          content="The new CQC Single Assessment Framework and wellbeing activities"
         />
         <meta
           name="description"
-          content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
+          content="The new CQC Single Assessment Framework and wellbeing activities."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -44,7 +44,7 @@ const Index = () => {
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
+          content="The new CQC Single Assessment Framework and wellbeing activities."
         />
       </Head>
 
@@ -62,8 +62,7 @@ const Index = () => {
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
           <h1>
-            The Power of High-Quality Visual Content in Care Home Lead
-            Generation
+            The new CQC Single Assessment Framework and wellbeing activities
           </h1>
           <div className={styles.shareToolbar}>
             <div>
@@ -165,11 +164,11 @@ const Index = () => {
           <ul>
             <li>
               <p>
-                <b>Person-Centred Activity Plans:</b>
-                Develop group and individualised plans that are tailored to the
-                unique needs and preferences of each resident. Clearly document
-                how wellbeing activities are aligned with residents'
-                preferences, cultural backgrounds, and interests.
+                <b>Person-Centred Activity Plans</b> — Develop group and
+                individualised plans that are tailored to the unique needs and
+                preferences of each resident. Clearly document how wellbeing
+                activities are aligned with residents' preferences, cultural
+                backgrounds, and interests.
               </p>
             </li>
             <img
@@ -179,7 +178,7 @@ const Index = () => {
             />
             <li>
               <p>
-                <b>Engagement and Participation:</b> Regularly assess resident
+                <b>Engagement and Participation</b> — Regularly assess resident
                 engagement and participation in wellbeing activities. Maintain
                 records of attendance, feedback, and any adaptations made to
                 activities based on resident input. This will demonstrate a
@@ -189,7 +188,7 @@ const Index = () => {
             </li>
             <li>
               <p>
-                <b>Outcome Measures:</b>Utilise outcome measures to assess the
+                <b>Outcome Measures</b> — Utilise outcome measures to assess the
                 impact of wellbeing activities on residents' physical,
                 emotional, and social wellbeing. This doesn’t have to be overly
                 complicated. Surveys and emoticon scales before and after are
@@ -205,7 +204,7 @@ const Index = () => {
             />
             <li>
               <p>
-                <b>Environmental Considerations:</b>Evaluate the care home
+                <b>Environmental Considerations</b> — Evaluate the care home
                 environment to ensure it promotes wellbeing. Document any
                 modifications or improvements made to communal spaces, outdoor
                 areas, and individual living spaces to enhance residents'
