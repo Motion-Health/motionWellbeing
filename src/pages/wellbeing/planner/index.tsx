@@ -58,9 +58,32 @@ const Planner = () => {
   } = useAccountContext();
   const [showButtons, setShowButtons] = useState<null | Event>(null);
   const [threeDots, setThreeDots] = useState(false);
+  const threeDotsRef = useRef(null); // Create a ref for the three dots container
+
+  // Function to close the menu
+  const closeMenu = () => setThreeDots(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        threeDotsRef.current &&
+        !threeDotsRef.current.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    };
+
+    // Attach the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      // Clean up the event listener
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [threeDotsRef]);
   const { data: events, refetch: refetchPlannerEvents } =
     usePlannerEvents(accountId);
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState(true);
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
@@ -245,6 +268,7 @@ const Planner = () => {
         className={`${styles.threeDotsContainer} ${
           threeDots ? styles.open : ''
         }`}
+        ref={threeDotsRef}
       >
         <div className={styles.toggle}>
           <div className={styles.toggleSwitchLabel}>Days of the Year</div>

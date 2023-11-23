@@ -54,9 +54,9 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
 
   const handlePrint = () => {
     if (printOption === 'weekly') {
-      printCalendarPDF(events, isToggled, serviceName, api, selectedWeek);
+      printCalendarPDF(events, 'false', serviceName, api, selectedWeek);
     } else {
-      printCalendarPDF(events, isToggled, serviceName, api, null);
+      printCalendarPDF(events, 'false', serviceName, api, null);
     }
     setIsModalOpen(false);
   };
