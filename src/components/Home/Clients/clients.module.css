@@ -7,6 +7,9 @@
 .landing-h2{
   margin-bottom: 0px;
 }
+.hcOne{
+  padding : 25px !important;
+}
 
 @media (max-width: 992px) {
   .clientWrapper {

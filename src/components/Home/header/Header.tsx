@@ -180,6 +180,16 @@ export const Header = () => {
               </li>
 
               <li>
+                <Button
+                  name="navigateAccount"
+                  onclick={navigateToAccount}
+                  icon={true}
+                  showDesktop
+                >
+                  <span className="hidden xl:inline">
+                    {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
+                  </span>
+                </Button>
                 {!isLoggedIn && (
                   <Button
                     name="navigateAccount"
@@ -191,16 +201,6 @@ export const Header = () => {
                     <span className="hidden xl:inline">Login</span>
                   </Button>
                 )}
-                <Button
-                  name="navigateAccount"
-                  onclick={navigateToAccount}
-                  icon={true}
-                  showDesktop
-                >
-                  <span className="hidden xl:inline">
-                    {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
-                  </span>
-                </Button>
               </li>
             </ul>
           )}

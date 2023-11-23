@@ -36,7 +36,7 @@ export const FAQs = () => {
           <p>
             When you sign up to our Standard membership (free) you get access to
             15 activities and the community of users. When you upgrade to our
-            Premium membership (£17.99/month) you get access to over 100 varied
+            Premium membership (£69.99/month) you get access to over 100 varied
             wellbeing activities (videos and print outs), an activity planner,
             data for CQC reports and much more.
           </p>

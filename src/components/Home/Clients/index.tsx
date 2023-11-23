@@ -1,4 +1,4 @@
-import Image from "next/legacy/image"; // Import the Image component from next/image
+import Image from 'next/legacy/image'; // Import the Image component from next/image
 import React from 'react';
 
 import styles from './clients.module.css';
@@ -60,6 +60,7 @@ export const Clients = () => {
             width={150}
             height={150}
             layout="responsive"
+            className={styles.hcOne}
           />
         </div>
       </div>

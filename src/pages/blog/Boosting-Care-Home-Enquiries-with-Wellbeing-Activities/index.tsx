@@ -28,11 +28,11 @@ const Index = () => {
         />
         <meta
           property="og:description"
-          content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
+          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
         />
         <meta
           name="description"
-          content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
+          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -43,7 +43,7 @@ const Index = () => {
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="A dementia-friendly digital wellbeing platform created by Activity Coordinators for Activity Coordinators to deliver outstanding wellbeing for those working and living in care."
+          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
         />
       </Head>
 
@@ -231,9 +231,7 @@ const Index = () => {
           <p>
             If you’d like to know more about how you can generate more enquiries
             with wellbeing activities,&nbsp;
-            <a href="/how-we-can-help">
-              book a 30 minute discovery call
-            </a>
+            <a href="/how-we-can-help">book a 30 minute discovery call</a>
             &nbsp;of our wellbeing and marketing platform today.
           </p>
         </div>

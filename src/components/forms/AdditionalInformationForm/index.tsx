@@ -234,17 +234,19 @@ export const AdditionalInformationForm = () => {
               <Grid item xs={12} sm={12} md={6}>
                 <FormSelect
                   name="UserRole"
-                  label="Please select which best describes your role"
+                  label="Which option best describes your role?"
                   // defaultValue="No"
                   type="text"
                   fullWidth
                   sx={{ mb: 3 }}
                 >
-                  <MenuItem value="Activity Coordinator">
-                    Activity Coordinator
+                  <MenuItem value="Activity/Wellbeing Coordinator,">
+                    Activity/Wellbeing Coordinator
                   </MenuItem>
-                  <MenuItem value="Home Manager">Home Manager</MenuItem>
-                  <MenuItem value="Home Director">Home Director</MenuItem>
+                  <MenuItem value="Home Manager">Service Manager</MenuItem>
+                  <MenuItem value="Service Owner/Director">
+                    Service Owner/Director
+                  </MenuItem>
                   <MenuItem value="Partner">Partner</MenuItem>
                   <MenuItem value="Other">Other</MenuItem>
                 </FormSelect>

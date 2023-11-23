@@ -10,7 +10,7 @@ export const CTA = () => {
             “The Motion team are incredible - They are so committed to helping
             our residents. We love having them working with our care homes.”
           </blockquote>
-          <cite>Claire - Sheffcare</cite>
+          <cite>Claire, CEO, Sheffcare</cite>
         </div>
         <div className={styles.googleReview}>
           <Image
