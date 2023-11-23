@@ -22,3 +22,6 @@
   -ms-overflow-style: none;
   overflow: scroll;
 }
+.renderLogo{
+  height: -webkit-fill-available;
+}

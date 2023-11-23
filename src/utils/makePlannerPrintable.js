@@ -6,8 +6,27 @@ function createPDF() {
 }
 function printMonthHeader(startOfMonth, pdf, accountName) {
   pdf.setFontSize(25);
-  pdf.text(accountName, 10, 20);
-  pdf.addImage('/assets/logos/PoweredByMotion.png', 'PNG', 250, 10, 36, 8);
+  // if accountanme is too long then split int two lines and still if to long truncate it
+  if (accountName.length > 20) {
+    // Find the nearest space before the 20th character
+    let splitIndex = accountName.lastIndexOf(' ', 20);
+    if (splitIndex === -1) splitIndex = 20; // If no space found, default to 20
+
+    const firstLine = accountName.substring(0, splitIndex);
+    let secondLine = accountName.substring(splitIndex + 1);
+
+    // Truncate the second line if it's too long
+    if (secondLine.length > 20) {
+      secondLine = secondLine.substring(0, 17) + '...';
+    }
+
+    pdf.text(firstLine, 10, 10, null, 'left');
+    pdf.text(secondLine, 10, 20, null, 'left'); // Adjust the Y-coordinate as needed
+  } else {
+    pdf.text(accountName, 10, 20, null, 'left');
+  }
+
+  pdf.addImage('/assets/logos/PoweredByMotion.png', 'PNG', 250, 12, 36, 8);
   pdf.setFontSize(40);
   pdf.text(
     startOfMonth,
@@ -88,10 +107,27 @@ function drawCalendarGrid(daySlots, pdf, startX, startY) {
       pdf.setFillColor(255); // White color for days
       if (day) {
         pdf.setFillColor(191, 209, 231);
-        pdf.rect(x, y, cellWidth, cellHeight, j % 2 == 0 ? 'DF' : 'S');
+
+        pdf.roundedRect(
+          x,
+          y,
+          cellWidth,
+          cellHeight,
+          3,
+          3,
+          j % 2 == 0 ? 'DF' : 'S'
+        );
       } else {
-        pdf.setFillColor(200, 200, 200);
-        pdf.rect(x, y, cellWidth, cellHeight, 'DF');
+        pdf.setFillColor(215, 215, 215);
+        pdf.roundedRect(
+          x,
+          y,
+          cellWidth,
+          cellHeight,
+          3,
+          3,
+          j % 2 == 0 ? 'DF' : 'S'
+        );
       }
     }
   }
@@ -112,13 +148,12 @@ function drawWeeklyCalendarGrid(daySlots, pdf, startX, startY) {
 
     pdf.setDrawColor(0);
     pdf.setFillColor(255); // White color for days
-    if (day) {
+    if (i % 2 == 0) {
       pdf.setFillColor(191, 209, 231); // Highlighted color for days with data
-      pdf.rect(x, y, cellWidth, cellHeight, 'DF');
     } else {
-      pdf.setFillColor(200, 200, 200); // Grey color for empty days
-      pdf.rect(x, y, cellWidth, cellHeight, 'DF');
+      pdf.setFillColor(247, 251, 254); // Highlighted color for days with data
     }
+    pdf.roundedRect(x, y, cellWidth, cellHeight, 3, 3, 'DF');
   }
 }
 

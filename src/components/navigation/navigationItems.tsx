@@ -12,8 +12,8 @@ import {
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import { useAccountContext } from '@/context/AccountContext';
 import { categories } from '@/data/categories.ts';
+import { useGetAccount } from '@/services/account/useGetAccount';
 import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
 import theme from '@/styles/theme';
 import { AppConfig } from '@/utils/AppConfig';
@@ -33,8 +33,7 @@ const NavigationItems = () => {
   const [showActivitiesSubNavigation, setShowActivitiesSubNavigation] =
     useState(false);
 
-  const { account } = useAccountContext();
-
+  const { data: account } = useGetAccount();
   useEffect(() => {
     if (pathname === '/wellbeing/activities') {
       setShowActivitiesSubNavigation(true);
@@ -51,11 +50,29 @@ const NavigationItems = () => {
     router.push('/wellbeing/login');
   };
 
+  const renderLogo = () => {
+    console.log(account);
+    console.log(account?.logo);
+    console.log(account?.status);
+    const logoSrc =
+      account?.logo && account?.accountStatus !== 'standard'
+        ? account?.logo
+        : AppConfig.logo;
+
+    return (
+      <img
+        className={styles.renderLogo}
+        src={logoSrc}
+        width="144"
+        height="95"
+        alt="logo"
+      />
+    );
+  };
+
   return (
     <div className={styles.drawer}>
-      <div className={styles.logo}>
-        <img src={AppConfig.logo} width="144" height="95" alt="logo" />
-      </div>
+      <div className={styles.logo}>{renderLogo()}</div>
       <Grid
         container
         className={styles.navigationContainer}

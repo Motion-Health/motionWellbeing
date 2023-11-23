@@ -1,9 +1,9 @@
 .cancelButton{
-  margin: 2% auto;
+  margin: 2% auto !important;
   width: 60%;
   border: 1px solid;
 }
 .printButton{
-  margin: 1% auto;
+  margin: 1% auto !important;
   width: 60%;
 }
