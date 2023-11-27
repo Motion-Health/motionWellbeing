@@ -136,11 +136,12 @@ describe('Onboarding', () => {
       cy.get('input[name="groupName"]').type('REYT/Motion');
 
       cy.get('div[data-test-id="UserRole"]').click();
-      cy.get('li[data-value="Home Manager"');
-      cy.get('li[data-value="Home Director"');
+      cy.get('li[data-value="Activity/Wellbeing Coordinator"');
+      cy.get('li[data-value="Service Manager"');
+      cy.get('li[data-value="Service Owner/Director"');
       cy.get('li[data-value="Partner"');
       cy.get('li[data-value="Other"');
-      cy.get('li[data-value="Activity Coordinator"').click();
+      cy.get('li[data-value="Activity/Wellbeing Coordinator"').click();
 
       cy.get('button[name="complete"]').click();
       // log the pathname
@@ -540,7 +541,7 @@ describe('Onboarding', () => {
       cy.get('li[data-value="Yes"').click();
       cy.get('input[name="groupName"]').type('REYT/Motion');
       cy.get('div[data-test-id="UserRole"]').click();
-      cy.get('li[data-value="Activity Coordinator"').click();
+      cy.get('li[data-value="Activity/Wellbeing Coordinator"').click();
       cy.get('button[name="complete"]').click();
 
       cy.wait('@getUpdateAccountFailure');

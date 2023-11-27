@@ -238,15 +238,16 @@ export const AdditionalInformationForm = () => {
                 <FormSelect
                   name="UserRole"
                   label="Which option best describes your role?"
-                  // defaultValue="No"
+                  defaultValue={undefined}
                   type="text"
+                  required
                   fullWidth
                   sx={{ mb: 3 }}
                 >
-                  <MenuItem value="Activity/Wellbeing Coordinator,">
+                  <MenuItem value="Activity/Wellbeing Coordinator">
                     Activity/Wellbeing Coordinator
                   </MenuItem>
-                  <MenuItem value="Home Manager">Service Manager</MenuItem>
+                  <MenuItem value="Service Manager">Service Manager</MenuItem>
                   <MenuItem value="Service Owner/Director">
                     Service Owner/Director
                   </MenuItem>
