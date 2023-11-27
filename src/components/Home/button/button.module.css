@@ -2,7 +2,8 @@ button.storybookbutton,
 a.storybookbutton {
   display: flex;
   font-family: "Montserrat", sans-serif;
-  width: 210px;
+  width: auto;
+  gap: 10px;
   flex-direction: row;
   justify-content: center;
   align-items: center;

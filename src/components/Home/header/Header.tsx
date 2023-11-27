@@ -183,12 +183,20 @@ export const Header = () => {
                 <Button
                   name="navigateAccount"
                   onclick={navigateToAccount}
+                  // className={styles.bookButton}
                   icon={true}
                   showDesktop
                 >
                   <span className="hidden xl:inline">
                     {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
                   </span>
+                  <img
+                    src={
+                      isLoggedIn
+                        ? 'assets/icons/ph_user-circle_white.svg'
+                        : 'assets/icons/calendar_book_event.svg'
+                    }
+                  />
                 </Button>
                 {!isLoggedIn && (
                   <Button
@@ -199,6 +207,7 @@ export const Header = () => {
                     showDesktop
                   >
                     <span className="hidden xl:inline">Login</span>
+                    <img src="assets/icons/login_icon.svg" alt="Icon" />
                   </Button>
                 )}
               </li>
