@@ -385,7 +385,7 @@ const Index = () => {
           </div>
         </div>
       </main>
-      <div className={styles.discoveryBackground}>
+      <div className="discoveryBackground">
         <h1 className={styles.discoveryTitle}>Book your free discovery call</h1>
         <div className={styles.discoveryText}>
           Not sure where to start? Let us help you by making some personalised

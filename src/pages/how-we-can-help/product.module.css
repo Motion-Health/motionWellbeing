@@ -326,14 +326,6 @@ body .laptopFrame {
 
 }
 
-.discoveryBackground {
-  position: relative;
-  z-index: 1;
-  padding-top: 20px;
-  background: linear-gradient(to bottom, #fff, #6bc6fa29);
-  padding-bottom: 10px
-}
-
 .main{
   border-bottom-left-radius: 5% 8%;
   border-bottom-right-radius: 5% 8%;

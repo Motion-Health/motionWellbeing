@@ -66,11 +66,20 @@ const Index = () => {
       <Clients></Clients>
       <CTA></CTA>
       <About></About>
-      <div
-        id="calendly-inline-widget"
-        style={{ minWidth: 320, height: 650 }}
-        data-auto-load="false"
-      ></div>
+      <div className="discoveryBackground">
+        <h1 className="text-center">Book your free discovery call</h1>
+        <div className="text-center">
+          Not sure where to start? Let us help you by making some personalised
+          recommendations for your wellbeing activities and how to use these in
+          your marketing!
+        </div>
+
+        <div
+          id="calendly-inline-widget"
+          style={{ minWidth: 320, height: 650 }}
+          data-auto-load="false"
+        ></div>
+      </div>
       <FAQs></FAQs>
       <Contact />
       <Partners />
