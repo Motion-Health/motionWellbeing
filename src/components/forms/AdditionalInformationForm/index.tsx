@@ -210,6 +210,9 @@ export const AdditionalInformationForm = () => {
                   <MenuItem value="Email">Email</MenuItem>
                   <MenuItem value="LinkedIn">LinkedIn</MenuItem>
                   <MenuItem value="Social-Ability">Social-Ability</MenuItem>
+                  <MenuItem value="Inspired-Inspirations">
+                    Inspired Inspirations
+                  </MenuItem>
                   <MenuItem value="Sheffield City Trust">
                     Sheffield City Trust
                   </MenuItem>
