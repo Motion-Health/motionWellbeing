@@ -19,8 +19,8 @@ export const Partners = () => {
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src="/assets/partners/tnl.png"
-            alt="TNL"
+            src="/assets/partners/keyfund.webp"
+            alt="Keydfund"
             layout="responsive"
             width={250}
             height={150}
