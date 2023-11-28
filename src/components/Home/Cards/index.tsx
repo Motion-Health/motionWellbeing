@@ -11,9 +11,9 @@ export const Cards = () => {
           <Image
             src="/assets/home/card3.webp"
             alt="Motion Wellbeing"
-            width={2848}
-            height={1642}
-            layout="responsive"
+            width={460}
+            height={320}
+            layout="fixed"
             priority
           />
         </div>
