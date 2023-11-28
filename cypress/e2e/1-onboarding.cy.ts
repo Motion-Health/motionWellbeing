@@ -137,8 +137,8 @@ describe('Onboarding', () => {
 
       cy.get('div[data-test-id="UserRole"]').click();
       cy.get('li[data-value="Activity/Wellbeing Coordinator"');
-      cy.get('li[data-value="Service Manager"');
-      cy.get('li[data-value="Service Owner/Director"');
+      cy.get('li[data-value="Manager"');
+      cy.get('li[data-value="Owner/Director"');
       cy.get('li[data-value="Partner"');
       cy.get('li[data-value="Other"');
       cy.get('li[data-value="Activity/Wellbeing Coordinator"').click();

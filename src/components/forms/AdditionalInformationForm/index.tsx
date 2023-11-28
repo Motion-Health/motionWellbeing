@@ -247,10 +247,8 @@ export const AdditionalInformationForm = () => {
                   <MenuItem value="Activity/Wellbeing Coordinator">
                     Activity/Wellbeing Coordinator
                   </MenuItem>
-                  <MenuItem value="Service Manager">Service Manager</MenuItem>
-                  <MenuItem value="Service Owner/Director">
-                    Service Owner/Director
-                  </MenuItem>
+                  <MenuItem value="Manager">Manager</MenuItem>
+                  <MenuItem value="Owner/Director">Owner/Director</MenuItem>
                   <MenuItem value="Partner">Partner</MenuItem>
                   <MenuItem value="Other">Other</MenuItem>
                 </FormSelect>

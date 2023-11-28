@@ -167,7 +167,7 @@ export const Header = () => {
                   className={styles.link}
                   onClick={navigateToKnowledgeHub}
                 >
-                  Knowledge Hub
+                  Knowledge hub
                 </button>
               </li>
               <li>
@@ -193,8 +193,8 @@ export const Header = () => {
                   <img
                     src={
                       isLoggedIn
-                        ? 'assets/icons/ph_user-circle_white.svg'
-                        : 'assets/icons/calendar_book_event.svg'
+                        ? '/assets/icons/ph_user-circle_white.svg'
+                        : '/assets/icons/calendar_book_event.svg'
                     }
                   />
                 </Button>
@@ -207,7 +207,7 @@ export const Header = () => {
                     showDesktop
                   >
                     <span className="hidden xl:inline">Login</span>
-                    <img src="assets/icons/login_icon.svg" alt="Icon" />
+                    <img src="/assets/icons/login_icon.svg" alt="Icon" />
                   </Button>
                 )}
               </li>

@@ -6,6 +6,7 @@ import styles from 'src/components/Blog/BlogCard.module.css';
 
 export default function BlogCard({ blog }) {
   const router = useRouter();
+  blog.link = blog.name.replace(/ /g, '-').replace(/[^a-zA-Z0-9-]/g, '');
 
   return (
     <Grid key={blog.id} item xs={12} lg={4} md={6} sm={12}>
@@ -13,7 +14,10 @@ export default function BlogCard({ blog }) {
         className={styles.Card}
         onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
       >
-        <img src={blog.image} alt={blog.name} />
+        <img
+          src={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}
+          alt={blog.name}
+        />
         <div className={styles.Content}>
           <Typography variant="h2">{blog.name}</Typography>
         </div>
