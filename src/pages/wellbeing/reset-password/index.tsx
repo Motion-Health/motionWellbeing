@@ -1,7 +1,7 @@
 import { ResetPasswordForm } from "@/components/forms/ResetPasswordForm"
 import Head from "next/head"
 
-const Login = () => {
+const ResetPassword = () => {
   return (
     <>
       <Head>
@@ -12,4 +12,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;

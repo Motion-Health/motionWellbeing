@@ -1,15 +1,15 @@
 export const standardAccount = {
-  email: "dan.stevenson+motion1@reyt.co.uk", 
-  password: "reytmotion1",
+  email: "standard@motion.co.uk", 
+  password: "Password123*",
   
 }
 
 export const groupAccount = {
-  email: "dan.stevenson+motion2@reyt.co.uk", 
-  password: "reytmotion2",
+  email: "group@motion.co.uk", 
+  password: "Password123*",
 }
 
 export const adminAccount = {
-  email: "dan.stevenson+motion3@reyt.co.uk", 
-  password: "reytmotion3",
+  email: "admintest@motion.co.uk", 
+  password: "Password123*",
 }

@@ -6,6 +6,11 @@ describe('Navigation', async () => {
       cy.visit('http://localhost:3000/wellbeing/login')
       cy.get('input[name="email"]').clear().type(email)
       cy.get('input[name="password"]').clear().type(password)
+
+      //click termly accept
+      cy.get('button').contains('Accept').click();
+
+      
       cy.intercept('POST', '/auth/login').as('login')
       cy.get('button[name="login"]').click()
       cy.wait('@login').then(({response}) => {
