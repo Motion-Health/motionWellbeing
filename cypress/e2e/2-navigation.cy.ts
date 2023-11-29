@@ -3,7 +3,7 @@ import { standardAccount, groupAccount, adminAccount } from "cypress/utils/testA
 describe('Navigation', async () => {
   Cypress.Commands.add('login', (email, password) => {
     cy.session([email, password], async () => {
-      cy.visit('http://localhost:3000/login')
+      cy.visit('http://localhost:3000/wellbeing/login')
       cy.get('input[name="email"]').clear().type(email)
       cy.get('input[name="password"]').clear().type(password)
       cy.intercept('POST', '/auth/login').as('login')
@@ -156,7 +156,7 @@ describe('Navigation', async () => {
       // cy.login(adminAccount.email, adminAccount.password)
       // cy.visit('http://localhost:3000/')
 
-      cy.visit('http://localhost:3000/login')
+      cy.visit('http://localhost:3000/wellbeing/login')
       cy.get('input[name="email"]').clear().type(adminAccount.email)
       cy.get('input[name="password"]').clear().type(adminAccount.password)
       cy.intercept('POST', '/auth/login').as('login')
