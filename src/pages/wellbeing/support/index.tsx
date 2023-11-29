@@ -28,7 +28,7 @@ const Login = () => {
         <div className={styles.support}>
           <img src="/assets/images/support/zeezy.webp" />
           <div>
-            <h1>Get Support</h1>
+            <h1>Get support</h1>
             <p>
               We're here to help. If you have any questions or need support,
               please get in touch with us.
@@ -45,20 +45,21 @@ const Login = () => {
               <a href="tel:07543858684">07543 858684</a>
             </p>
 
+            
+            <div className={styles.actionButtons}>
             <button
               className={styles.supportButton}
               // go to previous Page
 
               onClick={() => window.history.back()}
             >
-              Go Back
+              Go back
             </button>
-            <div className={styles.actionButtons}>
               <button
                 className={styles.callButton}
                 onClick={() => window.open('tel:07543858684')}
               >
-                Call Now
+                Call now
               </button>
             </div>
           </div>
