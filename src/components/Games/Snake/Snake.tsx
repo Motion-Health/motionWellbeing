@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
-import styles from './Snake.module.css';
+import defaultStyes from '@/pages/wellbeing/games/gameDefaults.module.css';
 
+import styles from './Snake.module.css';
 interface Props {
   color1: string;
   color2: string;
@@ -256,52 +257,94 @@ const Snake: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.snakeContainer} id="snake-container">
-      <div
-        className={styles.gameBorder}
-        style={{
-          width: dim,
-          height: dim,
-          backgroundColor: props.backgroundColor,
-        }}
-      >
-        {pieces().map((piece, i) => {
-          return (
-            <div
-              key={'piece' + i}
-              style={
-                piece === 'bang'
-                  ? {
-                      width: chunk,
-                      height: chunk,
-                      backgroundColor: props.color1,
-                    }
-                  : piece === 'fruit'
-                  ? {
-                      width: chunk,
-                      height: chunk,
-                      backgroundColor: props.color2,
-                    }
-                  : { width: chunk, height: chunk }
-              }
-            ></div>
-          );
-        })}
-        {game && (
-          <div className={styles.gameSplash} style={{ height: dim }}>
-            <div>Game Over!</div>
-            <button onClick={() => reset()}>Play Again</button>
-          </div>
-        )}
-      </div>
-      <div className={styles.PointBar} style={{ width: dim }}>
-        <div style={{ color: props.color2 }}>Score: {points}</div>
-      </div>
-      <div className={styles.difficultySelector}>
-        <button onClick={() => setDifficulty('1')}>Level 1</button>
-        <button onClick={() => setDifficulty('2')}>Level 2</button>
-        <button onClick={() => setDifficulty('3')}>Level 3</button>
-        <button onClick={() => setDifficulty('4')}>Level 4</button>
-        <button onClick={() => setDifficulty('5')}>Level 5</button>
+      <div>
+        <div
+          className={styles.gameBorder}
+          style={{
+            width: dim,
+            height: dim,
+            backgroundColor: props.backgroundColor,
+          }}
+        >
+          {pieces().map((piece, i) => {
+            return (
+              <div
+                key={'piece' + i}
+                style={
+                  piece === 'bang'
+                    ? {
+                        width: chunk,
+                        height: chunk,
+                        backgroundColor: props.color1,
+                      }
+                    : piece === 'fruit'
+                    ? {
+                        width: chunk,
+                        height: chunk,
+                        backgroundColor: props.color2,
+                      }
+                    : { width: chunk, height: chunk }
+                }
+              ></div>
+            );
+          })}
+          {game && (
+            <div className={styles.gameSplash} style={{ height: dim }}>
+              <div>Game Over!</div>
+              <button
+                className={defaultStyes.defaultStyes}
+                onClick={() => reset()}
+              >
+                Play Again
+              </button>
+            </div>
+          )}
+        </div>
+        <div className={styles.PointBar}>
+          <div style={{ color: props.color2 }}>Score: {points}</div>
+        </div>
+        <div className={styles.difficultySelector}>
+          <button
+            className={`${defaultStyes.button} ${
+              difficulty === '1' ? defaultStyes.buttonActive : ''
+            }`}
+            onClick={() => setDifficulty('1')}
+          >
+            Level 1
+          </button>
+          <button
+            className={`${defaultStyes.button} ${
+              difficulty === '2' ? defaultStyes.buttonActive : ''
+            }`}
+            onClick={() => setDifficulty('2')}
+          >
+            Level 2
+          </button>
+          <button
+            className={`${defaultStyes.button} ${
+              difficulty === '3' ? defaultStyes.buttonActive : ''
+            }`}
+            onClick={() => setDifficulty('3')}
+          >
+            Level 3
+          </button>
+          <button
+            className={`${defaultStyes.button} ${
+              difficulty === '4' ? defaultStyes.buttonActive : ''
+            }`}
+            onClick={() => setDifficulty('4')}
+          >
+            Level 4
+          </button>
+          <button
+            className={`${defaultStyes.button} ${
+              difficulty === '5' ? defaultStyes.buttonActive : ''
+            }`}
+            onClick={() => setDifficulty('5')}
+          >
+            Level 5
+          </button>
+        </div>
       </div>
 
       <div

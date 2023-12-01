@@ -1,0 +1,23 @@
+/* hangman.module.css */
+.hangmanContainer {
+  background: radial-gradient(ellipse at bottom left, var(--tw-gradient-stops));
+  background-color: from-blue-100;
+  background-image: via-indigo-100;
+  background-image: to-purple-200;
+  height: 100vh; /* equivalent to h-screen */
+}
+
+.content {
+  font-family: 'Adlam', sans-serif; /* Assuming 'font-adlam' is a custom font */
+  max-width: 768px; /* equivalent to max-w-3xl */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px; /* equivalent to gap-8 */
+  margin: auto;
+  padding-top: 48px; /* equivalent to pt-12 */
+}
+
+.selfStretch {
+  align-self: stretch;
+}

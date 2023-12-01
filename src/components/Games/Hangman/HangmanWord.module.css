@@ -1,0 +1,18 @@
+.wordContainer {
+  display: flex;
+  gap: 12px; /* equivalent to gap-3 */
+  font-size: 36px; /* equivalent to text-3xl */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1024px) { /* assuming lg breakpoint is at 1024px */
+  .wordContainer {
+    font-size: 96px; /* equivalent to lg:text-6xl */
+  }
+}
+
+.letterContainer {
+  border-bottom: 8px solid black; /* equivalent to border-b-8 border-black */
+  border-radius: 4px; /* equivalent to rounded-md */
+}

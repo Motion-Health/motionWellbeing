@@ -1,0 +1,24 @@
+.boardRow{
+  display: flex;
+  justify-content: center;
+}
+.status{
+  text-align: center;
+}
+.square{
+  background-color: white;
+  border: none;
+  height: 50px;
+  width: 50px;
+}
+
+.game{
+  display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.gameBoard{
+  margin: auto;
+}

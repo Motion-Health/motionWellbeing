@@ -288,6 +288,13 @@ export const appSections = [
     accessibleBy: ['standard', 'group', 'premium', 'admin'],
   },
   {
+    title: 'Games',
+    icon: '/assets/icons/ph_trophy.svg',
+    path: '/wellbeing/games',
+    visibleTo: ['standard', 'group', 'premium', 'admin'],
+    accessibleBy: ['standard', 'group', 'premium', 'admin'],
+  },
+  {
     title: 'My planner',
     icon: '/assets/icons/ph_calendar-blank.svg',
     path: '/wellbeing/planner',
@@ -308,6 +315,7 @@ export const appSections = [
     visibleTo: ['standard', 'group', 'premium', 'admin'],
     accessibleBy: ['standard', 'group', 'premium', 'admin'],
   },
+
   {
     title: 'Announcements',
     icon: '/assets/icons/ph_hand-waving.svg',
