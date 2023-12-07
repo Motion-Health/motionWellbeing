@@ -1,10 +1,10 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 
-import { Footer } from '@/components/games/Sudoku/layout/Footer';
-import { GameSection } from '@/components/games/Sudoku/layout/GameSection';
-import { Header } from '@/components/games/Sudoku/layout/Header';
-import { StatusSection } from '@/components/games/Sudoku/layout/StatusSection';
+import { Footer } from '@/components/Games/Sudoku/layout/Footer';
+import { GameSection } from '@/components/Games/Sudoku/layout/GameSection';
+import { Header } from '@/components/Games/Sudoku/layout/Header';
+import { StatusSection } from '@/components/Games/Sudoku/layout/StatusSection';
 import { useSudokuContext } from '@/context/SudokuContext';
 
 import { getUniqueSudoku } from './solver/UniqueSudoku';
