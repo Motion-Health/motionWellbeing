@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styles from './Pong.module.css'; // make sure this path is correct
+import styles from './pong.module.css'; // make sure this path is correct
 import mainTheme from '@/styles/theme.module.css';
 const Pong = ({ restart }) => {
   const [isTwoPlayer, setIsTwoPlayer] = useState(false); // State for two-player mode
