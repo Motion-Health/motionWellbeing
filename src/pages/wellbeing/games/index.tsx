@@ -61,7 +61,7 @@ const Games = () => {
     },
     {
       id: 7,
-      name: 'sudoku',
+      name: 'Sudoku',
       description: 'A classic game of sudoku',
       instructions:
         'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
