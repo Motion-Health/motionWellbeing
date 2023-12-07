@@ -8,16 +8,27 @@
 }
 
 .content {
-  font-family: 'Adlam', sans-serif; /* Assuming 'font-adlam' is a custom font */
-  max-width: 768px; /* equivalent to max-w-3xl */
+  font-family: 'Adlam', sans-serif;
+  max-width: 768px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 32px; /* equivalent to gap-8 */
+  gap: 32px;
   margin: auto;
-  padding-top: 48px; /* equivalent to pt-12 */
+  padding-top: 48px;
+  height: 85vh;
+  justify-content: space-between;
 }
 
 .selfStretch {
   align-self: stretch;
+  width: -webkit-fill-available;
+}
+
+
+.column{
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+  width: 85vw;
 }

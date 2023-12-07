@@ -16,7 +16,7 @@
 }
 
 .startContainerTitle{
-  font-family: 'Karla';
+  
   font-style: normal;
   font-weight: 700;
   font-size: 31.25px;
@@ -26,7 +26,7 @@
 }
 
 .startContainerSubtitle{
-  font-family: 'Inter';
+  
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -37,7 +37,6 @@
 }
 
 .startContainerButton{
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -55,39 +54,45 @@
 }
 
 .quizContainer {
- display: flex;
- flex-direction: column;
- justify-content: space-around;
- 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 80vw;
+  margin: auto;
+  margin-top: 5vw;
+  background-color: #91c9fe;
+  padding: 30px;
+  border-radius: 40px;
 }
 
 .quizContainerQuestion{
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  margin: 5px;
-  margin-left: 50px;
-  margin-right:50px;
+
 }
 
 .quizContainerQuestionTitle{
-      font-family: 'Karla';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 19px;
-      color: #293264;
+  margin-top: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 19px;
+  color: #293264;
+  line-height: 1.2;
 }
 
 .quizContainerQuestionOptionsContainer{
   display: flex;
 }
-
+.quizContainer h3{
+  margin-bottom: 0;
+}
 .quizContainerQuestionOptionsContainerOption{
-  font-family: 'Inter';
+  
   font-style: normal;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 25px;
   padding: 10px;
   line-height: 12px;
   text-align: center;
@@ -96,6 +101,7 @@
   border-radius: 7.94239px;
   border: 1px;
   line-height: 1;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 }
 
 .buttonContainer{
@@ -104,7 +110,7 @@
 }
 
 .buttonContainerScore{
-  font-family: 'Inter';
+  
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -117,16 +123,18 @@
 
 
 .button{
-  
-  font-family: 'Inter';
+  font-size: 20px;
+  padding: 10px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 30px;  
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   text-align: center;
 
   color: #F5F7FB;
-
-  
   width: 120px;
   height: 35px;
   background: #4D5B9E;
@@ -139,21 +147,17 @@
 
 .button:disabled{
   
-  font-family: 'Inter';
+  
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
   text-align: center;
 
   color: #F5F7FB;
   
   opacity: 50%;
-  
-  width: 120px;
-  height: 35px;
+
   background: #4D5B9E;
-  border-radius: 10px;
-  
+
   border: 1px;
   
   align-self: center;

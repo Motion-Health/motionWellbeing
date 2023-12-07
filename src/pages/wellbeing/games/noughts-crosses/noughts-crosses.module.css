@@ -4,12 +4,14 @@
 }
 .status{
   text-align: center;
+  font-size: 7vw;
 }
 .square{
   background-color: white;
   border: none;
-  height: 50px;
-  width: 50px;
+  height: 15vw;
+  width: 15vw;
+  font-size: 8vw;
 }
 
 .game{
@@ -21,4 +23,29 @@
 }
 .gameBoard{
   margin: auto;
+}
+
+.boardRow :nth-child(2), .boardRowTwo :nth-child(2){
+  border-right: 4px solid black;
+  border-left: 4px solid black;
+}
+
+.boardRowTwo{
+  display: flex;
+  justify-content: center;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+}
+
+.button{
+  margin-top: 20px;
+  background-color: #6096ce;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

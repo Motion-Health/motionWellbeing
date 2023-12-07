@@ -1,37 +1,36 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-// Dynamically import the Snake component with SSR disabled
-import Snake from '@/components/Games/Snake/Snake';
+import Pong from '@/components/Games/Pong';
 import { GameWindow } from '@/components/GameWindow';
+
+// Dynamically import the Snake component with SSR disabled
 
 const SnakeGame = () => {
   const [isClient, setIsClient] = useState(false);
+  const [restartNum, setRestartNum] = useState(0);
   const router = useRouter(); // Use the router
   useEffect(() => {
     // Set isClient to true once component has mounted
     setIsClient(true);
   }, []);
-  const [restart, setRestart] = useState(0);
   const game = {
     id: 1,
-    name: 'Snake',
-    description: 'A classic game of snake',
+    name: 'Pong',
+    description: 'A classic game of Pong',
     instructions:
-      'Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.',
-    link: '/wellbeing/games/snake-game',
+      'Move the paddle up and down to hit the ball. Dont let the ball get past you!',
+    link: '/wellbeing/games/pong',
   };
+
   const handleResume = () => {
     // Code to resume the game
     console.log('Resuming game');
   };
-
   const handleRestart = () => {
-    // Code to restart the game
-    setRestart((prevRestart) => prevRestart + 1);
     console.log('Restarting game');
+    setRestartNum(restartNum + 1); // Call the passed onRestart prop to reset the game state
   };
-
   return (
     <>
       <GameWindow
@@ -40,14 +39,9 @@ const SnakeGame = () => {
         onResume={handleResume}
       />
 
-      {isClient && (
-        <Snake
-          color1="#41a019"
-          color2="#a01919"
-          restart={restart}
-          backgroundColor="#ebebeb"
-        />
-      )}
+      <div>
+        <Pong restart={restartNum} />
+      </div>
     </>
   );
 };

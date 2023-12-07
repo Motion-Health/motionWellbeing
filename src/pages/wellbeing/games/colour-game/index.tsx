@@ -1,5 +1,7 @@
-import router from 'next/router';
 import React, { useEffect, useState } from 'react';
+
+import { GameWindow } from '@/components/GameWindow';
+import mainTheme from '@/styles/theme.module.css';
 
 import styles from './colourGame.module.css';
 // Dynamically import the Snake component with SSR disabled
@@ -59,13 +61,29 @@ const ColourGame = () => {
     setLevel(1);
   };
 
+  const handleResume = () => {
+    // Code to resume the game
+    console.log('Resuming game');
+  };
+
+  const handleRestart = () => {
+    // Code to restart the game
+    console.log('Restarting game');
+  };
+  const game = {
+    name: 'Colour Game',
+    description: 'For each level only pick the colour once',
+    instructions: 'For each level only pick the colour once.',
+  };
   return (
     <>
-      <h1>Game Page</h1>
-      <p>Welcome to our game page. Enjoy playing and have fun!</p>
-      <button onClick={() => router.back()}>Go Back</button>
+      <GameWindow
+        game={game}
+        onRestart={handleRestart}
+        onResume={handleResume}
+      />
+
       <header>
-        <Title />
         <Stats level={level} score={score} highestScore={highestScore} />
       </header>
       <main className={styles.center}>
@@ -94,7 +112,10 @@ function GameOver({ highestScore, overlayStyle, modalStyle, resetGame }) {
         <h2>You lost...</h2>
         <h3>Higherst Score: {highestScore}</h3>
         <p>You clicked the same colour twice.</p>
-        <button className={styles.gameOverModalButton} onClick={resetGame}>
+        <button
+          className={`${mainTheme.smallButton} ${mainTheme.button}`}
+          onClick={resetGame}
+        >
           Try Again
         </button>
       </div>
@@ -105,22 +126,14 @@ function GameOver({ highestScore, overlayStyle, modalStyle, resetGame }) {
 function Stats({ level, score, highestScore }) {
   return (
     <div className={styles.stats}>
-      <h2>Level: {level}</h2>
       <div>
-        <h3>Score: {score}</h3>
-        <h3>Highest Score: {highestScore}</h3>
+        <h2>Level: {level}</h2>
+        <h2>Highest Score: {highestScore}</h2>
+      </div>
+      <div className={styles.score}>
+        <h1>Score: {score}</h1>
       </div>
       <hr />
-    </div>
-  );
-}
-function Title() {
-  return (
-    <div className={styles.title}>
-      <h1 className={styles.titleHOne}>
-        <span className={styles.firstPart}>Colour </span>
-        <span className={styles.secondPart}>Memo</span>
-      </h1>
     </div>
   );
 }

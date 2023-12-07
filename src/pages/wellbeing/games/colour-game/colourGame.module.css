@@ -132,13 +132,20 @@
 
 .stats div {
   display: flex;
-  gap: 20px;
+    gap: 20px;
+    width: 67vw;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .stats hr {
   width: 100%;
   border-radius: 10px;
   height: 5px;
-  background: linear-gradient(to right, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background: black;
   border: none;
+}
+
+.score{
+  justify-content: center !important;
 }

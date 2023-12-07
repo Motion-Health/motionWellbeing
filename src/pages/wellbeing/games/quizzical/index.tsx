@@ -2,6 +2,8 @@ import { useRouter } from 'next/router';
 import blob from 'public/assets/images/games/quizzical/blob.png';
 import React from 'react';
 
+import { GameWindow } from '@/components/GameWindow';
+
 import styles from './quizzical.module.css';
 const Quizzical = () => {
   const [showStart, setShowStart] = React.useState(true);
@@ -54,7 +56,9 @@ const Quizzical = () => {
 
   React.useEffect(() => {
     if (showStart === false) {
-      fetch('https://opentdb.com/api.php?amount=5')
+      fetch(
+        'https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple'
+      )
         .then((res) => res.json())
         .then((data) =>
           setQuestions(
@@ -81,6 +85,18 @@ const Quizzical = () => {
     );
   }, [questions]);
 
+  const handleResume = () => {
+    // Code to resume the game
+    console.log('Resuming game');
+  };
+
+  const handleRestart = () => {
+    // Code to restart the game
+    console.log('Restarting game');
+    // reload page
+    router.reload();
+  };
+
   const quests = questions.map(function (question, index) {
     return (
       <Quest
@@ -92,15 +108,22 @@ const Quizzical = () => {
       />
     );
   });
+  const game = {
+    id: 1,
+    name: 'Quizzical',
+    description: 'A Quiz Game',
+    instructions:
+      'Test your knowledge with our quiz. Answer the questions to the best of your ability. Good luck!',
+    link: '/wellbeing/games/quizzical',
+  };
 
   return (
     <div className={styles.app}>
-      <h1>Quizzical</h1>
-      <p>
-        Test your knowledge with our quiz. Answer the questions to the best of
-        your ability. Good luck!
-      </p>
-      <button onClick={() => router.back()}>Go Back</button>
+      <GameWindow
+        game={game}
+        onRestart={handleRestart}
+        onResume={handleResume}
+      />
       {showStart ? (
         <Start startQuiz={startQuiz} />
       ) : (
@@ -109,7 +132,7 @@ const Quizzical = () => {
           {showAnswers ? (
             <div className={styles.buttonContainer}>
               <h3 className={styles.buttonContainerScore}>
-                {'You scored ' + score + '/5 correct answers'}
+                {'You scored ' + score + '/10 correct answers'}
               </h3>
               <button className={styles.button} onClick={playAgain}>
                 Play Again
@@ -174,10 +197,12 @@ function Quest(props) {
 
   return (
     <div className={styles.quizContainerQuestion}>
-      <h1
-        className={styles.quizContainerQuestionTitle}
-        dangerouslySetInnerHTML={{ __html: props.question.question }}
-      />
+      <h3 className={styles.quizContainerQuestionNumber}>
+        Question {props.id + 1}
+      </h3>
+      <h1 className={styles.quizContainerQuestionTitle}>
+        {props.question.question}
+      </h1>
       <div className={styles.quizContainerQuestionOptionsContainer}>
         {options}
       </div>

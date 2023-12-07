@@ -51,6 +51,30 @@ const Games = () => {
         'Guess the word by clicking on the letters. You have 6 lives.',
       link: '/wellbeing/games/hangman',
     },
+    {
+      id: 6,
+      name: 'Tetris',
+      description: 'A classic game of Tetris',
+      instructions:
+        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+      link: '/wellbeing/games/tetris',
+    },
+    {
+      id: 7,
+      name: 'sudoku',
+      description: 'A classic game of sudoku',
+      instructions:
+        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+      link: '/wellbeing/games/sudoku',
+    },
+    {
+      id: 8,
+      name: 'Pong',
+      description: 'A classic game of pong',
+      instructions:
+        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+      link: '/wellbeing/games/pong',
+    },
   ];
 
   return (

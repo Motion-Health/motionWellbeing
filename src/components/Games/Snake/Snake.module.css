@@ -1,5 +1,11 @@
 .snakeContainer {
-    text-align: center;
+  display: flex;
+  height: 100vh;
+}
+.snakeContainer div{
+  flex-grow: 50;
+  align-items: center;
+    display: flex;
 }
 
 .gameBorder {
@@ -66,15 +72,33 @@
 
 .snakeMobileButtons div {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
 }
 
 .snakeMobileButtons div button {
-    margin: 5px 100px;
     padding: 8px 20px;
-    border-radius: 0;
+    border-radius: 28px;
     border: 1px solid black;
+}
+
+.difficultySelector{
+  /* background-color: #0f5298; */
+  border-radius: 30px 30px 0px 0px;
+}
+.controls{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls button{
+  font-size: 60px !important;
+  background-color: #0f5298;
+  color: white;
+}
+.score{
+  font-size: 60px;
 }

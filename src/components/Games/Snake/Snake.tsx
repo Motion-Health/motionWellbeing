@@ -7,6 +7,7 @@ interface Props {
   color1: string;
   color2: string;
   backgroundColor: string;
+  restart: number;
 }
 
 const Snake: React.FC<Props> = (props) => {
@@ -49,6 +50,10 @@ const Snake: React.FC<Props> = (props) => {
       part: [186, 185, 184, 183],
     },
   ]);
+  useEffect(() => {
+    // Reset game state when the restart prop changes
+    reset();
+  }, [props.restart]);
 
   const reset = () => {
     speedRef.current = 100;
@@ -105,11 +110,9 @@ const Snake: React.FC<Props> = (props) => {
 
   useEffect(() => {
     //determine relative dimensions of game portal
-    if (width >= 800) {
-      setDim(width * 0.35);
-    } else if (width < 800) {
-      setDim(width * 0.9);
-    }
+
+    setDim(width * 0.5);
+
     setChunk(dim / 20);
 
     //points and get longer after eating
@@ -257,7 +260,7 @@ const Snake: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.snakeContainer} id="snake-container">
-      <div>
+      <div style={{ marginLeft: '85px' }}>
         <div
           className={styles.gameBorder}
           style={{
@@ -300,9 +303,27 @@ const Snake: React.FC<Props> = (props) => {
             </div>
           )}
         </div>
+      </div>
+
+      <div className={styles.snakeMobileButtons} style={{ width: dim }}>
         <div className={styles.PointBar}>
-          <div style={{ color: props.color2 }}>Score: {points}</div>
+          <div className={styles.score} style={{ color: props.color2 }}>
+            Score: {points}
+          </div>
         </div>
+        <div className={styles.controls}>
+          <div>
+            <button onClick={() => turn('up', 'down')}>&#8593;</button>
+          </div>
+          <div>
+            <button onClick={() => turn('left', 'right')}>&#8592;</button>
+            <button onClick={() => turn('right', 'left')}>&#8594;</button>
+          </div>
+          <div>
+            <button onClick={() => turn('down', 'up')}>&#8595;</button>
+          </div>
+        </div>
+
         <div className={styles.difficultySelector}>
           <button
             className={`${defaultStyes.button} ${
@@ -344,22 +365,6 @@ const Snake: React.FC<Props> = (props) => {
           >
             Level 5
           </button>
-        </div>
-      </div>
-
-      <div
-        className={styles.snakeMobileButtons}
-        style={{ width: dim, margin: 'auto' }}
-      >
-        <div>
-          <button onClick={() => turn('up', 'down')}>&#8593;</button>
-        </div>
-        <div>
-          <button onClick={() => turn('left', 'right')}>&#8592;</button>
-          <button onClick={() => turn('right', 'left')}>&#8594;</button>
-        </div>
-        <div>
-          <button onClick={() => turn('down', 'up')}>&#8595;</button>
         </div>
       </div>
     </div>
