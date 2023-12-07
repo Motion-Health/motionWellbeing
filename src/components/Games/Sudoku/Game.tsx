@@ -5,10 +5,10 @@ import { Footer } from '@/components/Games/Sudoku/layout/Footer';
 import { GameSection } from '@/components/Games/Sudoku/layout/GameSection';
 import { Header } from '@/components/Games/Sudoku/layout/Header';
 import { StatusSection } from '@/components/Games/Sudoku/layout/StatusSection';
+import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
 import { useSudokuContext } from '@/context/SudokuContext';
 
 import { getUniqueSudoku } from './solver/UniqueSudoku';
-import sudoku from './sudoku.module.css';
 
 /**
  * Game is the main React component.

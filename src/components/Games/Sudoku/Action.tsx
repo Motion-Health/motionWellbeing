@@ -1,6 +1,6 @@
 import React from 'react';
 
-import sudoku from '@/pages/wellbeing/games/sudoku/sudoku.module.css';
+import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
 type ActionProps = {
   action: string;
   onClickAction: () => void;

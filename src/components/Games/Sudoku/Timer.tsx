@@ -1,8 +1,8 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 
+import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
 import { useSudokuContext } from '@/context/SudokuContext';
-import sudoku from '@/pages/wellbeing/games/sudoku/sudoku.module.css';
 /**
  * React component for the Timer in Status Section.
  * Uses the 'useEffect' hook to update the timer every minute.

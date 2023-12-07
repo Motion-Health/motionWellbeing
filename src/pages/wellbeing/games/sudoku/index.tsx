@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
+import { Game } from '@/components/Games/Sudoku/Game';
 import { GameWindow } from '@/components/GameWindow';
 import { SudokuProvider } from '@/context/SudokuContext';
-
-import { Game } from './Game';
 
 const SudokuGame = () => {
   const [isClient, setIsClient] = useState(false);

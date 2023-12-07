@@ -1,7 +1,7 @@
 import React from 'react';
 
+import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
 import { useSudokuContext } from '@/context/SudokuContext';
-import sudoku from '@/pages/wellbeing/games/sudoku/sudoku.module.css';
 type NumbersProps = {
   onClickNumber: (number: string) => void;
 };
