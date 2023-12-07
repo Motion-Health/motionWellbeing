@@ -252,7 +252,7 @@ const Pong = ({ restart }) => {
         className={styles.canvas}
       />
       <div className={styles.controls}>
-        <button
+        {/* <button
           className={`${mainTheme.smallButton} ${mainTheme.button}`}
           onClick={() => {
             setIsTwoPlayer((prevMode) => {
@@ -264,7 +264,7 @@ const Pong = ({ restart }) => {
           }}
         >
           {isTwoPlayer ? 'Single Player' : 'Two Player'}
-        </button>
+        </button> */}
 
         <button
           className={`${mainTheme.smallButton} ${mainTheme.button}`}

@@ -6,18 +6,12 @@ import { GameWindow } from '@/components/GameWindow';
 
 import styles from './quizzical.module.css';
 const Quizzical = () => {
-  const [showStart, setShowStart] = React.useState(true);
   const [score, setScore] = React.useState(0);
   const [showAnswers, setShowAnswers] = React.useState(false);
   const [questions, setQuestions] = React.useState([]);
   const [allComplete, setAllComplete] = React.useState(false);
 
-  function startQuiz() {
-    setShowStart(false);
-  }
-
   function playAgain() {
-    setShowStart(true);
     setShowAnswers(false);
     setAllComplete(false);
   }
@@ -55,12 +49,12 @@ const Quizzical = () => {
   }, [showAnswers]);
 
   React.useEffect(() => {
-    if (showStart === false) {
-      fetch(
-        'https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple'
-      )
-        .then((res) => res.json())
-        .then((data) =>
+    fetch(
+      'https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple'
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.results && Array.isArray(data.results)) {
           setQuestions(
             data.results.map(function (question) {
               return {
@@ -74,10 +68,15 @@ const Quizzical = () => {
                 correct_answer: question.correct_answer,
               };
             })
-          )
-        );
-    }
-  }, [showStart]);
+          );
+        } else {
+          console.error('Unexpected data structure:', data);
+        }
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
+      });
+  }, []);
 
   React.useEffect(() => {
     setAllComplete(
@@ -124,31 +123,29 @@ const Quizzical = () => {
         onRestart={handleRestart}
         onResume={handleResume}
       />
-      {showStart ? (
-        <Start startQuiz={startQuiz} />
-      ) : (
-        <div className={styles.quizContainer}>
-          {quests}
-          {showAnswers ? (
-            <div className={styles.buttonContainer}>
-              <h3 className={styles.buttonContainerScore}>
-                {'You scored ' + score + '/10 correct answers'}
-              </h3>
-              <button className={styles.button} onClick={playAgain}>
-                Play Again
-              </button>
-            </div>
-          ) : (
-            <button
-              className={styles.button}
-              disabled={!allComplete}
-              onClick={checkAnswers}
-            >
-              Check Answers
+
+      <div className={styles.quizContainer}>
+        {quests}
+        {showAnswers ? (
+          <div className={styles.buttonContainer}>
+            <h3 className={styles.buttonContainerScore}>
+              {'You scored ' + score + '/10 correct answers'}
+            </h3>
+            <button className={styles.button} onClick={playAgain}>
+              Play Again
             </button>
-          )}
-        </div>
-      )}
+          </div>
+        ) : (
+          <button
+            className={styles.button}
+            disabled={!allComplete}
+            onClick={checkAnswers}
+          >
+            Check Answers
+          </button>
+        )}
+      </div>
+
       <img className={styles.blob1} src={blob} alt="" />
       <img className={styles.blob2} src={blob} alt="" />
     </div>
@@ -200,9 +197,10 @@ function Quest(props) {
       <h3 className={styles.quizContainerQuestionNumber}>
         Question {props.id + 1}
       </h3>
-      <h1 className={styles.quizContainerQuestionTitle}>
-        {props.question.question}
-      </h1>
+      <h1
+        className={styles.quizContainerQuestionTitle}
+        dangerouslySetInnerHTML={{ __html: props.question.question }}
+      ></h1>
       <div className={styles.quizContainerQuestionOptionsContainer}>
         {options}
       </div>
