@@ -241,7 +241,7 @@ const Pong = ({ restart }) => {
   return (
     <div className={styles.gameContainer}>
       <div className={styles.scoreBoard}>
-        Player: {playerScore} | AI: {aiScore}
+        Player: {playerScore} | Computer: {aiScore}
       </div>
       <canvas
         ref={canvasRef}

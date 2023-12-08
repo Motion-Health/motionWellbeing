@@ -1,5 +1,5 @@
 .gameWindow{
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background-color: #000000e0;
@@ -8,7 +8,6 @@
   z-index: 10;
   left: -100vw;
   transition: left 0.5s ease-in-out;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +23,7 @@
 
 .activeButton{
   position: absolute;
-  top: 3vw;
+  top: calc(50vh - 53.75px);
   padding: 25px;
   font-size: 50px;
   border-radius: 0px 20px 20px 0px;
@@ -33,7 +32,7 @@
   transition: left 0.5s ease-in-out;
 }
 .makeActive{
-  position: absolute;
+  position: fixed;
   left: 0;
   transition: left 0.5s ease-in-out;
   z-index: 110;
