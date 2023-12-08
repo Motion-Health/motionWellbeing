@@ -51,14 +51,14 @@ const Games = () => {
         'Guess the word by clicking on the letters. You have 6 lives.',
       link: '/wellbeing/games/hangman',
     },
-    {
-      id: 6,
-      name: 'Tetris',
-      description: 'A classic game of Tetris',
-      instructions:
-        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
-      link: '/wellbeing/games/tetris',
-    },
+    // {
+    //   id: 6,
+    //   name: 'Tetris',
+    //   description: 'A classic game of Tetris',
+    //   instructions:
+    //     'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+    //   link: '/wellbeing/games/tetris',
+    // },
     {
       id: 7,
       name: 'Sudoku',
@@ -91,9 +91,7 @@ const Games = () => {
           className="curved-corners activities"
           container
           sx={{
-            py: '1.5rem',
             minWidth: 300,
-            mt: '1.5rem',
           }}
         >
           {games.map((game) => (
