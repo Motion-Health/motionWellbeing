@@ -28,7 +28,7 @@ export default function BlogCard({ blog }) {
           onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
           fullWidth
         >
-          Learn more
+          Read blog
           <img
             src="/assets/icons/ph_arrow-right.svg"
             className={styles.arrow}

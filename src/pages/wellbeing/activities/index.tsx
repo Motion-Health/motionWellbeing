@@ -1,4 +1,13 @@
-import { Alert, Button, Grid, Typography } from '@mui/material';
+import {
+  Alert,
+  Button,
+  Grid,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Typography,
+} from '@mui/material';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -6,15 +15,17 @@ import { useEffect, useState } from 'react';
 import { ActivitiesFilters } from '@/components/ActivitiesFilters';
 import { ActivityCard } from '@/components/ActivityCard';
 import ActivitySearch from '@/components/ActivitySearch';
+import { GameCard } from '@/components/GameCard';
 import ActivitiesFormModal from '@/components/modals/ActivitiesFormModal';
 import PageHeader from '@/components/PageHeader/index';
 import { useAccountContext } from '@/context/AccountContext';
+import { categories } from '@/data/categories.ts';
 import { useActivityTags } from '@/services/activities/useActivityTags';
 import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
 import { ActivityData } from '@/services/activities/useCreateActivity';
 import { useListActivities } from '@/services/activities/useListActivities';
 import { Main } from '@/templates/Main';
-
+import activityStyle from './acti'
 const Activities = () => {
   const {
     account: { accountStatus },
@@ -25,7 +36,71 @@ const Activities = () => {
   const [showFailBanner, setShowFailBanner] = useState(false);
   const [failMessage, setFailMessage] = useState(null);
   const categoryQuery: string | string[] = router.query.filter || '';
-
+  const games = [
+    {
+      id: 1,
+      name: 'Snake',
+      description: 'A classic game of snake',
+      instructions:
+        'Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.',
+      link: '/wellbeing/games/snake-game',
+    },
+    {
+      id: 2,
+      name: 'Quizzical',
+      description: 'A quiz game',
+      instructions: 'Answer the questions to get points.',
+      link: '/wellbeing/games/quizzical',
+    },
+    {
+      id: 3,
+      name: 'Colour Memory',
+      description: 'A memory game',
+      instructions:
+        "Remember the colours your have clicked and don't repeat them.",
+      link: '/wellbeing/games/colour-game',
+    },
+    {
+      id: 4,
+      name: 'Noughts and Crosses',
+      description: 'A classic game of noughts and crosses',
+      instructions:
+        'Get three in a row to win! Click the button below to go back to the Wellbeing page.',
+      link: '/wellbeing/games/noughts-crosses',
+    },
+    {
+      id: 5,
+      name: 'Hangman',
+      description: 'A classic game of hangman',
+      instructions:
+        'Guess the word by clicking on the letters. You have 6 lives.',
+      link: '/wellbeing/games/hangman',
+    },
+    // {
+    //   id: 6,
+    //   name: 'Tetris',
+    //   description: 'A classic game of Tetris',
+    //   instructions:
+    //     'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+    //   link: '/wellbeing/games/tetris',
+    // },
+    {
+      id: 7,
+      name: 'Sudoku',
+      description: 'A classic game of sudoku',
+      instructions:
+        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+      link: '/wellbeing/games/sudoku',
+    },
+    {
+      id: 8,
+      name: 'Pong',
+      description: 'A classic game of pong',
+      instructions:
+        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+      link: '/wellbeing/games/pong',
+    },
+  ];
   useEffect(() => {
     if (router.query.task === 'complete') {
       setSuccessMessage('Success, activity completed!');
@@ -279,6 +354,29 @@ const Activities = () => {
             />
           )}
         </Grid>
+
+        <List sx={{ paddingTop: 0, display: 'flex' }}>
+          {categories.map((category) => (
+            <ListItem
+              key={category.title}
+              onClick={() =>
+                router.push(
+                  {
+                    pathname: page.path,
+                    query: { filter: category.filter },
+                  },
+                  page.path
+                )
+              }
+              style={{ cursor: 'pointer', width: 'fit-content' }}
+              disablePadding
+            >
+              <ListItemButton>
+                <ListItemText primary={category.title} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
       </ActivitySearch>
       <div className="activities_parent">
         <Grid
@@ -291,10 +389,22 @@ const Activities = () => {
           }}
         >
           {displayActivities?.length !== 0 &&
-            displayActivities?.map((activity: ActivityData) => (
-              <ActivityCard key={activity.activityId} activity={activity} />
-            ))}
+            displayActivities?.map((activity: ActivityData, index: number) => {
+              const game = games[Math.floor(index / 3) % games.length];
 
+              return (
+                <>
+                  <ActivityCard key={activity.activityId} activity={activity} />
+                  {index % 3 === 2 && <GameCard key={game.id} game={game} />}
+                </>
+              );
+            })}
+
+          {games
+            .slice(Math.ceil((displayActivities?.length || 0) / 3))
+            .map((game) => (
+              <GameCard key={game.id} game={game} />
+            ))}
           {(displayActivities?.length === 0 || allActivitiesAreHidden) && (
             <Typography sx={{ textAlign: 'center' }}>
               There are no activities to display

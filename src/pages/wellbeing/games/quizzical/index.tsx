@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import blob from 'public/assets/images/games/quizzical/blob.png';
 import React from 'react';
+import Confetti from 'react-confetti';
 
 import { GameWindow } from '@/components/GameWindow';
 
@@ -126,15 +127,21 @@ const Quizzical = () => {
 
       <div className={styles.quizContainer}>
         {quests}
+
         {showAnswers ? (
-          <div className={styles.buttonContainer}>
-            <h3 className={styles.buttonContainerScore}>
-              {'You scored ' + score + '/10 correct answers'}
-            </h3>
-            <button className={styles.button} onClick={playAgain}>
-              Play Again
-            </button>
-          </div>
+          <>
+            <div className={styles.overlay}>
+              <Confetti />
+            </div>
+            <div className={styles.buttonContainer}>
+              <h3 className={styles.buttonContainerScore}>
+                {'You scored ' + score + '/10 correct answers'}
+              </h3>
+              <button className={styles.button} onClick={playAgain}>
+                Play Again
+              </button>
+            </div>
+          </>
         ) : (
           <button
             className={styles.button}
@@ -151,18 +158,6 @@ const Quizzical = () => {
     </div>
   );
 };
-
-function Start(props) {
-  return (
-    <div className={styles.startContainer}>
-      <h1 className={styles.startContainerTitle}>Quizzical</h1>
-      <h2 className={styles.startContainerSubtitle}>Query Your Brain</h2>
-      <button className={styles.startContainerButton} onClick={props.startQuiz}>
-        Start Quiz
-      </button>
-    </div>
-  );
-}
 
 function Quest(props) {
   function styler(option, index) {

@@ -105,8 +105,37 @@
 }
 
 .buttonContainer{
-  display: flex;
+  left: calc(50vw - 157px);
   align-self: center;
+  position: fixed;
+  top: calc(50vh - 80px);
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgb(0 0 0 / 81%) 0px 3px 8px;
+  z-index: 2;
+}
+.buttonContainer button{
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0, 0, 0, 1.02);
+}
+
+.buttonContainer button:hover{
+  transform: scale(1.1);
+}
+
+.overlay{
+  background-color: #0000004d;
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 100vw;
+  top: 0;
+  left: 0;
 }
 
 .buttonContainerScore{

@@ -1,9 +1,25 @@
-.search {
-  width:100%;
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .search div > input {
   flex-grow: 1;
+}
+
+.search {
+  position: relative;
+  width: 200px; /* adjust as needed */
+}
+
+.inputBase {
+  position: absolute;
+  left: 0;
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.inputBase.clicked {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,6 +1,6 @@
 export const categories = [
   {
-    title: '* NEW *',
+    title: 'NEW',
     filter: 'new',
   },
   {

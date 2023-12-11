@@ -1,8 +1,6 @@
-import { ReactNode, useEffect, useState } from "react";
-
-import SearchIcon from "@mui/icons-material/Search";
-import { InputBase } from "@mui/material";
-
+import SearchIcon from '@mui/icons-material/Search';
+import { InputBase } from '@mui/material';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 type Props = {
   placeholder: string;
   data: any[];
@@ -11,24 +9,38 @@ type Props = {
   children?: ReactNode;
 };
 
-import styles from "./Search.module.css";
+import styles from './Search.module.css';
 
 const ActivitySearch = (props: Props) => {
   const { data, searchKey, onSearch, searchedData } = props;
+  const [isClicked, setIsClicked] = useState(false);
+  const searchRef = useRef(null);
 
-  const [searchValue, setSearchValue] = useState<string>("");
+  const handleClickOutside = (event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      setIsClicked(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
 
   const [searchedDataResult, setSearchedDataResult] = useState<null | any[]>(
-    null,
+    null
   );
 
   useEffect(() => {
     if (data) {
-      if (searchValue !== "") {
+      if (searchValue !== '') {
         const result = data?.filter((item: any) => {
           if (!item?.[searchKey]) return false;
           return item?.[searchKey]
@@ -48,24 +60,15 @@ const ActivitySearch = (props: Props) => {
   }, [searchedDataResult]);
 
   return (
-    <div className={styles.search}>
+    <div className={styles.search} ref={searchRef}>
+      <SearchIcon onClick={() => setIsClicked(true)} />
       <InputBase
-        sx={{
-          flexGrow: 100,
-          pl: 2,
-          backgroundColor: "#fff",
-          borderRadius: 100,
-          borderLeft: 1,
-          borderTop: 1,
-          borderBottom: 1,
-          borderColor: "#DDDDDD",
-          borderRight: 0,
-        }}
-        placeholder={props.placeholder}
-        inputProps={{ "aria-label": "search members of our community" }}
-        onChange={handleSearchChange}
-        endAdornment={<SearchIcon sx={{ margin: "1rem" }} />}
+        className={`${styles.inputBase} ${isClicked ? styles.clicked : ''}`}
+        placeholder="Search…"
+        inputProps={{ 'aria-label': 'search' }}
+        onBlur={() => setIsClicked(false)}
       />
+
       {props.children}
     </div>
   );

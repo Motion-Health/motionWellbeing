@@ -1,7 +1,5 @@
 import {
-  Box,
   Button,
-  Collapse,
   Grid,
   List,
   ListItem,
@@ -12,7 +10,6 @@ import {
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import { categories } from '@/data/categories.ts';
 import { useGetAccount } from '@/services/account/useGetAccount';
 import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
 import theme from '@/styles/theme';
@@ -51,9 +48,6 @@ const NavigationItems = () => {
   };
 
   const renderLogo = () => {
-    console.log(account);
-    console.log(account?.logo);
-    console.log(account?.status);
     const logoSrc =
       account?.logo && account?.accountStatus !== 'standard'
         ? account?.logo
@@ -87,7 +81,6 @@ const NavigationItems = () => {
         <List sx={{ paddingTop: 0 }} className={styles.appSections}>
           {appSections.map((page) => {
             if (
-              page.title !== 'Wellbeing activities' &&
               account?.accountStatus &&
               page.visibleTo.includes(account.accountStatus)
             ) {
@@ -123,85 +116,6 @@ const NavigationItems = () => {
                     />
                   </ListItemButton>
                 </ListItem>
-              );
-            }
-
-            if (page.title === 'Wellbeing activities') {
-              return (
-                <Box key={`${page.title}-subnav-container`}>
-                  <ListItem
-                    key={page.title}
-                    onClick={() => router.push(page.path)}
-                    disablePadding
-                    data-test-id={`${page.path}-navigation-button'`}
-                  >
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <img
-                          src={page.icon}
-                          alt="icon"
-                          width="24"
-                          height="24"
-                          style={{
-                            filter:
-                              pathname === page.path
-                                ? // transform to activeColour (#66d3fa)
-                                  'invert(72%) sepia(92%) saturate(573%) hue-rotate(166deg) brightness(99%) contrast(99%)'
-                                : 'none',
-                          }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText
-                        primary={page.title}
-                        style={{
-                          color:
-                            pathname === page.path
-                              ? activeColour
-                              : defaultColour,
-                        }}
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                  <Collapse
-                    key={`${page.title}-subnav`}
-                    in={showActivitiesSubNavigation}
-                  >
-                    <List sx={{ paddingTop: 0 }}>
-                      {categories.map((category) => (
-                        <ListItem
-                          key={category.title}
-                          onClick={() =>
-                            router.push(
-                              {
-                                pathname: page.path,
-                                query: { filter: category.filter },
-                              },
-                              page.path
-                            )
-                          }
-                          disablePadding
-                        >
-                          <ListItemButton
-                            sx={{
-                              paddingBottom: 0,
-                            }}
-                          >
-                            <ListItemIcon></ListItemIcon>
-                            <ListItemText
-                              primary={category.title}
-                              style={{
-                                color:
-                                  activityFilter === category.filter
-                                    ? activeColour
-                                    : defaultColour,
-                              }}
-                            />
-                          </ListItemButton>
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Collapse>
-                </Box>
               );
             }
           })}
@@ -281,16 +195,9 @@ export const appSections = [
     accessibleBy: ['standard', 'group', 'premium', 'admin'],
   },
   {
-    title: 'Wellbeing activities',
+    title: 'Activities',
     icon: '/assets/icons/ph_person-hands-up.svg',
     path: '/wellbeing/activities',
-    visibleTo: ['standard', 'group', 'premium', 'admin'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin'],
-  },
-  {
-    title: 'Games',
-    icon: '/assets/icons/ph_trophy.svg',
-    path: '/wellbeing/games',
     visibleTo: ['standard', 'group', 'premium', 'admin'],
     accessibleBy: ['standard', 'group', 'premium', 'admin'],
   },
