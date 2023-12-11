@@ -61,14 +61,17 @@ const ActivitySearch = (props: Props) => {
 
   return (
     <div className={styles.search} ref={searchRef}>
-      <SearchIcon onClick={() => setIsClicked(true)} />
+      <SearchIcon
+        className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ''}`}
+        onClick={() => setIsClicked(true)}
+      />
+
       <InputBase
         className={`${styles.inputBase} ${isClicked ? styles.clicked : ''}`}
         placeholder="Search…"
         inputProps={{ 'aria-label': 'search' }}
         onBlur={() => setIsClicked(false)}
       />
-
       {props.children}
     </div>
   );

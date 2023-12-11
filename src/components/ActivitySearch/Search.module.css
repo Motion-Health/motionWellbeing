@@ -6,7 +6,12 @@
 
 .search {
   position: relative;
-  width: 200px; /* adjust as needed */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .inputBase {
@@ -14,10 +19,22 @@
   left: 0;
   width: 0;
   transition: width 0.3s ease-in-out;
+  z-index: 1;
+  background-color: white;
+  border: none;
 }
 
 .inputBase.clicked {
   width: 100%;
+  border: 1px solid #ccc;
+}
+.searchIcon{
+  z-index: 2;
+  transition: width 0.3s ease-in-out;
+}
+
+.searchIcon.clicked{
+  width: 0;
 }
 
 .hidden {

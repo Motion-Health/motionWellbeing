@@ -25,7 +25,8 @@ import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLen
 import { ActivityData } from '@/services/activities/useCreateActivity';
 import { useListActivities } from '@/services/activities/useListActivities';
 import { Main } from '@/templates/Main';
-import activityStyle from './acti'
+
+import activityStyle from './activityStyle.module.css';
 const Activities = () => {
   const {
     account: { accountStatus },
@@ -322,13 +323,43 @@ const Activities = () => {
       </PageHeader>
 
       <ActivitySearch
+        className={activityStyle.search}
         placeholder="Search activities..."
         data={activities}
         searchKey="activityName"
         searchedData={handleSearchedData}
       >
         <Grid container item sx={{ position: 'relative', width: 'auto' }}>
-          <Button variant="link" onClick={() => onFilterButtonClick()}>
+          <List sx={{ padding: 0, display: 'flex' }}>
+            {categories.map((category) => (
+              <ListItem
+                key={category.title}
+                onClick={() =>
+                  router.push(
+                    {
+                      pathname: page.path,
+                      query: { filter: category.filter },
+                    },
+                    page.path
+                  )
+                }
+                style={{ width: 'fit-content' }}
+                disablePadding
+              >
+                <ListItemButton style={{ padding: '0', paddingRight: '5px' }}>
+                  <ListItemText
+                    primary={category.title}
+                    className={activityStyle.listItem}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Button
+            variant="link"
+            sx={{ width: 'max-content' }}
+            onClick={() => onFilterButtonClick()}
+          >
             Filters &nbsp;
             {toggleFilterIsOpen ? (
               <img
@@ -354,29 +385,6 @@ const Activities = () => {
             />
           )}
         </Grid>
-
-        <List sx={{ paddingTop: 0, display: 'flex' }}>
-          {categories.map((category) => (
-            <ListItem
-              key={category.title}
-              onClick={() =>
-                router.push(
-                  {
-                    pathname: page.path,
-                    query: { filter: category.filter },
-                  },
-                  page.path
-                )
-              }
-              style={{ cursor: 'pointer', width: 'fit-content' }}
-              disablePadding
-            >
-              <ListItemButton>
-                <ListItemText primary={category.title} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
       </ActivitySearch>
       <div className="activities_parent">
         <Grid
