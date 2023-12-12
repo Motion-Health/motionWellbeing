@@ -7,11 +7,3 @@
   align-items: center;
 }
 
-.listItem{
-  background-color: #0f5298;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  width: fit-content;
-}

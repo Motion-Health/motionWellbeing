@@ -22,6 +22,8 @@
   z-index: 1;
   background-color: white;
   border: none;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .inputBase.clicked {
@@ -30,13 +32,26 @@
 }
 .searchIcon{
   z-index: 2;
-  transition: width 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .searchIcon.clicked{
   width: 0;
+  padding: 0;
+  background-color: #0000;
+}
+.searchIcon.clicked:hover{
+  background-color: #0000;
 }
 
-.hidden {
-  display: none;
+.closeButton{
+  z-index: 100;
+  right: 0;
+  position: absolute;
+  color: black;
+  padding-right: 10px;
+
 }
+

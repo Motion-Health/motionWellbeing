@@ -1,13 +1,4 @@
-import {
-  Alert,
-  Button,
-  Grid,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Typography,
-} from '@mui/material';
+import { Alert, Button, Grid, List, Typography } from '@mui/material';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -15,11 +6,12 @@ import { useEffect, useState } from 'react';
 import { ActivitiesFilters } from '@/components/ActivitiesFilters';
 import { ActivityCard } from '@/components/ActivityCard';
 import ActivitySearch from '@/components/ActivitySearch';
+import Categories from '@/components/ActivitySearch/Cagegories';
 import { GameCard } from '@/components/GameCard';
 import ActivitiesFormModal from '@/components/modals/ActivitiesFormModal';
 import PageHeader from '@/components/PageHeader/index';
 import { useAccountContext } from '@/context/AccountContext';
-import { categories } from '@/data/categories.ts';
+import { categories as categoriesData } from '@/data/categories';
 import { useActivityTags } from '@/services/activities/useActivityTags';
 import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
 import { ActivityData } from '@/services/activities/useCreateActivity';
@@ -329,62 +321,59 @@ const Activities = () => {
         searchKey="activityName"
         searchedData={handleSearchedData}
       >
-        <Grid container item sx={{ position: 'relative', width: 'auto' }}>
-          <List sx={{ padding: 0, display: 'flex' }}>
-            {categories.map((category) => (
-              <ListItem
-                key={category.title}
-                onClick={() =>
-                  router.push(
-                    {
-                      pathname: page.path,
-                      query: { filter: category.filter },
-                    },
-                    page.path
-                  )
-                }
-                style={{ width: 'fit-content' }}
-                disablePadding
-              >
-                <ListItemButton style={{ padding: '0', paddingRight: '5px' }}>
-                  <ListItemText
-                    primary={category.title}
-                    className={activityStyle.listItem}
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Button
-            variant="link"
-            sx={{ width: 'max-content' }}
-            onClick={() => onFilterButtonClick()}
+        <Grid
+          container
+          item
+          sx={{
+            position: 'relative',
+            width: 'auto',
+            flexWrap: 'nowrap',
+            flexGrow: 1,
+            minWidth: 0,
+            overflow: 'hidden',
+          }}
+        >
+          <List
+            sx={{
+              padding: 0,
+              display: 'flex',
+              flexGrow: 1,
+              minWidth: 0,
+              overflow: 'hidden',
+            }}
           >
-            Filters &nbsp;
-            {toggleFilterIsOpen ? (
-              <img
-                src="/assets/icons/ph_x.svg"
-                width="24"
-                height="24"
-                alt="close"
-              />
-            ) : (
-              <img
-                src="/assets/icons/ph_sliders.svg"
-                width="24"
-                height="24"
-                alt="slider"
-              />
-            )}
-          </Button>
-
-          {toggleFilterIsOpen && (
-            <ActivitiesFilters
-              currentFilterValues={filterValues}
-              onFilterChange={handleFilterChange}
+            <Categories categories={categoriesData} />
+          </List>
+        </Grid>
+        <Button
+          variant="link"
+          sx={{ width: 'max-content', minWidth: 'fit-content' }}
+          onClick={() => onFilterButtonClick()}
+        >
+          Filters &nbsp;
+          {toggleFilterIsOpen ? (
+            <img
+              src="/assets/icons/ph_x.svg"
+              width="24"
+              height="24"
+              alt="close"
+            />
+          ) : (
+            <img
+              src="/assets/icons/ph_sliders.svg"
+              width="24"
+              height="24"
+              alt="slider"
             />
           )}
-        </Grid>
+        </Button>
+
+        {toggleFilterIsOpen && (
+          <ActivitiesFilters
+            currentFilterValues={filterValues}
+            onFilterChange={handleFilterChange}
+          />
+        )}
       </ActivitySearch>
       <div className="activities_parent">
         <Grid

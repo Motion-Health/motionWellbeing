@@ -1,5 +1,6 @@
+import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
-import { InputBase } from '@mui/material';
+import { IconButton, InputBase } from '@mui/material';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 type Props = {
   placeholder: string;
@@ -61,10 +62,14 @@ const ActivitySearch = (props: Props) => {
 
   return (
     <div className={styles.search} ref={searchRef}>
-      <SearchIcon
+      <IconButton
         className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ''}`}
         onClick={() => setIsClicked(true)}
-      />
+      >
+        <SearchIcon
+          className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ''}`}
+        />
+      </IconButton>
 
       <InputBase
         className={`${styles.inputBase} ${isClicked ? styles.clicked : ''}`}
@@ -72,6 +77,14 @@ const ActivitySearch = (props: Props) => {
         inputProps={{ 'aria-label': 'search' }}
         onBlur={() => setIsClicked(false)}
       />
+      {isClicked && (
+        <IconButton
+          className={styles.closeButton}
+          onClick={() => setIsClicked(false)}
+        >
+          <CloseIcon />
+        </IconButton>
+      )}
       {props.children}
     </div>
   );

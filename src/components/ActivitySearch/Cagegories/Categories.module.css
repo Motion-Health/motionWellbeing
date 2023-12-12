@@ -1,0 +1,28 @@
+.categories {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+}
+
+.categories::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari and Opera */
+}
+
+.arrow {
+  display: block;
+}
+
+.categories.overflowing .arrow {
+  display: block;
+}
+
+.listItem{
+  background-color: #0f5298;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: fit-content;
+}
