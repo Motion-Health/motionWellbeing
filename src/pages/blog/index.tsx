@@ -70,7 +70,7 @@ const Index = () => {
 
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Knowledge Hub</h1>
+          <h1>Knowledge hub</h1>
           <p>
             Learn about how wellbeing activities and marketing can improve
             quality of life of residents, improve staff wellbeing and increase
