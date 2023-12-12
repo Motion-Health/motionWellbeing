@@ -30,6 +30,10 @@ const Index = () => {
       id: 7,
       name: 'Joyful Jingles and Festive Fun: Unwrapping the Magic of Christmas Activities in Care Homes',
     },
+    {
+      id: 8,
+      name: 'How Care Homes Can Make the Most of their Local Community',
+    },
   ];
   return (
     <div className="white-background">
