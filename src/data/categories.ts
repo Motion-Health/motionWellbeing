@@ -1,7 +1,7 @@
 export const categories = [
   {
-    title: 'NEW',
-    filter: 'new',
+    title: 'Games',
+    filter: 'Games',
   },
   {
     title: 'Armchair travel',

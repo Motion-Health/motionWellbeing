@@ -1,4 +1,3 @@
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { ListItem, ListItemButton, ListItemText } from '@mui/material';
 import router from 'next/router';
@@ -15,7 +14,13 @@ const Categories = ({ categories }) => {
   const checkScroll = () => {
     const { scrollLeft, scrollWidth, clientWidth } = listRef.current;
     setShowLeftArrow(scrollLeft > 0);
-    setShowRightArrow(scrollLeft < scrollWidth - clientWidth);
+    setShowRightArrow(scrollLeft + 5 < scrollWidth - clientWidth);
+    console.log('-------------------');
+    console.log(scrollLeft + 5 < scrollWidth - clientWidth);
+    console.log(scrollLeft + 5);
+    console.log(scrollWidth - clientWidth);
+    console.log('-------------------');
+    console.log(scrollLeft, scrollWidth, clientWidth);
   };
   // const checkOverflow = () => {
   //   console.log('checkOverflow');
@@ -44,7 +49,11 @@ const Categories = ({ categories }) => {
       className={`${styles.categories} ${isOverflowing ? 'overflowing' : ''}`}
       ref={listRef}
     >
-      {showLeftArrow && <ArrowBackIosIcon onClick={() => scrollList('left')} />}
+      {showLeftArrow && (
+        <div className={styles.arrowContainerLeft}>
+          <ArrowForwardIosIcon onClick={() => scrollList('left')} />
+        </div>
+      )}
       {categories.map((category) => (
         <ListItem
           key={category.title}
@@ -71,7 +80,9 @@ const Categories = ({ categories }) => {
         </ListItem>
       ))}
       {showRightArrow && (
-        <ArrowForwardIosIcon onClick={() => scrollList('right')} />
+        <div className={styles.arrowContainer}>
+          <ArrowForwardIosIcon onClick={() => scrollList('right')} />
+        </div>
       )}
     </div>
   );
