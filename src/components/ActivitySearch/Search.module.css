@@ -16,19 +16,20 @@
 
 .inputBase {
   position: absolute;
-  left: 0;
+  right: 0;
   width: 0;
   transition: width 0.3s ease-in-out;
   z-index: 1;
   background-color: white;
   border: none;
   border-radius: 20px;
-  padding: 20px;
+  padding: 0px;
 }
 
 .inputBase.clicked {
   width: 100%;
   border: 1px solid #ccc;
+  padding: 20px;
 }
 .searchIcon{
   z-index: 2;

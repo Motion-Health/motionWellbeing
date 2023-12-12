@@ -276,6 +276,7 @@ const Activities = () => {
         <title>Wellbeing activities | Motion Wellbeing</title>
         <meta name="description" content="Wellbeing activities" />
       </Head>
+
       {showFailBanner && failMessage && (
         <Alert
           sx={{ position: 'inherit', marginBottom: '1rem' }}
@@ -289,7 +290,12 @@ const Activities = () => {
         <>
           <Alert
             severity="success"
-            sx={{ mt: '1rem', mb: '1rem', width: '100%', position: 'relative' }}
+            sx={{
+              mt: '1rem',
+              mb: '1rem',
+              width: '100%',
+              position: 'relative',
+            }}
             onClose={() => setShowSuccessBanner(false)} // Add this line for close button
           >
             {successMessage}
@@ -305,76 +311,78 @@ const Activities = () => {
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
       />
+      <div className={activityStyle.fixedTopBar}>
+        <div>
+          <PageHeader title="Wellbeing"> </PageHeader>
 
-      <PageHeader title="Wellbeing activities">
-        {accountStatus === 'admin' && (
-          <Button variant="contained" onClick={() => onCreateActivity()}>
-            Create activity
-          </Button>
-        )}
-      </PageHeader>
-
-      <ActivitySearch
-        className={activityStyle.search}
-        placeholder="Search activities..."
-        data={activities}
-        searchKey="activityName"
-        searchedData={handleSearchedData}
-      >
-        <Grid
-          container
-          item
-          sx={{
-            position: 'relative',
-            width: 'auto',
-            flexWrap: 'nowrap',
-            flexGrow: 1,
-            minWidth: 0,
-            overflow: 'hidden',
-          }}
+          {accountStatus === 'admin' && (
+            <Button variant="contained" onClick={() => onCreateActivity()}>
+              Create activity
+            </Button>
+          )}
+        </div>
+        <ActivitySearch
+          className={activityStyle.search}
+          placeholder="Search activities..."
+          data={activities}
+          searchKey="activityName"
+          searchedData={handleSearchedData}
         >
-          <List
+          <Grid
+            container
+            item
             sx={{
-              padding: 0,
-              display: 'flex',
+              position: 'relative',
+              width: 'auto',
+              flexWrap: 'nowrap',
               flexGrow: 1,
               minWidth: 0,
               overflow: 'hidden',
             }}
           >
-            <Categories categories={categoriesData} />
-          </List>
-        </Grid>
-        <Button
-          variant="link"
-          sx={{ width: 'max-content', minWidth: 'fit-content' }}
-          onClick={() => onFilterButtonClick()}
-        >
-          Filters &nbsp;
-          {toggleFilterIsOpen ? (
-            <img
-              src="/assets/icons/ph_x.svg"
-              width="24"
-              height="24"
-              alt="close"
-            />
-          ) : (
-            <img
-              src="/assets/icons/ph_sliders.svg"
-              width="24"
-              height="24"
-              alt="slider"
-            />
-          )}
-        </Button>
+            <List
+              sx={{
+                padding: 0,
+                display: 'flex',
+                flexGrow: 1,
+                minWidth: 0,
+                overflow: 'hidden',
+              }}
+            >
+              <Categories categories={categoriesData} />
+            </List>
+          </Grid>
+          <Button
+            variant="link"
+            sx={{ width: 'max-content', minWidth: 'fit-content' }}
+            onClick={() => onFilterButtonClick()}
+          >
+            Filters &nbsp;
+            {toggleFilterIsOpen ? (
+              <img
+                src="/assets/icons/ph_x.svg"
+                width="24"
+                height="24"
+                alt="close"
+              />
+            ) : (
+              <img
+                src="/assets/icons/ph_sliders.svg"
+                width="24"
+                height="24"
+                alt="slider"
+              />
+            )}
+          </Button>
+        </ActivitySearch>
+      </div>
 
-        {toggleFilterIsOpen && (
-          <ActivitiesFilters
-            currentFilterValues={filterValues}
-            onFilterChange={handleFilterChange}
-          />
-        )}
-      </ActivitySearch>
+      {toggleFilterIsOpen && (
+        <ActivitiesFilters
+          currentFilterValues={filterValues}
+          onFilterChange={handleFilterChange}
+        />
+      )}
       <div className="activities_parent">
         <Grid
           className="curved-corners activities"

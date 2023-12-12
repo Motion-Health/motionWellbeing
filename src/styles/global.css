@@ -163,7 +163,8 @@ body{
 
 .activities{
   background:none;
-  margin: 0%;
+  margin: 170px 0%;
+  width: 68vw;
 }
 
 .scroll-for-more {

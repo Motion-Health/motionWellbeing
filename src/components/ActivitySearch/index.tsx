@@ -62,6 +62,7 @@ const ActivitySearch = (props: Props) => {
 
   return (
     <div className={styles.search} ref={searchRef}>
+      {props.children}
       <IconButton
         className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ''}`}
         onClick={() => setIsClicked(true)}
@@ -85,7 +86,6 @@ const ActivitySearch = (props: Props) => {
           <CloseIcon />
         </IconButton>
       )}
-      {props.children}
     </div>
   );
 };
