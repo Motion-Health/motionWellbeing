@@ -16,38 +16,68 @@
 }
 
 .categories.overflowing .arrow {
-  display: block;
+  display: block;  
 }
 
 .listItem{
-  background-color: #0f5298;
-  color: white;
-  padding: 10px 15px;
+  padding: 5px 12px;
   cursor: pointer;
   border: 1px solid rgba(15, 82, 152, 0.5);
   border-radius: 28px;
   font-size: 1rem;
+  margin: 0 5px;
+  
+  width: -webkit-fill-available;
+}
+.categories{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-between;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  flex-direction: row;
+  width: -webkit-fill-available;
+}
+.overflowing{
+  justify-content:  initial;
 }
 
 .arrowContainer{
   position: absolute;
   right:0;
-  background-color: white;
-    display: flex;
-    padding: 10px;
-    border-radius: 20px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+  display: flex;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #1f5b9d;
+  color: white;
 }
 .arrowContainerLeft{
-  margin-top: 4px;
-    margin-bottom: 4px;
   z-index: 1;
   position: absolute;
   background-color: white;
-    display: flex;
-    padding: 10px;
-    border-radius: 20px;
-    transform: scaleX(-1);
-    left:0;
+  display: flex;
+  padding: 10px;
+  border-radius: 20px;
+  transform: scaleX(-1);
+  left:0;
+  background-color: #1f5b9d;
+  color: white;
 }
+
+.disabled{
+  background-color: #cccccc;
+    color: white;
+}
+.listItems:hover{
+  background-color: transparent;
+}
+@media (min-width: 1422px)
+{
+  .arrowContainer, .arrowContainerLeft{
+    display: none;
+  }
+  .categories{
+    margin: 0;
+  }
+}
+

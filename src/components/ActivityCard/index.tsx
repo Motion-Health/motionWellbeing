@@ -113,10 +113,11 @@ export const ActivityCard = (props: Props) => {
     <Grid
       item
       md={12}
-      lg={4}
+      lg={3}
       className="curved-corners activity"
       sx={{
         flexGrow: 1,
+
         position: 'relative',
         display: activityDisplayType !== 'invisible' ? 'auto' : 'none',
       }}

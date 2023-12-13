@@ -8,33 +8,26 @@ import styles from './Categories.module.css';
 const Categories = ({ categories }) => {
   const listRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
+
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
 
   const checkScroll = () => {
     const { scrollLeft, scrollWidth, clientWidth } = listRef.current;
+    setIsOverflowing(scrollWidth > clientWidth);
     setShowLeftArrow(scrollLeft > 0);
     setShowRightArrow(scrollLeft + 5 < scrollWidth - clientWidth);
-    console.log('-------------------');
-    console.log(scrollLeft + 5 < scrollWidth - clientWidth);
-    console.log(scrollLeft + 5);
-    console.log(scrollWidth - clientWidth);
-    console.log('-------------------');
-    console.log(scrollLeft, scrollWidth, clientWidth);
   };
-  // const checkOverflow = () => {
-  //   console.log('checkOverflow');
-  //   const scrollWidth = listRef.current.scrollWidth;
-  //   const clientWidth = listRef.current.clientWidth;
-  //   console.log(listRef.current);
-  //   console.log(scrollWidth, clientWidth);
-  //   setIsOverflowing(scrollWidth > clientWidth);
-  //   console.log(isOverflowing);
-  // };
 
   useEffect(() => {
-    listRef.current.addEventListener('scroll', checkScroll);
-    return () => listRef.current.removeEventListener('scroll', checkScroll);
+    const listElement = listRef.current;
+    checkScroll();
+    listElement.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      listElement.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
   }, []);
 
   const scrollList = (direction) => {
@@ -46,14 +39,19 @@ const Categories = ({ categories }) => {
 
   return (
     <div
-      className={`${styles.categories} ${isOverflowing ? 'overflowing' : ''}`}
+      className={`${styles.categories} ${
+        isOverflowing ? styles.overflowing : ''
+      }`}
       ref={listRef}
     >
-      {showLeftArrow && (
-        <div className={styles.arrowContainerLeft}>
-          <ArrowForwardIosIcon onClick={() => scrollList('left')} />
-        </div>
-      )}
+      <div
+        className={`${styles.arrowContainerLeft} ${
+          showLeftArrow ? '' : styles.disabled
+        }`}
+      >
+        <ArrowForwardIosIcon onClick={() => scrollList('left')} />
+      </div>
+
       {categories.map((category) => (
         <ListItem
           key={category.title}
@@ -70,20 +68,21 @@ const Categories = ({ categories }) => {
           style={{ width: 'fit-content' }}
           disablePadding
         >
-          <ListItemButton style={{ padding: '0', paddingRight: '5px' }}>
+          <ListItemButton className={styles.listItem}>
             <ListItemText
               style={{ width: 'max-content' }}
               primary={category.title}
-              className={styles.listItem}
             />
           </ListItemButton>
         </ListItem>
       ))}
-      {showRightArrow && (
-        <div className={styles.arrowContainer}>
-          <ArrowForwardIosIcon onClick={() => scrollList('right')} />
-        </div>
-      )}
+      <div
+        className={`${styles.arrowContainer} ${
+          showRightArrow ? '' : styles.disabled
+        }`}
+      >
+        <ArrowForwardIosIcon onClick={() => scrollList('right')} />
+      </div>
     </div>
   );
 };

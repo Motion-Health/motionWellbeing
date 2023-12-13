@@ -37,6 +37,7 @@ const Activities = () => {
       instructions:
         'Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.',
       link: '/wellbeing/games/snake-game',
+      image: '/assets/images/games/Snake.webp',
     },
     {
       id: 2,
@@ -44,6 +45,7 @@ const Activities = () => {
       description: 'A quiz game',
       instructions: 'Answer the questions to get points.',
       link: '/wellbeing/games/quizzical',
+      image: '/assets/images/games/Quizzical.webp',
     },
     {
       id: 3,
@@ -52,6 +54,7 @@ const Activities = () => {
       instructions:
         "Remember the colours your have clicked and don't repeat them.",
       link: '/wellbeing/games/colour-game',
+      image: '/assets/images/games/ColourGame.webp',
     },
     {
       id: 4,
@@ -60,6 +63,7 @@ const Activities = () => {
       instructions:
         'Get three in a row to win! Click the button below to go back to the Wellbeing page.',
       link: '/wellbeing/games/noughts-crosses',
+      image: '/assets/images/games/NoughtsCrosses.webp',
     },
     {
       id: 5,
@@ -68,6 +72,7 @@ const Activities = () => {
       instructions:
         'Guess the word by clicking on the letters. You have 6 lives.',
       link: '/wellbeing/games/hangman',
+      image: '/assets/images/games/Hangman.webp',
     },
     // {
     //   id: 6,
@@ -84,6 +89,7 @@ const Activities = () => {
       instructions:
         'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
       link: '/wellbeing/games/sudoku',
+      image: '/assets/images/games/Sudoku.webp',
     },
     {
       id: 8,
@@ -92,6 +98,7 @@ const Activities = () => {
       instructions:
         'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
       link: '/wellbeing/games/pong',
+      image: '/assets/images/games/Pong.webp',
     },
   ];
   useEffect(() => {
@@ -312,69 +319,70 @@ const Activities = () => {
         setIsModalOpen={setIsModalOpen}
       />
       <div className={activityStyle.fixedTopBar}>
-        <div>
-          <PageHeader title="Wellbeing"> </PageHeader>
+        <div className={activityStyle.fixedTopBarAlignment}>
+          <PageHeader title="Activities" margin={false}></PageHeader>
 
           {accountStatus === 'admin' && (
             <Button variant="contained" onClick={() => onCreateActivity()}>
               Create activity
             </Button>
           )}
+
+          <ActivitySearch
+            className={activityStyle.search}
+            placeholder="Search activities..."
+            data={activities}
+            searchKey="activityName"
+            searchedData={handleSearchedData}
+          >
+            <Button
+              variant="link"
+              sx={{ width: 'max-content', minWidth: 'fit-content' }}
+              onClick={() => onFilterButtonClick()}
+            >
+              Filters &nbsp;
+              {toggleFilterIsOpen ? (
+                <img
+                  src="/assets/icons/ph_x.svg"
+                  width="24"
+                  height="24"
+                  alt="close"
+                />
+              ) : (
+                <img
+                  src="/assets/icons/ph_sliders.svg"
+                  width="24"
+                  height="24"
+                  alt="slider"
+                />
+              )}
+            </Button>
+          </ActivitySearch>
         </div>
-        <ActivitySearch
-          className={activityStyle.search}
-          placeholder="Search activities..."
-          data={activities}
-          searchKey="activityName"
-          searchedData={handleSearchedData}
+        <Grid
+          container
+          item
+          sx={{
+            position: 'relative',
+            width: 'auto',
+            flexWrap: 'nowrap',
+            flexGrow: 1,
+            minWidth: 0,
+            overflow: 'hidden',
+          }}
         >
-          <Grid
-            container
-            item
+          <List
             sx={{
-              position: 'relative',
-              width: 'auto',
-              flexWrap: 'nowrap',
+              padding: 0,
+              display: 'flex',
               flexGrow: 1,
               minWidth: 0,
               overflow: 'hidden',
             }}
           >
-            <List
-              sx={{
-                padding: 0,
-                display: 'flex',
-                flexGrow: 1,
-                minWidth: 0,
-                overflow: 'hidden',
-              }}
-            >
-              <Categories categories={categoriesData} />
-            </List>
-          </Grid>
-          <Button
-            variant="link"
-            sx={{ width: 'max-content', minWidth: 'fit-content' }}
-            onClick={() => onFilterButtonClick()}
-          >
-            Filters &nbsp;
-            {toggleFilterIsOpen ? (
-              <img
-                src="/assets/icons/ph_x.svg"
-                width="24"
-                height="24"
-                alt="close"
-              />
-            ) : (
-              <img
-                src="/assets/icons/ph_sliders.svg"
-                width="24"
-                height="24"
-                alt="slider"
-              />
-            )}
-          </Button>
-        </ActivitySearch>
+            <Categories categories={categoriesData} />
+          </List>
+        </Grid>
       </div>
 
       {toggleFilterIsOpen && (
@@ -395,18 +403,18 @@ const Activities = () => {
         >
           {displayActivities?.length !== 0 &&
             displayActivities?.map((activity: ActivityData, index: number) => {
-              const game = games[Math.floor(index / 3) % games.length];
+              const game = games[Math.floor(index / 4) % games.length];
 
               return (
                 <>
                   <ActivityCard key={activity.activityId} activity={activity} />
-                  {index % 3 === 2 && <GameCard key={game.id} game={game} />}
+                  {index % 4 === 3 && <GameCard key={game.id} game={game} />}
                 </>
               );
             })}
 
           {games
-            .slice(Math.ceil((displayActivities?.length || 0) / 3))
+            .slice(Math.ceil((displayActivities?.length || 0) / 4))
             .map((game) => (
               <GameCard key={game.id} game={game} />
             ))}

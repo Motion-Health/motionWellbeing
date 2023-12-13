@@ -67,10 +67,11 @@ export const ActivitiesFilters = ({
     borderRadius: 2,
     padding: '1.5rem',
     marginTop: '3rem',
-    position: 'absolute',
-    zIndex: 1,
+    position: 'fixed',
+    zIndex: 10,
     right: 0,
     width: { xs: '10rem', sm: '20rem', md: '25rem' },
+    top: '105px',
   };
 
   const FilterGroup = ({ filters }: { filters: Filter[] }) => (

@@ -105,8 +105,8 @@ export const LoginForm = () => {
           <img
             src={AppConfig.logo}
             alt="logo"
-            width={144}
-            height={95}
+            width={328}
+            height={132}
             layout="responsive"
           />
         </div>
