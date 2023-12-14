@@ -122,6 +122,11 @@ function hangman() {
           guessLetters={guessLetters}
           wordToGuess={wordToGuess}
         />
+        {(isWinner || isLoser) && (
+          <button className={styles.restartButton} onClick={handleRestart}>
+            Restart Game
+          </button>
+        )}
       </div>
     </div>
   );
