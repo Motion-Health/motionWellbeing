@@ -9,7 +9,6 @@ import ActivitySearch from '@/components/ActivitySearch';
 import Categories from '@/components/ActivitySearch/Cagegories';
 import { GameCard } from '@/components/GameCard';
 import ActivitiesFormModal from '@/components/modals/ActivitiesFormModal';
-import PageHeader from '@/components/PageHeader/index';
 import { useAccountContext } from '@/context/AccountContext';
 import { categories as categoriesData } from '@/data/categories';
 import { useActivityTags } from '@/services/activities/useActivityTags';
@@ -280,8 +279,8 @@ const Activities = () => {
   return (
     <Main>
       <Head>
-        <title>Wellbeing activities | Motion Wellbeing</title>
-        <meta name="description" content="Wellbeing activities" />
+        <title>Activities | Motion Wellbeing</title>
+        <meta name="description" content="Activities" />
       </Head>
 
       {showFailBanner && failMessage && (
@@ -320,8 +319,11 @@ const Activities = () => {
       />
       <div className={activityStyle.fixedTopBar}>
         <div className={activityStyle.fixedTopBarAlignment}>
-          <PageHeader title="Activities" margin={false}></PageHeader>
-
+          <div className={activityStyle.header}>
+            <Typography variant="h1" sx={{ mb: '16px' }}>
+              Activities
+            </Typography>
+          </div>
           {accountStatus === 'admin' && (
             <Button variant="contained" onClick={() => onCreateActivity()}>
               Create activity
@@ -403,26 +405,25 @@ const Activities = () => {
         >
           {displayActivities?.length !== 0 &&
             displayActivities?.map((activity: ActivityData, index: number) => {
-              const game = games[Math.floor(index / 4) % games.length];
-
               return (
-                <>
-                  <ActivityCard key={activity.activityId} activity={activity} />
-                  {index % 4 === 3 && <GameCard key={game.id} game={game} />}
-                </>
+                <ActivityCard key={activity.activityId} activity={activity} />
               );
             })}
 
-          {games
-            .slice(Math.ceil((displayActivities?.length || 0) / 4))
-            .map((game) => (
-              <GameCard key={game.id} game={game} />
-            ))}
-          {(displayActivities?.length === 0 || allActivitiesAreHidden) && (
-            <Typography sx={{ textAlign: 'center' }}>
-              There are no activities to display
-            </Typography>
+          {categoryQuery == 'Games' && (
+            <>
+              {games.map((game) => (
+                <GameCard key={game.id} game={game} />
+              ))}
+            </>
           )}
+
+          {(displayActivities?.length === 0 || allActivitiesAreHidden) &&
+            categoryQuery != 'Games' && (
+              <Typography sx={{ textAlign: 'center' }}>
+                There are no activities to display
+              </Typography>
+            )}
         </Grid>
         {showScrollButton && (
           <div className="scroll-for-more" onClick={handleScrollForMore}>

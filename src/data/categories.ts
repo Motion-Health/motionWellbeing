@@ -1,9 +1,5 @@
 export const categories = [
   {
-    title: 'Games',
-    filter: 'Games',
-  },
-  {
     title: 'Armchair travel',
     filter: 'armchairTravel',
   },
@@ -18,6 +14,10 @@ export const categories = [
   {
     title: 'Education',
     filter: 'education',
+  },
+  {
+    title: 'Games',
+    filter: 'Games',
   },
   {
     title: 'Movement & Sport',

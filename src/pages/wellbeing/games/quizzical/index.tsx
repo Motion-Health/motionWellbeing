@@ -148,7 +148,7 @@ const Quizzical = () => {
             disabled={!allComplete}
             onClick={checkAnswers}
           >
-            Check Answers
+            Check answers
           </button>
         )}
       </div>
