@@ -18,7 +18,7 @@ const Snake: React.FC<Props> = (props) => {
   const [points, setPoints] = useState<number>(0);
   const [game, setGame] = useState<boolean>(false);
   const width: number = window.innerWidth;
-  const speedRef = useRef(100);
+  const speedRef = useRef(500);
   const [difficulty, setDifficulty] = useState('1'); // Default to easy
   useEffect(() => {
     // Set speed based on difficulty
@@ -39,9 +39,8 @@ const Snake: React.FC<Props> = (props) => {
         speedRef.current = 50;
         break;
       default:
-        speedRef.current = 100;
+        speedRef.current = 500;
     }
-    // ... rest of your useEffect code
   }, [difficulty]);
 
   const [snake, setSnake] = useState<any>([
@@ -56,7 +55,7 @@ const Snake: React.FC<Props> = (props) => {
   }, [props.restart]);
 
   const reset = () => {
-    speedRef.current = 100;
+    speedRef.current = 500;
     setPoints(0);
     setDirection('right');
     setSnake([

@@ -33,9 +33,13 @@ function Board({ xIsNext, squares, onPlay, onRestart }) {
   };
 
   const winner = calculateWinner(squares);
+  const isDraw = squares.every(Boolean) && !winner;
+
   let status;
   if (winner) {
     status = 'Winner: ' + winner;
+  } else if (isDraw) {
+    status = 'Draw. No one wins!';
   } else {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
@@ -87,6 +91,7 @@ export default function Game() {
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
   const winner = calculateWinner(currentSquares);
+  const isDraw = currentSquares.every(Boolean) && !winner;
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
@@ -113,7 +118,7 @@ export default function Game() {
         />
       </div>
       <div className="game-info">
-        {winner && (
+        {(winner || isDraw) && (
           <button className={styles.button} onClick={() => jumpTo(0)}>
             {'Restart'}
           </button>

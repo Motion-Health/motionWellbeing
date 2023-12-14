@@ -41,7 +41,7 @@ const Index = () => {
 
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Knowledge Hub</h1>
+          <h1>Knowledge hub</h1>
           <p>The go to place for all things wellbeing.</p>
         </div>
       </div>

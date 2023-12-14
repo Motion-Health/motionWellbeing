@@ -15,4 +15,7 @@
 .letterContainer {
   border-bottom: 8px solid black; /* equivalent to border-b-8 border-black */
   border-radius: 4px; /* equivalent to rounded-md */
+  width: 7vw;
+  display: flex;
+    justify-content: center;
 }

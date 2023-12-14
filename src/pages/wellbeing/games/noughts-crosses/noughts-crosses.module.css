@@ -33,6 +33,9 @@
 .boardRowTwo{
   display: flex;
   justify-content: center;
+ 
+}
+.boardRowTwo button{
   border-top: 4px solid black;
   border-bottom: 4px solid black;
 }

@@ -23,9 +23,9 @@ function hangman() {
   );
 
   const isLoser = incorrectLetters.length >= 6;
-  const isWinner = wordToGuess
-    .split('')
-    .every((letter) => guessLetters.includes(letter));
+  const isWinner =
+    wordToGuess &&
+    wordToGuess.split('').every((letter) => guessLetters.includes(letter));
 
   const addGuessLetter = useCallback(
     (letter: string) => {
@@ -59,13 +59,13 @@ function hangman() {
   }, [guessLetters]);
 
   useEffect(() => {
-    if (isWinner) {
+    if (isWinner && wordToGuess) {
       toast('Congratulations, you won!', {
         icon: '👏',
         duration: 5000,
       });
     }
-  }, [isWinner]);
+  }, [isWinner, wordToGuess]);
 
   useEffect(() => {
     if (isLoser) {

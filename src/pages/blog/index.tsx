@@ -30,6 +30,10 @@ const Index = () => {
       id: 7,
       name: 'Joyful Jingles and Festive Fun: Unwrapping the Magic of Christmas Activities in Care Homes',
     },
+    {
+      id: 8,
+      name: 'How Care Homes Can Make the Most of their Local Community',
+    },
   ];
   return (
     <div className="white-background">
@@ -66,7 +70,7 @@ const Index = () => {
 
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Knowledge Hub</h1>
+          <h1>Knowledge hub</h1>
           <p>
             Learn about how wellbeing activities and marketing can improve
             quality of life of residents, improve staff wellbeing and increase

@@ -28,3 +28,7 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
+.card:first-of-type {
+  margin-top: 0 !important;
+}
