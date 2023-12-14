@@ -11,13 +11,49 @@ const Quizzical = () => {
   const [showAnswers, setShowAnswers] = React.useState(false);
   const [questions, setQuestions] = React.useState([]);
   const [allComplete, setAllComplete] = React.useState(false);
+  const [gameStatus, setGameStatus] = React.useState('playing'); // ['playing', 'finished', 'reviewing']
+  const fetchQuestions = () => {
+    fetch(
+      'https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple'
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.results && Array.isArray(data.results)) {
+          setQuestions(
+            data.results.map(function (question) {
+              return {
+                question: question.question,
+                options: question.incorrect_answers
+                  .concat([question.correct_answer])
+                  .map((value) => ({ value, sort: Math.random() }))
+                  .sort((a, b) => a.sort - b.sort)
+                  .map(({ value }) => value),
+                selected_answer: undefined,
+                correct_answer: question.correct_answer,
+              };
+            })
+          );
+        } else {
+          console.error('Unexpected data structure:', data);
+        }
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
+      });
+  };
+
+  React.useEffect(() => {
+    fetchQuestions(); // Fetch questions when component mounts
+  }, []);
 
   function playAgain() {
+    setGameStatus('playing');
     setShowAnswers(false);
     setAllComplete(false);
+    fetchQuestions(); // Fetch new questions
   }
-
   function checkAnswers() {
+    setGameStatus('finished');
     setShowAnswers(true);
   }
 
@@ -50,36 +86,6 @@ const Quizzical = () => {
   }, [showAnswers]);
 
   React.useEffect(() => {
-    fetch(
-      'https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple'
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.results && Array.isArray(data.results)) {
-          setQuestions(
-            data.results.map(function (question) {
-              return {
-                question: question.question,
-                options: question.incorrect_answers
-                  .concat([question.correct_answer])
-                  .map((value) => ({ value, sort: Math.random() }))
-                  .sort((a, b) => a.sort - b.sort)
-                  .map(({ value }) => value),
-                selected_answer: undefined,
-                correct_answer: question.correct_answer,
-              };
-            })
-          );
-        } else {
-          console.error('Unexpected data structure:', data);
-        }
-      })
-      .catch((error) => {
-        console.error('Fetch error:', error);
-      });
-  }, []);
-
-  React.useEffect(() => {
     setAllComplete(
       questions.every((quest) => typeof quest.selected_answer !== 'undefined')
     );
@@ -96,6 +102,8 @@ const Quizzical = () => {
     // reload page
     router.reload();
   };
+
+  const reviewAnswers = () => {};
 
   const quests = questions.map(function (question, index) {
     return (
@@ -118,44 +126,57 @@ const Quizzical = () => {
   };
 
   return (
-    <div className={styles.app}>
-      <GameWindow
-        game={game}
-        onRestart={handleRestart}
-        onResume={handleResume}
-      />
+    <>
+      <div className={styles.app}>
+        <GameWindow
+          game={game}
+          onRestart={handleRestart}
+          onResume={handleResume}
+        />
 
-      <div className={styles.quizContainer}>
-        {quests}
+        <div className={styles.quizContainer}>
+          {quests}
 
-        {showAnswers ? (
-          <>
-            <div className={styles.overlay}>
-              <Confetti />
-            </div>
-            <div className={styles.buttonContainer}>
-              <h3 className={styles.buttonContainerScore}>
-                {'You scored ' + score + '/10 correct answers'}
-              </h3>
-              <button className={styles.button} onClick={playAgain}>
-                Play Again
-              </button>
-            </div>
-          </>
-        ) : (
-          <button
-            className={styles.button}
-            disabled={!allComplete}
-            onClick={checkAnswers}
-          >
-            Check answers
-          </button>
-        )}
+          {gameStatus === 'playing' && (
+            <button
+              className={styles.button}
+              disabled={!allComplete}
+              onClick={checkAnswers}
+            >
+              Check answers
+            </button>
+          )}
+          {gameStatus === 'finished' && (
+            <>
+              <div className={styles.overlay}>
+                <Confetti />
+              </div>
+              <div className={styles.buttonContainer}>
+                <h3 className={styles.buttonContainerScore}>
+                  {'You scored ' + score + '/10 correct answers'}
+                </h3>
+                <button className={styles.button} onClick={playAgain}>
+                  Play Again
+                </button>
+                <button
+                  className={styles.button}
+                  onClick={() => setGameStatus('reviewing')}
+                >
+                  Review Answers
+                </button>
+              </div>
+            </>
+          )}
+          {gameStatus === 'reviewing' && (
+            <button className={styles.button} onClick={playAgain}>
+              Play Again
+            </button>
+          )}
+        </div>
       </div>
-
       <img className={styles.blob1} src={blob} alt="" />
       <img className={styles.blob2} src={blob} alt="" />
-    </div>
+    </>
   );
 };
 

@@ -40,7 +40,7 @@ export const GameWindow = ({ game, onRestart, onResume }) => {
         <div className={window.buttons}>
           <button
             className={`${mainTheme.bigButton} ${mainTheme.dangerButton}`}
-            onClick={() => router.push('/wellbeing/games')}
+            onClick={() => router.push('/wellbeing/activities/?filter=Games')}
           >
             Exit
           </button>

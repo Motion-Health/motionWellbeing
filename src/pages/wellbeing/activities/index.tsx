@@ -32,51 +32,57 @@ const Activities = () => {
     {
       id: 1,
       name: 'Snake',
-      description: 'A classic game of snake',
-      instructions:
-        'Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.',
+      players: '1 Player',
+      instructions: `Use the arrow keys to move the snake around the screen
+        Eat the apples to grow longer
+        Avoid bumping into yourself.`,
       link: '/wellbeing/games/snake-game',
       image: '/assets/images/games/Snake.webp',
     },
     {
       id: 2,
       name: 'Quizzical',
-      description: 'A quiz game',
-      instructions: 'Answer the questions to get points.',
+      players: 'Multi player',
+      instructions: `Test your knowledge with general knowledge questions
+      Answer 10 questions then 'Check answers'
+      Highest score wins.`,
       link: '/wellbeing/games/quizzical',
       image: '/assets/images/games/Quizzical.webp',
     },
     {
       id: 3,
-      name: 'Colour Memory',
-      description: 'A memory game',
-      instructions:
-        "Remember the colours your have clicked and don't repeat them.",
+      name: 'Colour memory',
+      players: '1 player',
+      instructions: `Select a colour and try to remember it
+        Avoid selecting the same colour twice in a row
+        Highest score wins.`,
       link: '/wellbeing/games/colour-game',
       image: '/assets/images/games/ColourGame.webp',
     },
     {
       id: 4,
-      name: 'Noughts and Crosses',
-      description: 'A classic game of noughts and crosses',
-      instructions:
-        'Get three in a row to win! Click the button below to go back to the Wellbeing page.',
+      name: 'Noughts and crosses',
+      players: '2 player',
+      instructions: `Taking turns, place a nought or cross on the grid
+        Aim to get 3 of the same symbol in a row
+        3 in a row wins.`,
       link: '/wellbeing/games/noughts-crosses',
       image: '/assets/images/games/NoughtsCrosses.webp',
     },
     {
       id: 5,
       name: 'Hangman',
-      description: 'A classic game of hangman',
-      instructions:
-        'Guess the word by clicking on the letters. You have 6 lives.',
+      players: '1 player',
+      instructions: `Select letters to complete the word
+        Selecting the wrong letter will add a body part to the man
+        Fill in the word before all the body parts are added.`,
       link: '/wellbeing/games/hangman',
       image: '/assets/images/games/Hangman.webp',
     },
     // {
     //   id: 6,
     //   name: 'Tetris',
-    //   description: 'A classic game of Tetris',
+    //   players: 'A classic game of Tetris',
     //   instructions:
     //     'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
     //   link: '/wellbeing/games/tetris',
@@ -84,18 +90,19 @@ const Activities = () => {
     {
       id: 7,
       name: 'Sudoku',
-      description: 'A classic game of sudoku',
-      instructions:
-        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+      players: '1 player',
+      instructions: `9x9 square must be filled with numbers 1-9
+      No numbers can be repeated vertically or horizontally.`,
       link: '/wellbeing/games/sudoku',
       image: '/assets/images/games/Sudoku.webp',
     },
     {
       id: 8,
       name: 'Pong',
-      description: 'A classic game of pong',
-      instructions:
-        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
+      players: '1 player',
+      instructions: `Hit the ball past your opponent
+        Use your paddle to prevent the ball going past you
+        To win score more points than the 'Computer'.`,
       link: '/wellbeing/games/pong',
       image: '/assets/images/games/Pong.webp',
     },

@@ -7,12 +7,22 @@ export const GameCard = ({ game }) => {
   return (
     <div className={styles.card} onClick={() => router.push(game.link)}>
       <div className={styles.imageContainer}>
-        <img src={game.image} className={styles.image} />
+        <img
+          src={game.image}
+          alt={`${game.name} image`}
+          className={styles.image}
+        />
       </div>
       <div>
         <h3 className={styles.title}>{game.name}</h3>
-        <p className={styles.description}>{game.description}</p>
-        <p className={styles.instructions}>{game.instructions}</p>
+        <p className={styles.description}>{game.players}</p>
+        <p className={styles.instructions}>
+          <ul>
+            {game.instructions.split('\n').map((line, index) => (
+              <li key={index}>{line}</li>
+            ))}
+          </ul>
+        </p>
       </div>
     </div>
   );

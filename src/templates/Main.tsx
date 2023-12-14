@@ -1,4 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu';
+import { useMediaQuery } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -22,7 +23,7 @@ const Main = (props: IMainProps) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const { account, updateAccount } = useAccountContext();
-
+  const isMobile = useMediaQuery('(max-width:900px)');
   const { data: getAccountResponse, refetch: refetchAccountData } =
     useGetAccount();
 
@@ -61,26 +62,29 @@ const Main = (props: IMainProps) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar
-        position="fixed"
-        sx={{
-          width: { md: `calc(100% - ${drawerWidth}px)` },
-          backgroundColor: 'transparent',
-          boxShadow: 'none',
-        }}
-      >
-        <Toolbar>
-          <IconButton
-            color="primary"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { md: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      {isMobile && (
+        <AppBar
+          position="fixed"
+          sx={{
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
+            left: 0,
+            width: 'fit-content',
+          }}
+        >
+          <Toolbar>
+            <IconButton
+              color="primary"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { md: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      )}
 
       <Navigation mobileOpen={mobileOpen} drawerWidth={drawerWidth} />
 

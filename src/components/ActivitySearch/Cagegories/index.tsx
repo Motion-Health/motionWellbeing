@@ -11,7 +11,6 @@ const Categories = ({ categories }) => {
 
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(false);
-
   const checkScroll = () => {
     const { scrollLeft, scrollWidth, clientWidth } = listRef.current;
     setIsOverflowing(scrollWidth > clientWidth);
@@ -68,8 +67,9 @@ const Categories = ({ categories }) => {
           style={{ width: 'fit-content' }}
           disablePadding
         >
-          <ListItemButton className={styles.listItem}>
+          <ListItemButton classes={{ root: styles.listItems }}>
             <ListItemText
+              classes={{ root: styles.listItem }}
               style={{ width: 'max-content' }}
               primary={category.title}
             />
