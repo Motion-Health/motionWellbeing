@@ -1,11 +1,5 @@
-import { 
-  FormControl, 
-  FormHelperText, 
-  InputLabel, 
-  Select 
-} from '@mui/material';
-
-import { Controller, useFormContext } from "react-hook-form";
+import { FormControl, FormHelperText, InputLabel, Select } from '@mui/material';
+import { Controller, useFormContext } from 'react-hook-form';
 
 export const FormSelect = ({
   name,
@@ -14,26 +8,31 @@ export const FormSelect = ({
   defaultValue,
   ...props
 }) => {
-
   const {
     control,
     formState: { errors },
   } = useFormContext();
 
-  const isErrorState = !!errors[name]
+  const isErrorState = !!errors[name];
 
   return (
     <FormControl {...props}>
-      <InputLabel 
-        shrink={true} 
-        error={isErrorState} 
+      <InputLabel
+        shrink={true}
+        error={isErrorState}
         sx={{
-          margin: '0 0 0 -12px', 
-          top: '0'
+          margin: '0 0 0 -12px',
+          top: '0',
         }}
-      >{label}</InputLabel>
-      <Controller control={control} name={name} defaultValue='' render={({ field })=> (
-          <Select 
+      >
+        {label}
+      </InputLabel>
+      <Controller
+        control={control}
+        name={name}
+        defaultValue={defaultValue}
+        render={({ field }) => (
+          <Select
             {...props}
             {...field}
             defaultValue={defaultValue}
@@ -48,10 +47,10 @@ export const FormSelect = ({
             {children}
           </Select>
         )}
-        />
-        <FormHelperText error={isErrorState}>
-          {errors[name] ? errors[name].message : ''}
-        </FormHelperText>
+      />
+      <FormHelperText error={isErrorState}>
+        {errors[name] ? errors[name].message : ''}
+      </FormHelperText>
     </FormControl>
   );
 };
