@@ -138,8 +138,20 @@ export const AdditionalInformationForm = () => {
           width: '100%',
         }}
       >
-        <div style={{ padding: '3rem' }}>
-          <img src={AppConfig.logo} alt="logo" />
+        <div
+          sx={{
+            padding: '3rem',
+            textAlign: 'center',
+            width: '100%',
+          }}
+        >
+          <img
+            src={AppConfig.logo}
+            alt="logo"
+            width={328}
+            height={132}
+            layout="responsive"
+          />
         </div>
 
         <Typography variant="h1" sx={{ mb: '2rem', textAlign: 'center' }}>
