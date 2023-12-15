@@ -13,7 +13,7 @@ export const Cards = () => {
             alt="Motion Wellbeing"
             width={460}
             height={320}
-            layout="fixed"
+            layout="responsive"
             priority
           />
         </div>
