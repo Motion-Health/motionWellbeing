@@ -30,6 +30,13 @@ export const Cards = () => {
         >
           Sign up for FREE
         </a>
+        <a
+          href="/wellbeing/how-we-can-help/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn More
+        </a>
       </div>
     </section>
   );
