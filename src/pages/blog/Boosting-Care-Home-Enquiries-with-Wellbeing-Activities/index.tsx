@@ -224,7 +224,7 @@ const Index = () => {
             but also serve as a powerful marketing tool. Through word of mouth,
             online presence, community engagement, person-centred activities,
             and positive testimonials, care homes can build a strong reputation
-            that attracts new residents and their families. In the end, it's a
+            that attracts new residents and their families. In the end, it is a
             win-win situation – residents benefit from a fulfilling life, and
             care homes benefit from increased leads and a thriving community.
           </p>
