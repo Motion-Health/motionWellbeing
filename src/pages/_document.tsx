@@ -1,6 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 import { AppConfig } from '@/utils/AppConfig';
+import { link } from 'fs';
 
 // Need to create a custom _document because i18n support is not compatible with `next export`.
 class MyDocument extends Document {
@@ -9,6 +10,17 @@ class MyDocument extends Document {
     return (
       <Html lang={AppConfig.locale}>
         <Head>
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/favicon.ico"
+          />
+          <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/assets/images/favicon.svg"
+          />
+          <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
           <link rel="preconnect" href="https://www.googletagmanager.com" />
           <link rel="preconnect" href="https://app.termly.io" />
           <link

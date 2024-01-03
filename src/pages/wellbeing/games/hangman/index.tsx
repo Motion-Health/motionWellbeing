@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
 
 import HangmanDraw from '@/components/Games/Hangman/HangmanDraw';
 import HangmanWord from '@/components/Games/Hangman/HangmanWord';
 import Keyboard from '@/components/Games/Hangman/Keyboard';
 import { GameWindow } from '@/components/GameWindow';
+import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 
 import styles from './hangman.module.css';
 import words from './wordList.json';
@@ -13,6 +14,21 @@ function hangman() {
   const [wordToGuess, setWordToGuess] = useState('');
   const [guessLetters, setGuessLetters] = useState<string[]>([]);
   const router = useRouter(); // Use the router
+  const completeActivityCalled = useRef(false);
+  const completeActivity = useCompleteActivity();
+  useEffect(() => {
+    if (!completeActivityCalled.current) {
+      completeActivityCalled.current = true;
+      completeActivity.mutate(
+        { activityId: 205 },
+        {
+          onSuccess: (res) => {
+            console.log('res', res);
+          },
+        }
+      );
+    }
+  }, []);
   useEffect(() => {
     setWordToGuess(words[Math.floor(Math.random() * words.length)]);
   }, []);

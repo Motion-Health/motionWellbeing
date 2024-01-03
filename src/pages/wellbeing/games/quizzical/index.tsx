@@ -1,12 +1,30 @@
 import { useRouter } from 'next/router';
 import blob from 'public/assets/images/games/quizzical/blob.png';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Confetti from 'react-confetti';
 
 import { GameWindow } from '@/components/GameWindow';
+import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 
 import styles from './quizzical.module.css';
 const Quizzical = () => {
+  const completeActivity = useCompleteActivity();
+  const completeActivityCalled = useRef(false);
+
+  useEffect(() => {
+    if (!completeActivityCalled.current) {
+      completeActivityCalled.current = true;
+      completeActivity.mutate(
+        { activityId: 203 },
+        {
+          onSuccess: (res) => {
+            console.log('res', res);
+          },
+        }
+      );
+    }
+  }, []);
+
   const [score, setScore] = React.useState(0);
   const [showAnswers, setShowAnswers] = React.useState(false);
   const [questions, setQuestions] = React.useState([]);

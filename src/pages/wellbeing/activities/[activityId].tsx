@@ -90,7 +90,7 @@ const ActivityDetails = (a) => {
   const { data: activityMetrics, refetch: refetchMetrics } =
     useActivityMetrics(activityId);
   const [timesCompleted, setTimesCompleted] = useState<number | null>(null);
-
+  const [loadError, setLoadError] = useState(false);
   const [roundedRating, setRoundedRating] = useState<number | null>(null);
   const [decimalRating, setDecimalRating] = useState<string | null>(null);
   useEffect(() => {
@@ -162,8 +162,6 @@ const ActivityDetails = (a) => {
       console.log(
         `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`
       );
-      console.log('activity?.documentFileName', activity?.documentFileName);
-      console.log('rendering document');
       return (
         <Grid
           item
@@ -175,20 +173,28 @@ const ActivityDetails = (a) => {
           className="pdf-container"
           onClick={handleDownload}
         >
-          <DynamicDocument
-            options={{
-              cMapUrl: `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,
-              cMapPacked: true,
-            }}
-            renderTextLayer={false}
-            file={`${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`}
-            onLoadError={(error) =>
-              console.error('Error while loading document:', error)
-            }
-          >
-            <div className="download-message">Click to Download</div>
-            <Page pageNumber={1} renderTextLayer={false} height={400} />
-          </DynamicDocument>
+          {!loadError ? (
+            <DynamicDocument
+              options={{
+                cMapUrl: `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,
+                cMapPacked: true,
+              }}
+              renderTextLayer={false}
+              file={`${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`}
+              onLoadError={() => setLoadError(true)}
+            >
+              <div className="download-message">Click to Download</div>
+              <Page pageNumber={1} renderTextLayer={false} height={400} />
+            </DynamicDocument>
+          ) : (
+            <div className={style.placeholderContainer}>
+              <img src="/assets/images/placeholder.png" alt="placeholder" />
+
+              <div className={`${style.placeholder} react-pdf__Page`}>
+                <div className={style.downloadMessage}>Click to Download</div>
+              </div>
+            </div>
+          )}
         </Grid>
       );
     } else if (shouldRenderVideo && parsedYouTubeEmbedCode) {
@@ -206,6 +212,13 @@ const ActivityDetails = (a) => {
             onStateChange={(e) => handleVideoStateChange(e)}
             opts={{
               width: '100%',
+              playerVars: {
+                autoplay: 0,
+                controls: 1,
+                modestbranding: 1,
+                rel: 0,
+                showinfo: 0,
+              },
             }}
           />
         </Grid>
