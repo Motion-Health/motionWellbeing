@@ -135,7 +135,11 @@ useEffect(() => {
 
                 <td>{new Date(activity.createdAt).toLocaleDateString() + ' ' + new Date(activity.createdAt).toLocaleTimeString()}</td>
                 <td>{activity.comment}</td>
-                <td>{activity.participants}</td>
+                <td style={
+                  {
+                    maxWidth: '200px',
+                  }
+                }>{activity.participants}</td>
                 <td>{activity.rating}</td>
                 <td>{activity.wouldDoAgain}</td>
               </tr>
