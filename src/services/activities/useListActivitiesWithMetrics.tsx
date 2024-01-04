@@ -17,10 +17,14 @@ const getActivityMetrics = async (activityId: string) => {
 const listActivities = async () => {
   const { data } = await API.get('/activities/');
   return Promise.all(
-    data.map(async (activity) => ({
-      ...activity,
-      metrics: await getActivityMetrics(activity.id),
-    }))
+    data.map(async (activity) => {
+      return {
+        ...activity,
+        metrics: await getActivityMetrics(activity.activityId),
+      };
+    }
+    )
+    
   );
 };
 

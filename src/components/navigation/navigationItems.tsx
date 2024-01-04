@@ -230,6 +230,13 @@ export const appSections = [
     visibleTo: ['admin'],
     accessibleBy: ['admin'],
   },
+  {
+    title: 'Analytics',
+    icon: '/assets/icons/ph_chart-pie.svg',
+    path: '/wellbeing/analytics',
+    visibleTo: ['admin'],
+    accessibleBy: ['admin'],
+  },
 ];
 
 export default NavigationItems;
