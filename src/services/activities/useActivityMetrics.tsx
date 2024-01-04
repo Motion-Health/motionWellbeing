@@ -27,3 +27,9 @@ const listActivities = async () => {
 export const useListActivitiesWithMetrics = () => {
   return useQuery(['list_activities_with_metrics'], listActivities);
 };
+
+export const useActivityMetrics = (activityId?: string | undefined) => {
+  return useQuery([`activity_metrics_${activityId}`], () =>
+    getActivityMetrics(activityId)
+  );
+};
