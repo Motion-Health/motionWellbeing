@@ -77,6 +77,7 @@ const ActivitySearch = (props: Props) => {
         placeholder="Search…"
         inputProps={{ 'aria-label': 'search' }}
         onBlur={() => setIsClicked(false)}
+        onChange={handleSearchChange}
       />
       {isClicked && (
         <IconButton

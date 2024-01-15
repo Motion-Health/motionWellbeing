@@ -235,7 +235,7 @@ const Comments = () => {
             <FormSelect
               name="wouldDoAgain"
               label="Would you do the activity again?"
-              defaultValue={''}
+              defaultValue="yes"
               placeholder={'Please select'}
               type="text"
               fullWidth

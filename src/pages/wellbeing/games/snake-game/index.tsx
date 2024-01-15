@@ -1,13 +1,30 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // Dynamically import the Snake component with SSR disabled
 import Snake from '@/components/Games/Snake/Snake';
 import { GameWindow } from '@/components/GameWindow';
+import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 
 const SnakeGame = () => {
   const [isClient, setIsClient] = useState(false);
   const router = useRouter(); // Use the router
+  const completeActivity = useCompleteActivity();
+  const completeActivityCalled = useRef(false);
+
+  useEffect(() => {
+    if (!completeActivityCalled.current) {
+      completeActivityCalled.current = true;
+      completeActivity.mutate(
+        { activityId: 201 },
+        {
+          onSuccess: (res) => {
+            console.log('res', res);
+          },
+        }
+      );
+    }
+  }, []);
   useEffect(() => {
     // Set isClient to true once component has mounted
     setIsClient(true);

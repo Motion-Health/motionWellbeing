@@ -21,7 +21,7 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>Creating moments that move people | Motion Wellbeing</title>
-        <meta property="og:url" content="https://www.motionexercise.co.uk" />
+        <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
@@ -236,10 +236,8 @@ const Index = () => {
           <p>
             If you’d like to know more about how we can help to boost wellbeing
             and make residents&rsquo; dreams come true,{' '}
-            <a href="/how-we-can-help">
-              book a 30-minute demo
-            </a>{' '}
-            call with Zeezy today.
+            <a href="/how-we-can-help">book a 30-minute demo</a> call with Zeezy
+            today.
           </p>
         </div>
       </div>

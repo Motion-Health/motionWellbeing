@@ -299,22 +299,6 @@ const Activities = () => {
           {failMessage}
         </Alert>
       )}
-      {showSuccessBanner && successMessage && (
-        <>
-          <Alert
-            severity="success"
-            sx={{
-              mt: '1rem',
-              mb: '1rem',
-              width: '100%',
-              position: 'relative',
-            }}
-            onClose={() => setShowSuccessBanner(false)} // Add this line for close button
-          >
-            {successMessage}
-          </Alert>
-        </>
-      )}
 
       <ActivitiesFormModal
         toggleActivitiesFormModal={toggleActivitiesFormModal}
@@ -401,6 +385,21 @@ const Activities = () => {
         />
       )}
       <div className="activities_parent">
+        {showSuccessBanner && successMessage && (
+          <>
+            <Alert
+              severity="success"
+              sx={{
+                margin: '1rem 1%',
+                position: 'relative',
+                top: '120px',
+              }}
+              onClose={() => setShowSuccessBanner(false)} // Add this line for close button
+            >
+              {successMessage}
+            </Alert>
+          </>
+        )}
         <Grid
           className="curved-corners activities"
           container

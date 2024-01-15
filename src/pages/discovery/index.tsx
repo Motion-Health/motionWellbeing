@@ -10,7 +10,7 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>Creating moments that move people | Motion Wellbeing</title>
-        <meta property="og:url" content="https://www.motionexercise.co.uk" />
+        <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"

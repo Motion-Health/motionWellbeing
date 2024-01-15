@@ -95,6 +95,7 @@
   margin: auto;
   flex-grow: 0;
   cursor: pointer;
+  margin: 10px;
 }
 
 .card a:hover,

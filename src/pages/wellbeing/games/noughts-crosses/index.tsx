@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { GameWindow } from '@/components/GameWindow';
+import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 
 import styles from './noughts-crosses.module.css';
 
@@ -92,6 +93,22 @@ export default function Game() {
   const currentSquares = history[currentMove];
   const winner = calculateWinner(currentSquares);
   const isDraw = currentSquares.every(Boolean) && !winner;
+  const completeActivity = useCompleteActivity();
+  const completeActivityCalled = useRef(false);
+
+  useEffect(() => {
+    if (!completeActivityCalled.current) {
+      completeActivityCalled.current = true;
+      completeActivity.mutate(
+        { activityId: 204 },
+        {
+          onSuccess: (res) => {
+            console.log('res', res);
+          },
+        }
+      );
+    }
+  }, []);
   function handlePlay(nextSquares) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);

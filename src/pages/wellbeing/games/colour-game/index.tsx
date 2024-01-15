@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { GameWindow } from '@/components/GameWindow';
+import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 import mainTheme from '@/styles/theme.module.css';
 
 import styles from './colourGame.module.css';
@@ -20,6 +21,22 @@ const ColourGame = () => {
   const [gameState, setGameState] = useState('');
   const [score, setScore] = useState(0);
   const [highestScore, setHighestScore] = useState(0);
+  const completeActivity = useCompleteActivity();
+  const completeActivityCalled = useRef(false);
+
+  useEffect(() => {
+    if (!completeActivityCalled.current) {
+      completeActivityCalled.current = true;
+      completeActivity.mutate(
+        { activityId: 203 },
+        {
+          onSuccess: (res) => {
+            console.log('res', res);
+          },
+        }
+      );
+    }
+  }, []);
 
   useEffect(() => {
     gameState === 'next level' && setLevel(level + 1);

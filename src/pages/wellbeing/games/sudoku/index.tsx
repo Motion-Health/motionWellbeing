@@ -1,12 +1,29 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { Game } from '@/components/Games/Sudoku/Game';
 import { GameWindow } from '@/components/GameWindow';
 import { SudokuProvider } from '@/context/SudokuContext';
+import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
 
 const SudokuGame = () => {
   const [isClient, setIsClient] = useState(false);
+  const completeActivity = useCompleteActivity();
+  const completeActivityCalled = useRef(false);
+
+  useEffect(() => {
+    if (!completeActivityCalled.current) {
+      completeActivityCalled.current = true;
+      completeActivity.mutate(
+        { activityId: 207 },
+        {
+          onSuccess: (res) => {
+            console.log('res', res);
+          },
+        }
+      );
+    }
+  }, []);
   const router = useRouter(); // Use the router
   useEffect(() => {
     // Set isClient to true once component has mounted

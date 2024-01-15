@@ -161,7 +161,7 @@ body{
 }
 
 
-.activities{
+.activities_parent .activities{
   background:none;
   margin: 105px 0% !important;
 }

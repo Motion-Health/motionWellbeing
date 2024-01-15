@@ -196,7 +196,7 @@ function addEventsToCalendar(
         .filter(
           (event) => event.isProtected === isToggled || !event.isProtected
         )
-        .slice(0, 2); // Limiting to 2 events for simplicity
+        .slice(0, 3); // Limiting to 2 events for simplicity
 
       eventsForDay.forEach((event, eventIndex) => {
         const lines = splitTextToLines(
@@ -205,16 +205,16 @@ function addEventsToCalendar(
           pdf
         );
         const timeText = dayjs(event.start).format('hh:mm A');
-        pdf.text(lines[0], x + 2, y + 5 + eventIndex * 11);
+        pdf.text(lines[0], x + 2, y + 4 + eventIndex * 9);
         if (lines[1] && lines[1].length != 0) {
           const text = truncateString(lines[1], cellWidth - 31);
-          pdf.text(text, x + 2, y + 9 + eventIndex * 12);
+          pdf.text(text, x + 2, y + 8 + eventIndex * 9);
           if (timeText !== '00:00') {
-            pdf.text(timeText, x + 24, y + 9 + eventIndex * 11);
+            pdf.text(timeText, x + 24, y + 8 + eventIndex * 9);
           }
         } else {
           if (timeText !== '00:00') {
-            pdf.text(timeText, x + 2, y + 9 + eventIndex * 11);
+            pdf.text(timeText, x + 2, y + 8 + eventIndex * 9);
           }
         }
       });
