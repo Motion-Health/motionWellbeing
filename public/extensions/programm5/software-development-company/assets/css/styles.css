@@ -1,0 +1,72 @@
+.filtered-background-section {
+    position: relative;
+    background-image: url('./../images/header.webp');
+    background-size: contain;
+}
+
+.filtered-background-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(255 255 255 / 56%); /* White with adjustable opacity */
+    z-index: -1;
+}
+
+/* Ensure content of the section is on top of the overlay */
+.filtered-background-section * {
+    position: relative;
+    z-index: 1;
+}
+.customIcon{
+    margin: 7px;
+    color: white;
+    fill: #686590;
+    height: 30px;
+    width: auto;
+}
+body{
+    z-index: 0;
+}
+.text-wrapper {
+    height: 100%;
+}
+
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Creates 6 equal columns */
+    grid-gap: 10px;
+}
+
+/* First row of 3 cards */
+.servicesGrid .tab-pane:nth-child(1) { grid-column: 1 / span 2; } /* Spans 2 of 6 columns */
+.servicesGrid .tab-pane:nth-child(2) { grid-column: 3 / span 2; }
+.servicesGrid .tab-pane:nth-child(3) { grid-column: 5 / span 2; }
+
+/* Second row of 2 cards */
+.servicesGrid .tab-pane:nth-child(4) {grid-column: 2 / span 2;} /* Spans 3 of 6 columns */
+.servicesGrid .tab-pane:nth-child(5) {grid-column: 4 / span 2;}
+
+.tab-pane{
+    width: -webkit-fill-available;
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.customTitle{
+    text-align: center;
+}
+
+.servicesStart{
+    position: absolute;
+    bottom: 0; /* Aligns the button to the bottom of the container */
+    left: 50%; /* Centers the button horizontally */
+    transform: translateX(-50%);
+}
