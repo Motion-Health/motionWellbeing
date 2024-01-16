@@ -98,7 +98,7 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   background: black;
-  z-index: -1;
+  z-index: 1;
 }
 section .mbr-background-video,
 section .mbr-background-video-preview {
@@ -954,3 +954,10 @@ blockquote {
     left: -100% !important;
   }
 }
+
+.tab-pane:hover {
+    transform: scale(1.01);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.tag-item {}

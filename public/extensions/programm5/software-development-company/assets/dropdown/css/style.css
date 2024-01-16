@@ -264,3 +264,14 @@
   transition: none !important; }
 
 
+
+
+.tag-item:hover {transform: scale(1.02);}
+
+.cid-tFcktY5MQz img {
+    border-radius: 15px;
+}
+
+.emailForm .btn {
+    margin-left: 20px;
+}

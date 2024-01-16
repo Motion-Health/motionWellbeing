@@ -1,9 +1,21 @@
-import { useAccountContext } from '@/context/AccountContext';
+import React, { useState } from 'react';
+import CountUp from 'react-countup';
+import { TypeAnimation } from 'react-type-animation';
+import VisibilitySensor from 'react-visibility-sensor';
 
+import { useAccountContext } from '@/context/AccountContext';
 const Index = () => {
   const {
     account: { accountStatus },
   } = useAccountContext();
+
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Submit the email to your newsletter service here
+    console.log(`Submitting email ${email}`);
+  };
 
   return (
     <>
@@ -21,6 +33,10 @@ const Index = () => {
       <meta name="description" content="" />
       <title>Software Development Company</title>
       <link rel="canonical" href="https://mobirise.com" />
+      <link
+        href="https://fonts.googleapis.com/css?family=Montserrat"
+        rel="stylesheet"
+      ></link>
       <link
         rel="stylesheet"
         href="extensions/programm5/software-development-company/assets/css/styles.css"
@@ -114,30 +130,15 @@ const Index = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link link display-4" href="#features2-2">
-                    Tools
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link link display-4" href="#features11-7">
-                    Benefits
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link link display-4" href="#tabs1-b">
-                    Services
+                  <a className="nav-link link display-4" href="/blog">
+                    Knowledge Hub
                   </a>
                 </li>
               </ul>
+
               <div className="mbr-section-btn-main" role="tablist">
-                <a
-                  className="btn btn-secondary-outline display-4"
-                  href="#form1-d"
-                >
-                  Contacts
-                </a>
                 <a className="btn btn-secondary display-4" href="#pricing1-c">
-                  Buy now
+                  Find how we can help
                 </a>
               </div>
             </div>
@@ -155,7 +156,19 @@ const Index = () => {
               <div className="title-wrapper">
                 <h1 className="mbr-section-title mbr-fonts-style display-1">
                   Want to unlock the power of digital marketing for your{' '}
-                  <span>care home?</span>
+                  <TypeAnimation
+                    sequence={[
+                      // Same substring at the start will only be typed out once, initially
+                      'Carehome?',
+                      3000,
+                      'Care Agency?',
+                      3000,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    style={{ fontSize: '1em', display: 'inline-block' }}
+                    repeat={Infinity}
+                  />
                 </h1>
                 <div className="tags-wrapper">
                   <div className="tags-wrap">
@@ -361,6 +374,53 @@ const Index = () => {
       </section>
       <section
         data-bs-version="5.1"
+        className="features6 programm5 cid-tFcgiGZ8RJ"
+        id="features6-6"
+      >
+        <div className="container text-center">
+          <div className="row">
+            <div className="col-12 col-lg-4 card">
+              <div className="card-wrapper">
+                <h3 className="mbr-card-title mbr-fonts-style display-2">
+                  <strong>
+                    <CountUp start={0} end={2000} duration={3} redraw={true}>
+                      {({ countUpRef, start }) => (
+                        <VisibilitySensor onChange={start} delayedCall>
+                          <span ref={countUpRef} />
+                        </VisibilitySensor>
+                      )}
+                    </CountUp>
+                  </strong>
+                </h3>
+                <p className="mbr-desc mbr-fonts-style display-7">
+                  Enquiries Generated
+                </p>
+              </div>
+            </div>
+            <div className="col-12 col-lg-4 card">
+              <div className="card-wrapper">
+                <h3 className="mbr-card-title mbr-fonts-style display-2">
+                  <strong>
+                    <CountUp start={0} end={100} duration={3} redraw={true}>
+                      {({ countUpRef, start }) => (
+                        <VisibilitySensor onChange={start} delayedCall>
+                          <span ref={countUpRef} />
+                        </VisibilitySensor>
+                      )}
+                    </CountUp>
+                    %
+                  </strong>
+                </h3>
+                <p className="mbr-desc mbr-fonts-style display-7">
+                  Of Clients Said They'd Recommend Motion
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        data-bs-version="5.1"
         className="tabs1 programm5 cid-tFcgABlMo6"
         id="tabs1-b"
       >
@@ -460,140 +520,6 @@ const Index = () => {
       </section>
       <section
         data-bs-version="5.1"
-        className="content6 programm5 cid-tFcgz9Nwuf"
-        id="content6-a"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-lg-4">
-              <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  The quality of the software is assessed
-                </h2>
-              </div>
-            </div>
-            <div className="col-12 col-lg-8">
-              <ul className="list mbr-fonts-style display-7">
-                <li className="item-wrap">
-                  Software should meet its intended purpose
-                </li>
-                <li className="item-wrap">
-                  The software should be dependable and consistently perform
-                </li>
-                <li className="item-wrap">
-                  Performance assessment involves evaluating how efficiently the
-                  software operates
-                </li>
-                <li className="item-wrap">
-                  Usability assessment focuses on how easy it is for users to
-                  interact with the software
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        data-bs-version="5.1"
-        className="features6 programm5 cid-tFcgiGZ8RJ"
-        id="features6-6"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper">
-                <h3 className="mbr-card-title mbr-fonts-style display-2">
-                  2,000+
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Enquiries Generated
-                </p>
-              </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper">
-                <h3 className="mbr-card-title mbr-fonts-style display-2">
-                  <strong>100%</strong>
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Clients Said They'd Recommend Motion
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        data-bs-version="5.1"
-        className="features2 programm5 cid-tFcg8mm6Is"
-        id="features2-2"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  Software company tools
-                </h2>
-              </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper">
-                <div className="icon-wrapper">
-                  <span className="mbr-iconfont icon_1 mobi-mbri-sites mobi-mbri" />
-                </div>
-                <h3 className="mbr-card-title mbr-fonts-style display-7">
-                  <strong>
-                    Integrated Development <br /> Environments
-                  </strong>
-                </h3>
-                <p className="mbr-text mbr-fonts-style display-7">
-                  IDE are comprehensive software applications that provide
-                  developers with a centralized workspace for writing, testing,
-                  and debugging code.
-                </p>
-              </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper">
-                <div className="icon-wrapper">
-                  <span className="mbr-iconfont icon_2 mobi-mbri-preview mobi-mbri" />
-                </div>
-                <h3 className="mbr-card-title mbr-fonts-style display-7">
-                  <strong>
-                    Version Control <br /> Systems
-                  </strong>
-                </h3>
-                <p className="mbr-text mbr-fonts-style display-7">
-                  VCSs, such as Git and Subversion (SVN), allow developers to
-                  collaborate seamlessly, work on different branches, merge code
-                  changes, and revert to previous versions if needed.
-                </p>
-              </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper">
-                <div className="icon-wrapper">
-                  <span className="mbr-iconfont icon_3 mobi-mbri-users mobi-mbri" />
-                </div>
-                <h3 className="mbr-card-title mbr-fonts-style display-7">
-                  <strong>
-                    Collaboration <br /> Tools
-                  </strong>
-                </h3>
-                <p className="mbr-text mbr-fonts-style display-7">
-                  Software development projects often involve multiple team
-                  members working on different tasks simultaneously. Project
-                  management and collaboration tools help streamline
-                  communication.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        data-bs-version="5.1"
         className="features3 programm5 cid-tFcgeFyM9G"
         id="features3-4"
       >
@@ -670,104 +596,6 @@ const Index = () => {
                     Read more
                   </p>
                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        data-bs-version="5.1"
-        className="features1 programm5 cid-tFcg8ZRFB1"
-        id="features1-3"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 card">
-              <div className="card-wrapper card_1">
-                <p className="mbr-text mbr-fonts-style display-5">
-                  In today's world, software development companies are becoming
-                  increasingly important as technology continues to advance. In
-                  this article, we will discuss a software development company,
-                  which specializes in developing innovative software solutions
-                  for businesses across various industries
-                </p>
-              </div>
-            </div>
-            <div className="col-12 card">
-              <div className="card-wrapper card_2">
-                <p className="mbr-number_1 mbr-fonts-style display-1">
-                  &gt; 50
-                </p>
-                <p className="mbr-text mbr-fonts-style display-5">
-                  software development services, including web application
-                  development
-                </p>
-              </div>
-            </div>
-            <div className="col-12 card">
-              <div className="card-wrapper card_3">
-                <p className="mbr-number_2 mbr-fonts-style display-1">100%</p>
-                <p className="mbr-text mbr-fonts-style display-5">
-                  implementation of your orders with all tasks in mind
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        data-bs-version="5.1"
-        className="features11 programm5 cid-tFcgppmgWr"
-        id="features11-7"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-lg-4">
-              <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  Appreciate the key benefits of the software
-                </h2>
-              </div>
-            </div>
-            <div className="col-12 col-lg-8">
-              <div className="cards-wrapper">
-                <h2 className="mbr-section-subtitle mbr-fonts-style display-4">
-                  Common advantages
-                </h2>
-                <div className="card-wrapper">
-                  <div className="title-wrap">
-                    <h3 className="mbr-card-title mbr-fonts-style display-5">
-                      Increased efficiency
-                    </h3>
-                  </div>
-                  <p className="mbr-text mbr-fonts-style display-7">
-                    Products can automate repetitive tasks, streamline
-                    workflows, and provide tools and features that enhance
-                    efficiency
-                  </p>
-                </div>
-                <div className="card-wrapper">
-                  <div className="title-wrap">
-                    <h3 className="mbr-card-title mbr-fonts-style display-5">
-                      Improved accuracy
-                    </h3>
-                  </div>
-                  <p className="mbr-text mbr-fonts-style display-7">
-                    Products can help minimize human errors by automating
-                    calculations, performing complex operations with precision
-                  </p>
-                </div>
-                <div className="card-wrapper">
-                  <div className="title-wrap">
-                    <h3 className="mbr-card-title mbr-fonts-style display-5">
-                      Enhanced scalability
-                    </h3>
-                  </div>
-                  <p className="mbr-text mbr-fonts-style display-7">
-                    Products can be designed to scale and adapt to changing
-                    needs and requirements
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -963,17 +791,16 @@ const Index = () => {
               <div className="card-wrapper">
                 <div className="card-wrap">
                   <div className="icon-wrapper">
-                    <span className="mbr-iconfont mobi-mbri-sites mobi-mbri" />
+                    <img
+                      className="partnerQuote"
+                      src="/extensions/programm5/assets/images/claire.jpg"
+                      alt="Claire - CEO"
+                    />
                   </div>
                   <p className="mbr-text mbr-fonts-style display-7">
-                    These are companies that specialize in providing software
-                    development services. They have teams of skilled developers,
-                    designers, and project managers who work closely with the
-                    client to develop custom software solutions. Software
-                    development firms can handle projects of various sizes and
-                    complexities. Technology consultancies offer expertise and
-                    guidance on software development strategies, technology
-                    selection, and project management.
+                    "The Motion team are incredible — they're very skilled and
+                    we love having them working with our care homes." — Claire,
+                    CEO, Sheffcare
                   </p>
                 </div>
               </div>
@@ -999,15 +826,15 @@ const Index = () => {
                 <div className="person-wrapper">
                   <div className="person-wrap">
                     <img
-                      src="extensions/programm5/software-development-company/assets/images/image12.jpg"
+                      src="/extensions/programm5/assets/images/zeezy-headshot.png"
                       alt=""
                     />
                     <div className="name-wrap">
                       <p className="mbr-name mbr-fonts-style display-7">
-                        Clara West
+                        Zeezy
                       </p>
                       <p className="mbr-role mbr-fonts-style display-4">
-                        Senior manager
+                        Founder & CEO
                       </p>
                     </div>
                   </div>
@@ -1122,280 +949,58 @@ const Index = () => {
       </section>
       <section
         data-bs-version="5.1"
-        className="pricing1 programm5 cid-tFcgBSI0jn"
-        id="pricing1-c"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  Our best prices
-                </h2>
-              </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper card_1">
-                <div className="title-wrap">
-                  <h3 className="mbr-card-title mbr-fonts-style display-5">
-                    Monthly
-                  </h3>
-                  <p className="mbr-price mbr-fonts-style display-1">
-                    <strong>$20</strong>
-                  </p>
-                  <p className="mbr-desc mbr-fonts-style display-4">
-                    What you get:
-                  </p>
-                </div>
-                <div className="list-wrap">
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Access to the software</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Regular updates</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Cloud storage</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Multi-platform access</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-close mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Integration</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-close mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Usage analytics</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-close mobi-mbri" />
-                  </div>
-                </div>
-                <div className="mbr-section-btn">
-                  <a className="btn btn-secondary-outline display-4" href="#">
-                    Start now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper card_2">
-                <div className="best-price">
-                  <p className="mbr-best mbr-fonts-style display-4">
-                    The best price
-                  </p>
-                </div>
-                <div className="title-wrap">
-                  <h3 className="mbr-card-title mbr-fonts-style display-5">
-                    Yearly
-                  </h3>
-                  <p className="mbr-price mbr-fonts-style display-1">
-                    <strong>$100</strong>
-                  </p>
-                  <p className="mbr-desc mbr-fonts-style display-4">
-                    What you get:
-                  </p>
-                </div>
-                <div className="list-wrap">
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Access to the software</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Regular updates</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Cloud storage</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Multi-platform access</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Integration</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Usage analytics</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-close mobi-mbri" />
-                  </div>
-                </div>
-                <div className="mbr-section-btn">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Start now
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper card_3">
-                <div className="title-wrap">
-                  <h3 className="mbr-card-title mbr-fonts-style display-5">
-                    Lifetime
-                  </h3>
-                  <p className="mbr-price mbr-fonts-style display-1">
-                    <strong>$500</strong>
-                  </p>
-                  <p className="mbr-desc mbr-fonts-style display-4">
-                    What you get:
-                  </p>
-                </div>
-                <div className="list-wrap">
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Access to the software</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Regular updates</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Cloud storage</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Multi-platform access</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Integration</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                  <div className="list-item">
-                    <p className="mbr-list mbr-fonts-style display-4">
-                      <strong>Usage analytics</strong>
-                    </p>
-                    <div className="dot" />
-                    <span className="mbr-iconfont mobi-mbri-success mobi-mbri" />
-                  </div>
-                </div>
-                <div className="mbr-section-btn">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Start now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section
-        data-bs-version="5.1"
         className="footer1 programm5 cid-tFcguy0QTa"
         once="footers"
         id="footer1-9"
       >
         <div className="container">
-          <div className="row">
+          <div className="row footMargin">
             <div className="col-12 col-lg-6">
               <div className="title-wrapper">
-                <a href="#">
-                  <h2 className="mbr-section-title mbr-fonts-style display-2">
-                    SDC
-                  </h2>
-                </a>
+                <span className="navbar-logo">
+                  <a href="extensions/programm5/index.html">
+                    <img
+                      src="extensions/programm5/software-development-company/assets/images/logo.svg"
+                      alt=""
+                    />
+                  </a>
+                </span>
               </div>
             </div>
-            <div className="col-12 col-lg-2">
-              <div className="list-wrapper">
-                <h4 className="mbr-list-title mbr-fonts-style display-7">
-                  <strong>Company</strong>
-                </h4>
-                <ul className="list_main mbr-fonts-style display-4">
-                  <li className="item-wrap">Products</li>
-                  <li className="item-wrap">Development</li>
-                  <li className="item-wrap">Location</li>
-                  <li className="item-wrap">Contacts</li>
-                </ul>
-              </div>
+
+            <div className="col-12 col-lg-6">
+              <label className="mbr-desc mbr-fonts-style display-7 signupText">
+                Signup to our newsletter:
+              </label>
+              <form className="emailForm" onSubmit={handleSubmit}>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  className="form-control display-7"
+                  value={email}
+                  placeholder="Your email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button
+                  className="signUp btn btn-secondary display-4"
+                  type="submit"
+                >
+                  Sign up
+                </button>
+              </form>
             </div>
-            <div className="col-12 col-lg-2">
-              <div className="list-wrapper">
-                <h4 className="mbr-list-title mbr-fonts-style display-7">
-                  <strong>Programs</strong>
-                </h4>
-                <ul className="list mbr-fonts-style display-4">
-                  <li className="item-wrap">GIT</li>
-                  <li className="item-wrap">Blog</li>
-                  <li className="item-wrap">Dev</li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-12 col-lg-2">
-              <div className="list-wrapper">
-                <h4 className="mbr-list-title mbr-fonts-style display-7">
-                  <strong>Team</strong>
-                </h4>
-                <ul className="list mbr-fonts-style display-4">
-                  <li className="item-wrap">Developers</li>
-                  <li className="item-wrap">Managers</li>
-                  <li className="item-wrap">Creators</li>
-                </ul>
-              </div>
-            </div>
+          </div>
+          <div className="row">
             <div className="col-12 col-lg-6">
               <div className="contacts-wrapper">
                 <ul className="list mbr-fonts-style display-4">
                   <li className="item-wrap">
-                    241 Fanny Mission, Port Zariabury
+                    Kroto Innovation Centre, North Campus, 318 Broad Lane,
+                    Sheffield
                   </li>
-                  <li className="item-wrap">mobi@rise.com</li>
-                  <li className="item-wrap">+9(876) 543 21 10</li>
+                  <li className="item-wrap">info@motion.org.uk</li>
+                  <li className="item-wrap">+44 7543 858684</li>
                   <li className="item-wrap">Privacy Policy</li>
                   <li className="item-wrap">Terms of Use</li>
                 </ul>
@@ -1404,49 +1009,33 @@ const Index = () => {
             <div className="col-12 col-lg-6">
               <div className="social-row">
                 <div className="soc-item">
-                  <a href="https://twitter.com/mobirise" target="_blank">
+                  <a href="https://instagram.com/motion.org.uk" target="_blank">
+                    <span className="mbr-iconfont socicon socicon-instagram" />
+                  </a>
+                </div>
+                <div className="soc-item">
+                  <a href="https://facebook.com/motion.org.uk" target="_blank">
                     <span className="mbr-iconfont socicon socicon-facebook" />
                   </a>
                 </div>
                 <div className="soc-item">
-                  <a href="https://twitter.com/mobirise" target="_blank">
-                    <span className="mbr-iconfont socicon socicon-github" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a href="https://twitter.com/mobirise" target="_blank">
-                    <span className="mbr-iconfont socicon socicon-facebook" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a href="https://twitter.com/mobirise" target="_blank">
+                  <a
+                    href="https://linkedin.com/company/motion-org-uk"
+                    target="_blank"
+                  >
                     <span className="mbr-iconfont socicon socicon-linkedin" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a href="https://twitter.com/mobirise" target="_blank">
-                    <span className="mbr-iconfont socicon socicon-telegram" />
                   </a>
                 </div>
               </div>
             </div>
             <div className="col-12">
               <p className="mbr-fonts-style copyright display-4">
-                © Copyright 2030 Mobirise - All Rights Reserved
+                © Copyright 2030 Motion - All Rights Reserved
               </p>
             </div>
           </div>
         </div>
       </section>
-      <center>
-        <font size={2}>
-          This is the free demo result. For a full version of this website,
-          please go to{' '}
-          <a href="https://www6.waybackmachinedownloader.com/website-downloader-online/scrape-all-files/">
-            Website Downloader
-          </a>
-        </font>
-      </center>
     </>
   );
 };

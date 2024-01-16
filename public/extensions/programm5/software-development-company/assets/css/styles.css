@@ -1,7 +1,8 @@
 .filtered-background-section {
     position: relative;
     background-image: url('./../images/header.webp');
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
 }
 
 .filtered-background-section::before {
@@ -58,6 +59,7 @@ body{
     background-color: white;
     position: relative;
     padding-bottom: 70px;
+    transition: all 0.15s;
 }
 
 .customTitle{
@@ -69,4 +71,22 @@ body{
     bottom: 0; /* Aligns the button to the bottom of the container */
     left: 50%; /* Centers the button horizontally */
     transform: translateX(-50%);
+}
+
+.emailForm{
+  display: inline-flex;
+    width: -webkit-fill-available;
+}
+
+.signUp{
+  margin-left: 18px;
+  min-width: fit-content;
+}
+.footerMargin{margin-bottom: 50px;}
+
+.signupText{
+  color:white;
+}
+.partnerQuote{
+  border-radius: 10px;
 }

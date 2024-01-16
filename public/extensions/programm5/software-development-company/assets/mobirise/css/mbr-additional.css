@@ -2,7 +2,7 @@ body {
   font-family: Sofia Sans;
 }
 .display-1 {
-  font-family: 'Sofia Sans', sans-serif;
+  font-family: 'Montserrat';
   font-size: 2.875rem;
   line-height: 150%;
 }
@@ -10,7 +10,7 @@ body {
   font-size: 3.59375rem;
 }
 .display-2 {
-  font-family: 'Sofia Sans', sans-serif;
+  font-family: 'Montserrat';
   font-size: 2.625rem;
   line-height: 100%;
 }
@@ -18,7 +18,7 @@ body {
   font-size: 3.28125rem;
 }
 .display-4 {
-  font-family: 'Sofia Sans', sans-serif;
+  font-family: 'Montserrat';
   font-size: 1.375rem;
   line-height: 24px;
 }
@@ -34,8 +34,8 @@ body {
   font-size: 2.5rem;
 }
 .display-7 {
-  font-family: 'Sofia Sans', sans-serif;
-  font-size: 1.5rem;
+  font-family: 'Montserrat';
+  font-size: 1.3rem;
   line-height: 150%;
 }
 .display-7 > .mbr-iconfont {
@@ -719,7 +719,7 @@ a {
 .mbr-section-btn-main .btn-secondary-outline,
 .mbr-section-btn .btn-secondary,
 .mbr-section-btn-main .btn-secondary {
-  border: 2px solid #686590!important;
+  border: 2px solid #ffffff!important;
 }
 .mbr-section-btn .btn-secondary-outline:hover,
 .mbr-section-btn-main .btn-secondary-outline:hover,
@@ -979,6 +979,7 @@ a {
     margin: 0;
     border-radius: 8px;
     border: 2px solid transparent;
+    display: flex;
   }
   .cid-tFcg6m8FPY .lg_brand {
     margin: 0 1rem;
@@ -1158,10 +1159,11 @@ a {
   padding: 0;
   margin: 8px 0;
 }
-.cid-tFcg6m8FPY .navbar .navbar-logo img {
-  /* max-height: 50px; */
+.navbar-logo img {
+  max-height: 50px;
   object-fit: contain;
   border-radius: 8px;
+  float: left;
 }
 .cid-tFcg6m8FPY .navbar .navbar-collapse {
   justify-content: center;
@@ -1526,6 +1528,8 @@ a {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   min-width: max-content;
   width: -webkit-fill-available;
+  transition: all 0.15s;
+  cursor: pointer;
 }
 .cid-tFcg6xOSs8 .title-wrapper .tags-wrapper .tags-wrap .tag-item .mbr-iconfont {
   font-size: 44px;
@@ -1579,9 +1583,9 @@ a {
   color: #686590;
 }
 .cid-tFcgiGZ8RJ {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #ecf7fd;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
 }
 .cid-tFcgiGZ8RJ .mbr-fallback-image.disabled {
   display: none;
@@ -1743,7 +1747,7 @@ a {
 .cid-tFcgeFyM9G {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #b4dcfa;
+  background-color: #68658f;
 }
 .cid-tFcgeFyM9G .mbr-fallback-image.disabled {
   display: none;
@@ -1832,6 +1836,8 @@ a {
 .cid-tFcgeFyM9G .card .card-wrapper .link-wrap .mbr-link {
   display: inline-flex;
   margin-bottom: 0;
+  font-weight: bold;
+  text-decoration: underline;
 }
 .cid-tFcgeFyM9G .mbr-section-title {
   color: #222222;
@@ -1842,6 +1848,7 @@ a {
 .cid-tFcgeFyM9G .mbr-text {
   color: #222222;
   text-align: center;
+  font-size: 1.3rem;
 }
 .cid-tFcgeFyM9G .mbr-card-title {
   color: #222222;
@@ -2464,7 +2471,7 @@ a {
 .cid-tFckpILCGl {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #fdf2ec;
+  background-color: #f8f3ff;
 }
 .cid-tFckpILCGl .mbr-fallback-image.disabled {
   display: none;
@@ -2558,7 +2565,7 @@ a {
 .cid-tFcgDM3awY {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: #fdf2ec;
+  background-color: #68658f;
 }
 .cid-tFcgDM3awY .mbr-fallback-image.disabled {
   display: none;
@@ -2685,18 +2692,19 @@ a {
 }
 .cid-tFcgDM3awY .dragArea.row .mbr-section-btn .btn {
   display: inline-flex;
+  width: 100%;
 }
 .cid-tFcgDM3awY .mbr-section-title {
-  color: #222222;
+  color: #ffffff;
 }
 .cid-tFcgDM3awY .mbr-desc {
-  color: #222222;
+  color: #ffffff;
 }
 .cid-tFcgDM3awY .mbr-name {
-  color: #222222;
+  color: #ffffff;
 }
 .cid-tFcgDM3awY .mbr-role {
-  color: #222222;
+  color: #ffffff;
 }
 .cid-tFcktY5MQz {
   padding-top: 5rem;
@@ -2733,7 +2741,7 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .cid-tFcktY5MQz .mbr-section-title {
   color: #ffffff;
@@ -2928,6 +2936,7 @@ a {
 }
 .cid-tFcguy0QTa .title-wrapper a {
   display: block;
+  float: left;
 }
 .cid-tFcguy0QTa .title-wrapper a .mbr-section-title {
   margin-bottom: 24px;
