@@ -49,7 +49,7 @@ body{
 }
 
 .customServiceIcon{
-  fill: white;
+  fill: #3c5d8c;
   display: flex;
   justify-content: center;
   padding: 8px;
@@ -57,7 +57,7 @@ body{
   height: auto;
   position: absolute;
   top: -25px;
-  background-color: #395a89;
+  background-color: #ecedf4;
   border-radius: 27px;
 }
 
@@ -96,6 +96,12 @@ body{
   color:white;
 }
 
+.statTitle{
+  margin: 0 !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+}
+
 @media (max-width: 991px) {
 .servicesGrid{
   display: flex;
@@ -115,7 +121,7 @@ body{
     width: -webkit-fill-available;
     padding: 30px;
     border-radius: 10px;
-    background-color: #3a5b8a;
+    background-color: #EBEDF3;
     position: relative;
     padding-bottom: 70px;
     transition: all 0.15s;

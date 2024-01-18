@@ -20,7 +20,7 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>Knowledge hub | Motion Wellbeing</title>
+        <title>Knowledge hub | Motion Marketing</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
@@ -98,7 +98,7 @@ const Index = () => {
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="/extensions/programm5/index.html">
+                <a href="//">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""

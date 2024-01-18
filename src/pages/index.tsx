@@ -31,7 +31,7 @@ const Index = () => {
         type="image/x-icon"
       />
       <meta name="description" content="" />
-      <title>Motion</title>
+      <title>Motion Marketing</title>
       <link rel="canonical" href="https://mobirise.com" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -87,7 +87,7 @@ const Index = () => {
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="extensions/programm5/index.html">
+                <a href="/">
                   <img
                     src="extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -122,10 +122,7 @@ const Index = () => {
                 data-app-modern-menu="true"
               >
                 <li className="nav-item">
-                  <a
-                    className="nav-link link display-4"
-                    href="extensions/programm5/index.html"
-                  >
+                  <a className="nav-link link display-4" href="/">
                     Home
                   </a>
                 </li>
@@ -157,6 +154,10 @@ const Index = () => {
           <div className="row">
             <div className="col-12">
               <div className="title-wrapper">
+                <h2 className="mbr-section-title statTitle mbr-fonts-style display-2">
+                  <span>90%</span> of privately funded families find their
+                  chosen care service online
+                </h2>
                 <h1 className="mbr-section-title mbr-fonts-style display-1">
                   Want to unlock the power of digital marketing for your{' '}
                   <TypeAnimation
@@ -186,7 +187,7 @@ const Index = () => {
                         <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
                       </svg>
                       <p className="mbr-tag mbr-fonts-style display-7">
-                        Website Strategy
+                        Marketing Strategy
                       </p>
                     </div>
                     <div className="tag-item">
@@ -223,7 +224,7 @@ const Index = () => {
                 <div className="mbr-section-btn">
                   <a
                     className="btn btn-secondarydisplay-4 services-button btn-secondary"
-                    href="#"
+                    href="#features6-6"
                   >
                     Our Services
                   </a>
@@ -630,9 +631,9 @@ const Index = () => {
                   in search engine results pages, thereby increasing the amount
                   of organic (or free) traffic your website receives.
                 </p>
-                <a className="link-wrap" href="#">
+                <a className="link-wrap" href="/blog/SEO-Explained/">
                   <p className="mbr-link mbr-fonts-style display-4">
-                    Read more
+                    Read blog
                   </p>
                 </a>
               </div>
@@ -658,9 +659,12 @@ const Index = () => {
                   information; extorting money from users; or interrupting
                   normal business processes.
                 </p>
-                <a className="link-wrap" href="#">
+                <a
+                  className="link-wrap"
+                  href="blog/Protect-your-carehome-with-this-Cyber-Security-Cheatsheat/"
+                >
                   <p className="mbr-link mbr-fonts-style display-4">
-                    Read more
+                    Read blog
                   </p>
                 </a>
               </div>
@@ -684,9 +688,12 @@ const Index = () => {
                   number of people aged 85 and over set to double in the next 25
                   years, the demand for care is only going to increase.
                 </p>
-                <a className="link-wrap" href="#">
+                <a
+                  className="link-wrap"
+                  href="/blog/How-to-attract-more-careers-to-your-home/"
+                >
                   <p className="mbr-link mbr-fonts-style display-4">
-                    Read more
+                    Read blog
                   </p>
                 </a>
               </div>
@@ -923,7 +930,7 @@ const Index = () => {
             <div className="col-12 col-lg-6">
               <div className="title-wrapper">
                 <span className="navbar-logo">
-                  <a href="extensions/programm5/index.html">
+                  <a href="/">
                     <img
                       src="extensions/programm5/software-development-company/assets/images/logo.svg"
                       alt=""
@@ -967,8 +974,21 @@ const Index = () => {
                   </li>
                   <li className="item-wrap">info@motion.org.uk</li>
                   <li className="item-wrap">+44 7543 858684</li>
-                  <li className="item-wrap">Privacy Policy</li>
-                  <li className="item-wrap">Terms of Use</li>
+                  <li className="item-wrap">
+                    <a href="public/assets/documents/GDPR-Policy.pdf">
+                      GDPR Policy
+                    </a>
+                  </li>
+                  <li className="item-wrap">
+                    <a href="public/assets/documents/Our-Values.pdf">
+                      Our Values
+                    </a>
+                  </li>
+                  <li className="item-wrap">
+                    <a href="public/assets/documents/Privacy-Policy.pdf">
+                      Privacy Policy
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -994,7 +1014,7 @@ const Index = () => {
                 </div>
                 <div className="soc-item">
                   <a
-                    href="https://www.tiktok.com/@motion_org_uk"
+                    href="https://www.tiktok.com/@zeezy_motion"
                     target="_blank"
                   >
                     <span className="mbr-iconfont socicon socicon-tiktok" />
@@ -1004,7 +1024,7 @@ const Index = () => {
             </div>
             <div className="col-12">
               <p className="mbr-fonts-style copyright display-4">
-                © Copyright 2030 Motion Health Ltd - All Rights Reserved
+                © Copyright 2024 Motion Health Ltd - All Rights Reserved
               </p>
             </div>
           </div>

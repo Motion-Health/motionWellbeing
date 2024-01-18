@@ -1,14 +1,14 @@
 .blogHero{
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #000;
-  text-align: center;
-  background-color: #73b1f9;
-  font-size: 2rem;
-  width: 100%;
-  border-radius: 0px 0px 50px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    background-color: #686590;
+    font-size: 2rem;
+    width: 100%;
+    border-radius: 0px 0px 50px 50px;
 }
 
 
@@ -32,7 +32,7 @@
 }
 .blogHeroContent h1{
   font-size: 1.5em;
-  margin-bottom: 0px;
+  margin-bottom: 20px 
 }
 .blogHeroContent h2{
   font-size: 0.5em;
@@ -42,6 +42,7 @@
 .blogHeroContent p{
   font-size: 0.5em;
   margin-bottom: 0px;
+  width: 80vw;
 }
 @media screen and (max-width: 900px) {
   .Cards{
