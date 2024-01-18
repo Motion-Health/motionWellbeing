@@ -31,7 +31,7 @@ const Index = () => {
         type="image/x-icon"
       />
       <meta name="description" content="" />
-      <title>Software Development Company</title>
+      <title>Motion</title>
       <link rel="canonical" href="https://mobirise.com" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -137,8 +137,11 @@ const Index = () => {
               </ul>
 
               <div className="mbr-section-btn-main" role="tablist">
-                <a className="btn btn-secondary display-4" href="#pricing1-c">
-                  Find how we can help
+                <a
+                  className="btn btn-secondary display-4"
+                  href="https://calendly.com/zeezy-1/motion"
+                >
+                  Book a Discovery Call
                 </a>
               </div>
             </div>
@@ -152,17 +155,17 @@ const Index = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-12 col-lg-7">
+            <div className="col-12">
               <div className="title-wrapper">
                 <h1 className="mbr-section-title mbr-fonts-style display-1">
                   Want to unlock the power of digital marketing for your{' '}
                   <TypeAnimation
                     sequence={[
                       // Same substring at the start will only be typed out once, initially
-                      'Carehome?',
+                      'Care Home?',
                       3000,
-                      'Care Agency?',
-                      3000,
+                      ' ',
+                      100,
                     ]}
                     wrapper="span"
                     speed={50}
@@ -183,19 +186,20 @@ const Index = () => {
                         <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
                       </svg>
                       <p className="mbr-tag mbr-fonts-style display-7">
-                        Brand Strategy
+                        Website Strategy
                       </p>
                     </div>
                     <div className="tag-item">
                       <svg
                         className="customIcon"
                         xmlns="http://www.w3.org/2000/svg"
-                        height={24}
+                        height="24"
                         viewBox="0 -960 960 960"
-                        width={24}
+                        width="24"
                       >
-                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-82v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q20-22 36-47.5t26.5-53q10.5-27.5 16-56.5t5.5-59q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z" />
+                        <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
                       </svg>
+
                       <p className="mbr-tag mbr-fonts-style display-7">
                         SEO &amp; Social Media
                       </p>
@@ -204,11 +208,11 @@ const Index = () => {
                       <svg
                         className="customIcon"
                         xmlns="http://www.w3.org/2000/svg"
-                        height={24}
+                        height="24"
                         viewBox="0 -960 960 960"
-                        width={24}
+                        width="24"
                       >
-                        <path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z" />
+                        <path d="M40-120v-80h880v80H40Zm120-120q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v440q0 33-23.5 56.5T800-240H160Zm0-80h640v-440H160v440Zm0 0v-440 440Z" />
                       </svg>
                       <p className="mbr-tag mbr-fonts-style display-7">
                         Website Design
@@ -217,8 +221,11 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="mbr-section-btn">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Learn More
+                  <a
+                    className="btn btn-secondarydisplay-4 services-button btn-secondary"
+                    href="#"
+                  >
+                    Our Services
                   </a>
                 </div>
               </div>
@@ -362,10 +369,11 @@ const Index = () => {
                   We know how important it is find a partner that really
                   understands you. At Motion we have over 5 years experience
                   working within the social care sector and showcasing our
-                  clients incredible stories. Whether it's recruiting staff,
-                  increasing occupancy with self-funding families or improving
-                  brand awareness — you can rest assured that Motion will take
-                  care of the you.
+                  clients incredible stories. Whether it's
+                  <strong> recruiting staff</strong>,
+                  <strong> increasing occupancy</strong> with self-funding
+                  families or <strong>improving brand awareness</strong> — you
+                  can rest assured that Motion will take care of the you.
                 </p>
               </div>
             </div>
@@ -390,6 +398,7 @@ const Index = () => {
                         </VisibilitySensor>
                       )}
                     </CountUp>
+                    +
                   </strong>
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
@@ -428,15 +437,24 @@ const Index = () => {
           <div className="row">
             <div className="col-12">
               <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
+                <h2 className="mbr-section-title mbr-fonts-style display-2  blacktitle ">
                   Our Services
                 </h2>
               </div>
             </div>
             <div className="servicesGrid">
               <div id="tab1" className="tab-pane in active">
+                <svg
+                  className="customServiceIcon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height={24}
+                  viewBox="0 -960 960 960"
+                  width={24}
+                >
+                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
+                </svg>
                 <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                  Brand Strategy
+                  Marketing Strategy
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
                   Discover the power of compelling brand strategy. Our expert
@@ -444,13 +462,17 @@ const Index = () => {
                   audience, ensuring your brand stands out in today's
                   competitive marketplace.
                 </p>
-                <div className="mbr-section-btn servicesStart">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Start now
-                  </a>
-                </div>
               </div>
               <div id="tab2" className="tab-pane">
+                <svg
+                  className="customServiceIcon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z" />
+                </svg>
                 <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
                   SEO
                 </h3>
@@ -460,13 +482,17 @@ const Index = () => {
                   engine results, driving more organic traffic and helping you
                   reach the right customers.
                 </p>
-                <div className="mbr-section-btn servicesStart">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Start now
-                  </a>
-                </div>
               </div>
               <div id="tab3" className="tab-pane" role="tabpanel">
+                <svg
+                  className="customServiceIcon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                </svg>
                 <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
                   Social Media Management
                 </h3>
@@ -476,13 +502,17 @@ const Index = () => {
                   campaigns, tailored to foster community and build lasting
                   relationships with your followers.
                 </p>
-                <div className="mbr-section-btn servicesStart">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Start now
-                  </a>
-                </div>
               </div>
               <div id="tab4" className="tab-pane" role="tabpanel">
+                <svg
+                  className="customServiceIcon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h420v-140H160v140Zm500 0h140v-360H660v360ZM160-460h420v-140H160v140Z" />
+                </svg>
                 <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
                   Website
                 </h3>
@@ -492,13 +522,17 @@ const Index = () => {
                   user-friendly websites that not only look great but also
                   perform seamlessly on all devices.
                 </p>
-                <div className="mbr-section-btn servicesStart">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Start now
-                  </a>
-                </div>
               </div>
               <div id="tab5" className="tab-pane" role="tabpanel">
+                <svg
+                  className="customServiceIcon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path d="M280-240q-17 0-28.5-11.5T240-280v-80h520v-360h80q17 0 28.5 11.5T880-680v600L720-240H280ZM80-280v-560q0-17 11.5-28.5T120-880h520q17 0 28.5 11.5T680-840v360q0 17-11.5 28.5T640-440H240L80-280Zm520-240v-280H160v280h440Zm-440 0v-280 280Z" />
+                </svg>
                 <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
                   Chatbots
                 </h3>
@@ -508,10 +542,54 @@ const Index = () => {
                   your customers, improving response times and boosting overall
                   satisfaction.
                 </p>
-                <div className="mbr-section-btn servicesStart">
-                  <a className="btn btn-secondary display-4" href="#">
-                    Start now
-                  </a>
+              </div>
+              <div id="tab5" className="tab-pane" role="tabpanel">
+                <svg
+                  className="customServiceIcon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z" />
+                </svg>
+                <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
+                  Branding
+                </h3>
+                <p className="mbr-desc mbr-fonts-style display-7">
+                  A clear set of guidelines that consistently communicates your
+                  brand, its values and what makes it special.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        data-bs-version="5.1"
+        className="content4 programm5 cid-tFckpILCGl"
+        id="content4-e"
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div className="card-wrapper">
+                <div className="card-wrap">
+                  <div className="icon-wrapper">
+                    <img
+                      className="partnerQuote"
+                      src="/extensions/programm5/assets/images/claire.jpg"
+                      alt="Claire - CEO"
+                    />
+                  </div>
+
+                  <div className="nameQuote">
+                    <p className="mbr-text mbr-fonts-style display-7">
+                      "The Motion team are incredible — they're very skilled and
+                      we love having them working with our care homes."
+                    </p>{' '}
+                    Claire, CEO, Sheffcare
+                  </div>
                 </div>
               </div>
             </div>
@@ -527,7 +605,7 @@ const Index = () => {
           <div className="row">
             <div className="col-12">
               <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
+                <h2 className="mbr-section-title mbr-fonts-style display-2 blogsTitle">
                   Check out our latest blogs and articles to help you grow your
                   care home
                 </h2>
@@ -535,6 +613,11 @@ const Index = () => {
             </div>
             <div className="col-12 col-lg-4 col-md-6 card">
               <div className="card-wrapper">
+                <img
+                  className="blogImage"
+                  src="/extensions/programm5/assets/images/seo.png"
+                  alt="seo"
+                />
                 <div className="title-wrap">
                   <div className="title">
                     <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
@@ -556,6 +639,11 @@ const Index = () => {
             </div>
             <div className="col-12 col-lg-4 col-md-6 card">
               <div className="card-wrapper">
+                <img
+                  className="blogImage"
+                  src="/extensions/programm5/assets/images/cyber.jpeg"
+                  alt="seo"
+                />
                 <div className="title-wrap">
                   <div className="title">
                     <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
@@ -579,6 +667,11 @@ const Index = () => {
             </div>
             <div className="col-12 col-lg-4 col-md-6 card">
               <div className="card-wrapper">
+                <img
+                  className="blogImage"
+                  src="/extensions/programm5/assets/images/recruitment.webp"
+                  alt="seo"
+                />
                 <div className="title-wrap">
                   <div className="title">
                     <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
@@ -775,39 +868,7 @@ const Index = () => {
   </div>
     </div>
 </section> */}
-      <section
-        data-bs-version="5.1"
-        className="content4 programm5 cid-tFckpILCGl"
-        id="content4-e"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-lg-10">
-              <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  The company's main partner
-                </h2>
-              </div>
-              <div className="card-wrapper">
-                <div className="card-wrap">
-                  <div className="icon-wrapper">
-                    <img
-                      className="partnerQuote"
-                      src="/extensions/programm5/assets/images/claire.jpg"
-                      alt="Claire - CEO"
-                    />
-                  </div>
-                  <p className="mbr-text mbr-fonts-style display-7">
-                    "The Motion team are incredible — they're very skilled and
-                    we love having them working with our care homes." — Claire,
-                    CEO, Sheffcare
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
       <section
         data-bs-version="5.1"
         className="form1 programm5 cid-tFcgDM3awY"
@@ -815,20 +876,27 @@ const Index = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-12 col-lg-6">
+            <div className="col-12">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  Send us a message
+                  It's time for someone to shout about how amazing you are for
+                  onces
                 </h2>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  We look forward to your questions and requests
-                </p>
+                <div className="col-md-auto col mbr-section-btn">
+                  <a
+                    href="https://calendly.com/zeezy-1/motion"
+                    className="btn btn-secondary display-4 discoveryButton"
+                  >
+                    Book a discovery call now!
+                  </a>
+                </div>
                 <div className="person-wrapper">
                   <div className="person-wrap">
                     <img
                       src="/extensions/programm5/assets/images/zeezy-headshot.png"
                       alt=""
                     />
+
                     <div className="name-wrap">
                       <p className="mbr-name mbr-fonts-style display-7">
                         Zeezy
@@ -840,109 +908,6 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-12 col-lg-6 mx-auto mbr-form"
-              data-form-type="formoid"
-            >
-              <form
-                action="https://mobirise.eu/"
-                method="POST"
-                className="mbr-form form-with-styler"
-                data-form-title="Form Name"
-              >
-                <input
-                  type="hidden"
-                  name="email"
-                  data-form-email="true"
-                  defaultValue="IbzxXQPJStSdWtPj3oq84i7BdqHv2ktfIQrfiE9si6uqWZrelRS/JGb+pjrwkkzMVifYwZhg4i0eapY4nq9MB8J8n5CsJg1+8Ic6V+4I/RfeCok1Y39kl05aRCVa8gZB.gzEfBE+/c7+FtsT/9yAvMCpTjFrVFpkTdyzUG5XOw4fNoGJfPxBxvZLfWBJ3WR7ws3EpCQvkgHYIaM+HBnLVOYCvlgBC0P6PSL3+rDY05ZwS/yD0Bo39yrzn0VN6x1YT"
-                />
-                <div className="row">
-                  <div
-                    hidden="hidden"
-                    data-form-alert=""
-                    className="alert alert-success col-12"
-                  >
-                    Thanks for filling out the form!
-                  </div>
-                  <div
-                    hidden="hidden"
-                    data-form-alert-danger=""
-                    className="alert alert-danger col-12"
-                  >
-                    {' '}
-                    Oops...! some problem!
-                  </div>
-                </div>
-                <div className="dragArea row">
-                  <div
-                    className="col-lg-6 col-md-12 col-sm-12 form-group mb-3"
-                    data-for="name"
-                  >
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Name"
-                      data-form-field="name"
-                      className="form-control display-7"
-                      defaultValue=""
-                      id="name-form1-d"
-                    />
-                  </div>
-                  <div
-                    className="col-lg-6 col-md-12 col-sm-12 form-group mb-3"
-                    data-for="number"
-                  >
-                    <input
-                      type="number"
-                      name="number"
-                      placeholder="Phone"
-                      data-form-field="number"
-                      className="form-control display-7"
-                      max={100}
-                      min={0}
-                      step={1}
-                      defaultValue=""
-                      id="number-form1-d"
-                    />
-                  </div>
-                  <div
-                    className="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
-                    data-for="email"
-                  >
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Your e-mail"
-                      data-form-field="email"
-                      className="form-control display-7"
-                      defaultValue=""
-                      id="email-form1-d"
-                    />
-                  </div>
-                  <div
-                    className="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
-                    data-for="textarea"
-                  >
-                    <textarea
-                      name="textarea"
-                      placeholder="Your message"
-                      data-form-field="textarea"
-                      className="form-control display-7"
-                      id="textarea-form1-d"
-                      defaultValue={''}
-                    />
-                  </div>
-                  <div className="col-md-auto col mbr-section-btn">
-                    <button
-                      type="submit"
-                      className="btn btn-secondary display-4"
-                    >
-                      Send now
-                    </button>
-                  </div>
-                </div>
-              </form>
             </div>
           </div>
         </div>
@@ -970,7 +935,8 @@ const Index = () => {
 
             <div className="col-12 col-lg-6">
               <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                Signup to our newsletter:
+                Sign up to our newsltter to be first to hear about news and
+                updates:
               </label>
               <form className="emailForm" onSubmit={handleSubmit}>
                 <input
@@ -996,8 +962,8 @@ const Index = () => {
               <div className="contacts-wrapper">
                 <ul className="list mbr-fonts-style display-4">
                   <li className="item-wrap">
-                    Kroto Innovation Centre, North Campus, 318 Broad Lane,
-                    Sheffield
+                    Sheffield Science Park Cooper Buildings, Arundel St,
+                    Sheffield City Centre, Sheffield S1 2NS
                   </li>
                   <li className="item-wrap">info@motion.org.uk</li>
                   <li className="item-wrap">+44 7543 858684</li>
@@ -1026,11 +992,19 @@ const Index = () => {
                     <span className="mbr-iconfont socicon socicon-linkedin" />
                   </a>
                 </div>
+                <div className="soc-item">
+                  <a
+                    href="https://www.tiktok.com/@motion_org_uk"
+                    target="_blank"
+                  >
+                    <span className="mbr-iconfont socicon socicon-tiktok" />
+                  </a>
+                </div>
               </div>
             </div>
             <div className="col-12">
               <p className="mbr-fonts-style copyright display-4">
-                © Copyright 2030 Motion - All Rights Reserved
+                © Copyright 2030 Motion Health Ltd - All Rights Reserved
               </p>
             </div>
           </div>

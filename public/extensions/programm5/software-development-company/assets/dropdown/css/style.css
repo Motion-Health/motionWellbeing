@@ -274,4 +274,17 @@
 
 .emailForm .btn {
     margin-left: 20px;
+    border: 2px solid white !important;
+}
+
+p.mbr-desc.mbr-fonts-style.display-7 {
+    color: white;
+    font-size: 1rem;
+}
+
+h2.mbr-section-title.mbr-fonts-style.display-2 {
+    /* color: white; */
+    /* width: 50vw; */
+    /* text-align: center; */
+    /* display: flex; */
 }
