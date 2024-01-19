@@ -1,7 +1,5 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import { Grid } from '@mui/material';
-import Head from 'next/head';
-import { useState } from 'react';
 
 import BlogCard from '@/components/Blog/BlogCard';
 
@@ -19,94 +17,93 @@ const Index = () => {
     },
   ];
 
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Submit the email to your newsletter service here
-    console.log(`Submitting email ${email}`);
-  };
-
   return (
-    <div className="white-background">
-      <Head>
-        <title>Knowledge hub | Motion Marketing</title>
-        <meta property="og:url" content="https://www.motion.org.uk" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Creating moments that move people | Motion Wellbeing"
-        />
-        <meta
-          property="og:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
-        />
-        <meta
-          name="description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
-        />
-        <meta property="og:image" content="./og-image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Creating moments that move people | Motion"
-        />
-        <meta name="twitter:image" content="./og-image.jpg" />
-        <meta
-          property="twitter:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/css/styles.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/web/assets/mobirise-icons2/mobirise2.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-grid.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-reboot.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/dropdown/css/style.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/socicon/css/styles.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/theme/css/style.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/recaptcha.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
-        />
-        <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/dropdown/js/navbar-dropdown.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/embla/embla.min.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/embla/script.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
-        <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-        s
-      </Head>
+    <>
+      <title>Knowledge hub | Motion Marketing</title>
+      <meta property="og:url" content="https://www.motion.org.uk" />
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:title"
+        content="Creating moments that move people | Motion Wellbeing"
+      />
+      <meta
+        property="og:description"
+        content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+      />
+      <meta
+        name="description"
+        content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+      />
+      <meta property="og:image" content="./og-image.jpg" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:title"
+        content="Creating moments that move people | Motion"
+      />
+      <meta name="twitter:image" content="./og-image.jpg" />
+      <meta
+        property="twitter:description"
+        content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Montserrat"
+        rel="stylesheet"
+      ></link>
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/css/styles.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/web/assets/mobirise-icons2/mobirise2.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-grid.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-reboot.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/dropdown/css/style.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/socicon/css/styles.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/theme/css/style.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/recaptcha.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
+      />
+
+      <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/dropdown/js/navbar-dropdown.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/embla/embla.min.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/embla/script.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
+      <script
+        async
+        type="text/javascript"
+        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
+      ></script>
 
       <section
         data-bs-version="5.1"
@@ -215,26 +212,10 @@ const Index = () => {
 
             <div className="col-12 col-lg-6">
               <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                Sign up to our newsltter to be first to hear about news and
+                Sign up to our newsletter to be first to hear about news and
                 updates:
               </label>
-              <form className="emailForm" onSubmit={handleSubmit}>
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  className="form-control display-7"
-                  value={email}
-                  placeholder="Your email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button
-                  className="signUp btn btn-secondary display-4"
-                  type="submit"
-                >
-                  Sign up
-                </button>
-              </form>
+              <div className="klaviyo-form-UcvnLw"></div>
             </div>
           </div>
           <div className="row">
@@ -303,7 +284,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

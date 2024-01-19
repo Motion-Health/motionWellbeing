@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable @next/next/no-sync-scripts */
+import React from 'react';
 import CountUp from 'react-countup';
 import { TypeAnimation } from 'react-type-animation';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -8,14 +9,6 @@ const Index = () => {
   const {
     account: { accountStatus },
   } = useAccountContext();
-
-  const [email, setEmail] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Submit the email to your newsletter service here
-    console.log(`Submitting email ${email}`);
-  };
 
   return (
     <>
@@ -77,6 +70,21 @@ const Index = () => {
         rel="stylesheet"
         href="extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
       />
+      <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/dropdown/js/navbar-dropdown.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/embla/embla.min.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/embla/script.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
+      <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
+
+      <script
+        async
+        type="text/javascript"
+        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
+      ></script>
       <section
         data-bs-version="5.1"
         className="menu menu1 programm5 cid-tFcg6m8FPY"
@@ -942,26 +950,10 @@ const Index = () => {
 
             <div className="col-12 col-lg-6">
               <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                Sign up to our newsltter to be first to hear about news and
+                Sign up to our newsletter to be first to hear about news and
                 updates:
               </label>
-              <form className="emailForm" onSubmit={handleSubmit}>
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  className="form-control display-7"
-                  value={email}
-                  placeholder="Your email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button
-                  className="signUp btn btn-secondary display-4"
-                  type="submit"
-                >
-                  Sign up
-                </button>
-              </form>
+              <div className="klaviyo-form-UcvnLw"></div>
             </div>
           </div>
           <div className="row">

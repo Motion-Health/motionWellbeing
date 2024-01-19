@@ -20,6 +20,13 @@
   padding-top: 8vh;
 }
 
+.blogHeroContent h1{
+  font-family: 'Montserrat';
+}
+.blogHeroContent p{
+  font-family: 'Montserrat';
+}
+
 .Cards{
 
   grid-template-columns: 1fr 1fr 1fr;

@@ -118,6 +118,21 @@ const Index = () => {
           rel="stylesheet"
           href="/assets/blog.css"
         />
+              <script
+        async
+        type="text/javascript"
+        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
+      ></script>
+      <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/dropdown/js/navbar-dropdown.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/embla/embla.min.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/embla/script.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
+        
       </Head>
 
 
@@ -387,26 +402,10 @@ const Index = () => {
 
             <div className="col-12 col-lg-6">
               <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                Sign up to our newsltter to be first to hear about news and
+                Sign up to our newsletter to be first to hear about news and
                 updates:
               </label>
-              <form className="emailForm" onSubmit={handleSubmit}>
-                <input
-                  id="newsletter-email"
-                  type="email"
-                  className="form-control display-7"
-                  value={email}
-                  placeholder="Your email"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <button
-                  className="signUp btn btn-secondary display-4"
-                  type="submit"
-                >
-                  Sign up
-                </button>
-              </form>
+              <div class="klaviyo-form-UcvnLw"></div>
             </div>
           </div>
           <div className="row">

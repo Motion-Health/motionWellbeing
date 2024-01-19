@@ -1017,7 +1017,9 @@ a {}
     color: white;
 }
 
-img {}
+.slider-image img {
+    max-width: 200px;
+}
 
 .blogPost_shareToolbar__ylG_9 img {
     width: auto;
