@@ -11,11 +11,11 @@ const Index = () => {
     { id: 1, name: 'SEO Explained' },
     {
       id: 2,
-      name: 'Protect your carehome with this Cyber Security Cheatsheat',
+      name: 'Protect your carehome with this Cyber Security Cheatsheet',
     },
     {
       id: 3,
-      name: 'How to attract more careers to your home',
+      name: 'How to attract more carers to your home',
     },
   ];
 
