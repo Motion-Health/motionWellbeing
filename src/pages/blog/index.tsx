@@ -1,8 +1,9 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import { Grid } from '@mui/material';
 import Head from 'next/head';
+import { useState } from 'react';
 
 import BlogCard from '@/components/Blog/BlogCard';
-import { Footer } from '@/components/Home/Footer';
 
 import styles from './blog.module.css';
 const Index = () => {
@@ -17,6 +18,15 @@ const Index = () => {
       name: 'How to attract more careers to your home',
     },
   ];
+
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Submit the email to your newsletter service here
+    console.log(`Submitting email ${email}`);
+  };
+
   return (
     <div className="white-background">
       <Head>
@@ -86,6 +96,16 @@ const Index = () => {
           rel="stylesheet"
           href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
         />
+        <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/dropdown/js/navbar-dropdown.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/embla/embla.min.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/embla/script.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
+        <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
+        s
       </Head>
 
       <section
@@ -172,7 +192,117 @@ const Index = () => {
         </Grid>
       </div>
 
-      <Footer></Footer>
+      <section
+        data-bs-version="5.1"
+        className="footer1 programm5 cid-tFcguy0QTa"
+        once="footers"
+        id="footer1-9"
+      >
+        <div className="container">
+          <div className="row footMargin">
+            <div className="col-12 col-lg-6">
+              <div className="title-wrapper">
+                <span className="navbar-logo">
+                  <a href="/">
+                    <img
+                      src="/extensions/programm5/software-development-company/assets/images/logo.svg"
+                      alt=""
+                    />
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            <div className="col-12 col-lg-6">
+              <label className="mbr-desc mbr-fonts-style display-7 signupText">
+                Sign up to our newsltter to be first to hear about news and
+                updates:
+              </label>
+              <form className="emailForm" onSubmit={handleSubmit}>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  className="form-control display-7"
+                  value={email}
+                  placeholder="Your email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button
+                  className="signUp btn btn-secondary display-4"
+                  type="submit"
+                >
+                  Sign up
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 col-lg-6">
+              <div className="contacts-wrapper">
+                <ul className="list mbr-fonts-style display-4">
+                  <li className="item-wrap">
+                    Sheffield Science Park Cooper Buildings, Arundel St,
+                    Sheffield City Centre, Sheffield S1 2NS
+                  </li>
+                  <li className="item-wrap">info@motion.org.uk</li>
+                  <li className="item-wrap">+44 7543 858684</li>
+                  <li className="item-wrap">
+                    <a href="/public/assets/documents/GDPR-Policy.pdf">
+                      GDPR Policy
+                    </a>
+                  </li>
+                  <li className="item-wrap">
+                    <a href="/public/assets/documents/Our-Values.pdf">
+                      Our Values
+                    </a>
+                  </li>
+                  <li className="item-wrap">
+                    <a href="/public/assets/documents/Privacy-Policy.pdf">
+                      Privacy Policy
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-12 col-lg-6">
+              <div className="social-row">
+                <div className="soc-item">
+                  <a href="https://instagram.com/motion.org.uk" target="_blank">
+                    <span className="mbr-iconfont socicon socicon-instagram" />
+                  </a>
+                </div>
+                <div className="soc-item">
+                  <a href="https://facebook.com/motion.org.uk" target="_blank">
+                    <span className="mbr-iconfont socicon socicon-facebook" />
+                  </a>
+                </div>
+                <div className="soc-item">
+                  <a
+                    href="https://linkedin.com/company/motion-org-uk"
+                    target="_blank"
+                  >
+                    <span className="mbr-iconfont socicon socicon-linkedin" />
+                  </a>
+                </div>
+                <div className="soc-item">
+                  <a
+                    href="https://www.tiktok.com/@zeezy_motion"
+                    target="_blank"
+                  >
+                    <span className="mbr-iconfont socicon socicon-tiktok" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-12">
+              <p className="mbr-fonts-style copyright display-4">
+                © Copyright 2024 Motion Health Ltd - All Rights Reserved
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

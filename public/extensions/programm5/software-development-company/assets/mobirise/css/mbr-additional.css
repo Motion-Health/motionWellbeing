@@ -2099,6 +2099,7 @@ a {
   }
 }
 .cid-tFcgtIIPnX .embla__slide {
+  max-width: 200px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -2537,7 +2538,10 @@ a {
 }
 @media (max-width: 992px) {
   .cid-tFckpILCGl .card-wrapper .card-wrap {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
   }
 }
 .cid-tFckpILCGl .card-wrapper .card-wrap .icon-wrapper {
@@ -2548,6 +2552,8 @@ a {
   .cid-tFckpILCGl .card-wrapper .card-wrap .icon-wrapper {
     margin: 0 0 16px 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
 }
 .cid-tFckpILCGl .card-wrapper .card-wrap .icon-wrapper .mbr-iconfont {

@@ -7,16 +7,24 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Footer } from '@/components/Home/Footer';
 import { Header } from '@/components/Home/header/Header';
 
 import styles from '../blogPost.module.css';
-import React from 'react';
+
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Submit the email to your newsletter service here
+    console.log(`Submitting email ${email}`);
+  };
+
 
   return (
     <div className="white-background">
@@ -51,6 +59,58 @@ const Index = () => {
           rel="stylesheet"
           href="/extensions/programm5/software-development-company/assets/css/styles.css"
         />
+       <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/css/styles.css"
+        />
+        <link
+        href="https://fonts.googleapis.com/css?family=Montserrat"
+        rel="stylesheet"
+      ></link>
+      <link
+        href="https://fonts.googleapis.com/css?family=Montserrat"
+        rel="stylesheet"
+      ></link>
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/css/styles.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/web/assets/mobirise-icons2/mobirise2.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-grid.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-reboot.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/dropdown/css/style.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/socicon/css/styles.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/theme/css/style.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/recaptcha.css"
+      />
+      <link
+        rel="stylesheet"
+        href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
+      />
        
         <link
           rel="stylesheet"
@@ -259,22 +319,8 @@ const Index = () => {
               </p>
             </li>
           </ul>
-          <img
-            src="/assets/images/blogs/blog7/Image-1.webp"
-            alt="Christmas decorations"
-            className={styles.image}
-          />
+          
           <h2 className={styles.title}>Conclusion and Further Resources:</h2>
-
-          <p>
-          While this checklist provides a good starting point, there's much more to learn about cyber security in the care home sector. To deepen your understanding and enhance your facility's security measures, we encourage you to check out our comprehensive Staff Cyber Security Template. This resource is specifically tailored to the needs of care homes and will guide you in creating a more robust and informed cyber security strategy.
-          </p>
-          <a href="/assets/docs/Cyber-Security-Template.pdf" download>
-            <button className={styles.downloadButton}>
-              Download Cyber Security Template
-            </button>
-          </a>
-
           <p>
             Implementing these simple steps can greatly enhance your care home's cyber security, protecting both your residents and your business from digital threats. Remember, in the digital world, being proactive is always better than being reactive.
             If you want to find out more or would like a comprehensive cyber security audit, please get in touch with us today.
@@ -284,7 +330,117 @@ const Index = () => {
         </div>
       </div>
 
-      <Footer></Footer>
+      <section
+        data-bs-version="5.1"
+        className="footer1 programm5 cid-tFcguy0QTa"
+        once="footers"
+        id="footer1-9"
+      >
+        <div className="container">
+          <div className="row footMargin">
+            <div className="col-12 col-lg-6">
+              <div className="title-wrapper">
+                <span className="navbar-logo">
+                  <a href="/">
+                    <img
+                      src="/extensions/programm5/software-development-company/assets/images/logo.svg"
+                      alt=""
+                    />
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            <div className="col-12 col-lg-6">
+              <label className="mbr-desc mbr-fonts-style display-7 signupText">
+                Sign up to our newsltter to be first to hear about news and
+                updates:
+              </label>
+              <form className="emailForm" onSubmit={handleSubmit}>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  className="form-control display-7"
+                  value={email}
+                  placeholder="Your email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button
+                  className="signUp btn btn-secondary display-4"
+                  type="submit"
+                >
+                  Sign up
+                </button>
+              </form>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 col-lg-6">
+              <div className="contacts-wrapper">
+                <ul className="list mbr-fonts-style display-4">
+                  <li className="item-wrap">
+                    Sheffield Science Park Cooper Buildings, Arundel St,
+                    Sheffield City Centre, Sheffield S1 2NS
+                  </li>
+                  <li className="item-wrap">info@motion.org.uk</li>
+                  <li className="item-wrap">+44 7543 858684</li>
+                  <li className="item-wrap">
+                    <a href="/public/assets/documents/GDPR-Policy.pdf">
+                      GDPR Policy
+                    </a>
+                  </li>
+                  <li className="item-wrap">
+                    <a href="/public/assets/documents/Our-Values.pdf">
+                      Our Values
+                    </a>
+                  </li>
+                  <li className="item-wrap">
+                    <a href="/public/assets/documents/Privacy-Policy.pdf">
+                      Privacy Policy
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="col-12 col-lg-6">
+              <div className="social-row">
+                <div className="soc-item">
+                  <a href="https://instagram.com/motion.org.uk" target="_blank">
+                    <span className="mbr-iconfont socicon socicon-instagram" />
+                  </a>
+                </div>
+                <div className="soc-item">
+                  <a href="https://facebook.com/motion.org.uk" target="_blank">
+                    <span className="mbr-iconfont socicon socicon-facebook" />
+                  </a>
+                </div>
+                <div className="soc-item">
+                  <a
+                    href="https://linkedin.com/company/motion-org-uk"
+                    target="_blank"
+                  >
+                    <span className="mbr-iconfont socicon socicon-linkedin" />
+                  </a>
+                </div>
+                <div className="soc-item">
+                  <a
+                    href="https://www.tiktok.com/@zeezy_motion"
+                    target="_blank"
+                  >
+                    <span className="mbr-iconfont socicon socicon-tiktok" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-12">
+              <p className="mbr-fonts-style copyright display-4">
+                © Copyright 2024 Motion Health Ltd - All Rights Reserved
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

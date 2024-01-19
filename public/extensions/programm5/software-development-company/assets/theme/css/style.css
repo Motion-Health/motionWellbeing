@@ -1016,3 +1016,19 @@ a {}
 .cid-tFcguy0QTa .contacts-wrapper .list .item-wrap a {
     color: white;
 }
+
+img {}
+
+.blogPost_shareToolbar__ylG_9 img {
+    width: auto;
+}
+
+.col-md-auto.col.mbr-section-btn {}
+
+.col-md-auto.col.mbr-section-btn {}
+@media (min-width: 768px){
+.col-md-auto.col.mbr-section-btn {
+    display: flex;
+    justify-content: center;
+}
+}
