@@ -439,7 +439,7 @@ const Index = () => {
                   </strong>
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
-                  Of Clients Said They'd Recommend Motion
+                  Client Recommendation Rate for Motion
                 </p>
               </div>
             </div>
@@ -496,7 +496,7 @@ const Index = () => {
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
                   Boost your online visibility with our specialized SEO
-                  services. We optimize your website to rank higher in search
+                  services. We optimise your website to rank higher in search
                   engine results, driving more organic traffic and helping you
                   reach the right customers.
                 </p>
@@ -644,7 +644,7 @@ const Index = () => {
                   </div>
                 </div>
                 <p className="mbr-text mbr-fonts-style display-5">
-                  SEO is the process of optimizing your website to rank higher
+                  SEO is the process of optimising your website to rank higher
                   in search engine results pages, thereby increasing the amount
                   of organic (or free) traffic your website receives.
                 </p>
