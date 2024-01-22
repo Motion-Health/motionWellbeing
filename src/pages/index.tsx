@@ -23,7 +23,10 @@ const Index = () => {
         href="extensions/programm5/software-development-company/assets/images/logo.svg"
         type="image/x-icon"
       />
-      <meta name="description" content="" />
+      <meta
+        name="description"
+        content="Using Marketing to share stories about later life."
+      />
       <title>Motion Marketing</title>
       <link rel="canonical" href="https://mobirise.com" />
       <link
@@ -495,7 +498,7 @@ const Index = () => {
                   SEO
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
-                  Boost your online visibility with our specialized SEO
+                  Boost your online visibility with our specialised SEO
                   services. We optimise your website to rank higher in search
                   engine results, driving more organic traffic and helping you
                   reach the right customers.
