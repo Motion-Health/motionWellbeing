@@ -9,9 +9,6 @@ import Head from 'next/head';
 import router from 'next/router';
 import { useState } from 'react';
 
-import { Footer } from '@/components/Home/Footer';
-import { Header } from '@/components/Home/header/Header';
-
 import styles from '../blogPost.module.css';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
@@ -25,8 +22,6 @@ const Index = () => {
     console.log(`Submitting email ${email}`);
   };
 
-
-
   return (
     <div className="white-background">
       <Head>
@@ -35,15 +30,11 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Creating moments that move people | Motion Marketing"
-        />
-        <meta
-          property="og:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="Motion Marketing | Sharing stories about later life"
         />
         <meta
           name="description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -65,65 +56,61 @@ const Index = () => {
           href="/extensions/programm5/software-development-company/assets/css/styles.css"
         />
         <link
-        href="https://fonts.googleapis.com/css?family=Montserrat"
-        rel="stylesheet"
-      ></link>
-      <link
-        href="https://fonts.googleapis.com/css?family=Montserrat"
-        rel="stylesheet"
-      ></link>
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/css/styles.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/web/assets/mobirise-icons2/mobirise2.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-grid.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-reboot.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/dropdown/css/style.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/socicon/css/styles.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/theme/css/style.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/recaptcha.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
-      />
-       
-       
+          href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet"
+        ></link>
+        <link
+          href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet"
+        ></link>
         <link
           rel="stylesheet"
-          href="/assets/blog.css"
+          href="/extensions/programm5/software-development-company/assets/css/styles.css"
         />
-              <script
-        async
-        type="text/javascript"
-        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-      ></script>
-      <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/web/assets/mobirise-icons2/mobirise2.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-grid.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-reboot.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/dropdown/css/style.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/socicon/css/styles.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/theme/css/style.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/recaptcha.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
+        />
+
+        <link rel="stylesheet" href="/assets/blog.css" />
+        <script
+          async
+          type="text/javascript"
+          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
+        ></script>
+        <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/dropdown/js/navbar-dropdown.js"></script>
@@ -132,10 +119,7 @@ const Index = () => {
         <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-        
       </Head>
-
-
 
       <section
         data-bs-version="5.1"
@@ -202,7 +186,6 @@ const Index = () => {
           </div>
         </nav>
       </section>
-
 
       <IconButton
         className={styles.backArrow}
@@ -295,10 +278,16 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-          In today's digital era, having a strong online presence is vital for any business, including care homes.With 90% of care home enquiries coming from online being able to stand out in this market is more important than ever. 
-
-          One of the fundamental ways to enhance this online presence is through Search Engine Optimization (SEO). For many care home directors and staff who may not be familiar with digital marketing strategies, SEO can seem like a complex concept. However, it's a crucial tool to understand and utilise. In this blog, we'll break down what SEO is and why it's essential for care homes.
-
+            In today's digital era, having a strong online presence is vital for
+            any business, including care homes.With 90% of care home enquiries
+            coming from online being able to stand out in this market is more
+            important than ever. One of the fundamental ways to enhance this
+            online presence is through Search Engine Optimization (SEO). For
+            many care home directors and staff who may not be familiar with
+            digital marketing strategies, SEO can seem like a complex concept.
+            However, it's a crucial tool to understand and utilise. In this
+            blog, we'll break down what SEO is and why it's essential for care
+            homes.
           </p>
           <img
             src="/assets/images/blogs/blog3/Image-1.png"
@@ -307,75 +296,105 @@ const Index = () => {
           />
           <h2 className={styles.title}>What is SEO?</h2>
           <p>
-            Search Engine Optimization, or SEO, is the practice of increasing the quantity and quality of traffic to your website through organic search engine results. It involves optimising your website and its content so that search engines like Google, Bing, or Yahoo can easily find and rank it higher in search results.
+            Search Engine Optimization, or SEO, is the practice of increasing
+            the quantity and quality of traffic to your website through organic
+            search engine results. It involves optimising your website and its
+            content so that search engines like Google, Bing, or Yahoo can
+            easily find and rank it higher in search results.
           </p>
 
-          <h2 className={styles.title}>SEO is the process that helps you do that.</h2>
+          <h2 className={styles.title}>
+            SEO is the process that helps you do that.
+          </h2>
           <h2 className={styles.title}>Keywords:</h2>
           <h2 className={styles.title}>Key Parts of SEO:</h2>
           <p>
-            These are the words people use when they search for care homes online. By knowing these words and using them on your website, you can help the right people find you. When choosing keywords you need to be strategic, ensuring you get the best results by balancing factors such as the target demographic and the current competition.
+            These are the words people use when they search for care homes
+            online. By knowing these words and using them on your website, you
+            can help the right people find you. When choosing keywords you need
+            to be strategic, ensuring you get the best results by balancing
+            factors such as the target demographic and the current competition.
           </p>
-          
+
           <h2 className={styles.title}>Good Content:</h2>
           <p>
-            Your website should have helpful and interesting information about your care home. This needs to be updated regularly and up to date with the latest interests from your demographic.
+            Your website should have helpful and interesting information about
+            your care home. This needs to be updated regularly and up to date
+            with the latest interests from your demographic.
           </p>
-                    
+
           <h2 className={styles.title}>Easy-to-Use Website: </h2>
           <p>
-            Your website should load quickly and be easy to use, even on phones. On top of this the code needs to be formatted in a way that is easy for bots to read.
+            Your website should load quickly and be easy to use, even on phones.
+            On top of this the code needs to be formatted in a way that is easy
+            for bots to read.
           </p>
           <h2 className={styles.title}>Backlinks:</h2>
 
           <p>
-            When other websites link to your site, it's like a vote of confidence that can help you rank higher in search results. Ensuring you have a good level of backlinks and ensure there from the correct sources. 
+            When other websites link to your site, it's like a vote of
+            confidence that can help you rank higher in search results. Ensuring
+            you have a good level of backlinks and ensure there from the correct
+            sources.
           </p>
 
           <h2 className={styles.title}>Why SEO is Important for Care Homes</h2>
           <h2 className={styles.title}>1. Be Seen by the Right People</h2>
           <p>
-            You want families looking for care homes to find your website. Being one of the first results they see increases your chances of being noticed.
+            You want families looking for care homes to find your website. Being
+            one of the first results they see increases your chances of being
+            noticed.
           </p>
 
           <h2 className={styles.title}>2. No Extra Cost for Traffic</h2>
           <p>
-            Unlike ads, you don’t have to pay every time someone clicks on your website through a Google search. This makes SEO a budget-friendly way to attract visitors.
+            Unlike ads, you don’t have to pay every time someone clicks on your
+            website through a Google search. This makes SEO a budget-friendly
+            way to attract visitors.
           </p>
 
           <h2 className={styles.title}>3. Build Trust</h2>
           <p>
-            People often trust websites that appear at the top of search results. A higher ranking can make your care home seem more reliable.
+            People often trust websites that appear at the top of search
+            results. A higher ranking can make your care home seem more
+            reliable.
           </p>
 
           <h2 className={styles.title}>4. Keep Up with Competitors</h2>
           <p>
-            Other care homes are likely using SEO. To keep up or get ahead, you should too.
+            Other care homes are likely using SEO. To keep up or get ahead, you
+            should too.
           </p>
 
           <h2 className={styles.title}>Getting Started with SEO</h2>
-          <h2 className={styles.title}>Here’s the basics you need to get covered:</h2>
+          <h2 className={styles.title}>
+            Here’s the basics you need to get covered:
+          </h2>
           <h2 className={styles.title}>Check Your Website:</h2>
           <p>
-            People often trust websites that appear at the top of search results. A higher ranking can make your care home seem more reliable.
+            People often trust websites that appear at the top of search
+            results. A higher ranking can make your care home seem more
+            reliable.
           </p>
           <h2 className={styles.title}>Find the Right Keywords:</h2>
           <p>
-            Think about what words families might use to find a care home and use those words on your site.
+            Think about what words families might use to find a care home and
+            use those words on your site.
           </p>
           <h2 className={styles.title}>Create Helpful Content:</h2>
-          <p>
-            Write about what makes your care home special and useful.
-          </p>
+          <p>Write about what makes your care home special and useful.</p>
           <h2 className={styles.title}>Make Your Site Work Well:</h2>
           <p>
-            Make sure your site is fast and works on mobile phones and is accessible.
+            Make sure your site is fast and works on mobile phones and is
+            accessible.
           </p>
 
           <p>
-            This will give you a good foundation to begin, however if you want to further increase your rankings to be competitive and attract the most customers then more advanced methods can be used. Feel free to reach out to motion for help at info@motion.org.uk!
+            This will give you a good foundation to begin, however if you want
+            to further increase your rankings to be competitive and attract the
+            most customers then more advanced methods can be used. Feel free to
+            reach out to motion for help at info@motion.org.uk!
           </p>
-
         </div>
       </div>
 

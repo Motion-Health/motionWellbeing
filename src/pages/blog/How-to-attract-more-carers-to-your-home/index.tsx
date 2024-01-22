@@ -9,14 +9,10 @@ import Head from 'next/head';
 import router from 'next/router';
 import { useState } from 'react';
 
-import { Footer } from '@/components/Home/Footer';
-import { Header } from '@/components/Home/header/Header';
-
 import styles from '../blogPost.module.css';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
-
 
   const [email, setEmail] = useState('');
 
@@ -26,24 +22,19 @@ const Index = () => {
     console.log(`Submitting email ${email}`);
   };
 
-
   return (
     <div className="white-background">
-       <Head>
+      <Head>
         <title>Carer Recruitment | Motion Marketing</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Creating moments that move people | Motion Marketing"
-        />
-        <meta
-          property="og:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="Motion Marketing | Sharing stories about later life"
         />
         <meta
           name="description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -61,64 +52,61 @@ const Index = () => {
           href="/extensions/programm5/software-development-company/assets/css/styles.css"
         />
         <link
-        href="https://fonts.googleapis.com/css?family=Montserrat"
-        rel="stylesheet"
-      ></link>
-      <link
-        href="https://fonts.googleapis.com/css?family=Montserrat"
-        rel="stylesheet"
-      ></link>
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/css/styles.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/web/assets/mobirise-icons2/mobirise2.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-grid.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-reboot.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/dropdown/css/style.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/socicon/css/styles.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/theme/css/style.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/recaptcha.css"
-      />
-      <link
-        rel="stylesheet"
-        href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
-      />
-       
+          href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet"
+        ></link>
+        <link
+          href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet"
+        ></link>
         <link
           rel="stylesheet"
-          href="/assets/blog.css"
+          href="/extensions/programm5/software-development-company/assets/css/styles.css"
         />
-              <script
-        async
-        type="text/javascript"
-        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-      ></script>
-      <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/web/assets/mobirise-icons2/mobirise2.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-grid.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/bootstrap/css/bootstrap-reboot.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/dropdown/css/style.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/socicon/css/styles.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/theme/css/style.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/recaptcha.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
+        />
+
+        <link rel="stylesheet" href="/assets/blog.css" />
+        <script
+          async
+          type="text/javascript"
+          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
+        ></script>
+        <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/dropdown/js/navbar-dropdown.js"></script>
@@ -127,7 +115,6 @@ const Index = () => {
         <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-        
       </Head>
 
       <section
@@ -196,7 +183,6 @@ const Index = () => {
         </nav>
       </section>
 
-
       <IconButton
         className={styles.backArrow}
         color="primary"
@@ -208,7 +194,9 @@ const Index = () => {
 
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Cost-Effective Strategies to Attract More Carers to Your Care Home</h1>
+          <h1>
+            Cost-Effective Strategies to Attract More Carers to Your Care Home
+          </h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -289,7 +277,13 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-          In the competitive field of care home management, attracting skilled carers is essential, but it often comes with the challenge of balancing quality recruitment with budget constraints. Care home directors can implement several cost-effective strategies to make their facilities more appealing to potential employees without breaking the bank. This guide offers practical and budget-friendly tips for attracting and retaining dedicated carers.
+            In the competitive field of care home management, attracting skilled
+            carers is essential, but it often comes with the challenge of
+            balancing quality recruitment with budget constraints. Care home
+            directors can implement several cost-effective strategies to make
+            their facilities more appealing to potential employees without
+            breaking the bank. This guide offers practical and budget-friendly
+            tips for attracting and retaining dedicated carers.
           </p>
           <img
             src="/assets/images/blogs/blog4/Image-1.webp"
@@ -300,53 +294,89 @@ const Index = () => {
             <li>
               <h2 className={styles.title}>1. Personalised Recognition:</h2>
               <p>
-              Small gestures of appreciation, like handwritten thank-you notes, small gifts, or flowers, can go a long way in making staff feel valued. These tokens of appreciation are cost-effective yet powerful in building a positive workplace atmosphere.
-              </p>
-            </li>
-            <li>
-              <h2 className={styles.title}>2. Foster a Supportive Work Culture:</h2>
-              <p>
-              Creating a supportive and inclusive work environment doesn’t have to be expensive. Encourage a team-oriented culture where every staff member feels respected and heard. Regular team meetings and open communication channels can enhance job satisfaction without incurring significant costs.
-
-
+                Small gestures of appreciation, like handwritten thank-you
+                notes, small gifts, or flowers, can go a long way in making
+                staff feel valued. These tokens of appreciation are
+                cost-effective yet powerful in building a positive workplace
+                atmosphere.
               </p>
             </li>
             <li>
               <h2 className={styles.title}>
-              3. Utilise Social Media for Recruitment:
+                2. Foster a Supportive Work Culture:
               </h2>
               <p>
-              Leverage free or low-cost social media platforms to advertise job openings. Platforms like Facebook, LinkedIn, and Twitter can be effective in reaching a wide audience. Encourage your current staff to share these posts, increasing their reach organically.
+                Creating a supportive and inclusive work environment doesn’t
+                have to be expensive. Encourage a team-oriented culture where
+                every staff member feels respected and heard. Regular team
+                meetings and open communication channels can enhance job
+                satisfaction without incurring significant costs.
               </p>
             </li>
             <li>
-              <h2 className={styles.title}>4. Implement an Employee Referral Program:</h2>
+              <h2 className={styles.title}>
+                3. Utilise Social Media for Recruitment:
+              </h2>
               <p>
-              Encourage your existing employees to refer friends or acquaintances for open positions. Offer small but meaningful incentives for successful hires. This approach can be more cost-effective than traditional recruitment methods and often results in more reliable candidates.
+                Leverage free or low-cost social media platforms to advertise
+                job openings. Platforms like Facebook, LinkedIn, and Twitter can
+                be effective in reaching a wide audience. Encourage your current
+                staff to share these posts, increasing their reach organically.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>
+                4. Implement an Employee Referral Program:
+              </h2>
+              <p>
+                Encourage your existing employees to refer friends or
+                acquaintances for open positions. Offer small but meaningful
+                incentives for successful hires. This approach can be more
+                cost-effective than traditional recruitment methods and often
+                results in more reliable candidates.
               </p>
             </li>
             <li>
               <h2 className={styles.title}>5. Offer Flexible Working Hours:</h2>
               <p>
-              Flexibility can be a significant draw for potential employees and doesn’t necessarily require additional financial resources. Offering flexible schedules or part-time roles can make your care home more attractive to a diverse range of candidates, including those who may be balancing other commitments.
+                Flexibility can be a significant draw for potential employees
+                and doesn’t necessarily require additional financial resources.
+                Offering flexible schedules or part-time roles can make your
+                care home more attractive to a diverse range of candidates,
+                including those who may be balancing other commitments.
               </p>
             </li>
             <li>
-              <h2 className={styles.title}>6. Provide Opportunities for Skill Development:</h2>
+              <h2 className={styles.title}>
+                6. Provide Opportunities for Skill Development:
+              </h2>
               <p>
-              Invest in low-cost training programmes or in-house skill development sessions. This not only enhances the capabilities of your team but also shows your investment in their professional growth, making your care home more appealing.
+                Invest in low-cost training programmes or in-house skill
+                development sessions. This not only enhances the capabilities of
+                your team but also shows your investment in their professional
+                growth, making your care home more appealing.
               </p>
             </li>
             <li>
-            <h2 className={styles.title}>7. Highlight Your Care Home’s Unique Features:</h2>
+              <h2 className={styles.title}>
+                7. Highlight Your Care Home’s Unique Features:
+              </h2>
               <p>
-              Use your existing resources and environment to your advantage. Whether it's a beautiful garden, a community-focused approach, or specialised care services, highlighting these aspects in your recruitment materials can attract candidates who share similar values and interests.
+                Use your existing resources and environment to your advantage.
+                Whether it's a beautiful garden, a community-focused approach,
+                or specialised care services, highlighting these aspects in your
+                recruitment materials can attract candidates who share similar
+                values and interests.
               </p>
             </li>
             <li>
-            <h2 className={styles.title}>8. Encourage Work-Life Balance:</h2>
+              <h2 className={styles.title}>8. Encourage Work-Life Balance:</h2>
               <p>
-              Promote a healthy work-life balance with initiatives that don’t necessarily require a large budget. This can include acknowledging the importance of mental health days, offering flexible shifts, or organising simple, in-house wellness activities.
+                Promote a healthy work-life balance with initiatives that don’t
+                necessarily require a large budget. This can include
+                acknowledging the importance of mental health days, offering
+                flexible shifts, or organising simple, in-house wellness
+                activities.
               </p>
             </li>
           </ul>
@@ -359,12 +389,22 @@ const Index = () => {
 
           <h2 className={styles.title}>Conclusion:</h2>
           <p>
-          Attracting more carers to your care home doesn't always require a hefty budget. By implementing these cost-effective strategies, you can create an attractive and supportive work environment that appeals to potential employees. Remember, investing in your staff, whether through recognition, training, or work culture, not only benefits them but also enhances the quality of care provided to your residents.
+            Attracting more carers to your care home doesn't always require a
+            hefty budget. By implementing these cost-effective strategies, you
+            can create an attractive and supportive work environment that
+            appeals to potential employees. Remember, investing in your staff,
+            whether through recognition, training, or work culture, not only
+            benefits them but also enhances the quality of care provided to your
+            residents.
           </p>
           <p>
-          With creativity and a focus on what truly matters to employees, your care home can become a magnet for dedicated carers, all while maintaining a responsible budget. For more information and help attracting carers then
-          <a href="https://calendly.com/zeezy-1/motion"
-            >Click here to book a 30-minute consulatation</a>
+            With creativity and a focus on what truly matters to employees, your
+            care home can become a magnet for dedicated carers, all while
+            maintaining a responsible budget. For more information and help
+            attracting carers then
+            <a href="https://calendly.com/zeezy-1/motion">
+              Click here to book a 30-minute consulatation
+            </a>
           </p>
         </div>
       </div>

@@ -70,6 +70,15 @@ const Index = () => {
         rel="stylesheet"
         href="extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
       />
+      <meta
+        property="og:title"
+        content="Motion Marketing | Sharing stories about later life"
+      />
+      <meta
+        name="description"
+        content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+      />
+
       <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
