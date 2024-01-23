@@ -15,6 +15,10 @@ const Index = () => {
       id: 3,
       name: 'How to attract more carers to your home',
     },
+    {
+      id: 4,
+      name: 'When to invest in Marketing for Care Homes',
+    },
   ];
 
   return (
