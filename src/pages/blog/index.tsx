@@ -158,8 +158,11 @@ const Index = () => {
               </ul>
 
               <div className="mbr-section-btn-main" role="tablist">
-                <a className="btn btn-secondary display-4" href="#pricing1-c">
-                  Find how we can help
+                <a
+                  className="btn btn-secondary display-4"
+                  href="https://calendly.com/zeezy-1/motion"
+                >
+                  Book a Discovery Call
                 </a>
               </div>
             </div>
