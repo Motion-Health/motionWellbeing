@@ -178,8 +178,11 @@ const Index = () => {
               </ul>
 
               <div className="mbr-section-btn-main" role="tablist">
-                <a className="btn btn-secondary display-4" href="#pricing1-c">
-                  Find how we can help
+                <a
+                  className="btn btn-secondary display-4"
+                  href="https://calendly.com/zeezy-1/motion"
+                >
+                  Book a Discovery Call
                 </a>
               </div>
             </div>
@@ -276,13 +279,13 @@ const Index = () => {
               )}
             </div>
           </div>
-          <h2 className={styles.title}>Introduction</h2>
+          <h1 className={styles.biggerTitle}>Introduction</h1>
           <p>
             In today's digital era, having a strong online presence is vital for
             any business, including care homes.With 90% of care home enquiries
             coming from online being able to stand out in this market is more
             important than ever. One of the fundamental ways to enhance this
-            online presence is through Search Engine Optimization (SEO). For
+            online presence is through Search Engine Optimisation (SEO). For
             many care home directors and staff who may not be familiar with
             digital marketing strategies, SEO can seem like a complex concept.
             However, it's a crucial tool to understand and utilise. In this
@@ -294,26 +297,24 @@ const Index = () => {
             alt="Interactive tablet in care home"
             className={styles.image}
           />
-          <h2 className={styles.title}>What is SEO?</h2>
+          <h1 className={styles.biggerTitle}>What is SEO?</h1>
           <p>
-            Search Engine Optimization, or SEO, is the practice of increasing
+            Search Engine Optimisation, or SEO, is the practice of increasing
             the quantity and quality of traffic to your website through organic
             search engine results. It involves optimising your website and its
             content so that search engines like Google, Bing, or Yahoo can
             easily find and rank it higher in search results.
           </p>
 
-          <h2 className={styles.title}>
-            SEO is the process that helps you do that.
-          </h2>
-          <h2 className={styles.title}>Keywords:</h2>
+          <strong>SEO is the process that helps you do that.</strong>
+          <h1 className={styles.biggerTitle}>Keywords:</h1>
           <h2 className={styles.title}>Key Parts of SEO:</h2>
           <p>
             These are the words people use when they search for care homes
             online. By knowing these words and using them on your website, you
-            can help the right people find you. When choosing keywords you need
-            to be strategic, ensuring you get the best results by balancing
-            factors such as the target demographic and the current competition.
+            can help the right people find you. When choosing keywords, you must
+            be strategic, ensuring you get the best results by balancing factors
+            such as the target demographic and the current competition.
           </p>
 
           <h2 className={styles.title}>Good Content:</h2>
@@ -338,7 +339,9 @@ const Index = () => {
             sources.
           </p>
 
-          <h2 className={styles.title}>Why SEO is Important for Care Homes</h2>
+          <h1 className={styles.biggerTitle}>
+            Why SEO is Important for Care Homes
+          </h1>
           <h2 className={styles.title}>1. Be Seen by the Right People</h2>
           <p>
             You want families looking for care homes to find your website. Being
@@ -366,10 +369,9 @@ const Index = () => {
             should too.
           </p>
 
-          <h2 className={styles.title}>Getting Started with SEO</h2>
-          <h2 className={styles.title}>
-            Here’s the basics you need to get covered:
-          </h2>
+          <h1 className={styles.biggerTitle}>
+            To get started here are the basics you need to get you covered:
+          </h1>
           <h2 className={styles.title}>Check Your Website:</h2>
           <p>
             People often trust websites that appear at the top of search
@@ -393,8 +395,16 @@ const Index = () => {
             This will give you a good foundation to begin, however if you want
             to further increase your rankings to be competitive and attract the
             most customers then more advanced methods can be used. Feel free to
-            reach out to motion for help at info@motion.org.uk!
+            reach out to motion for help by booking a Discovery Call.{' '}
           </p>
+          <div className="CTA-button">
+            <a
+              className="btn btn-secondary display-4 "
+              href="https://calendly.com/zeezy-1/motion"
+            >
+              Book a Discovery Call.
+            </a>
+          </div>
         </div>
       </div>
 

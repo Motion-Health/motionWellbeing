@@ -121,6 +121,10 @@ left: 55px;
   bottom: 1%;
   color: white;
 }
+.biggerTitle{
+  font-size: 1.1em !important;
+  margin-bottom: 0px;
+}
 /* mobile */
 @media (max-width: 950px) {
   .backArrow{
