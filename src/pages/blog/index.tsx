@@ -19,6 +19,10 @@ const Index = () => {
       id: 4,
       name: 'When to Invest in Marketing for Care Homes',
     },
+    {
+      id: 5,
+      name: 'How can you remove bad reviews on Indeed?',
+    },
   ];
 
   return (
