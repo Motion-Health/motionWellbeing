@@ -20,7 +20,7 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>When to invest in Marketing for Care Homes | Motion Marketing</title>
+        <title>When to Invest in Marketing for Your Care Home? | Motion Marketing</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
@@ -195,7 +195,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1> When to invest in Marketing for Care Homes</h1>
+          <h1> When to Invest in Marketing for Your Care Home?</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -276,7 +276,7 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-          Marketing is a crucial tool in attracting privately funded residents. Residents need a way of finding you and it's your job to make that easy!
+          Marketing is a crucial tool in attracting privately funded Families. Families need a way of finding you and it's your job to make that easy!
           </p>
           <img
             src="/assets/images/blogs/blog4/Image-1.jpg"
@@ -299,7 +299,7 @@ const Index = () => {
             </p></li>
             <li><strong  className={styles.title}>Seasonal Events:</strong><p>Christmas, Easter, Halloween, and other holidays are the perfect time to get creative with your marketing. These events are a great way to engage with your audience and showcase your home.
             </p></li>
-            <li><strong  className={styles.title}>Market Changes:</strong><p> Stay responsive to shifts in industry trends or regulations. These are prime opportunities to showcase your care services as a market leader. A perfect example of this is the upcoming CQC changes.
+            <li><strong  className={styles.title}>Market Changes:</strong><p> Stay responsive to shifts in industry trends or regulations. These are prime opportunities to showcase your care services as a market leader. A perfect example of this is the ongoing CQC changes.
             </p></li>
             <li><strong  className={styles.title}>Post-Improvement Phase:</strong><p>How Should Care Homes Approach Market After upgrading facilities or services, let your community know. It's a great way to renew interest and attract new residents.
             </p></li>

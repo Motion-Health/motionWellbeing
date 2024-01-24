@@ -17,7 +17,7 @@ const Index = () => {
     },
     {
       id: 4,
-      name: 'When to invest in Marketing for Care Homes',
+      name: 'When to Invest in Marketing for Care Homes',
     },
   ];
 

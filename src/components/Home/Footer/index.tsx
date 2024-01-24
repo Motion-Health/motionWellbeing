@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>
-        <p className={styles.rights}>© 2023. All rights reserved.</p>
+        <p className={styles.rights}>© 2024. All rights reserved.</p>
         <nav className={styles.navigation}>
           <ul>
             <li>
