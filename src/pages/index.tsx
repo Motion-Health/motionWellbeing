@@ -379,7 +379,7 @@ const Index = () => {
             <div className="col-12 col-lg-6">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  About us:
+                  <strong>About us</strong>
                 </h2>
                 <img src="extensions/programm5/assets/images/HCH.jpeg" alt="" />
               </div>
@@ -442,7 +442,7 @@ const Index = () => {
                   </strong>
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
-                  Client Recommendation Rate for Motion
+                  Client Recommendation Rating
                 </p>
               </div>
             </div>
@@ -478,10 +478,10 @@ const Index = () => {
                   Marketing Strategy
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
-                  Discover the power of compelling brand strategy. Our expert
-                  team crafts unique branding solutions that resonate with your
-                  audience, ensuring your brand stands out in today's
-                  competitive marketplace.
+                  An effective strategy built around your target audience is the
+                  foundation of successful digital marketing. We create a
+                  bespoke strategy that ensures you stand out and tell
+                  compelling stories in today's competitive marketplace.
                 </p>
               </div>
               <div id="tab2" className="tab-pane">
@@ -501,7 +501,7 @@ const Index = () => {
                   Boost your online visibility with our specialised SEO
                   services. We optimise your website to rank higher in search
                   engine results, driving more organic traffic and helping you
-                  reach the right customers.
+                  reach the right customers for your care home.
                 </p>
               </div>
               <div id="tab3" className="tab-pane" role="tabpanel">
@@ -520,8 +520,8 @@ const Index = () => {
                 <p className="mbr-desc mbr-fonts-style display-7">
                   Engage and grow your audience with our social media management
                   services. We create and manage top-performing social media
-                  campaigns, tailored to foster community and build lasting
-                  relationships with your followers.
+                  campaigns tailored to foster community and build lasting
+                  relationships with families of existing and future residents.
                 </p>
               </div>
               <div id="tab4" className="tab-pane" role="tabpanel">
@@ -540,8 +540,8 @@ const Index = () => {
                 <p className="mbr-desc mbr-fonts-style display-7">
                   Create an impactful online presence with our professional
                   website development. Our team designs and develops custom,
-                  user-friendly websites that not only look great but also
-                  perform seamlessly on all devices.
+                  user-friendly websites that look great and perform seamlessly
+                  on all devices.
                 </p>
               </div>
               <div id="tab5" className="tab-pane" role="tabpanel">
@@ -558,10 +558,10 @@ const Index = () => {
                   Chatbots
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
-                  Enhance customer interaction with our intelligent chatbot
-                  solutions. Our chatbots provide instant, 24/7 assistance to
-                  your customers, improving response times and boosting overall
-                  satisfaction.
+                  Enhance customer interaction with our intelligent, personable
+                  chatbot solutions. Our chatbots provide instant, 24/7
+                  assistance to your customers, improving response times and
+                  boosting overall satisfaction.
                 </p>
               </div>
               <div id="tab5" className="tab-pane" role="tabpanel">
@@ -578,8 +578,9 @@ const Index = () => {
                   Branding
                 </h3>
                 <p className="mbr-desc mbr-fonts-style display-7">
-                  A clear set of guidelines that consistently communicates your
-                  brand, its values and what makes it special.
+                  Consistently communicate what makes your organisation special,
+                  its visual foundation and core values with a bespoke brand
+                  style guide.
                 </p>
               </div>
             </div>
@@ -721,180 +722,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-      {/* <section data-bs-version="5.1" class="slider1 programm5 mbr-embla cid-tFcgtIIPnX" id="slider1-8">
-    <div class="container-fluid">
-  <div class="row position-relative">
-      <div class="embla" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play="true" data-auto-play-interval="5" data-draggable="true">
-          <div class="embla__viewport">
-              <div class="embla__container">
-                  <div class="embla__slide slider-image item" style="margin-left: 2rem; margin-right: 2rem;">
-                      <div class="card-wrap">
-                          <div class="item-wrapper position-relative">
-                              <div class="image-wrap">
-                                  <img src="extensions/programm5/software-development-company/assets/images/image14.jpg" alt="">
-                              </div>
-                          </div>
-                          <div class="content-wrap">
-                              <div class="name-wrapper">
-                                  <div class="name-wrap">
-                                      <h4 class="mbr-name mbr-fonts-style display-7">
-                                          <strong>Frances Boyd</strong>
-                                      </h4>
-                                      <p class="mbr-role mbr-fonts-style display-4">
-                                          Software Engineer/Developer
-                                      </p>
-                                  </div>
-                                  <a class="link-wrap" href="#">
-                                      <p class="mbr-link mbr-fonts-style display-4">
-                                          View more
-                                      </p>
-                                  </a>
-                              </div>
-                              <p class="mbr-text mbr-fonts-style display-7">
-                                  Employees may provide feedback on the overall work environment, including
-                                  factors such as office culture, teamwork, and employee morale. Positive feedback
-                                  might include a supportive and collaborative work environment, open
-                                  communication channels, and a positive company culture that promotes growth and
-                                  learning.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="embla__slide slider-image item" style="margin-left: 2rem; margin-right: 2rem;">
-                      <div class="card-wrap">
-                          <div class="item-wrapper position-relative">
-                              <div class="image-wrap">
-                                  <img src="extensions/programm5/software-development-company/assets/images/image3.jpg" alt="">
-                              </div>
-                          </div>
-                          <div class="content-wrap">
-                              <div class="name-wrapper">
-                                  <div class="name-wrap">
-                                      <h4 class="mbr-name mbr-fonts-style display-7">
-                                          <strong>Carla Newman</strong>
-                                      </h4>
-                                      <p class="mbr-role mbr-fonts-style display-4">
-                                          Full Stack Developer
-                                      </p>
-                                  </div>
-                                  <a class="link-wrap" href="#">
-                                      <p class="mbr-link mbr-fonts-style display-4">
-                                          View more
-                                      </p>
-                                  </a>
-                              </div>
-                              <p class="mbr-text mbr-fonts-style display-7">
-                                  Employees may provide feedback on the leadership and management within the
-                                  company. Positive feedback might include effective leadership, clear
-                                  communication of company goals and expectations, and supportive management
-                                  styles.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="embla__slide slider-image item" style="margin-left: 2rem; margin-right: 2rem;">
-                      <div class="card-wrap">
-                          <div class="item-wrapper position-relative">
-                              <div class="image-wrap">
-                                  <img src="extensions/programm5/software-development-company/assets/images/image4.jpg" alt="">
-                              </div>
-                          </div>
-                          <div class="content-wrap">
-                              <div class="name-wrapper">
-                                  <div class="name-wrap">
-                                      <h4 class="mbr-name mbr-fonts-style display-7">
-                                          <strong>James Copeland</strong>
-                                      </h4>
-                                      <p class="mbr-role mbr-fonts-style display-4">
-                                          Mobile App Developer
-                                      </p>
-                                  </div>
-                                  <a class="link-wrap" href="#">
-                                      <p class="mbr-link mbr-fonts-style display-4">
-                                          View more
-                                      </p>
-                                  </a>
-                              </div>
-                              <p class="mbr-text mbr-fonts-style display-7">
-                                  Employees may provide feedback on the company's commitment to employee
-                                  growth and development. Positive feedback might include opportunities for
-                                  skill enhancement, training programs, mentoring, and career advancement
-                                  pathways.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="embla__slide slider-image item" style="margin-left: 2rem; margin-right: 2rem;">
-                      <div class="card-wrap">
-                          <div class="item-wrapper position-relative">
-                              <div class="image-wrap">
-                                  <img src="extensions/programm5/software-development-company/assets/images/image5.jpg" alt="">
-                              </div>
-                          </div>
-                          <div class="content-wrap">
-                              <div class="name-wrapper">
-                                  <div class="name-wrap">
-                                      <h4 class="mbr-name mbr-fonts-style display-7">
-                                          <strong>Troy George</strong>
-                                      </h4>
-                                      <p class="mbr-role mbr-fonts-style display-4">
-                                          Quality Assurance Engineer/Tester
-                                      </p>
-                                  </div>
-                                  <a class="link-wrap" href="#">
-                                      <p class="mbr-link mbr-fonts-style display-4">
-                                          View more
-                                      </p>
-                                  </a>
-                              </div>
-                              <p class="mbr-text mbr-fonts-style display-7">
-                                  Positive feedback might include flexible working hours, remote work options,
-                                  and supportive policies that prioritize employee well-being. Negative
-                                  feedback could highlight long working hours, excessive workload, or a lack
-                                  of work-life balance.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <button class="embla__button embla__button--prev">
-              <span class="mbr-iconfont mobi-mbri-left mobi-mbri" aria-hidden="true"></span>
-              <span class="sr-only visually-hidden visually-hidden">Previous</span>
-          </button>
-          <button class="embla__button embla__button--next">
-              <span class="mbr-iconfont mobi-mbri-right mobi-mbri" aria-hidden="true"></span>
-              <span class="sr-only visually-hidden visually-hidden">Next</span>
-          </button>
-      </div>
-  </div>
-    </div>
-</section>
-<section data-bs-version="5.1" class="content6 programm5 cid-tFcgz9Nwuf" id="content6-a">
-    <div class="container">
-  <div class="row">
-      <div class="col-12 col-lg-4">
-          <div class="title-wrapper">
-              <h2 class="mbr-section-title mbr-fonts-style display-2">
-                  The quality of the software is assessed
-              </h2>
-          </div>
-      </div>
-      <div class="col-12 col-lg-8">
-          <ul class="list mbr-fonts-style display-7">
-              <li class="item-wrap">Software should meet its intended purpose</li>
-              <li class="item-wrap">The software should be dependable and consistently perform</li>
-              <li class="item-wrap">
-                  Performance assessment involves evaluating how efficiently the software operates
-              </li>
-              <li class="item-wrap">
-                  Usability assessment focuses on how easy it is for users to interact with the software
-              </li>
-          </ul>
-      </div>
-  </div>
-    </div>
-</section> */}
 
       <section
         data-bs-version="5.1"
@@ -907,7 +734,7 @@ const Index = () => {
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style display-2">
                   It's time for someone to shout about how amazing you are for
-                  onces
+                  once!
                 </h2>
                 <div className="col-md-auto col mbr-section-btn">
                   <a
@@ -918,21 +745,23 @@ const Index = () => {
                   </a>
                 </div>
                 <div className="person-wrapper">
-                  <div className="person-wrap">
-                    <img
-                      src="/extensions/programm5/assets/images/zeezy-headshot.png"
-                      alt=""
-                    />
+                  <a href="https://www.linkedin.com/in/zeezy-qureshi-370bbb151/">
+                    <div className="person-wrap">
+                      <img
+                        src="/extensions/programm5/assets/images/zeezy-headshot.png"
+                        alt=""
+                      />
 
-                    <div className="name-wrap">
-                      <p className="mbr-name mbr-fonts-style display-7">
-                        Zeezy
-                      </p>
-                      <p className="mbr-role mbr-fonts-style display-4">
-                        Founder & CEO
-                      </p>
+                      <div className="name-wrap">
+                        <p className="mbr-name mbr-fonts-style display-7">
+                          Zeezy
+                        </p>
+                        <p className="mbr-role mbr-fonts-style display-4">
+                          Founder & CEO
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -979,17 +808,13 @@ const Index = () => {
                   <li className="item-wrap">info@motion.org.uk</li>
                   <li className="item-wrap">+44 7543 858684</li>
                   <li className="item-wrap">
-                    <a href="public/assets/documents/GDPR-Policy.pdf">
-                      GDPR Policy
-                    </a>
+                    <a href="/assets/documents/GDPR-Policy.pdf">GDPR Policy</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="public/assets/documents/Our-Values.pdf">
-                      Our Values
-                    </a>
+                    <a href="/assets/documents/Our-Values.pdf">Our Values</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="public/assets/documents/Privacy-Policy.pdf">
+                    <a href="/assets/documents/Privacy-Policy.pdf">
                       Privacy Policy
                     </a>
                   </li>

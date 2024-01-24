@@ -178,9 +178,8 @@ const Index = () => {
         <div className={styles.blogHeroContent}>
           <h1>Knowledge hub</h1>
           <p>
-            Learn about how wellbeing activities and marketing can improve
-            quality of life of residents, improve staff wellbeing and increase
-            enquiries with our quick-read blogs and resources.
+            We've compiled these quick and easy resources to de-mystify
+            marketing and sales for your care home.
           </p>
         </div>
       </div>
@@ -232,17 +231,13 @@ const Index = () => {
                   <li className="item-wrap">info@motion.org.uk</li>
                   <li className="item-wrap">+44 7543 858684</li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/GDPR-Policy.pdf">
-                      GDPR Policy
-                    </a>
+                    <a href="/assets/documents/GDPR-Policy.pdf">GDPR Policy</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/Our-Values.pdf">
-                      Our Values
-                    </a>
+                    <a href="/assets/documents/Our-Values.pdf">Our Values</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/Privacy-Policy.pdf">
+                    <a href="/assets/documents/Privacy-Policy.pdf">
                       Privacy Policy
                     </a>
                   </li>
