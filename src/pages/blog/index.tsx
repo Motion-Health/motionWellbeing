@@ -8,10 +8,6 @@ const Index = () => {
   const blogs = [
     { id: 1, name: 'SEO Explained' },
     {
-      id: 2,
-      name: 'Protect your carehome with this Cyber Security Cheatsheet',
-    },
-    {
       id: 3,
       name: 'How to attract more carers to your home',
     },
@@ -209,7 +205,7 @@ const Index = () => {
                   <a href="/">
                     <img
                       src="/extensions/programm5/software-development-company/assets/images/logo.svg"
-                      alt=""
+                      alt="Motion Logo"
                     />
                   </a>
                 </span>
