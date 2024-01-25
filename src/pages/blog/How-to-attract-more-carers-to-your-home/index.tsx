@@ -286,7 +286,7 @@ const Index = () => {
             tips for attracting and retaining dedicated carers.
           </p>
           <img
-            src="/assets/images/blogs/blog4/Image-1.webp"
+            src="/assets/images/blogs/blog4/Image-1.jpg"
             alt="Landscape shot of care home"
             className={styles.image}
           />
