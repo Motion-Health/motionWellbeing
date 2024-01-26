@@ -5,6 +5,7 @@ import { TypeAnimation } from 'react-type-animation';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { useAccountContext } from '@/context/AccountContext';
+
 const Index = () => {
   const {
     account: { accountStatus },

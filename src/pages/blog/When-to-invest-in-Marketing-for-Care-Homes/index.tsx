@@ -13,6 +13,7 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
+
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
@@ -124,6 +125,14 @@ const Index = () => {
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TFPMRG87SG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TFPMRG87SG');
 </script>
       </Head>
 

@@ -126,6 +126,14 @@ const Index = () => {
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TFPMRG87SG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TFPMRG87SG');
+</script>
       </Head>
 
       <section

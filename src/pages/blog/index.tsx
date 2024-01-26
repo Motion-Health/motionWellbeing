@@ -4,6 +4,7 @@ import { Grid } from '@mui/material';
 import BlogCard from '@/components/Blog/BlogCard';
 
 import styles from './blog.module.css';
+
 const Index = () => {
   const blogs = [
     { id: 1, name: 'SEO Explained' },
@@ -113,6 +114,14 @@ const Index = () => {
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TFPMRG87SG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TFPMRG87SG');
 </script>
 
       <section
