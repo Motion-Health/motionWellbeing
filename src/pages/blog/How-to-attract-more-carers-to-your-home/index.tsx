@@ -47,6 +47,7 @@ const Index = () => {
           property="twitter:description"
           content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
         />
+        
         <link
           rel="stylesheet"
           href="/extensions/programm5/software-development-company/assets/css/styles.css"
@@ -115,6 +116,17 @@ const Index = () => {
         <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
+        
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3841592,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
       </Head>
 
       <section
