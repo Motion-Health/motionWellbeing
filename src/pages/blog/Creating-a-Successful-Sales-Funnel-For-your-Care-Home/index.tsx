@@ -21,7 +21,7 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-        Creating-a-successful-sales-funnel-for-your-care-home | Motion Marketing
+        Creating a successful sales funnel for your care home | Motion Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -198,7 +198,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Creating-a-successful-sales-funnel-for-your-care-home</h1>
+          <h1>Creating a successful sales funnel for your care home</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
