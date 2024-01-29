@@ -21,7 +21,7 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-        How do you create a sales funnel for your care home? | Motion Marketing
+        Creating-a-successful-sales-funnel-for-your-care-home | Motion Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -129,7 +129,7 @@ const Index = () => {
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="//">
+                <a href="https://marketing.motion.org.uk/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -198,7 +198,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>How do you create a sales funnel for your care home?</h1>
+          <h1>Creating-a-successful-sales-funnel-for-your-care-home</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -282,9 +282,10 @@ const Index = () => {
           
           First off, what is a sales funnel? 
           <br/>
-          A sales funnel is a marketing model that maps out a customer's journey when purchasing a service or a bed in your home. The model uses a funnel as an analogy because many potential customers may begin at the top end of the sales process, and only a fraction of these people make a purchase. For a care home, the funnel is the journey the residents or their families go through when choosing a care home.
-Your job is to define the funnel stages and reduce the number of people who drop out at each stage. This is a great way to grow your care home and organically increase occupancy.
- </p>
+          A sales funnel is a marketing model that maps out a customer's journey when purchasing a service or a bed in your home.
+          The model uses a funnel as an analogy because many potential customers may begin at the top end of the sales process, and only a fraction of these people make a purchase. 
+          For a care home, the funnel is the journey the residents or their families go through when choosing a care home.
+          </p>
           <p>
           Your job is to define the funnel stages and reduce the number of people who drop out at each stage. This is a great way to grow your care home and organically increase occupancy.
             <br/><br/>The stages of the funnel for care homes can vary, but we have broken it down into four stages:
@@ -294,6 +295,7 @@ Your job is to define the funnel stages and reduce the number of people who drop
               <li>Hot Audience</li>
               <li>Decision</li>
             </ul>
+            It is common for your ideal customer to be the child of the older adult who is moving into your care home, so consider this when you are choosing the channels you target in step 1.
 
 
 
@@ -309,9 +311,10 @@ Your job is to define the funnel stages and reduce the number of people who drop
           <p>
           The cold audience is at the top of the funnel; here is where you are trying to attract new people to your services. At this stage, you are trying to create awareness of your care home and the services you provide.
           <br/>
-          The main channels for attracting a cold audience are social media, organic website traffic, physical marketing, word of mouth, and sponsorship of community events. A new technology becoming increasingly relevant for attracting new customers is TikTok and Instagram reels.
+          The main channels for attracting a cold audience are social media, organic website traffic, physical marketing, word of mouth, and sponsorship of community events. 
+          Social media is becoming increasingly relevant and is the now most cost-effective way to reach a large audience.
           <br/>
-          You aim to collect contact information to move them to the next stage of the funnel. This can be done with a lead magnet, a free piece of content you offer in exchange for their contact information.
+          Your aim is to collect contact information to move them to the next stage of the funnel. This can be done with a lead magnet, a free piece of content you offer in exchange for their contact information.
           </p>
           <h2 className={styles.title}>
           2. Warm Audience:
@@ -335,7 +338,7 @@ Your job is to define the funnel stages and reduce the number of people who drop
           Post Decision/Tesimonials:
           </h2>
           <p>
-          Once a resident has moved in, you can use them as a marketing asset to attract new residents. This can be done by asking them to leave a review on Google or by creating a video testimonial. This is crucial for building trust with potential residents and their families.
+          Testimonials and reviews from existing residents and their families are an incredibly powerful way to showcase the standard of your care and, ultimately, generate more leads. This is crucial for building trust with potential residents and their families.
           </p>
           <h2 className={styles.title}>
           Conclusion:
@@ -347,8 +350,7 @@ Your job is to define the funnel stages and reduce the number of people who drop
             How can Motion help you?
           </h2>
           <p>
-            🌟 Interested in elevating your marketing strategy and building a solid marketing funnel? Discover how
-            Motion can guide you through this journey.
+          🌟 Interested in elevating your marketing strategy and building a solid sales funnel? Book a Discovery Call to learn how we can take your business to the next level!
           </p>
           <div className="CTA-button">
             <a

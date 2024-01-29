@@ -13,7 +13,6 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
-
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
@@ -21,7 +20,7 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-        How can you remove bad reviews on Indeed? | Motion Marketing
+          How can you remove bad reviews on Indeed? | Motion Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -116,7 +115,6 @@ const Index = () => {
         <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-
       </Head>
 
       <section
@@ -129,7 +127,7 @@ const Index = () => {
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="//">
+                <a href="https://marketing.motion.org.uk/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -279,61 +277,72 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            Indeed is not just a tool for finding new applicants for jobs, but its also a window into your care home.
-            It is a place where people can see what your care home is like, and what it is like to work there. 
-            It is also a place where people can leave reviews about your care home, these reviews can be positive or negative, and they can have a big impact on your business. Unfortunately, Indeed reviews cannot be deleted, however, in this blog post, I have broken down a 5 step guide on how to respond and recover from bad reiews to boost your Indeed profile:
+            Indeed is not just a tool for finding new applicants for jobs, but
+            its also a window into your care home. It is a place where people
+            can see what your care home is like, and what it is like to work
+            there. It is also a place where people can leave reviews about your
+            care home, these reviews can be positive or negative, and they can
+            have a big impact on your business. Unfortunately, Indeed reviews
+            cannot be deleted, however, in this blog post, I have broken down a
+            5 step guide on how to respond and recover from bad reiews to boost
+            your Indeed profile:
           </p>
           <img
             src="/assets/images/blogs/blog5/thumbnail.webp"
             alt="Indeed Logo"
             className={styles.image}
           />
-          <h2 className={styles.title}>
-          1. To Prevent:
-          </h2>
+          <h2 className={styles.title}>1. To Prevent:</h2>
           <p>
-          Prevention is always better than a cure. Negative reviews leave a long-lasting stain on your care home's reputation. 
-          So, it's best to avoid them in the first place. 
-          To do this, you must ensure a positive work environment to reduce the chances of negative reviews. 
-          This could be by employee engagement, regular feedback sessions, and ensuring a positive workplace culture. 
-          Additionally, when letting go of any staff, ensure that it is done professionally and that they are treated with respect.
+            Prevention is always better than a cure. Negative reviews leave a
+            long-lasting stain on your care home's reputation. So, it's best to
+            avoid them in the first place. To do this, you must ensure a
+            positive work environment to reduce the chances of negative reviews.
+            This could be by employee engagement, regular feedback sessions, and
+            ensuring a positive workplace culture. Additionally, when letting go
+            of any staff, ensure that it is done professionally and that they
+            are treated with respect.
           </p>
-          <h2 className={styles.title}>
-          2. To Respond:
-          </h2>
+          <h2 className={styles.title}>2. To Respond:</h2>
           <p>
-          Have you got a negative review? No need to panic! Responding to reviews, good or bad, shows you're proactively trying to make things right. When responding, remember to approach this thoughtfully and professionally.
+            Have you got a negative review? No need to panic! Responding to
+            reviews, good or bad, shows you're proactively trying to make things
+            right. When responding, remember to approach this thoughtfully and
+            professionally.
           </p>
-          <h2 className={styles.title}>
-          3. To Learn:
-          </h2>
+          <h2 className={styles.title}>3. To Learn:</h2>
           <p>
-          Every review is a learning opportunity. Even negative reviews can give you insights into areas that might need improvement. Carefully understand the feedback and use it to improve your care home or processes.
+            Every review is a learning opportunity. Even negative reviews can
+            give you insights into areas that might need improvement. Carefully
+            understand the feedback and use it to improve your care home or
+            processes.
           </p>
-          <h2 className={styles.title}>
-          4. To Dilute:
-          </h2>
+          <h2 className={styles.title}>4. To Dilute:</h2>
           <p>
-          Simply put - the more positive reviews you have, the less impact the negative ones hold. Encourage your happy employees and satisfied families to share their positive experiences. This will allow you to make sure that your care home is being represented in the best possible light.
+            Simply put - the more positive reviews you have, the less impact the
+            negative ones hold. Encourage your happy employees and satisfied
+            families to share their positive experiences. This will allow you to
+            make sure that your care home is being represented in the best
+            possible light.
           </p>
-          <h2 className={styles.title}>
-          5. To Monitor:
-          </h2>
+          <h2 className={styles.title}>5. To Monitor:</h2>
           <p>
-          Keep an eye on your Indeed profile. Regular monitoring helps you stay on top of what's being said and allows you to react swiftly if needed. This will also help you maintain a positive online reputation.
+            Keep an eye on your Indeed profile. Regular monitoring helps you
+            stay on top of what's being said and allows you to react swiftly if
+            needed. This will also help you maintain a positive online
+            reputation.
           </p>
-          <h2 className={styles.title}>
-          Conclusion:
-          </h2>
+          <h2 className={styles.title}>Conclusion:</h2>
           <p>
-          By following these steps you can transform your Indeed profile into a tool, which can attract new staff and act as a marketing asset for new residents.
+            By following these steps you can transform your Indeed profile into
+            a tool, which can attract new staff and act as a marketing asset for
+            new residents.
           </p>
-          <h2 className={styles.title}>
-            How can Motion help you?
-          </h2>
+          <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-            🌟 Interested in elevating your marketing strategy and building a strong brand? Discover how
-            Motion can guide you through this journey.
+            🌟 Interested in elevating your marketing strategy and building a
+            strong brand? Discover how Motion can guide you through this
+            journey.
           </p>
           <div className="CTA-button">
             <a

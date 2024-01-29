@@ -131,7 +131,7 @@ const Index = () => {
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="//">
+                <a href="https://marketing.motion.org.uk/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""

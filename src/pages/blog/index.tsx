@@ -10,7 +10,7 @@ const Index = () => {
     { id: 1, name: 'SEO Explained' },
     {
       id: 3,
-      name: 'How to attract more carers to your home',
+      name: 'How to Attract more Carers to your Home',
     },
     {
       id: 4,
@@ -18,11 +18,11 @@ const Index = () => {
     },
     {
       id: 5,
-      name: 'How can you remove bad reviews on Indeed?',
+      name: 'How can you Remove Bad Reviews on Indeed?',
     },
     {
       id: 6,
-      name: 'How do you create a sales funnel for your care home?',
+      name: 'Creating a Successful Sales Funnel For your Care Home',
     },
   ];
 
@@ -104,7 +104,11 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-
+      <script
+        async
+        type="text/javascript"
+        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
+      ></script>
       <section
         data-bs-version="5.1"
         className="menu menu1 programm5 cid-tFcg6m8FPY"
@@ -115,7 +119,7 @@ const Index = () => {
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="//">
+                <a href="https://marketing.motion.org.uk/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
