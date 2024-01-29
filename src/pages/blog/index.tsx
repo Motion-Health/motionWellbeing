@@ -22,7 +22,7 @@ const Index = () => {
     },
     {
       id: 6,
-      name: 'How to create a sales funnel for your care home?',
+      name: 'How do you create a sales funnel for your care home?',
     },
   ];
 

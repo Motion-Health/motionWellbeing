@@ -21,7 +21,7 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-        How to create a sales funnel for your care home? | Motion Marketing
+        How do you create a sales funnel for your care home? | Motion Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -198,7 +198,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>How to create a sales funnel for your care home?</h1>
+          <h1>How do you create a sales funnel for your care home?</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -279,9 +279,12 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-          What is a sales funnel? A sales funnel is a marketing concept that maps out a customer's journey when purchasing. The model uses a funnel as an analogy because many potential customers may begin at the top end of the sales process.  Still, only a fraction of these people end up making a purchase. For a care home, the funnel is the journey the residents or their families go through when choosing a care home.
-
-          </p>
+          
+          First off, what is a sales funnel? 
+          <br/>
+          A sales funnel is a marketing model that maps out a customer's journey when purchasing a service or a bed in your home. The model uses a funnel as an analogy because many potential customers may begin at the top end of the sales process, and only a fraction of these people make a purchase. For a care home, the funnel is the journey the residents or their families go through when choosing a care home.
+Your job is to define the funnel stages and reduce the number of people who drop out at each stage. This is a great way to grow your care home and organically increase occupancy.
+ </p>
           <p>
           Your job is to define the funnel stages and reduce the number of people who drop out at each stage. This is a great way to grow your care home and organically increase occupancy.
             <br/><br/>The stages of the funnel for care homes can vary, but we have broken it down into four stages:
@@ -304,20 +307,23 @@ const Index = () => {
           1. Cold Audience:
           </h2>
           <p>
-          The cold audience is at the top of the funnel; here is where you are trying to attract new people to your services. At this stage, you are trying to create awareness of your care home and the services you provide. You can use social media, website traffic, SEO, physical marketing, word of mouth and sponsoring community events. At this stage, you need to collect contact information to move them to the next stage of the funnel. A new technology becoming increasingly relevant is using TikTok and Instagram to showcase your care home and the services you provide.
+          The cold audience is at the top of the funnel; here is where you are trying to attract new people to your services. At this stage, you are trying to create awareness of your care home and the services you provide.
+          <br/>
+          The main channels for attracting a cold audience are social media, organic website traffic, physical marketing, word of mouth, and sponsorship of community events. A new technology becoming increasingly relevant for attracting new customers is TikTok and Instagram reels.
+          <br/>
+          You aim to collect contact information to move them to the next stage of the funnel. This can be done with a lead magnet, a free piece of content you offer in exchange for their contact information.
           </p>
           <h2 className={styles.title}>
           2. Warm Audience:
           </h2>
           <p>
-          This middle stage is crucial in building trust with potential residents and their families. You will have their contact information, and now you need to deliver them with content that will help them decide. Engage them with stories of resident experiences, detailed information about your services, and testimonials. Utilise email newsletters, informative blog posts, and social media posts to keep them engaged.
-
+          This middle stage is crucial in building trust with potential residents and their families. You will have their contact information, and now you need to deliver content to help them build confidence in your home. To do this, engage them with stories of resident experiences, detailed information about your services, and testimonials. Utilise email newsletters, informative blog posts, and social media posts to keep them engaged. The potential resident may not be ready to move to a care home or domiciliary care; however, keeping them engaged with your content will make you the first choice when they are ready.
           </p>
           <h2 className={styles.title}>
           3. Hot Audience:
           </h2>
           <p>
-          At this stage, your audience is seriously considering your care home for their needs. They are likely comparing you with other options. Here, <strong>personalised</strong> communication becomes critical. Offer in-person or virtual tours, one-on-one consultations, and detailed guides on the specifics of your care services, including how you handle special care needs, lifestyle activities, and community integration.
+          At this stage, your audience is seriously considering your care home for their needs. They are likely comparing you with other options. Here, <strong>personalised</strong> communication becomes critical. Offer in-person or virtual tours, one-on-one consultations, and detailed guides on the specifics of your care services. This could include how you handle special care needs, lifestyle activities, and community integration. From our survey of 50 families, wellbeing activities were ranked 100% of the time as a top 3 factor in choosing a care home. So, showcasing your wellbeing activities and how you deliver them is vital.
           </p>
           <h2 className={styles.title}>
           4. Decision:
