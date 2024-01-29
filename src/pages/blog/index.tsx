@@ -20,6 +20,10 @@ const Index = () => {
       id: 5,
       name: 'How can you remove bad reviews on Indeed?',
     },
+    {
+      id: 6,
+      name: 'How to create a sales funnel for your care home?',
+    },
   ];
 
   return (
