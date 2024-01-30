@@ -5,12 +5,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "postbuild": "npm run generate-sitemap",
     "build-stats": "cross-env ANALYZE=true npm run build",
     "export": "next export",
     "lint": "next lint",
     "build-types": "tsc --noEmit --pretty",
     "test": "jest --watch",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "generate-sitemap": "node src/services/sitemap.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -34,6 +36,8 @@
     "depcheck": "^1.4.6",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "fastest-levenshtein": "^1.0.16",
+    "glob": "^10.3.10",
     "howler": "^2.2.4",
     "js-cookie": "^3.0.5",
     "jspdf": "^2.5.1",
@@ -56,9 +60,11 @@
     "react-type-animation": "^3.2.0",
     "react-visibility-sensor": "^5.1.1",
     "react-youtube": "^10.1.0",
+    "sitemap": "^7.1.1",
     "stripe": "^11.17.0",
     "styled-components": "^6.1.1",
     "use-sound": "^4.0.1",
+    "xml2js": "^0.6.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
