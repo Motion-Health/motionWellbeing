@@ -28,6 +28,7 @@ const Index = () => {
         name="description"
         content="Using Marketing to share stories about later life."
       />
+
       <title>Motion Marketing</title>
       <link rel="canonical" href="https://mobirise.com" />
       <link

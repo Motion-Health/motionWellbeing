@@ -180,7 +180,7 @@ const Index = () => {
 
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Knowledge hub</h1>
+          <h1>Knowledge Hub</h1>
           <p>
             We've compiled these quick and easy resources to de-mystify
             marketing and sales for your care home.

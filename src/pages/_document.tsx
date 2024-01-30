@@ -49,6 +49,20 @@ class MyDocument extends Document {
               `,
             }}
           />
+          <meta
+            name="og:title"
+            content="Motion Marketing | Sharing stories about later life"
+          />
+          <meta
+            name="og:description"
+            content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+          />
+          <meta
+            name="og:image"
+            content="https://marketing.motion.org.uk/assets/MotionLogo.png
+      "
+          />
+          <meta name="og:url" content="https://marketing.motion.org.uk/" />
         </Head>
 
         <body>
