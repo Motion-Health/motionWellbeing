@@ -1018,7 +1018,9 @@ a {}
 }
 
 .slider-image img {
+    max-height: 100px;
     max-width: 200px;
+    width: auto;
 }
 
 .blogPost_shareToolbar__ylG_9 img {

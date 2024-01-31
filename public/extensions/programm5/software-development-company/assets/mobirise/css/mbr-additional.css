@@ -2113,7 +2113,7 @@ a {
   }
 }
 .cid-tFcgtIIPnX .embla__slide {
-  max-width: 200px;
+  /* max-width: 200px; */
   display: flex;
   justify-content: center;
   position: relative;

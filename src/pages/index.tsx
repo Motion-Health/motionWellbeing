@@ -1,15 +1,28 @@
 /* eslint-disable @next/next/no-sync-scripts */
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import React from 'react';
 import CountUp from 'react-countup';
+import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { useAccountContext } from '@/context/AccountContext';
-
 const Index = () => {
   const {
     account: { accountStatus },
   } = useAccountContext();
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
 
   return (
     <>
@@ -263,111 +276,77 @@ const Index = () => {
       >
         <div className="container-fluid">
           <div className="row position-relative">
-            <div
-              className="embla"
-              data-skip-snaps="true"
-              data-align="center"
-              data-contain-scroll="trimSnaps"
-              data-loop="true"
-              data-auto-play="true"
-              data-auto-play-interval={6}
-              data-draggable="true"
-            >
-              <div className="embla__viewport">
-                <div className="embla__container">
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem', minWidth: 200 }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/12-trees.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem', minWidth: 200 }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/age-uk.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem' }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/bupa.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem' }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/hc-one.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem', minWidth: 200 }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/ideal-carehomes.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem', minWidth: 150 }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/sheffcare.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem' }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/silver.png"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    className="embla__slide slider-image item"
-                    style={{ margin: 'auto 3rem' }}
-                  >
-                    <img
-                      src="extensions/programm5/assets/logos/hallamshire.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
+            <Slider {...settings}>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem', minWidth: 200 }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/12-trees.jpg"
+                  alt=""
+                />
               </div>
-              <button className="embla__button embla__button--prev">
-                <span
-                  className="mbr-iconfont mobi-mbri-left mobi-mbri"
-                  aria-hidden="true"
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem', minWidth: 200 }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/age-uk.jpg"
+                  alt=""
                 />
-                <span className="sr-only visually-hidden visually-hidden">
-                  Previous
-                </span>
-              </button>
-              <button className="embla__button embla__button--next">
-                <span
-                  className="mbr-iconfont mobi-mbri-right mobi-mbri"
-                  aria-hidden="true"
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem' }}
+              >
+                <img src="extensions/programm5/assets/logos/bupa.jpg" alt="" />
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem' }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/hc-one.jpg"
+                  alt=""
                 />
-                <span className="sr-only visually-hidden visually-hidden">
-                  Next
-                </span>
-              </button>
-            </div>
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem', minWidth: 200 }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/ideal-carehomes.jpg"
+                  alt=""
+                />
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem', minWidth: 150 }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/sheffcare.jpg"
+                  alt=""
+                />
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem' }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/silver.png"
+                  alt=""
+                />
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem' }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/hallamshire.png"
+                  alt=""
+                />
+              </div>
+            </Slider>
           </div>
         </div>
       </section>
