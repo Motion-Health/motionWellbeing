@@ -24,6 +24,10 @@ const Index = () => {
       id: 6,
       name: 'Creating a Successful Sales Funnel For your Care Home',
     },
+    {
+      id: 7,
+      name: 'What is TikTok and Should your Care Home be Using it?',
+    },
   ];
 
   return (
