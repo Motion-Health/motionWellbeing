@@ -198,7 +198,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>What is TikTok and Should your Care Home be Using it?</h1>
+          <h1>What is TikTok, and Should your Care Home be Using it?</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -279,19 +279,19 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>What is TikTok?</h2>
           <p>
-          TikTok is a platform for short videos (under 30 seconds) which are delivered to people through a complex algorithm which predicts what you might like.
+          TikTok is a platform for short videos (under 3 Minutes) delivered to people through a complex algorithm that predicts what you might like.
           <br/>
           </p>
-          <h2 className={styles.title}>So why is there so much interest around tiktok?</h2>
+          <h2 className={styles.title}>So why is there so much interest in TikTok?</h2>
           <p>
-          The main benefit of tiktok is that it allows people to see videos that they didn’t subscribe for. So what does this mean for you? This means that people can find out about you without searching for you. This makes it an incredibly powerful tool for marketing.
+          The main benefit of TikTok is that it allows people to see videos they didn't subscribe to. So what does this mean for you? This means that people can find out about you without searching for you. This makes it a potent tool for marketing.
           </p>
           <h2 className={styles.title}>Why is it relevant to care homes?</h2>
           <p>
-          Whilst some think tik tok is just used by the younger generation, in fact millions of people over the age of 50 use TikTok. This allows it to work as a marketing tool to engage potential residents' families but also is a great way to recruit new staff and build a brand.
+          Whilst some think TikTok is just used by the younger generation, in fact, millions of people over the age of 50 use TikTok. This allows it to work as a marketing tool to engage potential residents' families, but it is also a great way to recruit new staff and build a brand.
           </p>
           <h2 className={styles.title}>Does it even work?</h2>
-          <p> Yes, have a look at the <a href="https://www.bbc.co.uk/news/uk-england-wiltshire-68117244"> Wiltshires viral silent disco.  </a></p>
+          <p> Yes, have a look at <a href="https://www.bbc.co.uk/news/uk-england-wiltshire-68117244"> Wiltshires viral silent disco.  </a></p>
           <img
             src="/assets/images/blogs/blog7/disco.webp"
             alt="Indeed Logo"
@@ -301,10 +301,9 @@ const Index = () => {
           How can you use TikTok to market your care home?
           </h2>
           <p>
-          There are two main reasons you may want to use TikTok for your care home, first is to engage with your community to fill the top of your sales funnel and second is to recruit new staff.
-          However luckly by showcasing your care home in the right light it can work to do both for you!
+          You can use TikTok for your care home for two reasons: to engage with your community to fill the top of your sales funnel and recruit new staff. However, luckily, showcasing your care home in the right light can work to do both for you!
           <br/>
-          <strong>As a warning however, always ensure you that the content posted is respectful of the residents and their families.  </strong>
+          <strong>As a warning, however, always ensure that the content posted is respectful of the residents and their families.</strong>
           <br/>
           </p>
           <h2 className={styles.title}>
@@ -313,16 +312,17 @@ const Index = () => {
           <p>
           <ul>
             <li>
-            <strong>Resident stories:</strong> This is a great way to showcase your care home and the people who live there. It also allows you to show the amazing work your staff do.
+            <strong>Resident stories:</strong> Share heartwarming stories of residents, showcasing their life experiences and personalities. This humanizes your care home and helps viewers connect emotionally, demonstrating the compassionate environment you have.
             </li>
             <li>
-            <strong>Staff stories:</strong> This is a great way to showcase your staff and the amazing work they do. It also allows you to show the amazing work your staff do.
+            <strong>Staff stories:</strong> Highlight the dedication and skills of your staff. Share their experiences and motivations for working in elder care. This can help in attracting like-minded professionals and showcasing the quality of care provided.
             </li>
             <li>
-            <strong>Events:</strong> This is a great way to showcase your care home and the people who live there. It also allows you to show the amazing work your staff do.
+            <strong>Events:</strong> Showcase the various events and activities that take place in your care home. Whether it's themed parties, music events, or art classes, this illustrates a vibrant, engaging community life.
             </li>
             <li>
-            <strong>Activities:</strong> This is a great way to showcase your care home and the people who live there. It also allows you to show the amazing work your staff do.
+            <strong>Activities:</strong>  Share clips of daily activities, from exercise sessions to craft workshops. This not only demonstrates the range of activities available but also the active and inclusive lifestyle residents enjoy.
+
             </li>
           </ul>
           </p>
@@ -330,13 +330,13 @@ const Index = () => {
           Conclusion:
           </h2>
           <p>
-          TikTok is a great way to engage with your community and build your brand. It is also a great way to recruit new staff. However, always ensure that you are respectful of the residents and their families.
+          TikTok is a great way to engage with your community and build your brand. It is also a great way to recruit new staff. However, always ensure you respect the residents and their families.
           </p>
           <h2 className={styles.title}>
             How can Motion help you?
           </h2>
           <p>
-          🌟 Interested in elevating your marketing strategy? Book a Discovery Call to learn how we can take your business to the next level!
+          🌟 Struggling to create engaging TikTok content for your care home? Book a Discovery Call with Motion to explore innovative marketing strategies.
           </p>
           <div className="CTA-button">
             <a
