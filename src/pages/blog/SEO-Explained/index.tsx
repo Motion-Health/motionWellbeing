@@ -29,24 +29,18 @@ const Index = () => {
         <title>SEO Explained | Motion Marketing</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Motion Marketing | Sharing stories about later life"
-        />
+        <meta property="og:title" content="Motion Marketing | SEO Explained" />
         <meta
           name="description"
-          content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+          content="Understanding SEO: A Key Tool for Care Home Visibility Online"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Creating moments that move people | Motion"
-        />
+        <meta name="twitter:title" content="Motion Marketing | SEO Explained" />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="Understanding SEO: A Key Tool for Care Home Visibility Online"
         />
         <link
           rel="stylesheet"

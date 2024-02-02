@@ -35,24 +35,18 @@ const Index = () => {
       <title>Knowledge hub | Motion Marketing</title>
       <meta property="og:url" content="https://www.motion.org.uk" />
       <meta property="og:type" content="website" />
-      <meta
-        property="og:title"
-        content="Motion Marketing | Sharing stories about later life"
-      />
+      <meta property="og:title" content="Motion Marketing | Knowlegde Hub" />
       <meta
         name="description"
-        content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+        content="The Knowledge Hub is a collection of resources to help you understand marketing and sales for your care home."
       />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta
-        name="twitter:title"
-        content="Creating moments that move people | Motion"
-      />
+      <meta name="twitter:title" content="Knowlegde Hub | Motion" />
       <meta name="twitter:image" content="./og-image.jpg" />
       <meta
         property="twitter:description"
-        content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+        content="The Knowledge Hub is a collection of resources to help you understand marketing and sales for your care home."
       />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"

@@ -31,22 +31,22 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | Sharing stories about later life"
+          content="Motion Marketing | How to attract more carers to your care home"
         />
         <meta
           name="description"
-          content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+          content="In the competitive field of care home management, attracting skilled carers is essential, but it often comes with the challenge of balancing quality recruitment with budget constraints. Care home directors can implement several cost-effective strategies to make their facilities more appealing to potential employees without breaking the bank."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Creating moments that move people | Motion"
+          content="Motion Marketing | How to attract more carers to your care home"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="In the competitive field of care home management, attracting skilled carers is essential, but it often comes with the challenge of balancing quality recruitment with budget constraints. Care home directors can implement several cost-effective strategies to make their facilities more appealing to potential employees without breaking the bank."
         />
 
         <link
@@ -451,17 +451,13 @@ const Index = () => {
                   <li className="item-wrap">info@motion.org.uk</li>
                   <li className="item-wrap">+44 7543 858684</li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/GDPR-Policy.pdf">
-                      GDPR Policy
-                    </a>
+                    <a href="/assets/documents/GDPR-Policy.pdf">GDPR Policy</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/Our-Values.pdf">
-                      Our Values
-                    </a>
+                    <a href="/assets/documents/Our-Values.pdf">Our Values</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/Privacy-Policy.pdf">
+                    <a href="/assets/documents/Privacy-Policy.pdf">
                       Privacy Policy
                     </a>
                   </li>

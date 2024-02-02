@@ -27,22 +27,22 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | Sharing stories about later life"
+          content="Motion Marketing | TikTok and Should your Care Home be Using it?"
         />
         <meta
           name="description"
-          content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+          content="TikTok is a platform for short videos (under 3 Minutes) delivered to people through a complex algorithm that predicts what you might like."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Creating moments that move people | Motion"
+          content="Motion Marketing | TikTok and Should your Care Home be Using it?"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="TikTok is a platform for short videos (under 3 Minutes) delivered to people through a complex algorithm that predicts what you might like."
         />
         <link
           rel="stylesheet"
