@@ -443,17 +443,13 @@ const Index = () => {
                   <li className="item-wrap">info@motion.org.uk</li>
                   <li className="item-wrap">+44 7543 858684</li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/GDPR-Policy.pdf">
-                      GDPR Policy
-                    </a>
+                    <a href="/assets/documents/GDPR-Policy.pdf">GDPR Policy</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/Our-Values.pdf">
-                      Our Values
-                    </a>
+                    <a href="/assets/documents/Our-Values.pdf">Our Values</a>
                   </li>
                   <li className="item-wrap">
-                    <a href="/public/assets/documents/Privacy-Policy.pdf">
+                    <a href="/assets/documents/Privacy-Policy.pdf">
                       Privacy Policy
                     </a>
                   </li>

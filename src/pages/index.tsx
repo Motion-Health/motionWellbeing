@@ -633,7 +633,7 @@ const Index = () => {
                   in search engine results pages, thereby increasing the amount
                   of organic (or free) traffic your website receives.
                 </p>
-                <a className="link-wrap" href="/blog/SEO-Explained/">
+                <a className="link-wrap" href="/blog/seo-explained/">
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
                   </p>
@@ -692,7 +692,7 @@ const Index = () => {
                 </p>
                 <a
                   className="link-wrap"
-                  href="/blog/How-to-attract-more-carers-to-your-home/"
+                  href="/blog/how-to-attract-more-carers-to-your-home/"
                 >
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
