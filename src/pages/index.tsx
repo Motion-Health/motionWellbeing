@@ -43,7 +43,7 @@ const Index = () => {
       />
 
       <title>Motion Marketing</title>
-      <link rel="canonical" href="https://mobirise.com" />
+      <link rel="canonical" href="https://marketing.motion.org.uk/" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"
         rel="stylesheet"
@@ -663,7 +663,7 @@ const Index = () => {
                 </p>
                 <a
                   className="link-wrap"
-                  href="blog/Protect-your-carehome-with-this-Cyber-Security-Cheatsheat/"
+                  href="blog/protect-your-carehome-with-this-cyber-security-cheatsheet/"
                 >
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
@@ -692,7 +692,7 @@ const Index = () => {
                 </p>
                 <a
                   className="link-wrap"
-                  href="/blog/How-to-attract-more-careers-to-your-home/"
+                  href="/blog/How-to-attract-more-carers-to-your-home/"
                 >
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
