@@ -42,7 +42,7 @@ const Index = () => {
         content="Using Marketing to share stories about later life."
       />
 
-      <title>Motion Marketing</title>
+      <title>Motion - Care Home Marketing</title>
       <link rel="canonical" href="https://marketing.motion.org.uk/" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"
