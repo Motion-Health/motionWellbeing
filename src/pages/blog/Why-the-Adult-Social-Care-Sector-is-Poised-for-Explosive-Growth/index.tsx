@@ -13,6 +13,7 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
+
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
@@ -280,11 +281,17 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            First off, what is a sales funnel?
             <br />
-            Something that has sometimes been overlooked by the care sector is
-            the upcoming massive growth which is about to occur. This allows for
-            an opportunity for care homes to grow and expand their services.
+            Something that has sometimes been overlooked by some in the care
+            sector is the massive growth which is about to occur. This allows
+            for an opportunity for care homes to grow and expand their services.
+          </p>
+          <p>
+            The looming expansion in the adult social care sector is largely
+            fueled by an aging population, a result of advancements in
+            healthcare that extend life expectancy. This demographic evolution
+            presents a unique opportunity for care homes to adapt and meet the
+            increasing demand for quality services.
           </p>
           <h2 className={styles.title}>A Surge in Demand Is Coming</h2>
           <p>
@@ -294,14 +301,11 @@ const Index = () => {
             the care services sector to supply these beds for this. Looking at
             the demographic figures, now is one of the best times to be in the
             care industry! The figure below shows the change in demographics,
-            with 2040 on the right and 2024 on the right.
+            with 2040 on the left and 2024 on the right.
             <br />
           </p>
-          <iframe
-            height="878px"
-            width="100%"
-            src="https://www.ons.gov.uk/visualisations/dvc1741/pyramids/pyramids.html"
-          ></iframe>
+          <img src="/assets/images/blogs/blog8/Image-1.jpg" alt="ONS Population pyramid" />
+            
           <h2 className={styles.title}>Navigating the Challenges Ahead</h2>
           <p>
             However, it's not all smooth sailing. The sector faces its share of
@@ -326,17 +330,20 @@ const Index = () => {
           </p>
           <h2 className={styles.title}>A Call to Action</h2>
           <p>
-            The message is clear: we're entering a sustained period of growth in
-            the adult social care sector. This is an exciting time to be
-            involved, but it comes with the responsibility to adapt, innovate,
-            and continually strive for excellence. For care home directors, this
-            means anticipating the increase in demand and being prepared to meet
-            it. Secondly, it means correctly marketing to the next generation of
-            residents and their families using digital marketing.
+            Is your home ready for this sustained growth? Will you be able to
+            capitilise on this market change and growth?
+          </p>
+          <p>
+            This is an exciting time to be in the care sector, but it comes with
+            the responsibility to adapt, innovate, and continually strive for
+            excellence. For care home directors, this means anticipating the
+            increase in demand and being prepared to meet it. Secondly, it means
+            correctly marketing to the next generation of residents and their
+            families using digital marketing.
           </p>
           <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-            🌟If you want to see how we can help with your marketing, book a
+            🌟If you want to dsee how we can help with your marketing, book a
             discovery call now!
           </p>
           <div className="CTA-button">
