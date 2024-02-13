@@ -32,6 +32,14 @@ const Index = () => {
       id: 8,
       name: 'Why the Adult Social Care Sector is Poised for Explosive Growth',
     },
+    {
+      id: 9,
+      name: 'How to Get Your Care Homes Featured on BBC News',
+    },
+    {
+      id: 10,
+      name: "'Nothing About Us Without Us': What We’ve Learned from Co-Designing Services with Care Homes",
+    },
   ];
 
   return (
