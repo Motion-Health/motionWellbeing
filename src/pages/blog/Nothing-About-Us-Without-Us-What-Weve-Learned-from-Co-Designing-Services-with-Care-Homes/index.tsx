@@ -306,12 +306,6 @@ const Index = () => {
           <h2 className={styles.title}>Conclusion</h2>
           <p>
           The evidence is clear: outcomes are better when we listen and put those that we support at the heart of our services. This is true of us, and you and everyone else that wants to be successful. If you’re interested in how we can take these learnings and apply them to your marketing strategy, book a 30-minute Discovery Call today. 
-
-          </p>
-          <h2 className={styles.title}>How can Motion help you?</h2>
-          <p>
-            🌟If you want to see how we can help with your marketing, book a
-            discovery call now!
           </p>
           <div className="CTA-button">
             <a
