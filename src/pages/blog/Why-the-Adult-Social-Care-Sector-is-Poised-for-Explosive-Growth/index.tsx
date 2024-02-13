@@ -343,7 +343,7 @@ const Index = () => {
           </p>
           <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-            🌟If you want to dsee how we can help with your marketing, book a
+            🌟If you want to see how we can help with your marketing, book a
             discovery call now!
           </p>
           <div className="CTA-button">
