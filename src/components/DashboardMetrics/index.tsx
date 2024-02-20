@@ -8,16 +8,11 @@ import {
 import router from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { useAccountContext } from '@/context/AccountContext';
 import { useDashboardRatings } from '@/services/dashboard/useDashboardRatings';
 
 import { DashboardMetricBox } from './DashboardMetricsBox';
 
-export const DashboardMetrics = () => {
-  const {
-    account: { accountId, accountStatus },
-  } = useAccountContext();
-
+export const DashboardMetrics = ({ accountId, accountStatus }) => {
   const [dateRangeFilter, setDateRangeFilter] = useState<string>('7-days');
 
   const handleDateFilterChange = (event: SelectChangeEvent) => {

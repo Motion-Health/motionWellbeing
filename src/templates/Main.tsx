@@ -7,7 +7,6 @@ import Toolbar from '@mui/material/Toolbar';
 import { useRouter } from 'next/router';
 import React, { ReactNode, useEffect } from 'react';
 
-import Navigation from '@/components/navigation/index';
 import { appSections } from '@/components/navigation/navigationItems';
 import { useAccountContext } from '@/context/AccountContext';
 import { useGetAccount } from '@/services/account/useGetAccount';
@@ -86,7 +85,7 @@ const Main = (props: IMainProps) => {
         </AppBar>
       )}
 
-      <Navigation mobileOpen={mobileOpen} drawerWidth={drawerWidth} />
+      {/* <Navigation mobileOpen={mobileOpen} drawerWidth={drawerWidth} /> */}
 
       <Box
         component="main"

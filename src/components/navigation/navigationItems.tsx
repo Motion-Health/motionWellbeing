@@ -127,6 +127,7 @@ const NavigationItems = () => {
           justifyContent="center"
         >
           {account?.accountStatus != 'admin' &&
+            account?.accountStatus != 'gis' &&
             account?.accountStatus != 'premium' && (
               <Button
                 variant="outlined"
@@ -143,6 +144,7 @@ const NavigationItems = () => {
             )}
 
           {account?.accountStatus !== 'admin' &&
+            account?.accountStatus !== 'gis' &&
             account?.accountStatus === 'premium' && (
               <div className="manage-membership-container">
                 <p className="premium-text">Premium</p>
@@ -191,16 +193,24 @@ export const appSections = [
     title: 'Home',
     icon: '/assets/icons/ph_house.svg',
     path: '/wellbeing/dashboard',
-    visibleTo: ['standard', 'group', 'premium', 'admin'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin'],
+    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
+    accessibleBy: ['standard', 'group', 'premium', 'admin', 'gis'],
   },
   {
     title: 'Activities',
     icon: '/assets/icons/ph_person-hands-up.svg',
     path: '/wellbeing/activities',
-    visibleTo: ['standard', 'group', 'premium', 'admin'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin'],
+    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
+    accessibleBy: ['standard', 'group', 'premium', 'admin', 'gis'],
   },
+  {
+    title: 'Golf In Society Activities',
+    icon: '/assets/icons/ph_person-hands-up.svg',
+    path: '/wellbeing/activities/?filter=gis',
+    visibleTo: ['gis'],
+    accessibleBy: ['gis'],
+  },
+
   {
     title: 'My planner',
     icon: '/assets/icons/ph_calendar-blank.svg',
