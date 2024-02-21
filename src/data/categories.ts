@@ -20,6 +20,10 @@ export const categories = [
     filter: 'Games',
   },
   {
+    title: 'Golf in Society',
+    filter: 'gis',
+  },
+  {
     title: 'Movement & Sport',
     filter: 'movementAndSport',
   },

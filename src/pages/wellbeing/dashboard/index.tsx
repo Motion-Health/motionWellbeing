@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-
+import { useAccountContext } from '@/context/AccountContext';
 import { ActivityCard } from '@/components/ActivityCard';
 import { DashboardMetrics } from '@/components/DashboardMetrics';
 import TutorialModal from '@/components/modals/TutorialModal';
@@ -40,7 +40,9 @@ const useSuccessBanner = (query) => {
 const Dashboard = () => {
   const router = useRouter();
   const { isFirstLogin } = router.query;
-
+  const {
+    account: { accountStatus },
+  } = useAccountContext();
   const [showSuccessBanner, successMessage, setShowSuccessBanner] =
     useSuccessBanner(router.query);
 
@@ -95,7 +97,7 @@ const Dashboard = () => {
           )}
         </Alert>
       )}
-      <DashboardMetrics />
+      <DashboardMetrics accountStatus={accountStatus} />
       <Grid sx={{ mt: '3rem' }}>
         <Typography variant="h2">Favourite activities</Typography>
         <Box

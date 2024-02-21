@@ -13,7 +13,13 @@
 
   position: absolute;
   overflow: auto;
-  width: 100%;
+  /* width: 100%; */
+}
 
+/* over size 488px */
+@media (min-width: 488px) {
+  .wellbeingBody {
+    width: 100%;
+  }
 }
 

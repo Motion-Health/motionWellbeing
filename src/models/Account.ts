@@ -9,7 +9,13 @@ export type Account = {
   email: string;
   isPartOfAGroup?: string;
   groupName?: string;
-  accountStatus: 'noAccess' | 'standard' | 'group' | 'premium' | 'admin';
+  accountStatus:
+    | 'noAccess'
+    | 'standard'
+    | 'group'
+    | 'premium'
+    | 'admin'
+    | 'gis';
   createdAt?: string;
   lastLogin?: string;
   activitiesCompleted?: number;

@@ -205,7 +205,7 @@ export const appSections = [
   },
   {
     title: 'Golf In Society Activities',
-    icon: '/assets/icons/ph_person-hands-up.svg',
+    icon: '/assets/icons/golf.svg',
     path: '/wellbeing/activities/?filter=gis',
     visibleTo: ['gis'],
     accessibleBy: ['gis'],

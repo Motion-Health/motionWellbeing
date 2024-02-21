@@ -29,6 +29,12 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
     dateRangeFilter
   );
 
+  useEffect(() => {
+    console.log('--------');
+    console.log(accountStatus);
+    console.log('--------');
+  }, [accountStatus]);
+
   const [averageActivitiesRatingsDecimal, setAverageActivitiesRatingsDecimal] =
     useState<number | string | null>(null);
   const [averageActivitiesRatingsRounded, setAverageActivitiesRatingsRounded] =
@@ -119,12 +125,13 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
           serviceName="activities_completed"
           dateRangeFilter={dateRangeFilter}
         />
-
-        <DashboardMetricBox
-          metricName="Participants"
-          serviceName="activities_participants"
-          dateRangeFilter={dateRangeFilter}
-        />
+        {accountStatus != 'gis' && (
+          <DashboardMetricBox
+            metricName="Participants"
+            serviceName="activities_participants"
+            dateRangeFilter={dateRangeFilter}
+          />
+        )}
 
         <Grid
           item

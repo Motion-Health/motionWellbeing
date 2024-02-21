@@ -569,9 +569,16 @@ const ServiceProviderDetailContent = (props: Props) => {
                     control={<Radio />}
                     {...register('accountStatus')}
                   />
+
                   <FormControlLabel
                     value="premium"
                     label={<Typography variant="helper">Premium</Typography>}
+                    control={<Radio />}
+                    {...register('accountStatus')}
+                  />
+                  <FormControlLabel
+                    value="gis"
+                    label={<Typography variant="helper">GIS</Typography>}
                     control={<Radio />}
                     {...register('accountStatus')}
                   />

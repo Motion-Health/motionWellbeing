@@ -110,6 +110,9 @@ export const CreateAccountForm = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        padding: '2rem',
+        maxWidth: '500px',
+        margin: 'auto',
       }}
     >
       {alertMessage && (
