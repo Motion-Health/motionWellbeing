@@ -40,6 +40,14 @@ const Index = () => {
       id: 10,
       name: "'Nothing About Us Without Us': What We’ve Learned from Co-Designing Services with Care Homes",
     },
+    {
+      id: 11,
+      name: 'Getting Better Feedback and Reviews for Your Care Home',
+    },
+    {
+      id: 12,
+      name: 'What Families Care About When Looking for a Care Home',
+    },
   ];
 
   return (
