@@ -17,8 +17,8 @@
 }
 
 @media (max-width: 900px) {
-  .wellbeingHtml {
-    overflow: unset;
+  main {
+    overflow: auto;
   }
   
 }
