@@ -17,7 +17,7 @@
 }
 
 @media (max-width: 900px) {
-  main {
+  .wellbeingBody main {
     overflow: auto;
   }
   
