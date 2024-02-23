@@ -5,10 +5,11 @@ import Button from '@mui/material/Button';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { useAccountContext } from '@/context/AccountContext';
+
 import { ActivityCard } from '@/components/ActivityCard';
 import { DashboardMetrics } from '@/components/DashboardMetrics';
 import TutorialModal from '@/components/modals/TutorialModal';
+import { useAccountContext } from '@/context/AccountContext';
 import { useFavoriteActivities } from '@/services/activities/useFavoriteActivities';
 import { useGetAnnouncement } from '@/services/announcements/useGetAnnouncement';
 import { Main } from '@/templates/Main';
@@ -78,13 +79,16 @@ const Dashboard = () => {
       )}
       <Grid container justifyContent="space-between" alignItems="center">
         <Typography variant="h1">Welcome back</Typography>
-        <Button
-          variant="link"
-          startIcon={<PrintIcon />}
-          onClick={() => window.print()}
-        >
-          Print Screen
-        </Button>
+        {/* if not GIS acount type */}
+        {accountStatus !== 'gis' && (
+          <Button
+            variant="link"
+            startIcon={<PrintIcon />}
+            onClick={() => window.print()}
+          >
+            Print Screen
+          </Button>
+        )}
       </Grid>
       {alertIsVisible && (
         <Alert

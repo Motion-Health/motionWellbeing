@@ -4,7 +4,7 @@
 
 import 'core-js/stable';
 
-
+import '../styles/global.css';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppProps } from 'next/app';
@@ -18,7 +18,6 @@ import { queryClient } from '@/services/query';
 
 // Import the special styles
 import theme from '../styles/theme';
-import '../styles/global.css';
 import stylesApp from './wellbeing.module.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

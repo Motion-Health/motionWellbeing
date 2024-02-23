@@ -6,4 +6,5 @@ export const categoryIcons: any = {
   movementAndSport: '/assets/icons/ph_person-simple-run.svg',
   music: '/assets/icons/ph_music-notes-simple.svg',
   staffWellbeing: '/assets/icons/ph_heartbeat.svg',
-}
+  gis: '/assets/icons/golf.svg',
+};

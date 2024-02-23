@@ -99,4 +99,8 @@
     margin: auto;
     display: block;
   }
+  .relative span {
+    margin: auto !important;
+  display: block !important;
+  }
 }

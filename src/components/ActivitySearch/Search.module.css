@@ -60,10 +60,14 @@
 @media (max-width: 900px) {
   .search {
     justify-content: center;
+    overflow: hidden;
+    width: 100%;
   }
-  .search button{    width: 33%;
+  .search button{  
+    border-radius: 17px;
+    padding-left: 0;
+    padding-right: 0;
     flex-basis: 33%;
-    border-radius: 17px
   }
   .search div > input {
     width: 100%;

@@ -149,7 +149,7 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
               mr: '1.5rem',
               cursor: 'pointer',
               height: '100%',
-              width: '250px',
+              width: { xs: '100%', sm: '250px' },
               position: 'relative',
               maxWidth: '100%',
             }}

@@ -1,7 +1,9 @@
 import { Alert, Button, Grid, List, ListItem, Typography } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import React from 'react';
 
 import { ActivitiesFilters } from '@/components/ActivitiesFilters';
 import { ActivityCard } from '@/components/ActivityCard';
@@ -18,11 +20,11 @@ import { useListActivities } from '@/services/activities/useListActivities';
 import { Main } from '@/templates/Main';
 
 import activityStyle from './activityStyle.module.css';
-import React from 'react';
 const Activities = () => {
   const {
     account: { accountStatus },
   } = useAccountContext();
+  const matches = useMediaQuery('(min-width:400px)');
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const router = useRouter();
@@ -316,8 +318,11 @@ const Activities = () => {
       <div className={activityStyle.fixedTopBar}>
         <div className={activityStyle.fixedTopBarAlignment}>
           <div className={activityStyle.header}>
-            <Typography className={activityStyle.title}
-            variant="h1" sx={{ mb: '16px' }}>
+            <Typography
+              className={activityStyle.title}
+              variant="h1"
+              sx={{ mb: '16px' }}
+            >
               Activities
             </Typography>
           </div>
@@ -336,14 +341,20 @@ const Activities = () => {
           >
             <Button
               variant="link"
-              sx={{ width: 'max-content', minWidth: 'fit-content',
-              '@media (min-width: 900px)': {
-                display: 'none',
-              }
-             }}
-              onClick={() => handleCategoryClick()}
+              sx={{
+                width: 'max-content',
+                minWidth: 'fit-content',
+                '@media (min-width: 900px)': {
+                  display: 'none',
+                },
+              }}
+              onClick={() => {
+                if (!toggleFilterIsOpen) {
+                  handleCategoryClick();
+                }
+              }}
             >
-              Categories &nbsp;
+              {matches ? 'Categories' : ''}
               {showCategories ? (
                 <img
                   src="/assets/icons/ph_x.svg"
@@ -363,9 +374,13 @@ const Activities = () => {
             <Button
               variant="link"
               sx={{ width: 'max-content', minWidth: 'fit-content' }}
-              onClick={() => onFilterButtonClick()}
+              onClick={() => {
+                if (!showCategories) {
+                  onFilterButtonClick();
+                }
+              }}
             >
-              Filters &nbsp;
+              {matches ? 'Filters' : ''}
               {toggleFilterIsOpen ? (
                 <img
                   src="/assets/icons/ph_x.svg"
@@ -396,7 +411,7 @@ const Activities = () => {
             overflow: 'hidden',
             '@media (max-width: 900px)': {
               display: 'none',
-            }
+            },
           }}
         >
           <List
@@ -406,8 +421,7 @@ const Activities = () => {
               flexGrow: 1,
               minWidth: 0,
               overflow: 'hidden',
-            }
-            }
+            }}
           >
             <Categories categories={categoriesData} />
           </List>
@@ -420,13 +434,21 @@ const Activities = () => {
           onFilterChange={handleFilterChange}
         />
       )}
-       {showCategories && (
-      <List className={activityStyle.categoriesMobile}>
-        {categoriesData.map((category) => (
-          <ListItem key={category.id}>{category.title}</ListItem>
-        ))}
-      </List>
-    )}
+      {showCategories && (
+        <List className={activityStyle.categoriesMobile}>
+          {categoriesData.map((category) => (
+            <ListItem
+              key={category.id}
+              className={activityStyle.mobileFilters}
+              onClick={() =>
+                router.push(`/wellbeing/activities/?filter=${category.filter}`)
+              }
+            >
+              {category.title}
+            </ListItem>
+          ))}
+        </List>
+      )}
       <div className="activities_parent">
         {showSuccessBanner && successMessage && (
           <>
@@ -483,7 +505,5 @@ const Activities = () => {
     </Main>
   );
 };
-
-
 
 export default Activities;

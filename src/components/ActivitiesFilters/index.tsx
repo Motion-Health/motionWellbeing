@@ -70,7 +70,7 @@ export const ActivitiesFilters = ({
     position: 'fixed',
     zIndex: 10,
     right: 0,
-    width: { xs: '10rem', sm: '20rem', md: '25rem' },
+    width: { xs: '100%', sm: '100%', md: '50%' },
     top: '105px',
   };
 
@@ -102,11 +102,11 @@ export const ActivitiesFilters = ({
   }
   return (
     <Grid container sx={style}>
-      <Grid container direction="row">
-        <Grid item xs={12} sm={6}>
+      <Grid container xs={12} direction="row">
+        <Grid item xs={6} sm={6}>
           <FilterGroup filters={leftFilters} />
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={6} sm={6} md={6}>
           <FilterGroup filters={rightFilters} />
         </Grid>
       </Grid>

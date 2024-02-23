@@ -63,6 +63,8 @@ const NavigationItems = () => {
       />
     );
   };
+  const onGISPage =
+    pathname === '/wellbeing/activities' && activityFilter === 'gis';
 
   return (
     <div className={styles.drawer}>
@@ -80,6 +82,15 @@ const NavigationItems = () => {
       >
         <List sx={{ paddingTop: 0 }} className={styles.appSections}>
           {appSections.map((page) => {
+            console.log('page', page);
+            const isActivePage = pathname === page.path;
+            const isGISPage = page.path === '/wellbeing/activities/?filter=gis';
+            console.log('pathname', page.path);
+            console.log('isActivePage', isActivePage);
+            console.log('isGISPage', isGISPage);
+
+            const shouldHighlight = onGISPage ? isGISPage : isActivePage;
+
             if (
               account?.accountStatus &&
               page.visibleTo.includes(account.accountStatus)
@@ -99,19 +110,17 @@ const NavigationItems = () => {
                         height="24"
                         width="24"
                         style={{
-                          filter:
-                            pathname === page.path
-                              ? // transform to activeColour (#66d3fa)
-                                'invert(72%) sepia(92%) saturate(573%) hue-rotate(166deg) brightness(99%) contrast(99%)'
-                              : 'none',
+                          filter: shouldHighlight
+                            ? // transform to activeColour (#66d3fa)
+                              'invert(72%) sepia(92%) saturate(573%) hue-rotate(166deg) brightness(99%) contrast(99%)'
+                            : 'none',
                         }}
                       />
                     </ListItemIcon>
                     <ListItemText
                       primary={page.title}
                       sx={{
-                        color:
-                          pathname === page.path ? activeColour : defaultColour,
+                        color: shouldHighlight ? activeColour : defaultColour,
                       }}
                     />
                   </ListItemButton>
@@ -215,8 +224,8 @@ export const appSections = [
     title: 'My planner',
     icon: '/assets/icons/ph_calendar-blank.svg',
     path: '/wellbeing/planner',
-    visibleTo: ['standard', 'group', 'premium', 'admin'],
-    accessibleBy: ['group', 'premium', 'admin'],
+    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
+    accessibleBy: ['group', 'premium', 'admin', 'gis'],
   },
   {
     title: 'Community',
@@ -229,8 +238,8 @@ export const appSections = [
     title: 'My profile',
     icon: '/assets/icons/ph_user-circle.svg',
     path: '/wellbeing/profile',
-    visibleTo: ['standard', 'group', 'premium', 'admin'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin'],
+    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
+    accessibleBy: ['standard', 'group', 'premium', 'admin', 'gis'],
   },
 
   {

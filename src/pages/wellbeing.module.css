@@ -16,6 +16,13 @@
   /* width: 100%; */
 }
 
+@media (max-width: 900px) {
+  .wellbeingHtml {
+    overflow: unset;
+  }
+  
+}
+
 /* over size 488px */
 @media (min-width: 488px) {
   .wellbeingBody {
