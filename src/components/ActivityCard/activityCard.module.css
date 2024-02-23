@@ -94,3 +94,9 @@
   justify-content: space-between;
   margin-top: 1rem;
 }
+@media (max-width: 900px) {
+  .relative {
+    margin: auto;
+    display: block;
+  }
+}

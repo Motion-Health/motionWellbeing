@@ -1,6 +1,9 @@
-'use client';
-import '../styles/global.css';
+/* eslint-disable simple-import-sort/imports */
+/* eslint-disable prettier/prettier */
+'use strict';
+
 import 'core-js/stable';
+
 
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
@@ -15,6 +18,7 @@ import { queryClient } from '@/services/query';
 
 // Import the special styles
 import theme from '../styles/theme';
+import '../styles/global.css';
 import stylesApp from './wellbeing.module.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {

@@ -1,4 +1,4 @@
-import { Alert, Button, Grid, List, Typography } from '@mui/material';
+import { Alert, Button, Grid, List, ListItem, Typography } from '@mui/material';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -18,6 +18,7 @@ import { useListActivities } from '@/services/activities/useListActivities';
 import { Main } from '@/templates/Main';
 
 import activityStyle from './activityStyle.module.css';
+import React from 'react';
 const Activities = () => {
   const {
     account: { accountStatus },
@@ -195,6 +196,10 @@ const Activities = () => {
     filterByTags,
     filterByTimeLengths
   );
+  const [showCategories, setShowCategories] = useState(false);
+  const handleCategoryClick = () => {
+    setShowCategories(!showCategories);
+  };
 
   const [displayActivities, setDisplayActivities] = useState<
     ActivityData[] | null
@@ -311,7 +316,8 @@ const Activities = () => {
       <div className={activityStyle.fixedTopBar}>
         <div className={activityStyle.fixedTopBarAlignment}>
           <div className={activityStyle.header}>
-            <Typography variant="h1" sx={{ mb: '16px' }}>
+            <Typography className={activityStyle.title}
+            variant="h1" sx={{ mb: '16px' }}>
               Activities
             </Typography>
           </div>
@@ -328,6 +334,32 @@ const Activities = () => {
             searchKey="activityName"
             searchedData={handleSearchedData}
           >
+            <Button
+              variant="link"
+              sx={{ width: 'max-content', minWidth: 'fit-content',
+              '@media (min-width: 900px)': {
+                display: 'none',
+              }
+             }}
+              onClick={() => handleCategoryClick()}
+            >
+              Categories &nbsp;
+              {showCategories ? (
+                <img
+                  src="/assets/icons/ph_x.svg"
+                  width="24"
+                  height="24"
+                  alt="close"
+                />
+              ) : (
+                <img
+                  src="/assets/icons/categories.svg"
+                  width="24"
+                  height="24"
+                  alt="slider"
+                />
+              )}
+            </Button>
             <Button
               variant="link"
               sx={{ width: 'max-content', minWidth: 'fit-content' }}
@@ -362,6 +394,9 @@ const Activities = () => {
             flexGrow: 1,
             minWidth: 0,
             overflow: 'hidden',
+            '@media (max-width: 900px)': {
+              display: 'none',
+            }
           }}
         >
           <List
@@ -371,7 +406,8 @@ const Activities = () => {
               flexGrow: 1,
               minWidth: 0,
               overflow: 'hidden',
-            }}
+            }
+            }
           >
             <Categories categories={categoriesData} />
           </List>
@@ -384,6 +420,13 @@ const Activities = () => {
           onFilterChange={handleFilterChange}
         />
       )}
+       {showCategories && (
+      <List className={activityStyle.categoriesMobile}>
+        {categoriesData.map((category) => (
+          <ListItem key={category.id}>{category.title}</ListItem>
+        ))}
+      </List>
+    )}
       <div className="activities_parent">
         {showSuccessBanner && successMessage && (
           <>
@@ -440,5 +483,7 @@ const Activities = () => {
     </Main>
   );
 };
+
+
 
 export default Activities;

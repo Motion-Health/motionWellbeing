@@ -57,3 +57,22 @@
 
 }
 
+@media (max-width: 900px) {
+  .search {
+    justify-content: center;
+  }
+  .search button{    width: 33%;
+    flex-basis: 33%;
+    border-radius: 17px
+  }
+  .search div > input {
+    width: 100%;
+  }
+  .closeButton{
+    width: auto !important;
+  }
+  .inputBase.clicked {
+    border-radius: 17px;
+
+  }
+}

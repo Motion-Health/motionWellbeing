@@ -479,3 +479,11 @@ body{
   right: 0;
   align-items: center;
 }
+
+
+@media (max-width: 900px) {
+.activities .activity{
+  max-width: unset;
+flex-basis:unset;
+}
+}
