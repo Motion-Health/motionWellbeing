@@ -81,6 +81,7 @@ export const ResetPasswordForm = () => {
           flexDirection: 'column',
           alignItems: 'center',
           width: '27rem',
+          maxWidth: '-webkit-fill-available',
         }}
       >
         <div
