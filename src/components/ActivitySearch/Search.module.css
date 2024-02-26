@@ -37,6 +37,7 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   width: fit-content;
+  color: #1c4e84;
 }
 
 .searchIcon.clicked{
@@ -58,10 +59,14 @@
 }
 
 @media (max-width: 900px) {
+  .search button img {
+    height: 20px;
+  }
   .search {
     justify-content: center;
     overflow: hidden;
     width: 100%;
+    padding: 10px;
   }
   .search button{  
     border-radius: 17px;
@@ -74,9 +79,18 @@
   }
   .closeButton{
     width: auto !important;
+    margin-right: 10px;
   }
   .inputBase.clicked {
     border-radius: 17px;
 
+  }
+}
+@media (max-width: 480px) {
+  .search button img {
+    display: none;
+  }
+  .searchIcon{ 
+    width: 20px;
   }
 }

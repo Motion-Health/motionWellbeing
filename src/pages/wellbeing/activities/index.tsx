@@ -1,5 +1,4 @@
 import { Alert, Button, Grid, List, ListItem, Typography } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -24,7 +23,8 @@ const Activities = () => {
   const {
     account: { accountStatus },
   } = useAccountContext();
-  const matches = useMediaQuery('(min-width:400px)');
+  // const matches = useMediaQuery('(min-width:400px)');
+  const matches = true;
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const router = useRouter();
@@ -347,6 +347,9 @@ const Activities = () => {
                 '@media (min-width: 900px)': {
                   display: 'none',
                 },
+                '@media (max-width: 480px)': {
+                  fontSize: '0.6rem',
+                },
               }}
               onClick={() => {
                 if (!toggleFilterIsOpen) {
@@ -354,47 +357,59 @@ const Activities = () => {
                 }
               }}
             >
-              {matches ? 'Categories' : ''}
               {showCategories ? (
                 <img
                   src="/assets/icons/ph_x.svg"
                   width="24"
                   height="24"
                   alt="close"
+                  style={{ display: 'block' }}
                 />
               ) : (
-                <img
-                  src="/assets/icons/categories.svg"
-                  width="24"
-                  height="24"
-                  alt="slider"
-                />
+                <>
+                  {matches ? 'Categories' : ''}
+                  <img
+                    src="/assets/icons/categories.svg"
+                    width="24"
+                    height="24"
+                    alt="slider"
+                  />
+                </>
               )}
             </Button>
             <Button
               variant="link"
-              sx={{ width: 'max-content', minWidth: 'fit-content' }}
+              sx={{
+                width: 'max-content',
+                minWidth: 'fit-content',
+                '@media (max-width: 480px)': {
+                  fontSize: '0.6rem',
+                },
+              }}
               onClick={() => {
                 if (!showCategories) {
                   onFilterButtonClick();
                 }
               }}
             >
-              {matches ? 'Filters' : ''}
               {toggleFilterIsOpen ? (
                 <img
                   src="/assets/icons/ph_x.svg"
                   width="24"
                   height="24"
                   alt="close"
+                  style={{ display: 'block' }}
                 />
               ) : (
-                <img
-                  src="/assets/icons/ph_sliders.svg"
-                  width="24"
-                  height="24"
-                  alt="slider"
-                />
+                <>
+                  {matches ? 'Filters' : ''}
+                  <img
+                    src="/assets/icons/ph_sliders.svg"
+                    width="24"
+                    height="24"
+                    alt="slider"
+                  />
+                </>
               )}
             </Button>
           </ActivitySearch>
@@ -436,6 +451,12 @@ const Activities = () => {
       )}
       {showCategories && (
         <List className={activityStyle.categoriesMobile}>
+          <ListItem
+            className={activityStyle.mobileFilters}
+            onClick={() => router.push('/wellbeing/activities')}
+          >
+            All
+          </ListItem>
           {categoriesData.map((category) => (
             <ListItem
               key={category.id}

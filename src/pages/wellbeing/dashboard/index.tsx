@@ -77,7 +77,16 @@ const Dashboard = () => {
           {successMessage}
         </Alert>
       )}
-      <Grid container justifyContent="space-between" alignItems="center">
+      <Grid
+        container
+        justifyContent="space-between"
+        alignItems="center"
+        sx={{
+          '@media (max-width: 600px)': {
+            padding: '0px 10px',
+          },
+        }}
+      >
         <Typography variant="h1">Welcome back</Typography>
         {/* if not GIS acount type */}
         {accountStatus !== 'gis' && (
@@ -102,7 +111,14 @@ const Dashboard = () => {
         </Alert>
       )}
       <DashboardMetrics accountStatus={accountStatus} />
-      <Grid sx={{ mt: '3rem' }}>
+      <Grid
+        sx={{
+          mt: '3rem',
+          '@media (max-width: 600px)': {
+            padding: '0px 10px',
+          },
+        }}
+      >
         <Typography variant="h2">Favourite activities</Typography>
         <Box
           sx={{

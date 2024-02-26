@@ -50,7 +50,16 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
 
   return (
     <>
-      <Grid container sx={{ display: 'flex', flexWrap: 'nowrap' }}>
+      <Grid
+        container
+        sx={{
+          display: 'flex',
+          flexWrap: 'nowrap',
+          '@media (max-width: 600px)': {
+            padding: '0px 10px',
+          },
+        }}
+      >
         <Grid
           container
           sx={{
@@ -71,6 +80,9 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
               width: '10rem',
               backgroundColor: 'transparent',
               border: 'none',
+              '@media (max-width: 600px)': {
+                display: 'none',
+              },
             }}
           >
             <MenuItem value="7-days">WEEKLY</MenuItem>
