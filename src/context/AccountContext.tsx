@@ -52,13 +52,14 @@ export function AccountProvider({ children }: AccountProviderProps) {
     const isInWellbeingPage = router.pathname.includes('/wellbeing');
     const isFirstLogin = router.query.isFirstLogin === 'true';
     const isRegisterPage = router.pathname.includes('/create-account');
-
+    const isiFramePage = router.pathname.includes('/iframe');
     // If in a wellbeing page, but not in additional info or login page, and account is not null
     if (isFirstLogin) {
       account.serviceProviderName = 'fillerValue';
     }
     if (
       isInWellbeingPage &&
+      !isiFramePage &&
       !isInAdditionalInfoPage &&
       !isInLoginPage &&
       !isFirstLogin &&
