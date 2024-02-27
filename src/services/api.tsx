@@ -24,7 +24,10 @@ API.interceptors.response.use(
     ) {
       if (window.location.pathname !== '/iframe/') {
         // The current URL path is not /iframe, redirect to login
-        (window as Window).location = '/wellbeing/login';
+        console.log('Redirecting to login');
+        console.log('window.location.pathname', window.location.pathname);
+        console.log('window.location', window.location);
+        // (window as Window).location = '/wellbeing/login';
       }
     }
 
