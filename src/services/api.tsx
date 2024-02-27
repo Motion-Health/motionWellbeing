@@ -22,7 +22,10 @@ API.interceptors.response.use(
       (err?.response?.message === 'token expired' ||
         err?.response?.data === 'Unauthorized')
     ) {
-      (window as Window).location = '/wellbeing/login';
+      if (window.location.pathname !== '/iframe/') {
+        // The current URL path is not /iframe, redirect to login
+        (window as Window).location = '/wellbeing/login';
+      }
     }
 
     return Promise.reject(err);
