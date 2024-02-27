@@ -22,12 +22,12 @@ API.interceptors.response.use(
       (err?.response?.message === 'token expired' ||
         err?.response?.data === 'Unauthorized')
     ) {
-      if (window.location.pathname !== '/iframe/') {
+      if (window.location.pathname !== '/iframe') {
         // The current URL path is not /iframe, redirect to login
-        console.log('Redirecting to login');
-        console.log('window.location.pathname', window.location.pathname);
-        console.log('window.location', window.location);
-        // (window as Window).location = '/wellbeing/login';
+        // console.log('Redirecting to login');
+        // console.log('window.location.pathname', window.location.pathname);
+        // console.log('window.location', window.location);
+        (window as Window).location = '/wellbeing/login';
       }
     }
 
