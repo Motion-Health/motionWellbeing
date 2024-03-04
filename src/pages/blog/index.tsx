@@ -48,6 +48,8 @@ const Index = () => {
       id: 12,
       name: 'What Families Care About When Looking for a Care Home',
     },
+    {
+    },
   ];
 
   return (
