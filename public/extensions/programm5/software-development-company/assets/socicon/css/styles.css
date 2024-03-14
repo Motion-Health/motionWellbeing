@@ -932,3 +932,67 @@
 .socicon-zynga:before {
   content: "\e0a9";
 }
+
+
+h1.heroText {.heroText {
+    margin: 10px 0px;
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    font-weight: 700;
+};
+.heroText {
+    margin: 10px 0px;
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    font-weight: 700;
+};
+.heroText {
+    margin: 10px 0px;
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    font-weight: 700;
+};
+.heroText {
+    margin: 10px 0px;
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    font-weight: 700;
+};
+}
+
+a.nav-link.link.display-4 {
+    color: black;
+    font-size: 15px;
+}
+
+.col-12.col-lg-8.text-center {
+    height: max-content;
+}
+
+.row.justify-content-center {}
+
+.howMotionWorks {
+    margin-bottom: 30px;
+}
+
+.cid-tFcktY5MQz .title-wrapper .mbr-section-title {
+    color: black;
+}
+
+.motionWorksTitle {
+    font-family: 'Montserrat';
+}
+
+.motionBenefitsTitle {
+    font-family: 'Montserrat';
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.card-wrapper.motionBenefitsText {
+    font-family: 'Montserrat';
+}

@@ -3,10 +3,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import React from 'react';
-import CountUp from 'react-countup';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
-import VisibilitySensor from 'react-visibility-sensor';
 
 import { useAccountContext } from '@/context/AccountContext';
 const Index = () => {
@@ -158,12 +156,37 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Reasource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Serices
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
@@ -173,7 +196,7 @@ const Index = () => {
                   className="btn btn-secondary display-4"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -189,19 +212,21 @@ const Index = () => {
           <div className="row">
             <div className="col-12">
               <div className="title-wrapper">
-                <h2 className="mbr-section-title statTitle mbr-fonts-style display-2">
-                  <span>90%</span> of privately funded families find their
-                  chosen care service online
-                </h2>
-                <h1 className="mbr-section-title mbr-fonts-style display-1">
-                  Want to unlock the power of digital marketing for your{' '}
+                <h1 className="heroText">You take care of </h1>
+                <h1 className="heroText blueText">
+                  yesterdays{' '}
                   <TypeAnimation
                     sequence={[
                       // Same substring at the start will only be typed out once, initially
-                      'Care Home?',
+                      'Teachers',
                       3000,
-                      ' ',
-                      100,
+                      'Nurses',
+                      3000,
+                      'Engineers',
+                      3000,
+                      'Doctors',
+                      3000,
+                      'Soldiers',
                     ]}
                     wrapper="span"
                     speed={50}
@@ -209,61 +234,22 @@ const Index = () => {
                     repeat={Infinity}
                   />
                 </h1>
-                <div className="tags-wrapper">
-                  <div className="tags-wrap">
-                    <div className="tag-item">
-                      <svg
-                        className="customIcon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height={24}
-                        viewBox="0 -960 960 960"
-                        width={24}
-                      >
-                        <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
-                      </svg>
-                      <p className="mbr-tag mbr-fonts-style display-7">
-                        Marketing Strategy
-                      </p>
-                    </div>
-                    <div className="tag-item">
-                      <svg
-                        className="customIcon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        viewBox="0 -960 960 960"
-                        width="24"
-                      >
-                        <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
-                      </svg>
-
-                      <p className="mbr-tag mbr-fonts-style display-7">
-                        SEO &amp; Social Media
-                      </p>
-                    </div>
-                    <div className="tag-item">
-                      <svg
-                        className="customIcon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24"
-                        viewBox="0 -960 960 960"
-                        width="24"
-                      >
-                        <path d="M40-120v-80h880v80H40Zm120-120q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v440q0 33-23.5 56.5T800-240H160Zm0-80h640v-440H160v440Zm0 0v-440 440Z" />
-                      </svg>
-                      <p className="mbr-tag mbr-fonts-style display-7">
-                        Website Design
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <h1 className="heroText">We’ll take care of you.</h1>
+                <p className="subheadingText">
+                  A digital platform for care services to improve wellbeing
+                  outcomes and showcase this to existing and prospective
+                  families to improve their customer satisfaction and increase
+                  occupancy.
+                </p>
                 <div className="mbr-section-btn">
                   <a
                     className="btn btn-secondarydisplay-4 services-button btn-secondary"
                     href="#features6-6"
                   >
-                    Our Services
+                    Get a Demo
                   </a>
                 </div>
+                <p>No credit card required.</p>
               </div>
             </div>
           </div>
@@ -274,6 +260,13 @@ const Index = () => {
         className="slider1 programm5 mbr-embla cid-tFcgtIIPnX"
         id="slider1-8"
       >
+        <div className="text-center">
+          <div className="title-wrapper">
+            <h2 className="mbr-section-title mbr-fonts-style display-2">
+              <strong>Trusted By</strong>
+            </h2>
+          </div>
+        </div>
         <div className="container-fluid">
           <div className="row position-relative">
             <Slider {...settings}>
@@ -356,29 +349,79 @@ const Index = () => {
         id="content5-f"
       >
         <div className="container">
-          <div className="row">
-            <div className="col-12 col-lg-6">
+          <div className="row justify-content-center howMotionWorks">
+            <div className="col-12 col-lg-8 text-center">
               <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  <strong>About us</strong>
+                <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle">
+                  <strong>How motion works</strong>
                 </h2>
-                <img src="extensions/programm5/assets/images/HCH.jpeg" alt="" />
               </div>
-            </div>
-            <div className="col-12 col-lg-6">
               <div className="text-wrapper">
                 <p className="mbr-text mbr-fonts-style display-7">
-                  We know how important it is find a partner that really
-                  understands you. At Motion we have over 5 years experience
-                  working within the social care sector and showcasing our
-                  clients incredible stories. Whether it's
-                  <strong> recruiting staff</strong>,
-                  <strong> increasing occupancy</strong> with self-funding
-                  families or <strong>improving brand awareness</strong> — you
-                  can rest assured that Motion will take care of the you.
+                  Our all-in-one solution is easy to implement with help from
+                  our experienced team and provides you with a comprehensive and
+                  person-centred approach to improve your marketing.
                 </p>
               </div>
             </div>
+          </div>
+          <div className="row">
+            <div className="col-12 col-lg-4 card">
+              <div className="title-wrapper">
+                <img
+                  className="blogImage"
+                  src="/extensions/programm5/assets/images/seo.png"
+                  alt="seo"
+                />
+                <h3 className="motionBenefitsTitle">
+                  <strong>Improve lifestyle and wellbeing outcomes</strong>
+                </h3>
+              </div>
+              <div className="card-wrapper motionBenefitsText">
+                A wide range of evidence-based lifestyle resources and
+                activities that are proven to improve mood.
+              </div>
+            </div>
+            <div className="col-12 col-lg-4 card">
+              <div className="title-wrapper">
+                <img
+                  className="blogImage"
+                  src="/extensions/programm5/assets/images/seo.png"
+                  alt="seo"
+                />
+                <h3 className="motionBenefitsTitle">
+                  <strong>Showcase improved standard of care</strong>
+                </h3>
+              </div>
+              <div className="card-wrapper motionBenefitsText">
+                Tailored updates are automatically shared to your website,
+                making showcasing your care home effortless.
+              </div>
+            </div>
+            <div className="col-12 col-lg-4 card">
+              <div className="title-wrapper">
+                <img
+                  className="blogImage"
+                  src="/extensions/programm5/assets/images/seo.png"
+                  alt="seo"
+                />
+                <h3 className="motionBenefitsTitle">
+                  <strong>Fill beds and improve customer satisfaction</strong>
+                </h3>
+              </div>
+              <div className="card-wrapper motionBenefitsText">
+                Regular reports and data insights are provided to ensure you can
+                see and understand the impact on key metrics.
+              </div>
+            </div>
+          </div>
+          <div className="mbr-section-btn">
+            <a
+              className="btn btn-secondarydisplay-4 services-button btn-secondary"
+              href="#features6-6"
+            >
+              Get a Demo
+            </a>
           </div>
         </div>
       </section>
@@ -389,65 +432,25 @@ const Index = () => {
       >
         <div className="container text-center">
           <div className="row">
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper">
-                <h3 className="mbr-card-title mbr-fonts-style display-2">
-                  <strong>
-                    <CountUp start={0} end={2000} duration={3} redraw={true}>
-                      {({ countUpRef, start }) => (
-                        <VisibilitySensor onChange={start} delayedCall>
-                          <span ref={countUpRef} />
-                        </VisibilitySensor>
-                      )}
-                    </CountUp>
-                    +
-                  </strong>
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Enquiries Generated
-                </p>
+            <div className="col-12 col-lg-8 text-center">
+              <div className="title-wrapper">
+                <h2 className="mbr-section-title mbr-fonts-style display-2">
+                  <strong>Features</strong>
+                </h2>
               </div>
-            </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="card-wrapper">
-                <h3 className="mbr-card-title mbr-fonts-style display-2">
-                  <strong>
-                    <CountUp start={0} end={100} duration={3} redraw={true}>
-                      {({ countUpRef, start }) => (
-                        <VisibilitySensor onChange={start} delayedCall>
-                          <span ref={countUpRef} />
-                        </VisibilitySensor>
-                      )}
-                    </CountUp>
-                    %
-                  </strong>
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Client Recommendation Rating
+              <div className="text-wrapper">
+                <p className="mbr-text mbr-fonts-style display-7">
+                  Check out Motion's features and how they ensure an improvement
+                  in wellbeing outcomes as well as a positive impact on your
+                  business.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section
-        data-bs-version="5.1"
-        className="tabs1 programm5 cid-tFcgABlMo6"
-        id="tabs1-b"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2  blacktitle ">
-                  Our Services
-                </h2>
-              </div>
-            </div>
-            <div className="servicesGrid">
-              <div id="tab1" className="tab-pane in active">
+          <div id="tab1" className="tab-pane in active">
+            <div className="row">
+              <div className="col">
                 <svg
-                  className="customServiceIcon"
                   xmlns="http://www.w3.org/2000/svg"
                   height={24}
                   viewBox="0 -960 960 960"
@@ -455,119 +458,71 @@ const Index = () => {
                 >
                   <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
                 </svg>
-                <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                  Marketing Strategy
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  An effective strategy built around your target audience is the
-                  foundation of successful digital marketing. We create a
-                  bespoke strategy that ensures you stand out and tell
-                  compelling stories in today's competitive marketplace.
-                </p>
+                <p className="mbr-desc mbr-fonts-style display-7">Planner</p>
               </div>
-              <div id="tab2" className="tab-pane">
+              <div className="col">
                 <svg
-                  className="customServiceIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="24"
+                  height={24}
                   viewBox="0 -960 960 960"
-                  width="24"
+                  width={24}
                 >
-                  <path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z" />
+                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
                 </svg>
-                <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                  SEO
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Boost your online visibility with our specialised SEO
-                  services. We optimise your website to rank higher in search
-                  engine results, driving more organic traffic and helping you
-                  reach the right customers for your care home.
-                </p>
+                <p className="mbr-desc mbr-fonts-style display-7">Actvities</p>
               </div>
-              <div id="tab3" className="tab-pane" role="tabpanel">
+              <div className="col">
                 <svg
-                  className="customServiceIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="24"
+                  height={24}
                   viewBox="0 -960 960 960"
-                  width="24"
+                  width={24}
                 >
-                  <path d="M720-120H280v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h258q32 0 56 24t24 56v80q0 7-2 15t-4 15L794-168q-9 20-30 34t-44 14Zm-360-80h360l120-280v-80H480l54-220-174 174v406Zm0-406v406-406Zm-80-34v80H160v360h120v80H80v-520h200Z" />
+                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
                 </svg>
-                <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                  Social Media Management
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Engage and grow your audience with our social media management
-                  services. We create and manage top-performing social media
-                  campaigns tailored to foster community and build lasting
-                  relationships with families of existing and future residents.
-                </p>
+                <p className="mbr-desc mbr-fonts-style display-7">Webpage</p>
               </div>
-              <div id="tab4" className="tab-pane" role="tabpanel">
+              <div className="col">
                 <svg
-                  className="customServiceIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="24"
+                  height={24}
                   viewBox="0 -960 960 960"
-                  width="24"
+                  width={24}
                 >
-                  <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm0-80h420v-140H160v140Zm500 0h140v-360H660v360ZM160-460h420v-140H160v140Z" />
+                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
                 </svg>
-                <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                  Website
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Create an impactful online presence with our professional
-                  website development. Our team designs and develops custom,
-                  user-friendly websites that look great and perform seamlessly
-                  on all devices.
-                </p>
+                <p className="mbr-desc mbr-fonts-style display-7">Updates</p>
               </div>
-              <div id="tab5" className="tab-pane" role="tabpanel">
+              <div className="col">
                 <svg
-                  className="customServiceIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height="24"
+                  height={24}
                   viewBox="0 -960 960 960"
-                  width="24"
+                  width={24}
                 >
-                  <path d="M280-240q-17 0-28.5-11.5T240-280v-80h520v-360h80q17 0 28.5 11.5T880-680v600L720-240H280ZM80-280v-560q0-17 11.5-28.5T120-880h520q17 0 28.5 11.5T680-840v360q0 17-11.5 28.5T640-440H240L80-280Zm520-240v-280H160v280h440Zm-440 0v-280 280Z" />
+                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
                 </svg>
-                <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                  Chatbots
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Enhance customer interaction with our intelligent, personable
-                  chatbot solutions. Our chatbots provide instant, 24/7
-                  assistance to your customers, improving response times and
-                  boosting overall satisfaction.
-                </p>
-              </div>
-              <div id="tab5" className="tab-pane" role="tabpanel">
-                <svg
-                  className="customServiceIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                >
-                  <path d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z" />
-                </svg>
-                <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                  Branding
-                </h3>
-                <p className="mbr-desc mbr-fonts-style display-7">
-                  Consistently communicate what makes your organisation special,
-                  its visual foundation and core values with a bespoke brand
-                  style guide.
-                </p>
+                <p className="mbr-desc mbr-fonts-style display-7">Analytics</p>
               </div>
             </div>
+            <p className="mbr-desc mbr-fonts-style display-7">
+              Weekly and monthly planners mean that you can schedule activities
+              ahead of time. Whether their group or one-to-one, in the home or a
+              trip out; the planner is there to say you time and can be easily
+              shared with residents, families and colleagues.
+            </p>
+          </div>
+          <div className="mbr-section-btn-main" role="tablist">
+            <a
+              className="btn btn-secondary display-4"
+              href="https://calendly.com/zeezy-1/motion"
+            >
+              Get a Demo
+            </a>
           </div>
         </div>
       </section>
+
       <section
         data-bs-version="5.1"
         className="content4 programm5 cid-tFckpILCGl"
@@ -609,9 +564,12 @@ const Index = () => {
             <div className="col-12">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style display-2 blogsTitle">
-                  Check out our latest blogs and articles to help you grow your
-                  care home
+                  Resource Hub
                 </h2>
+                <p className="mbr-desc mbr-fonts-style display-7">
+                  We've compiled these quick and easy-to-use resources to
+                  de-mystify marketing, sales and technology for your care home.
+                </p>
               </div>
             </div>
             <div className="col-12 col-lg-4 col-md-6 card">
@@ -700,6 +658,14 @@ const Index = () => {
                 </a>
               </div>
             </div>
+          </div>
+          <div className="mbr-section-btn-main" role="tablist">
+            <a
+              className="btn btn-secondary display-4"
+              href="https://calendly.com/zeezy-1/motion"
+            >
+              Read More
+            </a>
           </div>
         </div>
       </section>

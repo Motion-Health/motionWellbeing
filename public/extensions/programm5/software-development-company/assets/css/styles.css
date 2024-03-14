@@ -1,8 +1,8 @@
 .filtered-background-section {
     position: relative;
-    background-image: url('./../images/header.webp');
-    background-size: cover;
-    background-position: center;
+    /* background-image: url('./../images/header.webp'); */
+    t(at left, #385988, white);
+    background-image: radial-gradient(at left, #385988, white);
 }
 
 .filtered-background-section::before {
@@ -14,6 +14,7 @@
     left: 0;
     background: rgb(255 255 255 / 56%); /* White with adjustable opacity */
     z-index: -1;
+    background-image: radial-gradient(left to right, #385988, white);
 }
 
 /* Ensure content of the section is on top of the overlay */
@@ -161,4 +162,38 @@ body{
 }
 .blacktitle{
   color: black;
+}
+
+
+h1.mbr-section-title.mbr-fonts-style.display-1 {
+    margin: 10px;
+    color: #385988;
+}
+
+h1.heroText {
+    margin: 10px 0px;
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    font-weight: 700;
+}
+
+h1.heroText.blueText {
+    color: #385988;
+}
+
+.blueText span {
+    font-weight: 700;
+}
+
+p.subheadingText {
+    color: black;
+    font-family: 'Montserrat';
+    margin-top: 20px;
+}
+
+section#content5-f {
+    text-align: center;
+    background-image: radial-gradient(at right, #385988, white);
+    color: black;
 }
