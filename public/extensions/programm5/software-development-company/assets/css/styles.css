@@ -2,7 +2,7 @@
     position: relative;
     /* background-image: url('./../images/header.webp'); */
     t(at left, #385988, white);
-    background-image: radial-gradient(at left, #385988, white);
+    background-image: radial-gradient(at left, #385988b8, #fdfced);
 }
 
 .filtered-background-section::before {
@@ -122,10 +122,10 @@ body{
     width: -webkit-fill-available;
     padding: 30px;
     border-radius: 10px;
-    background-color: #EBEDF3;
+    background-color: #FDFCED;
     position: relative;
-    padding-bottom: 70px;
     transition: all 0.15s;
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
 }
 
 .customTitle{
@@ -151,10 +151,10 @@ body{
 .footerMargin{margin-bottom: 50px;}
 
 .signupText{
-  color:white;
+  color: black;
 }
 .partnerQuote{
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 .cid-tFcg6m8FPY{
@@ -189,11 +189,86 @@ h1.heroText.blueText {
 p.subheadingText {
     color: black;
     font-family: 'Montserrat';
+    line-height: 1.3;
+    width: 80%;
+    margin: auto;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 section#content5-f {
     text-align: center;
     background-image: radial-gradient(at right, #385988, white);
     color: black;
+:;
+    text-align: center;
+    background-image: radial-gradient(at right, #385988, white);
+    color: black;
+:;
+    background: radial-gradient(circle at top right, #FDFCED, #385988), radial-gradient(circle at top left, #fdfced 15px, #385988, #FDFCED), radial-gradient(circle at bottom left, transparent 15px, #FDFCED, #385988);
+          radial-gradient(
+    circle at bottom right, transparent 15px, #385988, #FDFCED) bottom right;
+     /* Bottom left transparent circle */
+    background: radial-gradient(circle at top left, #FDFCED, #fdfced17), radial-gradient(circle at top right, #3859909c, #fdfced00), radial-gradient(circle at bottom right, #FDFCED, #fdfced00), radial-gradient(circle at bottom left, #385990c7, #FDFCED);
+}
+
+.demoButtonContainer p {
+    margin-top: 10px;
+    font-family: 'Montserrat';
+}
+
+.blueDemoButton {}
+
+svg.featureIcon {
+    height: 4vw;
+}
+
+h2.mbr-section-title.mbr-fonts-style.display-2.setInMotionTitle {
+    text-align: center;
+    font-weight: 700;
+}
+
+.mbr-section-btn-main.fixWidth {
+    min-width: fit-content;
+}
+
+.resourceItems p {
+    text-align: start !important;
+    margin-bottom: 0px;
+    padding: 0px !important;
+}
+
+.miniBlogs .title-wrap .customTitle {
+    font-size: 20px;
+    text-align: start;
+}
+
+a.btn.btn-secondary.display-4.readMoreButton {
+    background-color: #385988;
+    padding: 20px 40px;
+    width: max-content;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+    margin: auto;
+    font-family: 'Montserrat';
+    margin-top: 25px;
+}
+
+.cid-tFcgeFyM9G {
+    background: radial-gradient(circle at top left, #FDFCED, transparent), radial-gradient(circle at top right, #385990, #fdfced), radial-gradient(circle at bottom right, #FDFCED, #fdfced), radial-gradient(circle at bottom left, #fdfced, #385988);
+}
+
+section#form1-d {}
+
+section#form1-d {}
+
+section#form1-d {}
+
+section#form1-d {
+    background: linear-gradient(to right, #a4b6cf, #fdfced);
+}
+
+.cid-tFcguy0QTa {
+    background-color: #fdfced !important;
 }

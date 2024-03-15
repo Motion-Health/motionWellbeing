@@ -1,74 +1,86 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import { Grid } from '@mui/material';
+import { useState } from 'react';
 
 import BlogCard from '@/components/Blog/BlogCard';
 
 import styles from './blog.module.css';
 
+const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
+
 const Index = () => {
+  const [selectedTags, setSelectedTags] = useState([]); // This will be used to filter the blogs based on the selected tags
   const blogs = [
-    { id: 1, name: 'SEO Explained' },
+    { id: 1, name: 'SEO Explained', tags: ['Marketing', 'Technology'] },
     {
       id: 3,
       name: 'How to Attract more Carers to your Home',
+      tags: ['Sales', 'Wellbeing'],
     },
     {
       id: 4,
       name: 'When to Invest in Marketing for Care Homes',
+      tags: ['Marketing', 'News'],
     },
     {
       id: 5,
       name: 'How can you Remove Bad Reviews on Indeed?',
+      tags: ['Sales', 'Technology'],
     },
     {
       id: 6,
       name: 'Creating a Successful Sales Funnel For your Care Home',
+      tags: ['Sales', 'Marketing'],
     },
     {
       id: 7,
       name: 'What is TikTok and Should your Care Home be Using it?',
+      tags: ['Technology', 'News'],
     },
     {
       id: 8,
       name: 'Why the Adult Social Care Sector is Poised for Explosive Growth',
+      tags: ['News', 'Wellbeing'],
     },
     {
       id: 9,
       name: 'How to Get Your Care Homes Featured on BBC News',
+      tags: ['News', 'Marketing'],
     },
     {
       id: 10,
       name: "'Nothing About Us Without Us': What We’ve Learned from Co-Designing Services with Care Homes",
+      tags: ['Wellbeing', 'Technology'],
     },
     {
       id: 11,
       name: 'Getting Better Feedback and Reviews for Your Care Home',
+      tags: ['Sales', 'Wellbeing'],
     },
     {
       id: 12,
       name: 'What Families Care About When Looking for a Care Home',
-    },
-    {
+      tags: ['Sales', 'Marketing'],
     },
   ];
 
   return (
     <>
-      <title>Knowledge hub | Motion Marketing</title>
+      <title>Resource Hub | Motion Marketing</title>
       <meta property="og:url" content="https://www.motion.org.uk" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Motion Marketing | Knowlegde Hub" />
       <meta
         name="description"
-        content="The Knowledge Hub is a collection of resources to help you understand marketing and sales for your care home."
+        content="The Resource Hub is a collection of resources to help you understand marketing and sales for your care home."
       />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Knowlegde Hub | Motion" />
+      <meta name="twitter:title" content="Resource Hub | Motion" />
       <meta name="twitter:image" content="./og-image.jpg" />
       <meta
         property="twitter:description"
-        content="The Knowledge Hub is a collection of resources to help you understand marketing and sales for your care home."
+        content="The Resource Hub is a collection of resources to help you understand marketing and sales for your care home."
       />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -129,6 +141,7 @@ const Index = () => {
         type="text/javascript"
         src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
       ></script>
+
       <section
         data-bs-version="5.1"
         className="menu menu1 programm5 cid-tFcg6m8FPY"
@@ -180,7 +193,7 @@ const Index = () => {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
                   </a>
                 </li>
               </ul>
@@ -198,114 +211,198 @@ const Index = () => {
         </nav>
       </section>
 
-      <div className={styles.blogHero}>
-        <div className={styles.blogHeroContent}>
-          <h1>Knowledge Hub</h1>
-          <p>
-            We've compiled these quick and easy resources to de-mystify
-            marketing and sales for your care home.
-          </p>
-        </div>
-      </div>
-      <div className={styles.blogContainer}>
-        <Grid container className={styles.Cards}>
-          {blogs.reverse().map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
-          ))}
-        </Grid>
-      </div>
-
-      <section
-        data-bs-version="5.1"
-        className="footer1 programm5 cid-tFcguy0QTa"
-        once="footers"
-        id="footer1-9"
+      <div
+        style={{
+          background:
+            'radial-gradient(circle at -11% 10%, #385988 -33%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 0% 73%, #385988 -30%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 77% 48%, #385988 -30%, #FDFCED 30%, transparent 50%)',
+        }}
       >
-        <div className="container">
-          <div className="row footMargin">
-            <div className="col-12 col-lg-6">
-              <div className="title-wrapper">
-                <span className="navbar-logo">
-                  <a href="/">
-                    <img
-                      src="/extensions/programm5/software-development-company/assets/images/logo.svg"
-                      alt="Motion Logo"
-                    />
-                  </a>
-                </span>
-              </div>
-            </div>
-
-            <div className="col-12 col-lg-6">
-              <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                Sign up to our newsletter to be first to hear about news and
-                updates:
-              </label>
-              <div className="klaviyo-form-UcvnLw"></div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-12 col-lg-6">
-              <div className="contacts-wrapper">
-                <ul className="list mbr-fonts-style display-4">
-                  <li className="item-wrap">
-                    Sheffield Science Park Cooper Buildings, Arundel St,
-                    Sheffield City Centre, Sheffield S1 2NS
-                  </li>
-                  <li className="item-wrap">info@motion.org.uk</li>
-                  <li className="item-wrap">+44 7543 858684</li>
-                  <li className="item-wrap">
-                    <a href="/assets/documents/GDPR-Policy.pdf">GDPR Policy</a>
-                  </li>
-                  <li className="item-wrap">
-                    <a href="/assets/documents/Our-Values.pdf">Our Values</a>
-                  </li>
-                  <li className="item-wrap">
-                    <a href="/assets/documents/Privacy-Policy.pdf">
-                      Privacy Policy
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-12 col-lg-6">
-              <div className="social-row">
-                <div className="soc-item">
-                  <a href="https://instagram.com/motion.org.uk" target="_blank">
-                    <span className="mbr-iconfont socicon socicon-instagram" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a href="https://facebook.com/motion.org.uk" target="_blank">
-                    <span className="mbr-iconfont socicon socicon-facebook" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a
-                    href="https://linkedin.com/company/motion-org-uk"
-                    target="_blank"
-                  >
-                    <span className="mbr-iconfont socicon socicon-linkedin" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a
-                    href="https://www.tiktok.com/@zeezy_motion"
-                    target="_blank"
-                  >
-                    <span className="mbr-iconfont socicon socicon-tiktok" />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="col-12">
-              <p className="mbr-fonts-style copyright display-4">
-                © Copyright 2024 Motion Health Ltd - All Rights Reserved
-              </p>
-            </div>
+        <div className={styles.blogHero}>
+          <div className={styles.blogHeroContent}>
+            <h1>Resource Hub</h1>
+            <p>
+              We've compiled these quick and easy resources to de-mystify
+              marketing and sales for your care home.
+            </p>
           </div>
         </div>
-      </section>
+        <div className={styles.tagsContainer}>
+          <div className={styles.tags}>
+            {tags.map((tag) => (
+              <button
+                key={tag}
+                className={selectedTags.includes(tag) ? styles.selected : ''}
+                onClick={() => {
+                  if (selectedTags.includes(tag)) {
+                    setSelectedTags(selectedTags.filter((t) => t !== tag));
+                  } else {
+                    setSelectedTags([...selectedTags, tag]);
+                  }
+                }}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className={styles.blogContainer}>
+          <Grid container className={styles.Cards}>
+            {blogs
+              .filter((blog) =>
+                selectedTags.length === 0
+                  ? true
+                  : blog.tags.some((tag) => selectedTags.includes(tag))
+              )
+              .slice(0, 3)
+              .map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
+          </Grid>
+          <div className={styles.KlavioForm + '  klaviyo-form-XyjpZS'}></div>
+          <Grid container className={styles.Cards}>
+            {blogs
+              .filter((blog) =>
+                selectedTags.length === 0
+                  ? true
+                  : blog.tags.some((tag) => selectedTags.includes(tag))
+              )
+              .slice(3)
+              .map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
+          </Grid>
+        </div>
+
+        <section
+          data-bs-version="5.1"
+          className="footer1 programm5 cid-tFcguy0QTa"
+          once="footers"
+          id="footer1-9"
+        >
+          <div className="container">
+            <div className="row footMargin">
+              <div className="col-12">
+                <div className="title-wrapper">
+                  <span className="navbar-logo">
+                    <a href="/">
+                      <img
+                        src="extensions/programm5/software-development-company/assets/images/logo.svg"
+                        alt=""
+                      />
+                    </a>
+                  </span>
+                  <nav>
+                    <ul className="list mbr-fonts-style display-4">
+                      <li className="nav-item">
+                        <a className="nav-link link display-4" href="/">
+                          Platform
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link link display-4" href="/blog">
+                          Resource Hub
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link link display-4" href="/blog">
+                          Success Stories
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link link display-4" href="/blog">
+                          About
+                        </a>
+                      </li>
+                      <li className="nav-item midHide">
+                        <a className="nav-link link display-4" href="/sblog">
+                          Pricing
+                        </a>
+                      </li>
+                      <li className="nav-item midHide">
+                        <a className="nav-link link display-4" href="/blog">
+                          Other Services
+                        </a>
+                      </li>
+                      <li className="nav-item">
+                        <a className="nav-link link display-4" href="/blog">
+                          Login
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12 col-lg-6">
+                <div className="contacts-wrapper">
+                  <ul className="list mbr-fonts-style display-4">
+                    <li className="item-wrap">
+                      <strong>Address</strong>
+                    </li>
+                    <li className="item-wrap">
+                      Sheffield Science Park Cooper Buildings, Arundel St,
+                      Sheffield City Centre, Sheffield S1 2NS
+                    </li>
+                    <li className="item-wrap w-100">
+                      <strong>Contact</strong>
+                    </li>
+                    <li className="item-wrap w-100">info@motion.org.uk</li>
+                    <li className="item-wrap w-100">+44 7543 858684</li>
+                  </ul>
+                </div>
+                <div className="social-row">
+                  <div className="soc-item">
+                    <a
+                      href="https://instagram.com/motion.org.uk"
+                      target="_blank"
+                    >
+                      <span className="mbr-iconfont socicon socicon-instagram" />
+                    </a>
+                  </div>
+                  <div className="soc-item">
+                    <a
+                      href="https://facebook.com/motion.org.uk"
+                      target="_blank"
+                    >
+                      <span className="mbr-iconfont socicon socicon-facebook" />
+                    </a>
+                  </div>
+                  <div className="soc-item">
+                    <a
+                      href="https://linkedin.com/company/motion-org-uk"
+                      target="_blank"
+                    >
+                      <span className="mbr-iconfont socicon socicon-linkedin" />
+                    </a>
+                  </div>
+                  <div className="soc-item">
+                    <a
+                      href="https://www.tiktok.com/@zeezy_motion"
+                      target="_blank"
+                    >
+                      <span className="mbr-iconfont socicon socicon-tiktok" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-6">
+                <label className="mbr-desc mbr-fonts-style display-7 signupText">
+                  Sign up to our newsletter to be first to hear about news and
+                  updates:
+                </label>
+                <div className="klaviyo-form-UcvnLw"></div>
+              </div>
+              <div className="col-12 col-lg-6"></div>
+              <div className="col-12">
+                <p className="mbr-fonts-style copyright display-4">
+                  © Copyright 2024 Motion Health Ltd - All Rights Reserved
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </>
   );
 };

@@ -3,9 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #000;
     text-align: center;
-    background-color: #686590;
+
     font-size: 2rem;
     width: 100%;
     border-radius: 0px 0px 50px 50px;
@@ -13,22 +13,56 @@
 
 
 .blogContainer{
-  padding: 6vh 6vw;
+  padding: 0vh 6vw 0vh 6vw;
 }
 .blogHeroContent{
-  margin: 7vh 0;
   padding-top: 8vh;
 }
 
+.tags{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+
+
+.tags button.selected{
+  background-color: #385988;
+  color: white;
+  transition: 0.3s;
+}
+
+.tags button{
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px 20px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: #385988;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  margin: 10px;
+}
 .blogHeroContent h1{
   font-family: 'Montserrat';
+}
+
+.KlavioForm{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 29px;
 }
 .blogHeroContent p{
   font-family: 'Montserrat';
 }
 
 .Cards{
-
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
   display: grid !important;
 

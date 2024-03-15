@@ -1,6 +1,5 @@
 @charset "UTF-8";
 section {
-  background-color: #ffffff;
 }
 
 body {
@@ -95,10 +94,10 @@ textarea[type=hidden] {
 }
 
 section {
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: black;
+  /* background-position: 50% 50%; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background: transparent; */
   z-index: 1;
 }
 section .mbr-background-video,
@@ -961,7 +960,7 @@ blockquote {
 }
 
 .tab-pane:hover {
-    transform: scale(1.01);
+    /* transform: scale(1.01); */
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -985,6 +984,7 @@ h3.mbr-section-title.customTitle.mbr-fonts-style.display-2 {
 
 p.mbr-desc.mbr-fonts-style.display-7 {
     color: black;
+    /* text-align: start; */
 }
 
 .cid-tFcgABlMo6 .display-7 {
@@ -994,13 +994,14 @@ p.mbr-desc.mbr-fonts-style.display-7 {
 .cid-tFcgeFyM9G .customTitle {
     color: black !important;
     margin-top: 15px;
-    font-size: 1.5rem !important;
+    font-size: 1.3rem !important;
 }
 
 h2.mbr-section-title.mbr-fonts-style.blogsTitle {color: black;display: flex;justify-content: center;align-items: center;align-content: center;flex-wrap: nowrap;flex-direction: row;}
 
 .nameQuote {
     font-family: 'Montserrat';
+    /* width: 142vw; */
 }
 
 h3.mbr-section-title.customTitle.mbr-fonts-style.display-2 {
@@ -1014,7 +1015,7 @@ h3.mbr-section-title.customTitle.mbr-fonts-style.display-2 {
 a {}
 
 .cid-tFcguy0QTa .contacts-wrapper .list .item-wrap a {
-    color: white;
+    color: black;
 }
 
 .slider-image img {

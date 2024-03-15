@@ -2,10 +2,11 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
+import FAQ from '@/components/FAQExpandable';
 import { useAccountContext } from '@/context/AccountContext';
 const Index = () => {
   const {
@@ -21,6 +22,39 @@ const Index = () => {
     autoplay: true,
     autoplaySpeed: 2000,
   };
+  const [selectedFeature, setSelectedFeature] = useState('default');
+
+  const features = {
+    default:
+      "Check out Motion's features and how they ensure an improvement in wellbeing outcomes as well as a positive impact on your business.",
+    planner:
+      'Weekly and monthly planners mean that you can schedule activities ahead of time. Whether their group or one-to-one, in the home or a trip out; the planner is there to say you time and can be easily shared with residents, families and colleagues.',
+    activities:
+      'Have hundreds of evidenced-based activities at your fingertips: from music therapy to chair dancing. There truly is something for everyone!',
+    webpage:
+      "Once an activities are complete they'll pull through to your website. Importantly, you'll only share what you want to, meaning personal information is safe.",
+    updates:
+      'Providing families with peace of mind that your care home fosters a fun, active lifestyle is invaluable. Motion means that you can achieve this without any additional work.',
+    analytics:
+      'Regularly see the impact Motion is having on your care homes customer satisfaction, website visitors and lead generation with our fully transparent reports.',
+  };
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -116,7 +150,11 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
@@ -161,7 +199,7 @@ const Index = () => {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Reasource Hub
+                    Resource Hub
                   </a>
                 </li>
                 <li className="nav-item">
@@ -174,14 +212,14 @@ const Index = () => {
                     About
                   </a>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item midHide">
                   <a className="nav-link link display-4" href="/blog">
                     Pricing
                   </a>
                 </li>
-                <li className="nav-item">
+                <li className="nav-item midHide">
                   <a className="nav-link link display-4" href="/blog">
-                    Other Serices
+                    Other Services
                   </a>
                 </li>
                 <li className="nav-item">
@@ -191,9 +229,12 @@ const Index = () => {
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
                   Get a Demo
@@ -208,16 +249,15 @@ const Index = () => {
         className="header1 programm5 cid-tFcg6xOSs8 filtered-background-section"
         id="header1-1"
       >
-        <div className="container">
+        <div className="container heroContainer">
           <div className="row">
-            <div className="col-12">
-              <div className="title-wrapper">
+            <div className="col-7">
+              <div className="hero-wrapper">
                 <h1 className="heroText">You take care of </h1>
                 <h1 className="heroText blueText">
                   yesterdays{' '}
                   <TypeAnimation
                     sequence={[
-                      // Same substring at the start will only be typed out once, initially
                       'Teachers',
                       3000,
                       'Nurses',
@@ -235,22 +275,25 @@ const Index = () => {
                   />
                 </h1>
                 <h1 className="heroText">We’ll take care of you.</h1>
-                <p className="subheadingText">
+                <p className="heroSubheadingText">
                   A digital platform for care services to improve wellbeing
                   outcomes and showcase this to existing and prospective
                   families to improve their customer satisfaction and increase
                   occupancy.
                 </p>
-                <div className="mbr-section-btn">
-                  <a
-                    className="btn btn-secondarydisplay-4 services-button btn-secondary"
-                    href="#features6-6"
-                  >
-                    Get a Demo
-                  </a>
+                <div className="demoButtonContainer">
+                  <div className="blueDemoButton">
+                    <a href="#features6-6">Get a Demo</a>
+                  </div>
+                  <p>No credit card required.</p>
                 </div>
-                <p>No credit card required.</p>
               </div>
+            </div>
+            <div className="col-5">
+              <img
+                src="assets/images/dashboardImage.webp"
+                alt="Motions dashboard"
+              />
             </div>
           </div>
         </div>
@@ -353,11 +396,11 @@ const Index = () => {
             <div className="col-12 col-lg-8 text-center">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle">
-                  <strong>How motion works</strong>
+                  <strong>How Motion Works</strong>
                 </h2>
               </div>
               <div className="text-wrapper">
-                <p className="mbr-text mbr-fonts-style display-7">
+                <p className="subheadingText">
                   Our all-in-one solution is easy to implement with help from
                   our experienced team and provides you with a comprehensive and
                   person-centred approach to improve your marketing.
@@ -415,31 +458,21 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="mbr-section-btn">
-            <a
-              className="btn btn-secondarydisplay-4 services-button btn-secondary"
-              href="#features6-6"
-            >
-              Get a Demo
-            </a>
+          <div className="blueDemoButton mt-5">
+            <a href="#features6-6">Get a Demo</a>
           </div>
         </div>
-      </section>
-      <section
-        data-bs-version="5.1"
-        className="features6 programm5 cid-tFcgiGZ8RJ"
-        id="features6-6"
-      >
+
         <div className="container text-center">
           <div className="row">
-            <div className="col-12 col-lg-8 text-center">
+            <div className="col-12 text-center">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style display-2">
                   <strong>Features</strong>
                 </h2>
               </div>
               <div className="text-wrapper">
-                <p className="mbr-text mbr-fonts-style display-7">
+                <p className="subheadingText">
                   Check out Motion's features and how they ensure an improvement
                   in wellbeing outcomes as well as a positive impact on your
                   business.
@@ -447,78 +480,92 @@ const Index = () => {
               </div>
             </div>
           </div>
+
           <div id="tab1" className="tab-pane in active">
             <div className="row">
-              <div className="col">
+              <div
+                className="col"
+                onClick={() => setSelectedFeature('planner')}
+              >
                 <svg
+                  className="featureIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height={24}
+                  height="24"
                   viewBox="0 -960 960 960"
-                  width={24}
+                  width="24"
                 >
-                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
+                  <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
                 </svg>
+
                 <p className="mbr-desc mbr-fonts-style display-7">Planner</p>
               </div>
-              <div className="col">
+              <div
+                className="col"
+                onClick={() => setSelectedFeature('activities')}
+              >
                 <svg
+                  className="featureIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height={24}
+                  height="24"
                   viewBox="0 -960 960 960"
-                  width={24}
+                  width="24"
                 >
-                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
+                  <path d="M360-80v-529q-91-24-145.5-100.5T160-880h80q0 83 53.5 141.5T430-680h100q30 0 56 11t47 32l181 181-56 56-158-158v478h-80v-240h-80v240h-80Zm120-640q-33 0-56.5-23.5T400-800q0-33 23.5-56.5T480-880q33 0 56.5 23.5T560-800q0 33-23.5 56.5T480-720Z" />
                 </svg>
                 <p className="mbr-desc mbr-fonts-style display-7">Actvities</p>
               </div>
-              <div className="col">
+              <div
+                className="col"
+                onClick={() => setSelectedFeature('webpage')}
+              >
                 <svg
+                  className="featureIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height={24}
+                  height="24"
                   viewBox="0 -960 960 960"
-                  width={24}
+                  width="24"
                 >
-                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
+                  <path d="M80-160v-120h80v-440q0-33 23.5-56.5T240-800h600v80H240v440h240v120H80Zm520 0q-17 0-28.5-11.5T560-200v-400q0-17 11.5-28.5T600-640h240q17 0 28.5 11.5T880-600v400q0 17-11.5 28.5T840-160H600Zm40-120h160v-280H640v280Zm0 0h160-160Z" />
                 </svg>
                 <p className="mbr-desc mbr-fonts-style display-7">Webpage</p>
               </div>
-              <div className="col">
+              <div
+                className="col"
+                onClick={() => setSelectedFeature('updates')}
+              >
                 <svg
+                  className="featureIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height={24}
+                  height="24"
                   viewBox="0 -960 960 960"
-                  width={24}
+                  width="24"
                 >
-                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
+                  <path d="M38-428q-18-36-28-73T0-576q0-112 76-188t188-76q63 0 120 26.5t96 73.5q39-47 96-73.5T696-840q112 0 188 76t76 188q0 38-10 75t-28 73q-11-19-26-34t-35-24q9-23 14-45t5-45q0-78-53-131t-131-53q-81 0-124.5 44.5T480-616q-48-56-91.5-100T264-760q-78 0-131 53T80-576q0 23 5 45t14 45q-20 9-35 24t-26 34ZM0-80v-63q0-44 44.5-70.5T160-240q13 0 25 .5t23 2.5q-14 20-21 43t-7 49v65H0Zm240 0v-65q0-65 66.5-105T480-290q108 0 174 40t66 105v65H240Zm540 0v-65q0-26-6.5-49T754-237q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780ZM480-210q-57 0-102 15t-53 35h311q-9-20-53.5-35T480-210Zm-320-70q-33 0-56.5-23.5T80-360q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-280Zm640 0q-33 0-56.5-23.5T720-360q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-280Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-440q0 50-34.5 85T480-320Zm0-160q-17 0-28.5 11.5T440-440q0 17 11.5 28.5T480-400q17 0 28.5-11.5T520-440q0-17-11.5-28.5T480-480Zm0 40Zm1 280Z" />
                 </svg>
                 <p className="mbr-desc mbr-fonts-style display-7">Updates</p>
               </div>
-              <div className="col">
+              <div
+                className="col"
+                onClick={() => setSelectedFeature('analytics')}
+              >
                 <svg
+                  className="featureIcon"
                   xmlns="http://www.w3.org/2000/svg"
-                  height={24}
+                  height="24"
                   viewBox="0 -960 960 960"
-                  width={24}
+                  width="24"
                 >
-                  <path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z" />
+                  <path d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
                 </svg>
                 <p className="mbr-desc mbr-fonts-style display-7">Analytics</p>
               </div>
             </div>
             <p className="mbr-desc mbr-fonts-style display-7">
-              Weekly and monthly planners mean that you can schedule activities
-              ahead of time. Whether their group or one-to-one, in the home or a
-              trip out; the planner is there to say you time and can be easily
-              shared with residents, families and colleagues.
+              {features[selectedFeature]}
             </p>
           </div>
-          <div className="mbr-section-btn-main" role="tablist">
-            <a
-              className="btn btn-secondary display-4"
-              href="https://calendly.com/zeezy-1/motion"
-            >
-              Get a Demo
-            </a>
+          <div className="blueDemoButton mt-5" role="tablist">
+            <a href="https://calendly.com/zeezy-1/motion">Get a Demo</a>
           </div>
         </div>
       </section>
@@ -531,12 +578,12 @@ const Index = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div className="card-wrapper">
-                <div className="card-wrap">
-                  <div className="icon-wrapper">
+              <div className="card-wrapper p-0 nameQuoteWrap">
+                <div className="card-wrap ">
+                  <div className="icon-wrapper partnerQuoteWrapper">
                     <img
                       className="partnerQuote"
-                      src="/extensions/programm5/assets/images/claire.jpg"
+                      src="/assets/images/claire.jpg"
                       alt="Claire - CEO"
                     />
                   </div>
@@ -559,68 +606,62 @@ const Index = () => {
         className="features3 programm5 cid-tFcgeFyM9G"
         id="features3-4"
       >
-        <div className="container">
+        <div className="container miniBlogs">
           <div className="row">
             <div className="col-12">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style display-2 blogsTitle">
                   Resource Hub
                 </h2>
-                <p className="mbr-desc mbr-fonts-style display-7">
+                <p className="mbr-desc mbr-fonts-style display-7 text-center">
                   We've compiled these quick and easy-to-use resources to
                   de-mystify marketing, sales and technology for your care home.
                 </p>
               </div>
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard">
               <div className="card-wrapper">
                 <img
                   className="blogImage"
-                  src="/extensions/programm5/assets/images/seo.png"
+                  src="/extensions/programm5/assets/images/tiktok.webp"
                   alt="seo"
                 />
-                <div className="title-wrap">
-                  <div className="title">
+                <div className="title-wrap resourceItems">
+                  <p className="mbr-text mbr-fonts-style display-5">
+                    March 3rd, 2024
+                  </p>
+                  <div className="title resourceItems">
                     <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                      SEO Explained
+                      What is TikTok and Should Your Care Home be Using It?
                     </h3>
                   </div>
                 </div>
-                <p className="mbr-text mbr-fonts-style display-5">
-                  SEO is the process of optimising your website to rank higher
-                  in search engine results pages, thereby increasing the amount
-                  of organic (or free) traffic your website receives.
-                </p>
-                <a className="link-wrap" href="/blog/seo-explained/">
+                <a className="link-wrap readBlog" href="/blog/tiktok/">
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
                   </p>
                 </a>
               </div>
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard">
               <div className="card-wrapper">
                 <img
                   className="blogImage"
-                  src="/extensions/programm5/assets/images/cyber.jpeg"
+                  src="/extensions/programm5/assets/images/resident.webp"
                   alt="seo"
                 />
-                <div className="title-wrap">
+                <div className="title-wrap resourceItems">
+                  <p className="mbr-text mbr-fonts-style display-5">
+                    February 29th, 2024
+                  </p>
                   <div className="title">
                     <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                      Protect your carehome with this Cyber Security Cheatsheat
+                      What Families Care About When Looking for a Care Home
                     </h3>
                   </div>
                 </div>
-                <p className="mbr-text mbr-fonts-style display-5">
-                  Cyber security is the practice of protecting your systems,
-                  networks, and programs from digital attacks. These attacks are
-                  usually aimed at accessing, changing, or destroying sensitive
-                  information; extorting money from users; or interrupting
-                  normal business processes.
-                </p>
                 <a
-                  className="link-wrap"
+                  className="link-wrap readBlog"
                   href="blog/protect-your-carehome-with-this-cyber-security-cheatsheet/"
                 >
                   <p className="mbr-link mbr-fonts-style display-4">
@@ -629,27 +670,25 @@ const Index = () => {
                 </a>
               </div>
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard">
               <div className="card-wrapper">
                 <img
                   className="blogImage"
-                  src="/extensions/programm5/assets/images/recruitment.webp"
-                  alt="seo"
+                  src="/extensions/programm5/assets/images/funnel.webp"
+                  alt="Marketing Funnel"
                 />
-                <div className="title-wrap">
+                <div className="title-wrap resourceItems">
+                  <p className="mbr-text mbr-fonts-style display-5">
+                    February 21st, 2024
+                  </p>
                   <div className="title">
                     <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                      How to attract more careers to your home
+                      Creating a Successful Sales Funnel for Your Care Home
                     </h3>
                   </div>
                 </div>
-                <p className="mbr-text mbr-fonts-style display-5">
-                  The social care sector is facing a staffing crisis. With the
-                  number of people aged 85 and over set to double in the next 25
-                  years, the demand for care is only going to increase.
-                </p>
                 <a
-                  className="link-wrap"
+                  className="link-wrap readBlog"
                   href="/blog/how-to-attract-more-carers-to-your-home/"
                 >
                   <p className="mbr-link mbr-fonts-style display-4">
@@ -659,15 +698,16 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="mbr-section-btn-main" role="tablist">
-            <a
-              className="btn btn-secondary display-4"
-              href="https://calendly.com/zeezy-1/motion"
-            >
-              Read More
-            </a>
-          </div>
         </div>
+        <div className="mbr-section-btn-main" role="tablist">
+          <a
+            className="btn btn-secondary display-4 readMoreButton"
+            href="https://calendly.com/zeezy-1/motion"
+          >
+            Read More
+          </a>
+        </div>
+        <FAQ />
       </section>
 
       <section
@@ -679,36 +719,31 @@ const Index = () => {
           <div className="row">
             <div className="col-12">
               <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2">
-                  It's time for someone to shout about how amazing you are for
-                  once!
+                <h2 className="mbr-section-title mbr-fonts-style display-2 setInMotionTitle">
+                  Let’s Set Things in Motion
                 </h2>
-                <div className="col-md-auto col mbr-section-btn">
-                  <a
-                    href="https://calendly.com/zeezy-1/motion"
-                    className="btn btn-secondary display-4 discoveryButton"
-                  >
-                    Book a discovery call now!
-                  </a>
-                </div>
-                <div className="person-wrapper">
-                  <a href="https://www.linkedin.com/in/zeezy-qureshi-370bbb151/">
-                    <div className="person-wrap">
-                      <img
-                        src="/extensions/programm5/assets/images/zeezy-headshot.png"
-                        alt=""
-                      />
+                <p className="text-center subheadingText">
+                  Hit the 'Get a Demo' button below and we'll be in touch before
+                  you can say ‘”Jack Robinson”
+                </p>
 
-                      <div className="name-wrap">
-                        <p className="mbr-name mbr-fonts-style display-7">
-                          Zeezy
-                        </p>
-                        <p className="mbr-role mbr-fonts-style display-4">
-                          Founder & CEO
-                        </p>
+                <div className="person-wrapper">
+                  <div className="col-md-auto col mbr-section-btn">
+                    <a href="https://www.linkedin.com/in/zeezy-qureshi-370bbb151/">
+                      <div className="person-wrap">
+                        <img
+                          src="/extensions/programm5/assets/images/zeezy-headshot.png"
+                          alt=""
+                        />
                       </div>
-                    </div>
-                  </a>
+                    </a>
+                    <a
+                      href="https://calendly.com/zeezy-1/motion"
+                      className="btn btn-secondary display-4 discoveryButton whiteDemoButton"
+                    >
+                      Get a Demo
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -723,7 +758,7 @@ const Index = () => {
       >
         <div className="container">
           <div className="row footMargin">
-            <div className="col-12 col-lg-6">
+            <div className="col-12">
               <div className="title-wrapper">
                 <span className="navbar-logo">
                   <a href="/">
@@ -733,15 +768,46 @@ const Index = () => {
                     />
                   </a>
                 </span>
+                <nav>
+                  <ul className="list mbr-fonts-style display-4">
+                    <li className="nav-item">
+                      <a className="nav-link link display-4" href="/">
+                        Platform
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link link display-4" href="/blog">
+                        Resource Hub
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link link display-4" href="/blog">
+                        Success Stories
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link link display-4" href="/blog">
+                        About
+                      </a>
+                    </li>
+                    <li className="nav-item midHide">
+                      <a className="nav-link link display-4" href="/sblog">
+                        Pricing
+                      </a>
+                    </li>
+                    <li className="nav-item midHide">
+                      <a className="nav-link link display-4" href="/blog">
+                        Other Services
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link link display-4" href="/blog">
+                        Login
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
-            </div>
-
-            <div className="col-12 col-lg-6">
-              <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                Sign up to our newsletter to be first to hear about news and
-                updates:
-              </label>
-              <div className="klaviyo-form-UcvnLw"></div>
             </div>
           </div>
           <div className="row">
@@ -749,26 +815,19 @@ const Index = () => {
               <div className="contacts-wrapper">
                 <ul className="list mbr-fonts-style display-4">
                   <li className="item-wrap">
+                    <strong>Address</strong>
+                  </li>
+                  <li className="item-wrap">
                     Sheffield Science Park Cooper Buildings, Arundel St,
                     Sheffield City Centre, Sheffield S1 2NS
                   </li>
-                  <li className="item-wrap">info@motion.org.uk</li>
-                  <li className="item-wrap">+44 7543 858684</li>
-                  <li className="item-wrap">
-                    <a href="/assets/documents/GDPR-Policy.pdf">GDPR Policy</a>
+                  <li className="item-wrap w-100">
+                    <strong>Contact</strong>
                   </li>
-                  <li className="item-wrap">
-                    <a href="/assets/documents/Our-Values.pdf">Our Values</a>
-                  </li>
-                  <li className="item-wrap">
-                    <a href="/assets/documents/Privacy-Policy.pdf">
-                      Privacy Policy
-                    </a>
-                  </li>
+                  <li className="item-wrap w-100">info@motion.org.uk</li>
+                  <li className="item-wrap w-100">+44 7543 858684</li>
                 </ul>
               </div>
-            </div>
-            <div className="col-12 col-lg-6">
               <div className="social-row">
                 <div className="soc-item">
                   <a href="https://instagram.com/motion.org.uk" target="_blank">
@@ -798,6 +857,14 @@ const Index = () => {
                 </div>
               </div>
             </div>
+            <div className="col-12 col-lg-6">
+              <label className="mbr-desc mbr-fonts-style display-7 signupText">
+                Sign up to our newsletter to be first to hear about news and
+                updates:
+              </label>
+              <div className="klaviyo-form-UcvnLw"></div>
+            </div>
+            <div className="col-12 col-lg-6"></div>
             <div className="col-12">
               <p className="mbr-fonts-style copyright display-4">
                 © Copyright 2024 Motion Health Ltd - All Rights Reserved
