@@ -251,7 +251,7 @@ const Index = () => {
       >
         <div className="container heroContainer">
           <div className="row">
-            <div className="col-7">
+            <div className="col-7 fullWidth">
               <div className="hero-wrapper">
                 <h1 className="heroText">You take care of </h1>
                 <h1 className="heroText blueText">
@@ -289,7 +289,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="col-5">
+            <div className="col-5 motionDashboard">
               <img
                 src="assets/images/dashboardImage.webp"
                 alt="Motions dashboard"

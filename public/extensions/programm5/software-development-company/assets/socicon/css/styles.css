@@ -1163,6 +1163,18 @@ a.link-wrap.readBlog p {
     border-radius: 10px;
     margin-top: 20px;
 }
+  .cid-tFcguy0QTa nav {
+    display: none !important;
+}
+  .col-5.motionDashboard {
+  display: none;
+}
+  .fullWidth{
+    width:100%;
+  }
+  .hero-wrapper {
+    padding-top:0px;
+  }
 }
 
 .blueDemoButtonContainer .blueDemoButton {
@@ -1174,12 +1186,16 @@ a.link-wrap.readBlog p {
   .midHide{
     display: none !important;
   }
-  
+
 }
 
-section {}
 
 section.FAQSection {
     padding-bottom: 5em;
     margin-top: 5em;
 }
+
+.person-wrapper {}
+
+
+

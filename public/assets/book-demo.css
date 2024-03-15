@@ -1,0 +1,54 @@
+.container {padding-top: inherit;}
+
+.col-12.col-md-6 {
+    padding-top: 130px;
+}
+
+h1.blogTitle {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.person-wrapper {
+    width: 100px;
+}
+
+.person-wrapper img {
+    border-radius: 100%;
+}
+
+p.TextOne {
+    margin-top: 15px;
+    font-family: 'Montserrat';
+}
+.iconText {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.iconText img {
+    width: 55px;
+    margin-right: 21px;
+}
+
+.iconText p {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-family: 'Montserrat';
+}
+
+img.stars {
+    height: 4vw;
+    width: auto;
+}
+
+p.googleReviews {
+    margin-top: 15px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+.cid-tFcguy0QTa{
+  padding-top: 0px;
+}
