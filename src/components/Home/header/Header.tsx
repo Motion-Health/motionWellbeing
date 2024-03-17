@@ -188,7 +188,7 @@ export const Header = () => {
                   showDesktop
                 >
                   <span className="hidden xl:inline">
-                    {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
+                    {isLoggedIn ? 'My Account' : 'Get a Demo'}
                   </span>
                   <img
                     src={
@@ -221,7 +221,7 @@ export const Header = () => {
               showDesktop
             >
               <span className=" inline xl:hidden">
-                {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
+                {isLoggedIn ? 'My Account' : 'Get a Demo'}
               </span>
             </Button>
           )}

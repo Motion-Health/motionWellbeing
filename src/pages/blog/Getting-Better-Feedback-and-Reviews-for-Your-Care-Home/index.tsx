@@ -13,16 +13,31 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
-
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
         <title>
-          Getting Your Care Home Better Feedback and Reviews |
-          Motion Marketing
+          Getting Your Care Home Better Feedback and Reviews | Motion Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -125,11 +140,15 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="https://marketing.motion.org.uk/">
+                <a href="/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -165,22 +184,50 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -198,9 +245,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>
-            Getting Your Care Home Better Feedback and Reviews
-          </h1>
+          <h1>Getting Your Care Home Better Feedback and Reviews</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -282,43 +327,74 @@ const Index = () => {
           <h2 className={styles.title}>Introduction</h2>
           <p>
             <br />
-            Care home reviews and feedback are a key element of your marketing and sales strategy. Whether it’s confidential feedback that a residents’ family member has shared with you or a review on Google that’s been left. Feedback and reviews are important pieces of ‘social proof’, which your other prospects and leads will hold in high-regard when searching for a care home. 
+            Care home reviews and feedback are a key element of your marketing
+            and sales strategy. Whether it’s confidential feedback that a
+            residents’ family member has shared with you or a review on Google
+            that’s been left. Feedback and reviews are important pieces of
+            ‘social proof’, which your other prospects and leads will hold in
+            high-regard when searching for a care home.
           </p>
           <p>
-          Here are three simple and easy ways to improve your care homes’ feedback and reviews:
+            Here are three simple and easy ways to improve your care homes’
+            feedback and reviews:
           </p>
           <h2 className={styles.title}>Ask For It!</h2>
           <p>
-          Our research with family members of residents showed us that 70% of care homes ask for feedback either once every 6 months or not at all! The first step of improving feedback is by asking for it and doing so at least once per month. There are a number of ways to implement this: a feedback form (Google, Typeform, Microsoft), a personalised email, a phone call — whatever works best for you and your team!
+            Our research with family members of residents showed us that 70% of
+            care homes ask for feedback either once every 6 months or not at
+            all! The first step of improving feedback is by asking for it and
+            doing so at least once per month. There are a number of ways to
+            implement this: a feedback form (Google, Typeform, Microsoft), a
+            personalised email, a phone call — whatever works best for you and
+            your team!
             <br />
           </p>
-          <img src="/assets/images/blogs/blog11/Image-1.webp" alt="Net Promoter Score" />
-            
-          <h2 className={styles.title}>Improve Net-Promoter-Score and gain valuable insights</h2>
+          <img
+            src="/assets/images/blogs/blog11/Image-1.webp"
+            alt="Net Promoter Score"
+          />
+
+          <h2 className={styles.title}>
+            Improve Net-Promoter-Score and gain valuable insights
+          </h2>
           <p>
-          ‘Net-Promoter-Score’ (NPS) is the gold standard metric when it comes to measuring customer satisfaction and you can get it by asking one simple question: “How likewise is it that you would recommend *insert name of care home* to a friend or colleague?”. The best thing about asking for feedback and reviews is that it actually has a positive impact on your current customers and improves your NPS, because it shows that you truly care about the opinion and thoughts of your customers. Asking for feedback and reviews regularly provides you with rich and valuable data that will help you to improve your services in cost and time-effective ways. 
+            ‘Net-Promoter-Score’ (NPS) is the gold standard metric when it comes
+            to measuring customer satisfaction and you can get it by asking one
+            simple question: “How likewise is it that you would recommend
+            *insert name of care home* to a friend or colleague?”. The best
+            thing about asking for feedback and reviews is that it actually has
+            a positive impact on your current customers and improves your NPS,
+            because it shows that you truly care about the opinion and thoughts
+            of your customers. Asking for feedback and reviews regularly
+            provides you with rich and valuable data that will help you to
+            improve your services in cost and time-effective ways.
           </p>
           <h2 className={styles.title}>Action and Response</h2>
           <p>
-          Once you have care home reviews and feedback you can start to make improvements and, importantly, share these with your residents’ families who initially asked for the feedback through your regular email/form/phone call! 
+            Once you have care home reviews and feedback you can start to make
+            improvements and, importantly, share these with your residents’
+            families who initially asked for the feedback through your regular
+            email/form/phone call!
           </p>
-          <h2 className={styles.title}>Keeping the loop going 
-</h2>
+          <h2 className={styles.title}>Keeping the loop going</h2>
           <p>
-          Finally, this creates a positive feedback loop, which is what this process is all about. A tight feedback loop is what will improve your customer satisfaction, your reviews and, ultimately, your residents’ experience!
-
+            Finally, this creates a positive feedback loop, which is what this
+            process is all about. A tight feedback loop is what will improve
+            your customer satisfaction, your reviews and, ultimately, your
+            residents’ experience!
           </p>
-          
+
           <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-            🌟If you’re interested in learning how we can support your care home to get better feedback and reviews, book a discovery call today! 
+            🌟If you’re interested in learning how we can support your care home
+            to get better feedback and reviews, book a demo call today!
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Book a Discovery Call.
+              Get a Demo.
             </a>
           </div>
         </div>

@@ -7,7 +7,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styles from '../blogPost.module.css';
 
@@ -23,6 +23,23 @@ const Index = () => {
     console.log(`Submitting email ${email}`);
   };
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
@@ -122,11 +139,15 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="https://marketing.motion.org.uk/">
+                <a href="/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -162,22 +183,50 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -397,7 +446,7 @@ const Index = () => {
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Book a Discovery Call.
+              Get a Demo.
             </a>
           </div>
         </div>

@@ -160,7 +160,7 @@ const Index = () => {
               <span className="navbar-logo">
                 <a href="/">
                   <img
-                    src="extensions/programm5/software-development-company/assets/images/logo.svg"
+                    src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
                   />
                 </a>

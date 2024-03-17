@@ -1,6 +1,6 @@
 import CircleIcon from '@mui/icons-material/Circle';
 import { Box, Button, Dialog, Typography, useMediaQuery } from '@mui/material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Carousel from 'react-material-ui-carousel';
 
 import theme from '@/styles/theme';

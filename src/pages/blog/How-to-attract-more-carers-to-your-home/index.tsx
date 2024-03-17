@@ -7,7 +7,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styles from '../blogPost.module.css';
 
@@ -23,6 +23,23 @@ const Index = () => {
     console.log(`Submitting email ${email}`);
   };
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>

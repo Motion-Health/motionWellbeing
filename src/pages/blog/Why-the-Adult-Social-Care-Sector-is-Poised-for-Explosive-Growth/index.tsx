@@ -13,10 +13,26 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
-
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
@@ -125,11 +141,15 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="https://marketing.motion.org.uk/">
+                <a href="/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -165,22 +185,50 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -304,8 +352,11 @@ const Index = () => {
             with 2040 on the left and 2024 on the right.
             <br />
           </p>
-          <img src="/assets/images/blogs/blog8/Image-1.jpg" alt="ONS Population pyramid" />
-            
+          <img
+            src="/assets/images/blogs/blog8/Image-1.jpg"
+            alt="ONS Population pyramid"
+          />
+
           <h2 className={styles.title}>Navigating the Challenges Ahead</h2>
           <p>
             However, it's not all smooth sailing. The sector faces its share of
@@ -344,14 +395,14 @@ const Index = () => {
           <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
             🌟If you want to see how we can help with your marketing, book a
-            discovery call now!
+            demo call now!
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Book a Discovery Call.
+              Get a Demo.
             </a>
           </div>
         </div>

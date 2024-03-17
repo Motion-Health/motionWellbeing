@@ -13,15 +13,32 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
-
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
         <title>
-        What is TikTok and Should your Care Home be Using it ?| Motion Marketing
+          What is TikTok and Should your Care Home be Using it ?| Motion
+          Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -116,7 +133,6 @@ const Index = () => {
         <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-
       </Head>
 
       <section
@@ -125,11 +141,15 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="https://marketing.motion.org.uk/">
+                <a href="/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -165,22 +185,50 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -279,71 +327,106 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>What is TikTok?</h2>
           <p>
-          TikTok is a platform for short videos (under 3 Minutes) delivered to people through a complex algorithm that predicts what you might like.
-          <br/>
+            TikTok is a platform for short videos (under 3 Minutes) delivered to
+            people through a complex algorithm that predicts what you might
+            like.
+            <br />
           </p>
-          <h2 className={styles.title}>So why is there so much interest in TikTok?</h2>
+          <h2 className={styles.title}>
+            So why is there so much interest in TikTok?
+          </h2>
           <p>
-          The main benefit of TikTok is that it allows people to see videos they didn't subscribe to. So what does this mean for you? This means that people can find out about you without searching for you. This makes it a potent tool for marketing.
+            The main benefit of TikTok is that it allows people to see videos
+            they didn't subscribe to. So what does this mean for you? This means
+            that people can find out about you without searching for you. This
+            makes it a potent tool for marketing.
           </p>
           <h2 className={styles.title}>Why is it relevant to care homes?</h2>
           <p>
-          Whilst some think TikTok is just used by the younger generation, in fact, millions of people over the age of 50 use TikTok. This allows it to work as a marketing tool to engage potential residents' families, but it is also a great way to recruit new staff and build a brand.
+            Whilst some think TikTok is just used by the younger generation, in
+            fact, millions of people over the age of 50 use TikTok. This allows
+            it to work as a marketing tool to engage potential residents'
+            families, but it is also a great way to recruit new staff and build
+            a brand.
           </p>
           <h2 className={styles.title}>Does it even work?</h2>
-          <p> Yes, have a look at <a href="https://www.bbc.co.uk/news/uk-england-wiltshire-68117244"> Wiltshires viral silent disco.  </a></p>
+          <p>
+            {' '}
+            Yes, have a look at{' '}
+            <a href="https://www.bbc.co.uk/news/uk-england-wiltshire-68117244">
+              {' '}
+              Wiltshires viral silent disco.{' '}
+            </a>
+          </p>
           <img
             src="/assets/images/blogs/blog7/disco.webp"
             alt="Indeed Logo"
             className={styles.image}
           />
           <h2 className={styles.title}>
-          How can you use TikTok to market your care home?
+            How can you use TikTok to market your care home?
           </h2>
           <p>
-          You can use TikTok for your care home for two reasons: to engage with your community to fill the top of your sales funnel and recruit new staff. However, luckily, showcasing your care home in the right light can work to do both for you!
-          <br/>
-          <strong>As a warning, however, always ensure that the content posted is respectful of the residents and their families.</strong>
-          <br/>
+            You can use TikTok for your care home for two reasons: to engage
+            with your community to fill the top of your sales funnel and recruit
+            new staff. However, luckily, showcasing your care home in the right
+            light can work to do both for you!
+            <br />
+            <strong>
+              As a warning, however, always ensure that the content posted is
+              respectful of the residents and their families.
+            </strong>
+            <br />
           </p>
-          <h2 className={styles.title}>
-            Ideas for content:
-          </h2>
+          <h2 className={styles.title}>Ideas for content:</h2>
           <p>
-          <ul>
-            <li>
-            <strong>Resident stories:</strong> Share heartwarming stories of residents, showcasing their life experiences and personalities. This humanizes your care home and helps viewers connect emotionally, demonstrating the compassionate environment you have.
-            </li>
-            <li>
-            <strong>Staff stories:</strong> Highlight the dedication and skills of your staff. Share their experiences and motivations for working in elder care. This can help in attracting like-minded professionals and showcasing the quality of care provided.
-            </li>
-            <li>
-            <strong>Events:</strong> Showcase the various events and activities that take place in your care home. Whether it's themed parties, music events, or art classes, this illustrates a vibrant, engaging community life.
-            </li>
-            <li>
-            <strong>Activities:</strong>  Share clips of daily activities, from exercise sessions to craft workshops. This not only demonstrates the range of activities available but also the active and inclusive lifestyle residents enjoy.
-
-            </li>
-          </ul>
+            <ul>
+              <li>
+                <strong>Resident stories:</strong> Share heartwarming stories of
+                residents, showcasing their life experiences and personalities.
+                This humanizes your care home and helps viewers connect
+                emotionally, demonstrating the compassionate environment you
+                have.
+              </li>
+              <li>
+                <strong>Staff stories:</strong> Highlight the dedication and
+                skills of your staff. Share their experiences and motivations
+                for working in elder care. This can help in attracting
+                like-minded professionals and showcasing the quality of care
+                provided.
+              </li>
+              <li>
+                <strong>Events:</strong> Showcase the various events and
+                activities that take place in your care home. Whether it's
+                themed parties, music events, or art classes, this illustrates a
+                vibrant, engaging community life.
+              </li>
+              <li>
+                <strong>Activities:</strong> Share clips of daily activities,
+                from exercise sessions to craft workshops. This not only
+                demonstrates the range of activities available but also the
+                active and inclusive lifestyle residents enjoy.
+              </li>
+            </ul>
           </p>
-          <h2 className={styles.title}>
-          Conclusion:
-          </h2>
+          <h2 className={styles.title}>Conclusion:</h2>
           <p>
-          TikTok is a great way to engage with your community and build your brand. It is also a great way to recruit new staff. However, always ensure you respect the residents and their families.
+            TikTok is a great way to engage with your community and build your
+            brand. It is also a great way to recruit new staff. However, always
+            ensure you respect the residents and their families.
           </p>
-          <h2 className={styles.title}>
-            How can Motion help you?
-          </h2>
+          <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-          🌟 Struggling to create engaging TikTok content for your care home? Book a Discovery Call with Motion to explore innovative marketing strategies.
+            🌟 Struggling to create engaging TikTok content for your care home?
+            Book a Discovery Call with Motion to explore innovative marketing
+            strategies.
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Book a Discovery Call.
+              Get a Demo.
             </a>
           </div>
         </div>

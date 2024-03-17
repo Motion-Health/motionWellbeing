@@ -7,7 +7,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import React from 'react';
 
 import { Footer } from '@/components/Home/Footer';
@@ -17,6 +17,23 @@ import styles from '../blogPost.module.css';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
@@ -210,7 +227,7 @@ const Index = () => {
           <p>
             If you’re interested in learning how Motion can support your care
             home, &nbsp;
-            <a href="/how-we-can-help">Book a 30 minute discovery call</a>
+            <a href="/how-we-can-help">Book a 30 minute demo call</a>
             &nbsp;today.
           </p>
         </div>

@@ -354,7 +354,7 @@ body{
 }
 
 .white-background {
-  background-color: #fff;
+  background: radial-gradient(circle at -11% 10%, rgb(56, 89, 136) -33%, rgb(253, 252, 237) 30%, transparent 50%), radial-gradient(circle at 0% 73%, rgb(56, 89, 136) -30%, rgb(253, 252, 237) 30%, transparent 50%), radial-gradient(circle at 77% 48%, rgb(56, 89, 136) -30%, rgb(253, 252, 237) 30%, transparent 50%);
 }
 
 .product-card {

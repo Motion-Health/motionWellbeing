@@ -13,16 +13,32 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
-
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
         <title>
-          What Families Care About When Looking for a Care Home |
-          Motion Marketing
+          What Families Care About When Looking for a Care Home | Motion
+          Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -125,11 +141,15 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="https://marketing.motion.org.uk/">
+                <a href="/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -165,22 +185,50 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -198,9 +246,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>
-            What Families Care About When Looking for a Care Home
-          </h1>
+          <h1>What Families Care About When Looking for a Care Home</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -282,35 +328,65 @@ const Index = () => {
           <h2 className={styles.title}>Introduction</h2>
           <p>
             <br />
-            We’re in the process of conducting research with families of care home residents’ to best understand how and what they look for in a care home. It’s been really interesting to hear about the good, bad and ugly when it comes to navigating the challenge of searching for a care home. The research hasn’t been concluded but we’ve had some interesting insights already and I wanted to share these with you. In this blog I’ll share three things that have consistently come up…
+            We’re in the process of conducting research with families of care
+            home residents’ to best understand how and what they look for in a
+            care home. It’s been really interesting to hear about the good, bad
+            and ugly when it comes to navigating the challenge of searching for
+            a care home. The research hasn’t been concluded but we’ve had some
+            interesting insights already and I wanted to share these with you.
+            In this blog I’ll share three things that have consistently come up…
           </p>
 
-        
-          <img src="/assets/images/blogs/blog12/Image-1.webp" alt="Care Home Resident" />
-            
+          <img
+            src="/assets/images/blogs/blog12/Image-1.webp"
+            alt="Care Home Resident"
+          />
+
           <h2 className={styles.title}>Standard of Care and CQC Rating</h2>
           <p>
-          The most important factor that influences a decision about a care home is the standard of care that they deliver. Families can get an idea of this in a number of ways: speaking to staff, reading reviews, the CQC rating and visiting the home. Ensuring that your approach to care is transparent and visible to prospective families is key here.
+            The most important factor that influences a decision about a care
+            home is the standard of care that they deliver. Families can get an
+            idea of this in a number of ways: speaking to staff, reading
+            reviews, the CQC rating and visiting the home. Ensuring that your
+            approach to care is transparent and visible to prospective families
+            is key here.
           </p>
           <h2 className={styles.title}>Location</h2>
           <p>
-          Location was a big one, too. This makes a lot of sense, people tend to look for a care home that is either close to where their loved one lives or close to where they live (assuming they are different parts of the country). It’s important to consider this, because your care home is being compared directly to the 3 to 4 closest care homes. Make it clear how you stand out and deliver superior care than the others close by. 
+            Location was a big one, too. This makes a lot of sense, people tend
+            to look for a care home that is either close to where their loved
+            one lives or close to where they live (assuming they are different
+            parts of the country). It’s important to consider this, because your
+            care home is being compared directly to the 3 to 4 closest care
+            homes. Make it clear how you stand out and deliver superior care
+            than the others close by.
           </p>
           <h2 className={styles.title}>Lifestyle</h2>
           <p>
-          An interesting recurring theme of our research so far has shown that families don’t want their loved one to be sat alone in their room or sat staring at a TV all day. Your lifestyle, activities and wellbeing provision is going to be the thing that a resident spends most of their time doing in your home, so make sure that this is visible on your marketing channels (e.g. Facebook, website) and you can demonstrate a packed activity planner and vibrant environment to prospects.
+            An interesting recurring theme of our research so far has shown that
+            families don’t want their loved one to be sat alone in their room or
+            sat staring at a TV all day. Your lifestyle, activities and
+            wellbeing provision is going to be the thing that a resident spends
+            most of their time doing in your home, so make sure that this is
+            visible on your marketing channels (e.g. Facebook, website) and you
+            can demonstrate a packed activity planner and vibrant environment to
+            prospects.
           </p>
-          
+
           <h2 className={styles.title}>Conclusion</h2>
           <p>
-            🌟We’re only part-way through the research, so these aren’t conclusive yet! But I wanted to share them in real-time and would absolutely love to hear your thoughts. Book a Discovery Call if you’d like to know more about our learnings so far, or share your own perspective!
+            🌟We’re only part-way through the research, so these aren’t
+            conclusive yet! But I wanted to share them in real-time and would
+            absolutely love to hear your thoughts. Book a Discovery Call if
+            you’d like to know more about our learnings so far, or share your
+            own perspective!
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Book a Discovery Call.
+              Get a Demo.
             </a>
           </div>
         </div>

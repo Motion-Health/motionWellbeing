@@ -13,15 +13,32 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
-
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
         <title>
-        ​​'Nothing About Us Without Us': What We’ve Learned from Co-Designing Services with Care Homes
+          ​​'Nothing About Us Without Us': What We’ve Learned from Co-Designing
+          Services with Care Homes
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -124,11 +141,15 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="https://marketing.motion.org.uk/">
+                <a href="/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -164,22 +185,50 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -198,7 +247,8 @@ const Index = () => {
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
           <h1>
-          ​​'Nothing About Us Without Us': What We’ve Learned from Co-Designing Services with Care Homes
+            ​​'Nothing About Us Without Us': What We’ve Learned from
+            Co-Designing Services with Care Homes
           </h1>
           <div className={styles.shareToolbar}>
             <div>
@@ -280,39 +330,70 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            Operating in the social care sector is special. It’s not like any other and that can be a challenge; the combination of public and private, the careful balance of doing good while being sustainable, it truly makes for a unique experience. 
+            Operating in the social care sector is special. It’s not like any
+            other and that can be a challenge; the combination of public and
+            private, the careful balance of doing good while being sustainable,
+            it truly makes for a unique experience.
           </p>
           <p>
-          That’s why the quote “Nothing About Us Without Us” is so pertinent to me. It summarises the idea that you cannot do something for someone without including them in the development process. Fortunately, it was something I was told early on in my career and has stood me in good stead while supporting care homes. Here are some of the key learnings I’ve learned from this approach and some ways that you may be able to benefit from it too:
-
+            That’s why the quote “Nothing About Us Without Us” is so pertinent
+            to me. It summarises the idea that you cannot do something for
+            someone without including them in the development process.
+            Fortunately, it was something I was told early on in my career and
+            has stood me in good stead while supporting care homes. Here are
+            some of the key learnings I’ve learned from this approach and some
+            ways that you may be able to benefit from it too:
           </p>
-          <img src="/assets/images/blogs/blog10/Image-1.webp" alt="The Motion team standing with care staff" />
-          <h2 className={styles.title}>Being Person-Centred is More than a Buzzword
-</h2>
+          <img
+            src="/assets/images/blogs/blog10/Image-1.webp"
+            alt="The Motion team standing with care staff"
+          />
+          <h2 className={styles.title}>
+            Being Person-Centred is More than a Buzzword
+          </h2>
           <p>
-          In life, actions speak louder than words and those that work in social care are a true testament to this. The vast majority do all they can to provide the very best care possible for the humans in their care. The challenge with this is that it sometimes means they forget to shout about what great things they are doing.. sometimes because they’re too modest, sometimes because they simply don’t have the time!
+            In life, actions speak louder than words and those that work in
+            social care are a true testament to this. The vast majority do all
+            they can to provide the very best care possible for the humans in
+            their care. The challenge with this is that it sometimes means they
+            forget to shout about what great things they are doing.. sometimes
+            because they’re too modest, sometimes because they simply don’t have
+            the time!
             <br />
           </p>
-            
+
           <h2 className={styles.title}>The Numbers Have to Stack Up</h2>
           <p>
-          Social care has big financial problems (I know you don’t need me to tell you that!), so it’s important that there is a robust business case behind decisions. This usually isn’t about making heaps of profit (like some corners of the media would have you believe), but it is about ensuring that resources are allocated prudently and have a positive RoI. 
-
+            Social care has big financial problems (I know you don’t need me to
+            tell you that!), so it’s important that there is a robust business
+            case behind decisions. This usually isn’t about making heaps of
+            profit (like some corners of the media would have you believe), but
+            it is about ensuring that resources are allocated prudently and have
+            a positive RoI.
           </p>
           <h2 className={styles.title}>The Best Take This Approach As Well</h2>
           <p>
-          I knew this approach was the right one when I learned early on that leaders within the social care sector do it themselves. Two direct quotes from Managing Directors of care groups are “You have two ears and one mouth for a reason” and “If you want to go far, go together”, highlight the importance of listening and learning from others on this we’re on. 
+            I knew this approach was the right one when I learned early on that
+            leaders within the social care sector do it themselves. Two direct
+            quotes from Managing Directors of care groups are “You have two ears
+            and one mouth for a reason” and “If you want to go far, go
+            together”, highlight the importance of listening and learning from
+            others on this we’re on.
           </p>
           <h2 className={styles.title}>Conclusion</h2>
           <p>
-          The evidence is clear: outcomes are better when we listen and put those that we support at the heart of our services. This is true of us, and you and everyone else that wants to be successful. If you’re interested in how we can take these learnings and apply them to your marketing strategy, book a 30-minute Discovery Call today. 
+            The evidence is clear: outcomes are better when we listen and put
+            those that we support at the heart of our services. This is true of
+            us, and you and everyone else that wants to be successful. If you’re
+            interested in how we can take these learnings and apply them to your
+            marketing strategy, book a 30-minute Discovery Call today.
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Book a Discovery Call.
+              Get a Demo.
             </a>
           </div>
         </div>

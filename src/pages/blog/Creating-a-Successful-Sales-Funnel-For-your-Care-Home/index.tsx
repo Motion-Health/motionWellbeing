@@ -13,15 +13,32 @@ import { Footer } from '@/components/Home/Footer';
 
 import styles from '../blogPost.module.css';
 
-
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="white-background">
       <Head>
         <title>
-        Creating a successful sales funnel for your care home | Motion Marketing
+          Creating a successful sales funnel for your care home | Motion
+          Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
@@ -116,7 +133,6 @@ const Index = () => {
         <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-
       </Head>
 
       <section
@@ -125,11 +141,15 @@ const Index = () => {
         once="menu"
         id="menu1-0"
       >
-        <nav className="navbar navbar-dropdown navbar-expand-lg">
+        <nav
+          className={`navbar navbar-dropdown navbar-expand-lg ${
+            scrolled ? 'scrolled' : ''
+          }`}
+        >
           <div className="menu_box container">
             <div className="navbar-brand d-flex">
               <span className="navbar-logo">
-                <a href="https://marketing.motion.org.uk/">
+                <a href="/">
                   <img
                     src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                     alt=""
@@ -165,22 +185,50 @@ const Index = () => {
               >
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/">
-                    Home
+                    Platform
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link link display-4" href="/blog">
-                    Knowledge Hub
+                    Resource Hub
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Success Stories
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    About
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Pricing
+                  </a>
+                </li>
+                <li className="nav-item midHide">
+                  <a className="nav-link link display-4" href="/blog">
+                    Other Services
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/blog">
+                    Login
                   </a>
                 </li>
               </ul>
 
-              <div className="mbr-section-btn-main" role="tablist">
+              <div
+                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
+                role="tablist"
+              >
                 <a
-                  className="btn btn-secondary display-4"
+                  className="blueDemoButton"
                   href="https://calendly.com/zeezy-1/motion"
                 >
-                  Book a Discovery Call
+                  Get a Demo
                 </a>
               </div>
             </div>
@@ -279,85 +327,120 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-          
-          First off, what is a sales funnel? 
-          <br/>
-          A sales funnel is a marketing model that maps out a customer's journey when purchasing a service or a bed in your home.
-          The model uses a funnel as an analogy because many potential customers may begin at the top end of the sales process, and only a fraction of these people make a purchase. 
-          For a care home, the funnel is the journey the residents or their families go through when choosing a care home.
+            First off, what is a sales funnel?
+            <br />A sales funnel is a marketing model that maps out a customer's
+            journey when purchasing a service or a bed in your home. The model
+            uses a funnel as an analogy because many potential customers may
+            begin at the top end of the sales process, and only a fraction of
+            these people make a purchase. For a care home, the funnel is the
+            journey the residents or their families go through when choosing a
+            care home.
           </p>
           <p>
-          Your job is to define the funnel stages and reduce the number of people who drop out at each stage. This is a great way to grow your care home and organically increase occupancy.
-            <br/><br/>The stages of the funnel for care homes can vary, but we have broken it down into four stages:
+            Your job is to define the funnel stages and reduce the number of
+            people who drop out at each stage. This is a great way to grow your
+            care home and organically increase occupancy.
+            <br />
+            <br />
+            The stages of the funnel for care homes can vary, but we have broken
+            it down into four stages:
             <ul>
               <li>Cold Audience</li>
               <li>Warm Audience</li>
               <li>Hot Audience</li>
               <li>Decision</li>
             </ul>
-            It is common for your ideal customer to be the child of the older adult who is moving into your care home, so consider this when you are choosing the channels you target in step 1.
-
-
-
+            It is common for your ideal customer to be the child of the older
+            adult who is moving into your care home, so consider this when you
+            are choosing the channels you target in step 1.
           </p>
           <img
             src="/assets/images/blogs/blog6/thumbnail.webp"
             alt="Indeed Logo"
             className={styles.image}
           />
-          <h2 className={styles.title}>
-          1. Cold Audience:
-          </h2>
+          <h2 className={styles.title}>1. Cold Audience:</h2>
           <p>
-          The cold audience is at the top of the funnel; here is where you are trying to attract new people to your services. At this stage, you are trying to create awareness of your care home and the services you provide.
-          <br/>
-          The main channels for attracting a cold audience are social media, organic website traffic, physical marketing, word of mouth, and sponsorship of community events. 
-          Social media is becoming increasingly relevant and is the now most cost-effective way to reach a large audience.
-          <br/>
-          Your aim is to collect contact information to move them to the next stage of the funnel. This can be done with a lead magnet, a free piece of content you offer in exchange for their contact information.
+            The cold audience is at the top of the funnel; here is where you are
+            trying to attract new people to your services. At this stage, you
+            are trying to create awareness of your care home and the services
+            you provide.
+            <br />
+            The main channels for attracting a cold audience are social media,
+            organic website traffic, physical marketing, word of mouth, and
+            sponsorship of community events. Social media is becoming
+            increasingly relevant and is the now most cost-effective way to
+            reach a large audience.
+            <br />
+            Your aim is to collect contact information to move them to the next
+            stage of the funnel. This can be done with a lead magnet, a free
+            piece of content you offer in exchange for their contact
+            information.
           </p>
-          <h2 className={styles.title}>
-          2. Warm Audience:
-          </h2>
+          <h2 className={styles.title}>2. Warm Audience:</h2>
           <p>
-          This middle stage is crucial in building trust with potential residents and their families. You will have their contact information, and now you need to deliver content to help them build confidence in your home. To do this, engage them with stories of resident experiences, detailed information about your services, and testimonials. Utilise email newsletters, informative blog posts, and social media posts to keep them engaged. The potential resident may not be ready to move to a care home or domiciliary care; however, keeping them engaged with your content will make you the first choice when they are ready.
+            This middle stage is crucial in building trust with potential
+            residents and their families. You will have their contact
+            information, and now you need to deliver content to help them build
+            confidence in your home. To do this, engage them with stories of
+            resident experiences, detailed information about your services, and
+            testimonials. Utilise email newsletters, informative blog posts, and
+            social media posts to keep them engaged. The potential resident may
+            not be ready to move to a care home or domiciliary care; however,
+            keeping them engaged with your content will make you the first
+            choice when they are ready.
           </p>
-          <h2 className={styles.title}>
-          3. Hot Audience:
-          </h2>
+          <h2 className={styles.title}>3. Hot Audience:</h2>
           <p>
-          At this stage, your audience is seriously considering your care home for their needs. They are likely comparing you with other options. Here, <strong>personalised</strong> communication becomes critical. Offer in-person or virtual tours, one-on-one consultations, and detailed guides on the specifics of your care services. This could include how you handle special care needs, lifestyle activities, and community integration. From our survey of 50 families, wellbeing activities were ranked 100% of the time as a top 3 factor in choosing a care home. So, showcasing your wellbeing activities and how you deliver them is vital.
+            At this stage, your audience is seriously considering your care home
+            for their needs. They are likely comparing you with other options.
+            Here, <strong>personalised</strong> communication becomes critical.
+            Offer in-person or virtual tours, one-on-one consultations, and
+            detailed guides on the specifics of your care services. This could
+            include how you handle special care needs, lifestyle activities, and
+            community integration. From our survey of 50 families, wellbeing
+            activities were ranked 100% of the time as a top 3 factor in
+            choosing a care home. So, showcasing your wellbeing activities and
+            how you deliver them is vital.
           </p>
-          <h2 className={styles.title}>
-          4. Decision:
-          </h2>
+          <h2 className={styles.title}>4. Decision:</h2>
           <p>
-          In this final stage, a family decides to move forward with your care home. Make this process as smooth as possible. Provide clear, concise information on the next steps, costs, and what they can expect. Ensure all their questions are answered and they feel confident in their choice. After their decision, focus on a seamless onboarding experience to affirm they made the right choice.
+            In this final stage, a family decides to move forward with your care
+            home. Make this process as smooth as possible. Provide clear,
+            concise information on the next steps, costs, and what they can
+            expect. Ensure all their questions are answered and they feel
+            confident in their choice. After their decision, focus on a seamless
+            onboarding experience to affirm they made the right choice.
           </p>
-          <h2 className={styles.title}>
-          Post Decision/Tesimonials:
-          </h2>
+          <h2 className={styles.title}>Post Decision/Tesimonials:</h2>
           <p>
-          Testimonials and reviews from existing residents and their families are an incredibly powerful way to showcase the standard of your care and, ultimately, generate more leads. This is crucial for building trust with potential residents and their families.
+            Testimonials and reviews from existing residents and their families
+            are an incredibly powerful way to showcase the standard of your care
+            and, ultimately, generate more leads. This is crucial for building
+            trust with potential residents and their families.
           </p>
-          <h2 className={styles.title}>
-          Conclusion:
-          </h2>
+          <h2 className={styles.title}>Conclusion:</h2>
           <p>
-          The sales funnel is a great way to grow your care home and increase your occupancy organically. The key is to define the funnel stages and reduce the number of people who drop out at each stage. It's also important to remember that the funnel is not linear, and people can jump between stages. A great example is if you offer a domiciliary care service, the resident is already in the hot audience stage, and you can skip the cold and warm audience stages.
+            The sales funnel is a great way to grow your care home and increase
+            your occupancy organically. The key is to define the funnel stages
+            and reduce the number of people who drop out at each stage. It's
+            also important to remember that the funnel is not linear, and people
+            can jump between stages. A great example is if you offer a
+            domiciliary care service, the resident is already in the hot
+            audience stage, and you can skip the cold and warm audience stages.
           </p>
-          <h2 className={styles.title}>
-            How can Motion help you?
-          </h2>
+          <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-          🌟 Interested in elevating your marketing strategy and building a solid sales funnel? Book a Discovery Call to learn how we can take your business to the next level!
+            🌟 Interested in elevating your marketing strategy and building a
+            solid sales funnel? Book a Discovery Call to learn how we can take
+            your business to the next level!
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Book a Discovery Call.
+              Get a Demo.
             </a>
           </div>
         </div>
