@@ -1,0 +1,83 @@
+.container {padding-top: inherit;}
+
+.row {
+    padding-top: 130px;
+}
+
+h1.pricingTitle {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+}
+
+.person-wrapper {
+    width: 100px;
+}
+
+.person-wrapper img {
+    border-radius: 100%;
+}
+
+p.TextOne {
+    margin-top: 15px;
+    font-family: 'Montserrat';
+    text-align: center;
+    color: #385988;
+}
+.col-12{
+  margin-top: 2rem;
+}
+.iconText {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.iconText img {
+    width: 55px;
+    margin-right: 21px;
+}
+
+.iconText p {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    color: #385988;
+}
+
+img.stars {
+    height: 4vw;
+    width: auto;
+}
+
+p.googleReviews {
+    margin-top: 15px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+.cid-tFcguy0QTa{
+  padding-top: 0px;
+}
+
+.pricingCard {
+  width: 100%;
+  padding: 1%;
+}
+
+
+
+@media screen and (min-width: 768px) { /* Adjust 768px to your mobile breakpoint */
+  .pricingCard {
+    padding: 7%;
+    /* max-width: 80%; */ /* Adjust this to the maximum width you want */
+    margin: auto; /* This centers the content if it's less than the maximum width */
+  }
+}
+
+/* for mobile */
+@media (max-width: 768px) {
+  .col-md-6{
+    margin-bottom: 20px;
+  }
+}

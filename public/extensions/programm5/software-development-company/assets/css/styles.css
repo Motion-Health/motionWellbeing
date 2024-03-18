@@ -272,3 +272,17 @@ section#form1-d {
 .cid-tFcguy0QTa {
     background-color: #fdfced !important;
 }
+
+.pricingCard {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+}
+
+.ticks {
+    padding: 10px 0px;
+    border-top: 1px solid black;
+    /* margin-top: 14px; */
+}

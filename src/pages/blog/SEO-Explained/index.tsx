@@ -202,7 +202,7 @@ const Index = () => {
                   </a>
                 </li>
                 <li className="nav-item midHide">
-                  <a className="nav-link link display-4" href="/blog">
+                  <a className="nav-link link display-4" href="/pricing">
                     Pricing
                   </a>
                 </li>
@@ -222,10 +222,7 @@ const Index = () => {
                 className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
                 role="tablist"
               >
-                <a
-                  className="blueDemoButton"
-                  href="https://calendly.com/zeezy-1/motion"
-                >
+                <a className="blueDemoButton" href="/book-demo">
                   Get a Demo
                 </a>
               </div>

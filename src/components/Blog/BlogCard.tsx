@@ -14,27 +14,31 @@ export default function BlogCard({ blog }) {
         className={styles.Card}
         onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
       >
-        <img
-          src={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}
-          alt={blog.name}
-        />
-        <div className={styles.Content}>
-          <Typography variant="h2">{blog.name}</Typography>
-        </div>
-        <Button
-          variant="contained"
-          type="button"
-          className={styles.learnMore}
-          onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
-          fullWidth
-        >
-          Read blog
+        <div className={styles.imageContainer}>
           <img
-            src="/assets/icons/ph_arrow-right.svg"
-            className={styles.arrow}
+            src={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}
             alt={blog.name}
           />
-        </Button>
+        </div>
+        <div>
+          <div className={styles.Content}>
+            <Typography variant="h2">{blog.name}</Typography>
+            <Button
+              variant="contained"
+              type="button"
+              className={styles.learnMore}
+              onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
+              fullWidth
+            >
+              Read blog
+              <img
+                src="/assets/icons/ph_arrow-right.svg"
+                className={styles.arrow}
+                alt={blog.name}
+              />
+            </Button>
+          </div>
+        </div>
       </div>
     </Grid>
   );

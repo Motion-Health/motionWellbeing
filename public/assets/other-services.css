@@ -1,0 +1,178 @@
+.container {/* padding-top: inherit; */}
+
+.topPadding
+{padding-top: 140px;}
+
+h1.other-servicesTitle {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 2.5em;
+    text-align: left;
+}
+
+.person-wrapper {
+    width: 100px;
+}
+
+.person-wrapper img {
+    border-radius: 100%;
+}
+
+p.TextOne {
+    margin-top: 15px;
+    font-family: 'Montserrat';
+    text-align: left;
+    color: #385988;
+    font-size: 1.2rem;
+}
+.col-12{
+  margin-top: 2rem;
+}
+.iconText {
+    display: flex;
+    align-items: center;
+    margin: 15px 0px;
+}
+
+.iconText img {
+    width: 55px;
+    margin-right: 21px;
+}
+
+.iconText p {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    color: #385988;
+}
+
+img.stars {
+    height: 4vw;
+    width: auto;
+}
+
+p.googleReviews {
+    margin-top: 15px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+.cid-tFcguy0QTa{
+  padding-top: 0px;
+}
+
+.other-servicesCard {
+  width: 100%;
+  padding: 1%;
+}
+
+
+
+@media screen and (min-width: 768px) { /* Adjust 768px to your mobile breakpoint */
+  .other-servicesCard {
+    padding: 7%;
+    /* max-width: 80%; */ /* Adjust this to the maximum width you want */
+    margin: auto; /* This centers the content if it's less than the maximum width */
+  }
+}
+
+/* for mobile */
+@media (max-width: 768px) {
+  .col-md-6{
+    margin-bottom: 20px;
+  }
+}
+
+.row.costCard {
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+    font-family: 'Montserrat';
+    padding: 40px;
+    box-shadow: 0px 2px 9px 0px rgb(2 2 2 / 17%);
+    margin-top: 70px;
+}
+
+.card {
+    padding: 25px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+    margin: 2%;
+    height: 100%;
+    text-align: center;
+    font-family: 'Montserrat';
+    border-radius: 10px;
+}
+
+.col-md-4 {
+    margin-bottom: 2%;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.card p {
+    line-height: unset;
+}
+
+.heroBox {
+    box-shadow: 0px 2px 7px 1px rgb(0 0 4 / 36%);
+    width: 100%;
+}
+
+.heroBox {
+    padding: 15px;
+    height: 20vh;
+    padding-left: 10%;
+    padding-right: 10%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+img.heroImage {
+    height: auto;
+    /* width: 30%; */
+}
+
+h1.costTitle {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+p.costText {
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    font-size: 1.2rem;
+    line-height: inherit;
+    color: #385988;
+}
+@media (max-width: 768px) {
+  .heroImage{
+    display: none;
+  }
+  .heroBox{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media (min-width:1300px){
+  img.heroImage{
+    height: 100%;
+    width: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .heroBox{
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}

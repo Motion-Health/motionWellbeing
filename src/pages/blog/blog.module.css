@@ -24,6 +24,7 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0px;
+  flex-wrap: wrap;
 }
 
 
@@ -70,6 +71,7 @@
 .Cards>div{
   max-width: 100%;
   margin: 0px 15px 15px 15px;
+  height: 100%;
 }
 .blogHeroContent h1{
   font-size: 1.5em;
@@ -84,10 +86,12 @@
   font-size: 0.5em;
   margin-bottom: 0px;
   width: 80vw;
+  line-height: inherit;
 }
 @media screen and (max-width: 900px) {
   .Cards{
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
 }
@@ -96,10 +100,10 @@
     grid-template-columns: 1fr;
   }
   .blogContainer{
-    padding: 6vh 0vw;
+    padding: 0vh 0vw;
   }
   .Cards>div{
-    padding: 30px;
+    padding: 0px;
   }
 }
 
