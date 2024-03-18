@@ -2,11 +2,12 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
 import FAQ from '@/components/FAQExpandable';
+import NavBar from '@/components/navBar';
 import { useAccountContext } from '@/context/AccountContext';
 const Index = () => {
   const {
@@ -38,23 +39,6 @@ const Index = () => {
     analytics:
       'Regularly see the impact Motion is having on your care homes customer satisfaction, website visitors and lead generation with our fully transparent reports.',
   };
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const show = window.scrollY > 50;
-      if (show) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    document.addEventListener('scroll', handleScroll);
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <>
@@ -144,103 +128,7 @@ const Index = () => {
         type="text/javascript"
         src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
       ></script>
-      <section
-        data-bs-version="5.1"
-        className="menu menu1 programm5 cid-tFcg6m8FPY"
-        once="menu"
-        id="menu1-0"
-      >
-        <nav
-          className={`navbar navbar-dropdown navbar-expand-lg ${
-            scrolled ? 'scrolled' : ''
-          }`}
-        >
-          <div className="menu_box container">
-            <div className="navbar-brand d-flex">
-              <span className="navbar-logo">
-                <a href="/">
-                  <img
-                    src="/extensions/programm5/software-development-company/assets/images/logo.svg"
-                    alt=""
-                  />
-                </a>
-              </span>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-bs-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <div className="hamburger">
-                  <span />
-                  <span />
-                  <span />
-                  <span />
-                </div>
-              </button>
-            </div>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul
-                className="navbar-nav nav-dropdown"
-                data-app-modern-menu="true"
-              >
-                <li className="nav-item">
-                  <a className="nav-link link display-4" href="/">
-                    Platform
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link link display-4" href="/blog">
-                    Resource Hub
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link link display-4" href="/blog">
-                    Success Stories
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link link display-4" href="/blog">
-                    About
-                  </a>
-                </li>
-                <li className="nav-item midHide">
-                  <a className="nav-link link display-4" href="/pricing">
-                    Pricing
-                  </a>
-                </li>
-                <li className="nav-item midHide">
-                  <a className="nav-link link display-4" href="/blog">
-                    Other Services
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link link display-4" href="/blog">
-                    Login
-                  </a>
-                </li>
-              </ul>
-
-              <div
-                className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
-                role="tablist"
-              >
-                <a className="blueDemoButton" href="/book-demo">
-                  Get a Demo
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </section>
+      <NavBar />
       <section
         data-bs-version="5.1"
         className="header1 programm5 cid-tFcg6xOSs8 filtered-background-section"
@@ -255,15 +143,15 @@ const Index = () => {
                   yesterdays{' '}
                   <TypeAnimation
                     sequence={[
-                      'Teachers',
+                      'teachers',
                       3000,
-                      'Nurses',
+                      'nurses',
                       3000,
-                      'Engineers',
+                      'engineers',
                       3000,
-                      'Doctors',
+                      'doctors',
                       3000,
-                      'Soldiers',
+                      'soldiers',
                     ]}
                     wrapper="span"
                     speed={50}
@@ -406,49 +294,63 @@ const Index = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-12 col-lg-4 card">
+            <div className="col-4 card">
               <div className="title-wrapper">
-                <img
-                  className="blogImage"
-                  src="/extensions/programm5/assets/images/seo.png"
-                  alt="seo"
-                />
-                <h3 className="motionBenefitsTitle">
-                  <strong>Improve lifestyle and wellbeing outcomes</strong>
-                </h3>
+                <div className="imageWrapper redImageWrapper">
+                  <img
+                    className="blogImage"
+                    src="/assets/images/homepage/card1.png"
+                    alt="seo"
+                  />
+                </div>
               </div>
+            </div>
+            <div className="col-4 card">
+              <div className="title-wrapper">
+                <div className="imageWrapper yellowImageWrapper">
+                  <img
+                    className="blogImage"
+                    src="/assets/images/homepage/card2.png"
+                    alt="seo"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="col-4 card">
+              <div className="title-wrapper">
+                <div className="imageWrapper greenImageWrapper">
+                  <img
+                    className="blogImage"
+                    src="/assets/images/homepage/card3.png"
+                    alt="seo"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4 card">
+              <h3 className="motionBenefitsTitle">
+                <strong>Improve lifestyle and wellbeing outcomes</strong>
+              </h3>
               <div className="card-wrapper motionBenefitsText">
                 A wide range of evidence-based lifestyle resources and
                 activities that are proven to improve mood.
               </div>
             </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="title-wrapper">
-                <img
-                  className="blogImage"
-                  src="/extensions/programm5/assets/images/seo.png"
-                  alt="seo"
-                />
-                <h3 className="motionBenefitsTitle">
-                  <strong>Showcase improved standard of care</strong>
-                </h3>
-              </div>
+            <div className="col-4 card">
+              <h3 className="motionBenefitsTitle">
+                <strong>Showcase improved standard of care</strong>
+              </h3>
               <div className="card-wrapper motionBenefitsText">
                 Tailored updates are automatically shared to your website,
                 making showcasing your care home effortless.
               </div>
             </div>
-            <div className="col-12 col-lg-4 card">
-              <div className="title-wrapper">
-                <img
-                  className="blogImage"
-                  src="/extensions/programm5/assets/images/seo.png"
-                  alt="seo"
-                />
-                <h3 className="motionBenefitsTitle">
-                  <strong>Fill beds and improve customer satisfaction</strong>
-                </h3>
-              </div>
+            <div className="col-4 card">
+              <h3 className="motionBenefitsTitle">
+                <strong>Fill beds and improve customer satisfaction</strong>
+              </h3>
               <div className="card-wrapper motionBenefitsText">
                 Regular reports and data insights are provided to ensure you can
                 see and understand the impact on key metrics.
@@ -479,7 +381,7 @@ const Index = () => {
           </div>
 
           <div id="tab1" className="tab-pane in active">
-            <div className="row">
+            <div className="row featuresClicker">
               <div
                 className="col"
                 onClick={() => setSelectedFeature('planner')}
@@ -557,7 +459,7 @@ const Index = () => {
                 <p className="mbr-desc mbr-fonts-style display-7">Analytics</p>
               </div>
             </div>
-            <p className="mbr-desc mbr-fonts-style display-7">
+            <p className="mbr-desc mbr-fonts-style display-7 featuresText">
               {features[selectedFeature]}
             </p>
           </div>
@@ -777,7 +679,7 @@ const Index = () => {
                         Resource Hub
                       </a>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                       <a className="nav-link link display-4" href="/blog">
                         Success Stories
                       </a>
@@ -786,7 +688,7 @@ const Index = () => {
                       <a className="nav-link link display-4" href="/blog">
                         About
                       </a>
-                    </li>
+                    </li> */}
                     <li className="nav-item midHide">
                       <a className="nav-link link display-4" href="/sblog">
                         Pricing

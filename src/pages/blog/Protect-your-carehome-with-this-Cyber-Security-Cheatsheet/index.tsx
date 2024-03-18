@@ -22,23 +22,6 @@ const Index = () => {
     console.log(`Submitting email ${email}`);
   };
 
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const show = window.scrollY > 50;
-      if (show) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    document.addEventListener('scroll', handleScroll);
-    return () => {
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
     <div className="white-background">
       <Head>

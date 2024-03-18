@@ -1055,6 +1055,7 @@ a.nav-link.link.display-4 {
     margin-top: 3vw;
     /* padding-left: 2vw; */
     /* padding-top: 50px; */
+    height: 100%;
 }
 
 .hero-wrapper {
@@ -1199,3 +1200,54 @@ section.FAQSection {
 
 
 
+
+@media (max-width:600px){
+p.mbr-desc.mbr-fonts-style.display-7.featuresText {display:none;}
+
+.row.featuresClicker {display: flex;flex-direction: column;flex-wrap: wrap;align-content: stretch;justify-content: center;}
+
+.row.featuresClicker {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+}
+
+.imageWrapper {
+    height: 100%;
+}
+
+.imageWrapper {
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    vertical-align: middle;
+}
+
+.redImageWrapper {
+    background-color: #F6BFA4;
+}
+
+.yellowImageWrapper {
+    background-color: #F6EFC2;
+}
+
+.greenImageWrapper {
+    background-color: #ADDA93;
+}
+
+.col-12.col-lg-4.card {
+}
+
+img.blogImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    vertical-align: middle;
+}
