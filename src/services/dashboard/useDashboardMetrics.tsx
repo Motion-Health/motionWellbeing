@@ -13,18 +13,29 @@ const getDashboardParticipants = async (
   accountStatus: string,
   dateRangeFilter: string
 ) => {
-  console.log(
-    'getDashboardParticipants',
-    metric,
-    accountId,
-    accountStatus,
-    dateRangeFilter
-  );
-  const { data } = await API.get<DashboardParticipants>(
-    `/dashboard/metrics?metric=${metric}&accountId=${accountId}&accountStatus=${accountStatus}&dateRangeFilter=${dateRangeFilter}`
-  );
-  console.log(data);
-  return data;
+  try{
+    console.log(
+      'getDashboardParticipants',
+      metric,
+      accountId,
+      accountStatus,
+      dateRangeFilter
+    );
+    const { data } = await API.get<DashboardParticipants>(
+      `/dashboard/metrics?metric=${metric}&accountId=${accountId}&accountStatus=${accountStatus}&dateRangeFilter=${dateRangeFilter}`
+    );
+    console.log(data);
+    return data;
+} catch (error) {
+  // If the error is a response from the server, print the message
+  if (error.response) {
+    console.error(error.response.data.message);
+  } else {
+    // Otherwise, it's an error in the request itself
+    console.error(error.message);
+  }
+  throw error;
+}
 };
 
 export const useDashboardMetrics = (
