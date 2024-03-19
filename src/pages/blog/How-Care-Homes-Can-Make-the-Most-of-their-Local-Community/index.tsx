@@ -8,7 +8,6 @@ import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
 import React, { useState } from 'react';
-import React from 'react';
 
 import { Footer } from '@/components/Home/Footer';
 import { Header } from '@/components/Home/header/Header';
