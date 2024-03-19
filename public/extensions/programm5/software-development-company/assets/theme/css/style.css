@@ -970,7 +970,7 @@ blockquote {
 h3.mbr-section-title.customTitle.mbr-fonts-style.display-2 {
     color: white;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .servicesGrid .tab-pane {

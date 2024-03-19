@@ -23,11 +23,9 @@ const Index = () => {
     autoplay: true,
     autoplaySpeed: 2000,
   };
-  const [selectedFeature, setSelectedFeature] = useState('default');
+  const [selectedFeature, setSelectedFeature] = useState('planner');
 
   const features = {
-    default:
-      "Check out Motion's features and how they ensure an improvement in wellbeing outcomes as well as a positive impact on your business.",
     planner:
       'Weekly and monthly planners mean that you can schedule activities ahead of time. Whether their group or one-to-one, in the home or a trip out; the planner is there to say you time and can be easily shared with residents, families and colleagues.',
     activities:
@@ -104,10 +102,7 @@ const Index = () => {
         rel="stylesheet"
         href="extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
       />
-      <meta
-        property="og:title"
-        content="Motion Marketing | Sharing stories about later life"
-      />
+      <meta property="og:title" content="Motion" />
       <meta
         name="description"
         content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
@@ -143,15 +138,15 @@ const Index = () => {
                   yesterday's{' '}
                   <TypeAnimation
                     sequence={[
-                      'teachers',
+                      'teachers.',
                       3000,
-                      'nurses',
+                      'nurses.',
                       3000,
-                      'engineers',
+                      'engineers.',
                       3000,
-                      'doctors',
+                      'doctors.',
                       3000,
-                      'soldiers',
+                      'soldiers.',
                       3000,
                     ]}
                     wrapper="span"
@@ -164,7 +159,7 @@ const Index = () => {
                 <p className="heroSubheadingText">
                   A digital platform for care services to improve wellbeing
                   outcomes and showcase this to existing and prospective
-                  families to improve their customer satisfaction and increase
+                  families to boost their customer satisfaction and increase
                   occupancy.
                 </p>
                 <div className="demoButtonContainer">

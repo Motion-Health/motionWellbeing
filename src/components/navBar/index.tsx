@@ -92,7 +92,10 @@ const NavBar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link link display-4" href="/login">
+                <a
+                  className="nav-link link display-4"
+                  href="https://platform.motion.org.uk/wellbeing/login/"
+                >
                   Login
                 </a>
               </li>

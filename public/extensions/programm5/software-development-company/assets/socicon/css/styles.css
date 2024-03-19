@@ -1222,7 +1222,10 @@ a.link-wrap.readBlog p {
   .midHide{
     display: none !important;
   }
-
+  section.FAQSection {
+    max-width:70vw;
+    margin: auto;
+}
 }
 
 
@@ -1362,6 +1365,8 @@ li.nav-item {font-family: 'Montserrat';font-weight: initial;}
 }
 }
 
+@media (max-width: 992px){
 li.nav-item {
     box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+}
 }
