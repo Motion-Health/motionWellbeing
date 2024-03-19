@@ -23,6 +23,12 @@ API.interceptors.response.use(
         err?.response?.data === 'Unauthorized')
     ) {
       if (window.location.pathname !== '/iframe') {
+        console.log('Redirecting to login');
+        console.log('window.location.pathname', window.location.pathname);
+        console.log('window.location', window.location);
+        console.log(err);
+        console.log(err?.response);
+        console.log(err?.response?.data);
         // The current URL path is not /iframe, redirect to login
         // console.log('Redirecting to login');
         // console.log('window.location.pathname', window.location.pathname);
