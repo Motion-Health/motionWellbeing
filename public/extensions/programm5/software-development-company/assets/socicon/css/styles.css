@@ -997,6 +997,16 @@ a.nav-link.link.display-4 {
     font-family: 'Montserrat';
 }
 
+@media (max-width:600px){
+  .card-wrapper.motionBenefitsText {
+    display:none;
+}
+.motionBenefitsTitle {
+      margin: 10px 2px 0px 2px;
+      font-size: 1rem;
+}
+}
+
 .mbr-section-btn-main {
     text-align: center;
 }
@@ -1011,6 +1021,10 @@ a.nav-link.link.display-4 {
     border: 2px solid #000000 !important;
     /* padding: 55px 10px; */
 }
+.whiteDemoButton:hover{
+   background-color: #385988 !important;
+  
+}
 
 .blueDemoButton {
     width: max-content;
@@ -1024,13 +1038,18 @@ a.nav-link.link.display-4 {
     margin: auto;
     margin-top: 10px;
     font-family: 'Montserrat';
+    transition: 0.3s;
 }
 
 .blueDemoButton a {
-    color: white;
+    color: white !important;
     font-family: 'Montserrat';
     font-weight: 700;
     font-size: 18px;
+}
+
+.blueDemoButton:hover{
+  transform: scale(1.02);
 }
 
 .demoButtonContainer {
@@ -1055,7 +1074,7 @@ a.nav-link.link.display-4 {
     margin-top: 3vw;
     /* padding-left: 2vw; */
     /* padding-top: 50px; */
-    height: 100%;
+    /* height: 100%; */
 }
 
 .hero-wrapper {
@@ -1080,7 +1099,7 @@ svg {}
     float: left;
 }
 
-.col-12.faqItem {border-bottom: 1px solid black;}
+.col-12.faqItem {border-bottom: 1px solid black;/* font-size: 11px; */}
 
 .cid-tFcguy0QTa .list {
     list-style: none;
@@ -1104,8 +1123,8 @@ svg.featureIcon:hover {
 .icon-wrapper.partnerQuoteWrapper {}
 
 .icon-wrapper.partnerQuoteWrapper {
-    margin: 0px !important;
-    margin-right: 20px !important;
+    /* margin: 0px !important; */
+    /* margin-right: 20px !important; */
 }
 
 p.heroSubheadingText {
@@ -1181,6 +1200,22 @@ a.link-wrap.readBlog p {
 .blueDemoButtonContainer .blueDemoButton {
     border: 2px solid white;
     /* height: -webkit-fill-available !important; */
+    font-family: 'Montserrat';
+    font-weight: 500 !important;
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+}
+
+.blueDemoButtonContainer:hover .blueDemoButton {
+  color:white;
+  
+}
+.blueDemoButtonContainer{
+  transition: 0.3s;
+}
+
+.blueDemoButtonContainer:hover{
+  transform: scale(1.01);
+  
 }
 
 @media(min-width: 991px) and (max-width: 1200px) {
@@ -1212,6 +1247,12 @@ p.mbr-desc.mbr-fonts-style.display-7.featuresText {display:none;}
   flex-wrap: nowrap;
   gap: 10px;
 }
+  .hide600{
+    display:none;
+  }
+  .faqContainer{
+    max-width:90vw;
+  }
 }
 
 .imageWrapper {
@@ -1250,4 +1291,77 @@ img.blogImage {
     justify-content: center;
     align-content: center;
     vertical-align: middle;
+    border-radius: 10px;
+}
+
+li.nav-item {font-family: 'Montserrat';font-weight: initial;}
+
+.nav-item a.nav-link.link.display-4 {
+    font-family: 'Montserrat';
+    font-weight: 500 !important;
+    line-height: 1.1;
+}
+
+.nav-item:hover a.nav-link.link.display-4{
+  font-weight: 900 !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #000; /* Change color as needed */
+  box-sizing: border-box; /* This ensures the border is included in the element's total width and height */
+}
+
+
+@media (min-width:600px){
+.border-bottom-half {
+    border-bottom: 1px solid #000;
+    /* width: 50%; */
+    margin: 10px auto;
+}
+}
+.featuresClicker p.mbr-desc.mbr-fonts-style.display-7 {
+    margin-bottom: 0px;
+    color: #385988;
+}
+
+.fea {}
+
+.featuresClicker .col {
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.btn {
+    font-weight: 600 !important;
+}
+
+.cid-tFcgeFyM9G 
+ img.blogImage {
+    height: 50%;
+}
+
+@media (max-width:600px){
+.col-md-auto.col.mbr-section-btn.centeredButton {
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  .faqItem  h3.mbr-section-title.customTitle.faqTitle.mbr-fonts-style.display-2 {
+    font-size: 1rem !important;
+}
+}
+
+@media (max-width:991px){
+  .nameQuote { text-align:center;}
+}
+
+
+@media (min-width:600px){
+.emblaSliderSize {
+ min-width: 200px !important;
+}
+}
+
+li.nav-item {
+    box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
 }

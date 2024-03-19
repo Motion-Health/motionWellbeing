@@ -15,7 +15,7 @@ const FAQItem = ({ question, answer }) => {
         <div
           className="title-wrap"
           onClick={toggle}
-          style={{ marginBottom: '1rem', cursor: 'pointer' }}
+          style={{ cursor: 'pointer' }}
         >
           <h3 className="mbr-section-title customTitle faqTitle mbr-fonts-style display-2">
             {question}

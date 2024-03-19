@@ -134,8 +134,7 @@ body {
 }
 .btn-secondary,
 .btn-secondary:active {
-  background-color: #ff6928 !important;
-  border-color: #ff6928 !important;
+  border-color: #ffffff !important;
   color: #ffffff !important;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
@@ -729,14 +728,9 @@ a {
 .mbr-section-btn-main .btn-secondary-outline:focus,
 .mbr-section-btn .btn-secondary:focus,
 .mbr-section-btn-main .btn-secondary:focus {
-  border: 2px solid #ff6928 !important;
+  border: 2px solid #395a89 !important;
 }
-.mbr-section-btn .btn-success-outline,
-.mbr-section-btn-main .btn-success-outline,
-.mbr-section-btn .btn-success,
-.mbr-section-btn-main .btn-success {
-  border: 2px solid #ffcd9f !important;
-}
+
 .mbr-section-btn .btn-success-outline:hover,
 .mbr-section-btn-main .btn-success-outline:hover,
 .mbr-section-btn .btn-success:hover,
@@ -745,7 +739,7 @@ a {
 .mbr-section-btn-main .btn-success-outline:focus,
 .mbr-section-btn .btn-success:focus,
 .mbr-section-btn-main .btn-success:focus {
-  border: 2px solid #ffcd9f !important;
+  border: 2px solid #ffffff !important;
 }
 .mbr-section-btn .btn-info-outline,
 .mbr-section-btn-main .btn-info-outline,

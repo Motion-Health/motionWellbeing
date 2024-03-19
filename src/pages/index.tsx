@@ -140,7 +140,7 @@ const Index = () => {
               <div className="hero-wrapper">
                 <h1 className="heroText">You take care of </h1>
                 <h1 className="heroText blueText">
-                  yesterdays{' '}
+                  yesterday's{' '}
                   <TypeAnimation
                     sequence={[
                       'teachers',
@@ -152,9 +152,10 @@ const Index = () => {
                       'doctors',
                       3000,
                       'soldiers',
+                      3000,
                     ]}
                     wrapper="span"
-                    speed={50}
+                    speed={80}
                     style={{ fontSize: '1em', display: 'inline-block' }}
                     repeat={Infinity}
                   />
@@ -176,7 +177,7 @@ const Index = () => {
             </div>
             <div className="col-5 motionDashboard">
               <img
-                src="assets/images/dashboardImage.webp"
+                src="assets/images/dashboardImage.png"
                 alt="Motions dashboard"
               />
             </div>
@@ -280,7 +281,7 @@ const Index = () => {
           <div className="row justify-content-center howMotionWorks">
             <div className="col-12 col-lg-8 text-center">
               <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle">
+                <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2">
                   <strong>How Motion Works</strong>
                 </h2>
               </div>
@@ -329,7 +330,7 @@ const Index = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-4 card">
+            <div className="col-4 card howTitleCard">
               <h3 className="motionBenefitsTitle">
                 <strong>Improve lifestyle and wellbeing outcomes</strong>
               </h3>
@@ -338,7 +339,7 @@ const Index = () => {
                 activities that are proven to improve mood.
               </div>
             </div>
-            <div className="col-4 card">
+            <div className="col-4 card howTitleCard">
               <h3 className="motionBenefitsTitle">
                 <strong>Showcase improved standard of care</strong>
               </h3>
@@ -347,7 +348,7 @@ const Index = () => {
                 making showcasing your care home effortless.
               </div>
             </div>
-            <div className="col-4 card">
+            <div className="col-4 card howTitleCard">
               <h3 className="motionBenefitsTitle">
                 <strong>Fill beds and improve customer satisfaction</strong>
               </h3>
@@ -371,7 +372,7 @@ const Index = () => {
                 </h2>
               </div>
               <div className="text-wrapper">
-                <p className="subheadingText">
+                <p className="subheadingText hidden text">
                   Check out Motion's features and how they ensure an improvement
                   in wellbeing outcomes as well as a positive impact on your
                   business.
@@ -386,77 +387,111 @@ const Index = () => {
                 className="col"
                 onClick={() => setSelectedFeature('planner')}
               >
-                <svg
-                  className="featureIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
+                <div
+                  className={`featuresContainer ${
+                    selectedFeature === 'planner' && 'border-bottom-half'
+                  }`}
                 >
-                  <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
-                </svg>
+                  <svg
+                    className="featureIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                    width="24"
+                  >
+                    <path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
+                  </svg>
 
-                <p className="mbr-desc mbr-fonts-style display-7">Planner</p>
+                  <p className="mbr-desc mbr-fonts-style display-7">Planner</p>
+                </div>
               </div>
               <div
                 className="col"
                 onClick={() => setSelectedFeature('activities')}
               >
-                <svg
-                  className="featureIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
+                <div
+                  className={`featuresContainer ${
+                    selectedFeature === 'activities' && 'border-bottom-half'
+                  }`}
                 >
-                  <path d="M360-80v-529q-91-24-145.5-100.5T160-880h80q0 83 53.5 141.5T430-680h100q30 0 56 11t47 32l181 181-56 56-158-158v478h-80v-240h-80v240h-80Zm120-640q-33 0-56.5-23.5T400-800q0-33 23.5-56.5T480-880q33 0 56.5 23.5T560-800q0 33-23.5 56.5T480-720Z" />
-                </svg>
-                <p className="mbr-desc mbr-fonts-style display-7">Actvities</p>
+                  <svg
+                    className="featureIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                    width="24"
+                  >
+                    <path d="M360-80v-529q-91-24-145.5-100.5T160-880h80q0 83 53.5 141.5T430-680h100q30 0 56 11t47 32l181 181-56 56-158-158v478h-80v-240h-80v240h-80Zm120-640q-33 0-56.5-23.5T400-800q0-33 23.5-56.5T480-880q33 0 56.5 23.5T560-800q0 33-23.5 56.5T480-720Z" />
+                  </svg>
+                  <p className="mbr-desc mbr-fonts-style display-7">
+                    Actvities
+                  </p>
+                </div>
               </div>
               <div
                 className="col"
                 onClick={() => setSelectedFeature('webpage')}
               >
-                <svg
-                  className="featureIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
+                <div
+                  className={`featuresContainer ${
+                    selectedFeature === 'webpage' && 'border-bottom-half'
+                  }`}
                 >
-                  <path d="M80-160v-120h80v-440q0-33 23.5-56.5T240-800h600v80H240v440h240v120H80Zm520 0q-17 0-28.5-11.5T560-200v-400q0-17 11.5-28.5T600-640h240q17 0 28.5 11.5T880-600v400q0 17-11.5 28.5T840-160H600Zm40-120h160v-280H640v280Zm0 0h160-160Z" />
-                </svg>
-                <p className="mbr-desc mbr-fonts-style display-7">Webpage</p>
+                  <svg
+                    className="featureIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                    width="24"
+                  >
+                    <path d="M80-160v-120h80v-440q0-33 23.5-56.5T240-800h600v80H240v440h240v120H80Zm520 0q-17 0-28.5-11.5T560-200v-400q0-17 11.5-28.5T600-640h240q17 0 28.5 11.5T880-600v400q0 17-11.5 28.5T840-160H600Zm40-120h160v-280H640v280Zm0 0h160-160Z" />
+                  </svg>
+                  <p className="mbr-desc mbr-fonts-style display-7">Webpage</p>
+                </div>
               </div>
               <div
                 className="col"
                 onClick={() => setSelectedFeature('updates')}
               >
-                <svg
-                  className="featureIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
+                <div
+                  className={`featuresContainer ${
+                    selectedFeature === 'updates' && 'border-bottom-half'
+                  }`}
                 >
-                  <path d="M38-428q-18-36-28-73T0-576q0-112 76-188t188-76q63 0 120 26.5t96 73.5q39-47 96-73.5T696-840q112 0 188 76t76 188q0 38-10 75t-28 73q-11-19-26-34t-35-24q9-23 14-45t5-45q0-78-53-131t-131-53q-81 0-124.5 44.5T480-616q-48-56-91.5-100T264-760q-78 0-131 53T80-576q0 23 5 45t14 45q-20 9-35 24t-26 34ZM0-80v-63q0-44 44.5-70.5T160-240q13 0 25 .5t23 2.5q-14 20-21 43t-7 49v65H0Zm240 0v-65q0-65 66.5-105T480-290q108 0 174 40t66 105v65H240Zm540 0v-65q0-26-6.5-49T754-237q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780ZM480-210q-57 0-102 15t-53 35h311q-9-20-53.5-35T480-210Zm-320-70q-33 0-56.5-23.5T80-360q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-280Zm640 0q-33 0-56.5-23.5T720-360q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-280Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-440q0 50-34.5 85T480-320Zm0-160q-17 0-28.5 11.5T440-440q0 17 11.5 28.5T480-400q17 0 28.5-11.5T520-440q0-17-11.5-28.5T480-480Zm0 40Zm1 280Z" />
-                </svg>
-                <p className="mbr-desc mbr-fonts-style display-7">Updates</p>
+                  <svg
+                    className="featureIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                    width="24"
+                  >
+                    <path d="M38-428q-18-36-28-73T0-576q0-112 76-188t188-76q63 0 120 26.5t96 73.5q39-47 96-73.5T696-840q112 0 188 76t76 188q0 38-10 75t-28 73q-11-19-26-34t-35-24q9-23 14-45t5-45q0-78-53-131t-131-53q-81 0-124.5 44.5T480-616q-48-56-91.5-100T264-760q-78 0-131 53T80-576q0 23 5 45t14 45q-20 9-35 24t-26 34ZM0-80v-63q0-44 44.5-70.5T160-240q13 0 25 .5t23 2.5q-14 20-21 43t-7 49v65H0Zm240 0v-65q0-65 66.5-105T480-290q108 0 174 40t66 105v65H240Zm540 0v-65q0-26-6.5-49T754-237q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780ZM480-210q-57 0-102 15t-53 35h311q-9-20-53.5-35T480-210Zm-320-70q-33 0-56.5-23.5T80-360q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-280Zm640 0q-33 0-56.5-23.5T720-360q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-280Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-440q0 50-34.5 85T480-320Zm0-160q-17 0-28.5 11.5T440-440q0 17 11.5 28.5T480-400q17 0 28.5-11.5T520-440q0-17-11.5-28.5T480-480Zm0 40Zm1 280Z" />
+                  </svg>
+                  <p className="mbr-desc mbr-fonts-style display-7">Updates</p>
+                </div>
               </div>
               <div
                 className="col"
                 onClick={() => setSelectedFeature('analytics')}
               >
-                <svg
-                  className="featureIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
+                <div
+                  className={`featuresContainer ${
+                    selectedFeature === 'analytics' && 'border-bottom-half'
+                  }`}
                 >
-                  <path d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
-                </svg>
-                <p className="mbr-desc mbr-fonts-style display-7">Analytics</p>
+                  <svg
+                    className="featureIcon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                    width="24"
+                  >
+                    <path d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
+                  </svg>
+                  <p className="mbr-desc mbr-fonts-style display-7">
+                    Analytics
+                  </p>
+                </div>
               </div>
             </div>
             <p className="mbr-desc mbr-fonts-style display-7 featuresText">
@@ -518,7 +553,7 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card blogCard">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard hide600">
               <div className="card-wrapper">
                 <img
                   className="blogImage"
@@ -542,7 +577,7 @@ const Index = () => {
                 </a>
               </div>
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card blogCard">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard hide600">
               <div className="card-wrapper">
                 <img
                   className="blogImage"
@@ -598,13 +633,8 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="mbr-section-btn-main" role="tablist">
-          <a
-            className="btn btn-secondary display-4 readMoreButton"
-            href="https://calendly.com/zeezy-1/motion"
-          >
-            Read More
-          </a>
+        <div className="blueDemoButton mt-5" role="tablist">
+          <a href="https://calendly.com/zeezy-1/motion">Read More</a>
         </div>
         <FAQ />
       </section>
@@ -623,11 +653,11 @@ const Index = () => {
                 </h2>
                 <p className="text-center subheadingText">
                   Hit the 'Get a Demo' button below and we'll be in touch before
-                  you can say ‘”Jack Robinson”
+                  you can say ”Jack Robinson”
                 </p>
 
                 <div className="person-wrapper">
-                  <div className="col-md-auto col mbr-section-btn">
+                  <div className="col-md-auto col mbr-section-btn centeredButton">
                     <a href="https://www.linkedin.com/in/zeezy-qureshi-370bbb151/">
                       <div className="person-wrap">
                         <img
