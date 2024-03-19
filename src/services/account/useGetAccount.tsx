@@ -7,13 +7,15 @@ const getAccount = async () => {
   return data.account
   } catch (error) {
   // If the error is a response from the server, print the message
-    if (error.response) {
-      console.error(error.response.data.message);
-    } else {
-      // Otherwise, it's an error in the request itself
-      console.error(error.message);
-    }
-    throw error;
+  console.log("Error custom code --------")
+  console.error(error);
+  if (error.response) {
+    console.error(error.response.data.message);
+  } else {
+    // Otherwise, it's an error in the request itself
+    console.error(error.message);
+  }
+  throw error;
   }
 }
 
