@@ -11,7 +11,6 @@ import React, { useState } from 'react';
 
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
-import NavBar from '@/components/navBar';
 
 import styles from '../blogPost.module.css';
 
