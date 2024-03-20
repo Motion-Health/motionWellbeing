@@ -11,7 +11,7 @@ h1.blogTitle {
 }
 
 .person-wrapper {
-    width: 100px;
+    width: 80px;
 }
 
 .person-wrapper img {
@@ -19,13 +19,14 @@ h1.blogTitle {
 }
 
 p.TextOne {
-    margin-top: 15px;
+    margin-top: 25px;
     font-family: 'Montserrat';
+    font-size: 20px;
 }
 .iconText {
     display: flex;
     align-items: center;
-    margin: 15px 0px;
+    margin: 25px 0px;
 }
 
 .iconText img {
@@ -35,12 +36,13 @@ p.TextOne {
 
 .iconText p {
     margin-bottom: 0;
+    font-size: 20px;
     font-weight: 600;
     font-family: 'Montserrat';
 }
 
 img.stars {
-    height: 4vw;
+    height: 3vw;
     width: auto;
 }
 
