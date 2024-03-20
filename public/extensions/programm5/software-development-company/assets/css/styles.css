@@ -311,4 +311,21 @@ section#form1-d {
     padding: 0px;
 }
 
-.featuresContainer {}
+.col-5.motionDashboard {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.motionDashboard img {
+    max-height: 600px;
+    width: auto;
+}
+
+p.heroSubheadingText {
+    margin: 20px 0px;
+}
+
+.demoButtonContainer {
+    margin: 20px 0px;
+}
