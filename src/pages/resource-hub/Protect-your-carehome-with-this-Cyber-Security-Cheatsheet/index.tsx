@@ -8,7 +8,6 @@ import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { useEffect } from 'react';
 import styles from '../blogPost.module.css';
 
 const Index = () => {
