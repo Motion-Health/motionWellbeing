@@ -1,0 +1,113 @@
+.blogHero{
+  position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    text-align: center;
+
+    font-size: 2rem;
+    width: 100%;
+    border-radius: 0px 0px 50px 50px;
+}
+
+
+.blogContainer{
+  padding: 0vh 6vw 0vh 6vw;
+}
+.blogHeroContent{
+  padding-top: 8vh;
+}
+
+.tags{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+  flex-wrap: wrap;
+}
+
+
+
+.tags button.selected{
+  background-color: #385988;
+  color: white;
+  transition: 0.3s;
+}
+
+.tags button{
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px 20px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: #385988;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  margin: 10px;
+}
+.blogHeroContent h1{
+  font-family: 'Montserrat';
+}
+
+.KlavioForm{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 29px;
+}
+.blogHeroContent p{
+  font-family: 'Montserrat';
+}
+
+.Cards{
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid !important;
+  gap: 25px;
+}
+
+.Cards>div{
+  max-width: 100%;
+  height: 100%;
+}
+.blogHeroContent h1{
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+.blogHeroContent h2{
+  font-size: 0.5em;
+  margin-bottom: 0px;
+}
+
+.blogHeroContent p{
+  font-size: 0.5em;
+  margin-bottom: 0px;
+  width: 80vw;
+  line-height: inherit;
+}
+@media screen and (max-width: 900px) {
+  .Cards{
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .Cards{
+    grid-template-columns: 1fr;
+  }
+  .blogContainer{
+    padding: 0vh 0vw;
+  }
+  .Cards>div{
+    padding: 0px;
+  }
+}
+

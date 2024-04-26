@@ -364,7 +364,7 @@ const Index = () => {
                 Sign up to our newsletter to be first to hear about news and
                 updates:
               </label>
-              <div class="klaviyo-form-UcvnLw"></div>
+              <div className="klaviyo-form-UcvnLw"></div>
             </div>
           </div>
           <div className="row">

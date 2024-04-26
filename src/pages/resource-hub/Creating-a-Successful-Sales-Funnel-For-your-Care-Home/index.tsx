@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
 
-import styles from '../blogPost.module.css';
+import styles from '@/pages/resource-hub/blogPost.module.css';
 
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
