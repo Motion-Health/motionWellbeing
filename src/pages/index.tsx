@@ -157,14 +157,13 @@ const Index = () => {
                 </h1>
                 <h1 className="heroText">We’ll take care of you.</h1>
                 <p className="heroSubheadingText">
-                  A digital platform for care services to improve wellbeing
-                  outcomes and showcase this to existing and prospective
-                  families to boost their customer satisfaction and increase
-                  occupancy.
+                  A digital platform for care services to showcase improved care
+                  outcomes to existing and prospective families to boost their
+                  customer satisfaction and increase occupancy.
                 </p>
                 <div className="demoButtonContainer">
                   <div className="blueDemoButton">
-                    <a href="#features6-6">Get a Demo</a>
+                    <a href="/book-demo">Get a Demo</a>
                   </div>
                   <p>No credit card required.</p>
                 </div>
@@ -354,7 +353,7 @@ const Index = () => {
             </div>
           </div>
           <div className="blueDemoButton mt-5">
-            <a href="#features6-6">Get a Demo</a>
+            <a href="/book-demo">Get a Demo</a>
           </div>
         </div>
 
@@ -494,7 +493,7 @@ const Index = () => {
             </p>
           </div>
           <div className="blueDemoButton mt-5" role="tablist">
-            <a href="https://calendly.com/zeezy-1/motion">Get a Demo</a>
+            <a href="/book-demo">Get a Demo</a>
           </div>
         </div>
       </section>
@@ -565,7 +564,7 @@ const Index = () => {
                     </h3>
                   </div>
                 </div>
-                <a className="link-wrap readBlog" href="/blog/tiktok/">
+                <a className="link-wrap readBlog" href="/resource-hub/tiktok/">
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
                   </p>
@@ -618,7 +617,7 @@ const Index = () => {
                 </div>
                 <a
                   className="link-wrap readBlog"
-                  href="/blog/how-to-attract-more-carers-to-your-home/"
+                  href="/resource-hub/how-to-attract-more-carers-to-your-home/"
                 >
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
@@ -629,7 +628,7 @@ const Index = () => {
           </div>
         </div>
         <div className="blueDemoButton mt-5" role="tablist">
-          <a href="https://calendly.com/zeezy-1/motion">Read More</a>
+          <a href="/book-demo">Read More</a>
         </div>
         <FAQ />
       </section>
@@ -662,7 +661,7 @@ const Index = () => {
                       </div>
                     </a>
                     <a
-                      href="https://calendly.com/zeezy-1/motion"
+                      href="/book-demo"
                       className="btn btn-secondary display-4 discoveryButton whiteDemoButton"
                     >
                       Get a Demo
@@ -700,32 +699,41 @@ const Index = () => {
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link link display-4" href="/blog">
+                      <a
+                        className="nav-link link display-4"
+                        href="/resource-hub"
+                      >
                         Resource Hub
                       </a>
                     </li>
                     {/* <li className="nav-item">
-                      <a className="nav-link link display-4" href="/blog">
+                      <a className="nav-link link display-4" href="/resource-hub">
                         Success Stories
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link link display-4" href="/blog">
+                      <a className="nav-link link display-4" href="/resource-hub">
                         About
                       </a>
                     </li> */}
                     <li className="nav-item midHide">
-                      <a className="nav-link link display-4" href="/sblog">
+                      <a className="nav-link link display-4" href="/pricing">
                         Pricing
                       </a>
                     </li>
                     <li className="nav-item midHide">
-                      <a className="nav-link link display-4" href="/blog">
+                      <a
+                        className="nav-link link display-4"
+                        href="/other-services"
+                      >
                         Other Services
                       </a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link link display-4" href="/blog">
+                      <a
+                        className="nav-link link display-4"
+                        href="https://motion.org.uk/wellbeing/login"
+                      >
                         Login
                       </a>
                     </li>

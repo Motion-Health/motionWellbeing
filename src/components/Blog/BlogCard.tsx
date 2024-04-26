@@ -12,7 +12,9 @@ export default function BlogCard({ blog }) {
     <Grid key={blog.id} item xs={12} lg={4} md={6} sm={12}>
       <div
         className={styles.Card}
-        onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
+        onClick={() =>
+          router.push('/resource-hub/[link]', `/resource-hub/${blog.link}`)
+        }
       >
         <div className={styles.imageContainer}>
           <img
@@ -27,7 +29,12 @@ export default function BlogCard({ blog }) {
               variant="contained"
               type="button"
               className={styles.learnMore}
-              onClick={() => router.push('/blog/[link]', `/blog/${blog.link}`)}
+              onClick={() =>
+                router.push(
+                  '/resource-hub/[link]',
+                  `/resource-hub/${blog.link}`
+                )
+              }
               fullWidth
             >
               Read blog

@@ -22,29 +22,28 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          What Families Care About When Looking for a Care Home | Motion
-          Marketing
+          Getting Your Care Home Better Feedback and Reviews | Motion Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | What Families Care About When Looking for a Care Home"
+          content="Motion Marketing | Getting Your Care Home Better Feedback and Reviews"
         />
         <meta
           name="description"
-          content="What Families Care About When Looking for a Care Home"
+          content="Getting Your Care Home Better Feedback and Reviews"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | What Families Care About When Looking for a Care Home"
+          content="Motion Marketing | Getting Your Care Home Better Feedback and Reviews"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="What Families Care About When Looking for a Care Home"
+          content="Getting Your Care Home Better Feedback and Reviews"
         />
         <link
           rel="stylesheet"
@@ -125,14 +124,14 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/blog')}
+        onClick={() => router.push('/resource-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>What Families Care About When Looking for a Care Home</h1>
+          <h1>Getting Your Care Home Better Feedback and Reviews</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -214,58 +213,67 @@ const Index = () => {
           <h2 className={styles.title}>Introduction</h2>
           <p>
             <br />
-            We’re in the process of conducting research with families of care
-            home residents’ to best understand how and what they look for in a
-            care home. It’s been really interesting to hear about the good, bad
-            and ugly when it comes to navigating the challenge of searching for
-            a care home. The research hasn’t been concluded but we’ve had some
-            interesting insights already and I wanted to share these with you.
-            In this blog I’ll share three things that have consistently come up…
+            Care home reviews and feedback are a key element of your marketing
+            and sales strategy. Whether it’s confidential feedback that a
+            residents’ family member has shared with you or a review on Google
+            that’s been left. Feedback and reviews are important pieces of
+            ‘social proof’, which your other prospects and leads will hold in
+            high-regard when searching for a care home.
           </p>
-
+          <p>
+            Here are three simple and easy ways to improve your care homes’
+            feedback and reviews:
+          </p>
+          <h2 className={styles.title}>Ask For It!</h2>
+          <p>
+            Our research with family members of residents showed us that 70% of
+            care homes ask for feedback either once every 6 months or not at
+            all! The first step of improving feedback is by asking for it and
+            doing so at least once per month. There are a number of ways to
+            implement this: a feedback form (Google, Typeform, Microsoft), a
+            personalised email, a phone call — whatever works best for you and
+            your team!
+            <br />
+          </p>
           <img
-            src="/assets/images/blogs/blog12/Image-1.webp"
-            alt="Care Home Resident"
+            src="/assets/images/blogs/blog11/Image-1.webp"
+            alt="Net Promoter Score"
           />
 
-          <h2 className={styles.title}>Standard of Care and CQC Rating</h2>
+          <h2 className={styles.title}>
+            Improve Net-Promoter-Score and gain valuable insights
+          </h2>
           <p>
-            The most important factor that influences a decision about a care
-            home is the standard of care that they deliver. Families can get an
-            idea of this in a number of ways: speaking to staff, reading
-            reviews, the CQC rating and visiting the home. Ensuring that your
-            approach to care is transparent and visible to prospective families
-            is key here.
+            ‘Net-Promoter-Score’ (NPS) is the gold standard metric when it comes
+            to measuring customer satisfaction and you can get it by asking one
+            simple question: “How likewise is it that you would recommend
+            *insert name of care home* to a friend or colleague?”. The best
+            thing about asking for feedback and reviews is that it actually has
+            a positive impact on your current customers and improves your NPS,
+            because it shows that you truly care about the opinion and thoughts
+            of your customers. Asking for feedback and reviews regularly
+            provides you with rich and valuable data that will help you to
+            improve your services in cost and time-effective ways.
           </p>
-          <h2 className={styles.title}>Location</h2>
+          <h2 className={styles.title}>Action and Response</h2>
           <p>
-            Location was a big one, too. This makes a lot of sense, people tend
-            to look for a care home that is either close to where their loved
-            one lives or close to where they live (assuming they are different
-            parts of the country). It’s important to consider this, because your
-            care home is being compared directly to the 3 to 4 closest care
-            homes. Make it clear how you stand out and deliver superior care
-            than the others close by.
+            Once you have care home reviews and feedback you can start to make
+            improvements and, importantly, share these with your residents’
+            families who initially asked for the feedback through your regular
+            email/form/phone call!
           </p>
-          <h2 className={styles.title}>Lifestyle</h2>
+          <h2 className={styles.title}>Keeping the loop going</h2>
           <p>
-            An interesting recurring theme of our research so far has shown that
-            families don’t want their loved one to be sat alone in their room or
-            sat staring at a TV all day. Your lifestyle, activities and
-            wellbeing provision is going to be the thing that a resident spends
-            most of their time doing in your home, so make sure that this is
-            visible on your marketing channels (e.g. Facebook, website) and you
-            can demonstrate a packed activity planner and vibrant environment to
-            prospects.
+            Finally, this creates a positive feedback loop, which is what this
+            process is all about. A tight feedback loop is what will improve
+            your customer satisfaction, your reviews and, ultimately, your
+            residents’ experience!
           </p>
 
-          <h2 className={styles.title}>Conclusion</h2>
+          <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-            🌟We’re only part-way through the research, so these aren’t
-            conclusive yet! But I wanted to share them in real-time and would
-            absolutely love to hear your thoughts. Book a Discovery Call if
-            you’d like to know more about our learnings so far, or share your
-            own perspective!
+            🌟If you’re interested in learning how we can support your care home
+            to get better feedback and reviews, book a demo call today!
           </p>
           <div className="CTA-button">
             <a

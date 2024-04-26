@@ -53,7 +53,7 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/blog')}
+        onClick={() => router.push('/resource-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />

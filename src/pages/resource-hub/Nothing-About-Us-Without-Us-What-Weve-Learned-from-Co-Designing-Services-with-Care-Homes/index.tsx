@@ -22,29 +22,29 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          Why the Adult Social Care Sector is Poised for Explosive Growth |
-          Motion Marketing
+          ​​'Nothing About Us Without Us': What We’ve Learned from Co-Designing
+          Services with Care Homes
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion Marketing | What We’ve Learned from Co-Designing"
         />
         <meta
           name="description"
-          content="Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="What We’ve Learned from Co-Designing"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion Marketing | What We’ve Learned from Co-Designing"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="What We’ve Learned from Co-Designing"
         />
         <link
           rel="stylesheet"
@@ -125,7 +125,7 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/blog')}
+        onClick={() => router.push('/resource-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
@@ -133,7 +133,8 @@ const Index = () => {
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
           <h1>
-            Why the Adult Social Care Sector is Poised for Explosive Growth
+            ​​'Nothing About Us Without Us': What We’ve Learned from
+            Co-Designing Services with Care Homes
           </h1>
           <div className={styles.shareToolbar}>
             <div>
@@ -215,73 +216,63 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            <br />
-            Something that has sometimes been overlooked by some in the care
-            sector is the massive growth which is about to occur. This allows
-            for an opportunity for care homes to grow and expand their services.
+            Operating in the social care sector is special. It’s not like any
+            other and that can be a challenge; the combination of public and
+            private, the careful balance of doing good while being sustainable,
+            it truly makes for a unique experience.
           </p>
           <p>
-            The looming expansion in the adult social care sector is largely
-            fueled by an aging population, a result of advancements in
-            healthcare that extend life expectancy. This demographic evolution
-            presents a unique opportunity for care homes to adapt and meet the
-            increasing demand for quality services.
-          </p>
-          <h2 className={styles.title}>A Surge in Demand Is Coming</h2>
-          <p>
-            In terms of demographics, the current UK population is just under
-            1.8 million; however, in just 16 years, this is about to grow by
-            900,000 to 2.76 million. This is a massive shift which will require
-            the care services sector to supply these beds for this. Looking at
-            the demographic figures, now is one of the best times to be in the
-            care industry! The figure below shows the change in demographics,
-            with 2040 on the left and 2024 on the right.
-            <br />
+            That’s why the quote “Nothing About Us Without Us” is so pertinent
+            to me. It summarises the idea that you cannot do something for
+            someone without including them in the development process.
+            Fortunately, it was something I was told early on in my career and
+            has stood me in good stead while supporting care homes. Here are
+            some of the key learnings I’ve learned from this approach and some
+            ways that you may be able to benefit from it too:
           </p>
           <img
-            src="/assets/images/blogs/blog8/Image-1.jpg"
-            alt="ONS Population pyramid"
+            src="/assets/images/blogs/blog10/Image-1.webp"
+            alt="The Motion team standing with care staff"
           />
-
-          <h2 className={styles.title}>Navigating the Challenges Ahead</h2>
+          <h2 className={styles.title}>
+            Being Person-Centred is More than a Buzzword
+          </h2>
           <p>
-            However, it's not all smooth sailing. The sector faces its share of
-            challenges, notably staff shortages, exacerbated by visa
-            restrictions in the UK. This squeeze on staffing is a critical issue
-            that care home directors must address proactively to ensure the
-            quality of care doesn't suffer. I see this potentially resulting in
-            an increased cost for carers due to insufficient demand.
-          </p>
-          <h2 className={styles.title}>Opportunity Knocks</h2>
-          <p>
-            Despite these challenges, the situation spells a massive opportunity
-            for care homes. With the anticipated boom in demand, there's
-            potential for increased occupancy and growth.
+            In life, actions speak louder than words and those that work in
+            social care are a true testament to this. The vast majority do all
+            they can to provide the very best care possible for the humans in
+            their care. The challenge with this is that it sometimes means they
+            forget to shout about what great things they are doing.. sometimes
+            because they’re too modest, sometimes because they simply don’t have
+            the time!
             <br />
-            But it's not just about having the capacity; it's also about
-            excelling in service delivery. The upcoming generation of care home
-            residents and families have significantly better access to{' '}
-            <strong>data</strong>, which will increasingly be used to determine
-            where to send their loved ones. This is why it's crucial to appeal
-            to this new market correctly and how they choose their care home.
           </p>
-          <h2 className={styles.title}>A Call to Action</h2>
+
+          <h2 className={styles.title}>The Numbers Have to Stack Up</h2>
           <p>
-            Is your home ready for this sustained growth? Will you be able to
-            capitilise on this market change and growth?
+            Social care has big financial problems (I know you don’t need me to
+            tell you that!), so it’s important that there is a robust business
+            case behind decisions. This usually isn’t about making heaps of
+            profit (like some corners of the media would have you believe), but
+            it is about ensuring that resources are allocated prudently and have
+            a positive RoI.
           </p>
+          <h2 className={styles.title}>The Best Take This Approach As Well</h2>
           <p>
-            This is an exciting time to be in the care sector, but it comes with
-            the responsibility to adapt, innovate, and continually strive for
-            excellence. For care home directors, this means anticipating the
-            increase in demand and being prepared to meet it. Secondly, it means
-            correctly marketing to the next generation of residents and their
-            families using digital marketing.
+            I knew this approach was the right one when I learned early on that
+            leaders within the social care sector do it themselves. Two direct
+            quotes from Managing Directors of care groups are “You have two ears
+            and one mouth for a reason” and “If you want to go far, go
+            together”, highlight the importance of listening and learning from
+            others on this we’re on.
           </p>
-          <h2 className={styles.title}>How can Motion help you?</h2>
+          <h2 className={styles.title}>Conclusion</h2>
           <p>
-            🌟If you want to see how we can help with your marketing, book a
-            demo call now!
+            The evidence is clear: outcomes are better when we listen and put
+            those that we support at the heart of our services. This is true of
+            us, and you and everyone else that wants to be successful. If you’re
+            interested in how we can take these learnings and apply them to your
+            marketing strategy, book a 30-minute Discovery Call today.
           </p>
           <div className="CTA-button">
             <a

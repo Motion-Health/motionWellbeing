@@ -214,17 +214,17 @@ const Index = () => {
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/blog">
+                        <a className="nav-link link display-4" href="/resource-hub">
                           Resource Hub
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/blog">
+                        <a className="nav-link link display-4" href="/resource-hub">
                           Success Stories
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/blog">
+                        <a className="nav-link link display-4" href="/resource-hub">
                           About
                         </a>
                       </li>
@@ -234,12 +234,12 @@ const Index = () => {
                         </a>
                       </li>
                       <li className="nav-item midHide">
-                        <a className="nav-link link display-4" href="/blog">
+                        <a className="nav-link link display-4" href="/resource-hub">
                           Other Services
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/blog">
+                        <a className="nav-link link display-4" href="/resource-hub">
                           Login
                         </a>
                       </li>

@@ -171,7 +171,7 @@ const Index = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link link display-4" href="/blog">
+                  <a className="nav-link link display-4" href="/resource-hub">
                     Knowledge Hub
                   </a>
                 </li>
@@ -190,7 +190,7 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/blog')}
+        onClick={() => router.push('/resource-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
