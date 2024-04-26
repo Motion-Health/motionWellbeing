@@ -169,7 +169,7 @@ const Index = () => {
                     <ul className="list mbr-fonts-style display-4">
                       <li className="nav-item">
                         <a className="nav-link link display-4" href="/">
-                          Platform
+                          How Motion Works
                         </a>
                       </li>
                       <li className="nav-item">
