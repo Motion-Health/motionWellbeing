@@ -75,11 +75,6 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-      <script
-        async
-        type="text/javascript"
-        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-      ></script>
 
       <NavBar />
 

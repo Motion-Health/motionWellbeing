@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import JoinUsBlock from '@/components/JoinUsBlock';
 import NavBar from '@/components/navBar';
@@ -7,6 +7,13 @@ import NavBar from '@/components/navBar';
 const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
 
 const Index = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
   return (
     <>
       <title>Other Services | Motion</title>
@@ -74,11 +81,6 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-      <script
-        async
-        type="text/javascript"
-        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-      ></script>
 
       <NavBar />
 

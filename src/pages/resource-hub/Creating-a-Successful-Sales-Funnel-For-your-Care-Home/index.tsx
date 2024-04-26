@@ -7,8 +7,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
 
@@ -17,7 +16,12 @@ import styles from '../blogPost.module.css';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
-
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
   return (
     <div className="white-background">
       <Head>
@@ -104,11 +108,7 @@ const Index = () => {
         />
 
         <link rel="stylesheet" href="/assets/blog.css" />
-        <script
-          async
-          type="text/javascript"
-          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-        ></script>
+
         <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
@@ -212,7 +212,7 @@ const Index = () => {
             </div>
           </div>
           <h2 className={styles.title}>Introduction</h2>
-          <p>
+          <p >
             First off, what is a sales funnel?
             <br />A sales funnel is a marketing model that maps out a customer's
             journey when purchasing a service or a bed in your home. The model
@@ -229,13 +229,14 @@ const Index = () => {
             <br />
             <br />
             The stages of the funnel for care homes can vary, but we have broken
-            it down into four stages:
-            <ul>
-              <li>Cold Audience</li>
+            it down into four stages:</p>
+            <ul >
+              <li >Cold Audience</li>
               <li>Warm Audience</li>
               <li>Hot Audience</li>
               <li>Decision</li>
             </ul>
+            <p>
             It is common for your ideal customer to be the child of the older
             adult who is moving into your care home, so consider this when you
             are choosing the channels you target in step 1.

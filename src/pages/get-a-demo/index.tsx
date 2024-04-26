@@ -1,12 +1,18 @@
 /* eslint-disable @next/next/no-sync-scripts */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import NavBar from '../../components/navBar';
 
 const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
 
 const Index = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
   return (
     <>
       <title>Book a Demo | Motion</title>
@@ -74,11 +80,7 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/mbr-tabs/mbr-tabs.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
-      <script
-        async
-        type="text/javascript"
-        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-      ></script>
+
 
       <NavBar />
 
@@ -140,7 +142,7 @@ const Index = () => {
               <p className="googleReviews"> 5/5 start | Google Reviews </p>
             </div>
             <div className="col-12 col-md-6">
-              <div class="klaviyo-form-RmWFV9"></div>
+              <div className="klaviyo-form-RmWFV9"></div>
             </div>
           </div>
         </div>

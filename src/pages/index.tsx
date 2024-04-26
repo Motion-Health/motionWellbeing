@@ -2,7 +2,7 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -23,6 +23,13 @@ const Index = () => {
     autoplay: true,
     autoplaySpeed: 2000,
   };
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
   const [selectedFeature, setSelectedFeature] = useState('planner');
 
   const features = {
@@ -118,11 +125,6 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
 
-      <script
-        async
-        type="text/javascript"
-        src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-      ></script>
       <NavBar />
       <section
         data-bs-version="5.1"

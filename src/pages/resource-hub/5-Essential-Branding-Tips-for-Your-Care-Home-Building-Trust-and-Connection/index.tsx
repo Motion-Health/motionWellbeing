@@ -11,13 +11,18 @@ import React, { useState } from 'react';
 
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
-
+import { useEffect } from 'react';
 import styles from '../blogPost.module.css';
 
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
-
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
   return (
     <div className="white-background">
       <Head>
@@ -104,11 +109,7 @@ const Index = () => {
         />
 
         <link rel="stylesheet" href="/assets/blog.css" />
-        <script
-          async
-          type="text/javascript"
-          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
-        ></script>
+
         <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>

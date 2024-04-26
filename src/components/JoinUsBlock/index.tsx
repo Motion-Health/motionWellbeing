@@ -22,7 +22,7 @@ export default function JoinUsBlock() {
             href="/get-a-demo"
             className="btn btn-secondary display-4 discoveryButton whiteDemoButton"
           >
-            Get a Demo
+            Get in Touch
           </a>
         </div>
       </div>
