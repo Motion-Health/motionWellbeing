@@ -1,36 +1,25 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import { Grid } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import JoinUsBlock from '@/components/JoinUsBlock';
 
-import styles from './blog.module.css';
 import NavBar from '../../components/navBar';
 
 const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
 
 const Index = () => {
-  
- 
-
   return (
     <>
-      <title>Pricing | Motion Marketing</title>
+      <title>Pricing | Motion</title>
       <meta property="og:url" content="https://www.motion.org.uk" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Motion Marketing | Knowlegde Hub" />
-      <meta
-        name="description"
-        content="Pricing"
-      />
+      <meta property="og:title" content="Motion | Knowlegde Hub" />
+      <meta name="description" content="Pricing" />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Resource Hub | Motion" />
       <meta name="twitter:image" content="./og-image.jpg" />
-      <meta
-        property="twitter:description"
-        content="Pricing"
-      />
+      <meta property="twitter:description" content="Pricing" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"
         rel="stylesheet"
@@ -75,10 +64,7 @@ const Index = () => {
         rel="stylesheet"
         href="/extensions/programm5/software-development-company/assets/mobirise/css/mbr-additional.css"
       />
-      <link
-        rel="stylesheet"
-        href="/assets/pricing.css"
-      />
+      <link rel="stylesheet" href="/assets/pricing.css" />
 
       <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
@@ -95,7 +81,7 @@ const Index = () => {
         src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD"
       ></script>
 
-  <NavBar />
+      <NavBar />
 
       <div
         style={{
@@ -105,56 +91,59 @@ const Index = () => {
       >
         <div className="container">
           <div className="row">
+            <h1 className="pricingTitle">Pricing</h1>
 
-              <h1 className="pricingTitle">Pricing</h1>
-             
-              <p className="TextOne">
-              Make sure you only pay for what you use with our transparent pricing structure.
-              </p>
-              <div className="col-12 col-md-6">
-                <div className="pricingCard">
-                  <h1 className="pricingTitle">Pay Per Location</h1>
-                  <p className="TextOne">
-                  Get access to the platform and only pay for the amount of residents in your care.
-                  </p>
-                  <div className="ticks">
-                    <div className="iconText">
-                      <img
-                        src="/assets/images/book-demo/check_circle_blue.svg"
-                        alt=""
-                      />
-                      <p>Website integration</p>
-                    </div>
-                    <div className="iconText">
-                      <img
-                        src="/assets/images/book-demo/check_circle_blue.svg"
-                        alt=""
-                      />
-                      <p>Data & analytics</p>
-                    </div>
-                    <div className="iconText">
-                      <img
-                        src="/assets/images/book-demo/check_circle_blue.svg"
-                        alt=""
-                      />
-                      <p>500+ activities & resources</p>
-                    </div>
-                    <div className="iconText">
-                      <img
-                        src="/assets/images/book-demo/check_circle_blue.svg"
-                        alt=""
-                      />
-                      <p>Training & 24/7 support </p>
-                    </div>
+            <p className="TextOne">
+              Make sure you only pay for what you use with our transparent
+              pricing structure.
+            </p>
+            <div className="col-12 col-md-6">
+              <div className="pricingCard">
+                <h1 className="pricingTitle">Pay Per Location</h1>
+                <p className="TextOne">
+                  Get access to the platform and only pay for the amount of
+                  residents in your care.
+                </p>
+                <div className="ticks">
+                  <div className="iconText">
+                    <img
+                      src="/assets/images/book-demo/check_circle_blue.svg"
+                      alt=""
+                    />
+                    <p>Website integration</p>
+                  </div>
+                  <div className="iconText">
+                    <img
+                      src="/assets/images/book-demo/check_circle_blue.svg"
+                      alt=""
+                    />
+                    <p>Data & analytics</p>
+                  </div>
+                  <div className="iconText">
+                    <img
+                      src="/assets/images/book-demo/check_circle_blue.svg"
+                      alt=""
+                    />
+                    <p>500+ activities & resources</p>
+                  </div>
+                  <div className="iconText">
+                    <img
+                      src="/assets/images/book-demo/check_circle_blue.svg"
+                      alt=""
+                    />
+                    <p>Training & 24/7 support </p>
                   </div>
                 </div>
               </div>
-
+            </div>
 
             <div className="col-12 col-md-6">
               <div className="pricingCard">
                 <h1 className="pricingTitle">Performance Based</h1>
-                <p className="TextOne">The website integration tracks the agreed upon KPIs, ensuring you only pay for the impact that Motion has on your care service.
+                <p className="TextOne">
+                  The website integration tracks the agreed upon KPIs, ensuring
+                  you only pay for the impact that Motion has on your care
+                  service.
                 </p>
                 <div className="ticks">
                   <div className="iconText">
@@ -178,16 +167,14 @@ const Index = () => {
                     />
                     <p>Tailored package </p>
                   </div>
-                  
                 </div>
               </div>
-              </div>
+            </div>
           </div>
-
         </div>
 
         <JoinUsBlock />
-        
+
         <section
           data-bs-version="5.1"
           className="footer1 programm5 cid-tFcguy0QTa"
@@ -214,17 +201,26 @@ const Index = () => {
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Resource Hub
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Success Stories
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           About
                         </a>
                       </li>
@@ -234,12 +230,18 @@ const Index = () => {
                         </a>
                       </li>
                       <li className="nav-item midHide">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Other Services
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Login
                         </a>
                       </li>

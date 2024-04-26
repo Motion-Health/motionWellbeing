@@ -67,17 +67,17 @@ const NavBar = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link link display-4" href="/blog">
+                <a className="nav-link link display-4" href="/resource-hub">
                   Resource Hub
                 </a>
               </li>
               {/* <li className="nav-item">
-                <a className="nav-link link display-4" href="/blog">
+                <a className="nav-link link display-4" href="/resource-hub">
                   Success Stories
                 </a>
               </li> */}
               {/* <li className="nav-item">
-                  <a className="nav-link link display-4" href="/blog">
+                  <a className="nav-link link display-4" href="/resource-hub">
                     About
                   </a>
                 </li>  */}
@@ -105,7 +105,7 @@ const NavBar = () => {
               className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
               role="tablist"
             >
-              <a className="blueDemoButton" href="/book-demo">
+              <a className="blueDemoButton" href="/get-a-demo">
                 Get a Demo
               </a>
             </div>

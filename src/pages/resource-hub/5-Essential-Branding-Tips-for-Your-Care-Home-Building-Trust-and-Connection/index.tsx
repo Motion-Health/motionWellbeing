@@ -23,13 +23,13 @@ const Index = () => {
       <Head>
         <title>
           Why the Adult Social Care Sector is Poised for Explosive Growth |
-          Motion Marketing
+          Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion | Why the Adult Social Care Sector is Poised for Explosive Growth"
         />
         <meta
           name="description"
@@ -39,7 +39,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion | Why the Adult Social Care Sector is Poised for Explosive Growth"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta

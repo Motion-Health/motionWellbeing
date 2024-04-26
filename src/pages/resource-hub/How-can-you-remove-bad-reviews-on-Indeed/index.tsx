@@ -22,13 +22,13 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          How can you remove bad reviews on Indeed? | Motion Marketing
+          How can you remove bad reviews on Indeed? | Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | How can you remove bad reviews on Indeed?"
+          content="Motion | How can you remove bad reviews on Indeed?"
         />
         <meta
           name="description"
@@ -38,7 +38,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | How can you remove bad reviews on Indeed?"
+          content="Motion | How can you remove bad reviews on Indeed?"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta

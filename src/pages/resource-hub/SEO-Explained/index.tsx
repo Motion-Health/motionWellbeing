@@ -28,17 +28,17 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>SEO Explained | Motion Marketing</title>
+        <title>SEO Explained | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Motion Marketing | SEO Explained" />
+        <meta property="og:title" content="Motion | SEO Explained" />
         <meta
           name="description"
           content="Understanding SEO: A Key Tool for Care Home Visibility Online"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Motion Marketing | SEO Explained" />
+        <meta name="twitter:title" content="Motion | SEO Explained" />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
@@ -330,7 +330,7 @@ const Index = () => {
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
-              href="https://calendly.com/zeezy-1/motion"
+              href="/get-a-demo"
             >
               Get a Demo.
             </a>

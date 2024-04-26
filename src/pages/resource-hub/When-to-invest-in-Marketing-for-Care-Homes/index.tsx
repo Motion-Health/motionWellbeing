@@ -22,13 +22,13 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          When to Invest in Marketing for Your Care Home? | Motion Marketing
+          When to Invest in Marketing for Your Care Home? | Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | When to Invest in Marketing for Your Care Home?"
+          content="Motion | When to Invest in Marketing for Your Care Home?"
         />
         <meta
           name="description"
@@ -38,7 +38,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | When to Invest in Marketing for Your Care Home?"
+          content="Motion | When to Invest in Marketing for Your Care Home?"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
@@ -370,7 +370,7 @@ const Index = () => {
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
-              href="https://calendly.com/zeezy-1/motion"
+              href="/get-a-demo"
             >
               Get a Demo.
             </a>

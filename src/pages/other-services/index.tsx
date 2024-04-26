@@ -9,10 +9,10 @@ const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
 const Index = () => {
   return (
     <>
-      <title>Other Services | Motion Marketing</title>
+      <title>Other Services | Motion</title>
       <meta property="og:url" content="https://www.motion.org.uk" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Motion Marketing | Knowlegde Hub" />
+      <meta property="og:title" content="Motion | Knowlegde Hub" />
       <meta name="description" content="Other Services" />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />

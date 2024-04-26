@@ -26,12 +26,12 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>Carer Recruitment | Motion Marketing</title>
+        <title>Carer Recruitment | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | How to attract more carers to your care home"
+          content="Motion | How to attract more carers to your care home"
         />
         <meta
           name="description"
@@ -41,7 +41,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | How to attract more carers to your care home"
+          content="Motion | How to attract more carers to your care home"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta

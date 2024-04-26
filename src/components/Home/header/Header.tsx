@@ -17,7 +17,7 @@ export const Header = () => {
     router.push('/');
   };
   const navigateToKnowledgeHub = () => {
-    router.push('/blog');
+    router.push('/resource-hub');
   };
   const navigateToHowWeCanHelp = () => {
     router.push('/how-we-can-help');

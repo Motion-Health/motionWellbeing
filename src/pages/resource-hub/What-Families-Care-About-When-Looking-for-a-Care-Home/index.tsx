@@ -29,7 +29,7 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | What Families Care About When Looking for a Care Home"
+          content="Motion | What Families Care About When Looking for a Care Home"
         />
         <meta
           name="description"
@@ -39,7 +39,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | What Families Care About When Looking for a Care Home"
+          content="Motion | What Families Care About When Looking for a Care Home"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta

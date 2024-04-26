@@ -29,7 +29,7 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | TikTok and Should your Care Home be Using it?"
+          content="Motion | TikTok and Should your Care Home be Using it?"
         />
         <meta
           name="description"
@@ -39,7 +39,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | TikTok and Should your Care Home be Using it?"
+          content="Motion | TikTok and Should your Care Home be Using it?"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta

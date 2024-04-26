@@ -22,13 +22,13 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          How to Get Your Care Homes Featured on BBC News | Motion Marketing
+          How to Get Your Care Homes Featured on BBC News | Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | How to Get Your Care Homes Featured on BBC News"
+          content="Motion | How to Get Your Care Homes Featured on BBC News"
         />
         <meta
           name="description"
@@ -38,7 +38,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion Marketing | How to Get Your Care Homes Featured on BBC News"
+          content="Motion | How to Get Your Care Homes Featured on BBC News"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta

@@ -51,7 +51,7 @@ class MyDocument extends Document {
           />
           <meta
             name="og:title"
-            content="Motion Marketing | Sharing stories about later life"
+            content="Motion | Sharing stories about later life"
           />
           <meta
             name="og:description"

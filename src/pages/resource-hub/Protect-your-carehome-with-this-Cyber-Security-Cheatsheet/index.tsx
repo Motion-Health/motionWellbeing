@@ -25,12 +25,12 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>Cyber Security | Motion Marketing</title>
+        <title>Cyber Security | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion Marketing | Sharing stories about later life"
+          content="Motion | Sharing stories about later life"
         />
         <meta
           name="description"

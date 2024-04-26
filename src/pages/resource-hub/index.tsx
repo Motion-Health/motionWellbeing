@@ -67,10 +67,10 @@ const Index = () => {
 
   return (
     <>
-      <title>Resource Hub | Motion Marketing</title>
+      <title>Resource Hub | Motion</title>
       <meta property="og:url" content="https://www.motion.org.uk" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Motion Marketing | Knowlegde Hub" />
+      <meta property="og:title" content="Motion | Knowlegde Hub" />
       <meta
         name="description"
         content="The Resource Hub is a collection of resources to help you understand marketing and sales for your care home."
