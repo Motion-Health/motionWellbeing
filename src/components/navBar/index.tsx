@@ -63,7 +63,7 @@ const NavBar = () => {
             <ul className="navbar-nav nav-dropdown" data-app-modern-menu="true">
               <li className="nav-item">
                 <a className="nav-link link display-4" href="/">
-                  Platform
+                  How Motion Works
                 </a>
               </li>
               <li className="nav-item">
@@ -94,7 +94,7 @@ const NavBar = () => {
               <li className="nav-item">
                 <a
                   className="nav-link link display-4"
-                  href="https://motion.org.uk/wellbeing/login/"
+                  href="https://platform.motion.org.uk/wellbeing/login/"
                 >
                   Login
                 </a>
