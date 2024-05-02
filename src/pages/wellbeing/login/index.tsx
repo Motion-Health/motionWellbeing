@@ -47,7 +47,7 @@ const Login = () => {
       )}
       <IconButton
         color="primary"
-        onClick={() => router.push('/')}
+        onClick={() => router.push('https://motion.org.uk')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
