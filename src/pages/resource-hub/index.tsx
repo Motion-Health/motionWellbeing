@@ -2,6 +2,7 @@
 import { Grid } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from 'react';
+
 import BlogCard from '@/components/Blog/BlogCard';
 import NavBar from '@/components/navBar';
 
@@ -12,7 +13,8 @@ const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
 const Index = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -144,13 +146,11 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
 
-
       <NavBar />
 
       <div
         style={{
-          background:
-            'radial-gradient(circle at -11% 10%, #385988 -33%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 0% 73%, #385988 -30%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 77% 48%, #385988 -30%, #FDFCED 30%, transparent 50%)',
+          background: `radial-gradient(circle at -11% 10%, #6c8dbc -33%, #fdfbe8b8 30%, transparent 50%), radial-gradient(circle at 0% 73%, #6c8dbc -30%, #fdfced85 30%, transparent 50%), radial-gradient(circle at 77% 48%, #6c8dbc -30%, #fdfced85 30%, transparent 50%)`,
         }}
       >
         <div className={styles.blogHero}>
@@ -235,17 +235,26 @@ const Index = () => {
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Resource Hub
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Success Stories
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           About
                         </a>
                       </li>
@@ -255,12 +264,18 @@ const Index = () => {
                         </a>
                       </li>
                       <li className="nav-item midHide">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Other Services
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/resource-hub">
+                        <a
+                          className="nav-link link display-4"
+                          href="/resource-hub"
+                        >
                           Login
                         </a>
                       </li>

@@ -2,7 +2,7 @@
     position: relative;
     /* background-image: url('./../images/header.webp'); */
     t(at left, #385988, white);
-    background-image: radial-gradient(at left, #385988b8, #fdfced);
+    background-image: radial-gradient(at left, #3859888c, #fdfcedb3);
 }
 
 .filtered-background-section::before {
@@ -222,11 +222,11 @@ section#content5-f {
     background-image: radial-gradient(at right, #385988, white);
     color: black;
 :;
-    background: radial-gradient(circle at top right, #FDFCED, #385988), radial-gradient(circle at top left, #fdfced 15px, #385988, #FDFCED), radial-gradient(circle at bottom left, transparent 15px, #FDFCED, #385988);
+    
           radial-gradient(
     circle at bottom right, transparent 15px, #385988, #FDFCED) bottom right;
      /* Bottom left transparent circle */
-    background: radial-gradient(circle at top left, #FDFCED, #fdfced17), radial-gradient(circle at top right, #3859909c, #fdfced00), radial-gradient(circle at bottom right, #FDFCED, #fdfced00), radial-gradient(circle at bottom left, #385990c7, #FDFCED);
+    background: radial-gradient(circle at top left, #FDFCED, transparent), radial-gradient(circle at top right, #789ddc, #fdfced), radial-gradient(circle at bottom right, #FDFCED, #fdfced), radial-gradient(circle at bottom left, #789ddc, #385988);
 }
 
 .demoButtonContainer p {
@@ -276,7 +276,7 @@ a.btn.btn-secondary.display-4.readMoreButton {
 }
 
 .cid-tFcgeFyM9G {
-    background: radial-gradient(circle at top left, #FDFCED, transparent), radial-gradient(circle at top right, #385990, #fdfced), radial-gradient(circle at bottom right, #FDFCED, #fdfced), radial-gradient(circle at bottom left, #fdfced, #385988);
+    background: radial-gradient(circle at top left, #FDFCED, transparent), radial-gradient(circle at top right, #789ddc, #fdfced), radial-gradient(circle at bottom right, #FDFCED, #fdfced), radial-gradient(circle at bottom left, #789ddc, #385988);
 }
 
 section#form1-d {}
