@@ -1,35 +1,40 @@
-import PrintIcon from '@mui/icons-material/Print';
-import { Alert, Grid, Link, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import {useGetPublicAccount} from '@/services/account/useGetPublicAccount';
-import { ActivityCard } from '@/components/ActivityCard';
-import { DashboardMetrics } from '@/components/DashboardMetrics';
-import TutorialModal from '@/components/modals/TutorialModal';
-import { useFavoriteActivities } from '@/services/activities/useFavoriteActivities';
-import { useGetAnnouncement } from '@/services/announcements/useGetAnnouncement';
-import { Main } from '@/templates/Main';
 import React from 'react';
+
+import ActivitiesCompleted from '@/components/Iframe/ActivitiesCompleted';
+import ActivityCoordinator from '@/components/Iframe/ActivityCoordinator';
+import ActivityItem from '@/components/Iframe/ActivityItem';
+import IFrameAnalytics from '@/components/Iframe/Analytics';
+import Gallery from '@/components/Iframe/Gallery';
+import ResidentMood from '@/components/Iframe/ResidentMood';
+import { useGetPublicAccount } from '@/services/account/useGetPublicAccount';
+import { useFavoriteActivities } from '@/services/activities/useFavoriteActivities';
 const useSuccessBanner = (query) => {
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
   const [showFailBanner, setShowFailBanner] = useState(false);
   const [failMessage, setFailMessage] = useState(null);
 
-
   return [showSuccessBanner, successMessage, setShowSuccessBanner];
 };
 
 const Dashboard = () => {
+  const ACimage = '/assets/images/iframes/silver/AC.png';
+  const ACalt = 'Carole, Activity Coordinator';
+  const ACtext =
+    '“At Twelve Trees we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement.”';
+
   const router = useRouter();
-  const { accountId } = router.query;
-  console.log('accountId', accountId);
-  const account = useGetPublicAccount(accountId);
-  const [showSuccessBanner, successMessage, setShowSuccessBanner] =
-    useSuccessBanner(router.query);
+  const url = router.query;
+  console.log('accountId', url.accountId);
+  const { data: urldata } = useGetPublicAccount(url.accountId);
+
+  // Check if urldata and urldata.account exist before logging and using them
+  if (urldata && urldata.account) {
+    console.log('Account Info', urldata.account);
+  }
+  const account = urldata?.account; // Use optional chaining to safely access account
 
   const { data: favoriteActivities } = useFavoriteActivities();
   const [favoriteActivitiesList, setFavoriteActivitiesList] = useState([]);
@@ -39,69 +44,56 @@ const Dashboard = () => {
     }
   }, [favoriteActivities]);
 
-  const { data: announcement } = useGetAnnouncement();
-  const [alertIsVisible, setAlertIsVisible] = useState(false);
-  useEffect(() => {
-    setAlertIsVisible(announcement?.isActive || false);
-  }, [announcement]);
-
-  useEffect(() => {
-    console.log('account', account);
-  }, [account]);
   return (
-    <Main>
-      <Head>
-        <title>Window Into Wellbeing | Motion Wellbeing</title>
-      </Head>
-      
+    <>
+      <div className="p-4">
+        <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <ResidentMood rating={account?.moodRating} />
+            <ActivitiesCompleted number={account?.activityCount} />
+            <IFrameAnalytics />
+          </div>
+          <div className="mt-4">
+            <div className="m-3 bg-gray-100 shadow-md rounded text-center">
+              <h3 className="text-left p-1 text-gray-700">
+                Recent Activities, Events & Key Benefits
+              </h3>
+            </div>
+            <ActivityItem
+              title="The White Cliffs of Dover, Moon River"
+              type="Sing and Dance"
+            />
+            <ActivityItem title="Chair movement | Rowing" type="Movement" />
+          </div>
+        </div>
 
-      {showSuccessBanner && successMessage && (
-        <Alert
-          sx={{ position: 'inherit' }}
-          severity="success"
-          onClose={() => setShowSuccessBanner(false)}
-        >
-          {successMessage}
-        </Alert>
-      )}
-      <Grid container justifyContent="space-between" alignItems="center">
-        <Typography variant="h1">Wellbeing Report</Typography>
-      </Grid>
-      {alertIsVisible && (
-        <Alert
-          onClose={() => setAlertIsVisible(false)}
-          severity={announcement.mode}
-        >
-          {announcement.content}
-          {announcement?.linkUrl && (
-            <Link href={announcement.linkUrl}>{announcement.linkText}</Link>
-          )}
-        </Alert>
-      )}
-      <DashboardMetrics accountId="123" accountStatus="active" />/
-      <Grid sx={{ mt: '3rem' }}>
-        <Typography variant="h2">Favourite activities</Typography>
-        <Box
-          sx={{
-            borderRadius: 2,
-            minWidth: 300,
-          }}
-        >
-          <Grid
-            className="curved-corners activities"
-            container
-            sx={{
-              minWidth: 300,
-            }}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+          <ActivityCoordinator Image={ACimage} ImageALT={ACalt} text={ACtext} />
+          <Gallery />
+        </div>
+      </div>
+
+      <div className="text-white flex-col items-center py-8 m-4">
+        <div className="w-full bg-[#68658F] rounded-md py-8 text-center">
+          <h2 className="text-xl font-bold">Make an Enquiry</h2>
+        </div>
+        <div className="flex text-right mt-4">
+          <img
+            src="/assets/logos/PoweredByMotion.png"
+            alt="Motion Logo"
+            className="ml-2 h-8"
+          />
+          <a
+            href="https://motion.example.com"
+            className="ml-2 text-blue-500 underline"
           >
-            {Array.isArray(favoriteActivitiesList) &&
-              favoriteActivitiesList?.map((activity) => (
-                <ActivityCard key={activity.activityId} activity={activity} />
-              ))}
-          </Grid>
-        </Box>
-      </Grid>
-    </Main>
+            Click here to learn more
+          </a>
+        </div>
+      </div>
+
+      <p>{JSON.stringify(account)}</p>
+    </>
   );
 };
 
