@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import React from 'react';
-
+import FacebookPage from '@/components/Iframe/FacebookPage';
 import ActivitiesCompleted from '@/components/Iframe/ActivitiesCompleted';
 import ActivitiesOverTime from '@/components/Iframe/ActivitiesOverTime';
 import ActivityCoordinator from '@/components/Iframe/ActivityCoordinator';
@@ -19,7 +19,7 @@ const useSuccessBanner = (query) => {
 };
 
 const Dashboard = () => {
-  const ACimage = '/assets/images/iframes/silver/AC.png';
+  const ACimage = '/assets/images/iframes/silver/AC.jpg';
   const ACalt = 'Lisa, Activities Coordinator';
   const ACtext =
     '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
@@ -46,6 +46,8 @@ const Dashboard = () => {
 
   return (
     <>
+    <div id="fb-root"></div>
+    <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0" nonce="QwgXYBeW"></script>
       <div className="p-4">
         <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -77,16 +79,7 @@ const Dashboard = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
           <ActivityCoordinator Image={ACimage} ImageALT={ACalt} text={ACtext} />
-          <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTwelveTreesCare&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=677646273471139"
-            width="340"
-            height="331"
-            // style="border:none;overflow:hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
+          <FacebookPage />
         </div>
       </div>
 
