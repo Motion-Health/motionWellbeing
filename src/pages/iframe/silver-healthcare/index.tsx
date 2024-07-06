@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 
 import ActivitiesCompleted from '@/components/Iframe/ActivitiesCompleted';
+import ActivitiesOverTime from '@/components/Iframe/ActivitiesOverTime';
 import ActivityCoordinator from '@/components/Iframe/ActivityCoordinator';
 import ActivityItem from '@/components/Iframe/ActivityItem';
-import IFrameAnalytics from '@/components/Iframe/Analytics';
-import Gallery from '@/components/Iframe/Gallery';
 import ResidentMood from '@/components/Iframe/ResidentMood';
 import { useGetPublicAccount } from '@/services/account/useGetPublicAccount';
 import { useFavoriteActivities } from '@/services/activities/useFavoriteActivities';
@@ -21,12 +20,13 @@ const useSuccessBanner = (query) => {
 
 const Dashboard = () => {
   const ACimage = '/assets/images/iframes/silver/AC.png';
-  const ACalt = 'Carole, Activity Coordinator';
+  const ACalt = 'Lisa, Activities Coordinator';
   const ACtext =
-    '“At Twelve Trees we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement.”';
+    '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
 
   const router = useRouter();
-  const url = router.query;
+  // const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
+  const url = {accountId: "5b9568ed-a9fa-4812-9330-7599f0d1ca97"};
   console.log('accountId', url.accountId);
   const { data: urldata } = useGetPublicAccount(url.accountId);
 
@@ -50,8 +50,8 @@ const Dashboard = () => {
         <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <ResidentMood rating={account?.moodRating} />
-            <ActivitiesCompleted number={account?.activityCount} />
-            <IFrameAnalytics />
+            <ActivitiesCompleted number={account?.activitesCompleted} />
+            <ActivitiesOverTime dates={account?.activitiesPerMonth} />
           </div>
           <div className="mt-4">
             <div className="m-3 bg-gray-100 shadow-md rounded text-center">
@@ -59,17 +59,34 @@ const Dashboard = () => {
                 Recent Activities, Events & Key Benefits
               </h3>
             </div>
-            <ActivityItem
-              title="The White Cliffs of Dover, Moon River"
-              type="Sing and Dance"
-            />
-            <ActivityItem title="Chair movement | Rowing" type="Movement" />
+
+            {account?.recentActivities.map((activity) => (
+              <ActivityItem
+                key={activity.id}
+                name={activity.details.activityName}
+                time={activity.details.timeLength}
+                category={activity.details.category}
+                image={activity.details.imageFileName}
+                rating={activity.rating}
+                description={activity.details.description}
+              />
+            ))}
+          
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
           <ActivityCoordinator Image={ACimage} ImageALT={ACalt} text={ACtext} />
-          <Gallery />
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTwelveTreesCare&tabs=timeline&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=677646273471139"
+            width="340"
+            height="331"
+            // style="border:none;overflow:hidden"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          ></iframe>
         </div>
       </div>
 
@@ -92,7 +109,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <p>{JSON.stringify(account)}</p>
+      <p>Account {JSON.stringify(account)}</p>
     </>
   );
 };
