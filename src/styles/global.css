@@ -482,6 +482,9 @@ body{
 
 
 @media (max-width: 900px) {
+  .product-card{
+    margin-left:2rem;
+  }
 .activities .activity{
   max-width: unset;
 flex-basis:unset;

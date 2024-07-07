@@ -24,6 +24,7 @@ a.storybookbutton {
   button.storybookbutton,
   a.storybookbutton {
     width: auto;
+    gap:0px;
   }
 }
 
