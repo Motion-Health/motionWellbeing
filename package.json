@@ -57,6 +57,7 @@
     "react-query": "^3.39.3",
     "react-select-multi-level": "^1.0.1",
     "react-youtube": "^10.1.0",
+    "recharts": "^2.12.7",
     "stripe": "^11.17.0",
     "styled-components": "^6.1.1",
     "use-sound": "^4.0.1",
