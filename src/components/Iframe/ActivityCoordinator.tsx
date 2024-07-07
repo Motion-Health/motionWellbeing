@@ -16,7 +16,7 @@ const ActivityCoordinator: React.FC<ActivityCoordinatorProps> = ({
     <div className="bg-white p-4 shadow rounded-lg md:col-span-3">
       <div className="grid grid-cols-5 gap-4 mt-4">
         <div className="col-span-2">
-          <img src={Image} alt={ImageALT} className=" rounded mr-4" />
+          <img src={Image} alt={ImageALT} className="h-80 m-auto rounded" />
           <p className="font-bold text-center">{ImageALT}</p>
         </div>
         <div className="col-span-3">
