@@ -13,11 +13,11 @@ const ResidentMood: React.FC<ResidentMoodProps> = ({ rating }) => {
   };
 
   return (
-    <div className="grid grid-rows-iframeGrid">
-      <div className="m-3 bg-gray-100 shadow-md rounded text-center">
+    <div className="grid grid-rows-iframeGrid md:col-span-2">
+      <div className="bg-gray-100 shadow-md rounded text-center">
         <h3 className="text-left p-1 text-gray-700">Resident Mood</h3>
       </div>
-      <div className="bg-white  m-3 p-4 shadow-md rounded-md text-center  flex flex-col justify-center items-cente">
+      <div className="my-2 bg-white p-8 shadow-md rounded-md text-center  flex flex-col justify-center items-cente">
         <div className="text-6xl">
           <img
             className="mx-auto"
@@ -25,7 +25,7 @@ const ResidentMood: React.FC<ResidentMoodProps> = ({ rating }) => {
             alt="Resident Mood"
           />
         </div>
-        <div className="text-2xl">{rating ?? 5}/5</div>
+        <div className="mt-2 text-xl text-black">{rating ?? 5}/5</div>
       </div>
     </div>
   );

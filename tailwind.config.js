@@ -9,6 +9,9 @@ module.exports = {
       gridTemplateRows: {
         iframeGrid: '60px auto',
       },
+      fontFamily: {
+        Montserrat: ['Montserrat', 'sans-serif'],
+      },
     },
   },
   plugins: [],

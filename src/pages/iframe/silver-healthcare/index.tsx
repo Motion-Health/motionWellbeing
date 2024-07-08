@@ -69,7 +69,7 @@ const Dashboard = () => {
   }, [favoriteActivities]);
 
   return (
-    <>
+    <div className="font-Montserrat">
       <div id="fb-root"></div>
       <script
         async
@@ -80,62 +80,66 @@ const Dashboard = () => {
       ></script>
       <div className="p-4">
         <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-4">
             <ResidentMood rating={account?.moodRating} />
             <ActivitiesCompleted number={account?.activitesCompleted} />
             <ActivitiesOverTime dates={account?.activitiesPerMonth} />
           </div>
-          <div className="mt-4">
-            <div className="m-3 bg-gray-100 shadow-md rounded text-center">
-              <h3 className="text-left p-1 text-gray-700">
-                Recent Activities, Events & Key Benefits
-              </h3>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="mt-4 md:col-span-3">
+              <div className="bg-gray-100 shadow-md rounded text-center">
+                <h3 className="text-left p-1 text-gray-700">
+                  Recent Activities and Events
+                </h3>
+              </div>
 
-            {account?.recentActivities.map((activity) => (
-              <ActivityItem
-                key={activity.id}
-                name={activity.details.activityName}
-                time={activity.details.timeLength}
-                category={activity.details.category}
-                image={activity.details.imageFileName}
-                rating={activity.rating}
-                description={activity.details.description}
-              />
-            ))}
+              {account?.recentActivities.map((activity) => (
+                <ActivityItem
+                  key={activity.id}
+                  name={activity.details.activityName}
+                  time={activity.details.timeLength}
+                  category={activity.details.category}
+                  image={activity.details.imageFileName}
+                  rating={activity.rating}
+                  description={activity.details.description}
+                />
+              ))}
+            </div>
+            <div className="md:col-span-1">
+              <FacebookPage url={facebookURL} />
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-4">
+        <div className="">
           <ActivityCoordinator Image={ACimage} ImageALT={ACalt} text={ACtext} />
-          <FacebookPage url={facebookURL} />
         </div>
       </div>
 
-      <div className="text-white flex-col items-center py-8 m-4">
+      <div className="text-white flex-col items-center m-4 p-3  pt-0 mt-0">
         <div
-          className="w-full bg-[#68658F] rounded-md py-8 text-center cursor-pointer hover:bg-[#57567E] focus:bg-[#57567E] focus:outline-none focus:ring-2 focus:ring-[#4c4b63] transition-colors duration-150"
+          className="w-full bg-[#68658F] rounded-md shadow-md py-8 text-center cursor-pointer hover:bg-[#57567E] focus:bg-[#57567E] focus:outline-none focus:ring-2 focus:ring-[#4c4b63] transition-colors duration-150 "
           onClick={handleEnquiryClick}
           role="button"
           tabIndex={0}
         >
           <h2 className="text-xl font-bold">Make an Enquiry</h2>
         </div>
-        <div className="flex text-right mt-4">
-          <img
-            src="/assets/logos/PoweredByMotion.png"
-            alt="Motion Logo"
-            className="ml-2 h-8"
-          />
+        <div className="flex text-right mt-4 flex-row-reverse">
           <a
             href="https://motion.example.com"
-            className="ml-2 text-blue-500 underline"
+            className="ml-2 text-blue-600 my-auto ml-4 font-black"
           >
             Click here to learn more
           </a>
+          <img
+            src="/assets/logos/PoweredByMotion.png"
+            alt="Motion Logo"
+            className="ml-2 h-12"
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
