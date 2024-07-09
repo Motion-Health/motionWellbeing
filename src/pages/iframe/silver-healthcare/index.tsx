@@ -122,8 +122,8 @@ const Dashboard = () => {
                 />
               ))}
             </div>
-            <div className="md:col-span-1">
-              <FacebookPage url={facebookURL} width="500" height="600" />
+            <div className="md:col-span-1 flex flex-col w-full h-full">
+              <FacebookPage url={facebookURL} width="550px" height="100%" />
             </div>
           </div>
         </div>
