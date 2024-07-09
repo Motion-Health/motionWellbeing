@@ -2,9 +2,15 @@ import React, { useEffect } from 'react';
 
 interface FacebookPageProps {
   url: string;
+  width?: string;
+  height?: string;
 }
 
-const FacebookPage: React.FC<FacebookPageProps> = ({ url }) => {
+const FacebookPage: React.FC<FacebookPageProps> = ({
+  url,
+  width = 400,
+  height = 550,
+}) => {
   useEffect(() => {
     if (window.FB) {
       window.FB.XFBML.parse();
@@ -25,26 +31,20 @@ const FacebookPage: React.FC<FacebookPageProps> = ({ url }) => {
 
   return (
     <div
-      className="fb-page w-auto h-100 mt-4"
-      dangerouslySetInnerHTML={{
-        __html: `
-        <div class="fb-page" 
-          data-href="${url}" 
-          data-tabs="timeline" 
-          data-width="300" 
-          data-height="550"
-          data-small-header="false" 
-          data-adapt-container-width="true" 
-          adapt-container-width="true"
-          data-hide-cover="false" 
-          data-show-facepile="true">
-          <blockquote cite="${url}" class="fb-xfbml-parse-ignore">
-            <a href="${url}">Facebook</a>
-          </blockquote>
-        </div>
-        `,
-      }}
-    />
+      className="fb-page"
+      data-href={url}
+      data-tabs="timeline"
+      data-width={width}
+      data-height={height}
+      data-small-header="false"
+      data-adapt-container-width="true"
+      data-hide-cover="false"
+      data-show-facepile="true"
+    >
+      <blockquote cite={url} className="fb-xfbml-parse-ignore">
+        <a href={url}>Facebook</a>
+      </blockquote>
+    </div>
   );
 };
 

@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import React from 'react';
 
 import ActivitiesCompleted from '@/components/Iframe/ActivitiesCompleted';
@@ -68,16 +68,33 @@ const Dashboard = () => {
     }
   }, [favoriteActivities]);
 
+  // Create a ref for the Facebook script container
+  const scriptRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scriptRef.current) {
+      // Load the Facebook SDK script
+      const script = document.createElement('script');
+      script.src =
+        'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0';
+      script.async = true;
+      script.defer = true;
+      script.crossOrigin = 'anonymous';
+      scriptRef.current.appendChild(script);
+
+      // Cleaning up the Facebook script on unmount
+      return () => {
+        if (scriptRef.current) {
+          scriptRef.current.removeChild(script);
+        }
+      };
+    }
+  }, []);
+
   return (
     <div className="font-Montserrat">
       <div id="fb-root"></div>
-      <script
-        async
-        defer
-        crossOrigin="anonymous"
-        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v20.0"
-        nonce="QwgXYBeW"
-      ></script>
+      <div ref={scriptRef}></div>
       <div className="p-4">
         <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
           <div className="grid grid-cols-1 md:grid-cols-10 gap-4">
@@ -106,7 +123,7 @@ const Dashboard = () => {
               ))}
             </div>
             <div className="md:col-span-1">
-              <FacebookPage url={facebookURL} />
+              <FacebookPage url={facebookURL} width="500" height="600" />
             </div>
           </div>
         </div>
