@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import React from 'react';
 
@@ -23,6 +22,7 @@ const useSuccessBanner = (query) => {
 const Dashboard = () => {
   const ACimage = '/assets/images/iframes/silver/AC.jpg';
   const ACalt = 'Lisa, Activities Coordinator';
+
   const ACtext =
     '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
   const facebookURL = 'https://www.facebook.com/SilverHealthCareLtd';
@@ -48,9 +48,6 @@ const Dashboard = () => {
     }
   };
   //End of Analytics
-
-  const router = useRouter();
-  // const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
 
   const { data: urldata } = useGetPublicAccount(url.accountId);
 
@@ -111,7 +108,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="">
+        <div>
           <ActivityCoordinator Image={ACimage} ImageALT={ACalt} text={ACtext} />
         </div>
       </div>

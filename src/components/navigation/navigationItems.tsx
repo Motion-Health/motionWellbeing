@@ -82,12 +82,8 @@ const NavigationItems = () => {
       >
         <List sx={{ paddingTop: 0 }} className={styles.appSections}>
           {appSections.map((page) => {
-            console.log('page', page);
             const isActivePage = pathname === page.path;
             const isGISPage = page.path === '/wellbeing/activities/?filter=gis';
-            console.log('pathname', page.path);
-            console.log('isActivePage', isActivePage);
-            console.log('isGISPage', isGISPage);
 
             const shouldHighlight = onGISPage ? isGISPage : isActivePage;
 

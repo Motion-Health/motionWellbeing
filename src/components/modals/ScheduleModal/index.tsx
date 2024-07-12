@@ -209,6 +209,10 @@ const ScheduleModal = ({
       createEvent.mutate(updatedEventData, {
         onSuccess: (res) => {
           setIsModalOpen(false);
+
+          //For Debugging OpenAI Image Generation
+          console.log('result', res);
+          console.log(res.body);
         },
         onError: (err) => {
           setIsModalOpen(false);
