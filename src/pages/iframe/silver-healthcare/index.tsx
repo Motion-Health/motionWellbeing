@@ -119,6 +119,7 @@ const Dashboard = () => {
                   image={activity.details.imageFileName}
                   rating={activity.rating}
                   description={activity.details.description}
+                  activityType={activity.details.activityType}
                 />
               ))}
             </div>

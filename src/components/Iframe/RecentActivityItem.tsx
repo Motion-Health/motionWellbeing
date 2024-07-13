@@ -1,23 +1,21 @@
 import { categoryIcons } from '@/data/categoryIcons';
 
-interface ActivityItemProps {
+interface RecentActivityItemProps {
   name: string;
   time: string;
   category: string;
   image: string;
   rating: number;
   description: string;
-  activityType: string;
 }
 
-const ActivityItem: React.FC<ActivityItemProps> = ({
+const RecentActivityItem: React.FC<RecentActivityItemProps> = ({
   name,
   time,
   category,
   image,
   rating,
   description,
-  activityType,
 }) => {
   const imagePath = image
     ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${image}`
@@ -43,4 +41,4 @@ const ActivityItem: React.FC<ActivityItemProps> = ({
   );
 };
 
-export default ActivityItem;
+export default RecentActivityItem;
