@@ -117,7 +117,7 @@ const Dashboard = () => {
                 </h3>
               </div>
 
-              {account?.recentActivities.map((activity) => (
+              {account?.activitiesToDisplay.map((activity) => (
                 <ActivityItem
                   key={activity.id}
                   name={activity.details.activityName}
