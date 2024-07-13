@@ -91,6 +91,11 @@ const Dashboard = () => {
     }
   }, []);
 
+  // Determine the type of activities
+  const activities = account?.activities || [];
+  const isUpcomingActivities =
+    activities.length > 0 && activities[0].activityType === 'upcoming';
+
   return (
     <div className="font-Montserrat">
       <div id="fb-root"></div>
@@ -106,7 +111,9 @@ const Dashboard = () => {
             <div className="mt-4 md:col-span-3">
               <div className="bg-gray-100 shadow-md rounded text-center">
                 <h3 className="text-left p-1 text-gray-700">
-                  Recent Activities and Events
+                  {isUpcomingActivities
+                    ? 'Upcoming Activities and Events'
+                    : 'Recent Activities and Events'}
                 </h3>
               </div>
 
@@ -122,6 +129,26 @@ const Dashboard = () => {
                   activityType={activity.details.activityType}
                 />
               ))}
+
+              {/* {isUpcomingActivities
+                ? activities.map((activity) => (
+                    <UpcomingActivityItem
+                      key={activity.id}
+                      // Map properties specific to UpcomingActivityItem
+                      // e.g., name={activity.name} start={activity.start} etc.
+                    />
+                  ))
+                : activities.map((activity) => (
+                    <RecentActivityItem
+                      key={activity.id}
+                      name={activity.details.activityName}
+                      time={activity.details.timeLength}
+                      category={activity.details.category}
+                      image={activity.details.imageFileName}
+                      rating={activity.rating}
+                      description={activity.details.description}
+                    />
+                  ))} */}
             </div>
             <div className="md:col-span-1 flex flex-col w-full h-full">
               <FacebookPage url={facebookURL} width="550px" height="100%" />
