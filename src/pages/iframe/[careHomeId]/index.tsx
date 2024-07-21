@@ -21,12 +21,62 @@ const useSuccessBanner = (query) => {
 };
 
 const Dashboard = () => {
-  const ACimage = '/assets/images/iframes/silver/AC.jpg';
-  const ACalt = 'Lisa, Activities Coordinator';
-  const ACtext =
+  const router = useRouter();
+  const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
+  var careHomeId = Array.isArray(url.accountId)
+    ? url.careHomeId[0]
+    : url.careHomeId ?? '4214027b-0cf6-4cde-a5b8-0739f56c4563';
+  const { data: urldata } = useGetPublicAccount(careHomeId as string);
+  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97'
+
+  var ACimage = '/assets/images/iframes/silverHealthcare.jpg';
+  var ACalt = 'Lisa, Activities Coordinator';
+  var ACtext =
     '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
-  const facebookURL = 'https://www.facebook.com/SilverHealthCareLtd';
+  var facebookURL = 'https://www.facebook.com/SilverHealthcareLtd';
+
+  // Hardcoded care home details (for now)
+  if (
+    careHomeId == 'silver-healthcare' ||
+    careHomeId == '4f0fcecc-352d-462e-a6e0-3627dcb3dac0'
+  ) {
+    careHomeId = '4f0fcecc-352d-462e-a6e0-3627dcb3dac0';
+    ACimage = '/assets/images/iframes/silverHealthcare.jpg';
+    ACalt = 'Lisa, Activities Coordinator';
+    ACtext =
+      '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
+    facebookURL = 'https://www.facebook.com/SilverHealthcareLtd';
+  } else if (careHomeId == 'westbourne-house') {
+    ACimage = '/assets/images/iframes/palmsRow.jpg';
+    ACalt = 'Amy, Activities Coordinator';
+    ACtext =
+      '“At Westbourne House we pride ourselves on delivering person-centred wellbeing activities tailored to the unique needs and preferences of each resident. We organise a variety of engaging and therapeutic activities, including art and music therapy, gardening, gentle exercise classes, and social events. These activities are designed to promote physical health, mental stimulation, and emotional satisfaction, ensuring that each resident feels valued, respected, and part of a vibrant community. By focusing on individual interests and abilities, we create a supportive environment where residents can thrive and enjoy a high quality of life.”';
+    facebookURL = 'https://www.facebook.com/PalmsRowHealthcare';
+  } else if (careHomeId == 'northfield') {
+    ACimage = '/assets/images/iframes/palmsRow.jpg';
+    ACalt = 'Amy, Activities Coordinator';
+    ACtext =
+      '“At Northfield Nursing Home we are dedicated to providing person-centred wellbeing activities that are tailored to each resident’s individual needs and preferences. Our caring staff facilitates a range of engaging and therapeutic experiences, including art and music therapy, gardening, light exercise sessions, and social events. These activities aim to improve physical health, stimulate the mind, and foster emotional well-being, ensuring that every resident feels cherished, respected, and connected to our lively community. By prioritising personal interests and capabilities, we cultivate an environment where residents can thrive and enjoy a fulfilling quality of life.”';
+    facebookURL = 'https://www.facebook.com/PalmsRowHealthcare';
+  } else if (
+    careHomeId == 'lee-mount' ||
+    careHomeId == '99552814-387e-4f10-93ab-4752ca43f599'
+  ) {
+    ACimage = '/assets/images/iframes/leeMount.jpg';
+    ACalt = 'Sherrie, Activities Manager';
+    ACtext =
+      '“At Lee Mount Care Home, we are committed to delivering person-centred wellbeing activities that are especially tailored to the individual needs and preferences of each resident. Our dedicated team offers a variety of personalised activities, including art and music therapy sessions, sensory games, and tailored exercise routines. By focusing on what each resident enjoys and can participate in, we ensure activities that promote physical health, mental engagement, and emotional well-being. This personalised approach fosters a sense of belonging and fulfilment, allowing every individual to thrive in a supportive and nurturing environment.”';
+    facebookURL = 'https://www.facebook.com/leeMountcare';
+  }
+
+  // Check if urldata and urldata.account exist before logging and using them
+  if (urldata && urldata.account) {
+    console.log('Account Info', urldata.account);
+  }
+  const account = urldata?.account; // Use optional chaining to safely access account
+
   // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97' };
+
   const enquiryURL = 'https://motion.example.com';
 
   useEffect(() => {
@@ -48,21 +98,6 @@ const Dashboard = () => {
     }
   };
   //End of Analytics
-
-  const router = useRouter();
-  const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
-  const careHomeId = Array.isArray(url.accountId)
-    ? url.careHomeId[0]
-    : url.careHomeId ?? '4214027b-0cf6-4cde-a5b8-0739f56c4563';
-
-  const { data: urldata } = useGetPublicAccount(careHomeId as string);
-  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97'
-
-  // Check if urldata and urldata.account exist before logging and using them
-  if (urldata && urldata.account) {
-    console.log('Account Info', urldata.account);
-  }
-  const account = urldata?.account; // Use optional chaining to safely access account
 
   const { data: favoriteActivities } = useFavoriteActivities();
   const [favoriteActivitiesList, setFavoriteActivitiesList] = useState([]);
