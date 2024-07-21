@@ -51,7 +51,6 @@ const Dashboard = () => {
 
   const router = useRouter();
   const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
-  console.log('FIND HERE: ', url);
   const careHomeId = Array.isArray(url.accountId)
     ? url.careHomeId[0]
     : url.careHomeId ?? '4214027b-0cf6-4cde-a5b8-0739f56c4563';
