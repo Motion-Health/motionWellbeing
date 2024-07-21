@@ -26,7 +26,7 @@ const Dashboard = () => {
   const ACtext =
     '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
   const facebookURL = 'https://www.facebook.com/SilverHealthCareLtd';
-  const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97' };
+  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97' };
   const enquiryURL = 'https://motion.example.com';
 
   useEffect(() => {
@@ -50,9 +50,13 @@ const Dashboard = () => {
   //End of Analytics
 
   const router = useRouter();
-  // const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
+  const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
+  const accountId = Array.isArray(url.accountId)
+    ? url.accountId[0]
+    : url.accountId ?? '4214027b-0cf6-4cde-a5b8-0739f56c4563';
 
-  const { data: urldata } = useGetPublicAccount(url.accountId);
+  const { data: urldata } = useGetPublicAccount(accountId as string);
+  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97'
 
   // Check if urldata and urldata.account exist before logging and using them
   if (urldata && urldata.account) {
