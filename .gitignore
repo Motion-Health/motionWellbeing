@@ -1,8 +1,16 @@
-# Dependencies
+# Node.js dependencies
 node_modules
 
-# Next.js
+# Next.js build output
 .next
+out
 
-# Coverage reports
+# Coverage files
 coverage
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
