@@ -29,6 +29,9 @@ const Dashboard = () => {
   const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97' };
   const enquiryURL = 'https://motion.example.com';
 
+  // Used for testing
+  console.log('TESTING!!');
+
   useEffect(() => {
     trackPageView(window.location.pathname);
   }, []);
@@ -93,8 +96,12 @@ const Dashboard = () => {
 
   // Determine the type of activities
   const activities = account?.activities || [];
-  const isUpcomingActivities =
-    activities.length > 0 && activities[0].activityType === 'upcoming';
+  const hasUpcomingActivities = activities.some(
+    (activity) => activity.activityType === 'upcoming'
+  );
+
+  // Used for testing
+  console.log('UPCOMING: ', hasUpcomingActivities);
 
   return (
     <div className="font-Montserrat">
@@ -111,9 +118,7 @@ const Dashboard = () => {
             <div className="mt-4 md:col-span-3">
               <div className="bg-gray-100 shadow-md rounded text-center">
                 <h3 className="text-left p-1 text-gray-700">
-                  {isUpcomingActivities
-                    ? 'Upcoming Activities and Events'
-                    : 'Recent Activities and Events'}
+                  Recent Activities and Events
                 </h3>
               </div>
 
@@ -129,17 +134,22 @@ const Dashboard = () => {
                   activityType={activity.details.activityType}
                 />
               ))}
-
-              {/* {isUpcomingActivities
-                ? activities.map((activity) => (
-                    <UpcomingActivityItem
-                      key={activity.id}
-                      // Map properties specific to UpcomingActivityItem
-                      // e.g., name={activity.name} start={activity.start} etc.
-                    />
-                  ))
-                : activities.map((activity) => (
-                    <RecentActivityItem
+            </div>
+            <div className="md:col-span-1 flex flex-col w-full h-full">
+              <FacebookPage url={facebookURL} width="550px" height="100%" />
+            </div>
+            {hasUpcomingActivities && (
+              <div className="mt-4 col-span-1 md:col-span-4">
+                <div className="bg-gray-100 shadow-md rounded text-center">
+                  <h3 className="text-left p-1 text-gray-700">
+                    Upcoming Activities
+                  </h3>
+                </div>
+                {activities
+                  .filter((activity) => activity.activityType === 'upcoming')
+                  .slice(0, 3)
+                  .map((activity) => (
+                    <ActivityItem
                       key={activity.id}
                       name={activity.details.activityName}
                       time={activity.details.timeLength}
@@ -147,12 +157,11 @@ const Dashboard = () => {
                       image={activity.details.imageFileName}
                       rating={activity.rating}
                       description={activity.details.description}
+                      activityType={activity.details.activityType}
                     />
-                  ))} */}
-            </div>
-            <div className="md:col-span-1 flex flex-col w-full h-full">
-              <FacebookPage url={facebookURL} width="550px" height="100%" />
-            </div>
+                  ))}
+              </div>
+            )}
           </div>
         </div>
 
