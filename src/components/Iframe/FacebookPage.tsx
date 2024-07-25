@@ -1,10 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 interface FacebookPageProps {
   url: string;
+  width?: string;
+  height?: string;
 }
 
-const FacebookPage: React.FC<FacebookPageProps> = ({ url }) => {
+const FacebookPage: React.FC<FacebookPageProps> = ({
+  url,
+  width = 400,
+  height = 550,
+}) => {
   useEffect(() => {
     if (window.FB) {
       window.FB.XFBML.parse();
@@ -17,33 +23,28 @@ const FacebookPage: React.FC<FacebookPageProps> = ({ url }) => {
         js = d.createElement(s);
         js.id = id;
         js.src =
-          "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2";
+          'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
         fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
+      })(document, 'script', 'facebook-jssdk');
     }
   }, []);
 
   return (
     <div
-      className="fb-page w-auto"
-      dangerouslySetInnerHTML={{
-        __html: `
-        <div class="fb-page" 
-          data-href="${url}" 
-          data-tabs="timeline" 
-          data-width="500" 
-          data-height="1000" 
-          data-small-header="false" 
-          data-adapt-container-width="true" 
-          data-hide-cover="false" 
-          data-show-facepile="true">
-          <blockquote cite="${url}" class="fb-xfbml-parse-ignore">
-            <a href="${url}">Facebook</a>
-          </blockquote>
-        </div>
-        `,
-      }}
-    />
+      className="fb-page"
+      data-href={url}
+      data-tabs="timeline"
+      data-width={width}
+      data-height={height}
+      data-small-header="false"
+      data-adapt-container-width="true"
+      data-hide-cover="false"
+      data-show-facepile="true"
+    >
+      <blockquote cite={url} className="fb-xfbml-parse-ignore">
+        <a href={url}>Facebook</a>
+      </blockquote>
+    </div>
   );
 };
 
