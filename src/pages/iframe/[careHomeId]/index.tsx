@@ -26,9 +26,7 @@ const Dashboard = () => {
   var careHomeId = Array.isArray(url.accountId)
     ? url.careHomeId[0]
     : url.careHomeId ?? '4214027b-0cf6-4cde-a5b8-0739f56c4563';
-  console.log('careHomeId: ', careHomeId);
   const { data: urldata } = useGetPublicAccount(careHomeId as string);
-  console.log('urlData: ', urldata);
   // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97'
 
   var ACimage = '/assets/images/iframes/silverHealthcare.jpg';

@@ -7,6 +7,7 @@ interface ActivityItemProps {
   image: string;
   rating: number;
   description: string;
+  activityType: string;
 }
 
 const ActivityItem: React.FC<ActivityItemProps> = ({
@@ -16,6 +17,7 @@ const ActivityItem: React.FC<ActivityItemProps> = ({
   image,
   rating,
   description,
+  activityType,
 }) => {
   const imagePath = image
     ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${image}`
