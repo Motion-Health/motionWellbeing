@@ -11,22 +11,22 @@ export type AnnouncementsResponse = {
   content: string;
   mode: string;
   isActive: boolean;
-  linkUrl?: string
-  linkText?: string
+  linkUrl?: string;
+  linkText?: string;
 };
 
 type AnnouncementsRequest = {
   content: string;
   mode: string;
   isActive: boolean;
-  linkUrl?: string
-  linkText?: string
+  linkUrl?: string;
+  linkText?: string;
 };
 
 export const useCreateAnnouncement = () => {
   return useMutation((data: AnnouncementsRequest) =>
     API.post<AnnouncementsResponse>("/announcements", {
       ...data,
-    }),
+    })
   );
 };

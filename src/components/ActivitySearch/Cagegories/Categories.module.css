@@ -4,7 +4,6 @@
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   margin: 0% 44px;
-
 }
 
 .categories::-webkit-scrollbar {
@@ -16,20 +15,20 @@
 }
 
 .categories.overflowing .arrow {
-  display: block;  
+  display: block;
 }
 
-.listItem{
+.listItem {
   padding: 5px 12px;
   cursor: pointer;
   border: 1px solid rgba(15, 82, 152, 0.5);
   border-radius: 28px;
   font-size: 1rem;
   margin: 0 5px;
-  
+
   width: -webkit-fill-available;
 }
-.categories{
+.categories {
   display: flex;
   justify-content: space-between;
   align-content: space-between;
@@ -38,20 +37,20 @@
   flex-direction: row;
   width: -webkit-fill-available;
 }
-.overflowing{
-  justify-content:  initial;
+.overflowing {
+  justify-content: initial;
 }
 
-.arrowContainer{
+.arrowContainer {
   position: absolute;
-  right:0;
+  right: 0;
   display: flex;
   padding: 10px;
   border-radius: 20px;
   background-color: #1f5b9d;
   color: white;
 }
-.arrowContainerLeft{
+.arrowContainerLeft {
   z-index: 1;
   position: absolute;
   background-color: white;
@@ -59,28 +58,27 @@
   padding: 10px;
   border-radius: 20px;
   transform: scaleX(-1);
-  left:0;
+  left: 0;
   background-color: #1f5b9d;
   color: white;
 }
 
-.disabled{
+.disabled {
   background-color: #cccccc;
-    color: white;
+  color: white;
 }
-.listItems:hover{
+.listItems:hover {
   background-color: transparent;
 }
-.listItem:hover{
+.listItem:hover {
   background-color: rgba(0, 0, 0, 0.04);
 }
-@media (min-width: 1422px)
-{
-  .arrowContainer, .arrowContainerLeft{
+@media (min-width: 1422px) {
+  .arrowContainer,
+  .arrowContainerLeft {
     display: none;
   }
-  .categories{
+  .categories {
     margin: 0;
   }
 }
-

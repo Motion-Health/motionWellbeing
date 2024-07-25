@@ -1,4 +1,4 @@
-.blogHero{
+.blogHero {
   position: relative;
   display: flex;
   justify-content: center;
@@ -11,53 +11,48 @@
   border-radius: 0px 0px 50px 50px;
 }
 
-
-.blogContainer{
+.blogContainer {
   padding: 6vh 6vw;
 }
-.blogHeroContent{
+.blogHeroContent {
   margin: 7vh 0;
   padding-top: 8vh;
 }
 
-.Cards{
-
+.Cards {
   grid-template-columns: 1fr 1fr 1fr;
   display: grid !important;
-
 }
-.Cards>div{
+.Cards > div {
   max-width: 100%;
   margin: 0px 15px 15px 15px;
 }
-.blogHeroContent h1{
+.blogHeroContent h1 {
   font-size: 1.5em;
   margin-bottom: 0px;
 }
-.blogHeroContent h2{
+.blogHeroContent h2 {
   font-size: 0.5em;
   margin-bottom: 0px;
 }
 
-.blogHeroContent p{
+.blogHeroContent p {
   font-size: 0.5em;
   margin-bottom: 0px;
 }
 @media screen and (max-width: 900px) {
-  .Cards{
+  .Cards {
     grid-template-columns: 1fr 1fr;
   }
-
 }
 @media screen and (max-width: 600px) {
-  .Cards{
+  .Cards {
     grid-template-columns: 1fr;
   }
-  .blogContainer{
+  .blogContainer {
     padding: 6vh 0vw;
   }
-  .Cards>div{
+  .Cards > div {
     padding: 30px;
   }
 }
-

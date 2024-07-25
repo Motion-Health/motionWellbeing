@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
+import sudoku from "@/components/Games/Sudoku/sudoku.module.css";
 type ActionProps = {
   action: string;
   onClickAction: () => void;
@@ -14,7 +14,7 @@ type SvgProps = {
  * Return the SVGs of the Action buttons in the Status Section.
  */
 const Svg = (props: SvgProps) => {
-  if (props.action === 'undo') {
+  if (props.action === "undo") {
     return (
       <svg
         className={sudoku.statusActionSvg}
@@ -33,7 +33,7 @@ const Svg = (props: SvgProps) => {
         />
       </svg>
     );
-  } else if (props.action === 'erase') {
+  } else if (props.action === "erase") {
     return (
       <svg
         className={sudoku.statusActionSvg}
@@ -50,7 +50,7 @@ const Svg = (props: SvgProps) => {
         />
       </svg>
     );
-  } else if (props.action === 'hint') {
+  } else if (props.action === "hint") {
     return (
       <svg
         className={sudoku.statusActionSvg}
@@ -111,25 +111,25 @@ export const Action = (props: ActionProps) => {
   return (
     <div
       className={
-        props.action === 'undo'
+        props.action === "undo"
           ? sudoku.statusActionUndo
-          : props.action === 'erase'
+          : props.action === "erase"
           ? sudoku.statusActionErase
-          : props.action === 'hint'
+          : props.action === "hint"
           ? sudoku.statusActionHint
-          : ''
+          : ""
       }
       onClick={props.onClickAction}
     >
       <Svg action={props.action} />
       <p className={sudoku.statusActionText}>
-        {props.action === 'undo'
-          ? 'Undo'
-          : props.action === 'erase'
-          ? 'Erase'
-          : props.action === 'hint'
-          ? 'Hint'
-          : ''}
+        {props.action === "undo"
+          ? "Undo"
+          : props.action === "erase"
+          ? "Erase"
+          : props.action === "hint"
+          ? "Hint"
+          : ""}
       </p>
     </div>
   );

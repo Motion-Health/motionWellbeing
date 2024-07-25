@@ -1,12 +1,12 @@
-import { Tab, Tabs } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Tab, Tabs } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
-import { useGetAllAccounts } from '@/services/account/useGetAllAccounts';
-import { useCompletedActivities } from '@/services/activities/useCompletedActivities';
-import { ActivityData } from '@/services/activities/useCreateActivity';
-import { useListActivitiesWithMetrics } from '@/services/activities/useListActivitiesWithMetrics';
+import { useGetAllAccounts } from "@/services/account/useGetAllAccounts";
+import { useCompletedActivities } from "@/services/activities/useCompletedActivities";
+import { ActivityData } from "@/services/activities/useCreateActivity";
+import { useListActivitiesWithMetrics } from "@/services/activities/useListActivitiesWithMetrics";
 
-import table from './table.module.css';
+import table from "./table.module.css";
 export const AnalyticsTable = () => {
   const { data: loadedAccounts, refetch: refetchAccounts } =
     useGetAllAccounts();
@@ -52,7 +52,7 @@ export const AnalyticsTable = () => {
             <tbody>
               {tabValue === 0 &&
                 loadedAccounts?.allAccounts
-                  .filter((account) => account.serviceProviderName !== 'REYT')
+                  .filter((account) => account.serviceProviderName !== "REYT")
                   .map((account) => (
                     <tr key={account.accountId}>
                       <td> {account.accountId}</td>
@@ -130,13 +130,13 @@ export const AnalyticsTable = () => {
 
                       <td>
                         {new Date(activity.createdAt).toLocaleDateString() +
-                          ' ' +
+                          " " +
                           new Date(activity.createdAt).toLocaleTimeString()}
                       </td>
                       <td>{activity.comment}</td>
                       <td
                         style={{
-                          maxWidth: '200px',
+                          maxWidth: "200px",
                         }}
                       >
                         {activity.participants}

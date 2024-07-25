@@ -1,9 +1,9 @@
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { ListItem, ListItemButton, ListItemText } from '@mui/material';
-import router from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { ListItem, ListItemButton, ListItemText } from "@mui/material";
+import router from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
-import styles from './Categories.module.css';
+import styles from "./Categories.module.css";
 
 const Categories = ({ categories }) => {
   const listRef = useRef(null);
@@ -21,34 +21,34 @@ const Categories = ({ categories }) => {
   useEffect(() => {
     const listElement = listRef.current;
     checkScroll();
-    listElement.addEventListener('scroll', checkScroll);
-    window.addEventListener('resize', checkScroll);
+    listElement.addEventListener("scroll", checkScroll);
+    window.addEventListener("resize", checkScroll);
     return () => {
-      listElement.removeEventListener('scroll', checkScroll);
-      window.removeEventListener('resize', checkScroll);
+      listElement.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("resize", checkScroll);
     };
   }, []);
 
   const scrollList = (direction) => {
     listRef.current.scrollBy({
-      left: direction === 'right' ? 200 : -200,
-      behavior: 'smooth',
+      left: direction === "right" ? 200 : -200,
+      behavior: "smooth",
     });
   };
 
   return (
     <div
       className={`${styles.categories} ${
-        isOverflowing ? styles.overflowing : ''
+        isOverflowing ? styles.overflowing : ""
       }`}
       ref={listRef}
     >
       <div
         className={`${styles.arrowContainerLeft} ${
-          showLeftArrow ? '' : styles.disabled
+          showLeftArrow ? "" : styles.disabled
         }`}
       >
-        <ArrowForwardIosIcon onClick={() => scrollList('left')} />
+        <ArrowForwardIosIcon onClick={() => scrollList("left")} />
       </div>
 
       {categories.map((category) => (
@@ -64,13 +64,13 @@ const Categories = ({ categories }) => {
               { shallow: true }
             )
           }
-          style={{ width: 'fit-content' }}
+          style={{ width: "fit-content" }}
           disablePadding
         >
           <ListItemButton classes={{ root: styles.listItems }}>
             <ListItemText
               classes={{ root: styles.listItem }}
-              style={{ width: 'max-content' }}
+              style={{ width: "max-content" }}
               primary={category.title}
             />
           </ListItemButton>
@@ -78,10 +78,10 @@ const Categories = ({ categories }) => {
       ))}
       <div
         className={`${styles.arrowContainer} ${
-          showRightArrow ? '' : styles.disabled
+          showRightArrow ? "" : styles.disabled
         }`}
       >
-        <ArrowForwardIosIcon onClick={() => scrollList('right')} />
+        <ArrowForwardIosIcon onClick={() => scrollList("right")} />
       </div>
     </div>
   );

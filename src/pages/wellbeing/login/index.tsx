@@ -1,11 +1,11 @@
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Alert, IconButton } from '@mui/material';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Alert, IconButton } from "@mui/material";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-import { LoginForm } from '@/components/forms/LoginForm';
-import { useIsLoggedIn } from '@/services/isLoggedIn';
+import { LoginForm } from "@/components/forms/LoginForm";
+import { useIsLoggedIn } from "@/services/isLoggedIn";
 
 const Login = () => {
   const { data: isLoggedIn } = useIsLoggedIn();
@@ -14,7 +14,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      router.push('/wellbeing/dashboard');
+      router.push("/wellbeing/dashboard");
     }
   }, [isLoggedIn]);
 
@@ -22,7 +22,7 @@ const Login = () => {
     // Assume login function makes a request to your login endpoint
     const success = await login(credentials);
     if (success) {
-      router.push('/wellbeing/dashboard');
+      router.push("/wellbeing/dashboard");
     }
   };
 
@@ -35,9 +35,9 @@ const Login = () => {
           content="Log in to access your account and explore our services."
         />
       </Head>
-      {notification == 'resetPasswordSuccess' && (
+      {notification == "resetPasswordSuccess" && (
         <Alert
-          sx={{ width: '100%' }}
+          sx={{ width: "100%" }}
           onClose={() => setNotification(null)}
           severity="success"
         >
@@ -47,7 +47,7 @@ const Login = () => {
       )}
       <IconButton
         color="primary"
-        onClick={() => router.push('https://motion.org.uk')}
+        onClick={() => router.push("https://motion.org.uk")}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />

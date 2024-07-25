@@ -5,11 +5,11 @@ import {
   FormGroup,
   Grid,
   Typography,
-} from '@mui/material';
-import { useEffect, useMemo, useState } from 'react';
+} from "@mui/material";
+import { useEffect, useMemo, useState } from "react";
 
-import { useActivityTags } from '@/services/activities/useActivityTags';
-import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
+import { useActivityTags } from "@/services/activities/useActivityTags";
+import { useActivityTimeLengths } from "@/services/activities/useActivityTimeLengths";
 
 type Props = {
   onFilterChange: (filters: string[]) => void;
@@ -38,7 +38,7 @@ export const ActivitiesFilters = ({
   useEffect(() => {
     if (activityTagsList?.length && timeLengths?.length) {
       setCombinedFilters([
-        { value: 'all', label: 'All' },
+        { value: "all", label: "All" },
         ...timeLengths,
         ...activityTagsList,
       ]);
@@ -62,16 +62,16 @@ export const ActivitiesFilters = ({
   }, [combinedFilters]);
 
   const style = {
-    bgcolor: '#FFFFFF',
+    bgcolor: "#FFFFFF",
     boxShadow: 1,
     borderRadius: 2,
-    padding: '1.5rem',
-    marginTop: '3rem',
-    position: 'fixed',
+    padding: "1.5rem",
+    marginTop: "3rem",
+    position: "fixed",
     zIndex: 10,
     right: 0,
-    width: { xs: '100%', sm: '100%', md: '50%' },
-    top: '105px',
+    width: { xs: "100%", sm: "100%", md: "50%" },
+    top: "105px",
   };
 
   const FilterGroup = ({ filters }: { filters: Filter[] }) => (

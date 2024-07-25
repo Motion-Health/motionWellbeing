@@ -1,5 +1,5 @@
-.backButton{
-  background-color: #4CAF50;
+.backButton {
+  background-color: #4caf50;
   border: none;
   border-radius: 5px;
   color: white;
@@ -10,7 +10,7 @@
   font-size: 16px;
 }
 
-.button{
+.button {
   background-color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -20,10 +20,10 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  cursor : pointer;
+  cursor: pointer;
 }
 
-.buttonActive{
+.buttonActive {
   background-color: #6096ce;
   border: none;
   border-radius: 5px;

@@ -1,5 +1,5 @@
-import { AdditionalInformationForm } from "@/components/forms/AdditionalInformationForm"
-import Head from "next/head"
+import { AdditionalInformationForm } from "@/components/forms/AdditionalInformationForm";
+import Head from "next/head";
 
 const AdditionalInformation = () => {
   return (
@@ -9,7 +9,7 @@ const AdditionalInformation = () => {
       </Head>
       <AdditionalInformationForm />
     </>
-  )
-}
+  );
+};
 
-export default AdditionalInformation
+export default AdditionalInformation;

@@ -1,4 +1,4 @@
-.blogHero{
+.blogHero {
   position: relative;
   display: flex;
   justify-content: center;
@@ -6,56 +6,52 @@
   color: #000;
   text-align: center;
   font-size: 2rem;
-
-    
 }
-.backArrow{
-position: absolute;
-top: 145px;
-z-index: 10;
-left: 55px;
+.backArrow {
+  position: absolute;
+  top: 145px;
+  z-index: 10;
+  left: 55px;
 }
-.blogHeroContent{
+.blogHeroContent {
   width: 90%;
   margin-top: 9vh;
   max-width: 680px;
   text-align: left;
 }
-.Cards{
+.Cards {
   padding: 2rem;
 }
-.blogHeroContent h1{
+.blogHeroContent h1 {
   font-size: 1.5em;
   margin-bottom: 0px;
-
 }
-.blogHeroContent h2{
+.blogHeroContent h2 {
   font-size: 0.5em;
   margin-bottom: 0px;
 }
 
-.blogHeroContent p{
+.blogHeroContent p {
   font-size: 0.5em;
   margin-bottom: 0px;
 }
-.shareToolbar{
+.shareToolbar {
   border: solid #dfdfdf;
-    border-width: 1px 0;
-    padding: 10px;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
+  border-width: 1px 0;
+  padding: 10px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-.shareToolbar button{
+.shareToolbar button {
   text-align: right;
   justify-self: end;
   border: none;
   background: none;
-  position:relative;
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -63,50 +59,50 @@ left: 55px;
   border-radius: 5px;
 }
 
-.shareToolbar button:hover{
+.shareToolbar button:hover {
   background-color: #daecff;
 }
 
-.shareToolbar>div:first-child{
+.shareToolbar > div:first-child {
   position: relative;
   display: inline-flex;
   align-items: center;
 }
-.shareToolbar>div:nth-child(2){
+.shareToolbar > div:nth-child(2) {
   display: inline-grid;
   color: #000;
   gap: 10px;
   position: relative;
 }
-.shareToolbar img{
+.shareToolbar img {
   bottom: 0;
 }
-.time{
+.time {
   margin-left: 30px;
   width: max-content;
   bottom: 0;
 }
-.shareToolbar p{
+.shareToolbar p {
   margin: 0;
   padding: 0;
   font-size: 13px;
 }
-.socials{
+.socials {
   display: inline-block;
   margin: 2px;
 }
-.blogHero .title{
-  font-size:0.65em;
+.blogHero .title {
+  font-size: 0.65em;
 }
 
-.image{
+.image {
   max-width: 60%;
   margin: auto;
   display: block;
   border-radius: 20px;
   padding: 10px;
 }
-.notification{
+.notification {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,7 +119,7 @@ left: 55px;
 }
 /* mobile */
 @media (max-width: 950px) {
-  .backArrow{
+  .backArrow {
     display: none;
   }
 }

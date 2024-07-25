@@ -2,56 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-iframe{
+iframe {
   border-radius: 20px;
 }
-.uploadLogo span{
+.uploadLogo span {
   display: block !important;
-  margin:auto  !important;;
+  margin: auto !important;
 }
-.text-center{
-  text-align: center
+.text-center {
+  text-align: center;
 }
 .discoveryBackground {
   position: relative;
   z-index: 1;
   padding-top: 20px;
   background: linear-gradient(to bottom, #fff, #6bc6fa29);
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 * {
   box-sizing: border-box;
 }
 td {
-
   overflow: hidden;
 }
-.fc-daygrid-event{
+.fc-daygrid-event {
   white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
-.fc-timegrid-event-harness{
+.fc-timegrid-event-harness {
   min-height: 20px;
 }
-body{
-  font-family: "Montserrat","Helvetica","Arial",sans-serif;
+body {
+  font-family: "Montserrat", "Helvetica", "Arial", sans-serif;
 }
 
-.calendar button{
+.calendar button {
   background-color: #0f5298 !important;
   border-color: #0f5298 !important;
 }
-.calendar .fc-button-active{
+.calendar .fc-button-active {
   background-color: #005266 !important;
   border-color: #005266 !important;
 }
-.calendar button:disabled{
+.calendar button:disabled {
   background-color: #eeeeee !important;
   border-color: #eeeeee !important;
 }
-.fc-toolbar-chunk .fc-threeDots-button{
+.fc-toolbar-chunk .fc-threeDots-button {
   background: none;
   border: none;
   font-weight: 600;
@@ -62,16 +61,15 @@ body{
   margin: 0px;
   cursor: pointer;
 }
-.fc-threeDots-button:after{
-  content: '︙';
+.fc-threeDots-button:after {
+  content: "︙";
 }
-.fc-toolbar-chunk .fc-threeDots-button:hover{
+.fc-toolbar-chunk .fc-threeDots-button:hover {
   background: none;
   transform: scale(1.1);
   color: black;
-  border:none;
+  border: none;
 }
-
 
 .manage-membership-container {
   margin-top: 1rem;
@@ -99,7 +97,7 @@ body{
   font-weight: 500;
 }
 
-.pdf-container{
+.pdf-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,22 +111,20 @@ body{
   display: flex;
 }
 
-
 .react-pdf__Document:hover .react-pdf__Page {
   filter: brightness(50%);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   transform: scale(1.03);
-} 
+}
 
-.react-pdf__Page{
+.react-pdf__Page {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
 }
-.react-pdf__Document  {
+.react-pdf__Document {
   transition: all 0.2s ease-in-out;
   display: inline-flex;
 }
-
 
 .download-message {
   position: absolute;
@@ -143,7 +139,6 @@ body{
   z-index: 1;
 }
 
-
 @media print {
   body {
     zoom: 89%;
@@ -156,13 +151,12 @@ body{
     display: none !important;
   }
 }
-.curved-corners{
+.curved-corners {
   border-radius: 15px;
 }
 
-
-.activities_parent .activities{
-  background:none;
+.activities_parent .activities {
+  background: none;
   margin: 105px 0% !important;
 }
 
@@ -175,47 +169,46 @@ body{
   border-radius: 15px 15px 0px 0px;
   text-align: center;
   left: calc(50% + 125px - 34.2px);
-  height:  fit-content !important;   
+  height: fit-content !important;
   bottom: 0px;
-
 }
 
 /* screnwidth under 900px */
 @media (max-width: 900px) {
-
-  header{
+  header {
     display: initial !important;
   }
 
   .scroll-for-more {
     left: calc(50% - 34.2px);
   }
-  main{
+  main {
     padding: 48px 0px !important;
   }
 }
-.react-pdf__Document{
+.react-pdf__Document {
   width: fit-content;
 }
-.react-pdf__Page{
+.react-pdf__Page {
   --scale-factor: none !important;
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(-10px);
   }
 }
-.arrow{
+.arrow {
   animation: bounce 1s infinite;
   display: inline-block;
   font-size: 2em;
 }
 
-.activities .activity{
+.activities .activity {
   padding: 1.5%;
   background: white;
   margin: 1%;
@@ -223,13 +216,11 @@ body{
   transition: all 0.2s ease-in-out;
   max-width: 23%;
 }
-.activity:hover{
+.activity:hover {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transform: scale(1.03);
-
 }
-
 
 .page {
   display: flex;
@@ -315,14 +306,14 @@ body{
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   border-radius: 28px;
   padding: 0.75rem 1rem;
-  border:none;
+  border: none;
 }
 
 .fc-button.fc-scheduleButton-button:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
   background-color: #0c437d;
-  
+
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
@@ -336,7 +327,7 @@ body{
 }
 
 .fc .fc-view-harness {
-  max-height:80vh;
+  max-height: 80vh;
 }
 .event h4 {
   font-size: 14px;
@@ -480,10 +471,9 @@ body{
   align-items: center;
 }
 
-
 @media (max-width: 900px) {
-.activities .activity{
-  max-width: unset;
-flex-basis:unset;
-}
+  .activities .activity {
+    max-width: unset;
+    flex-basis: unset;
+  }
 }

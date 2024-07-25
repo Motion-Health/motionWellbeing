@@ -1,38 +1,38 @@
-import { Grid } from '@mui/material';
-import Head from 'next/head';
+import { Grid } from "@mui/material";
+import Head from "next/head";
 
-import BlogCard from '@/components/Blog/BlogCard';
-import { Footer } from '@/components/Home/Footer';
-import { Header } from '@/components/Home/header/Header';
+import BlogCard from "@/components/Blog/BlogCard";
+import { Footer } from "@/components/Home/Footer";
+import { Header } from "@/components/Home/header/Header";
 
-import styles from './blog.module.css';
+import styles from "./blog.module.css";
 const Index = () => {
   const blogs = [
-    { id: 1, name: 'Boosting Care Home Enquiries with Wellbeing Activities' },
+    { id: 1, name: "Boosting Care Home Enquiries with Wellbeing Activities" },
     {
       id: 2,
-      name: 'The Power of High-Quality Visual Content in Care Home Lead Generation',
+      name: "The Power of High-Quality Visual Content in Care Home Lead Generation",
     },
     {
       id: 3,
-      name: '5 Tried & Tested Fundraising Ideas for Care Home Activities',
+      name: "5 Tried & Tested Fundraising Ideas for Care Home Activities",
     },
     {
       id: 4,
-      name: 'How we made a care home residents swimming dream come true!',
+      name: "How we made a care home residents swimming dream come true!",
     },
     {
       id: 5,
-      name: 'The new CQC Single Assessment Framework and wellbeing activities',
+      name: "The new CQC Single Assessment Framework and wellbeing activities",
     },
-    { id: 6, name: 'The Art of Storytelling to Generate Leads for Care Homes' },
+    { id: 6, name: "The Art of Storytelling to Generate Leads for Care Homes" },
     {
       id: 7,
-      name: 'Joyful Jingles and Festive Fun: Unwrapping the Magic of Christmas Activities in Care Homes',
+      name: "Joyful Jingles and Festive Fun: Unwrapping the Magic of Christmas Activities in Care Homes",
     },
     {
       id: 8,
-      name: 'How Care Homes Can Make the Most of their Local Community',
+      name: "How Care Homes Can Make the Most of their Local Community",
     },
   ];
   return (

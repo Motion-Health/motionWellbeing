@@ -1,17 +1,17 @@
-import { Alert, AlertColor } from '@mui/material';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { Alert, AlertColor } from "@mui/material";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-import ServiceProviderDetailsContent from '@/components/modals/ServiceProviderDetailsContent';
-import PageHeader from '@/components/PageHeader/index';
-import { useGetAccount } from '@/services/account/useGetAccount';
-import { Main } from '@/templates/Main';
+import ServiceProviderDetailsContent from "@/components/modals/ServiceProviderDetailsContent";
+import PageHeader from "@/components/PageHeader/index";
+import { useGetAccount } from "@/services/account/useGetAccount";
+import { Main } from "@/templates/Main";
 const Profile = () => {
   const [toggleServiceProviderModal, setToggleServiceProviderModal] =
     useState(1);
   const [serviceProviderData, setServiceProviderData] = useState(null);
-  const [alertSeverity, setAlertSeverity] = useState<AlertColor>('success');
+  const [alertSeverity, setAlertSeverity] = useState<AlertColor>("success");
   const [alertMessage, setAlertMessage] = useState<string | null>(null);
   const accountService = useGetAccount();
   const router = useRouter();
@@ -25,7 +25,7 @@ const Profile = () => {
   // Update modal toggle when data is fetched
   useEffect(() => {
     if (serviceProviderData) {
-      console.log('increasing toggleServiceProviderModal');
+      console.log("increasing toggleServiceProviderModal");
       setToggleServiceProviderModal((prev) => prev + 1); // Or any other logic to change the value
     }
   }, [serviceProviderData]);
@@ -33,35 +33,35 @@ const Profile = () => {
     if (router.query?.accountUpdated !== undefined) {
       setAlertMessage(
         `Success - The details for ${
-          router.query?.accountUpdated || 'service provider'
+          router.query?.accountUpdated || "service provider"
         } have been updated`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
 
     if (router.query?.accountCreated !== undefined) {
       setAlertMessage(
         `Success - ${
-          router.query?.accountCreated || 'Service provider'
+          router.query?.accountCreated || "Service provider"
         } has been created. An email has been sent to the admin.`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
 
     if (router.query?.deletedAccount !== undefined) {
       setAlertMessage(
         `Success - ${
-          router.query?.deletedAccount || 'service provider'
+          router.query?.deletedAccount || "service provider"
         } has been deleted. The admin will no longer have access.`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
 
     if (router.query?.passwordReset) {
       setAlertMessage(
         `Success - A password reset link has been sent to ${router.query?.passwordReset}`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
   }, [router.query]);
   return (
@@ -75,9 +75,9 @@ const Profile = () => {
           icon={false}
           severity={alertSeverity}
           sx={{
-            position: 'relative',
-            my: '3rem',
-            padding: '1rem',
+            position: "relative",
+            my: "3rem",
+            padding: "1rem",
             marginTop: 0,
           }}
           onClose={() => setAlertMessage(null)}
@@ -87,7 +87,7 @@ const Profile = () => {
       )}
       <ServiceProviderDetailsContent
         toggleServiceProviderModal={toggleServiceProviderModal}
-        modalOpenAction={'edit-service-provider'}
+        modalOpenAction={"edit-service-provider"}
         serviceProviderData={serviceProviderData}
         onFormSubmit={() => {}}
       />

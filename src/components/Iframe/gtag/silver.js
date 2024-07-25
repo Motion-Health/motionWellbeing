@@ -1,12 +1,12 @@
 // src/lib/gtag.js
-import ReactGA from 'react-ga4';
+import ReactGA from "react-ga4";
 
-const GA_MEASUREMENT_ID = 'G-FWQ8CBP68Y'; // Replace with your actual Measurement ID
+const GA_MEASUREMENT_ID = "G-FWQ8CBP68Y"; // Replace with your actual Measurement ID
 ReactGA.initialize(GA_MEASUREMENT_ID);
 
 // Function to track page views
 export const trackPageView = (url) => {
-  ReactGA.send({ hitType: 'pageview', page: url });
+  ReactGA.send({ hitType: "pageview", page: url });
 };
 
 // Function to track custom events

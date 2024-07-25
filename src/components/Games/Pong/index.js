@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './pong.module.css'; // make sure this path is correct
-import mainTheme from '@/styles/theme.module.css';
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./pong.module.css"; // make sure this path is correct
+import mainTheme from "@/styles/theme.module.css";
 const Pong = ({ restart }) => {
   const [isTwoPlayer, setIsTwoPlayer] = useState(false); // State for two-player mode
 
@@ -41,7 +41,7 @@ const Pong = ({ restart }) => {
     );
   };
   const handleScore = (scorer) => {
-    if (scorer === 'player') {
+    if (scorer === "player") {
       setPlayerScore((prevScore) => prevScore + 1);
     } else {
       setAiScore((prevScore) => prevScore + 1);
@@ -87,7 +87,7 @@ const Pong = ({ restart }) => {
   const draw = () => {
     if (context) {
       context.clearRect(0, 0, gameSize.width, gameSize.height);
-      context.fillStyle = 'white';
+      context.fillStyle = "white";
 
       // Draw player paddle
       context.fillRect(0, playerPosition.current, paddle.width, paddle.height);
@@ -130,10 +130,10 @@ const Pong = ({ restart }) => {
   const update = (time) => {
     if (isGameRunning) {
       if (ball.current.x < 0) {
-        handleScore('ai');
+        handleScore("ai");
         resetBall();
       } else if (ball.current.x > gameSize.width) {
-        handleScore('player');
+        handleScore("player");
         resetBall();
       }
       // Update ball position
@@ -218,11 +218,11 @@ const Pong = ({ restart }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (canvas) {
-      const renderCtx = canvas.getContext('2d');
+      const renderCtx = canvas.getContext("2d");
       if (renderCtx) {
         setContext(renderCtx);
       } else {
-        console.log('Failed to get canvas context');
+        console.log("Failed to get canvas context");
       }
     }
   }, []);

@@ -1,5 +1,5 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Alert,
   Box,
@@ -7,16 +7,16 @@ import {
   IconButton,
   InputAdornment,
   Typography,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { object, string } from 'zod';
+} from "@mui/material";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { object, string } from "zod";
 
-import { FormInputText } from '@/components/FormInputText';
-import { useGetPasswordResetRecord } from '@/services/auth/useGetPasswordResetRecord';
-import { useSetNewPassword } from '@/services/auth/useSetNewPassword';
-import { AppConfig } from '@/utils/AppConfig';
+import { FormInputText } from "@/components/FormInputText";
+import { useGetPasswordResetRecord } from "@/services/auth/useGetPasswordResetRecord";
+import { useSetNewPassword } from "@/services/auth/useSetNewPassword";
+import { AppConfig } from "@/utils/AppConfig";
 
 type Inputs = {
   password: string;
@@ -24,11 +24,11 @@ type Inputs = {
 
 const registerSchema = object({
   password: string()
-    .min(1, 'Password is required')
-    .min(8, 'Password must be at least 8 characters')
-    .max(32, 'Password must be less than 32 characters')
-    .regex(/\d/, 'Password must contain a number')
-    .regex(/^[^\s]*$/, 'Password must not contain a space'),
+    .min(1, "Password is required")
+    .min(8, "Password must be at least 8 characters")
+    .max(32, "Password must be less than 32 characters")
+    .regex(/\d/, "Password must contain a number")
+    .regex(/^[^\s]*$/, "Password must not contain a space"),
 });
 
 export const NewPasswordForm = () => {
@@ -55,10 +55,10 @@ export const NewPasswordForm = () => {
       } else {
         router.push(
           {
-            pathname: '/wellbeing/login',
+            pathname: "/wellbeing/login",
             query: { passwordResetExpired: true },
           },
-          '/wellbeing/login'
+          "/wellbeing/login"
         ); // hide query params in address bar
       }
     }
@@ -73,13 +73,13 @@ export const NewPasswordForm = () => {
             if (error?.response?.statusCode === 404) {
               router.push(
                 {
-                  pathname: '/wellbeing/login',
+                  pathname: "/wellbeing/login",
                   query: { passwordResetExpired: true },
                 },
-                '/wellbeing/login'
+                "/wellbeing/login"
               ); // hide query params in address bar
             } else {
-              setAlertMessage('Something went wrong - please try again');
+              setAlertMessage("Something went wrong - please try again");
             }
           },
         }
@@ -97,10 +97,10 @@ export const NewPasswordForm = () => {
         { resetPasswordId, password },
         {
           onSuccess: () => {
-            router.push('/wellbeing/login?notification=resetPasswordSuccess');
+            router.push("/wellbeing/login?notification=resetPasswordSuccess");
           },
           onError: () => {
-            setAlertMessage('Something went wrong - please try again');
+            setAlertMessage("Something went wrong - please try again");
           },
         }
       );
@@ -116,9 +116,9 @@ export const NewPasswordForm = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       {alertMessage && (
@@ -126,7 +126,7 @@ export const NewPasswordForm = () => {
           onClose={() => setAlertMessage(null)}
           icon={false}
           severity="error"
-          sx={{ width: '100%' }}
+          sx={{ width: "100%" }}
         >
           {alertMessage}
         </Alert>
@@ -137,18 +137,18 @@ export const NewPasswordForm = () => {
         noValidate
         onSubmit={handleSubmit(onSubmitHandler)}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '27rem',
-          maxWidth: '-webkit-fill-available',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "27rem",
+          maxWidth: "-webkit-fill-available",
         }}
       >
         <div
           sx={{
-            padding: '3rem',
-            textAlign: 'center',
-            width: '100%',
+            padding: "3rem",
+            textAlign: "center",
+            width: "100%",
           }}
         >
           <img
@@ -160,14 +160,14 @@ export const NewPasswordForm = () => {
           />
         </div>
 
-        <Typography variant="h1" sx={{ mb: '2rem' }}>
+        <Typography variant="h1" sx={{ mb: "2rem" }}>
           New password
         </Typography>
 
         <FormProvider {...methods}>
           <FormInputText
             name="password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             label="Password"
             required
             fullWidth
@@ -193,9 +193,9 @@ export const NewPasswordForm = () => {
             fullWidth
             type="submit"
             sx={{
-              py: '0.8rem',
-              mt: '1rem',
-              width: '210px',
+              py: "0.8rem",
+              mt: "1rem",
+              width: "210px",
               borderRadius: 50,
             }}
           >

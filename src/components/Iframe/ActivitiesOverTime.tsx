@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Area,
   AreaChart,
@@ -8,15 +8,15 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from 'recharts';
+} from "recharts";
 
 type ActivitiesOverTimeProps = {
   dates: { month: string; activities: number }[];
 };
 
 function getMonthName(monthNumber) {
-  return new Date(0, monthNumber - 1).toLocaleString('default', {
-    month: 'long',
+  return new Date(0, monthNumber - 1).toLocaleString("default", {
+    month: "long",
   });
 }
 
@@ -59,7 +59,7 @@ const ActivitiesOverTime: React.FC<ActivitiesOverTimeProps> = ({ dates }) => {
         <h3 className="text-left p-1 text-gray-700">Activities Over Time</h3>
       </div>
       <div className="bg-white row-span-3 m-3 p-4 shadow-md rounded-md text-center flex flex-col justify-center items-center">
-        <div style={{ width: '100%', height: 300 }}>
+        <div style={{ width: "100%", height: 300 }}>
           <ResponsiveContainer>
             <AreaChart
               width={500}

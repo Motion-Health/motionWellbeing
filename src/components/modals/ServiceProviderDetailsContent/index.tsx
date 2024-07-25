@@ -1,4 +1,4 @@
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Alert,
   Box,
@@ -10,23 +10,23 @@ import {
   RadioGroup,
   Typography,
   useMediaQuery,
-} from '@mui/material';
-import Image from 'next/legacy/image';
-import router from 'next/router';
-import { useEffect, useRef, useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { object, string } from 'zod';
-import * as z from 'zod';
+} from "@mui/material";
+import Image from "next/legacy/image";
+import router from "next/router";
+import { useEffect, useRef, useState } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { object, string } from "zod";
+import * as z from "zod";
 
-import { FormInputText } from '@/components/FormInputText';
-import { FormSelect } from '@/components/FormSelect';
-import { useAccountContext } from '@/context/AccountContext';
-import { Account } from '@/models/Account';
-import { useAddServiceProvider } from '@/services/account/useAddServiceProvider';
-import { useRequestNewPassword } from '@/services/auth/useRequestNewPassword';
-import { useUpdateAccount } from '@/services/auth/useUpdateAccount';
-import { uploadFileToS3 } from '@/services/aws/uploadFileToS3';
-import theme from '@/styles/theme';
+import { FormInputText } from "@/components/FormInputText";
+import { FormSelect } from "@/components/FormSelect";
+import { useAccountContext } from "@/context/AccountContext";
+import { Account } from "@/models/Account";
+import { useAddServiceProvider } from "@/services/account/useAddServiceProvider";
+import { useRequestNewPassword } from "@/services/auth/useRequestNewPassword";
+import { useUpdateAccount } from "@/services/auth/useUpdateAccount";
+import { uploadFileToS3 } from "@/services/aws/uploadFileToS3";
+import theme from "@/styles/theme";
 
 type Props = {
   toggleServiceProviderModal: number;
@@ -47,19 +47,19 @@ const ServiceProviderDetailContent = (props: Props) => {
 
   const logoInputRef = useRef(null);
 
-  const [logoPreview, setLogoPreview] = useState('');
+  const [logoPreview, setLogoPreview] = useState("");
 
   useEffect(() => {
     // Update 'logoPreview' when 'serviceProviderData' changes
     if (serviceProviderData) {
-      setLogoPreview(serviceProviderData.logo || '');
+      setLogoPreview(serviceProviderData.logo || "");
     }
   }, [serviceProviderData]);
 
   useEffect(() => {
-    if (modalOpenAction === 'edit-service-provider') {
+    if (modalOpenAction === "edit-service-provider") {
       // Set the initial state for logoPreview if there's an existing logo
-      setLogoPreview(serviceProviderData?.logo || '');
+      setLogoPreview(serviceProviderData?.logo || "");
       setServiceProviderFormData(serviceProviderData);
       methods.reset(serviceProviderData);
     } else {
@@ -86,53 +86,53 @@ const ServiceProviderDetailContent = (props: Props) => {
   let registerSchema = object({
     serviceProviderName: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? '')
+      .transform((val) => val ?? "")
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: 'Service provider name is required' }
+        { message: "Service provider name is required" }
       ),
     mainContactName: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? '')
+      .transform((val) => val ?? "")
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: 'Name of main contact is required' }
+        { message: "Name of main contact is required" }
       ),
     mainContactRole: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? '')
+      .transform((val) => val ?? "")
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: 'Main contact role is required' }
+        { message: "Main contact role is required" }
       ),
     phoneNumber: z
       .union([z.string(), z.null()])
-      .transform((val) => val ?? '')
+      .transform((val) => val ?? "")
       .refine(
         (value) => {
           return value.length >= 1;
         },
-        { message: 'Phone number is required' }
+        { message: "Phone number is required" }
       ),
     city: string().nullable().optional(),
-    email: string({ required_error: 'Email address is required' }).email(
-      'Please enter a valid email address'
+    email: string({ required_error: "Email address is required" }).email(
+      "Please enter a valid email address"
     ),
     isPartOfAGroup: string().nullable().optional(),
     groupName: string().nullable().optional(),
-    accountStatus: string({ required_error: 'Account status is required' }),
+    accountStatus: string({ required_error: "Account status is required" }),
   });
 
-  if (accountStatus === 'admin') {
+  if (accountStatus === "admin") {
     registerSchema = object({
-      email: string({ required_error: 'Email address is required' }).email(
-        'Please enter a valid email address'
+      email: string({ required_error: "Email address is required" }).email(
+        "Please enter a valid email address"
       ),
       serviceProviderName: z.union([z.string(), z.null()]).optional(),
       mainContactName: z.union([z.string(), z.null()]).optional(),
@@ -146,8 +146,8 @@ const ServiceProviderDetailContent = (props: Props) => {
   }
 
   useEffect(() => {
-    if (modalOpenAction === 'edit-service-provider') {
-      console.log('edit-service-provider');
+    if (modalOpenAction === "edit-service-provider") {
+      console.log("edit-service-provider");
       console.log(serviceProviderData);
       setServiceProviderFormData(serviceProviderData);
       methods.reset(serviceProviderData);
@@ -157,7 +157,7 @@ const ServiceProviderDetailContent = (props: Props) => {
     }
   }, [toggleServiceProviderModal]);
 
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const methods = useForm({
     resolver: zodResolver(registerSchema),
@@ -171,7 +171,7 @@ const ServiceProviderDetailContent = (props: Props) => {
 
   useEffect(() => {
     const subscription = watch((value) => {
-      if (value.isPartOfAGroup === 'Yes') {
+      if (value.isPartOfAGroup === "Yes") {
         setDisplayGroupNameField(true);
         setGroupDropdownWidth(6);
       } else {
@@ -225,9 +225,9 @@ const ServiceProviderDetailContent = (props: Props) => {
     let newLogoFileName = logoFileName;
 
     if (logo) {
-      const fileExtension = logo.name.split('.').slice(-1)[0];
+      const fileExtension = logo.name.split(".").slice(-1)[0];
       newLogoFileName = `${crypto.randomUUID()}.${fileExtension}`;
-      await uploadFileToS3('logos', logo, newLogoFileName);
+      await uploadFileToS3("logos", logo, newLogoFileName);
       setLogoFileName(newLogoFileName); // Update the state with the new file name
       const logoUrl = `https://motion-web-assets.s3.eu-west-2.amazonaws.com/logos/${newLogoFileName}`;
       values.logo = logoUrl;
@@ -264,10 +264,10 @@ const ServiceProviderDetailContent = (props: Props) => {
           },
           onError: (err) => {
             if (err?.response?.data?.code === 23505) {
-              setError('email', {
-                type: 'custom',
+              setError("email", {
+                type: "custom",
                 message:
-                  'This email address is already registered. Please use a different email address.',
+                  "This email address is already registered. Please use a different email address.",
               });
             } else {
               console.log(err);
@@ -307,10 +307,10 @@ const ServiceProviderDetailContent = (props: Props) => {
 
           onError: (err) => {
             if (err?.response?.data?.code === 23505) {
-              setError('email', {
-                type: 'custom',
+              setError("email", {
+                type: "custom",
                 message:
-                  'This email address is already registered. Please log in or create a new account.',
+                  "This email address is already registered. Please log in or create a new account.",
               });
             } else {
               setShowServerErrorAlert(true);
@@ -321,7 +321,7 @@ const ServiceProviderDetailContent = (props: Props) => {
     }
   };
 
-  const onFormSubmitError = (err: any) => console.log('onFormSubmitError', err);
+  const onFormSubmitError = (err: any) => console.log("onFormSubmitError", err);
   const [isHovering, setIsHovering] = useState(false);
 
   const handleEditIconClick = () => {
@@ -338,7 +338,7 @@ const ServiceProviderDetailContent = (props: Props) => {
         <Alert
           icon={false}
           severity="error"
-          sx={{ position: 'relative', my: '1rem' }}
+          sx={{ position: "relative", my: "1rem" }}
           onClose={() => setShowServerErrorAlert(false)}
         >
           Something went wrong - please try again
@@ -351,7 +351,7 @@ const ServiceProviderDetailContent = (props: Props) => {
               <div
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
-                style={{ position: 'relative' }}
+                style={{ position: "relative" }}
                 className="uploadLogo"
               >
                 <Image
@@ -364,15 +364,15 @@ const ServiceProviderDetailContent = (props: Props) => {
                 {isHovering && (
                   <div
                     style={{
-                      color: 'white',
-                      position: 'absolute',
+                      color: "white",
+                      position: "absolute",
                       top: 0,
-                      width: '100%',
-                      height: '100%',
-                      backgroundColor: '#0000007d',
-                      cursor: 'pointer',
-                      display: 'grid',
-                      placeItems: 'center',
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "#0000007d",
+                      cursor: "pointer",
+                      display: "grid",
+                      placeItems: "center",
                     }}
                     onClick={handleEditIconClick}
                   >
@@ -404,8 +404,8 @@ const ServiceProviderDetailContent = (props: Props) => {
                 fullWidth
                 onClick={handleEditIconClick}
                 sx={{
-                  py: '0.8rem',
-                  width: '210px',
+                  py: "0.8rem",
+                  width: "210px",
                   borderRadius: 50,
                 }}
               >
@@ -426,8 +426,8 @@ const ServiceProviderDetailContent = (props: Props) => {
               name="serviceProviderName"
               label="Name of service provider"
               type="text"
-              defaultValue={serviceProviderFormData?.serviceProviderName || ''}
-              required={accountStatus === 'admin' ? false : true}
+              defaultValue={serviceProviderFormData?.serviceProviderName || ""}
+              required={accountStatus === "admin" ? false : true}
               fullWidth
               sx={{ mb: 3 }}
             ></FormInputText>
@@ -439,7 +439,7 @@ const ServiceProviderDetailContent = (props: Props) => {
               label="Name of main contact"
               value={serviceProviderFormData?.mainContactName}
               type="text"
-              required={accountStatus === 'admin' ? false : true}
+              required={accountStatus === "admin" ? false : true}
               fullWidth
               sx={{ mb: 3 }}
             ></FormInputText>
@@ -451,7 +451,7 @@ const ServiceProviderDetailContent = (props: Props) => {
               label="Main contact role"
               value={serviceProviderFormData?.mainContactRole}
               type="text"
-              required={accountStatus === 'admin' ? false : true}
+              required={accountStatus === "admin" ? false : true}
               fullWidth
               sx={{ mb: 3 }}
             ></FormInputText>
@@ -463,7 +463,7 @@ const ServiceProviderDetailContent = (props: Props) => {
               label="Telephone number"
               value={serviceProviderFormData?.phoneNumber}
               type="number"
-              required={accountStatus === 'admin' ? false : true}
+              required={accountStatus === "admin" ? false : true}
               fullWidth
               sx={{ mb: 3 }}
             ></FormInputText>
@@ -496,8 +496,8 @@ const ServiceProviderDetailContent = (props: Props) => {
             <FormSelect
               name="isPartOfAGroup"
               label="Is your service provider part of a group?"
-              value={serviceProviderFormData?.isPartOfAGroup || ''}
-              defaultValue={''}
+              value={serviceProviderFormData?.isPartOfAGroup || ""}
+              defaultValue={""}
               type="text"
               fullWidth
               sx={{ mb: 3 }}
@@ -536,8 +536,8 @@ const ServiceProviderDetailContent = (props: Props) => {
                 fullWidth
                 onClick={() => onResetPassword()}
                 sx={{
-                  py: '0.8rem',
-                  width: '210px',
+                  py: "0.8rem",
+                  width: "210px",
                   borderRadius: 50,
                 }}
               >
@@ -546,48 +546,48 @@ const ServiceProviderDetailContent = (props: Props) => {
             </Grid>
           )}
 
-          {accountStatus === 'admin' &&
-            serviceProviderFormData?.accountStatus !== 'admin' && (
+          {accountStatus === "admin" &&
+            serviceProviderFormData?.accountStatus !== "admin" && (
               <Grid>
                 <RadioGroup
                   row
                   aria-label="accountStatus"
                   name="accountStatus"
                   defaultValue={
-                    serviceProviderFormData?.accountStatus || 'standard'
+                    serviceProviderFormData?.accountStatus || "standard"
                   }
                 >
                   <FormControlLabel
                     value="noAccess"
                     label={<Typography variant="helper">No access</Typography>}
                     control={<Radio />}
-                    {...register('accountStatus')}
+                    {...register("accountStatus")}
                   />
                   <FormControlLabel
                     value="standard"
                     label={<Typography variant="helper">Standard</Typography>}
                     control={<Radio />}
-                    {...register('accountStatus')}
+                    {...register("accountStatus")}
                   />
 
                   <FormControlLabel
                     value="premium"
                     label={<Typography variant="helper">Premium</Typography>}
                     control={<Radio />}
-                    {...register('accountStatus')}
+                    {...register("accountStatus")}
                   />
                   <FormControlLabel
                     value="gis"
                     label={<Typography variant="helper">GIS</Typography>}
                     control={<Radio />}
-                    {...register('accountStatus')}
+                    {...register("accountStatus")}
                   />
 
                   <FormControlLabel
                     value="group"
                     label={<Typography variant="helper">Group</Typography>}
                     control={<Radio />}
-                    {...register('accountStatus')}
+                    {...register("accountStatus")}
                   />
                 </RadioGroup>
               </Grid>
@@ -600,9 +600,9 @@ const ServiceProviderDetailContent = (props: Props) => {
           fullWidth
           type="submit"
           sx={{
-            py: '0.8rem',
-            mt: '1rem',
-            width: '210px',
+            py: "0.8rem",
+            mt: "1rem",
+            width: "210px",
             borderRadius: 50,
           }}
         >

@@ -1,18 +1,18 @@
-import PrintIcon from '@mui/icons-material/Print';
-import { Alert, Grid, Link, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import PrintIcon from "@mui/icons-material/Print";
+import { Alert, Grid, Link, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-import { ActivityCard } from '@/components/ActivityCard';
-import { DashboardMetrics } from '@/components/DashboardMetrics';
-import TutorialModal from '@/components/modals/TutorialModal';
-import { useAccountContext } from '@/context/AccountContext';
-import { useFavoriteActivities } from '@/services/activities/useFavoriteActivities';
-import { useGetAnnouncement } from '@/services/announcements/useGetAnnouncement';
-import { Main } from '@/templates/Main';
+import { ActivityCard } from "@/components/ActivityCard";
+import { DashboardMetrics } from "@/components/DashboardMetrics";
+import TutorialModal from "@/components/modals/TutorialModal";
+import { useAccountContext } from "@/context/AccountContext";
+import { useFavoriteActivities } from "@/services/activities/useFavoriteActivities";
+import { useGetAnnouncement } from "@/services/announcements/useGetAnnouncement";
+import { Main } from "@/templates/Main";
 const useSuccessBanner = (query) => {
   const [showSuccessBanner, setShowSuccessBanner] = useState(false);
   const [successMessage, setSuccessMessage] = useState(null);
@@ -21,16 +21,16 @@ const useSuccessBanner = (query) => {
 
   useEffect(() => {
     const { task, success, upgrade } = query;
-    console.log('task', task);
-    if (task === 'complete') {
-      setSuccessMessage('Success, activity completed!');
+    console.log("task", task);
+    if (task === "complete") {
+      setSuccessMessage("Success, activity completed!");
       setShowSuccessBanner(true);
-    } else if (success === 'true' && upgrade === 'premium') {
-      setSuccessMessage('Success, you are now a premium member!');
+    } else if (success === "true" && upgrade === "premium") {
+      setSuccessMessage("Success, you are now a premium member!");
       setShowSuccessBanner(true);
-    } else if (task === 'not-found') {
-      console.log('task not found');
-      setFailMessage('Activity not found!');
+    } else if (task === "not-found") {
+      console.log("task not found");
+      setFailMessage("Activity not found!");
       setShowFailBanner(true);
     }
   }, [query]);
@@ -70,7 +70,7 @@ const Dashboard = () => {
 
       {showSuccessBanner && successMessage && (
         <Alert
-          sx={{ position: 'inherit' }}
+          sx={{ position: "inherit" }}
           severity="success"
           onClose={() => setShowSuccessBanner(false)}
         >
@@ -82,14 +82,14 @@ const Dashboard = () => {
         justifyContent="space-between"
         alignItems="center"
         sx={{
-          '@media (max-width: 600px)': {
-            padding: '0px 10px',
+          "@media (max-width: 600px)": {
+            padding: "0px 10px",
           },
         }}
       >
         <Typography variant="h1">Welcome back</Typography>
         {/* if not GIS acount type */}
-        {accountStatus !== 'gis' && (
+        {accountStatus !== "gis" && (
           <Button
             variant="link"
             startIcon={<PrintIcon />}
@@ -113,9 +113,9 @@ const Dashboard = () => {
       <DashboardMetrics accountStatus={accountStatus} />
       <Grid
         sx={{
-          mt: '3rem',
-          '@media (max-width: 600px)': {
-            padding: '0px 10px',
+          mt: "3rem",
+          "@media (max-width: 600px)": {
+            padding: "0px 10px",
           },
         }}
       >

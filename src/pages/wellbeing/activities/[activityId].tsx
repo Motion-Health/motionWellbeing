@@ -1,34 +1,34 @@
-import PrintIcon from '@mui/icons-material/Print';
-import { Button, Grid, Typography } from '@mui/material';
-import moment, { Moment } from 'moment';
-import dynamic from 'next/dynamic';
-import Head from 'next/head';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import url from 'pdfjs-dist/build/pdf.worker';
-import { useEffect, useRef, useState } from 'react';
-import { Page, pdfjs } from 'react-pdf';
-import YouTube from 'react-youtube';
+import PrintIcon from "@mui/icons-material/Print";
+import { Button, Grid, Typography } from "@mui/material";
+import moment, { Moment } from "moment";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import url from "pdfjs-dist/build/pdf.worker";
+import { useEffect, useRef, useState } from "react";
+import { Page, pdfjs } from "react-pdf";
+import YouTube from "react-youtube";
 
-import { ActivityCategoryAndTime } from '@/components/ActivityCategoryAndTime';
-import { ActivityCommentsList } from '@/components/ActivityCommentsList';
-import { ActivityStepper } from '@/components/modals/ActivitiesStepper';
-import { ActivityRatingModal } from '@/components/modals/ActivityRatingModal';
-import PageHeader from '@/components/PageHeader/index';
-import { useAccountContext } from '@/context/AccountContext';
-import { useActivityDetails } from '@/services/activities/useActivityDetails';
-import { useActivityMetrics } from '@/services/activities/useActivityMetrics';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
-import { ActivityData } from '@/services/activities/useCreateActivity';
-import { Main } from '@/templates/Main';
+import { ActivityCategoryAndTime } from "@/components/ActivityCategoryAndTime";
+import { ActivityCommentsList } from "@/components/ActivityCommentsList";
+import { ActivityStepper } from "@/components/modals/ActivitiesStepper";
+import { ActivityRatingModal } from "@/components/modals/ActivityRatingModal";
+import PageHeader from "@/components/PageHeader/index";
+import { useAccountContext } from "@/context/AccountContext";
+import { useActivityDetails } from "@/services/activities/useActivityDetails";
+import { useActivityMetrics } from "@/services/activities/useActivityMetrics";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
+import { ActivityData } from "@/services/activities/useCreateActivity";
+import { Main } from "@/templates/Main";
 
-import style from './activity.module.css';
+import style from "./activity.module.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = url;
 const ActivityDetails = (a) => {
   const [open, setOpen] = useState(false);
   const DynamicDocument = dynamic(
-    () => import('react-pdf').then((module) => module.Document),
+    () => import("react-pdf").then((module) => module.Document),
     { ssr: false }
   );
   const openStepper = () => {
@@ -62,15 +62,15 @@ const ActivityDetails = (a) => {
       }
     };
 
-    if (typeof document !== 'undefined') {
-      document.addEventListener('pageFullyRendered', handlePageFullyRendered);
+    if (typeof document !== "undefined") {
+      document.addEventListener("pageFullyRendered", handlePageFullyRendered);
     }
 
     // Cleanup
     return () => {
-      if (typeof document !== 'undefined') {
+      if (typeof document !== "undefined") {
         document.removeEventListener(
-          'pageFullyRendered',
+          "pageFullyRendered",
           handlePageFullyRendered
         );
       }
@@ -79,12 +79,12 @@ const ActivityDetails = (a) => {
 
   useEffect(() => {
     if (
-      accountStatus == 'standard' &&
-      activity?.visibleToUsers?.includes('premium') &&
-      !activity?.visibleToUsers?.includes('standard')
+      accountStatus == "standard" &&
+      activity?.visibleToUsers?.includes("premium") &&
+      !activity?.visibleToUsers?.includes("standard")
     ) {
       setShouldRenderVideo(false);
-      router.push('/wellbeing/upgrade');
+      router.push("/wellbeing/upgrade");
     }
   }, [accountStatus, activity?.visibleToUsers]);
   const { data: activityMetrics, refetch: refetchMetrics } =
@@ -110,22 +110,22 @@ const ActivityDetails = (a) => {
   useEffect(() => {
     setActivity(fetchedActivity);
     if (fetchedActivity == undefined) {
-      console.log('Loading');
+      console.log("Loading");
     } else if (!fetchedActivity) {
-      console.log('no activity');
-      router.push('/wellbeing/activities?task=not-found');
+      console.log("no activity");
+      router.push("/wellbeing/activities?task=not-found");
     }
   }, [fetchedActivity]);
 
   const handleDownload = () => {
     const url = `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${activity?.documentFileName}`;
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   const renderYouTubeOrCookieMessage = () => {
     if (Termly.getConsentState().advertising == false) {
       return (
-        <Grid item sm={20} height="10rem" sx={{ mb: '3rem' }}>
+        <Grid item sm={20} height="10rem" sx={{ mb: "3rem" }}>
           <Grid
             container
             height="10rem"
@@ -134,9 +134,9 @@ const ActivityDetails = (a) => {
             alignItems="center"
             justifyContent="center"
             style={{
-              backgroundColor: 'white',
-              padding: '20px',
-              borderRadius: '10px',
+              backgroundColor: "white",
+              padding: "20px",
+              borderRadius: "10px",
             }}
           >
             <Grid item xs={12}>
@@ -150,7 +150,7 @@ const ActivityDetails = (a) => {
                 variant="contained"
                 color="primary"
                 onClick={() => displayPreferenceModal()}
-                style={{ margin: 'auto', display: 'block' }}
+                style={{ margin: "auto", display: "block" }}
               >
                 Manage Cookies
               </Button>
@@ -169,7 +169,7 @@ const ActivityDetails = (a) => {
           justifyContent="center"
           alignItems="center"
           height="30rem"
-          sx={{ mb: '3rem' }}
+          sx={{ mb: "3rem" }}
           className="pdf-container"
           onClick={handleDownload}
         >
@@ -203,7 +203,7 @@ const ActivityDetails = (a) => {
           item
           sm={12}
           height="30rem"
-          sx={{ mb: '3rem' }}
+          sx={{ mb: "3rem" }}
           className={style.youtubeGrid}
         >
           <YouTube
@@ -211,7 +211,7 @@ const ActivityDetails = (a) => {
             onPlay={() => setVideoPlayTimestamp(moment())}
             onStateChange={(e) => handleVideoStateChange(e)}
             opts={{
-              width: '100%',
+              width: "100%",
               playerVars: {
                 autoplay: 0,
                 controls: 1,
@@ -233,7 +233,7 @@ const ActivityDetails = (a) => {
   const [openRatingModal, setOpenRatingModal] = useState(false);
   useEffect(() => {
     if (activity?.videoLink) {
-      const urlEnd = activity?.videoLink.split('youtu.be/')[1];
+      const urlEnd = activity?.videoLink.split("youtu.be/")[1];
       const embedCode = urlEnd?.slice(0, 11);
       setParsedYouTubeEmbedCode(embedCode);
     }
@@ -255,22 +255,22 @@ const ActivityDetails = (a) => {
       !activityCompletedId
     ) {
       setIsSixtyPercentWatched(true);
-      setToggleRatingModalAction('video-timer');
+      setToggleRatingModalAction("video-timer");
       const newActivity = {
         activityId: activity?.activityId,
         rating: null,
       };
-      if (toggleRatingModalAction !== 'video-timer') {
+      if (toggleRatingModalAction !== "video-timer") {
         completeActivity.mutate(newActivity, {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
             const { activityCompletedId } = res.data;
             setActivityCompletedId(activityCompletedId);
-            setToggleRatingModalAction('video-timer');
-            console.log('activityCompletedId', activityCompletedId);
+            setToggleRatingModalAction("video-timer");
+            console.log("activityCompletedId", activityCompletedId);
           },
           onError: (err) => {
-            console.log('err', err);
+            console.log("err", err);
           },
         });
       }
@@ -278,7 +278,7 @@ const ActivityDetails = (a) => {
   };
 
   const [toggleRatingModalAction, setToggleRatingModalAction] = useState<
-    'button-click' | 'video-timer' | null
+    "button-click" | "video-timer" | null
   >(null);
 
   const [activityCompletedId, setActivityCompletedId] = useState<string | null>(
@@ -289,9 +289,9 @@ const ActivityDetails = (a) => {
 
   const handleCompleteAndRate = () => {
     if (activity) {
-      setToggleRatingModalAction('button-click');
+      setToggleRatingModalAction("button-click");
     } else {
-      setToggleRatingModalAction('video-timer');
+      setToggleRatingModalAction("video-timer");
     }
     setOpenRatingModal(true);
   };
@@ -316,7 +316,7 @@ const ActivityDetails = (a) => {
   };
   const onCloseStepperModal = () => {
     setShouldOpenStepperModal(false);
-    router.push('/wellbeing/activities?task=complete');
+    router.push("/wellbeing/activities?task=complete");
   };
 
   return (
@@ -379,7 +379,7 @@ const ActivityDetails = (a) => {
               <Grid item xs={3} className={style.column}>
                 <Typography variant="helper">
                   {`Completed ${timesCompleted} ${
-                    timesCompleted !== 1 ? 'times' : 'time'
+                    timesCompleted !== 1 ? "times" : "time"
                   }`}
                 </Typography>
               </Grid>
@@ -394,7 +394,7 @@ const ActivityDetails = (a) => {
                     height="24px"
                     alt="Face icon"
                   />
-                  <Typography variant="helper" sx={{ ml: '0.5rem' }}>
+                  <Typography variant="helper" sx={{ ml: "0.5rem" }}>
                     {decimalRating}
                   </Typography>
                 </Grid>
@@ -402,7 +402,7 @@ const ActivityDetails = (a) => {
             )}
           </Grid>
 
-          <Grid container spacing={2} sx={{ mt: '0rem' }}>
+          <Grid container spacing={2} sx={{ mt: "0rem" }}>
             {renderYouTubeOrCookieMessage()}
 
             <Grid item sm={12} md={9} className={style.videoDetails}>
@@ -414,7 +414,7 @@ const ActivityDetails = (a) => {
               <Typography variant="helper">
                 {activity?.equipmentRequired?.trim()
                   ? activity.equipmentRequired
-                  : 'No equipment Required'}
+                  : "No equipment Required"}
               </Typography>
 
               {activity?.documentFileName && (
@@ -441,16 +441,16 @@ const PrintActivitySheet = ({
       <Link
         href={`${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/documents/${documentFileName}`}
         target="_blank"
-        style={{ textDecoration: 'none' }}
+        style={{ textDecoration: "none" }}
       >
         <Button
           variant="text"
           size="small"
           startIcon={<PrintIcon />}
           sx={{
-            textTransform: 'none',
+            textTransform: "none",
             padding: 0,
-            mt: '1.5rem',
+            mt: "1.5rem",
           }}
         >
           Print activity sheet

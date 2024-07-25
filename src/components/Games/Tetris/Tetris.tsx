@@ -153,7 +153,6 @@ const Tetris = (): JSX.Element => {
             </StartGameContainer>
           ) : (
             <>
-              
               <BoardCells />
             </>
           )}

@@ -1,11 +1,11 @@
-import moment from 'moment';
-import { useQuery } from 'react-query';
+import moment from "moment";
+import { useQuery } from "react-query";
 
-import { API } from '../api';
-import { ActivityData } from './useCreateActivity';
+import { API } from "../api";
+import { ActivityData } from "./useCreateActivity";
 
 const listActivities = async () => {
-  const { data } = await API.get('/activities/');
+  const { data } = await API.get("/activities/");
 
   return data;
 };
@@ -15,19 +15,19 @@ export const useListActivities = (
   filterByTags?: string | string[] | null,
   filterByTimeLengths?: string | string[] | null
 ) => {
-  return useQuery(['list_activities'], listActivities, {
+  return useQuery(["list_activities"], listActivities, {
     select: (activitiesData) => {
       let filteredData = activitiesData;
 
-      if (filterByCategory === 'new') {
-        const fourteenDaysAgo = moment().subtract(14, 'days');
+      if (filterByCategory === "new") {
+        const fourteenDaysAgo = moment().subtract(14, "days");
 
         filteredData = filteredData.filter((activity: ActivityData) => {
           const createdAtDate = moment(activity.createdAt);
           return fourteenDaysAgo < createdAtDate;
         });
       } else if (filterByCategory) {
-        console.log('filterByCategory', filterByCategory);
+        console.log("filterByCategory", filterByCategory);
         filteredData = filteredData.filter(
           (activity: ActivityData) => activity.category === filterByCategory
         );

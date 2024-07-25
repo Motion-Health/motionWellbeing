@@ -1,7 +1,7 @@
-import CloseIcon from '@mui/icons-material/Close';
-import SearchIcon from '@mui/icons-material/Search';
-import { IconButton, InputBase } from '@mui/material';
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import CloseIcon from "@mui/icons-material/Close";
+import SearchIcon from "@mui/icons-material/Search";
+import { IconButton, InputBase } from "@mui/material";
+import { ReactNode, useEffect, useRef, useState } from "react";
 type Props = {
   placeholder: string;
   data: any[];
@@ -10,7 +10,7 @@ type Props = {
   children?: ReactNode;
 };
 
-import styles from './Search.module.css';
+import styles from "./Search.module.css";
 
 const ActivitySearch = (props: Props) => {
   const { data, searchKey, onSearch, searchedData } = props;
@@ -23,13 +23,13 @@ const ActivitySearch = (props: Props) => {
     }
   };
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
-  const [searchValue, setSearchValue] = useState<string>('');
+  const [searchValue, setSearchValue] = useState<string>("");
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
@@ -41,7 +41,7 @@ const ActivitySearch = (props: Props) => {
 
   useEffect(() => {
     if (data) {
-      if (searchValue !== '') {
+      if (searchValue !== "") {
         const result = data?.filter((item: any) => {
           if (!item?.[searchKey]) return false;
           return item?.[searchKey]
@@ -64,18 +64,18 @@ const ActivitySearch = (props: Props) => {
     <div className={styles.search} ref={searchRef}>
       {props.children}
       <IconButton
-        className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ''}`}
+        className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ""}`}
         onClick={() => setIsClicked(true)}
       >
         <SearchIcon
-          className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ''}`}
+          className={` ${styles.searchIcon} ${isClicked ? styles.clicked : ""}`}
         />
       </IconButton>
 
       <InputBase
-        className={`${styles.inputBase} ${isClicked ? styles.clicked : ''}`}
+        className={`${styles.inputBase} ${isClicked ? styles.clicked : ""}`}
         placeholder="Search…"
-        inputProps={{ 'aria-label': 'search' }}
+        inputProps={{ "aria-label": "search" }}
         onBlur={() => setIsClicked(false)}
         onChange={handleSearchChange}
       />

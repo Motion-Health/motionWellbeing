@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
+import sudoku from "@/components/Games/Sudoku/sudoku.module.css";
 type ModeProps = {
   mode: string;
   onClickMode: () => void;
@@ -14,14 +14,14 @@ export const Mode = (props: ModeProps) => {
   return (
     <div
       className={
-        props.mode === 'mistakes'
+        props.mode === "mistakes"
           ? sudoku.statusActionMistakesMode
           : sudoku.statusActionFastMode
       }
     >
       <label
         className={
-          props.mode === 'mistakes'
+          props.mode === "mistakes"
             ? sudoku.statusActionMistakesModeSwitch
             : sudoku.statusActionFastModeSwitch
         }
@@ -29,7 +29,7 @@ export const Mode = (props: ModeProps) => {
         <input type="checkbox" />
         <span
           className={
-            props.mode === 'mistakes'
+            props.mode === "mistakes"
               ? sudoku.statusActionMistakeModeSlider
               : sudoku.statusActionFastModeSlider
           }
@@ -37,7 +37,7 @@ export const Mode = (props: ModeProps) => {
         ></span>
       </label>
       <p className={sudoku.statusActionText}>
-        {props.mode === 'mistakes' ? 'Mistakes Mode' : 'Fast Mode'}
+        {props.mode === "mistakes" ? "Mistakes Mode" : "Fast Mode"}
       </p>
     </div>
   );

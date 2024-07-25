@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
-import { useIsLoggedIn } from '@/services/isLoggedIn';
+import { useIsLoggedIn } from "@/services/isLoggedIn";
 
-import { Button } from '../button/Button';
-import styles from './header.module.css';
+import { Button } from "../button/Button";
+import styles from "./header.module.css";
 
 export const Header = () => {
   const router = useRouter();
@@ -14,16 +14,16 @@ export const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const navigateToHome = () => {
-    router.push('/');
+    router.push("/");
   };
   const navigateToKnowledgeHub = () => {
-    router.push('/blog');
+    router.push("/blog");
   };
   const navigateToHowWeCanHelp = () => {
-    router.push('/how-we-can-help');
+    router.push("/how-we-can-help");
   };
   const navigateToLogin = () => {
-    router.push('/wellbeing/login');
+    router.push("/wellbeing/login");
   };
 
   //choose the screen size
@@ -39,9 +39,9 @@ export const Header = () => {
   useEffect(() => {
     if (window.innerWidth < 960) {
       if (active) {
-        document.body.style.overflowY = 'hidden';
+        document.body.style.overflowY = "hidden";
       } else {
-        document.body.style.overflowY = 'visible';
+        document.body.style.overflowY = "visible";
       }
     }
   }, [active]);
@@ -50,13 +50,13 @@ export const Header = () => {
   }, []);
   // create an event listener
   useEffect(() => {
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
   });
   const navigateToAccount = () => {
     if (isLoggedIn) {
-      router.push('/wellbeing/dashboard');
+      router.push("/wellbeing/dashboard");
     } else {
-      router.push('https://calendly.com/zeezy-1/motion');
+      router.push("https://calendly.com/zeezy-1/motion");
     }
   };
 
@@ -188,13 +188,13 @@ export const Header = () => {
                   showDesktop
                 >
                   <span className="hidden xl:inline">
-                    {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
+                    {isLoggedIn ? "My Account" : "Book a Discovery Call"}
                   </span>
                   <img
                     src={
                       isLoggedIn
-                        ? '/assets/icons/ph_user-circle_white.svg'
-                        : '/assets/icons/calendar_book_event.svg'
+                        ? "/assets/icons/ph_user-circle_white.svg"
+                        : "/assets/icons/calendar_book_event.svg"
                     }
                   />
                 </Button>
@@ -221,7 +221,7 @@ export const Header = () => {
               showDesktop
             >
               <span className=" inline xl:hidden">
-                {isLoggedIn ? 'My Account' : 'Book a Discovery Call'}
+                {isLoggedIn ? "My Account" : "Book a Discovery Call"}
               </span>
             </Button>
           )}

@@ -1,4 +1,4 @@
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Button,
@@ -6,10 +6,10 @@ import {
   Grid,
   Typography,
   useMediaQuery,
-} from '@mui/material';
-import { useRouter } from 'next/router';
+} from "@mui/material";
+import { useRouter } from "next/router";
 
-import theme from '@/styles/theme';
+import theme from "@/styles/theme";
 
 type Props = {
   toggleUpgradeModal: boolean;
@@ -20,7 +20,7 @@ export const UpgradeModal = ({
   toggleUpgradeModal,
   onCloseUpgradeModal,
 }: Props) => {
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const router = useRouter();
 
@@ -32,20 +32,20 @@ export const UpgradeModal = ({
     >
       <Box
         sx={{
-          margin: '3rem',
-          width: { md: '40rem' },
+          margin: "3rem",
+          width: { md: "40rem" },
         }}
       >
         <CloseIcon
           onClick={() => onCloseUpgradeModal()}
           style={{
-            position: 'absolute',
-            right: '1.5rem',
-            top: '1.5rem',
-            cursor: 'pointer',
+            position: "absolute",
+            right: "1.5rem",
+            top: "1.5rem",
+            cursor: "pointer",
           }}
         />
-        <Grid item sx={{ textAlign: 'center' }}>
+        <Grid item sx={{ textAlign: "center" }}>
           <Typography variant="h3">
             This activity isn't available on your current plan
           </Typography>
@@ -60,7 +60,7 @@ export const UpgradeModal = ({
           fullWidth
           onClick={() => router.push(`/wellbeing/upgrade`)}
           sx={{
-            mt: '1rem',
+            mt: "1rem",
             borderRadius: 50,
           }}
         >

@@ -1,4 +1,4 @@
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Alert,
   Box,
@@ -6,13 +6,13 @@ import {
   Dialog,
   Typography,
   useMediaQuery,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+} from "@mui/material";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-import { Account } from '@/models/Account';
-import { useDeleteAccount } from '@/services/account/useDeleteAccount';
-import theme from '@/styles/theme';
+import { Account } from "@/models/Account";
+import { useDeleteAccount } from "@/services/account/useDeleteAccount";
+import theme from "@/styles/theme";
 
 type Props = {
   toggleDeleteModal: number;
@@ -20,7 +20,7 @@ type Props = {
 };
 
 const DeleteModal = (props: Props) => {
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { toggleDeleteModal, accountToDelete } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,10 +46,10 @@ const DeleteModal = (props: Props) => {
         setIsModalOpen(false);
         router.push(
           {
-            pathname: '/wellbeing/community',
+            pathname: "/wellbeing/community",
             query: { deletedAccount: serviceProviderName },
           },
-          '/wellbeing/community'
+          "/wellbeing/community"
         );
       },
       onError: (err) => {
@@ -67,23 +67,23 @@ const DeleteModal = (props: Props) => {
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
         style={{
-          position: 'absolute',
-          right: '1.5rem',
-          top: '1.5rem',
-          cursor: 'pointer',
+          position: "absolute",
+          right: "1.5rem",
+          top: "1.5rem",
+          cursor: "pointer",
         }}
       />
 
       <Box
         sx={{
-          margin: '3rem',
+          margin: "3rem",
         }}
       >
         {showServerErrorAlert && (
           <Alert
             icon={false}
             severity="error"
-            sx={{ position: 'relative', my: '1rem' }}
+            sx={{ position: "relative", my: "1rem" }}
             onClose={() => setShowServerErrorAlert(false)}
           >
             Something went wrong - please try again
@@ -93,8 +93,8 @@ const DeleteModal = (props: Props) => {
         <Typography variant="h1">Confirm delete</Typography>
 
         <Typography variant="body2">
-          Are you sure you want to delete{' '}
-          {accountToDelete?.serviceProviderName || 'this service provider'}?
+          Are you sure you want to delete{" "}
+          {accountToDelete?.serviceProviderName || "this service provider"}?
         </Typography>
         <Typography variant="body2">This action cannot be undone</Typography>
 
@@ -104,9 +104,9 @@ const DeleteModal = (props: Props) => {
           fullWidth
           onClick={() => handleDeleteAccount()}
           sx={{
-            py: '0.8rem',
-            mt: '1rem',
-            width: '210px',
+            py: "0.8rem",
+            mt: "1rem",
+            width: "210px",
             borderRadius: 50,
           }}
         >
@@ -119,10 +119,10 @@ const DeleteModal = (props: Props) => {
           fullWidth
           onClick={() => setIsModalOpen(false)}
           sx={{
-            py: '0.8rem',
-            mt: '1rem',
-            ml: '1rem',
-            width: '210px',
+            py: "0.8rem",
+            mt: "1rem",
+            ml: "1rem",
+            width: "210px",
             borderRadius: 50,
           }}
         >

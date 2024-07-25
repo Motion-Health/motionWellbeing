@@ -1,24 +1,24 @@
-import { Alert, Button, Grid, List, ListItem, Typography } from '@mui/material';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import React from 'react';
+import { Alert, Button, Grid, List, ListItem, Typography } from "@mui/material";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import React from "react";
 
-import { ActivitiesFilters } from '@/components/ActivitiesFilters';
-import { ActivityCard } from '@/components/ActivityCard';
-import ActivitySearch from '@/components/ActivitySearch';
-import Categories from '@/components/ActivitySearch/Cagegories';
-import { GameCard } from '@/components/GameCard';
-import ActivitiesFormModal from '@/components/modals/ActivitiesFormModal';
-import { useAccountContext } from '@/context/AccountContext';
-import { categories as categoriesData } from '@/data/categories';
-import { useActivityTags } from '@/services/activities/useActivityTags';
-import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
-import { ActivityData } from '@/services/activities/useCreateActivity';
-import { useListActivities } from '@/services/activities/useListActivities';
-import { Main } from '@/templates/Main';
+import { ActivitiesFilters } from "@/components/ActivitiesFilters";
+import { ActivityCard } from "@/components/ActivityCard";
+import ActivitySearch from "@/components/ActivitySearch";
+import Categories from "@/components/ActivitySearch/Cagegories";
+import { GameCard } from "@/components/GameCard";
+import ActivitiesFormModal from "@/components/modals/ActivitiesFormModal";
+import { useAccountContext } from "@/context/AccountContext";
+import { categories as categoriesData } from "@/data/categories";
+import { useActivityTags } from "@/services/activities/useActivityTags";
+import { useActivityTimeLengths } from "@/services/activities/useActivityTimeLengths";
+import { ActivityData } from "@/services/activities/useCreateActivity";
+import { useListActivities } from "@/services/activities/useListActivities";
+import { Main } from "@/templates/Main";
 
-import activityStyle from './activityStyle.module.css';
+import activityStyle from "./activityStyle.module.css";
 const Activities = () => {
   const {
     account: { accountStatus },
@@ -30,57 +30,57 @@ const Activities = () => {
   const router = useRouter();
   const [showFailBanner, setShowFailBanner] = useState(false);
   const [failMessage, setFailMessage] = useState(null);
-  const categoryQuery: string | string[] = router.query.filter || '';
+  const categoryQuery: string | string[] = router.query.filter || "";
   const games = [
     {
       id: 1,
-      name: 'Snake',
-      players: '1 Player',
+      name: "Snake",
+      players: "1 Player",
       instructions: `Use the arrow keys to move the snake around the screen
         Eat the apples to grow longer
         Avoid bumping into yourself.`,
-      link: '/wellbeing/games/snake-game',
-      image: '/assets/images/games/Snake.webp',
+      link: "/wellbeing/games/snake-game",
+      image: "/assets/images/games/Snake.webp",
     },
     {
       id: 2,
-      name: 'Quizzical',
-      players: 'Multi player',
+      name: "Quizzical",
+      players: "Multi player",
       instructions: `Test your knowledge with general knowledge questions
       Answer 10 questions then 'Check answers'
       Highest score wins.`,
-      link: '/wellbeing/games/quizzical',
-      image: '/assets/images/games/Quizzical.webp',
+      link: "/wellbeing/games/quizzical",
+      image: "/assets/images/games/Quizzical.webp",
     },
     {
       id: 3,
-      name: 'Colour memory',
-      players: '1 player',
+      name: "Colour memory",
+      players: "1 player",
       instructions: `Select a colour and try to remember it
         Avoid selecting the same colour twice in a row
         Highest score wins.`,
-      link: '/wellbeing/games/colour-game',
-      image: '/assets/images/games/ColourGame.webp',
+      link: "/wellbeing/games/colour-game",
+      image: "/assets/images/games/ColourGame.webp",
     },
     {
       id: 4,
-      name: 'Noughts and crosses',
-      players: '2 player',
+      name: "Noughts and crosses",
+      players: "2 player",
       instructions: `Taking turns, place a nought or cross on the grid
         Aim to get 3 of the same symbol in a row
         3 in a row wins.`,
-      link: '/wellbeing/games/noughts-crosses',
-      image: '/assets/images/games/NoughtsCrosses.webp',
+      link: "/wellbeing/games/noughts-crosses",
+      image: "/assets/images/games/NoughtsCrosses.webp",
     },
     {
       id: 5,
-      name: 'Hangman',
-      players: '1 player',
+      name: "Hangman",
+      players: "1 player",
       instructions: `Select letters to complete the word
         Selecting the wrong letter will add a body part to the man
         Fill in the word before all the body parts are added.`,
-      link: '/wellbeing/games/hangman',
-      image: '/assets/images/games/Hangman.webp',
+      link: "/wellbeing/games/hangman",
+      image: "/assets/images/games/Hangman.webp",
     },
     // {
     //   id: 6,
@@ -92,27 +92,27 @@ const Activities = () => {
     // },
     {
       id: 7,
-      name: 'Sudoku',
-      players: '1 player',
+      name: "Sudoku",
+      players: "1 player",
       instructions: `9x9 square must be filled with numbers 1-9
       No numbers can be repeated vertically or horizontally.`,
-      link: '/wellbeing/games/sudoku',
-      image: '/assets/images/games/Sudoku.webp',
+      link: "/wellbeing/games/sudoku",
+      image: "/assets/images/games/Sudoku.webp",
     },
     {
       id: 8,
-      name: 'Pong',
-      players: '1 player',
+      name: "Pong",
+      players: "1 player",
       instructions: `Hit the ball past your opponent
         Use your paddle to prevent the ball going past you
         To win score more points than the 'Computer'.`,
-      link: '/wellbeing/games/pong',
-      image: '/assets/images/games/Pong.webp',
+      link: "/wellbeing/games/pong",
+      image: "/assets/images/games/Pong.webp",
     },
   ];
   useEffect(() => {
-    if (router.query.task === 'complete') {
-      setSuccessMessage('Success, activity completed!');
+    if (router.query.task === "complete") {
+      setSuccessMessage("Success, activity completed!");
       setShowSuccessBanner(true);
       router.replace(
         {
@@ -122,8 +122,8 @@ const Activities = () => {
         undefined,
         { shallow: true }
       );
-    } else if (router.query.task === 'not-found') {
-      setFailMessage('Activity not found!');
+    } else if (router.query.task === "not-found") {
+      setFailMessage("Activity not found!");
       setShowFailBanner(true);
       router.replace(
         {
@@ -169,7 +169,7 @@ const Activities = () => {
   }, [router.query]);
 
   useEffect(() => {
-    if (!filterValues.includes('all') && filterValues?.length) {
+    if (!filterValues.includes("all") && filterValues?.length) {
       const activityTagValues = activityTags?.map((tag) => tag.value);
       if (activityTagValues?.length) {
         const filterByTags = filterValues.filter((filter) =>
@@ -218,9 +218,9 @@ const Activities = () => {
   useEffect(() => {
     setAllActivitiesAreHidden(false);
 
-    if (accountStatus === 'group' || accountStatus === 'premium') {
+    if (accountStatus === "group" || accountStatus === "premium") {
       const hasPremiumActivities = displayActivities?.find((activity) =>
-        activity.visibleToUsers?.includes('premium')
+        activity.visibleToUsers?.includes("premium")
       );
 
       setAllActivitiesAreHidden(!hasPremiumActivities);
@@ -240,7 +240,7 @@ const Activities = () => {
 
   const onCreateActivity = () => {
     setToggleActivitiesFormModal(Math.random());
-    setModalOpenAction('create-activity');
+    setModalOpenAction("create-activity");
   };
 
   const handleActivitySaved = (newActivity: ActivityData) => {
@@ -269,7 +269,7 @@ const Activities = () => {
   const handleScrollForMore = () => {
     document.body.scrollBy({
       top: 400, // Scroll down by 400 pixels
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -284,9 +284,9 @@ const Activities = () => {
 
   useEffect(() => {
     checkScrollPosition();
-    document.body.addEventListener('scroll', checkScrollPosition);
+    document.body.addEventListener("scroll", checkScrollPosition);
     return () => {
-      document.body.removeEventListener('scroll', checkScrollPosition);
+      document.body.removeEventListener("scroll", checkScrollPosition);
     };
   }, []);
 
@@ -299,7 +299,7 @@ const Activities = () => {
 
       {showFailBanner && failMessage && (
         <Alert
-          sx={{ position: 'inherit', marginBottom: '1rem' }}
+          sx={{ position: "inherit", marginBottom: "1rem" }}
           severity="error"
           onClose={() => setShowFailBanner(false)}
         >
@@ -321,12 +321,12 @@ const Activities = () => {
             <Typography
               className={activityStyle.title}
               variant="h1"
-              sx={{ mb: '16px' }}
+              sx={{ mb: "16px" }}
             >
               Activities
             </Typography>
           </div>
-          {accountStatus === 'admin' && (
+          {accountStatus === "admin" && (
             <Button variant="contained" onClick={() => onCreateActivity()}>
               Create activity
             </Button>
@@ -342,13 +342,13 @@ const Activities = () => {
             <Button
               variant="link"
               sx={{
-                width: 'max-content',
-                minWidth: 'fit-content',
-                '@media (min-width: 900px)': {
-                  display: 'none',
+                width: "max-content",
+                minWidth: "fit-content",
+                "@media (min-width: 900px)": {
+                  display: "none",
                 },
-                '@media (max-width: 480px)': {
-                  fontSize: '0.6rem',
+                "@media (max-width: 480px)": {
+                  fontSize: "0.6rem",
                 },
               }}
               onClick={() => {
@@ -363,11 +363,11 @@ const Activities = () => {
                   width="24"
                   height="24"
                   alt="close"
-                  style={{ display: 'block' }}
+                  style={{ display: "block" }}
                 />
               ) : (
                 <>
-                  {matches ? 'Categories' : ''}
+                  {matches ? "Categories" : ""}
                   <img
                     src="/assets/icons/categories.svg"
                     width="24"
@@ -380,10 +380,10 @@ const Activities = () => {
             <Button
               variant="link"
               sx={{
-                width: 'max-content',
-                minWidth: 'fit-content',
-                '@media (max-width: 480px)': {
-                  fontSize: '0.6rem',
+                width: "max-content",
+                minWidth: "fit-content",
+                "@media (max-width: 480px)": {
+                  fontSize: "0.6rem",
                 },
               }}
               onClick={() => {
@@ -398,11 +398,11 @@ const Activities = () => {
                   width="24"
                   height="24"
                   alt="close"
-                  style={{ display: 'block' }}
+                  style={{ display: "block" }}
                 />
               ) : (
                 <>
-                  {matches ? 'Filters' : ''}
+                  {matches ? "Filters" : ""}
                   <img
                     src="/assets/icons/ph_sliders.svg"
                     width="24"
@@ -418,24 +418,24 @@ const Activities = () => {
           container
           item
           sx={{
-            position: 'relative',
-            width: 'auto',
-            flexWrap: 'nowrap',
+            position: "relative",
+            width: "auto",
+            flexWrap: "nowrap",
             flexGrow: 1,
             minWidth: 0,
-            overflow: 'hidden',
-            '@media (max-width: 900px)': {
-              display: 'none',
+            overflow: "hidden",
+            "@media (max-width: 900px)": {
+              display: "none",
             },
           }}
         >
           <List
             sx={{
               padding: 0,
-              display: 'flex',
+              display: "flex",
               flexGrow: 1,
               minWidth: 0,
-              overflow: 'hidden',
+              overflow: "hidden",
             }}
           >
             <Categories categories={categoriesData} />
@@ -453,7 +453,7 @@ const Activities = () => {
         <List className={activityStyle.categoriesMobile}>
           <ListItem
             className={activityStyle.mobileFilters}
-            onClick={() => router.push('/wellbeing/activities')}
+            onClick={() => router.push("/wellbeing/activities")}
           >
             All
           </ListItem>
@@ -476,9 +476,9 @@ const Activities = () => {
             <Alert
               severity="success"
               sx={{
-                margin: '1rem 1%',
-                position: 'relative',
-                top: '120px',
+                margin: "1rem 1%",
+                position: "relative",
+                top: "120px",
               }}
               onClose={() => setShowSuccessBanner(false)} // Add this line for close button
             >
@@ -490,9 +490,9 @@ const Activities = () => {
           className="curved-corners activities"
           container
           sx={{
-            py: '1.5rem',
+            py: "1.5rem",
             minWidth: 300,
-            mt: '1.5rem',
+            mt: "1.5rem",
           }}
         >
           {displayActivities?.length !== 0 &&
@@ -502,7 +502,7 @@ const Activities = () => {
               );
             })}
 
-          {categoryQuery == 'Games' && (
+          {categoryQuery == "Games" && (
             <>
               {games.map((game) => (
                 <GameCard key={game.id} game={game} />
@@ -511,8 +511,8 @@ const Activities = () => {
           )}
 
           {(displayActivities?.length === 0 || allActivitiesAreHidden) &&
-            categoryQuery != 'Games' && (
-              <Typography sx={{ textAlign: 'center' }}>
+            categoryQuery != "Games" && (
+              <Typography sx={{ textAlign: "center" }}>
                 There are no activities to display
               </Typography>
             )}

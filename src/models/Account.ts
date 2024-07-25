@@ -10,12 +10,12 @@ export type Account = {
   isPartOfAGroup?: string;
   groupName?: string;
   accountStatus:
-    | 'noAccess'
-    | 'standard'
-    | 'group'
-    | 'premium'
-    | 'admin'
-    | 'gis';
+    | "noAccess"
+    | "standard"
+    | "group"
+    | "premium"
+    | "admin"
+    | "gis";
   createdAt?: string;
   lastLogin?: string;
   activitiesCompleted?: number;

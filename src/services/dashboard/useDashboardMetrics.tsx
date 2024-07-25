@@ -1,6 +1,6 @@
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 
-import { API } from '../api';
+import { API } from "../api";
 
 type DashboardParticipants = {
   metricCount: number;
@@ -13,9 +13,9 @@ const getDashboardParticipants = async (
   accountStatus: string,
   dateRangeFilter: string
 ) => {
-  try{
+  try {
     console.log(
-      'getDashboardParticipants',
+      "getDashboardParticipants",
       metric,
       accountId,
       accountStatus,
@@ -26,16 +26,16 @@ const getDashboardParticipants = async (
     );
     console.log(data);
     return data;
-} catch (error) {
-  // If the error is a response from the server, print the message
-  if (error.response) {
-    console.error(error.response.data.message);
-  } else {
-    // Otherwise, it's an error in the request itself
-    console.error(error.message);
+  } catch (error) {
+    // If the error is a response from the server, print the message
+    if (error.response) {
+      console.error(error.response.data.message);
+    } else {
+      // Otherwise, it's an error in the request itself
+      console.error(error.message);
+    }
+    throw error;
   }
-  throw error;
-}
 };
 
 export const useDashboardMetrics = (

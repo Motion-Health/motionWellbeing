@@ -1,8 +1,8 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Box, Drawer, IconButton } from '@mui/material';
-import React, { useEffect } from 'react';
+import CloseIcon from "@mui/icons-material/Close";
+import { Box, Drawer, IconButton } from "@mui/material";
+import React, { useEffect } from "react";
 
-import NavigationItems from './navigationItems';
+import NavigationItems from "./navigationItems";
 type IMainProps = {
   drawerWidth: number;
   mobileOpen: Boolean;
@@ -47,14 +47,14 @@ const Navigation = (props: IMainProps) => {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: 'block', sm: 'block', md: 'none' },
+          display: { xs: "block", sm: "block", md: "none" },
 
-          '& .MuiDrawer-paper': {
+          "& .MuiDrawer-paper": {
             width: drawerWidth,
           },
         }}
       >
-        <IconButton onClick={handleDrawerToggle} sx={{ alignSelf: 'flex-end' }}>
+        <IconButton onClick={handleDrawerToggle} sx={{ alignSelf: "flex-end" }}>
           <CloseIcon />
         </IconButton>
         <NavigationItems />
@@ -62,11 +62,11 @@ const Navigation = (props: IMainProps) => {
       <Drawer
         variant="permanent"
         sx={{
-          display: { xs: 'none', md: 'block' },
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            backgroundColor: 'transparent',
-            border: 'none',
+          display: { xs: "none", md: "block" },
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            backgroundColor: "transparent",
+            border: "none",
           },
         }}
         open

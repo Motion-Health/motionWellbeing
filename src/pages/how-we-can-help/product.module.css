@@ -1,47 +1,45 @@
-.main p{
+.main p {
   font-size: 1.3vw;
   padding: 20px;
   text-align: center;
 }
-.productBody footer{
+.productBody footer {
   padding-top: 10px;
 }
-.steps{
-
+.steps {
   display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
-.main{
+.main {
   padding-top: 6rem;
 }
 
-.productCard{
+.productCard {
   border-radius: 15px;
   padding: 0px 10px;
   transition: all 0.3s ease-in-out;
   max-height: 90px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 -5px 8px rgba(0,0,0,.1);
+  box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.1);
   color: black;
   max-width: 90%;
   text-align: center;
   margin: auto;
 }
-.productCard .flexText{
+.productCard .flexText {
   /* display: inline-flex; */
   padding: 0% 4%;
-
 }
-.startedImage{
+.startedImage {
   width: 40%;
   margin: auto;
   display: block;
   border-radius: 20px;
 }
 
-.leadImage{
+.leadImage {
   display: block;
   border-radius: 20px;
   width: 55%;
@@ -50,8 +48,8 @@
 
 .main .productCard.expanded {
   max-height: fit-content;
-  border-radius:30px;
-  max-height: fit-content;  
+  border-radius: 30px;
+  max-height: fit-content;
   transition: max-height 0.3s ease;
   padding-bottom: 0px;
   transition: all 0.3s ease-in-out;
@@ -61,22 +59,19 @@
   /* transform: translateY(-85px);  */
   margin: 10px auto;
 }
-.flexDisplay{
+.flexDisplay {
   display: flex;
 }
 .productCard:nth-child(3) {
   /* transform: translateY(-215px);   */
   margin: 10px auto 15px auto;
   padding-bottom: 20px;
-
 }
 
-
-.laptopFrame, .screenContent {
-  grid-area: 1 / 1 / 2 / 2; 
+.laptopFrame,
+.screenContent {
+  grid-area: 1 / 1 / 2 / 2;
 }
-
-
 
 body .laptopFrame {
   z-index: 2;
@@ -91,13 +86,13 @@ body .laptopFrame {
   z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  transition: transform 0.5s ease; 
-  transform: translateX(100%); 
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  transform: translateX(100%);
   overflow: hidden;
-    margin: auto;
+  margin: auto;
   position: relative;
-  transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;
   transform: translateX(100%); /* Initially move the image to the right */
 }
 
@@ -108,7 +103,6 @@ body .laptopFrame {
   width: -moz-fit-content;
   width: fit-content;
   max-width: 569px;
-
 }
 
 .laptopFrame {
@@ -127,8 +121,8 @@ body .laptopFrame {
 
 /* Assuming you have a CSS module for your product as styles */
 .screenContent {
-  transition: transform 0.3s ease;   /* smooth slide transition */
-  transform: translateX(0%);       /* initially position it outside the frame */
+  transition: transform 0.3s ease; /* smooth slide transition */
+  transform: translateX(0%); /* initially position it outside the frame */
 }
 
 /* These classes will determine the position of the screen content */
@@ -136,20 +130,19 @@ body .laptopFrame {
   transform: translateX(100%);
 }
 
-.fillAvailable{
+.fillAvailable {
   width: fit-content;
   margin-left: 40px;
-
 }
-.blueBackground{
+.blueBackground {
   background-color: #c4e6f55c;
 }
-.motionTitle{
+.motionTitle {
   text-align: center;
   font-size: 25px;
 }
 
-.featureButton{
+.featureButton {
   padding: 29px;
   border: 2px dashed;
   width: 100px;
@@ -160,9 +153,9 @@ body .laptopFrame {
   border-radius: 20px;
   text-align: center;
 }
-  
 
-.featureButton:hover, .active{
+.featureButton:hover,
+.active {
   background-color: #fff;
   color: #000;
 }
@@ -172,24 +165,22 @@ body .laptopFrame {
   justify-content: center;
 }
 
-
-@media (max-width: 900px){
-  .main p{
+@media (max-width: 900px) {
+  .main p {
     font-size: 2.3vw;
   }
-
 }
-.discoveryTitle{
+.discoveryTitle {
   text-align: center;
 }
-.discoveryText{
+.discoveryText {
   text-align: center;
-    margin: 0px 100px;
+  margin: 0px 100px;
 }
-.productCard h1{
+.productCard h1 {
   text-align: center;
 }
-.stepsImage{
+.stepsImage {
   text-align: center;
   margin: 20px;
   position: relative;
@@ -199,40 +190,43 @@ body .laptopFrame {
   justify-content: center;
   align-items: center;
 }
-.stepsImage div div{
+.stepsImage div div {
   cursor: pointer;
 }
-.stepsImage h1{
+.stepsImage h1 {
   font-size: 20px;
 }
-.arrow{
+.arrow {
   position: absolute;
- 
+
   transform: rotate(270deg);
 }
 
-.arrowTwo{
+.arrowTwo {
   position: absolute;
   transform: rotate(270deg);
 }
 
-
-.boost, .started, .spread{
-  width:150px;
+.boost,
+.started,
+.spread {
+  width: 150px;
   cursor: pointer;
   margin: 0px 60px;
   text-align: -webkit-center;
 }
-.boost div{
-  background-color:hwb(336.67deg 92.55% 0.39%);
+.boost div {
+  background-color: hwb(336.67deg 92.55% 0.39%);
 }
-.started div{
-  background-color:hwb(163.85deg 87.84% 1.96%);
+.started div {
+  background-color: hwb(163.85deg 87.84% 1.96%);
 }
-.spread div{
-  background-color:#d1e7ff;
+.spread div {
+  background-color: #d1e7ff;
 }
-.spread div img, .started div img, .boost div img{
+.spread div img,
+.started div img,
+.boost div img {
   width: 55%;
   object-fit: cover;
   margin: 0;
@@ -242,76 +236,76 @@ body .laptopFrame {
   transform: translate(-50%, -50%);
 }
 
-
-.boost div, .started div, .spread div{
-  padding:15px;
-  height:80px;
-  width:80px;
-  border-radius:100%;
+.boost div,
+.started div,
+.spread div {
+  padding: 15px;
+  height: 80px;
+  width: 80px;
+  border-radius: 100%;
   position: relative;
 }
 
 /* on hover */
-.boost:hover, .started:hover, .spread:hover{
+.boost:hover,
+.started:hover,
+.spread:hover {
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
 
-
-
-.screenContent{    overflow: hidden;
+.screenContent {
+  overflow: hidden;
   display: inline-flex;
   height: -webkit-fill-available;
   padding: 7px 0px 55px 1px;
   max-width: 436px;
-
 }
-.stepContent{ overflow: auto}
+.stepContent {
+  overflow: auto;
+}
 
-@media(min-width:1250px){
-  .flexDisplay{
+@media (min-width: 1250px) {
+  .flexDisplay {
     flex-wrap: nowrap;
   }
 }
 
 @media (max-width: 900px) {
-  .steps{
+  .steps {
     display: block;
   }
-
 }
-.phoneContainer{
+.phoneContainer {
   display: none;
 }
 
-.discoveryText{
+.discoveryText {
   margin-bottom: 40px;
 }
 
-
-
-
 @media (max-width: 900px) {
-  .screenContent{
+  .screenContent {
     padding: 0;
   }
-  .featureButton{
+  .featureButton {
     padding: 15px;
   }
-  .fillAvailable{
+  .fillAvailable {
     display: flex;
     margin-left: 0px;
     justify-content: space-evenly;
     gap: 10px;
     margin: auto;
   }
- 
-  .laptopContainer{
+
+  .laptopContainer {
     display: none;
   }
-  .discoveryText{margin: 0px 0px 75px 0px;
+  .discoveryText {
+    margin: 0px 0px 75px 0px;
   }
-  .phoneContainer{
+  .phoneContainer {
     display: flex;
     position: relative;
 
@@ -322,17 +316,17 @@ body .laptopFrame {
   .main p {
     font-size: 2vh;
   }
-  
-
 }
 
-.main{
+.main {
   border-bottom-left-radius: 5% 8%;
   border-bottom-right-radius: 5% 8%;
   background: linear-gradient(to bottom, #fff, #6bc6fa29);
 }
-.stepsContent{    margin-bottom: -0px;
-  padding-bottom: 25px;}
+.stepsContent {
+  margin-bottom: -0px;
+  padding-bottom: 25px;
+}
 
 .closeButton {
   display: block;
@@ -355,88 +349,90 @@ body .laptopFrame {
   position: relative; /* This makes sure the closeButton is positioned correctly within the card */
   /* Other styles remain unchanged */
 }
-.bookMeetingContainer{
+.bookMeetingContainer {
   width: 1000px;
   margin: auto;
 }
 
-.bookMeeting{
+.bookMeeting {
   display: inline-flex;
 }
 
-.bookMeeting img{
+.bookMeeting img {
   width: 35%;
-    height: -moz-fit-content;
-    height: -webkit-fill-available;
-    border-radius: 20px;
-    padding: 0px 10px;
-    object-fit: cover;
-    object-position: 23% 0%;
-    height: 850px;
+  height: -moz-fit-content;
+  height: -webkit-fill-available;
+  border-radius: 20px;
+  padding: 0px 10px;
+  object-fit: cover;
+  object-position: 23% 0%;
+  height: 850px;
 }
- 
 
-.calendly{
+.calendly {
   overflow: hidden;
   height: -webkit-fill-available;
 }
 
-.calendly iframe{
+.calendly iframe {
   height: -webkit-fill-available;
 }
-.bookMeeting{
+.bookMeeting {
   display: inline-flex;
 }
-.calendlyContainer{
+.calendlyContainer {
   width: 70%;
   height: 860px;
   overflow: auto;
 }
 
-@media (max-width: 1000px){
-  .bookMeetingContainer{
+@media (max-width: 1000px) {
+  .bookMeetingContainer {
     width: 100%;
   }
-  .bookMeeting{
+  .bookMeeting {
     display: flex;
   }
-  .bookMeeting img{
+  .bookMeeting img {
     display: none;
   }
-  .calendlyContainer{
+  .calendlyContainer {
     width: 654px;
     overflow: auto;
     margin: auto;
     display: inline-block;
     height: 860px;
   }
-  .calendly{
+  .calendly {
     overflow: hidden;
     height: -webkit-fill-available;
-    margin-right: -30px!important;
+    margin-right: -30px !important;
     width: 100%;
   }
 }
-@media (max-width: 800px){
-  .arrow, .arrowTwo{
+@media (max-width: 800px) {
+  .arrow,
+  .arrowTwo {
     display: none;
   }
-  .spread, .started, .boost{
+  .spread,
+  .started,
+  .boost {
     margin: 0px;
   }
-  .stepsImage{
+  .stepsImage {
     align-items: stretch;
   }
-  .productCard{
-    max-height:80px;
+  .productCard {
+    max-height: 80px;
   }
-  .startedImage, .leadImage{
-    width:100%;
+  .startedImage,
+  .leadImage {
+    width: 100%;
   }
-
 }
 
-.phoneContent{
+.phoneContent {
   overflow: hidden;
   margin: 20px 55px;
   width: 88%;

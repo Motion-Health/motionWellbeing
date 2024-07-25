@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
-import styles from './form.module.css';
+import styles from "./form.module.css";
 
 export const Contact = () => {
   const myRef: any = useRef(null);

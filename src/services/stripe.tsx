@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { API } from '../services/api';
+import { API } from "../services/api";
 
 export const GetProductsFromStripe = async () => {
   const products = await axios
-    .get('https://api.stripe.com/v1/products', {
+    .get("https://api.stripe.com/v1/products", {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`,
       },
@@ -18,7 +18,7 @@ export const GetProductsFromStripe = async () => {
 export const GetPrice = async (priceCode) => {
   console.log(priceCode);
   const price = await axios
-    .get('https://api.stripe.com/v1/prices/' + priceCode, {
+    .get("https://api.stripe.com/v1/prices/" + priceCode, {
       headers: {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`,
       },
@@ -31,7 +31,7 @@ export const GetPrice = async (priceCode) => {
 };
 
 export const checkout = async (priceId, type, accountId) => {
-  const session_url = await API.post('/create-checkout-session', {
+  const session_url = await API.post("/create-checkout-session", {
     priceId,
     type,
     accountId,

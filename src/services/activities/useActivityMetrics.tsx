@@ -1,6 +1,6 @@
-import { useQuery } from 'react-query';
+import { useQuery } from "react-query";
 
-import { API } from '../api';
+import { API } from "../api";
 
 type ActivityMetrics = {
   timesCompleted: number;
@@ -15,7 +15,7 @@ const getActivityMetrics = async (activityId: string) => {
 };
 
 const listActivities = async () => {
-  const { data } = await API.get('/activities/');
+  const { data } = await API.get("/activities/");
   return Promise.all(
     data.map(async (activity) => ({
       ...activity,
@@ -25,7 +25,7 @@ const listActivities = async () => {
 };
 
 export const useListActivitiesWithMetrics = () => {
-  return useQuery(['list_activities_with_metrics'], listActivities);
+  return useQuery(["list_activities_with_metrics"], listActivities);
 };
 
 export const useActivityMetrics = (activityId?: string | undefined) => {

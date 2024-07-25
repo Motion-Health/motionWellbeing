@@ -1,38 +1,38 @@
 export const categories = [
   {
-    title: 'Armchair travel',
-    filter: 'armchairTravel',
+    title: "Armchair travel",
+    filter: "armchairTravel",
   },
   {
-    title: 'Arts & Crafts',
-    filter: 'artsAndCrafts',
+    title: "Arts & Crafts",
+    filter: "artsAndCrafts",
   },
   {
-    title: 'Culture & Religion',
-    filter: 'cultureAndReligion',
+    title: "Culture & Religion",
+    filter: "cultureAndReligion",
   },
   {
-    title: 'Education',
-    filter: 'education',
+    title: "Education",
+    filter: "education",
   },
   {
-    title: 'Games',
-    filter: 'Games',
+    title: "Games",
+    filter: "Games",
   },
   {
-    title: 'Golf in Society',
-    filter: 'gis',
+    title: "Golf in Society",
+    filter: "gis",
   },
   {
-    title: 'Movement & Sport',
-    filter: 'movementAndSport',
+    title: "Movement & Sport",
+    filter: "movementAndSport",
   },
   {
-    title: 'Music',
-    filter: 'music',
+    title: "Music",
+    filter: "music",
   },
   {
-    title: 'Staff wellbeing',
-    filter: 'staffWellbeing',
+    title: "Staff wellbeing",
+    filter: "staffWellbeing",
   },
 ];

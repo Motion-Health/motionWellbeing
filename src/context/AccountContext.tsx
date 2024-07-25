@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import {
   createContext,
   ReactNode,
   useContext,
   useEffect,
   useState,
-} from 'react';
+} from "react";
 
 type AccountProviderProps = {
   children: ReactNode;
@@ -20,12 +20,12 @@ type Account = {
   serviceProviderName: any;
   accountId?: string | null;
   accountStatus?:
-    | 'noAccess'
-    | 'standard'
-    | 'group'
-    | 'premium'
-    | 'admin'
-    | 'gis';
+    | "noAccess"
+    | "standard"
+    | "group"
+    | "premium"
+    | "admin"
+    | "gis";
 };
 
 const AccountContext = createContext({} as AccountContextMethods);
@@ -46,16 +46,16 @@ export function AccountProvider({ children }: AccountProviderProps) {
   useEffect(() => {
     // Check the pathname once and store the results
     const isInAdditionalInfoPage = router.pathname.includes(
-      '/additional-information'
+      "/additional-information"
     );
-    const isInLoginPage = router.pathname.includes('/login');
-    const isInWellbeingPage = router.pathname.includes('/wellbeing');
-    const isFirstLogin = router.query.isFirstLogin === 'true';
-    const isRegisterPage = router.pathname.includes('/create-account');
-    const isiFramePage = router.pathname.includes('/iframe');
+    const isInLoginPage = router.pathname.includes("/login");
+    const isInWellbeingPage = router.pathname.includes("/wellbeing");
+    const isFirstLogin = router.query.isFirstLogin === "true";
+    const isRegisterPage = router.pathname.includes("/create-account");
+    const isiFramePage = router.pathname.includes("/iframe");
     // If in a wellbeing page, but not in additional info or login page, and account is not null
     if (isFirstLogin) {
-      account.serviceProviderName = 'fillerValue';
+      account.serviceProviderName = "fillerValue";
     }
     if (
       isInWellbeingPage &&
@@ -69,7 +69,7 @@ export function AccountProvider({ children }: AccountProviderProps) {
       const { accountId, serviceProviderName } = account;
       // If accountId is not null and serviceProviderName is null, redirect
       if (accountId !== null && serviceProviderName === null) {
-        router.push('/wellbeing/additional-information');
+        router.push("/wellbeing/additional-information");
       }
     }
   }, [account, router]);

@@ -1,7 +1,8 @@
-.supportContainer{display: flex;
-    align-items: center;
+.supportContainer {
+  display: flex;
+  align-items: center;
 }
-.support{
+.support {
   background-color: white;
   margin: auto;
   width: fit-content;
@@ -9,31 +10,27 @@
   vertical-align: middle;
   display: flex;
   border-radius: 20px;
-  box-shadow: 0 9px 13px rgba(0,0,0,.1);
+  box-shadow: 0 9px 13px rgba(0, 0, 0, 0.1);
   align-content: center;
   justify-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-
 }
 
-.support img{
-
+.support img {
   width: 200px;
   padding: 20px;
   margin: 14px;
 }
-.actionButtons{
+.actionButtons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-
 }
-.supportButton{
-
+.supportButton {
   padding: 20px;
   border: 1px solid #0c437d;
   background-color: white;
@@ -43,8 +40,7 @@
   cursor: pointer;
   border-radius: 25px;
 }
-.callButton{
-
+.callButton {
   padding: 20px;
   border-radius: 25px;
   border: none;
@@ -55,8 +51,8 @@
   cursor: pointer;
 }
 
-@media (max-width: 600px){
-  .support{
+@media (max-width: 600px) {
+  .support {
     flex-direction: column;
   }
 }

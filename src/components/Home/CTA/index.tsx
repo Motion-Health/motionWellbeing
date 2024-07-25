@@ -1,6 +1,6 @@
-import Image from 'next/legacy/image';
+import Image from "next/legacy/image";
 
-import styles from './CTA.module.css';
+import styles from "./CTA.module.css";
 export const CTA = () => {
   return (
     <section className={styles.CTAWrapper}>

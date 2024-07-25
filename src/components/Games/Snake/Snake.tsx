@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import defaultStyes from '@/pages/wellbeing/games/gameDefaults.module.css';
+import defaultStyes from "@/pages/wellbeing/games/gameDefaults.module.css";
 
-import styles from './Snake.module.css';
+import styles from "./Snake.module.css";
 interface Props {
   color1: string;
   color2: string;
@@ -13,29 +13,29 @@ interface Props {
 const Snake: React.FC<Props> = (props) => {
   const [dim, setDim] = useState<number>(0);
   const [chunk, setChunk] = useState<number>(0);
-  const [direction, setDirection] = useState('right');
+  const [direction, setDirection] = useState("right");
   const [fruit, setFruit] = useState<number>(26);
   const [points, setPoints] = useState<number>(0);
   const [game, setGame] = useState<boolean>(false);
   const width: number = window.innerWidth;
   const speedRef = useRef(500);
-  const [difficulty, setDifficulty] = useState('1'); // Default to easy
+  const [difficulty, setDifficulty] = useState("1"); // Default to easy
   useEffect(() => {
     // Set speed based on difficulty
     switch (difficulty) {
-      case '1':
+      case "1":
         speedRef.current = 500;
         break;
-      case '2':
+      case "2":
         speedRef.current = 300;
         break;
-      case '3':
+      case "3":
         speedRef.current = 150;
         break;
-      case '4':
+      case "4":
         speedRef.current = 100;
         break;
-      case '5':
+      case "5":
         speedRef.current = 50;
         break;
       default:
@@ -45,7 +45,7 @@ const Snake: React.FC<Props> = (props) => {
 
   const [snake, setSnake] = useState<any>([
     {
-      direction: 'right',
+      direction: "right",
       part: [186, 185, 184, 183],
     },
   ]);
@@ -57,10 +57,10 @@ const Snake: React.FC<Props> = (props) => {
   const reset = () => {
     speedRef.current = 500;
     setPoints(0);
-    setDirection('right');
+    setDirection("right");
     setSnake([
       {
-        direction: 'right',
+        direction: "right",
         part: [186, 185, 184, 183],
       },
     ]);
@@ -83,10 +83,10 @@ const Snake: React.FC<Props> = (props) => {
         j++;
       }
       addToArr
-        ? arr.push('bang')
+        ? arr.push("bang")
         : i === fruit
-        ? arr.push('fruit')
-        : arr.push('');
+        ? arr.push("fruit")
+        : arr.push("");
     }
     return arr;
   };
@@ -119,28 +119,28 @@ const Snake: React.FC<Props> = (props) => {
       setPoints(points + 1);
       let sneak = [...snake];
       let firstSection = sneak[0];
-      if (firstSection.direction === 'up') {
+      if (firstSection.direction === "up") {
         let y = firstSection.part[0] - 20;
         if (y < 0) {
           firstSection.part.unshift(y + 400);
         } else {
           firstSection.part.unshift(y);
         }
-      } else if (firstSection.direction === 'right') {
+      } else if (firstSection.direction === "right") {
         let y = firstSection.part[0] + 1;
         if (y % 20 === 0) {
           firstSection.part.unshift(y + -20);
         } else {
           firstSection.part.unshift(y);
         }
-      } else if (firstSection.direction === 'down') {
+      } else if (firstSection.direction === "down") {
         let y = firstSection.part[0] + 20;
         if (y >= 400) {
           firstSection.part.unshift(y - 400);
         } else {
           firstSection.part.unshift(y);
         }
-      } else if (firstSection.direction === 'left') {
+      } else if (firstSection.direction === "left") {
         let y = firstSection.part[0] - 1;
         if (y % 20 === 19) {
           firstSection.part.unshift(y + 20);
@@ -168,25 +168,25 @@ const Snake: React.FC<Props> = (props) => {
       const handleKeydown = (e: any) => {
         //let tempSnake: any = [...snake];
         switch (e.code) {
-          case 'ArrowUp':
+          case "ArrowUp":
             e.preventDefault();
-            turn('up', 'down');
+            turn("up", "down");
             break;
-          case 'ArrowRight':
+          case "ArrowRight":
             e.preventDefault();
-            turn('right', 'left');
+            turn("right", "left");
             break;
-          case 'ArrowDown':
+          case "ArrowDown":
             e.preventDefault();
-            turn('down', 'up');
+            turn("down", "up");
             break;
-          case 'ArrowLeft':
+          case "ArrowLeft":
             e.preventDefault();
-            turn('left', 'right');
+            turn("left", "right");
             break;
         }
       };
-      document.addEventListener('keydown', handleKeydown);
+      document.addEventListener("keydown", handleKeydown);
 
       //event interval
       const interval = setInterval(() => {
@@ -207,7 +207,7 @@ const Snake: React.FC<Props> = (props) => {
         //perform movement changes to each chunk
         let sneak: any[] = dupSneak;
         sneak.map((section: any) => {
-          if (section.direction === 'right') {
+          if (section.direction === "right") {
             section.part.map((x: number, i: number) => {
               let y = x + 1;
               if (y % 20 === 0) {
@@ -216,7 +216,7 @@ const Snake: React.FC<Props> = (props) => {
                 return (section.part[i] = y);
               }
             });
-          } else if (section.direction === 'up') {
+          } else if (section.direction === "up") {
             section.part.map((x: number, i: number) => {
               let y = x - 20;
               if (y < 0) {
@@ -225,7 +225,7 @@ const Snake: React.FC<Props> = (props) => {
                 return (section.part[i] = y);
               }
             });
-          } else if (section.direction === 'left') {
+          } else if (section.direction === "left") {
             section.part.map((x: number, i: number) => {
               let y = x - 1;
               if (y % 20 === 19) {
@@ -234,7 +234,7 @@ const Snake: React.FC<Props> = (props) => {
                 return (section.part[i] = y);
               }
             });
-          } else if (section.direction === 'down') {
+          } else if (section.direction === "down") {
             section.part.map((x: number, i: number) => {
               let y = x + 20;
               if (y >= 400) {
@@ -244,7 +244,7 @@ const Snake: React.FC<Props> = (props) => {
               }
             });
           }
-          return '';
+          return "";
         });
         setSnake(sneak);
       }, speedRef.current);
@@ -252,14 +252,14 @@ const Snake: React.FC<Props> = (props) => {
       //remove interval and listeners
       return () => {
         clearInterval(interval);
-        document.removeEventListener('keydown', handleKeydown);
+        document.removeEventListener("keydown", handleKeydown);
       };
     }
   }, [turn, width, dim, chunk, snake, direction, points, fruit, game]);
 
   return (
     <div className={styles.snakeContainer} id="snake-container">
-      <div style={{ marginLeft: '85px' }}>
+      <div style={{ marginLeft: "85px" }}>
         <div
           className={styles.gameBorder}
           style={{
@@ -271,15 +271,15 @@ const Snake: React.FC<Props> = (props) => {
           {pieces().map((piece, i) => {
             return (
               <div
-                key={'piece' + i}
+                key={"piece" + i}
                 style={
-                  piece === 'bang'
+                  piece === "bang"
                     ? {
                         width: chunk,
                         height: chunk,
                         backgroundColor: props.color1,
                       }
-                    : piece === 'fruit'
+                    : piece === "fruit"
                     ? {
                         width: chunk,
                         height: chunk,
@@ -312,55 +312,55 @@ const Snake: React.FC<Props> = (props) => {
         </div>
         <div className={styles.controls}>
           <div>
-            <button onClick={() => turn('up', 'down')}>&#8593;</button>
+            <button onClick={() => turn("up", "down")}>&#8593;</button>
           </div>
           <div>
-            <button onClick={() => turn('left', 'right')}>&#8592;</button>
-            <button onClick={() => turn('right', 'left')}>&#8594;</button>
+            <button onClick={() => turn("left", "right")}>&#8592;</button>
+            <button onClick={() => turn("right", "left")}>&#8594;</button>
           </div>
           <div>
-            <button onClick={() => turn('down', 'up')}>&#8595;</button>
+            <button onClick={() => turn("down", "up")}>&#8595;</button>
           </div>
         </div>
 
         <div className={styles.difficultySelector}>
           <button
             className={`${defaultStyes.button} ${
-              difficulty === '1' ? defaultStyes.buttonActive : ''
+              difficulty === "1" ? defaultStyes.buttonActive : ""
             }`}
-            onClick={() => setDifficulty('1')}
+            onClick={() => setDifficulty("1")}
           >
             Level 1
           </button>
           <button
             className={`${defaultStyes.button} ${
-              difficulty === '2' ? defaultStyes.buttonActive : ''
+              difficulty === "2" ? defaultStyes.buttonActive : ""
             }`}
-            onClick={() => setDifficulty('2')}
+            onClick={() => setDifficulty("2")}
           >
             Level 2
           </button>
           <button
             className={`${defaultStyes.button} ${
-              difficulty === '3' ? defaultStyes.buttonActive : ''
+              difficulty === "3" ? defaultStyes.buttonActive : ""
             }`}
-            onClick={() => setDifficulty('3')}
+            onClick={() => setDifficulty("3")}
           >
             Level 3
           </button>
           <button
             className={`${defaultStyes.button} ${
-              difficulty === '4' ? defaultStyes.buttonActive : ''
+              difficulty === "4" ? defaultStyes.buttonActive : ""
             }`}
-            onClick={() => setDifficulty('4')}
+            onClick={() => setDifficulty("4")}
           >
             Level 4
           </button>
           <button
             className={`${defaultStyes.button} ${
-              difficulty === '5' ? defaultStyes.buttonActive : ''
+              difficulty === "5" ? defaultStyes.buttonActive : ""
             }`}
-            onClick={() => setDifficulty('5')}
+            onClick={() => setDifficulty("5")}
           >
             Level 5
           </button>

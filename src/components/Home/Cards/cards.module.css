@@ -36,7 +36,7 @@
 
 @media (max-width: 992px) {
   .card,
-  .cardAlternative {  
+  .cardAlternative {
     width: 70%;
     max-width: 70%;
     margin-bottom: 0rem;
@@ -46,20 +46,18 @@
 .card img,
 .cardAlternative img {
   max-width: 600px;
-  height: 300px;  
+  height: 300px;
   object-fit: contain;
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
 
-.imageWrapper{
-  padding:10px;
+.imageWrapper {
+  padding: 10px;
 }
 
-
 @media (max-width: 992px) {
-
   .card img,
   .cardAlternative img {
     max-width: 100%;

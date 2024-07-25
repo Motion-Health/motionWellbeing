@@ -1,12 +1,12 @@
-import { Dialog, Grid, Typography, useMediaQuery } from '@mui/material';
+import { Dialog, Grid, Typography, useMediaQuery } from "@mui/material";
 
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
-import { ActivityData } from '@/services/activities/useCreateActivity';
-import { useUpdateCompletedActivity } from '@/services/activities/useUpdateCompletedActivity';
-import theme from '@/styles/theme';
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
+import { ActivityData } from "@/services/activities/useCreateActivity";
+import { useUpdateCompletedActivity } from "@/services/activities/useUpdateCompletedActivity";
+import theme from "@/styles/theme";
 
 type Props = {
-  toggleRatingModalAction: 'button-click' | 'video-timer' | null;
+  toggleRatingModalAction: "button-click" | "video-timer" | null;
   onCloseRatingModal: (
     openCommentModal: boolean | null,
     activityCompletedId?: string | null
@@ -23,7 +23,7 @@ export const ActivityRatingModal = ({
   activityData,
   openRatingModal,
 }: Props) => {
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const completeActivity = useCompleteActivity();
   const updateCompletedActivity = useUpdateCompletedActivity();
@@ -37,15 +37,15 @@ export const ActivityRatingModal = ({
         // participants: null,
       };
 
-      console.log('updatedCompletedActivity', updatedCompletedActivity);
+      console.log("updatedCompletedActivity", updatedCompletedActivity);
 
       updateCompletedActivity.mutate(updatedCompletedActivity, {
         onSuccess: (res) => {
           const { activityCompletedId } = res.data;
           onCloseRatingModal(true, activityCompletedId);
-          console.log('false 1');
+          console.log("false 1");
         },
-        onError: (err) => console.log('err', err),
+        onError: (err) => console.log("err", err),
       });
     } else {
       const activityId = activityData?.activityId;
@@ -53,14 +53,14 @@ export const ActivityRatingModal = ({
         activityId,
         rating,
       };
-      console.log('updatedCompletedActivity', updatedCompletedActivity);
+      console.log("updatedCompletedActivity", updatedCompletedActivity);
       completeActivity.mutate(updatedCompletedActivity, {
         onSuccess: (res) => {
           const { activityCompletedId } = res.data;
           onCloseRatingModal(true, activityCompletedId);
         },
         onError: (err) => {
-          console.log('err', err);
+          console.log("err", err);
         },
       });
     }
@@ -84,7 +84,7 @@ export const ActivityRatingModal = ({
         />
       )} */}
 
-      <Grid container sx={{ padding: '1.5rem' }}>
+      <Grid container sx={{ padding: "1.5rem" }}>
         <Grid container>
           <Typography variant="h1">
             How did the participant(s) find the activity?
@@ -92,9 +92,9 @@ export const ActivityRatingModal = ({
           <Grid
             container
             sx={{
-              justifyContent: 'space-between',
-              position: 'relative',
-              flexWrap: 'initial',
+              justifyContent: "space-between",
+              position: "relative",
+              flexWrap: "initial",
             }}
           >
             {ratingsOptions.map((option) => (
@@ -102,24 +102,24 @@ export const ActivityRatingModal = ({
                 item
                 key={option.label}
                 sx={{
-                  mr: '1.5rem',
+                  mr: "1.5rem",
                   flexShrink: 1,
-                  flexDirection: 'row',
-                  flexWrap: 'initial',
-                  position: 'relative',
+                  flexDirection: "row",
+                  flexWrap: "initial",
+                  position: "relative",
                   margin: 0,
-                  padding: '0.75rem',
-                  maxWidth: '10rem',
-                  cursor: 'pointer',
+                  padding: "0.75rem",
+                  maxWidth: "10rem",
+                  cursor: "pointer",
                 }}
                 onClick={() => handleAddRating(option.value)}
               >
                 <img
                   src={option.icon}
                   alt="Face icon"
-                  style={{ maxWidth: '160px', width: '100%' }}
+                  style={{ maxWidth: "160px", width: "100%" }}
                 />
-                <Typography variant="h3" textAlign={'center'}>
+                <Typography variant="h3" textAlign={"center"}>
                   {option.label}
                 </Typography>
               </Grid>
@@ -134,27 +134,27 @@ export const ActivityRatingModal = ({
 const ratingsOptions = [
   {
     value: 1,
-    label: 'Very bad',
-    icon: '/assets/emotions/emotion-1.svg',
+    label: "Very bad",
+    icon: "/assets/emotions/emotion-1.svg",
   },
   {
     value: 2,
-    label: 'Poor',
-    icon: '/assets/emotions/emotion-2.svg',
+    label: "Poor",
+    icon: "/assets/emotions/emotion-2.svg",
   },
   {
     value: 3,
-    label: 'Average',
-    icon: '/assets/emotions/emotion-3.svg',
+    label: "Average",
+    icon: "/assets/emotions/emotion-3.svg",
   },
   {
     value: 4,
-    label: 'Good',
-    icon: '/assets/emotions/emotion-4.svg',
+    label: "Good",
+    icon: "/assets/emotions/emotion-4.svg",
   },
   {
     value: 5,
-    label: 'Excellent',
-    icon: '/assets/emotions/emotion-5.svg',
+    label: "Excellent",
+    icon: "/assets/emotions/emotion-5.svg",
   },
 ];

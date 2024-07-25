@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
-import Pong from '@/components/Games/Pong';
-import { GameWindow } from '@/components/GameWindow';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import Pong from "@/components/Games/Pong";
+import { GameWindow } from "@/components/GameWindow";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
 
 // Dynamically import the Snake component with SSR disabled
 
@@ -21,7 +21,7 @@ const SnakeGame = () => {
         { activityId: 208 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );
@@ -31,19 +31,19 @@ const SnakeGame = () => {
   }, []);
   const game = {
     id: 1,
-    name: 'Pong',
-    description: 'A classic game of Pong',
+    name: "Pong",
+    description: "A classic game of Pong",
     instructions:
-      'Move the paddle up and down to hit the ball. Dont let the ball get past you!',
-    link: '/wellbeing/games/pong',
+      "Move the paddle up and down to hit the ball. Dont let the ball get past you!",
+    link: "/wellbeing/games/pong",
   };
 
   const handleResume = () => {
     // Code to resume the game
-    console.log('Resuming game');
+    console.log("Resuming game");
   };
   const handleRestart = () => {
-    console.log('Restarting game');
+    console.log("Restarting game");
     setRestartNum(restartNum + 1); // Call the passed onRestart prop to reset the game state
   };
   return (

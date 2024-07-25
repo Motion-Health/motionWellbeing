@@ -1,6 +1,6 @@
-import { Button, Dialog, Grid, Typography, useMediaQuery } from '@mui/material';
+import { Button, Dialog, Grid, Typography, useMediaQuery } from "@mui/material";
 
-import theme from '@/styles/theme';
+import theme from "@/styles/theme";
 
 type Props = {
   toggleShareModalAction: boolean;
@@ -11,7 +11,7 @@ export const ActivityShareModal = ({
   toggleShareModalAction,
   onCloseShareModal,
 }: Props) => {
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Dialog
@@ -23,10 +23,10 @@ export const ActivityShareModal = ({
         <Grid
           container
           sx={{
-            position: 'relative',
-            flexWrap: 'initial',
-            flexDirection: 'column',
-            margin: '3rem',
+            position: "relative",
+            flexWrap: "initial",
+            flexDirection: "column",
+            margin: "3rem",
           }}
         >
           <Grid item>
@@ -37,7 +37,7 @@ export const ActivityShareModal = ({
             <img
               src="/assets/images/og-image.jpg"
               alt="Image of a Motion group activity"
-              style={{ maxWidth: '848px', width: '100%' }}
+              style={{ maxWidth: "848px", width: "100%" }}
             />
           </Grid>
 
@@ -48,16 +48,16 @@ export const ActivityShareModal = ({
               fullWidth
               type="submit"
               sx={{
-                py: '0.8rem',
-                mt: '1rem',
-                width: '210px',
+                py: "0.8rem",
+                mt: "1rem",
+                width: "210px",
                 borderRadius: 50,
               }}
               onClick={() => {
                 window.open(
-                  'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmotionexercise.co.uk',
-                  'newwindow',
-                  'width=300,height=250'
+                  "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmotionexercise.co.uk",
+                  "newwindow",
+                  "width=300,height=250"
                 );
                 onCloseShareModal(false);
               }}
@@ -71,8 +71,8 @@ export const ActivityShareModal = ({
               fullWidth
               onClick={() => onCloseShareModal(false)}
               sx={{
-                mt: '1rem',
-                width: '150px',
+                mt: "1rem",
+                width: "150px",
                 borderRadius: 50,
               }}
             >

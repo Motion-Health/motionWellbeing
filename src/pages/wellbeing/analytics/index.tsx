@@ -3,7 +3,7 @@ import React from "react";
 import PageHeader from "@/components/PageHeader/index";
 import { Main } from "@/templates/Main";
 import { AnalyticsTable } from "@/components/AnalyticsTable";
-import Head from "next/head"
+import Head from "next/head";
 const Analytics = () => {
   return (
     <Main>

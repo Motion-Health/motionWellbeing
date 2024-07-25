@@ -19,7 +19,6 @@
   margin: auto;
   align-items: center;
   gap: 100px;
-
 }
 
 @media (max-width: 992px) {
@@ -74,7 +73,7 @@
     display: block;
     margin-top: 1rem;
   }
-  .googleReview{
+  .googleReview {
     place-content: center;
     display: grid;
   }
@@ -97,4 +96,3 @@
   width: 10rem;
   justify-self: center;
 }
-

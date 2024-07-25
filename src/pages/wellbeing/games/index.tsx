@@ -1,10 +1,10 @@
-import { Grid } from '@mui/material';
-import Head from 'next/head';
+import { Grid } from "@mui/material";
+import Head from "next/head";
 
-import { GameCard } from '@/components/GameCard';
-import PageHeader from '@/components/PageHeader/index';
-import { useAccountContext } from '@/context/AccountContext';
-import { Main } from '@/templates/Main';
+import { GameCard } from "@/components/GameCard";
+import PageHeader from "@/components/PageHeader/index";
+import { useAccountContext } from "@/context/AccountContext";
+import { Main } from "@/templates/Main";
 
 const Games = () => {
   const {
@@ -14,42 +14,42 @@ const Games = () => {
   const games = [
     {
       id: 1,
-      name: 'Snake',
-      description: 'A classic game of snake',
+      name: "Snake",
+      description: "A classic game of snake",
       instructions:
-        'Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.',
-      link: '/wellbeing/games/snake-game',
+        "Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.",
+      link: "/wellbeing/games/snake-game",
     },
     {
       id: 2,
-      name: 'Quizzical',
-      description: 'A quiz game',
-      instructions: 'Answer the questions to get points.',
-      link: '/wellbeing/games/quizzical',
+      name: "Quizzical",
+      description: "A quiz game",
+      instructions: "Answer the questions to get points.",
+      link: "/wellbeing/games/quizzical",
     },
     {
       id: 3,
-      name: 'Colour Memory',
-      description: 'A memory game',
+      name: "Colour Memory",
+      description: "A memory game",
       instructions:
         "Remember the colours your have clicked and don't repeat them.",
-      link: '/wellbeing/games/colour-game',
+      link: "/wellbeing/games/colour-game",
     },
     {
       id: 4,
-      name: 'Noughts and Crosses',
-      description: 'A classic game of noughts and crosses',
+      name: "Noughts and Crosses",
+      description: "A classic game of noughts and crosses",
       instructions:
-        'Get three in a row to win! Click the button below to go back to the Wellbeing page.',
-      link: '/wellbeing/games/noughts-crosses',
+        "Get three in a row to win! Click the button below to go back to the Wellbeing page.",
+      link: "/wellbeing/games/noughts-crosses",
     },
     {
       id: 5,
-      name: 'Hangman',
-      description: 'A classic game of hangman',
+      name: "Hangman",
+      description: "A classic game of hangman",
       instructions:
-        'Guess the word by clicking on the letters. You have 6 lives.',
-      link: '/wellbeing/games/hangman',
+        "Guess the word by clicking on the letters. You have 6 lives.",
+      link: "/wellbeing/games/hangman",
     },
     // {
     //   id: 6,
@@ -61,19 +61,19 @@ const Games = () => {
     // },
     {
       id: 7,
-      name: 'Sudoku',
-      description: 'A classic game of sudoku',
+      name: "Sudoku",
+      description: "A classic game of sudoku",
       instructions:
-        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
-      link: '/wellbeing/games/sudoku',
+        "Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.",
+      link: "/wellbeing/games/sudoku",
     },
     {
       id: 8,
-      name: 'Pong',
-      description: 'A classic game of pong',
+      name: "Pong",
+      description: "A classic game of pong",
       instructions:
-        'Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.',
-      link: '/wellbeing/games/pong',
+        "Use the arrow keys to move the blocks around the screen. Use the space bar to rotate the blocks. Fill a row to clear it.",
+      link: "/wellbeing/games/pong",
     },
   ];
 

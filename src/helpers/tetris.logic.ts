@@ -54,10 +54,10 @@ export const getInitialGameState = (): GameState => {
  ** Returns a new game state
  ** Called when the user starts a new game
  */
- export const startGame = (gameState: GameState): GameState => {
+export const startGame = (gameState: GameState): GameState => {
   const randomTetrominos = getNextTetrominos();
   const firstTetromino = randomTetrominos[0];
-  const newState = getInitialGameState()
+  const newState = getInitialGameState();
   return {
     ...newState,
     started: true,
@@ -74,7 +74,7 @@ export const getInitialGameState = (): GameState => {
     nextTetrominos: randomTetrominos.slice(1),
     callbacks: {
       ...gameState.callbacks,
-    }
+    },
   };
 };
 
@@ -434,5 +434,3 @@ export const registerCallback = (
     },
   };
 };
-
-

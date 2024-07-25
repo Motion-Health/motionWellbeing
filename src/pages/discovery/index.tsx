@@ -1,10 +1,10 @@
-import { Grid } from '@mui/material';
-import Head from 'next/head';
+import { Grid } from "@mui/material";
+import Head from "next/head";
 
-import { Footer } from '@/components/Home/Footer';
-import { Header } from '@/components/Home/header/Header';
+import { Footer } from "@/components/Home/Footer";
+import { Header } from "@/components/Home/header/Header";
 
-import styles from '../blog/blog.module.css';
+import styles from "../blog/blog.module.css";
 const Index = () => {
   return (
     <div className="white-background">

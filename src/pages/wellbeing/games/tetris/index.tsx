@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
-import Tetris from '@/components/Games/Tetris/Tetris';
-import { TetrisProvider } from '@/hooks/useTetris';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import Tetris from "@/components/Games/Tetris/Tetris";
+import { TetrisProvider } from "@/hooks/useTetris";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
 
-import styles from './../gameDefaults.module.css';
+import styles from "./../gameDefaults.module.css";
 
 const TetrisGame = () => {
   const [isClient, setIsClient] = useState(false);
@@ -25,7 +25,7 @@ const TetrisGame = () => {
         { activityId: 206 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );

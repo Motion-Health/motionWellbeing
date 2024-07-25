@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
-import { useSudokuContext } from '@/context/SudokuContext';
+import sudoku from "@/components/Games/Sudoku/sudoku.module.css";
+import { useSudokuContext } from "@/context/SudokuContext";
 type GameSectionProps = {
   onClick: (indexOfArray: number) => void;
 };
@@ -69,7 +69,7 @@ export const GameSection = (props: GameSectionProps) => {
       if (cellSelected === row * 9 + column) {
         return true;
       }
-      if (gameArray[cellSelected] === '0') {
+      if (gameArray[cellSelected] === "0") {
         return false;
       }
       if (gameArray[cellSelected] === gameArray[row * 9 + column]) {
@@ -86,8 +86,8 @@ export const GameSection = (props: GameSectionProps) => {
     value: string,
     highlight: string
   ) {
-    if (value !== '0') {
-      if (initArray[indexOfArray] === '0') {
+    if (value !== "0") {
+      if (initArray[indexOfArray] === "0") {
         return (
           <td
             className={`${sudoku.gameCell} ${sudoku[`gameCell--userfilled`]} ${
@@ -131,11 +131,11 @@ export const GameSection = (props: GameSectionProps) => {
    * Returns the classes or a cell not related to the selected cell.
    */
   function _unselectedCell(indexOfArray: number, value: string) {
-    if (value !== '0') {
-      if (initArray[indexOfArray] === '0') {
+    if (value !== "0") {
+      if (initArray[indexOfArray] === "0") {
         return (
           <td
-            className={`${sudoku.gameCell} ${sudoku['gameCell--userfilled']}`}
+            className={`${sudoku.gameCell} ${sudoku["gameCell--userfilled"]}`}
             key={indexOfArray}
             onClick={() => props.onClick(indexOfArray)}
           >
@@ -145,7 +145,7 @@ export const GameSection = (props: GameSectionProps) => {
       } else {
         return (
           <td
-            className={`${sudoku.gameCell} ${sudoku['gameCell--filled']}`}
+            className={`${sudoku.gameCell} ${sudoku["gameCell--filled"]}`}
             key={indexOfArray}
             onClick={() => props.onClick(indexOfArray)}
           >
@@ -178,15 +178,15 @@ export const GameSection = (props: GameSectionProps) => {
                   const value = gameArray[indexOfArray];
 
                   if (cellSelected === indexOfArray) {
-                    return _selectedCell(indexOfArray, value, 'highlight');
+                    return _selectedCell(indexOfArray, value, "highlight");
                   }
 
                   if (fastMode) {
                     if (
-                      numberSelected !== '0' &&
+                      numberSelected !== "0" &&
                       _isCellSameAsSelectedCell(row, column)
                     ) {
-                      return _selectedCell(indexOfArray, value, '');
+                      return _selectedCell(indexOfArray, value, "");
                     } else {
                       return _unselectedCell(indexOfArray, value);
                     }
@@ -195,7 +195,7 @@ export const GameSection = (props: GameSectionProps) => {
                       cellSelected !== -1 &&
                       _isCellSameAsSelectedCell(row, column)
                     ) {
-                      return _selectedCell(indexOfArray, value, '');
+                      return _selectedCell(indexOfArray, value, "");
                     } else {
                       return _unselectedCell(indexOfArray, value);
                     }

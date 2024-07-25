@@ -1,5 +1,5 @@
-import { NewPasswordForm } from "@/components/forms/NewPasswordForm"
-import Head from "next/head"
+import { NewPasswordForm } from "@/components/forms/NewPasswordForm";
+import Head from "next/head";
 
 const Login = () => {
   return (

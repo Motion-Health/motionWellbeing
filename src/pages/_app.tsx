@@ -1,37 +1,37 @@
 /* eslint-disable simple-import-sort/imports */
 /* eslint-disable prettier/prettier */
-'use strict';
+"use strict";
 
-import 'core-js/stable';
+import "core-js/stable";
 
-import '../styles/global.css';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import "../styles/global.css";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import { AppProps } from "next/app";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 // Import useRouter
-import { QueryClientProvider } from 'react-query';
+import { QueryClientProvider } from "react-query";
 
-import { AccountProvider } from '@/context/AccountContext';
-import { queryClient } from '@/services/query';
+import { AccountProvider } from "@/context/AccountContext";
+import { queryClient } from "@/services/query";
 
 // Import the special styles
-import theme from '../styles/theme';
-import stylesApp from './wellbeing.module.css';
+import theme from "../styles/theme";
+import stylesApp from "./wellbeing.module.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
-  const isWellbeingPlatform = router.pathname.includes('/wellbeing');
+  const isWellbeingPlatform = router.pathname.includes("/wellbeing");
 
   useEffect(() => {
     if (isWellbeingPlatform) {
-      document.documentElement.classList.add(stylesApp?.wellbeingHtml || '');
-      document.body.classList.add(stylesApp?.wellbeingBody || '');
-      document.body.classList.add('wellbeingBody');
+      document.documentElement.classList.add(stylesApp?.wellbeingHtml || "");
+      document.body.classList.add(stylesApp?.wellbeingBody || "");
+      document.body.classList.add("wellbeingBody");
     } else {
-      document.documentElement.classList.remove(stylesApp?.wellbeingHtml || '');
-      document.body.classList.remove(stylesApp?.wellbeingBody || '');
+      document.documentElement.classList.remove(stylesApp?.wellbeingHtml || "");
+      document.body.classList.remove(stylesApp?.wellbeingBody || "");
     }
   }, [isWellbeingPlatform]);
 

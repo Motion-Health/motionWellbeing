@@ -9,22 +9,38 @@ export const Footer = () => {
         <nav className={styles.navigation}>
           <ul>
             <li>
-              <a href="/assets/documents/Privacy-Policy.pdf" rel="noopener" target="_blank">
+              <a
+                href="/assets/documents/Privacy-Policy.pdf"
+                rel="noopener"
+                target="_blank"
+              >
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="/assets/documents/GDPR-Policy.pdf" rel="noopener" target="_blank">
+              <a
+                href="/assets/documents/GDPR-Policy.pdf"
+                rel="noopener"
+                target="_blank"
+              >
                 GDPR
               </a>
             </li>
             <li>
-              <a href="/assets/documents/Impact-Report.pdf" rel="noopener" target="_blank">
+              <a
+                href="/assets/documents/Impact-Report.pdf"
+                rel="noopener"
+                target="_blank"
+              >
                 Impact Report
               </a>
             </li>
             <li>
-              <a href="/assets/documents/Our-Values.pdf" rel="noopener" target="_blank">
+              <a
+                href="/assets/documents/Our-Values.pdf"
+                rel="noopener"
+                target="_blank"
+              >
                 Our Values
               </a>
             </li>

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
+import sudoku from "@/components/Games/Sudoku/sudoku.module.css";
 
-import { Action } from '../Action';
-import { Difficulty } from '../Difficulty';
-import { Mode } from '../Mode';
-import { Numbers } from '../Numbers';
-import { Timer } from '../Timer';
+import { Action } from "../Action";
+import { Difficulty } from "../Difficulty";
+import { Mode } from "../Mode";
+import { Numbers } from "../Numbers";
+import { Timer } from "../Timer";
 type StatusSectionProps = {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   onClickNumber: (number: string) => void;

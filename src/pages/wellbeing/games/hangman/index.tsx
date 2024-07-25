@@ -1,17 +1,17 @@
-import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { toast, Toaster } from 'react-hot-toast';
+import { useRouter } from "next/router";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 
-import HangmanDraw from '@/components/Games/Hangman/HangmanDraw';
-import HangmanWord from '@/components/Games/Hangman/HangmanWord';
-import Keyboard from '@/components/Games/Hangman/Keyboard';
-import { GameWindow } from '@/components/GameWindow';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import HangmanDraw from "@/components/Games/Hangman/HangmanDraw";
+import HangmanWord from "@/components/Games/Hangman/HangmanWord";
+import Keyboard from "@/components/Games/Hangman/Keyboard";
+import { GameWindow } from "@/components/GameWindow";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
 
-import styles from './hangman.module.css';
-import words from './wordList.json';
+import styles from "./hangman.module.css";
+import words from "./wordList.json";
 function hangman() {
-  const [wordToGuess, setWordToGuess] = useState('');
+  const [wordToGuess, setWordToGuess] = useState("");
   const [guessLetters, setGuessLetters] = useState<string[]>([]);
   const router = useRouter(); // Use the router
   const completeActivityCalled = useRef(false);
@@ -23,7 +23,7 @@ function hangman() {
         { activityId: 205 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );
@@ -41,7 +41,7 @@ function hangman() {
   const isLoser = incorrectLetters.length >= 6;
   const isWinner =
     wordToGuess &&
-    wordToGuess.split('').every((letter) => guessLetters.includes(letter));
+    wordToGuess.split("").every((letter) => guessLetters.includes(letter));
 
   const addGuessLetter = useCallback(
     (letter: string) => {
@@ -67,17 +67,17 @@ function hangman() {
       }
     };
 
-    document.addEventListener('keypress', handler);
+    document.addEventListener("keypress", handler);
 
     return () => {
-      document.removeEventListener('keypress', handler);
+      document.removeEventListener("keypress", handler);
     };
   }, [guessLetters]);
 
   useEffect(() => {
     if (isWinner && wordToGuess) {
-      toast('Congratulations, you won!', {
-        icon: '👏',
+      toast("Congratulations, you won!", {
+        icon: "👏",
         duration: 5000,
       });
     }
@@ -85,22 +85,22 @@ function hangman() {
 
   useEffect(() => {
     if (isLoser) {
-      toast.error('You lost, please refresh the page!', {
+      toast.error("You lost, please refresh the page!", {
         duration: 5000,
       });
     }
   }, [isLoser, wordToGuess]);
   const game = {
     id: 1,
-    name: 'Hangman',
-    description: 'Guess the word by clicking on the letters. You have 6 lives.',
+    name: "Hangman",
+    description: "Guess the word by clicking on the letters. You have 6 lives.",
     instructions:
-      'Guess the word by clicking on the letters. You have 6 lives.',
-    link: '/wellbeing/games/hangman',
+      "Guess the word by clicking on the letters. You have 6 lives.",
+    link: "/wellbeing/games/hangman",
   };
   const handleResume = () => {
     // Code to resume the game
-    console.log('Resuming game');
+    console.log("Resuming game");
   };
 
   const handleRestart = () => {

@@ -12,17 +12,17 @@ import {
   TablePagination,
   TableRow,
   Typography,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+} from "@mui/material";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-import Search from '@/components/Search';
-import { useAccountContext } from '@/context/AccountContext';
-import { Account } from '@/models/Account';
-import { useGetAllAccounts } from '@/services/account/useGetAllAccounts';
+import Search from "@/components/Search";
+import { useAccountContext } from "@/context/AccountContext";
+import { Account } from "@/models/Account";
+import { useGetAllAccounts } from "@/services/account/useGetAllAccounts";
 
-import DeleteModal from '../modals/DeleteModal';
-import ServiceProviderDetailsModal from '../modals/ServiceProviderDetailsModal';
+import DeleteModal from "../modals/DeleteModal";
+import ServiceProviderDetailsModal from "../modals/ServiceProviderDetailsModal";
 
 export default function CommunityTable() {
   const { account } = useAccountContext();
@@ -31,7 +31,7 @@ export default function CommunityTable() {
   const handleEditAccount = (serviceProvider: Account) => {
     setToggleServiceProviderModal(Math.random());
     setServiceProviderData(serviceProvider);
-    setModalOpenAction('edit-service-provider');
+    setModalOpenAction("edit-service-provider");
   };
 
   const [toggleDeleteModal, setToggleDeleteModal] = useState<number>(1);
@@ -49,14 +49,14 @@ export default function CommunityTable() {
     loadedAccounts?.allAccounts
   );
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     if (accountId && loadedAccounts?.allAccounts) {
       const orderedAccounts = orderAccounts(loadedAccounts.allAccounts);
       setDisplayAccounts(orderedAccounts);
     }
-  }, [loadedAccounts, accountId, searchValue === '']);
+  }, [loadedAccounts, accountId, searchValue === ""]);
 
   const orderAccounts = (loadedAccounts: Account[]) => {
     const usersAccount: Account | undefined = loadedAccounts?.find(
@@ -94,9 +94,9 @@ export default function CommunityTable() {
     event: React.MouseEvent<HTMLButtonElement> | null,
     page: number
   ) => {
-    if (event?.target?.dataset?.testid === 'KeyboardArrowRightIcon')
+    if (event?.target?.dataset?.testid === "KeyboardArrowRightIcon")
       setPage(page + 1);
-    if (event?.target?.dataset?.testid === 'KeyboardArrowLeftIcon')
+    if (event?.target?.dataset?.testid === "KeyboardArrowLeftIcon")
       setPage(page - 1);
   };
 
@@ -110,7 +110,7 @@ export default function CommunityTable() {
   const router = useRouter();
 
   const [alertMessage, setAlertMessage] = useState<string | null>(null);
-  const [alertSeverity, setAlertSeverity] = useState<AlertColor>('success');
+  const [alertSeverity, setAlertSeverity] = useState<AlertColor>("success");
 
   useEffect(() => {
     refetchAccounts();
@@ -118,45 +118,45 @@ export default function CommunityTable() {
     if (router.query?.accountUpdated !== undefined) {
       setAlertMessage(
         `Success - The details for ${
-          router.query?.accountUpdated || 'service provider'
+          router.query?.accountUpdated || "service provider"
         } have been updated`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
 
     if (router.query?.accountCreated !== undefined) {
       setAlertMessage(
         `Success - ${
-          router.query?.accountCreated || 'Service provider'
+          router.query?.accountCreated || "Service provider"
         } has been created. An email has been sent to the admin.`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
 
     if (router.query?.deletedAccount !== undefined) {
       setAlertMessage(
         `Success - ${
-          router.query?.deletedAccount || 'service provider'
+          router.query?.deletedAccount || "service provider"
         } has been deleted. The admin will no longer have access.`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
 
     if (router.query?.passwordReset) {
       setAlertMessage(
         `Success - A password reset link has been sent to ${router.query?.passwordReset}`
       );
-      setAlertSeverity('success');
+      setAlertSeverity("success");
     }
   }, [router.query]);
 
   return (
     <>
-      {(accountStatus === 'admin' || accountStatus === 'group') && (
+      {(accountStatus === "admin" || accountStatus === "group") && (
         <Search
           placeholder="Find other members of the community"
           data={loadedAccounts}
-          searchKey={'serviceProviderName'}
+          searchKey={"serviceProviderName"}
           searchedData={handleSearchedData}
         />
       )}
@@ -175,7 +175,7 @@ export default function CommunityTable() {
         <Alert
           icon={false}
           severity={alertSeverity}
-          sx={{ position: 'relative', my: '3rem', padding: '1rem' }}
+          sx={{ position: "relative", my: "3rem", padding: "1rem" }}
           onClose={() => setAlertMessage(null)}
         >
           {alertMessage}
@@ -223,7 +223,7 @@ export default function CommunityTable() {
                         align="right"
                         sx={{ borderTop: cellBorder, borderBottom: cellBorder }}
                       >
-                        {(accountStatus === 'admin' ||
+                        {(accountStatus === "admin" ||
                           accountId === account?.accountId) && (
                           <Button
                             variant="link"
@@ -237,7 +237,7 @@ export default function CommunityTable() {
                             />
                           </Button>
                         )}
-                        {accountStatus === 'admin' && (
+                        {accountStatus === "admin" && (
                           <Button
                             variant="link"
                             onClick={() => {
@@ -273,7 +273,7 @@ export default function CommunityTable() {
         )}
 
         {(displayAccounts?.length === 0 || displayAccounts?.length === 0) && (
-          <Typography sx={{ textAlign: 'center' }}>
+          <Typography sx={{ textAlign: "center" }}>
             There are no service providers to display
           </Typography>
         )}

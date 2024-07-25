@@ -1,21 +1,21 @@
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Head from 'next/head';
-import { Router } from 'next/router';
-import Script from 'next/script';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Head from "next/head";
+import { Router } from "next/router";
+import Script from "next/script";
+import { useState } from "react";
+import { useEffect } from "react";
 
-import { Footer } from '@/components/Home/Footer';
-import { Header } from '@/components/Home/header/Header';
+import { Footer } from "@/components/Home/Footer";
+import { Header } from "@/components/Home/header/Header";
 
-import styles from './product.module.css';
+import styles from "./product.module.css";
 const Index = () => {
-  const [expandedCard, setExpandedCard] = useState('discover');
+  const [expandedCard, setExpandedCard] = useState("discover");
   const [currentScreen, setCurrentScreen] = useState(
-    '/assets/images/product/dashboard.png'
+    "/assets/images/product/dashboard.png"
   ); // Default screen
   const [newScreen, setNewScreen] = useState(
-    '/assets/images/product/dashboard.png'
+    "/assets/images/product/dashboard.png"
   ); // Default screen
   const [slideNumber, setSlideNumber] = useState(0);
   const [slideOut, setSlideOut] = useState(false);
@@ -27,8 +27,8 @@ const Index = () => {
       // Check if Calendly is available and not already loaded
       if (window.Calendly && !isCalendlyLoaded) {
         window.Calendly.initInlineWidget({
-          url: 'https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1',
-          parentElement: document.getElementById('calendly-inline-widget'),
+          url: "https://calendly.com/zeezy-1/motion?hide_landing_page_details=1&hide_gdpr_banner=1",
+          parentElement: document.getElementById("calendly-inline-widget"),
         });
         setIsCalendlyLoaded(true); // Set the flag to true after loading
       } else if (!window.Calendly) {
@@ -48,11 +48,11 @@ const Index = () => {
     };
 
     // Set up route change listener
-    Router.events.on('routeChangeComplete', handleRouteChange);
+    Router.events.on("routeChangeComplete", handleRouteChange);
 
     // Clean up
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange);
+      Router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, []);
 
@@ -96,12 +96,12 @@ const Index = () => {
           <div className={styles.stepsImage}>
             <div
               className={styles.started}
-              onClick={() => setExpandedCard('discover')}
+              onClick={() => setExpandedCard("discover")}
             >
               <div>
                 <img
                   className={styles.icon}
-                  src={'/assets/images/product/Icons/Vectorstarted.svg'}
+                  src={"/assets/images/product/Icons/Vectorstarted.svg"}
                   alt="Motion icon"
                 />
               </div>
@@ -110,19 +110,19 @@ const Index = () => {
             <img
               className={styles.arrowTwo}
               style={{
-                transform: 'translateX(140px) translateY(5px)',
+                transform: "translateX(140px) translateY(5px)",
               }}
-              src={'/assets/images/product/Icons/ArrowOne.png'}
+              src={"/assets/images/product/Icons/ArrowOne.png"}
               alt="arrow"
             />
             <div
               className={styles.boost}
-              onClick={() => setExpandedCard('deliver')}
+              onClick={() => setExpandedCard("deliver")}
             >
               <div>
                 <img
                   className={styles.icon}
-                  src={'/assets/images/product/Icons/Vectorboost.svg'}
+                  src={"/assets/images/product/Icons/Vectorboost.svg"}
                   alt="Motion icon"
                 />
               </div>
@@ -131,19 +131,19 @@ const Index = () => {
             <img
               className={styles.arrowTwo}
               style={{
-                transform: 'translateX(-130px) translateY(-50px)',
+                transform: "translateX(-130px) translateY(-50px)",
               }}
-              src={'/assets/images/product/Icons/ArrowTwo.png'}
+              src={"/assets/images/product/Icons/ArrowTwo.png"}
               alt="arrow"
             />
             <div
               className={styles.spread}
-              onClick={() => setExpandedCard('spread')}
+              onClick={() => setExpandedCard("spread")}
             >
               <div>
                 <img
                   className={styles.icon}
-                  src={'/assets/images/product/Icons/Vectorleads.svg'}
+                  src={"/assets/images/product/Icons/Vectorleads.svg"}
                   alt="Motion icon"
                 />
               </div>
@@ -153,33 +153,33 @@ const Index = () => {
           <div className={styles.stepsContent}>
             <div
               className={`${styles.productCard} ${
-                expandedCard === 'discover' ? styles.expanded : ''
+                expandedCard === "discover" ? styles.expanded : ""
               }`}
               style={{
-                backgroundColor: '#e0faf3',
+                backgroundColor: "#e0faf3",
                 paddingBottom: `80px`,
                 borderRadius: `15px 15px 0px 0px`,
               }}
-              onClick={() => setExpandedCard('discover')}
+              onClick={() => setExpandedCard("discover")}
             >
               <button
                 className={styles.closeButton}
                 onClick={(e) => {
                   e.stopPropagation(); // Prevent the card from expanding
-                  if (expandedCard === 'discover') {
-                    setExpandedCard('');
+                  if (expandedCard === "discover") {
+                    setExpandedCard("");
                   } else {
-                    setExpandedCard('discover');
+                    setExpandedCard("discover");
                   }
                 }}
               >
-                {expandedCard === 'discover' ? 'X' : <KeyboardArrowDownIcon />}
+                {expandedCard === "discover" ? "X" : <KeyboardArrowDownIcon />}
               </button>
               <h1>Get started</h1>
               <div className={styles.flexText}>
                 <img
                   className={styles.startedImage}
-                  src={'/assets/images/product/get-started.png'}
+                  src={"/assets/images/product/get-started.png"}
                   alt="Zeezy demonstrating the Motion platform"
                 />
                 <p>
@@ -195,42 +195,42 @@ const Index = () => {
             </div>
             <div
               className={`${styles.productCard} ${
-                expandedCard === 'deliver' ? styles.expanded : ''
+                expandedCard === "deliver" ? styles.expanded : ""
               }`}
               style={{
-                backgroundColor: '#feecf3',
+                backgroundColor: "#feecf3",
                 marginBottom: `80px`,
                 marginTop: `-15px`,
                 borderRadius: `15px 15px 10px 10px`,
               }}
-              onClick={() => setExpandedCard('deliver')}
+              onClick={() => setExpandedCard("deliver")}
             >
               <button
                 className={styles.closeButton}
                 onClick={(e) => {
                   e.stopPropagation(); // Prevent the card from expanding
-                  if (expandedCard === 'deliver') {
-                    setExpandedCard('');
+                  if (expandedCard === "deliver") {
+                    setExpandedCard("");
                   } else {
-                    setExpandedCard('deliver');
+                    setExpandedCard("deliver");
                   }
                 }}
               >
-                {expandedCard === 'deliver' ? 'X' : <KeyboardArrowDownIcon />}
+                {expandedCard === "deliver" ? "X" : <KeyboardArrowDownIcon />}
               </button>
               <h1>Boost wellbeing</h1>
               <div className={styles.flexDisplay}>
                 <div className={styles.laptopContainer}>
                   <div
                     className={`${styles.screenContent} `}
-                    style={{ overflow: 'hidden' }}
+                    style={{ overflow: "hidden" }}
                   >
                     <img
                       style={{ transform: `translateX(${slideNumber}%)` }}
                       className={`${styles.screenContent} ${
                         slideOut && styles.slideOut
                       }`}
-                      src={'/assets/images/product/schedual.webp'}
+                      src={"/assets/images/product/schedual.webp"}
                       alt="Schedule activities"
                     />
 
@@ -238,14 +238,14 @@ const Index = () => {
                       style={{ transform: `translateX(${slideNumber + 100}%)` }}
                       className={`${styles.screenContent} 
                   }`}
-                      src={'/assets/images/product/activity.webp'}
+                      src={"/assets/images/product/activity.webp"}
                       alt="Activity"
                     />
                     <img
                       style={{ transform: `translateX(${slideNumber + 200}%)` }}
                       className={`${styles.screenContent} 
                   }`}
-                      src={'/assets/images/product/dashboard.png'}
+                      src={"/assets/images/product/dashboard.png"}
                       alt="Motion dashboard"
                     />
                   </div>
@@ -259,14 +259,14 @@ const Index = () => {
                 <div className={styles.phoneContainer}>
                   <div
                     className={`${styles.phoneContent} `}
-                    style={{ overflow: 'hidden' }}
+                    style={{ overflow: "hidden" }}
                   >
                     <img
                       style={{ transform: `translateX(${slideNumber}%)` }}
                       className={`${styles.screenContent} ${
                         slideOut && styles.slideOut
                       }`}
-                      src={'/assets/images/product/phone/Schedule.png'}
+                      src={"/assets/images/product/phone/Schedule.png"}
                       alt="Schedule activities"
                     />
 
@@ -274,14 +274,14 @@ const Index = () => {
                       style={{ transform: `translateX(${slideNumber + 100}%)` }}
                       className={`${styles.screenContent} 
                   }`}
-                      src={'/assets/images/product/phone/Activity.png'}
+                      src={"/assets/images/product/phone/Activity.png"}
                       alt="Activity"
                     />
                     <img
                       style={{ transform: `translateX(${slideNumber + 200}%)` }}
                       className={`${styles.screenContent} 
                   }`}
-                      src={'/assets/images/product/phone/Dashboard.png'}
+                      src={"/assets/images/product/phone/Dashboard.png"}
                       alt="Motion dashboard"
                     />
                   </div>
@@ -290,7 +290,7 @@ const Index = () => {
                     className={styles.laptopFrame}
                     src="/assets/images/product/phone-frame.png"
                     alt="Laptop frame"
-                    style={{ width: '100%', margin: '10px' }}
+                    style={{ width: "100%", margin: "10px" }}
                   />
                 </div>
 
@@ -343,34 +343,34 @@ const Index = () => {
 
             <div
               className={`${styles.productCard} ${
-                expandedCard === 'spread' ? styles.expanded : ''
+                expandedCard === "spread" ? styles.expanded : ""
               }`}
               style={{
                 backgroundColor: `#d1e7ff`,
                 marginTop: `-95px`,
                 zIndex: `2`,
               }}
-              onClick={() => setExpandedCard('spread')}
+              onClick={() => setExpandedCard("spread")}
             >
               <button
                 className={styles.closeButton}
                 onClick={(e) => {
                   e.stopPropagation(); // Prevent the card from expanding
                   // toggleCard('spread');
-                  if (expandedCard === 'spread') {
-                    setExpandedCard('');
+                  if (expandedCard === "spread") {
+                    setExpandedCard("");
                   } else {
-                    setExpandedCard('spread');
+                    setExpandedCard("spread");
                   }
                 }}
               >
-                {expandedCard === 'spread' ? 'X' : <KeyboardArrowDownIcon />}
+                {expandedCard === "spread" ? "X" : <KeyboardArrowDownIcon />}
               </button>
               <h1>Generate leads</h1>
               <div className={styles.flexText}>
                 <img
                   className={styles.leadImage}
-                  src={'/assets/images/product/Generate-leads.webp'}
+                  src={"/assets/images/product/Generate-leads.webp"}
                   alt="Improved Wellbeing and High Quality Content equals More Enquiries"
                 />
                 <p>

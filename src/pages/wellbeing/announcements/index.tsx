@@ -3,7 +3,7 @@ import React from "react";
 import PageHeader from "@/components/PageHeader/index";
 import { Main } from "@/templates/Main";
 import { AnnouncementsForm } from "@/components/forms/AnnouncementsForm";
-import Head from "next/head"
+import Head from "next/head";
 const Announcements = () => {
   return (
     <Main>

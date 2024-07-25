@@ -1,10 +1,10 @@
-import { Grid, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
-import { useEffect, useState } from 'react';
-import * as React from 'react';
+import { Grid, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import { useEffect, useState } from "react";
+import * as React from "react";
 
-import { useAccountContext } from '@/context/AccountContext';
-import { checkout, GetPrice, GetProductsFromStripe } from '@/services/stripe';
+import { useAccountContext } from "@/context/AccountContext";
+import { checkout, GetPrice, GetProductsFromStripe } from "@/services/stripe";
 
 export default function upgradeCard() {
   const [packages, setPackages] = useState([]);
@@ -19,7 +19,7 @@ export default function upgradeCard() {
 
       for (const product of products) {
         console.log(product);
-        console.log('default', product.default_price);
+        console.log("default", product.default_price);
         const formattedPrice = await GetPrice(product.default_price);
         console.log(formattedPrice);
         const formatted = {
@@ -31,7 +31,7 @@ export default function upgradeCard() {
           meta: product.metadata,
           priceId: product.default_price,
           features: Object.values(product.metadata).filter((value, index) => {
-            return Object.keys(product.metadata)[index].startsWith('feature-');
+            return Object.keys(product.metadata)[index].startsWith("feature-");
           }),
 
           image: product.images[0],
@@ -40,7 +40,7 @@ export default function upgradeCard() {
         console.log(formatted);
         productArr.push(formatted);
       }
-      console.log('productArr');
+      console.log("productArr");
       console.log(productArr);
       setPackages(orderByOrder(productArr));
     }
@@ -61,9 +61,9 @@ export default function upgradeCard() {
         packages
           ?.filter(
             (product) =>
-              product.name === 'Standard' ||
-              product.name === 'Premium' ||
-              product.name === 'Group'
+              product.name === "Standard" ||
+              product.name === "Premium" ||
+              product.name === "Group"
           )
           .map((product) => (
             <Grid key={product.id} item xs={12} lg={4} md={6} sm={12}>
@@ -71,16 +71,16 @@ export default function upgradeCard() {
                 <img src={product.image} alt={product.name} />
                 <div className="product-content">
                   <Typography variant="h2">{product.name}</Typography>
-                  <Typography variant="body" sx={{ my: '1rem' }}>
+                  <Typography variant="body" sx={{ my: "1rem" }}>
                     {product.description}
                   </Typography>
-                  {product.type == 'group' && (
+                  {product.type == "group" && (
                     <Typography variant="h1">POA</Typography>
                   )}
-                  {product.type == 'standard' && (
+                  {product.type == "standard" && (
                     <Typography variant="h1">Free</Typography>
                   )}
-                  {product.type != 'group' && product.type != 'standard' && (
+                  {product.type != "group" && product.type != "standard" && (
                     <>
                       <div>
                         <Typography variant="h1">£{product.price}</Typography>
@@ -90,7 +90,7 @@ export default function upgradeCard() {
                   )}
                   <ul>
                     <li>
-                      {' '}
+                      {" "}
                       <Typography variant="h3">You get..</Typography>
                     </li>
                     {product.features.map((feature) => (
@@ -106,12 +106,12 @@ export default function upgradeCard() {
                       Your Current Plan
                     </Button>
                   )}
-                  {product.type == 'group' && accountStatus != product.type && (
+                  {product.type == "group" && accountStatus != product.type && (
                     <Button variant="contained" fullWidth href="/#contact">
                       GET A QUOTE
                     </Button>
                   )}
-                  {product.type === 'premium' &&
+                  {product.type === "premium" &&
                     accountStatus != product.type && (
                       <Button
                         variant="contained"

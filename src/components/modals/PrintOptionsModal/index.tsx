@@ -1,5 +1,5 @@
-import { CalendarApi } from '@fullcalendar/react'; // Assuming getWeeksInMonth is a helper function from FullCalendar or similar
-import CloseIcon from '@mui/icons-material/Close';
+import { CalendarApi } from "@fullcalendar/react"; // Assuming getWeeksInMonth is a helper function from FullCalendar or similar
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Button,
@@ -11,17 +11,17 @@ import {
   RadioGroup,
   Select,
   Typography,
-} from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import dayjs from 'dayjs';
-import weekday from 'dayjs/plugin/weekday';
-import weekOfYear from 'dayjs/plugin/weekOfYear';
-import { useEffect, useState } from 'react';
+} from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import dayjs from "dayjs";
+import weekday from "dayjs/plugin/weekday";
+import weekOfYear from "dayjs/plugin/weekOfYear";
+import { useEffect, useState } from "react";
 
-import theme from '@/styles/theme';
-import { printCalendarPDF } from '@/utils/makePlannerPrintable.js';
+import theme from "@/styles/theme";
+import { printCalendarPDF } from "@/utils/makePlannerPrintable.js";
 
-import styles from './printOptions.module.css';
+import styles from "./printOptions.module.css";
 
 type PrintOptionsModalProps = {
   togglePrintModal: number;
@@ -44,19 +44,19 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
   //   weekStart: 1, // Set Monday as the first day of the week
   // });
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [printOption, setPrintOption] = useState('monthly'); // 'weekly' or 'monthly'
+  const [printOption, setPrintOption] = useState("monthly"); // 'weekly' or 'monthly'
   const [selectedWeek, setSelectedWeek] = useState(1);
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   useEffect(() => {
     setIsModalOpen(togglePrintModal !== 1);
   }, [togglePrintModal]);
 
   const handlePrint = () => {
-    if (printOption === 'weekly') {
-      printCalendarPDF(events, 'false', serviceName, api, selectedWeek);
+    if (printOption === "weekly") {
+      printCalendarPDF(events, "false", serviceName, api, selectedWeek);
     } else {
-      printCalendarPDF(events, 'false', serviceName, api, null);
+      printCalendarPDF(events, "false", serviceName, api, null);
     }
     setIsModalOpen(false);
   };
@@ -71,7 +71,7 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
   }, [togglePrintModal, api]);
 
   const calculateWeeks = () => {
-    dayjs.locale('en-gb'); // Set locale where week starts on Monday
+    dayjs.locale("en-gb"); // Set locale where week starts on Monday
 
     const currentMonth = dayjs(api.getDate()).month();
     const currentYear = dayjs(api.getDate()).year();
@@ -86,13 +86,13 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
       currentWeekStart.isBefore(endOfMonth) ||
       currentWeekStart.isSame(endOfMonth)
     ) {
-      const currentWeekEnd = currentWeekStart.add(6, 'day'); // 6 days after Monday is Sunday
+      const currentWeekEnd = currentWeekStart.add(6, "day"); // 6 days after Monday is Sunday
       weekRanges.push(
-        `${currentWeekStart.format('MMM DD')} - ${currentWeekEnd.format(
-          'MMM DD'
+        `${currentWeekStart.format("MMM DD")} - ${currentWeekEnd.format(
+          "MMM DD"
         )}`
       );
-      currentWeekStart = currentWeekEnd.add(1, 'day');
+      currentWeekStart = currentWeekEnd.add(1, "day");
     }
 
     setWeeksInMonth(weekRanges);
@@ -108,17 +108,17 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
         style={{
-          position: 'absolute',
-          right: '1.5rem',
-          top: '1.5rem',
-          cursor: 'pointer',
+          position: "absolute",
+          right: "1.5rem",
+          top: "1.5rem",
+          cursor: "pointer",
         }}
       />
 
-      <Box sx={{ margin: '3rem' }}>
+      <Box sx={{ margin: "3rem" }}>
         <Typography variant="h1">Print options</Typography>
 
-        <FormControl component="fieldset" style={{ display: 'flex' }}>
+        <FormControl component="fieldset" style={{ display: "flex" }}>
           <RadioGroup
             aria-label="print-option"
             name="print-option"
@@ -137,7 +137,7 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
             />
           </RadioGroup>
 
-          {printOption === 'weekly' && (
+          {printOption === "weekly" && (
             <FormControl fullWidth>
               <Select
                 labelId="week-selector-label"
@@ -160,7 +160,7 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
         className={styles.printButton}
         variant="contained"
         onClick={handlePrint}
-        sx={{ mt: '1rem', mr: '1rem' }}
+        sx={{ mt: "1rem", mr: "1rem" }}
       >
         Print
       </Button>
@@ -168,7 +168,7 @@ const PrintOptionsModal: React.FC<PrintOptionsModalProps> = ({
         className={styles.cancelButton}
         variant="text"
         onClick={() => setIsModalOpen(false)}
-        sx={{ mt: '1rem' }}
+        sx={{ mt: "1rem" }}
       >
         Cancel
       </Button>

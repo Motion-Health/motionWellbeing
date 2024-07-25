@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
+import sudoku from "@/components/Games/Sudoku/sudoku.module.css";
 type HeaderProps = {
   onClick: () => void;
 };

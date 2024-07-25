@@ -1,9 +1,9 @@
-import CircleIcon from '@mui/icons-material/Circle';
-import { Box, Button, Dialog, Typography, useMediaQuery } from '@mui/material';
-import { useState } from 'react';
-import Carousel from 'react-material-ui-carousel';
+import CircleIcon from "@mui/icons-material/Circle";
+import { Box, Button, Dialog, Typography, useMediaQuery } from "@mui/material";
+import { useState } from "react";
+import Carousel from "react-material-ui-carousel";
 
-import theme from '@/styles/theme';
+import theme from "@/styles/theme";
 
 const TutorialModal = () => {
   const [isCarouselOpen, setIsCarouselOpen] = useState(true);
@@ -11,7 +11,7 @@ const TutorialModal = () => {
     number | undefined
   >(0);
 
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Dialog
@@ -26,13 +26,13 @@ const TutorialModal = () => {
         index={carouselPageIndex}
         indicators={!shouldDisplayFullScreen}
         navButtonsAlwaysInvisible={true}
-        IndicatorIcon={<CircleIcon sx={{ fontSize: '1.2rem' }} />}
+        IndicatorIcon={<CircleIcon sx={{ fontSize: "1.2rem" }} />}
         indicatorIconButtonProps={{
           style: {
-            color: '#DDDDDD',
-            padding: '1.2rem',
-            height: '1rem',
-            width: '1rem',
+            color: "#DDDDDD",
+            padding: "1.2rem",
+            height: "1rem",
+            width: "1rem",
           },
         }}
         activeIndicatorIconButtonProps={{
@@ -42,14 +42,14 @@ const TutorialModal = () => {
         }}
         className="tutorial-modal-box"
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          margin: shouldDisplayFullScreen ? '3rem auto' : '3rem',
-          padding: shouldDisplayFullScreen ? '2rem 1rem' : '0',
-          width: '25.25rem',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'auto',
+          display: "flex",
+          flexDirection: "column",
+          margin: shouldDisplayFullScreen ? "3rem auto" : "3rem",
+          padding: shouldDisplayFullScreen ? "2rem 1rem" : "0",
+          width: "25.25rem",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "auto",
         }}
       >
         {tutorialModalScreens.map((screen, index) => {
@@ -57,12 +57,12 @@ const TutorialModal = () => {
 
           return (
             <Box
-              key={screen.header.split(' ').join('-')}
+              key={screen.header.split(" ").join("-")}
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                textAlign: 'center',
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center",
               }}
             >
               <div className={`tutorial-modal-page-image-${pageNumber}`}>
@@ -85,7 +85,7 @@ const TutorialModal = () => {
 
               <Typography
                 variant="h2"
-                sx={{ mt: '1.5rem' }}
+                sx={{ mt: "1.5rem" }}
                 className={`tutorial-modal-page-header-${pageNumber}`}
               >
                 {screen.header}
@@ -93,7 +93,7 @@ const TutorialModal = () => {
 
               <Typography
                 variant="body2"
-                sx={{ mt: '1.5rem' }}
+                sx={{ mt: "1.5rem" }}
                 className={`tutorial-modal-page-paragraph-${pageNumber}`}
               >
                 {screen.paragraph}
@@ -103,9 +103,9 @@ const TutorialModal = () => {
                 variant="contained"
                 name="continue"
                 sx={{
-                  mt: '1.5rem',
-                  width: '210px',
-                  alignItems: 'center',
+                  mt: "1.5rem",
+                  width: "210px",
+                  alignItems: "center",
                 }}
                 className={`tutorial-modal-page-continue-button-${pageNumber}`}
                 onClick={() => {
@@ -136,37 +136,37 @@ type TutorialModalScreen = {
 
 const tutorialModalScreens: TutorialModalScreen[] = [
   {
-    youTubeVideoId: '3B4Ba2nvXt0',
-    header: 'Take a look around',
+    youTubeVideoId: "3B4Ba2nvXt0",
+    header: "Take a look around",
     paragraph:
-      'Welcome. Watch our short demo video to see how we can help you plan, deliver and rate activities.',
+      "Welcome. Watch our short demo video to see how we can help you plan, deliver and rate activities.",
   },
   {
-    imageSource: '/assets/images/modal/person-centred-activities.png',
+    imageSource: "/assets/images/modal/person-centred-activities.png",
     imageAlt: "Screenshot of 'activities' screen",
-    header: 'Person-centred activities',
+    header: "Person-centred activities",
     paragraph:
-      'Over 100 person-centred wellbeing activities for you and those that you care for.',
+      "Over 100 person-centred wellbeing activities for you and those that you care for.",
   },
   {
-    imageSource: '/assets/images/modal/my-planner.png',
+    imageSource: "/assets/images/modal/my-planner.png",
     imageAlt: "Screenshot of 'my planner' screen",
-    header: 'My planner',
+    header: "My planner",
     paragraph:
       "Premium members save time and get ahead by using 'My planner' to schedule all of your activities.",
   },
   {
-    imageSource: '/assets/images/modal/rate-activities.png',
-    imageAlt: 'Screenshot of ratings screen',
-    header: 'Rate activities',
+    imageSource: "/assets/images/modal/rate-activities.png",
+    imageAlt: "Screenshot of ratings screen",
+    header: "Rate activities",
     paragraph:
       "Once you've completed an activity give it a rating so we know what to create more of.",
   },
   {
-    imageSource: '/assets/images/modal/our-community.png',
+    imageSource: "/assets/images/modal/our-community.png",
     imageAlt: "Screenshot of 'community' screen",
-    header: 'Our community',
-    paragraph: 'Be part of the Motion community and see what others are up to.',
+    header: "Our community",
+    paragraph: "Be part of the Motion community and see what others are up to.",
   },
 ];
 export default TutorialModal;

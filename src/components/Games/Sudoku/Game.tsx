@@ -1,14 +1,14 @@
-import moment from 'moment';
-import React, { useEffect, useState } from 'react';
+import moment from "moment";
+import React, { useEffect, useState } from "react";
 
-import { Footer } from '@/components/Games/Sudoku/layout/Footer';
-import { GameSection } from '@/components/Games/Sudoku/layout/GameSection';
-import { Header } from '@/components/Games/Sudoku/layout/Header';
-import { StatusSection } from '@/components/Games/Sudoku/layout/StatusSection';
-import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
-import { useSudokuContext } from '@/context/SudokuContext';
+import { Footer } from "@/components/Games/Sudoku/layout/Footer";
+import { GameSection } from "@/components/Games/Sudoku/layout/GameSection";
+import { Header } from "@/components/Games/Sudoku/layout/Header";
+import { StatusSection } from "@/components/Games/Sudoku/layout/StatusSection";
+import sudoku from "@/components/Games/Sudoku/sudoku.module.css";
+import { useSudokuContext } from "@/context/SudokuContext";
 
-import { getUniqueSudoku } from './solver/UniqueSudoku';
+import { getUniqueSudoku } from "./solver/UniqueSudoku";
 
 /**
  * Game is the main React component.
@@ -62,7 +62,7 @@ export const Game: React.FC<{}> = () => {
     setInitArray(temporaryInitArray);
     setGameArray(temporaryInitArray);
     setSolvedArray(temporarySolvedArray);
-    setNumberSelected('0');
+    setNumberSelected("0");
     setTimeGameStarted(moment());
     setCellSelected(-1);
     setHistory([]);
@@ -89,7 +89,7 @@ export const Game: React.FC<{}> = () => {
    * Used to Fill / Erase as required.
    */
   function _fillCell(index: number, value: string) {
-    if (initArray[index] === '0') {
+    if (initArray[index] === "0") {
       // Direct copy results in interesting set of problems, investigate more!
       let tempArray = gameArray.slice();
       let tempHistory = history.slice();
@@ -136,7 +136,7 @@ export const Game: React.FC<{}> = () => {
    * On Click of a Game cell.
    */
   function onClickCell(indexOfArray: number) {
-    if (fastMode && numberSelected !== '0') {
+    if (fastMode && numberSelected !== "0") {
       _userFillCell(indexOfArray, numberSelected);
     }
     setCellSelected(indexOfArray);
@@ -182,8 +182,8 @@ export const Game: React.FC<{}> = () => {
    * try to delete the cell.
    */
   function onClickErase() {
-    if (cellSelected !== -1 && gameArray[cellSelected] !== '0') {
-      _fillCell(cellSelected, '0');
+    if (cellSelected !== -1 && gameArray[cellSelected] !== "0") {
+      _fillCell(cellSelected, "0");
     }
   }
 
@@ -209,7 +209,7 @@ export const Game: React.FC<{}> = () => {
    */
   function onClickFastMode() {
     if (fastMode) {
-      setNumberSelected('0');
+      setNumberSelected("0");
     }
     setCellSelected(-1);
     setFastMode(!fastMode);
@@ -256,14 +256,14 @@ export const Game: React.FC<{}> = () => {
       <div
         className={
           overlay
-            ? `${sudoku.overlay} ${sudoku['overlay--visible']}`
+            ? `${sudoku.overlay} ${sudoku["overlay--visible"]}`
             : sudoku.overlay
         }
         onClick={onClickOverlay}
       >
-        <h2 className={sudoku['overlayText']}>
-          You <span className={sudoku['overlayTextspan1']}>solved</span>{' '}
-          <span className={sudoku['overlayTextspan2']}>it!</span>
+        <h2 className={sudoku["overlayText"]}>
+          You <span className={sudoku["overlayTextspan1"]}>solved</span>{" "}
+          <span className={sudoku["overlayTextspan2"]}>it!</span>
         </h2>
       </div>
     </>

@@ -1,6 +1,6 @@
 // src/components/LoginForm.tsx
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Alert,
   Box,
@@ -8,27 +8,27 @@ import {
   IconButton,
   InputAdornment,
   Typography,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import React, { useEffect, useMemo, useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+} from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect, useMemo, useState } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
-import { FormInputText } from '@/components/FormInputText';
-import { useAccountContext } from '@/context/AccountContext';
-import { registerSchema } from '@/schemas/registerSchema';
-import { useLoginAccount } from '@/services/auth/useLoginAccount';
-import { Inputs } from '@/types/Inputs';
-import { AppConfig } from '@/utils/AppConfig';
+import { FormInputText } from "@/components/FormInputText";
+import { useAccountContext } from "@/context/AccountContext";
+import { registerSchema } from "@/schemas/registerSchema";
+import { useLoginAccount } from "@/services/auth/useLoginAccount";
+import { Inputs } from "@/types/Inputs";
+import { AppConfig } from "@/utils/AppConfig";
 
-import styles from './LoginForm.module.css';
+import styles from "./LoginForm.module.css";
 
 // Assuming you've created a CSS module
 
 const ERROR_MESSAGES = {
   passwordResetExpired:
-    'Password reset link expired. Please login or request a new reset link.',
-  incorrectCredentials: 'Incorrect username or password. Please try again.',
-  unknownError: 'Something went wrong - please try again',
+    "Password reset link expired. Please login or request a new reset link.",
+  incorrectCredentials: "Incorrect username or password. Please try again.",
+  unknownError: "Something went wrong - please try again",
 };
 
 export const LoginForm = () => {
@@ -57,18 +57,18 @@ export const LoginForm = () => {
       { email, password },
       {
         onSuccess: (res) => {
-          router.push('/wellbeing/dashboard');
+          router.push("/wellbeing/dashboard");
           const { accountId, accountStatus, serviceProviderName } = res.data;
           updateAccount({ accountId, accountStatus, serviceProviderName });
           setAlertMessage(null);
         },
         onError: (error) => {
           if (
-            error?.response?.data?.message === 'Incorrect username or password'
+            error?.response?.data?.message === "Incorrect username or password"
           ) {
-            setError('email', { type: 'custom', message: '' });
-            setError('password', {
-              type: 'custom',
+            setError("email", { type: "custom", message: "" });
+            setError("password", {
+              type: "custom",
               message: ERROR_MESSAGES.incorrectCredentials,
             });
           } else {
@@ -126,7 +126,7 @@ export const LoginForm = () => {
           />
           <FormInputText
             name="password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             label="Password"
             required
             fullWidth
@@ -152,7 +152,7 @@ export const LoginForm = () => {
             className={styles.button}
             name="navigate-reset-password"
             data-test-id="navigate-reset-password"
-            onClick={() => router.push('/wellbeing/reset-password')}
+            onClick={() => router.push("/wellbeing/reset-password")}
           >
             Forgotten password?
           </Button>
@@ -171,12 +171,12 @@ export const LoginForm = () => {
             variant="text"
             fullWidth
             sx={{
-              py: '0.8rem',
-              mt: '1rem',
+              py: "0.8rem",
+              mt: "1rem",
             }}
             name="navigate-create-account"
             data-test-id="navigate-create-account"
-            onClick={() => router.push('/wellbeing/create-account')}
+            onClick={() => router.push("/wellbeing/create-account")}
           >
             Don't have an account? Register now
           </Button>

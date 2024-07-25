@@ -1,5 +1,5 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import CloseIcon from '@mui/icons-material/Close';
+import { zodResolver } from "@hookform/resolvers/zod";
+import CloseIcon from "@mui/icons-material/Close";
 import {
   Box,
   Button,
@@ -10,16 +10,16 @@ import {
   Grid,
   Typography,
   useMediaQuery,
-} from '@mui/material';
-import { useEffect, useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { object, string } from 'zod';
+} from "@mui/material";
+import { useEffect, useState } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { object, string } from "zod";
 
 import {
   TagData,
   useActivityTags,
-} from '@/services/activities/useActivityTags';
-import theme from '@/styles/theme';
+} from "@/services/activities/useActivityTags";
+import theme from "@/styles/theme";
 
 type Props = {
   toggleManageTagsModal: number;
@@ -48,7 +48,7 @@ const ManageTagsModal = ({
     }
   }, [isModalOpen]);
 
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { data: activityTagsList }: { data: TagData[] } = useActivityTags();
 
@@ -68,7 +68,7 @@ const ManageTagsModal = ({
     setIsModalOpen(false);
   };
 
-  const onFormSubmitError = (err: any) => console.log('onFormSubmitError', err);
+  const onFormSubmitError = (err: any) => console.log("onFormSubmitError", err);
 
   return (
     <Dialog
@@ -79,10 +79,10 @@ const ManageTagsModal = ({
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
         style={{
-          position: 'absolute',
-          right: '1.5rem',
-          top: '1.5rem',
-          cursor: 'pointer',
+          position: "absolute",
+          right: "1.5rem",
+          top: "1.5rem",
+          cursor: "pointer",
         }}
       />
 
@@ -91,7 +91,7 @@ const ManageTagsModal = ({
         noValidate
         onSubmit={handleSubmit(onSubmitHandler, onFormSubmitError)}
         sx={{
-          margin: '3rem',
+          margin: "3rem",
         }}
       >
         <Typography variant="h1">Manage tags</Typography>
@@ -108,7 +108,7 @@ const ManageTagsModal = ({
                           defaultChecked={activityTags?.includes(tag.value)}
                         />
                       }
-                      {...register('tags')}
+                      {...register("tags")}
                       label={
                         <Typography variant="helper">{tag.label}</Typography>
                       }
@@ -125,9 +125,9 @@ const ManageTagsModal = ({
             fullWidth
             type="submit"
             sx={{
-              py: '0.8rem',
-              mt: '1rem',
-              width: '210px',
+              py: "0.8rem",
+              mt: "1rem",
+              width: "210px",
               borderRadius: 50,
             }}
           >

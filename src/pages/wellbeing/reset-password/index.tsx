@@ -1,5 +1,5 @@
-import { ResetPasswordForm } from "@/components/forms/ResetPasswordForm"
-import Head from "next/head"
+import { ResetPasswordForm } from "@/components/forms/ResetPasswordForm";
+import Head from "next/head";
 
 const ResetPassword = () => {
   return (

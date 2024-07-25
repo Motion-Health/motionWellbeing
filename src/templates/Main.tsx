@@ -1,16 +1,16 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import { useMediaQuery } from '@mui/material';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import { useRouter } from 'next/router';
-import React, { ReactNode, useEffect } from 'react';
+import MenuIcon from "@mui/icons-material/Menu";
+import { useMediaQuery } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Toolbar from "@mui/material/Toolbar";
+import { useRouter } from "next/router";
+import React, { ReactNode, useEffect } from "react";
 
-import Navigation from '@/components/navigation/index';
-import { appSections } from '@/components/navigation/navigationItems';
-import { useAccountContext } from '@/context/AccountContext';
-import { useGetAccount } from '@/services/account/useGetAccount';
+import Navigation from "@/components/navigation/index";
+import { appSections } from "@/components/navigation/navigationItems";
+import { useAccountContext } from "@/context/AccountContext";
+import { useGetAccount } from "@/services/account/useGetAccount";
 
 type IMainProps = {
   children: ReactNode;
@@ -23,7 +23,7 @@ const Main = (props: IMainProps) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const { account, updateAccount } = useAccountContext();
-  const isMobile = useMediaQuery('(max-width:900px)');
+  const isMobile = useMediaQuery("(max-width:900px)");
   const { data: getAccountResponse, refetch: refetchAccountData } =
     useGetAccount();
 
@@ -52,7 +52,7 @@ const Main = (props: IMainProps) => {
       navigatedSection?.accessibleBy.includes(accountStatus);
 
     if (accountStatus && navigatedSection && !navigationIsAllowed) {
-      router.push('/wellbeing/upgrade');
+      router.push("/wellbeing/upgrade");
     }
   }, [router]);
 
@@ -61,15 +61,15 @@ const Main = (props: IMainProps) => {
   }
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       {isMobile && (
         <AppBar
           position="fixed"
           sx={{
-            backgroundColor: 'transparent',
-            boxShadow: 'none',
+            backgroundColor: "transparent",
+            boxShadow: "none",
             left: 0,
-            width: 'fit-content',
+            width: "fit-content",
           }}
         >
           <Toolbar>
@@ -78,7 +78,7 @@ const Main = (props: IMainProps) => {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ mr: 2, display: { md: 'none' } }}
+              sx={{ mr: 2, display: { md: "none" } }}
             >
               <MenuIcon />
             </IconButton>
@@ -93,7 +93,7 @@ const Main = (props: IMainProps) => {
         sx={{
           flexGrow: 1,
           p: 3,
-          paddingTop: '35px',
+          paddingTop: "35px",
           width: { md: `calc(100% - ${drawerWidth}px)` },
         }}
       >

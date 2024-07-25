@@ -1,18 +1,18 @@
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { IconButton } from '@mui/material';
-import Head from 'next/head';
-import router from 'next/router';
-import { useState } from 'react';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { IconButton } from "@mui/material";
+import Head from "next/head";
+import router from "next/router";
+import { useState } from "react";
 
-import { Footer } from '@/components/Home/Footer';
-import { Header } from '@/components/Home/header/Header';
+import { Footer } from "@/components/Home/Footer";
+import { Header } from "@/components/Home/header/Header";
 
-import styles from '../blogPost.module.css';
+import styles from "../blogPost.module.css";
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
@@ -53,7 +53,7 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/blog')}
+        onClick={() => router.push("/blog")}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
@@ -244,10 +244,10 @@ const Index = () => {
             stories not only generate leads but create a narrative that
             resonates with the hearts of those seeking a home where their loved
             one will receive truly person-centred care. For some inspiration
-            check out our blog:{' '}
+            check out our blog:{" "}
             <a href="/blog/How-we-made-a-care-home-residents-swimming-dream-come-true/">
               How we made a care home residents swimming dream come true!
-            </a>{' '}
+            </a>{" "}
             or <a href="/how-we-can-help">book a discovery call</a> to learn how
             we can support you to tell better stories.
           </p>

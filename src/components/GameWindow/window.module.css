@@ -1,4 +1,4 @@
-.gameWindow{
+.gameWindow {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -14,61 +14,59 @@
   justify-content: space-between;
   align-content: center;
   flex-wrap: nowrap;
-  top:0;
+  top: 0;
 }
 
-.makeWindowActive{
+.makeWindowActive {
   left: 0;
 }
 
-.activeButton{
+.activeButton {
   position: absolute;
   top: calc(50vh - 53.75px);
   padding: 25px;
   font-size: 50px;
   border-radius: 0px 20px 20px 0px;
   border: none;
-  left:0;
+  left: 0;
   transition: left 0.5s ease-in-out;
 }
-.makeActive{
+.makeActive {
   position: fixed;
   left: 0;
   transition: left 0.5s ease-in-out;
   z-index: 110;
- 
 }
-.activeButtonActive{
+.activeButtonActive {
   left: calc(100vw - 80px);
 }
 
-.activeButton button{
+.activeButton button {
   transition: transform 0.5s ease-in-out;
   transform: scaleX(1);
 }
 
-.activeButtonActive button{
+.activeButtonActive button {
   transform: scaleX(-1);
 }
 
-.buttons{
+.buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: space-between;
   flex-wrap: nowrap;
   flex-direction: row;
-  
 }
-.text{
+.text {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.text h1{
-  font-size:50px;
+.text h1 {
+  font-size: 50px;
 }
-.text p{
-  font-size:30px;
+.text p {
+  font-size: 30px;
 }

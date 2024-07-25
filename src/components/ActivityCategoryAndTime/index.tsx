@@ -1,8 +1,8 @@
-import { Grid, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Grid, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 
-import { categoryIcons } from '@/data/categoryIcons';
-import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
+import { categoryIcons } from "@/data/categoryIcons";
+import { useActivityTimeLengths } from "@/services/activities/useActivityTimeLengths";
 
 type Props = {
   category: string;
@@ -29,16 +29,16 @@ export const ActivityCategoryAndTime = (props: Props) => {
   const categoryIcon: string = categoryIcons[category];
 
   return (
-    <Grid item sx={{ mr: '3rem' }}>
+    <Grid item sx={{ mr: "3rem" }}>
       <Grid container alignItems="center">
         <img src={categoryIcon} alt="Activity icon" />
         <Typography
           variant="helper"
           sx={{
-            bottom: '0.4rem',
-            left: '0.5rem',
-            position: 'initial',
-            paddingLeft: '10px',
+            bottom: "0.4rem",
+            left: "0.5rem",
+            position: "initial",
+            paddingLeft: "10px",
           }}
         >
           {timeLengthLabels?.[timeLength]}

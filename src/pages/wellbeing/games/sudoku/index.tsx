@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
-import { Game } from '@/components/Games/Sudoku/Game';
-import { GameWindow } from '@/components/GameWindow';
-import { SudokuProvider } from '@/context/SudokuContext';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import { Game } from "@/components/Games/Sudoku/Game";
+import { GameWindow } from "@/components/GameWindow";
+import { SudokuProvider } from "@/context/SudokuContext";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
 
 const SudokuGame = () => {
   const [isClient, setIsClient] = useState(false);
@@ -18,7 +18,7 @@ const SudokuGame = () => {
         { activityId: 207 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );
@@ -31,7 +31,7 @@ const SudokuGame = () => {
   }, []);
   const handleResume = () => {
     // Code to resume the game
-    console.log('Resuming game');
+    console.log("Resuming game");
   };
 
   const handleRestart = () => {
@@ -40,11 +40,11 @@ const SudokuGame = () => {
     router.reload();
   };
   const game = {
-    name: 'Sudoku',
+    name: "Sudoku",
     description:
-      'Fill in the grid so that every row, every column, and every 3x3 box contains the digits 1 through 9.',
+      "Fill in the grid so that every row, every column, and every 3x3 box contains the digits 1 through 9.",
     instructions:
-      'Fill in the grid so that every row, every column, and every 3x3 box contains the digits 1 through 9.',
+      "Fill in the grid so that every row, every column, and every 3x3 box contains the digits 1 through 9.",
   };
 
   return (

@@ -1,6 +1,6 @@
 // components/ResidentMood.tsx
 
-import React from 'react';
+import React from "react";
 
 interface ResidentMoodProps {
   rating: number;

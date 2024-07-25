@@ -1,15 +1,15 @@
-import jsPDF from 'jspdf';
-import dayjs from 'dayjs';
+import jsPDF from "jspdf";
+import dayjs from "dayjs";
 
 function createPDF() {
-  return new jsPDF({ orientation: 'landscape' });
+  return new jsPDF({ orientation: "landscape" });
 }
 function printMonthHeader(startOfMonth, pdf, accountName) {
   pdf.setFontSize(25);
   // if accountanme is too long then split int two lines and still if to long truncate it
   if (accountName.length > 20) {
     // Find the nearest space before the 20th character
-    let splitIndex = accountName.lastIndexOf(' ', 20);
+    let splitIndex = accountName.lastIndexOf(" ", 20);
     if (splitIndex === -1) splitIndex = 20; // If no space found, default to 20
 
     const firstLine = accountName.substring(0, splitIndex);
@@ -17,34 +17,34 @@ function printMonthHeader(startOfMonth, pdf, accountName) {
 
     // Truncate the second line if it's too long
     if (secondLine.length > 20) {
-      secondLine = secondLine.substring(0, 17) + '...';
+      secondLine = secondLine.substring(0, 17) + "...";
     }
 
-    pdf.text(firstLine, 10, 10, null, 'left');
-    pdf.text(secondLine, 10, 20, null, 'left'); // Adjust the Y-coordinate as needed
+    pdf.text(firstLine, 10, 10, null, "left");
+    pdf.text(secondLine, 10, 20, null, "left"); // Adjust the Y-coordinate as needed
   } else {
-    pdf.text(accountName, 10, 20, null, 'left');
+    pdf.text(accountName, 10, 20, null, "left");
   }
 
-  pdf.addImage('/assets/logos/PoweredByMotion.png', 'PNG', 250, 12, 36, 8);
+  pdf.addImage("/assets/logos/PoweredByMotion.png", "PNG", 250, 12, 36, 8);
   pdf.setFontSize(40);
   pdf.text(
     startOfMonth,
     pdf.internal.pageSize.getWidth() / 2,
     20,
     null,
-    'center'
+    "center"
   );
 }
 function printDayLabels(pdf, startX, startY) {
   const dayLabels = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
   ];
   const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / dayLabels.length;
 
@@ -54,13 +54,13 @@ function printDayLabels(pdf, startX, startY) {
     const y = startY - 10;
     pdf.setFillColor(15, 82, 152);
     pdf.setTextColor(255);
-    pdf.roundedRect(x + 2, y, cellWidth - 4, 8, 4, 4, 'DF');
+    pdf.roundedRect(x + 2, y, cellWidth - 4, 8, 4, 4, "DF");
     pdf.text(
       label,
       index * cellWidth + 5 + cellWidth / 2,
       startY - 5,
       null,
-      'center'
+      "center"
     );
   });
   pdf.setTextColor(0);
@@ -69,14 +69,14 @@ function printDayLabels(pdf, startX, startY) {
 export function createDaySlots(startOfMonth, daysInMonth) {
   let daySlots = new Array(42).fill(null); // 6 weeks * 7 days
   for (let i = 0; i < daysInMonth; i++) {
-    const date = startOfMonth.add(i, 'day');
+    const date = startOfMonth.add(i, "day");
     const dayOfWeek = (date.day() + 6) % 7; // Adjust so Monday is 0, Sunday is 6
     const weekOfMonth = Math.floor(
       (date.date() - 1 + ((startOfMonth.day() + 6) % 7)) / 7
     );
 
     const index = weekOfMonth * 7 + dayOfWeek;
-    daySlots[index] = date.format('D'); // Store only the day number for simplicity
+    daySlots[index] = date.format("D"); // Store only the day number for simplicity
   }
   return daySlots;
 }
@@ -115,7 +115,7 @@ function drawCalendarGrid(daySlots, pdf, startX, startY) {
           cellHeight,
           3,
           3,
-          j % 2 == 0 ? 'DF' : 'S'
+          j % 2 == 0 ? "DF" : "S"
         );
       } else {
         pdf.setFillColor(215, 215, 215);
@@ -126,7 +126,7 @@ function drawCalendarGrid(daySlots, pdf, startX, startY) {
           cellHeight,
           3,
           3,
-          j % 2 == 0 ? 'DF' : 'S'
+          j % 2 == 0 ? "DF" : "S"
         );
       }
     }
@@ -153,7 +153,7 @@ function drawWeeklyCalendarGrid(daySlots, pdf, startX, startY) {
     } else {
       pdf.setFillColor(247, 251, 254); // Highlighted color for days with data
     }
-    pdf.roundedRect(x, y, cellWidth, cellHeight, 3, 3, 'DF');
+    pdf.roundedRect(x, y, cellWidth, cellHeight, 3, 3, "DF");
   }
 }
 
@@ -190,7 +190,7 @@ function addEventsToCalendar(
       const eventsForDay = events
         .filter(
           (event) =>
-            dayjs(event.start).format('D') === day &&
+            dayjs(event.start).format("D") === day &&
             dayjs(event.start).month() === month
         )
         .filter(
@@ -200,20 +200,20 @@ function addEventsToCalendar(
 
       eventsForDay.forEach((event, eventIndex) => {
         const lines = splitTextToLines(
-          event.title.split('|')[0],
+          event.title.split("|")[0],
           cellWidth - 4,
           pdf
         );
-        const timeText = dayjs(event.start).format('hh:mm A');
+        const timeText = dayjs(event.start).format("hh:mm A");
         pdf.text(lines[0], x + 2, y + 4 + eventIndex * 9);
         if (lines[1] && lines[1].length != 0) {
           const text = truncateString(lines[1], cellWidth - 31);
           pdf.text(text, x + 2, y + 8 + eventIndex * 9);
-          if (timeText !== '00:00') {
+          if (timeText !== "00:00") {
             pdf.text(timeText, x + 24, y + 8 + eventIndex * 9);
           }
         } else {
-          if (timeText !== '00:00') {
+          if (timeText !== "00:00") {
             pdf.text(timeText, x + 2, y + 8 + eventIndex * 9);
           }
         }
@@ -231,13 +231,13 @@ function addWeeklyEventsToCalendar(
   startY,
   week
 ) {
-  console.log('week', week);
+  console.log("week", week);
   const cellWidth = (pdf.internal.pageSize.getWidth() - 10) / 7; // 7 days in a week
   const daysInWeek = 7;
   const totalHeightAvailable = pdf.internal.pageSize.getHeight() - startY - 5;
-  const start = dayjs(String(week).split('-')[0]);
+  const start = dayjs(String(week).split("-")[0]);
   const currentDay = week.day();
-  console.log('currentDay', currentDay);
+  console.log("currentDay", currentDay);
   const lastDayIndex =
     daySlots.length -
     1 -
@@ -251,37 +251,37 @@ function addWeeklyEventsToCalendar(
   for (let i = 0; i < daysInWeek; i++) {
     let day = start;
     if (i != 0) {
-      day = start.add(i, 'day');
+      day = start.add(i, "day");
     }
     const x = 5 + i * cellWidth;
     const y = startY + 10; // Adjust as necessary
     pdf.setFontSize(20);
-    pdf.text(day.format('DD'), x + cellWidth / 2, y, 'center'); // Add the day of the month
+    pdf.text(day.format("DD"), x + cellWidth / 2, y, "center"); // Add the day of the month
     pdf.setFontSize(10);
     const eventsForDay = events
       .filter(
         (event) =>
-          dayjs(event.start).format('D') === day.format('D') &&
+          dayjs(event.start).format("D") === day.format("D") &&
           dayjs(event.start).month() === day.month()
       )
       .filter((event) => event.isProtected === isToggled || !event.isProtected);
 
     eventsForDay.forEach((event, eventIndex) => {
       const lines = splitTextToLines(
-        event.title.split('|')[0],
+        event.title.split("|")[0],
         cellWidth - 4,
         pdf
       );
-      const timeText = dayjs(event.start).format('hh:mm A');
+      const timeText = dayjs(event.start).format("hh:mm A");
       pdf.text(lines[0], x + 2, y + 5 + eventIndex * 11);
       if (lines[1] && lines[1].length != 0) {
         const text = truncateString(lines[1], cellWidth - 31);
         pdf.text(text, x + 2, y + 9 + eventIndex * 12);
-        if (timeText !== '00:00') {
+        if (timeText !== "00:00") {
           pdf.text(timeText, x + 24, y + 9 + eventIndex * 11);
         }
       } else {
-        if (timeText !== '00:00') {
+        if (timeText !== "00:00") {
           pdf.text(timeText, x + 2, y + 9 + eventIndex * 11);
         }
       }
@@ -291,7 +291,7 @@ function addWeeklyEventsToCalendar(
 
 function truncateString(str, num) {
   if (str.length > num) {
-    return str.slice(0, num - 1) + '...'; // Subtract 1 to account for the length of the ellipsis
+    return str.slice(0, num - 1) + "..."; // Subtract 1 to account for the length of the ellipsis
   } else {
     return str;
   }
@@ -299,24 +299,24 @@ function truncateString(str, num) {
 export function createWeeklyDaySlots(startOfWeek) {
   let daySlots = new Array(7).fill(null); // 1 week * 7 days
   for (let i = 0; i < 7; i++) {
-    const date = startOfWeek.add(i, 'day');
-    daySlots[i] = date.format('D');
+    const date = startOfWeek.add(i, "day");
+    daySlots[i] = date.format("D");
   }
   return daySlots;
 }
 function splitTextToLines(text, maxWidth, pdf) {
   let lines = [];
-  let currentLine = text.split(' ')[0];
+  let currentLine = text.split(" ")[0];
   text
-    .split(' ')
+    .split(" ")
     .slice(1)
     .forEach((word) => {
       let width =
-        (pdf.getStringUnitWidth(currentLine + ' ' + word) *
+        (pdf.getStringUnitWidth(currentLine + " " + word) *
           pdf.internal.getFontSize()) /
         pdf.internal.scaleFactor;
       if (width < maxWidth) {
-        currentLine += ' ' + word;
+        currentLine += " " + word;
       } else {
         lines.push(currentLine);
         currentLine = word;
@@ -333,13 +333,13 @@ function splitTextToLines(text, maxWidth, pdf) {
   if (lastLineWidth > maxWidth) {
     lines[lines.length - 1] =
       lines[lines.length - 1].substring(0, lines[lines.length - 1].length - 3) +
-      '...';
+      "...";
   }
   return lines;
 }
 
 function openPDF(pdf) {
-  window.open(pdf.output('bloburl'), '_blank');
+  window.open(pdf.output("bloburl"), "_blank");
 }
 
 export function printCalendarPDF(
@@ -350,15 +350,15 @@ export function printCalendarPDF(
   week
 ) {
   const pdf = createPDF();
-  pdf.setFont('Montserrat');
-  const startOfMonth = dayjs(calendarApi.getDate()).startOf('month');
+  pdf.setFont("Montserrat");
+  const startOfMonth = dayjs(calendarApi.getDate()).startOf("month");
   console.log(week);
-  const startOfWeek = week ? dayjs(week).startOf('week') : null;
+  const startOfWeek = week ? dayjs(week).startOf("week") : null;
   console.log(week);
-  console.log('startOfWeek', startOfWeek);
+  console.log("startOfWeek", startOfWeek);
 
   printMonthHeader(
-    week ? week : startOfMonth.format('MMMM YYYY'),
+    week ? week : startOfMonth.format("MMMM YYYY"),
     pdf,
     accountName
   );
@@ -372,7 +372,7 @@ export function printCalendarPDF(
     daySlots = createWeeklyDaySlots(startOfWeek);
     drawWeeklyCalendarGrid(daySlots, pdf, startX, startY);
   } else {
-    const daysInMonth = startOfMonth.endOf('month').date();
+    const daysInMonth = startOfMonth.endOf("month").date();
     daySlots = createDaySlots(startOfMonth, daysInMonth);
     drawCalendarGrid(daySlots, pdf, startX, startY);
   }
@@ -384,7 +384,7 @@ export function printCalendarPDF(
         pdf,
         startX,
         startY,
-        dayjs(week, 'MMM DD')
+        dayjs(week, "MMM DD")
       )
     : addEventsToCalendar(
         daySlots,

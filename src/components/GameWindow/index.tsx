@@ -1,11 +1,11 @@
 // Assuming you've created a CSS module
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
-import mainTheme from '@/styles/theme.module.css';
+import mainTheme from "@/styles/theme.module.css";
 
-import window from './window.module.css';
+import window from "./window.module.css";
 export const GameWindow = ({ game, onRestart, onResume }) => {
   const [windowActive, setWindowActive] = useState(false);
   const router = useRouter(); // Use the router
@@ -13,20 +13,20 @@ export const GameWindow = ({ game, onRestart, onResume }) => {
     <>
       <div
         className={`${window.makeActive} ${
-          windowActive ? window.activeButtonActive : ''
+          windowActive ? window.activeButtonActive : ""
         }`}
       >
         <button
           className={window.activeButton}
           onClick={() => setWindowActive(!windowActive)}
         >
-          {'>'}
+          {">"}
         </button>
       </div>
 
       <div
         className={`${window.gameWindow} ${
-          windowActive ? window.makeWindowActive : ''
+          windowActive ? window.makeWindowActive : ""
         }`}
       >
         <div className={window.text}>
@@ -40,7 +40,7 @@ export const GameWindow = ({ game, onRestart, onResume }) => {
         <div className={window.buttons}>
           <button
             className={`${mainTheme.bigButton} ${mainTheme.dangerButton}`}
-            onClick={() => router.push('/wellbeing/activities/?filter=Games')}
+            onClick={() => router.push("/wellbeing/activities/?filter=Games")}
           >
             Exit
           </button>

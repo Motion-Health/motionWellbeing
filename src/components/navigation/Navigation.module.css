@@ -1,5 +1,5 @@
 .drawer {
-  height: 100%; 
+  height: 100%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -8,22 +8,22 @@
 
 .logo {
   margin: auto;
-  padding:2rem 2rem;
+  padding: 2rem 2rem;
 }
 
 .navigationLink {
   text-decoration: none;
-  color:#0c437d;
+  color: #0c437d;
 }
 .navigationContainer::-webkit-scrollbar {
   display: none;
 }
 
-.navigationContainer{
+.navigationContainer {
   scrollbar-width: none;
   -ms-overflow-style: none;
   overflow: scroll;
 }
-.renderLogo{
+.renderLogo {
   height: -webkit-fill-available;
 }

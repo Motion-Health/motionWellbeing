@@ -1,6 +1,6 @@
-import { useMutation } from 'react-query';
+import { useMutation } from "react-query";
 
-import { API } from '../api';
+import { API } from "../api";
 
 export type CompletedActivityData = {
   activityCompletedId: string;
@@ -12,7 +12,7 @@ export type CompletedActivityData = {
 
 export const useUpdateCompletedActivity = () => {
   return useMutation((data: CompletedActivityData) => {
-    console.log('data', data);
+    console.log("data", data);
     const { activityCompletedId } = data;
 
     return API.patch<CompletedActivityData>(

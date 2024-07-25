@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import sudoku from '@/components/Games/Sudoku/sudoku.module.css';
-import { useSudokuContext } from '@/context/SudokuContext';
+import sudoku from "@/components/Games/Sudoku/sudoku.module.css";
+import { useSudokuContext } from "@/context/SudokuContext";
 type NumbersProps = {
   onClickNumber: (number: string) => void;
 };
@@ -18,7 +18,7 @@ export const Numbers = ({ onClickNumber }: NumbersProps) => {
         if (numberSelected === number.toString()) {
           return (
             <div
-              className={`${sudoku.statusNumber} ${sudoku['statusNumber--selected']}`}
+              className={`${sudoku.statusNumber} ${sudoku["statusNumber--selected"]}`}
               key={number}
               onClick={() => onClickNumber(number.toString())}
             >

@@ -1,12 +1,12 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Alert, Box, Button, Typography } from '@mui/material';
-import { useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { object, string } from 'zod';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Alert, Box, Button, Typography } from "@mui/material";
+import { useState } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { object, string } from "zod";
 
-import { FormInputText } from '@/components/FormInputText';
-import { useRequestNewPassword } from '@/services/auth/useRequestNewPassword';
-import { AppConfig } from '@/utils/AppConfig';
+import { FormInputText } from "@/components/FormInputText";
+import { useRequestNewPassword } from "@/services/auth/useRequestNewPassword";
+import { AppConfig } from "@/utils/AppConfig";
 
 type Inputs = {
   email: string;
@@ -15,7 +15,7 @@ type Inputs = {
 };
 
 const registerSchema = object({
-  email: string().min(1, 'Email is required').email('Email is invalid'),
+  email: string().min(1, "Email is required").email("Email is invalid"),
 });
 
 export const ResetPasswordForm = () => {
@@ -30,7 +30,7 @@ export const ResetPasswordForm = () => {
   } = methods;
 
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [emailAddress, setEmailAddress] = useState('');
+  const [emailAddress, setEmailAddress] = useState("");
 
   const requestNewPassword = useRequestNewPassword();
 
@@ -45,7 +45,7 @@ export const ResetPasswordForm = () => {
           setShowConfirmation(true);
         },
         onError: () => {
-          setAlertMessage('Something went wrong - please try again');
+          setAlertMessage("Something went wrong - please try again");
         },
       }
     );
@@ -56,9 +56,9 @@ export const ResetPasswordForm = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       {alertMessage && (
@@ -66,7 +66,7 @@ export const ResetPasswordForm = () => {
           onClose={() => setAlertMessage(null)}
           icon={false}
           severity="error"
-          sx={{ width: '100%' }}
+          sx={{ width: "100%" }}
         >
           {alertMessage}
         </Alert>
@@ -77,18 +77,18 @@ export const ResetPasswordForm = () => {
         noValidate
         onSubmit={handleSubmit(onSubmitHandler)}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '27rem',
-          maxWidth: '-webkit-fill-available',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "27rem",
+          maxWidth: "-webkit-fill-available",
         }}
       >
         <div
           sx={{
-            padding: '3rem',
-            textAlign: 'center',
-            width: '100%',
+            padding: "3rem",
+            textAlign: "center",
+            width: "100%",
           }}
         >
           <img
@@ -100,7 +100,7 @@ export const ResetPasswordForm = () => {
           />
         </div>
 
-        <Typography variant="h1" sx={{ mb: '2rem' }}>
+        <Typography variant="h1" sx={{ mb: "2rem" }}>
           Reset password
         </Typography>
 
@@ -121,9 +121,9 @@ export const ResetPasswordForm = () => {
             fullWidth
             type="submit"
             sx={{
-              py: '0.8rem',
-              mt: '1rem',
-              width: '210px',
+              py: "0.8rem",
+              mt: "1rem",
+              width: "210px",
               borderRadius: 50,
             }}
           >
@@ -131,7 +131,7 @@ export const ResetPasswordForm = () => {
           </Button>
 
           {showConfirmation && (
-            <p style={{ textAlign: 'center' }}>
+            <p style={{ textAlign: "center" }}>
               If that email is linked to an account, we will send a password
               reset email to {emailAddress}.
             </p>

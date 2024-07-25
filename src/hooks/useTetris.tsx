@@ -187,7 +187,15 @@ export const TetrisProvider: React.FC<React.PropsWithChildren> = ({
   return (
     <TetrisGameStateContext.Provider value={gameState}>
       <TetrisActionsContext.Provider
-        value={{ rotate, move, start, fastDrop, hardDrop, registerCallback, setScoreId }}
+        value={{
+          rotate,
+          move,
+          start,
+          fastDrop,
+          hardDrop,
+          registerCallback,
+          setScoreId,
+        }}
       >
         {children}
       </TetrisActionsContext.Provider>
@@ -201,7 +209,22 @@ export const useTetris = (): GameState => {
 };
 
 export const useTetrisActions = () => {
-  const { rotate, move, start, fastDrop, hardDrop, registerCallback, setScoreId } =
-    useContext(TetrisActionsContext);
-  return { rotate, move, start, fastDrop, hardDrop, registerCallback, setScoreId };
+  const {
+    rotate,
+    move,
+    start,
+    fastDrop,
+    hardDrop,
+    registerCallback,
+    setScoreId,
+  } = useContext(TetrisActionsContext);
+  return {
+    rotate,
+    move,
+    start,
+    fastDrop,
+    hardDrop,
+    registerCallback,
+    setScoreId,
+  };
 };

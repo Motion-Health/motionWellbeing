@@ -6,16 +6,16 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+} from "@mui/material";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
-import { useGetAccount } from '@/services/account/useGetAccount';
-import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
-import theme from '@/styles/theme';
-import { AppConfig } from '@/utils/AppConfig';
+import { useGetAccount } from "@/services/account/useGetAccount";
+import { useLogoutAccount } from "@/services/auth/useLogoutAccount";
+import theme from "@/styles/theme";
+import { AppConfig } from "@/utils/AppConfig";
 
-import styles from './Navigation.module.css';
+import styles from "./Navigation.module.css";
 
 const defaultColour = theme.palette.text.primary;
 const activeColour = theme.palette.secondary.main;
@@ -32,7 +32,7 @@ const NavigationItems = () => {
 
   const { data: account } = useGetAccount();
   useEffect(() => {
-    if (pathname === '/wellbeing/activities') {
+    if (pathname === "/wellbeing/activities") {
       setShowActivitiesSubNavigation(true);
     } else {
       setShowActivitiesSubNavigation(false);
@@ -44,12 +44,12 @@ const NavigationItems = () => {
   const logoutAccount = () => {
     logout.mutate({ accountId: account.accountId! });
 
-    router.push('/wellbeing/login');
+    router.push("/wellbeing/login");
   };
 
   const renderLogo = () => {
     const logoSrc =
-      account?.logo && account?.accountStatus !== 'standard'
+      account?.logo && account?.accountStatus !== "standard"
         ? account?.logo
         : AppConfig.logo;
 
@@ -64,7 +64,7 @@ const NavigationItems = () => {
     );
   };
   const onGISPage =
-    pathname === '/wellbeing/activities' && activityFilter === 'gis';
+    pathname === "/wellbeing/activities" && activityFilter === "gis";
 
   return (
     <div className={styles.drawer}>
@@ -74,20 +74,20 @@ const NavigationItems = () => {
         className={styles.navigationContainer}
         direction="column"
         sx={{
-          flexDirection: 'column',
-          flexWrap: 'nowrap',
-          justifyContent: 'space-between',
-          height: '100%',
+          flexDirection: "column",
+          flexWrap: "nowrap",
+          justifyContent: "space-between",
+          height: "100%",
         }}
       >
         <List sx={{ paddingTop: 0 }} className={styles.appSections}>
           {appSections.map((page) => {
-            console.log('page', page);
+            console.log("page", page);
             const isActivePage = pathname === page.path;
-            const isGISPage = page.path === '/wellbeing/activities/?filter=gis';
-            console.log('pathname', page.path);
-            console.log('isActivePage', isActivePage);
-            console.log('isGISPage', isGISPage);
+            const isGISPage = page.path === "/wellbeing/activities/?filter=gis";
+            console.log("pathname", page.path);
+            console.log("isActivePage", isActivePage);
+            console.log("isGISPage", isGISPage);
 
             const shouldHighlight = onGISPage ? isGISPage : isActivePage;
 
@@ -112,8 +112,8 @@ const NavigationItems = () => {
                         style={{
                           filter: shouldHighlight
                             ? // transform to activeColour (#66d3fa)
-                              'invert(72%) sepia(92%) saturate(573%) hue-rotate(166deg) brightness(99%) contrast(99%)'
-                            : 'none',
+                              "invert(72%) sepia(92%) saturate(573%) hue-rotate(166deg) brightness(99%) contrast(99%)"
+                            : "none",
                         }}
                       />
                     </ListItemIcon>
@@ -135,34 +135,34 @@ const NavigationItems = () => {
           alignItems="center"
           justifyContent="center"
         >
-          {account?.accountStatus != 'admin' &&
-            account?.accountStatus != 'gis' &&
-            account?.accountStatus != 'premium' && (
+          {account?.accountStatus != "admin" &&
+            account?.accountStatus != "gis" &&
+            account?.accountStatus != "premium" && (
               <Button
                 variant="outlined"
                 sx={{
-                  width: '12rem',
-                  marginTop: '3rem',
-                  marginBottom: '2rem',
+                  width: "12rem",
+                  marginTop: "3rem",
+                  marginBottom: "2rem",
                 }}
-                onClick={() => router.push('/wellbeing/upgrade')}
+                onClick={() => router.push("/wellbeing/upgrade")}
                 className="upgrade-button"
               >
                 Upgrade
               </Button>
             )}
 
-          {account?.accountStatus !== 'admin' &&
-            account?.accountStatus !== 'gis' &&
-            account?.accountStatus === 'premium' && (
+          {account?.accountStatus !== "admin" &&
+            account?.accountStatus !== "gis" &&
+            account?.accountStatus === "premium" && (
               <div className="manage-membership-container">
                 <p className="premium-text">Premium</p>
                 <Button
                   variant="outlined"
                   sx={{
-                    width: '12rem',
+                    width: "12rem",
                   }}
-                  onClick={() => router.push('/wellbeing/upgrade')}
+                  onClick={() => router.push("/wellbeing/upgrade")}
                   className="upgrade-button"
                 >
                   Manage Membership
@@ -170,11 +170,11 @@ const NavigationItems = () => {
               </div>
             )}
 
-          {account?.accountStatus != 'admin' && (
+          {account?.accountStatus != "admin" && (
             <Button
               variant="text"
               sx={{
-                marginBottom: '2rem',
+                marginBottom: "2rem",
               }}
               href="/wellbeing/support"
             >
@@ -185,8 +185,8 @@ const NavigationItems = () => {
             onClick={logoutAccount}
             underline="none"
             sx={{
-              cursor: 'pointer',
-              marginBottom: '2.5rem',
+              cursor: "pointer",
+              marginBottom: "2.5rem",
             }}
           >
             Log out
@@ -199,62 +199,62 @@ const NavigationItems = () => {
 
 export const appSections = [
   {
-    title: 'Home',
-    icon: '/assets/icons/ph_house.svg',
-    path: '/wellbeing/dashboard',
-    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin', 'gis'],
+    title: "Home",
+    icon: "/assets/icons/ph_house.svg",
+    path: "/wellbeing/dashboard",
+    visibleTo: ["standard", "group", "premium", "admin", "gis"],
+    accessibleBy: ["standard", "group", "premium", "admin", "gis"],
   },
   {
-    title: 'Activities',
-    icon: '/assets/icons/ph_person-hands-up.svg',
-    path: '/wellbeing/activities',
-    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin', 'gis'],
+    title: "Activities",
+    icon: "/assets/icons/ph_person-hands-up.svg",
+    path: "/wellbeing/activities",
+    visibleTo: ["standard", "group", "premium", "admin", "gis"],
+    accessibleBy: ["standard", "group", "premium", "admin", "gis"],
   },
   {
-    title: 'Golf In Society Activities',
-    icon: '/assets/icons/golf.svg',
-    path: '/wellbeing/activities/?filter=gis',
-    visibleTo: ['gis'],
-    accessibleBy: ['gis'],
-  },
-
-  {
-    title: 'My planner',
-    icon: '/assets/icons/ph_calendar-blank.svg',
-    path: '/wellbeing/planner',
-    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
-    accessibleBy: ['group', 'premium', 'admin', 'gis'],
-  },
-  {
-    title: 'Community',
-    icon: '/assets/icons/community.svg',
-    path: '/wellbeing/community',
-    visibleTo: ['standard', 'group', 'premium', 'admin'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin'],
-  },
-  {
-    title: 'My profile',
-    icon: '/assets/icons/ph_user-circle.svg',
-    path: '/wellbeing/profile',
-    visibleTo: ['standard', 'group', 'premium', 'admin', 'gis'],
-    accessibleBy: ['standard', 'group', 'premium', 'admin', 'gis'],
+    title: "Golf In Society Activities",
+    icon: "/assets/icons/golf.svg",
+    path: "/wellbeing/activities/?filter=gis",
+    visibleTo: ["gis"],
+    accessibleBy: ["gis"],
   },
 
   {
-    title: 'Announcements',
-    icon: '/assets/icons/ph_hand-waving.svg',
-    path: '/wellbeing/announcements',
-    visibleTo: ['admin'],
-    accessibleBy: ['admin'],
+    title: "My planner",
+    icon: "/assets/icons/ph_calendar-blank.svg",
+    path: "/wellbeing/planner",
+    visibleTo: ["standard", "group", "premium", "admin", "gis"],
+    accessibleBy: ["group", "premium", "admin", "gis"],
   },
   {
-    title: 'Analytics',
-    icon: '/assets/icons/ph_chart-pie.svg',
-    path: '/wellbeing/analytics',
-    visibleTo: ['admin'],
-    accessibleBy: ['admin'],
+    title: "Community",
+    icon: "/assets/icons/community.svg",
+    path: "/wellbeing/community",
+    visibleTo: ["standard", "group", "premium", "admin"],
+    accessibleBy: ["standard", "group", "premium", "admin"],
+  },
+  {
+    title: "My profile",
+    icon: "/assets/icons/ph_user-circle.svg",
+    path: "/wellbeing/profile",
+    visibleTo: ["standard", "group", "premium", "admin", "gis"],
+    accessibleBy: ["standard", "group", "premium", "admin", "gis"],
+  },
+
+  {
+    title: "Announcements",
+    icon: "/assets/icons/ph_hand-waving.svg",
+    path: "/wellbeing/announcements",
+    visibleTo: ["admin"],
+    accessibleBy: ["admin"],
+  },
+  {
+    title: "Analytics",
+    icon: "/assets/icons/ph_chart-pie.svg",
+    path: "/wellbeing/analytics",
+    visibleTo: ["admin"],
+    accessibleBy: ["admin"],
   },
 ];
 

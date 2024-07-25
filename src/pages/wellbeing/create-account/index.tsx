@@ -1,9 +1,9 @@
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { IconButton } from '@mui/material';
-import Head from 'next/head';
-import router from 'next/router';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { IconButton } from "@mui/material";
+import Head from "next/head";
+import router from "next/router";
 
-import { CreateAccountForm } from '@/components/forms/CreateAccountForm';
+import { CreateAccountForm } from "@/components/forms/CreateAccountForm";
 
 const CreateAccount = () => {
   return (
@@ -13,7 +13,7 @@ const CreateAccount = () => {
       </Head>
       <IconButton
         color="primary"
-        onClick={() => router.push('https://motion.org.uk')}
+        onClick={() => router.push("https://motion.org.uk")}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />

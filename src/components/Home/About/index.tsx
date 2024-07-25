@@ -1,4 +1,4 @@
-import styles from './about.module.css';
+import styles from "./about.module.css";
 export const About = () => {
   return (
     <section id="about" className={styles.aboutWrapper}>

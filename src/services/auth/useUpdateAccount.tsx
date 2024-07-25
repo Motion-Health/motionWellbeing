@@ -1,8 +1,8 @@
-import { useMutation } from 'react-query';
+import { useMutation } from "react-query";
 
-import { Account } from '@/models/Account';
+import { Account } from "@/models/Account";
 
-import { API } from '../api';
+import { API } from "../api";
 
 export type AdditionalInformationResponse = {
   serviceProviderName: string;

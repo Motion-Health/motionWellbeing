@@ -1,20 +1,20 @@
-import Image from 'next/legacy/image';
-import React, { memo, useCallback, useRef, useState } from 'react';
+import Image from "next/legacy/image";
+import React, { memo, useCallback, useRef, useState } from "react";
 
-import styles from './hero.module.css';
+import styles from "./hero.module.css";
 
 interface HeroProps {
   children: React.ReactNode;
-  mode?: 'small' | 'large';
-  theme?: 'light' | 'dark';
+  mode?: "small" | "large";
+  theme?: "light" | "dark";
   backgroundImage?: string;
   videoSrc?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
   children,
-  mode = 'large',
-  theme = 'light',
+  mode = "large",
+  theme = "light",
   backgroundImage,
   videoSrc,
 }) => {
@@ -22,9 +22,9 @@ const Hero: React.FC<HeroProps> = ({
   const video: any = useRef(null);
 
   const navigateToServices = useCallback(() => {
-    document.getElementById('services')?.scrollIntoView({
+    document.getElementById("services")?.scrollIntoView({
       top: 140,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }, []);
   return (

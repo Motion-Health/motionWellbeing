@@ -1,6 +1,7 @@
 // Logout.tsx
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+
 import { useGetAccount } from '@/services/account/useGetAccount';
 import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
 

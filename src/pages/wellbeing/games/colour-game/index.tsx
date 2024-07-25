@@ -1,24 +1,24 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
-import { GameWindow } from '@/components/GameWindow';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
-import mainTheme from '@/styles/theme.module.css';
+import { GameWindow } from "@/components/GameWindow";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
+import mainTheme from "@/styles/theme.module.css";
 
-import styles from './colourGame.module.css';
+import styles from "./colourGame.module.css";
 // Dynamically import the Snake component with SSR disabled
 
 let overlayStyle = {
-  visibility: 'hidden',
-  opacity: '0%',
+  visibility: "hidden",
+  opacity: "0%",
 };
 
 let modalStyle = {
-  transform: 'translate(0%, 0%)',
+  transform: "translate(0%, 0%)",
 };
 
 const ColourGame = () => {
   const [level, setLevel] = useState(1);
-  const [gameState, setGameState] = useState('');
+  const [gameState, setGameState] = useState("");
   const [score, setScore] = useState(0);
   const [highestScore, setHighestScore] = useState(0);
   const completeActivity = useCompleteActivity();
@@ -31,7 +31,7 @@ const ColourGame = () => {
         { activityId: 203 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );
@@ -39,31 +39,31 @@ const ColourGame = () => {
   }, []);
 
   useEffect(() => {
-    gameState === 'next level' && setLevel(level + 1);
+    gameState === "next level" && setLevel(level + 1);
 
     return () => {
-      setGameState('');
+      setGameState("");
     };
   }, [gameState, level]);
 
   useEffect(() => {
-    if (gameState === 'game over') {
+    if (gameState === "game over") {
       overlayStyle = {
-        opacity: '100%',
+        opacity: "100%",
       };
       modalStyle = {
-        transform: 'translate(0%, 50%)',
+        transform: "translate(0%, 50%)",
       };
     }
 
     return () => {
       overlayStyle = {
-        visibility: 'hidden',
-        opacity: '0%',
+        visibility: "hidden",
+        opacity: "0%",
       };
 
       modalStyle = {
-        transform: 'translate(0%, 0%)',
+        transform: "translate(0%, 0%)",
       };
     };
   }, [gameState]);
@@ -73,24 +73,24 @@ const ColourGame = () => {
   }, [score, highestScore]);
 
   const resetGame = () => {
-    setGameState('new game');
+    setGameState("new game");
     setScore(0);
     setLevel(1);
   };
 
   const handleResume = () => {
     // Code to resume the game
-    console.log('Resuming game');
+    console.log("Resuming game");
   };
 
   const handleRestart = () => {
     // Code to restart the game
-    console.log('Restarting game');
+    console.log("Restarting game");
   };
   const game = {
-    name: 'Colour Game',
-    description: 'For each level only pick the colour once',
-    instructions: 'For each level only pick the colour once.',
+    name: "Colour Game",
+    description: "For each level only pick the colour once",
+    instructions: "For each level only pick the colour once.",
   };
   return (
     <>
@@ -216,7 +216,7 @@ function Cards({ level, gameState, setGameState, setScore, score }) {
     array.map((color) => {
       if (color.hex === hexCode) {
         if (color.isClicked) {
-          setGameState('game over');
+          setGameState("game over");
         } else {
           color.isClicked = true;
           setScore(score + 1);
@@ -224,7 +224,7 @@ function Cards({ level, gameState, setGameState, setScore, score }) {
       }
     });
     setColorsArray(shuffleArray(array));
-    checkIfAllAreClicked() && setGameState('next level');
+    checkIfAllAreClicked() && setGameState("next level");
   };
 
   const checkIfAllAreClicked = () => {
@@ -241,10 +241,10 @@ function Cards({ level, gameState, setGameState, setScore, score }) {
   }, [level]);
 
   useEffect(() => {
-    gameState === 'new game' && generateColorsArray(level);
+    gameState === "new game" && generateColorsArray(level);
 
     return () => {
-      setGameState('');
+      setGameState("");
     };
   }, [gameState, level, setGameState]);
 

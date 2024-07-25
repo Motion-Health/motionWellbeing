@@ -1,7 +1,7 @@
-import router from 'next/router';
-import React from 'react';
+import router from "next/router";
+import React from "react";
 
-import styles from './GameCard.module.css'; // Ensure the path is correct
+import styles from "./GameCard.module.css"; // Ensure the path is correct
 
 export const GameCard = ({ game }) => {
   return (
@@ -18,7 +18,7 @@ export const GameCard = ({ game }) => {
         <p className={styles.description}>{game.players}</p>
         <p className={styles.instructions}>
           <ul>
-            {game.instructions.split('\n').map((line, index) => (
+            {game.instructions.split("\n").map((line, index) => (
               <li key={index}>{line}</li>
             ))}
           </ul>

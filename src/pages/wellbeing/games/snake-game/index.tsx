@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
 // Dynamically import the Snake component with SSR disabled
-import Snake from '@/components/Games/Snake/Snake';
-import { GameWindow } from '@/components/GameWindow';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import Snake from "@/components/Games/Snake/Snake";
+import { GameWindow } from "@/components/GameWindow";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
 
 const SnakeGame = () => {
   const [isClient, setIsClient] = useState(false);
@@ -19,7 +19,7 @@ const SnakeGame = () => {
         { activityId: 201 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );
@@ -32,21 +32,21 @@ const SnakeGame = () => {
   const [restart, setRestart] = useState(0);
   const game = {
     id: 1,
-    name: 'Snake',
-    description: 'A classic game of snake',
+    name: "Snake",
+    description: "A classic game of snake",
     instructions:
-      'Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.',
-    link: '/wellbeing/games/snake-game',
+      "Use the arrow keys to move the snake around the screen. Eat the apples to grow longer. Avoid hitting yourself.",
+    link: "/wellbeing/games/snake-game",
   };
   const handleResume = () => {
     // Code to resume the game
-    console.log('Resuming game');
+    console.log("Resuming game");
   };
 
   const handleRestart = () => {
     // Code to restart the game
     setRestart((prevRestart) => prevRestart + 1);
-    console.log('Restarting game');
+    console.log("Restarting game");
   };
 
   return (

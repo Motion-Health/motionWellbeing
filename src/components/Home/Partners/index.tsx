@@ -1,7 +1,7 @@
-import Image from 'next/legacy/image'; // Import the Image component from Next.js
-import React from 'react';
+import Image from "next/legacy/image"; // Import the Image component from Next.js
+import React from "react";
 
-import styles from './clients.module.css';
+import styles from "./clients.module.css";
 
 export const Partners = () => {
   return (

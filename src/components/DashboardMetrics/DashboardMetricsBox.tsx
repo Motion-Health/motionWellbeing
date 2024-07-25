@@ -24,7 +24,7 @@ export const DashboardMetricBox = ({
     serviceName,
     accountId,
     accountStatus,
-    dateRangeFilter,
+    dateRangeFilter
   );
 
   const [metricCount, setMetricCount] = useState<number | null>(null);

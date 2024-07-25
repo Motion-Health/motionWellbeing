@@ -1,12 +1,12 @@
-.boardRow{
+.boardRow {
   display: flex;
   justify-content: center;
 }
-.status{
+.status {
   text-align: center;
   font-size: 7vw;
 }
-.square{
+.square {
   background-color: white;
   border: none;
   height: 15vw;
@@ -14,33 +14,33 @@
   font-size: 8vw;
 }
 
-.game{
+.game {
   display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
-.gameBoard{
+.gameBoard {
   margin: auto;
 }
 
-.boardRow :nth-child(2), .boardRowTwo :nth-child(2){
+.boardRow :nth-child(2),
+.boardRowTwo :nth-child(2) {
   border-right: 4px solid black;
   border-left: 4px solid black;
 }
 
-.boardRowTwo{
+.boardRowTwo {
   display: flex;
   justify-content: center;
- 
 }
-.boardRowTwo button{
+.boardRowTwo button {
   border-top: 4px solid black;
   border-bottom: 4px solid black;
 }
 
-.button{
+.button {
   margin-top: 20px;
   background-color: #6096ce;
   border: none;

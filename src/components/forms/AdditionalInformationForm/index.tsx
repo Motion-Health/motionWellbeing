@@ -1,4 +1,4 @@
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Alert,
   Backdrop,
@@ -8,18 +8,18 @@ import {
   Grid,
   MenuItem,
   Typography,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { object, string } from 'zod';
+} from "@mui/material";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { object, string } from "zod";
 
-import { FormInputText } from '@/components/FormInputText';
-import { FormSelect } from '@/components/FormSelect';
-import { useAccountContext } from '@/context/AccountContext';
-import { useLogoutAccount } from '@/services/auth/useLogoutAccount';
-import { useUpdateAccount } from '@/services/auth/useUpdateAccount';
-import { AppConfig } from '@/utils/AppConfig';
+import { FormInputText } from "@/components/FormInputText";
+import { FormSelect } from "@/components/FormSelect";
+import { useAccountContext } from "@/context/AccountContext";
+import { useLogoutAccount } from "@/services/auth/useLogoutAccount";
+import { useUpdateAccount } from "@/services/auth/useUpdateAccount";
+import { AppConfig } from "@/utils/AppConfig";
 type Inputs = {
   UserRole: string;
   serviceProviderName: string;
@@ -32,19 +32,19 @@ type Inputs = {
 };
 
 const registerSchema = object({
-  serviceProviderName: string().min(1, 'Name of service provider is required'),
-  mainContactName: string().min(1, 'Your name is required'),
+  serviceProviderName: string().min(1, "Name of service provider is required"),
+  mainContactName: string().min(1, "Your name is required"),
   phoneNumber: string()
-    .min(1, 'Phone number is required')
+    .min(1, "Phone number is required")
     .regex(
       /^[0-9\s]{7,15}$/,
-      'Please enter a valid phone number (between 7 and 15 numbers with no special characters)'
+      "Please enter a valid phone number (between 7 and 15 numbers with no special characters)"
     ),
   city: string().optional(),
   isPartOfAGroup: string().optional(),
   howDidYouHearAboutUs: string().optional(),
   groupName: string().optional(),
-  UserRole: string().min(1, 'Please select a role'),
+  UserRole: string().min(1, "Please select a role"),
 });
 
 export const AdditionalInformationForm = () => {
@@ -57,7 +57,7 @@ export const AdditionalInformationForm = () => {
   const logoutAccount = () => {
     logout.mutate({ accountId: account.accountId! });
 
-    router.push('/wellbeing/login');
+    router.push("/wellbeing/login");
   };
   const { handleSubmit, watch } = methods;
 
@@ -66,7 +66,7 @@ export const AdditionalInformationForm = () => {
 
   useEffect(() => {
     const subscription = watch((value, { name, type }) => {
-      if (value.isPartOfAGroup === 'Yes') {
+      if (value.isPartOfAGroup === "Yes") {
         setDisplayGroupNameField(true);
         setGroupDropdownWidth(6);
       } else {
@@ -91,15 +91,15 @@ export const AdditionalInformationForm = () => {
         onSuccess: () => {
           router.push(
             {
-              pathname: '/wellbeing/dashboard/',
+              pathname: "/wellbeing/dashboard/",
               query: { isFirstLogin: true },
             },
-            '/wellbeing/dashboard/'
+            "/wellbeing/dashboard/"
           ); // hide query params in address bar
           setIsLoading(true);
         },
         onError: () => {
-          setAlertMessage('Something went wrong - please try again');
+          setAlertMessage("Something went wrong - please try again");
           setIsLoading(false);
         },
       }
@@ -111,9 +111,9 @@ export const AdditionalInformationForm = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
       {alertMessage && (
@@ -121,7 +121,7 @@ export const AdditionalInformationForm = () => {
           onClose={() => setAlertMessage(null)}
           icon={false}
           severity="error"
-          sx={{ width: '100%' }}
+          sx={{ width: "100%" }}
         >
           {alertMessage}
         </Alert>
@@ -132,17 +132,17 @@ export const AdditionalInformationForm = () => {
         noValidate
         onSubmit={handleSubmit(onSubmitHandler)}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '100%',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
         }}
       >
         <div
           sx={{
-            padding: '3rem',
-            textAlign: 'center',
-            width: '100%',
+            padding: "3rem",
+            textAlign: "center",
+            width: "100%",
           }}
         >
           <img
@@ -154,15 +154,15 @@ export const AdditionalInformationForm = () => {
           />
         </div>
 
-        <Typography variant="h1" sx={{ mb: '2rem', textAlign: 'center' }}>
+        <Typography variant="h1" sx={{ mb: "2rem", textAlign: "center" }}>
           Additional information
         </Typography>
 
         <FormProvider {...methods}>
           <Box
             sx={{
-              width: '60%',
-              maxWidth: '54.25rem',
+              width: "60%",
+              maxWidth: "54.25rem",
             }}
           >
             <Grid container spacing={{ sm: 0, md: 2 }}>
@@ -282,8 +282,8 @@ export const AdditionalInformationForm = () => {
           <Grid item xs={12} sm={12} md={12} width="60%" maxWidth="54.25rem">
             <Box
               sx={{
-                display: 'flex',
-                justifyContent: 'space-between', // This will ensure there's space between your buttons
+                display: "flex",
+                justifyContent: "space-between", // This will ensure there's space between your buttons
                 mt: 2, // Adding some margin-top for spacing
               }}
             >
@@ -292,9 +292,9 @@ export const AdditionalInformationForm = () => {
                 name="cancel"
                 onClick={logoutAccount}
                 sx={{
-                  py: '0.8rem',
+                  py: "0.8rem",
                   borderRadius: 50,
-                  width: '100px', // Specified a width to ensure consistent button size
+                  width: "100px", // Specified a width to ensure consistent button size
                 }}
               >
                 Cancel
@@ -304,9 +304,9 @@ export const AdditionalInformationForm = () => {
                 name="complete"
                 type="submit"
                 sx={{
-                  py: '0.8rem',
+                  py: "0.8rem",
                   borderRadius: 50,
-                  width: '210px', // Maintained your width for the Complete button
+                  width: "210px", // Maintained your width for the Complete button
                 }}
               >
                 Complete
@@ -316,7 +316,7 @@ export const AdditionalInformationForm = () => {
         </FormProvider>
       </Box>
       <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={isLoading}
       >
         <CircularProgress color="inherit" />

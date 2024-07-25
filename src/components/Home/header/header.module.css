@@ -55,8 +55,7 @@
   position: absolute;
 }
 
-
-.loginButton{
+.loginButton {
   display: flex;
   align-items: center;
   justify-content: space-evenly;

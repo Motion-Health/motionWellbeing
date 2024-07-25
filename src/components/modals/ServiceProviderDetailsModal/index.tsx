@@ -1,11 +1,11 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Box, Button, Typography, useMediaQuery } from '@mui/material';
-import Dialog from '@mui/material/Dialog';
-import { useEffect, useState } from 'react';
+import CloseIcon from "@mui/icons-material/Close";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import { useEffect, useState } from "react";
 
-import ServiceProviderDetailsContent from '@/components/modals/ServiceProviderDetailsContent';
-import { Account, Account } from '@/models/Account';
-import theme from '@/styles/theme';
+import ServiceProviderDetailsContent from "@/components/modals/ServiceProviderDetailsContent";
+import { Account, Account } from "@/models/Account";
+import theme from "@/styles/theme";
 
 type Props = {
   toggleServiceProviderModal: number;
@@ -27,7 +27,7 @@ const ServiceProviderDetailsModal = (props: Props) => {
     }
   }, [toggleServiceProviderModal]);
 
-  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const shouldDisplayFullScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   return (
     <Dialog
@@ -38,15 +38,15 @@ const ServiceProviderDetailsModal = (props: Props) => {
       <CloseIcon
         onClick={() => setIsModalOpen(false)}
         style={{
-          position: 'absolute',
-          right: '1.5rem',
-          top: '1.5rem',
-          cursor: 'pointer',
+          position: "absolute",
+          right: "1.5rem",
+          top: "1.5rem",
+          cursor: "pointer",
         }}
       />
       <Box
         sx={{
-          margin: '2rem',
+          margin: "2rem",
         }}
       >
         <Typography variant="h1">Service provider details</Typography>
@@ -62,10 +62,10 @@ const ServiceProviderDetailsModal = (props: Props) => {
             fullWidth
             onClick={() => setIsModalOpen(false)}
             sx={{
-              py: '0.8rem',
-              mt: '1rem',
-              ml: '1rem',
-              width: '210px',
+              py: "0.8rem",
+              mt: "1rem",
+              ml: "1rem",
+              width: "210px",
               borderRadius: 50,
             }}
           >

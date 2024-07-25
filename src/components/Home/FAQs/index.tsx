@@ -1,11 +1,11 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Accordion from '@mui/material/Accordion';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import Typography from '@mui/material/Typography';
-import React from 'react';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Typography from "@mui/material/Typography";
+import React from "react";
 
-import styles from './faqs.module.css';
+import styles from "./faqs.module.css";
 
 export const FAQs = () => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -20,8 +20,8 @@ export const FAQs = () => {
       <h3>Motion Wellbeing</h3>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === 'panel10'}
-        onChange={handleChange('panel10')}
+        expanded={expanded === "panel10"}
+        onChange={handleChange("panel10")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -45,8 +45,8 @@ export const FAQs = () => {
 
       <Accordion
         className={styles.accordion}
-        expanded={expanded === 'panel12'}
-        onChange={handleChange('panel12')}
+        expanded={expanded === "panel12"}
+        onChange={handleChange("panel12")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -70,8 +70,8 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === 'panel13'}
-        onChange={handleChange('panel13')}
+        expanded={expanded === "panel13"}
+        onChange={handleChange("panel13")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -93,8 +93,8 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === 'panel14'}
-        onChange={handleChange('panel14')}
+        expanded={expanded === "panel14"}
+        onChange={handleChange("panel14")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -118,8 +118,8 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === 'panel15'}
-        onChange={handleChange('panel15')}
+        expanded={expanded === "panel15"}
+        onChange={handleChange("panel15")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -139,8 +139,8 @@ export const FAQs = () => {
       </Accordion>
       <Accordion
         className={styles.accordion}
-        expanded={expanded === 'panel16'}
-        onChange={handleChange('panel16')}
+        expanded={expanded === "panel16"}
+        onChange={handleChange("panel16")}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

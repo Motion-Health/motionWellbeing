@@ -1,7 +1,7 @@
-import Image from 'next/legacy/image';
-import React from 'react';
+import Image from "next/legacy/image";
+import React from "react";
 
-import styles from './cards.module.css';
+import styles from "./cards.module.css";
 
 export const Cards = () => {
   return (

@@ -1,8 +1,8 @@
-import { Button, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
+import { Button, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 
-import PageHeader from '@/components/PageHeader/index';
-import { Main } from '@/templates/Main';
+import PageHeader from "@/components/PageHeader/index";
+import { Main } from "@/templates/Main";
 
 const Prompt = () => {
   const router = useRouter();
@@ -20,7 +20,7 @@ const Prompt = () => {
           </Typography>
           <Button
             onClick={() => {
-              router.push('/wellbeing/upgrade');
+              router.push("/wellbeing/upgrade");
             }}
             variant="contained"
           >

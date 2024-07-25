@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 import {
   Box,
@@ -24,8 +24,8 @@ type Inputs = {
   content: string;
   mode: string;
   isActive: boolean;
-  linkUrl?: string
-  linkText?: string
+  linkUrl?: string;
+  linkText?: string;
 };
 
 const registerSchema = object({
@@ -41,14 +41,14 @@ export const AnnouncementsForm = () => {
 
   useEffect(() => {
     if (announcementData?.content) {
-      methods.reset(announcementData)
+      methods.reset(announcementData);
     }
-  }, [announcementData])
+  }, [announcementData]);
 
   const methods = useForm({
     resolver: zodResolver(registerSchema),
   });
-  
+
   const { handleSubmit, register } = methods;
 
   const router = useRouter();
@@ -59,9 +59,9 @@ export const AnnouncementsForm = () => {
       { ...announcementData },
       {
         onSuccess: (res) => {
-          router.push("/wellbeing/dashboard")
+          router.push("/wellbeing/dashboard");
         },
-      },
+      }
     );
   };
 
@@ -129,9 +129,7 @@ export const AnnouncementsForm = () => {
             <FormGroup>
               <FormControlLabel
                 control={
-                  <Checkbox  
-                    defaultChecked={announcementData?.isActive}
-                  />
+                  <Checkbox defaultChecked={announcementData?.isActive} />
                 }
                 {...register("isActive")}
                 label="Is Active"

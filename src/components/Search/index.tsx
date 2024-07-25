@@ -23,7 +23,7 @@ const Search = (props: Props) => {
   };
 
   const [searchedDataResult, setSearchedDataResult] = useState<null | any[]>(
-    null,
+    null
   );
 
   useEffect(() => {

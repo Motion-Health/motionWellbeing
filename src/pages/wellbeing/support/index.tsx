@@ -1,9 +1,9 @@
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { IconButton } from '@mui/material';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { IconButton } from "@mui/material";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-import styles from './support.module.css';
+import styles from "./support.module.css";
 const Login = () => {
   const router = useRouter();
 
@@ -19,7 +19,7 @@ const Login = () => {
 
       <IconButton
         color="primary"
-        onClick={() => router.push('/')}
+        onClick={() => router.push("/")}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
@@ -45,19 +45,18 @@ const Login = () => {
               <a href="tel:07543858684">07543 858684</a>
             </p>
 
-            
             <div className={styles.actionButtons}>
-            <button
-              className={styles.supportButton}
-              // go to previous Page
+              <button
+                className={styles.supportButton}
+                // go to previous Page
 
-              onClick={() => window.history.back()}
-            >
-              Go back
-            </button>
+                onClick={() => window.history.back()}
+              >
+                Go back
+              </button>
               <button
                 className={styles.callButton}
-                onClick={() => window.open('tel:07543858684')}
+                onClick={() => window.open("tel:07543858684")}
               >
                 Call now
               </button>

@@ -1,23 +1,23 @@
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import FullCalendar from '@fullcalendar/react';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import dayjs, { Dayjs } from 'dayjs';
-import moment from 'moment';
-import Head from 'next/head';
-import router from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import FullCalendar from "@fullcalendar/react";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import dayjs, { Dayjs } from "dayjs";
+import moment from "moment";
+import Head from "next/head";
+import router from "next/router";
+import { useEffect, useRef, useState } from "react";
 
-import PrintOptionsModal from '@/components/modals/PrintOptionsModal'; // Adjust the path as necessary
-import ScheduleModal from '@/components/modals/ScheduleModal';
-import { useAccountContext } from '@/context/AccountContext';
-import { Event } from '@/models/Event';
-import { useGetAccount } from '@/services/account/useGetAccount';
-import { usePlannerEvents } from '@/services/planner/usePlannerEvents';
-import { Main } from '@/templates/Main';
-import { printCalendarPDF } from '@/utils/makePlannerPrintable.js';
+import PrintOptionsModal from "@/components/modals/PrintOptionsModal"; // Adjust the path as necessary
+import ScheduleModal from "@/components/modals/ScheduleModal";
+import { useAccountContext } from "@/context/AccountContext";
+import { Event } from "@/models/Event";
+import { useGetAccount } from "@/services/account/useGetAccount";
+import { usePlannerEvents } from "@/services/planner/usePlannerEvents";
+import { Main } from "@/templates/Main";
+import { printCalendarPDF } from "@/utils/makePlannerPrintable.js";
 
-import styles from './planner.module.css';
+import styles from "./planner.module.css";
 
 const Planner = () => {
   // get account name
@@ -35,11 +35,11 @@ const Planner = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -49,7 +49,7 @@ const Planner = () => {
     if (calendarRef.current) {
       const api = calendarRef.current.getApi();
       setCalendarApi(api); // Update the state with the calendar API
-      api.changeView(isMobile ? 'dayGridDay' : 'dayGridMonth');
+      api.changeView(isMobile ? "dayGridDay" : "dayGridMonth");
     }
   }, [isMobile]);
 
@@ -74,11 +74,11 @@ const Planner = () => {
     };
 
     // Attach the event listener
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       // Clean up the event listener
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [threeDotsRef]);
   const { data: events, refetch: refetchPlannerEvents } =
@@ -90,16 +90,16 @@ const Planner = () => {
   };
   const [toggleScheduleModal, setToggleScheduleModal] = useState<number>(1);
   const [modalOpenAction, setModalOpenAction] = useState<
-    'add-event' | 'edit-event' | null
+    "add-event" | "edit-event" | null
   >(null);
   const [editEventData, setEditEventData] = useState<Event | null>(null);
   const [addEventStartDate, setAddEventStartDate] = useState<Dayjs | null>(
     null
   );
   useEffect(() => {
-    if (accountStatus == 'standard') {
+    if (accountStatus == "standard") {
       // Redirect to upgrade page
-      router.push('/wellbeing/upgrade');
+      router.push("/wellbeing/upgrade");
     }
   }, [accountStatus]);
 
@@ -111,14 +111,14 @@ const Planner = () => {
     const selectedDate = fullCalendarDateInfo.date;
 
     setToggleScheduleModal(Math.random());
-    setModalOpenAction('add-event');
+    setModalOpenAction("add-event");
     setAddEventStartDate(dayjs(selectedDate));
   }
 
   function handleEdit(eventData: Event) {
     if (!eventData.isProtected) {
       setToggleScheduleModal(Math.random());
-      setModalOpenAction('edit-event');
+      setModalOpenAction("edit-event");
       setEditEventData(eventData);
     }
   }
@@ -149,7 +149,7 @@ const Planner = () => {
   const [togglePrintModal, setTogglePrintModal] = useState(1);
 
   function renderEventContent(eventInfo: any) {
-    const isDayGridMonth = calendarApi?.view?.type === 'dayGridMonth';
+    const isDayGridMonth = calendarApi?.view?.type === "dayGridMonth";
     const eventData = {
       eventId: eventInfo.event.extendedProps.eventId,
       accountId: eventInfo.event.extendedProps.accountId,
@@ -160,8 +160,8 @@ const Planner = () => {
       isProtected: eventInfo.event.extendedProps.isProtected,
     };
 
-    let timeText = moment(eventInfo.event.start).format('HH:mm');
-    if (timeText === '00:00') timeText = ''; // remove labels for all-day events which start at midnight
+    let timeText = moment(eventInfo.event.start).format("HH:mm");
+    if (timeText === "00:00") timeText = ""; // remove labels for all-day events which start at midnight
 
     return (
       <div
@@ -171,9 +171,9 @@ const Planner = () => {
             showButtons &&
             showButtons.eventId === eventData.eventId &&
             !showButtons.isProtected &&
-            isDayGridMonth === 'dayGridMonth'
-              ? '#f0f0f0'
-              : 'transparent',
+            isDayGridMonth === "dayGridMonth"
+              ? "#f0f0f0"
+              : "transparent",
         }}
       >
         <div
@@ -230,8 +230,8 @@ const Planner = () => {
     );
   }
   const handlePrint = () => {
-    if (printOption === 'weekly') {
-      console.log('print weekly');
+    if (printOption === "weekly") {
+      console.log("print weekly");
     } else {
       printCalendarPDF(
         events,
@@ -239,7 +239,7 @@ const Planner = () => {
         fullAccount.serviceProviderName,
         calendarRef.current.getApi()
       );
-      console.log('print monthly');
+      console.log("print monthly");
     }
     setShowPrintModal(false);
   };
@@ -261,12 +261,12 @@ const Planner = () => {
         api={calendarApi}
         events={events}
         isToggled={isToggled}
-        serviceName={fullAccount?.serviceProviderName || 'This weeks plan'}
+        serviceName={fullAccount?.serviceProviderName || "This weeks plan"}
       />
 
       <div
         className={`${styles.threeDotsContainer} ${
-          threeDots ? styles.open : ''
+          threeDots ? styles.open : ""
         }`}
         ref={threeDotsRef}
       >
@@ -286,19 +286,19 @@ const Planner = () => {
         <div className={styles.optionsMenu}>
           <button
             className={styles.dayButton}
-            onClick={() => changeView('dayGridDay')}
+            onClick={() => changeView("dayGridDay")}
           >
             Day
           </button>
           <button
             className={styles.weekButton}
-            onClick={() => changeView('timeGridWeek')}
+            onClick={() => changeView("timeGridWeek")}
           >
             Week
           </button>
           <button
             className={styles.monthButton}
-            onClick={() => changeView('dayGridMonth')}
+            onClick={() => changeView("dayGridMonth")}
           >
             Month
           </button>
@@ -311,14 +311,14 @@ const Planner = () => {
       <div className={styles.calendar}>
         <FullCalendar
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          initialView={isMobile ? 'dayGridDay' : 'timeGridWeek'}
+          initialView={isMobile ? "dayGridDay" : "timeGridWeek"}
           headerToolbar={{
-            left: isMobile ? 'prev,next' : 'prev title next',
-            right: isMobile ? '' : 'printButton scheduleButton threeDots',
+            left: isMobile ? "prev,next" : "prev title next",
+            right: isMobile ? "" : "printButton scheduleButton threeDots",
           }}
           customButtons={{
             printButton: {
-              text: 'Print my planner',
+              text: "Print my planner",
               click: function () {
                 if (events) {
                   setTogglePrintModal(Math.random()); // This will open the PrintOptionsModal
@@ -332,10 +332,10 @@ const Planner = () => {
               },
             },
             scheduleButton: {
-              text: 'Schedule Activity',
+              text: "Schedule Activity",
               click: function () {
                 setToggleScheduleModal(Math.random());
-                setModalOpenAction('add-event');
+                setModalOpenAction("add-event");
               },
             },
             threeDots: {
@@ -347,8 +347,8 @@ const Planner = () => {
           ref={calendarRef}
           firstDay={1}
           eventTimeFormat={{
-            hour: '2-digit',
-            minute: '2-digit',
+            hour: "2-digit",
+            minute: "2-digit",
             meridiem: false,
             hour12: false,
           }}
@@ -367,7 +367,7 @@ const Planner = () => {
           dateClick={handleDateClick}
           views={{
             timeGridWeek: {
-              dayHeaderFormat: { month: 'short', day: 'numeric' },
+              dayHeaderFormat: { month: "short", day: "numeric" },
             },
           }}
         />

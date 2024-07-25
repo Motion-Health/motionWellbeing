@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router';
-import blob from 'public/assets/images/games/quizzical/blob.png';
-import React, { useEffect, useRef } from 'react';
-import Confetti from 'react-confetti';
+import { useRouter } from "next/router";
+import blob from "public/assets/images/games/quizzical/blob.png";
+import React, { useEffect, useRef } from "react";
+import Confetti from "react-confetti";
 
-import { GameWindow } from '@/components/GameWindow';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import { GameWindow } from "@/components/GameWindow";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
 
-import styles from './quizzical.module.css';
+import styles from "./quizzical.module.css";
 const Quizzical = () => {
   const completeActivity = useCompleteActivity();
   const completeActivityCalled = useRef(false);
@@ -18,7 +18,7 @@ const Quizzical = () => {
         { activityId: 203 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );
@@ -29,10 +29,10 @@ const Quizzical = () => {
   const [showAnswers, setShowAnswers] = React.useState(false);
   const [questions, setQuestions] = React.useState([]);
   const [allComplete, setAllComplete] = React.useState(false);
-  const [gameStatus, setGameStatus] = React.useState('playing'); // ['playing', 'finished', 'reviewing']
+  const [gameStatus, setGameStatus] = React.useState("playing"); // ['playing', 'finished', 'reviewing']
   const fetchQuestions = () => {
     fetch(
-      'https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple'
+      "https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -52,11 +52,11 @@ const Quizzical = () => {
             })
           );
         } else {
-          console.error('Unexpected data structure:', data);
+          console.error("Unexpected data structure:", data);
         }
       })
       .catch((error) => {
-        console.error('Fetch error:', error);
+        console.error("Fetch error:", error);
       });
   };
 
@@ -65,13 +65,13 @@ const Quizzical = () => {
   }, []);
 
   function playAgain() {
-    setGameStatus('playing');
+    setGameStatus("playing");
     setShowAnswers(false);
     setAllComplete(false);
     fetchQuestions(); // Fetch new questions
   }
   function checkAnswers() {
-    setGameStatus('finished');
+    setGameStatus("finished");
     setShowAnswers(true);
   }
 
@@ -91,7 +91,7 @@ const Quizzical = () => {
   React.useEffect(() => {
     var count = 0;
     for (var i = 0; i < questions.length; i++) {
-      if (typeof questions[i].selected_answer !== 'undefined') {
+      if (typeof questions[i].selected_answer !== "undefined") {
         if (
           questions[i].options[questions[i].selected_answer] ===
           questions[i].correct_answer
@@ -105,18 +105,18 @@ const Quizzical = () => {
 
   React.useEffect(() => {
     setAllComplete(
-      questions.every((quest) => typeof quest.selected_answer !== 'undefined')
+      questions.every((quest) => typeof quest.selected_answer !== "undefined")
     );
   }, [questions]);
 
   const handleResume = () => {
     // Code to resume the game
-    console.log('Resuming game');
+    console.log("Resuming game");
   };
 
   const handleRestart = () => {
     // Code to restart the game
-    console.log('Restarting game');
+    console.log("Restarting game");
     // reload page
     router.reload();
   };
@@ -136,11 +136,11 @@ const Quizzical = () => {
   });
   const game = {
     id: 1,
-    name: 'Quizzical',
-    description: 'A Quiz Game',
+    name: "Quizzical",
+    description: "A Quiz Game",
     instructions:
-      'Test your knowledge with our quiz. Answer the questions to the best of your ability. Good luck!',
-    link: '/wellbeing/games/quizzical',
+      "Test your knowledge with our quiz. Answer the questions to the best of your ability. Good luck!",
+    link: "/wellbeing/games/quizzical",
   };
 
   return (
@@ -155,7 +155,7 @@ const Quizzical = () => {
         <div className={styles.quizContainer}>
           {quests}
 
-          {gameStatus === 'playing' && (
+          {gameStatus === "playing" && (
             <button
               className={styles.button}
               disabled={!allComplete}
@@ -164,28 +164,28 @@ const Quizzical = () => {
               Check answers
             </button>
           )}
-          {gameStatus === 'finished' && (
+          {gameStatus === "finished" && (
             <>
               <div className={styles.overlay}>
                 <Confetti />
               </div>
               <div className={styles.buttonContainer}>
                 <h3 className={styles.buttonContainerScore}>
-                  {'You scored ' + score + '/10 correct answers'}
+                  {"You scored " + score + "/10 correct answers"}
                 </h3>
                 <button className={styles.button} onClick={playAgain}>
                   Play Again
                 </button>
                 <button
                   className={styles.button}
-                  onClick={() => setGameStatus('reviewing')}
+                  onClick={() => setGameStatus("reviewing")}
                 >
                   Review Answers
                 </button>
               </div>
             </>
           )}
-          {gameStatus === 'reviewing' && (
+          {gameStatus === "reviewing" && (
             <button className={styles.button} onClick={playAgain}>
               Play Again
             </button>
@@ -202,16 +202,16 @@ function Quest(props) {
   function styler(option, index) {
     if (props.showAnswers === true) {
       if (props.question.correct_answer === option) {
-        return { backgroundColor: '#94D7A2' };
+        return { backgroundColor: "#94D7A2" };
       } else if (props.question.selected_answer === index) {
-        return { backgroundColor: '#F8BCBC' };
+        return { backgroundColor: "#F8BCBC" };
       } else {
-        return { backgroundColor: '#F5F7FB' };
+        return { backgroundColor: "#F5F7FB" };
       }
     } else {
       return props.question.selected_answer === index
-        ? { backgroundColor: '#D6DBF5' }
-        : { backgroundColor: '#F5F7FB' };
+        ? { backgroundColor: "#D6DBF5" }
+        : { backgroundColor: "#F5F7FB" };
     }
   }
 

@@ -1,5 +1,5 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Alert,
   Box,
@@ -12,16 +12,16 @@ import {
   InputAdornment,
   Link,
   Typography,
-} from '@mui/material';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-import { literal, object, string } from 'zod';
+} from "@mui/material";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { literal, object, string } from "zod";
 
-import { FormInputText } from '@/components/FormInputText';
-import { useAccountContext } from '@/context/AccountContext';
-import { useCreateAccount } from '@/services/auth/useCreateAccount';
-import { AppConfig } from '@/utils/AppConfig';
+import { FormInputText } from "@/components/FormInputText";
+import { useAccountContext } from "@/context/AccountContext";
+import { useCreateAccount } from "@/services/auth/useCreateAccount";
+import { AppConfig } from "@/utils/AppConfig";
 
 type Inputs = {
   email: string;
@@ -31,16 +31,16 @@ type Inputs = {
 
 const registerSchema = object({
   email: string()
-    .min(1, { message: 'Email is required' })
-    .email('Email is invalid'),
+    .min(1, { message: "Email is required" })
+    .email("Email is invalid"),
   password: string()
-    .min(1, { message: 'Password is required' })
-    .min(8, 'Password must be at least 8 characters')
-    .max(32, 'Password must be less than 32 characters')
-    .regex(/\d/, 'Password must contain a number')
-    .regex(/^[^\s]*$/, 'Password must not contain a space'),
+    .min(1, { message: "Password is required" })
+    .min(8, "Password must be at least 8 characters")
+    .max(32, "Password must be less than 32 characters")
+    .regex(/\d/, "Password must contain a number")
+    .regex(/^[^\s]*$/, "Password must not contain a space"),
   terms: literal(true, {
-    errorMap: () => ({ message: 'Please accept the Terms and Privacy Policy' }),
+    errorMap: () => ({ message: "Please accept the Terms and Privacy Policy" }),
   }),
 });
 
@@ -74,24 +74,24 @@ export const CreateAccountForm = () => {
 
           router.push(
             {
-              pathname: '/wellbeing/additional-information',
+              pathname: "/wellbeing/additional-information",
               query: {
                 accountId,
                 email,
               },
             },
-            '/wellbeing/additional-information'
+            "/wellbeing/additional-information"
           ); // hide query params in address bar
         },
         onError: (error: any) => {
           if (error?.response?.data?.code === 23505) {
-            setError('email', {
-              type: 'custom',
+            setError("email", {
+              type: "custom",
               message:
-                'This email address is already registered. Please log in or create a new account.',
+                "This email address is already registered. Please log in or create a new account.",
             });
           } else {
-            setAlertMessage('Something went wrong - please try again');
+            setAlertMessage("Something went wrong - please try again");
           }
         },
       }
@@ -107,12 +107,12 @@ export const CreateAccountForm = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '2rem',
-        maxWidth: '500px',
-        margin: 'auto',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: "2rem",
+        maxWidth: "500px",
+        margin: "auto",
       }}
     >
       {alertMessage && (
@@ -121,10 +121,10 @@ export const CreateAccountForm = () => {
           icon={false}
           severity="error"
           sx={{
-            width: '80%',
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
+            width: "80%",
+            position: "absolute",
+            top: "10px",
+            right: "10px",
           }}
         >
           {alertMessage}
@@ -135,18 +135,18 @@ export const CreateAccountForm = () => {
         noValidate
         onSubmit={handleSubmit(onSubmitHandler)}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '27rem',
-          maxWidth: '-webkit-fill-available',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "27rem",
+          maxWidth: "-webkit-fill-available",
         }}
       >
         <div
           sx={{
-            padding: '3rem',
-            textAlign: 'center',
-            width: '100%',
+            padding: "3rem",
+            textAlign: "center",
+            width: "100%",
           }}
         >
           <img
@@ -158,7 +158,7 @@ export const CreateAccountForm = () => {
           />
         </div>
 
-        <Typography variant="h1" sx={{ mb: '2rem' }}>
+        <Typography variant="h1" sx={{ mb: "2rem" }}>
           Create account
         </Typography>
 
@@ -174,7 +174,7 @@ export const CreateAccountForm = () => {
 
           <FormInputText
             name="password"
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             label="Create password"
             helperText="Password must contain at least 8 characters and include 1 number"
             required
@@ -195,17 +195,17 @@ export const CreateAccountForm = () => {
             }}
           ></FormInputText>
 
-          <Typography variant="helper" sx={{ mt: '1.5rem', mb: '1.5rem' }}>
+          <Typography variant="helper" sx={{ mt: "1.5rem", mb: "1.5rem" }}>
             Your information is always safe and secure when using Motion.
           </Typography>
 
           <FormGroup>
             <FormControlLabel
               control={<Checkbox required />}
-              {...register('terms')}
+              {...register("terms")}
               label={
                 <Typography variant="helper">
-                  Please confirm that you agree to our{' '}
+                  Please confirm that you agree to our{" "}
                   <Link
                     href="https://drive.google.com/file/d/138Am_zcbcrhDX6ilYS1FZNBG9zIHW11s/view"
                     target="_blank"
@@ -223,10 +223,10 @@ export const CreateAccountForm = () => {
               }
             />
             <FormHelperText
-              error={!!errors['terms']}
+              error={!!errors["terms"]}
               data-test-id="terms-error"
             >
-              {errors['terms'] ? errors['terms'].message : ''}
+              {errors["terms"] ? errors["terms"].message : ""}
             </FormHelperText>
           </FormGroup>
 
@@ -236,9 +236,9 @@ export const CreateAccountForm = () => {
             fullWidth
             type="submit"
             sx={{
-              py: '0.8rem',
-              mt: '1rem',
-              width: '210px',
+              py: "0.8rem",
+              mt: "1rem",
+              width: "210px",
               borderRadius: 50,
             }}
           >
@@ -249,12 +249,12 @@ export const CreateAccountForm = () => {
             variant="text"
             fullWidth
             sx={{
-              py: '0.8rem',
-              mt: '1rem',
+              py: "0.8rem",
+              mt: "1rem",
             }}
             name="navigate-login"
             data-test-id="navigate-login"
-            onClick={() => router.push('/wellbeing/login')}
+            onClick={() => router.push("/wellbeing/login")}
           >
             Already have an account? Log in
           </Button>

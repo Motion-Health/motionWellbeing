@@ -36,7 +36,6 @@
   margin-bottom: 4rem;
 }
 
-
 .about {
   display: flex;
   text-align: left;
@@ -56,7 +55,7 @@
     width: 100%;
     flex-direction: column;
   }
-  .about{
+  .about {
     text-align: center;
   }
 }

@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
-import React, { useEffect, useRef, useState } from 'react';
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
-import { GameWindow } from '@/components/GameWindow';
-import { useCompleteActivity } from '@/services/activities/useCompleteActivity';
+import { GameWindow } from "@/components/GameWindow";
+import { useCompleteActivity } from "@/services/activities/useCompleteActivity";
 
-import styles from './noughts-crosses.module.css';
+import styles from "./noughts-crosses.module.css";
 
 function Square({ value, onSquareClick }) {
   return (
@@ -21,15 +21,15 @@ function Board({ xIsNext, squares, onPlay, onRestart }) {
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = 'X';
+      nextSquares[i] = "X";
     } else {
-      nextSquares[i] = 'O';
+      nextSquares[i] = "O";
     }
     onPlay(nextSquares);
   }
 
   const handleRestart = () => {
-    console.log('Restarting game');
+    console.log("Restarting game");
     onRestart(); // Call the passed onRestart prop to reset the game state
   };
 
@@ -38,24 +38,24 @@ function Board({ xIsNext, squares, onPlay, onRestart }) {
 
   let status;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = "Winner: " + winner;
   } else if (isDraw) {
-    status = 'Draw. No one wins!';
+    status = "Draw. No one wins!";
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = "Next player: " + (xIsNext ? "X" : "O");
   }
   const game = {
     id: 1,
-    name: 'Noughts and Crosses',
+    name: "Noughts and Crosses",
     description:
-      'Play the classic Noughts and Crosses game. Get three in a row to win!',
+      "Play the classic Noughts and Crosses game. Get three in a row to win!",
     instructions:
-      'Play the classic Noughts and Crosses game. Get three in a row to win!',
-    link: '/wellbeing/games/noughts-crosses',
+      "Play the classic Noughts and Crosses game. Get three in a row to win!",
+    link: "/wellbeing/games/noughts-crosses",
   };
   const handleResume = () => {
     // Code to resume the game
-    console.log('Resuming game');
+    console.log("Resuming game");
   };
 
   return (
@@ -103,7 +103,7 @@ export default function Game() {
         { activityId: 204 },
         {
           onSuccess: (res) => {
-            console.log('res', res);
+            console.log("res", res);
           },
         }
       );
@@ -137,7 +137,7 @@ export default function Game() {
       <div className="game-info">
         {(winner || isDraw) && (
           <button className={styles.button} onClick={() => jumpTo(0)}>
-            {'Restart'}
+            {"Restart"}
           </button>
         )}
       </div>

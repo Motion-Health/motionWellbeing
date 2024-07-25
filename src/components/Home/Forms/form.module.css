@@ -15,7 +15,7 @@
   .formWrapper h2 {
     padding: 0rem 2rem;
   }
-  .formButton{
+  .formButton {
     text-align: center;
   }
 }
@@ -36,9 +36,11 @@
   .form {
     flex-direction: column;
   }
-  .grid {display: grid;
+  .grid {
+    display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    place-items: center;}
+    place-items: center;
+  }
 }
 
 .formInputs {

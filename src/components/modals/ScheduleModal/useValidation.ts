@@ -1,5 +1,5 @@
 // useValidation.ts
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 type ValidationHook = {
   showTitleError: boolean;
@@ -29,7 +29,7 @@ const useValidation = (): ValidationHook => {
       }
 
       if (!formSubmitData?.start) {
-        console.log('show start error');
+        console.log("show start error");
         console.log(formSubmitData);
         setShowStartError(true);
       }

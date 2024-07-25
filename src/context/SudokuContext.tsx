@@ -1,5 +1,5 @@
-import moment from 'moment';
-import React, { createContext, useContext, useState } from 'react';
+import moment from "moment";
+import React, { createContext, useContext, useState } from "react";
 
 type SudokuContextProps = {
   numberSelected: string;
@@ -21,11 +21,11 @@ type SudokuContextProps = {
 };
 
 const SudokuContext = createContext<SudokuContextProps>({
-  numberSelected: '0',
+  numberSelected: "0",
   setNumberSelected: () => {},
   gameArray: [],
   setGameArray: () => {},
-  difficulty: 'Easy',
+  difficulty: "Easy",
   setDifficulty: () => {},
   timeGameStarted: moment(),
   setTimeGameStarted: () => {},
@@ -44,9 +44,9 @@ type SudokuProviderProps = {
 };
 
 export const SudokuProvider = ({ children }: SudokuProviderProps) => {
-  let [numberSelected, setNumberSelected] = useState<string>('0');
+  let [numberSelected, setNumberSelected] = useState<string>("0");
   let [gameArray, setGameArray] = useState<string[]>([]);
-  let [difficulty, setDifficulty] = useState<string>('Easy');
+  let [difficulty, setDifficulty] = useState<string>("Easy");
   let [timeGameStarted, setTimeGameStarted] = useState<moment.Moment>(moment());
   let [fastMode, setFastMode] = useState<boolean>(false);
   let [cellSelected, setCellSelected] = useState<number>(-1);

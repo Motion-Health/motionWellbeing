@@ -1,29 +1,39 @@
-.dayButton, .weekButton, .monthButton, .today{
+.dayButton,
+.weekButton,
+.monthButton,
+.today {
   font-weight: 600;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #ffffff;
   background-color: #0f5298;
   padding: 0.75rem 1rem;
-  border:none;
+  border: none;
   cursor: pointer;
   border-radius: 28px;
 }
-.dayButton:hover, .weekButton:hover, .monthButton:hover, .today:hover{
+.dayButton:hover,
+.weekButton:hover,
+.monthButton:hover,
+.today:hover {
   background-color: #0c437d;
 }
 
-.optionsMenu{
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+.optionsMenu {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   border-radius: 28px;
   cursor: pointer;
 }
-.dayButton{
+.dayButton {
   border-radius: 28px 0px 0px 28px;
 }
-.weekButton{
+.weekButton {
   border-radius: 0px;
 }
-.monthButton{
+.monthButton {
   border-radius: 0px 28px 28px 0px;
 }
 .threeDotsContainer {
@@ -41,26 +51,31 @@
   max-height: fit-content;
   border-radius: 15px;
   border: 1px solid black;
-  display:none;
+  display: none;
 }
 
 .threeDotsContainer.open {
   display: flex;
 }
-.printButton, .scheduleButton{
+.printButton,
+.scheduleButton {
   min-width: 64px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   color: #ffffff;
   background-color: #0f5298;
-  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   margin-top: 1rem;
   border-radius: 200px;
-  border:none;
+  border: none;
   font-size: 16px;
   line-height: 1.5;
   padding: 0.7em 0.85em;
 }
-.toggle{    
+.toggle {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -75,7 +90,7 @@
   cursor: pointer;
 }
 
-.toggleSwitchInput { 
+.toggleSwitchInput {
   opacity: 0;
   width: 0;
   height: 0;
@@ -89,7 +104,7 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 25.5px;
   cursor: pointer;
 }
@@ -102,7 +117,7 @@
   left: 3px;
   bottom: 3px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
@@ -114,17 +129,16 @@
   transform: translateX(19.5px);
 }
 
-
 .eventContainer {
-  width:100%;
+  width: 100%;
   height: -webkit-fill-available;
 }
-.eventContainer div{
+.eventContainer div {
   height: -webkit-fill-available;
   overflow: hidden;
 }
 
-.event{
+.event {
   padding: 0rem 0.5rem;
   padding: 0rem 0.5rem;
   max-width: 100%;
@@ -139,12 +153,15 @@
   white-space: normal;
   margin: 0;
 }
-.showButtons{
+.showButtons {
   background-color: #eeeeee;
-  height: auto ! important;
+  height: auto !important;
 }
-.editButton, .openButton, .closeButton, .fullEditButton{
-  background-color: #008CBA;
+.editButton,
+.openButton,
+.closeButton,
+.fullEditButton {
+  background-color: #008cba;
   border: none;
   color: white;
   text-align: center;
@@ -157,17 +174,19 @@
   width: 45%;
   margin: 2%;
 }
-.fullEditButton, .closeButton {
+.fullEditButton,
+.closeButton {
   width: 96%;
 }
-.closeButton{
+.closeButton {
   background-color: #f44336;
 }
 
-.editButton:hover, .openButton:hover{
+.editButton:hover,
+.openButton:hover {
   background-color: #005266;
 }
-.eventTitle{
+.eventTitle {
   overflow: hidden;
   text-overflow: ellipsis;
 }

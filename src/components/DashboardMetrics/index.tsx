@@ -4,16 +4,16 @@ import {
   Select,
   SelectChangeEvent,
   Typography,
-} from '@mui/material';
-import router from 'next/router';
-import { useEffect, useState } from 'react';
+} from "@mui/material";
+import router from "next/router";
+import { useEffect, useState } from "react";
 
-import { useDashboardRatings } from '@/services/dashboard/useDashboardRatings';
+import { useDashboardRatings } from "@/services/dashboard/useDashboardRatings";
 
-import { DashboardMetricBox } from './DashboardMetricsBox';
+import { DashboardMetricBox } from "./DashboardMetricsBox";
 
 export const DashboardMetrics = ({ accountId, accountStatus }) => {
-  const [dateRangeFilter, setDateRangeFilter] = useState<string>('7-days');
+  const [dateRangeFilter, setDateRangeFilter] = useState<string>("7-days");
 
   const handleDateFilterChange = (event: SelectChangeEvent) => {
     setDateRangeFilter(event.target.value);
@@ -30,9 +30,9 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
   );
 
   useEffect(() => {
-    console.log('--------');
+    console.log("--------");
     console.log(accountStatus);
-    console.log('--------');
+    console.log("--------");
   }, [accountStatus]);
 
   const [averageActivitiesRatingsDecimal, setAverageActivitiesRatingsDecimal] =
@@ -53,35 +53,35 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
       <Grid
         container
         sx={{
-          display: 'flex',
-          flexWrap: 'nowrap',
-          '@media (max-width: 600px)': {
-            padding: '0px 10px',
+          display: "flex",
+          flexWrap: "nowrap",
+          "@media (max-width: 600px)": {
+            padding: "0px 10px",
           },
         }}
       >
         <Grid
           container
           sx={{
-            display: 'flex',
-            flexWrap: 'nowrap',
-            justifyContent: 'space-between',
+            display: "flex",
+            flexWrap: "nowrap",
+            justifyContent: "space-between",
           }}
         >
           <Typography variant="h2">Your report</Typography>
 
           <Select
             id="date-range-filter"
-            defaultValue={'7-days'}
+            defaultValue={"7-days"}
             label="Date range"
             onChange={handleDateFilterChange}
             sx={{
-              ml: '50%',
-              width: '10rem',
-              backgroundColor: 'transparent',
-              border: 'none',
-              '@media (max-width: 600px)': {
-                display: 'none',
+              ml: "50%",
+              width: "10rem",
+              backgroundColor: "transparent",
+              border: "none",
+              "@media (max-width: 600px)": {
+                display: "none",
               },
             }}
           >
@@ -94,9 +94,9 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
       <Grid
         container
         sx={{
-          display: 'flex',
-          flexWrap: 'nowrap',
-          justifyContent: 'space-between',
+          display: "flex",
+          flexWrap: "nowrap",
+          justifyContent: "space-between",
         }}
         spacing={1}
       >
@@ -105,13 +105,13 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
             <Grid
               item
               sx={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                textAlign: 'center',
-                mr: '3rem',
-                mt: '1.5rem',
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                mr: "3rem",
+                mt: "1.5rem",
                 flexGrow: 1,
-                display: 'grid',
+                display: "grid",
               }}
             >
               <img
@@ -124,7 +124,7 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
             </Grid>
           )}
 
-        {(accountStatus === 'admin' || accountStatus === 'group') && (
+        {(accountStatus === "admin" || accountStatus === "group") && (
           <DashboardMetricBox
             metricName="Service providers"
             serviceName="accounts"
@@ -137,7 +137,7 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
           serviceName="activities_completed"
           dateRangeFilter={dateRangeFilter}
         />
-        {accountStatus != 'gis' && (
+        {accountStatus != "gis" && (
           <DashboardMetricBox
             metricName="Participants"
             serviceName="activities_participants"
@@ -148,30 +148,30 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
         <Grid
           item
           sx={{
-            maxWidth: '80%',
-            backgroundColor: '#CBE8F3',
+            maxWidth: "80%",
+            backgroundColor: "#CBE8F3",
             borderRadius: 2,
-            mt: '1.5rem',
+            mt: "1.5rem",
           }}
         >
           <Grid
             container
-            onClick={() => router.push('/wellbeing/planner')}
+            onClick={() => router.push("/wellbeing/planner")}
             sx={{
-              mr: '1.5rem',
-              cursor: 'pointer',
-              height: '100%',
-              width: { xs: '100%', sm: '250px' },
-              position: 'relative',
-              maxWidth: '100%',
+              mr: "1.5rem",
+              cursor: "pointer",
+              height: "100%",
+              width: { xs: "100%", sm: "250px" },
+              position: "relative",
+              maxWidth: "100%",
             }}
           >
             <Grid
               container
               sx={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                mt: '1.5rem',
+                alignItems: "center",
+                justifyContent: "center",
+                mt: "1.5rem",
                 mb: 0,
               }}
             >
@@ -185,10 +185,10 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
             <Grid
               container
               sx={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                textAlign: 'center',
-                mb: '1.5rem',
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                mb: "1.5rem",
               }}
             >
               <Typography variant="h3">My planner</Typography>
@@ -196,7 +196,7 @@ export const DashboardMetrics = ({ accountId, accountStatus }) => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container sx={{ flexWrap: 'nowrap', flexGrow: 1 }}></Grid>
+      <Grid container sx={{ flexWrap: "nowrap", flexGrow: 1 }}></Grid>
     </>
   );
 };

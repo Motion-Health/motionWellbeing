@@ -13,15 +13,15 @@ import {
   StepLabel,
   Stepper,
   Typography,
-} from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 
-import { FormInputText } from '@/components/FormInputText';
-import { FormSelect } from '@/components/FormSelect';
-import { useGetAccount } from '@/services/account/useGetAccount';
-import { useActivityParticipants } from '@/services/activities/useActivityParticipants';
-import { useUpdateCompletedActivity } from '@/services/activities/useUpdateCompletedActivity';
+import { FormInputText } from "@/components/FormInputText";
+import { FormSelect } from "@/components/FormSelect";
+import { useGetAccount } from "@/services/account/useGetAccount";
+import { useActivityParticipants } from "@/services/activities/useActivityParticipants";
+import { useUpdateCompletedActivity } from "@/services/activities/useUpdateCompletedActivity";
 
 type Props = {
   toggleStepperModalAction: boolean;
@@ -50,7 +50,7 @@ export const ActivityStepper = ({
   }, [existingParticipants]);
   const { data: account } = useGetAccount();
 
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>("");
   const [participants, setParticipants] = useState<any[]>([]);
 
   useEffect(() => {
@@ -174,22 +174,22 @@ const ShareFB = ({ handleNext, handleBack, account }) => {
     <>
       <Box
         sx={{
-          margin: '3rem',
-          textAlign: 'center',
-          width: { md: '40rem' },
+          margin: "3rem",
+          textAlign: "center",
+          width: { md: "40rem" },
         }}
       >
         <Typography variant="h1">Share to your Facebook</Typography>
         <Typography
           variant="p"
           sx={{
-            marginBottom: '0.5rem',
+            marginBottom: "0.5rem",
           }}
         >
           Update Your Community by Sharing to
           {account?.serviceProviderName
             ? ` ${account?.serviceProviderName}'s `
-            : ' your '}
+            : " your "}
           Facebook Page
         </Typography>
 
@@ -199,16 +199,16 @@ const ShareFB = ({ handleNext, handleBack, account }) => {
           fullWidth
           type="submit"
           sx={{
-            py: '0.8rem',
-            mt: '1rem',
-            width: '210px',
+            py: "0.8rem",
+            mt: "1rem",
+            width: "210px",
             borderRadius: 50,
           }}
           onClick={() => {
             window.open(
-              'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmotionexercise.co.uk',
-              'newwindow',
-              'width=300,height=250'
+              "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmotionexercise.co.uk",
+              "newwindow",
+              "width=300,height=250"
             );
           }}
         >
@@ -226,8 +226,8 @@ const Comments = () => {
         component="form"
         noValidate
         sx={{
-          margin: '3rem',
-          width: { md: '40rem' },
+          margin: "3rem",
+          width: { md: "40rem" },
         }}
       >
         <Grid container spacing={{ sm: 0, md: 2 }}>
@@ -236,7 +236,7 @@ const Comments = () => {
               name="wouldDoAgain"
               label="Would you do the activity again?"
               defaultValue="yes"
-              placeholder={'Please select'}
+              placeholder={"Please select"}
               type="text"
               fullWidth
               sx={{ mb: 3 }}
@@ -275,8 +275,8 @@ const ParticipantsStep = ({
         component="form"
         noValidate
         sx={{
-          margin: '3rem',
-          width: { md: '40rem' },
+          margin: "3rem",
+          width: { md: "40rem" },
         }}
       >
         <Grid container spacing={{ sm: 0, md: 2 }}>
@@ -290,7 +290,7 @@ const ParticipantsStep = ({
                 setParticipants(newValue);
               }}
               onInputChange={(event, newInputValue) => {
-                const newParticipant = newInputValue.split(',');
+                const newParticipant = newInputValue.split(",");
 
                 if (newParticipant.length > 1) {
                   setParticipants(
@@ -300,7 +300,7 @@ const ParticipantsStep = ({
                       .filter((participant) => participant) // remove empty values
                   );
 
-                  setInputValue('');
+                  setInputValue("");
                 } else {
                   setInputValue(newInputValue);
                 }
