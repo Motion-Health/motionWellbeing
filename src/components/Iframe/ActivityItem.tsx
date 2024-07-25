@@ -1,4 +1,4 @@
-import { categoryIcons } from "@/data/categoryIcons";
+import { categoryIcons } from '@/data/categoryIcons';
 
 interface ActivityItemProps {
   name: string;
@@ -19,7 +19,7 @@ const ActivityItem: React.FC<ActivityItemProps> = ({
 }) => {
   const imagePath = image
     ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${image}`
-    : "/assets/images/exercises/activity-placeholder.png";
+    : '/assets/images/exercises/activity-placeholder.png';
 
   const categoryIcon: string = categoryIcons[category];
 

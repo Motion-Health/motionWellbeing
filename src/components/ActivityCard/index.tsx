@@ -1,18 +1,18 @@
-import { Button, Chip, Grid, Typography } from "@mui/material";
-import moment from "moment";
-import Image from "next/legacy/image";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { Button, Chip, Grid, Typography } from '@mui/material';
+import moment from 'moment';
+import Image from 'next/legacy/image';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-import { useAccountContext } from "@/context/AccountContext";
-import { categoryIcons } from "@/data/categoryIcons";
-import { useActivityTimeLengths } from "@/services/activities/useActivityTimeLengths";
-import { ActivityData } from "@/services/activities/useCreateActivity";
-import { useListActivities } from "@/services/activities/useListActivities";
+import { useAccountContext } from '@/context/AccountContext';
+import { categoryIcons } from '@/data/categoryIcons';
+import { useActivityTimeLengths } from '@/services/activities/useActivityTimeLengths';
+import { ActivityData } from '@/services/activities/useCreateActivity';
+import { useListActivities } from '@/services/activities/useListActivities';
 
-import ActivitiesFormModal from "../modals/ActivitiesFormModal";
-import { UpgradeModal } from "../modals/UpgradeModal";
-import styles from "./activityCard.module.css";
+import ActivitiesFormModal from '../modals/ActivitiesFormModal';
+import { UpgradeModal } from '../modals/UpgradeModal';
+import styles from './activityCard.module.css';
 
 type Props = {
   activity: ActivityData;
@@ -44,30 +44,30 @@ export const ActivityCard = (props: Props) => {
   }, [timeLengths]);
 
   const [activityDisplayType, setActivityDisplayType] = useState<
-    "normal" | "greyed-out" | "invisible"
-  >("normal");
+    'normal' | 'greyed-out' | 'invisible'
+  >('normal');
 
   useEffect(() => {
-    const isAdmin = accountStatus === "admin";
+    const isAdmin = accountStatus === 'admin';
     const isVisibleToUser = activity?.visibleToUsers?.includes(accountStatus!);
 
     const notVisibleToUser =
       !activity?.visibleToUsers?.length ||
-      (accountStatus === "premium" &&
-        !activity.visibleToUsers?.includes("premium")) ||
-      (accountStatus === "group" &&
-        !activity.visibleToUsers?.includes("premium"));
+      (accountStatus === 'premium' &&
+        !activity.visibleToUsers?.includes('premium')) ||
+      (accountStatus === 'group' &&
+        !activity.visibleToUsers?.includes('premium'));
 
     const greyedOutToStandardUser =
-      accountStatus === "standard" &&
-      !activity.visibleToUsers?.includes("standard");
+      accountStatus === 'standard' &&
+      !activity.visibleToUsers?.includes('standard');
 
     if (isAdmin || isVisibleToUser) {
-      setActivityDisplayType("normal");
+      setActivityDisplayType('normal');
     } else if (notVisibleToUser) {
-      setActivityDisplayType("invisible");
+      setActivityDisplayType('invisible');
     } else if (greyedOutToStandardUser) {
-      setActivityDisplayType("greyed-out");
+      setActivityDisplayType('greyed-out');
     }
   }, []);
 
@@ -78,7 +78,7 @@ export const ActivityCard = (props: Props) => {
     e.stopPropagation(); // This stops the event from bubbling up
     setIsModalOpen(true);
     setToggleActivitiesFormModal(Math.random());
-    setModalOpenAction("edit-activity");
+    setModalOpenAction('edit-activity');
   };
 
   const handleActivitySaved = () => {
@@ -86,12 +86,12 @@ export const ActivityCard = (props: Props) => {
   };
 
   const handleActivityCardClick = () => {
-    console.log("handleActivityCardClick");
+    console.log('handleActivityCardClick');
     if (isModalOpen || toggleUpgradeModal) {
       return;
     }
 
-    if (activityDisplayType == "greyed-out") {
+    if (activityDisplayType == 'greyed-out') {
       setToggleUpgradeModal(true);
       return;
     }
@@ -103,11 +103,12 @@ export const ActivityCard = (props: Props) => {
     setToggleUpgradeModal(false);
   };
   useEffect(() => {}, [toggleUpgradeModal]);
+  console.log('S3 bucket URL', process.env.NEXT_PUBLIC_S3_BUCKET_URL);
   const imagePath = activity.imageFileName
     ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${activity.imageFileName}`
-    : "/assets/images/exercises/activity-placeholder.png";
+    : '/assets/images/exercises/activity-placeholder.png';
 
-  const isGreyedOut = activityDisplayType === "greyed-out";
+  const isGreyedOut = activityDisplayType === 'greyed-out';
 
   return (
     <Grid
@@ -118,8 +119,8 @@ export const ActivityCard = (props: Props) => {
       sx={{
         flexGrow: 1,
 
-        position: "relative",
-        display: activityDisplayType !== "invisible" ? "auto" : "none",
+        position: 'relative',
+        display: activityDisplayType !== 'invisible' ? 'auto' : 'none',
       }}
     >
       <Grid onClick={() => handleActivityCardClick()}>
@@ -144,14 +145,14 @@ export const ActivityCard = (props: Props) => {
               src={
                 activity.imageFileName
                   ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${activity.imageFileName}`
-                  : "/assets/images/exercises/activity-placeholder.png"
+                  : '/assets/images/exercises/activity-placeholder.png'
               }
               alt={`Image of ${activity.activityName}`}
               width={500}
               height={500}
             />
 
-            {activityDisplayType === "greyed-out" && (
+            {activityDisplayType === 'greyed-out' && (
               <img
                 src="/assets/icons/ph_premium-icon.svg"
                 alt="Premium upgrade icon"
@@ -160,22 +161,22 @@ export const ActivityCard = (props: Props) => {
                 className={styles.upgradeIcon}
               />
             )}
-            {activityDisplayType === "greyed-out" && (
+            {activityDisplayType === 'greyed-out' && (
               <p className={styles.upgradeText}>Upgrade now to unlock</p>
             )}
           </div>
         </div>
 
         <Grid container justifyContent="space-between">
-          <Typography variant="h3" style={{ cursor: "pointer" }}>
+          <Typography variant="h3" style={{ cursor: 'pointer' }}>
             {activity.activityName}
           </Typography>
-          {accountStatus === "admin" && (
+          {accountStatus === 'admin' && (
             <Button
               sx={{
-                height: "1.5rem",
-                padding: "0",
-                minWidth: "auto",
+                height: '1.5rem',
+                padding: '0',
+                minWidth: 'auto',
               }}
               onClick={(e) => onEditActivity(e)}
             >
@@ -191,18 +192,18 @@ export const ActivityCard = (props: Props) => {
         <Grid
           container
           sx={{
-            justifyContent: "space-between",
-            mt: "1rem",
+            justifyContent: 'space-between',
+            mt: '1rem',
           }}
         >
-          <Grid item sx={{ display: "flex", alignItems: "center" }}>
+          <Grid item sx={{ display: 'flex', alignItems: 'center' }}>
             <img
               src={categoryIcon}
               alt="Activity icon"
               width="19"
               height="19"
             />
-            <Typography variant="helper" sx={{ marginLeft: "0.5rem" }}>
+            <Typography variant="helper" sx={{ marginLeft: '0.5rem' }}>
               {timeLengthLabels?.[activity?.timeLength]}
             </Typography>
           </Grid>
