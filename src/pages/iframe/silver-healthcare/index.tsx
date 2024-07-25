@@ -26,7 +26,7 @@ const Dashboard = () => {
   const ACtext =
     '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
   const facebookURL = 'https://www.facebook.com/SilverHealthCareLtd';
-  const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97' };
+  const url = { accountId: '4f0fcecc-352d-462e-a6e0-3627dcb3dac0' };
   const enquiryURL = 'https://motion.example.com';
 
   useEffect(() => {
@@ -51,7 +51,6 @@ const Dashboard = () => {
 
   const router = useRouter();
   // const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
-
   const { data: urldata } = useGetPublicAccount(url.accountId);
 
   // Check if urldata and urldata.account exist before logging and using them
