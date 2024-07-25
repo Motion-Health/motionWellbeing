@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Area,
   AreaChart,
@@ -8,15 +8,15 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-} from "recharts";
+} from 'recharts';
 
 type ActivitiesOverTimeProps = {
   dates: { month: string; activities: number }[];
 };
 
 function getMonthName(monthNumber) {
-  return new Date(0, monthNumber - 1).toLocaleString("default", {
-    month: "long",
+  return new Date(0, monthNumber - 1).toLocaleString('default', {
+    month: 'long',
   });
 }
 
@@ -54,27 +54,27 @@ const ActivitiesOverTime: React.FC<ActivitiesOverTimeProps> = ({ dates }) => {
   });
 
   return (
-    <div className="grid grid-rows-iframeGrid">
-      <div className="m-3 row-span-1 bg-gray-100 shadow-md rounded text-center">
+    <div className="grid grid-rows-iframeGrid md:col-span-5">
+      <div className="row-span-1 bg-gray-100 shadow-md rounded text-center">
         <h3 className="text-left p-1 text-gray-700">Activities Over Time</h3>
       </div>
-      <div className="bg-white row-span-3 m-3 p-4 shadow-md rounded-md text-center flex flex-col justify-center items-center">
-        <div style={{ width: "100%", height: 300 }}>
+      <div className="bg-white row-span-3 my-3 shadow-md rounded-md text-center flex flex-col justify-center items-center">
+        <div style={{ width: '100%', height: 300 }}>
           <ResponsiveContainer>
             <AreaChart
               width={500}
-              height={300}
+              height={200}
               data={fullDataset}
               margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
+                top: 10,
+                right: 20,
+                left: 0,
+                bottom: 0,
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="monthName" />
-              <YAxis />
+              <YAxis domain={[0, 'dataMax + 2']} />
               <Tooltip />
               <Legend />
               <Area
