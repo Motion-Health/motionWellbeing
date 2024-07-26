@@ -25,9 +25,7 @@ const Dashboard = () => {
   const url = router.query; // Use this if you want to get the query params in URL (e.g. ?accountId=123)
   var careHomeId = Array.isArray(url.accountId)
     ? url.careHomeId[0]
-    : url.careHomeId ?? '4214027b-0cf6-4cde-a5b8-0739f56c4563';
-  const { data: urldata } = useGetPublicAccount(careHomeId as string);
-  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97'
+    : url.careHomeId ?? '4f0fcecc-352d-462e-a6e0-3627dcb3dac0';
 
   var ACimage = '/assets/images/iframes/silverHealthcare.jpg';
   var ACalt = 'Lisa, Activities Coordinator';
@@ -47,12 +45,18 @@ const Dashboard = () => {
       '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
     facebookURL = 'https://www.facebook.com/SilverHealthcareLtd';
   } else if (careHomeId == 'westbourne-house') {
+    // Needs replacing with Westbourne House care home id
+    careHomeId = '4f0fcecc-352d-462e-a6e0-3627dcb3dac0';
+    // ^^^^^
     ACimage = '/assets/images/iframes/palmsRow.jpg';
     ACalt = 'Amy, Activities Coordinator';
     ACtext =
       '“At Westbourne House we pride ourselves on delivering person-centred wellbeing activities tailored to the unique needs and preferences of each resident. We organise a variety of engaging and therapeutic activities, including art and music therapy, gardening, gentle exercise classes, and social events. These activities are designed to promote physical health, mental stimulation, and emotional satisfaction, ensuring that each resident feels valued, respected, and part of a vibrant community. By focusing on individual interests and abilities, we create a supportive environment where residents can thrive and enjoy a high quality of life.”';
     facebookURL = 'https://www.facebook.com/PalmsRowHealthcare';
   } else if (careHomeId == 'northfield') {
+    // Needs replacing with Northfield care home id
+    careHomeId = '4f0fcecc-352d-462e-a6e0-3627dcb3dac0';
+    // ^^^^^
     ACimage = '/assets/images/iframes/palmsRow.jpg';
     ACalt = 'Amy, Activities Coordinator';
     ACtext =
@@ -62,6 +66,7 @@ const Dashboard = () => {
     careHomeId == 'lee-mount' ||
     careHomeId == '99552814-387e-4f10-93ab-4752ca43f599'
   ) {
+    careHomeId = '99552814-387e-4f10-93ab-4752ca43f599';
     ACimage = '/assets/images/iframes/leeMount.jpg';
     ACalt = 'Sherrie, Activities Manager';
     ACtext =
@@ -69,12 +74,17 @@ const Dashboard = () => {
     facebookURL = 'https://www.facebook.com/leeMountcare';
   }
 
+  console.log('careHomeId', careHomeId);
+  const { data: urldata } = useGetPublicAccount(careHomeId as string);
+  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97'
+
   // Check if urldata and urldata.account exist before logging and using them
   if (urldata && urldata.account) {
     console.log('Account Info', urldata.account);
   }
-  const account = urldata?.account; // Use optional chaining to safely access account
 
+  const account = urldata?.account; // Use optional chaining to safely access account
+  // console.log('AccountInfoToDisplay: ', account.activitiesToDisplay);
   // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97' };
 
   const enquiryURL = 'https://motion.example.com';
@@ -134,13 +144,13 @@ const Dashboard = () => {
   }, []);
 
   // Determine the type of activities
-  const activities = account?.activities || [];
+  const activities = account?.activitiesToDisplay || [];
   const hasUpcomingActivities = activities.some(
     (activity) => activity.activityType === 'upcoming'
   );
 
   // Used for testing
-  console.log('UPCOMING: ', hasUpcomingActivities);
+  console.log('COMPLETED: ', urldata);
 
   return (
     <div className="font-Montserrat">
@@ -161,46 +171,71 @@ const Dashboard = () => {
                 </h3>
               </div>
 
-              {account?.activitiesToDisplay.map((activity) => (
-                <ActivityItem
-                  key={activity.id}
-                  name={activity.details.activityName}
-                  time={activity.details.timeLength}
-                  category={activity.details.category}
-                  image={activity.details.imageFileName}
-                  rating={activity.rating}
-                  description={activity.details.description}
-                  activityType={activity.details.activityType}
-                />
-              ))}
+              {account?.activitiesToDisplay
+                .filter((activity) => activity.activityType === 'recent')
+                .map(
+                  (activity) => (
+                    console.log('activity*!*!*!*!:', activity),
+                    (
+                      <ActivityItem
+                        key={activity.id}
+                        name={activity.details?.activityName ?? 'undefined'}
+                        time={activity.details?.timeLength ?? 'undefined'}
+                        category={activity.details?.category ?? 'undefined'}
+                        image={
+                          activity.details?.imageFileName ??
+                          '/assets/images/exercises/activity-placeholder.png'
+                        }
+                        rating={activity.rating}
+                        description={
+                          activity.details?.description ?? 'undefined'
+                        }
+                        activityType={
+                          activity.details?.activityType ?? 'undefined'
+                        }
+                      />
+                    )
+                  )
+                )}
             </div>
             <div className="md:col-span-1 flex flex-col w-full h-full">
               <FacebookPage url={facebookURL} width="550px" height="100%" />
             </div>
-            {hasUpcomingActivities && (
-              <div className="mt-4 col-span-1 md:col-span-4">
-                <div className="bg-gray-100 shadow-md rounded text-center">
-                  <h3 className="text-left p-1 text-gray-700">
-                    Upcoming Activities
-                  </h3>
-                </div>
-                {activities
-                  .filter((activity) => activity.activityType === 'upcoming')
-                  .slice(0, 3)
-                  .map((activity) => (
-                    <ActivityItem
-                      key={activity.id}
-                      name={activity.details.activityName}
-                      time={activity.details.timeLength}
-                      category={activity.details.category}
-                      image={activity.details.imageFileName}
-                      rating={activity.rating}
-                      description={activity.details.description}
-                      activityType={activity.details.activityType}
-                    />
-                  ))}
+
+            {/* <div className="mt-4 md:col-span-3">
+              <div className="bg-gray-100 shadow-md rounded text-center">
+                <h3 className="text-left p-1 text-gray-700">
+                  Upcoming Activities and Events
+                </h3>
               </div>
-            )}
+
+              {account?.activitiesToDisplay
+                .filter((activity) => activity.activityType === 'upcoming')
+                .map(
+                  (activity) => (
+                    console.log('activity*!*!*!*!:', activity),
+                    (
+                      <ActivityItem
+                        key={activity.id}
+                        name={activity.details?.activityName ?? 'undefined'}
+                        time={activity.details?.timeLength ?? 'undefined'}
+                        category={activity.details?.category ?? 'undefined'}
+                        image={
+                          activity.details?.imageFileName ??
+                          '/assets/images/exercises/activity-placeholder.png'
+                        }
+                        rating={activity.rating}
+                        description={
+                          activity.details?.description ?? 'undefined'
+                        }
+                        activityType={
+                          activity.details?.activityType ?? 'undefined'
+                        }
+                      />
+                    )
+                  )
+                )}
+            </div> */}
           </div>
         </div>
 

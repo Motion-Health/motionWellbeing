@@ -16,7 +16,16 @@ const ActivitiesCompleted: React.FC<ActivitiesCompletedProps> = ({
         </h3>
       </div>
       <div className="bg-white my-2 row-span-3 m-3 p-4 shadow-md rounded-md text-center  flex flex-col justify-center items-cente">
-        <div className="text-9xl font-black">{number ?? 10}</div>
+        {/* <div className="text-9xl font-black">
+          {number && number >= 5 ? number : 'N/A'}
+        </div> */}
+        <div
+          className={`${
+            number && number >= 5 && number < 10 ? 'text-9xl' : 'text-7xl'
+          } font-black`}
+        >
+          {number && number >= 5 && number < 10 ? number : 'N/A'}
+        </div>
       </div>
     </div>
   );
