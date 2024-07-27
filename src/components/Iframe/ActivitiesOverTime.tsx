@@ -11,7 +11,7 @@ import {
 } from 'recharts';
 
 type ActivitiesOverTimeProps = {
-  dates: { month: string; activities: number }[];
+  dates: { year: string; month: string; activities: number }[];
 };
 
 function getMonthName(monthNumber) {
@@ -41,9 +41,9 @@ const ActivitiesOverTime: React.FC<ActivitiesOverTimeProps> = ({ dates }) => {
   lastFourMonths.reverse();
   let runningTotal = 0;
   const fullDataset = lastFourMonths.map(({ year, month }) => {
-    const existingEntry = dates?.find(
-      (entry) => entry.year === year && entry.month === month
-    );
+    const existingEntry = dates?.find((entry) => {
+      return entry.year === year && entry.month === month;
+    });
     runningTotal += existingEntry?.count || 0;
     return {
       year,

@@ -74,9 +74,7 @@ const Dashboard = () => {
     facebookURL = 'https://www.facebook.com/leeMountcare';
   }
 
-  console.log('careHomeId', careHomeId);
   const { data: urldata } = useGetPublicAccount(careHomeId as string);
-  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97'
 
   // Check if urldata and urldata.account exist before logging and using them
   if (urldata && urldata.account) {
@@ -84,13 +82,7 @@ const Dashboard = () => {
   }
 
   const account = urldata?.account; // Use optional chaining to safely access account
-  // console.log('AccountInfoToDisplay: ', account.activitiesToDisplay);
-  // const url = { accountId: '5b9568ed-a9fa-4812-9330-7599f0d1ca97' };
-
   const enquiryURL = 'https://motion.example.com';
-
-  // Used for testing
-  console.log('TESTING!!');
 
   useEffect(() => {
     trackPageView(window.location.pathname);
@@ -149,9 +141,6 @@ const Dashboard = () => {
     (activity) => activity.activityType === 'upcoming'
   );
 
-  // Used for testing
-  console.log('COMPLETED: ', urldata);
-
   return (
     <div className="font-Montserrat">
       <div id="fb-root"></div>
@@ -160,7 +149,7 @@ const Dashboard = () => {
         <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
           <div className="grid grid-cols-1 md:grid-cols-10 gap-4">
             <ResidentMood rating={account?.moodRating} />
-            <ActivitiesCompleted number={account?.activitesCompleted} />
+            <ActivitiesCompleted number={account?.activitiesCompleted} />
             <ActivitiesOverTime dates={account?.activitiesPerMonth} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -173,36 +162,29 @@ const Dashboard = () => {
 
               {account?.activitiesToDisplay
                 .filter((activity) => activity.activityType === 'recent')
-                .map(
-                  (activity) => (
-                    console.log('activity*!*!*!*!:', activity),
-                    (
-                      <ActivityItem
-                        key={activity.id}
-                        name={activity.details?.activityName ?? 'undefined'}
-                        time={activity.details?.timeLength ?? 'undefined'}
-                        category={activity.details?.category ?? 'undefined'}
-                        image={
-                          activity.details?.imageFileName ??
-                          '/assets/images/exercises/activity-placeholder.png'
-                        }
-                        rating={activity.rating}
-                        description={
-                          activity.details?.description ?? 'undefined'
-                        }
-                        activityType={
-                          activity.details?.activityType ?? 'undefined'
-                        }
-                      />
-                    )
-                  )
-                )}
+                .map((activity) => (
+                  <ActivityItem
+                    key={activity.id}
+                    name={activity.details?.activityName ?? 'undefined'}
+                    time={activity.details?.timeLength ?? 'undefined'}
+                    category={activity.details?.category ?? 'undefined'}
+                    image={
+                      activity.details?.imageFileName ??
+                      '/assets/images/exercises/activity-placeholder.png'
+                    }
+                    rating={activity.rating}
+                    description={activity.details?.description ?? 'undefined'}
+                    activityType={activity.details?.activityType ?? 'undefined'}
+                  />
+                ))}
             </div>
             <div className="md:col-span-1 flex flex-col w-full h-full">
               <FacebookPage url={facebookURL} width="550px" height="100%" />
             </div>
 
-            {/* <div className="mt-4 md:col-span-3">
+            {/* For later use
+            
+            <div className="mt-4 md:col-span-3">
               <div className="bg-gray-100 shadow-md rounded text-center">
                 <h3 className="text-left p-1 text-gray-700">
                   Upcoming Activities and Events
