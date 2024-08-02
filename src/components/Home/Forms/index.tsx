@@ -1,9 +1,21 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
-import styles from "./form.module.css";
+import styles from './form.module.css';
 
 export const Contact = () => {
   const myRef: any = useRef(null);
+
+  // Added form submission handler
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    await fetch('/__forms.html', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString(),
+    });
+    // Handle success and error notifications here
+  };
 
   return (
     <section id="contact" className={styles.formWrapper}>
@@ -14,8 +26,7 @@ export const Contact = () => {
           id="contactForm"
           ref={myRef}
           name="contact"
-          method="POST"
-          data-netlify="true"
+          onSubmit={handleFormSubmit} // Updated to use JavaScript-based submission
         >
           <input type="hidden" name="form-name" value="contact" />
 
