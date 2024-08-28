@@ -44,18 +44,24 @@ const Dashboard = () => {
     ACtext =
       '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
     facebookURL = 'https://www.facebook.com/SilverHealthcareLtd';
-  } else if (careHomeId == 'westbourne-house') {
+  } else if (
+    careHomeId == 'westbourne-house' ||
+    careHomeId == 'e0a05325-7bed-411b-a5c6-3ab96d552c1b'
+  ) {
     // Needs replacing with Westbourne House care home id
-    careHomeId = '4f0fcecc-352d-462e-a6e0-3627dcb3dac0';
+    careHomeId = 'e0a05325-7bed-411b-a5c6-3ab96d552c1b';
     // ^^^^^
     ACimage = '/assets/images/iframes/palmsRow.jpg';
     ACalt = 'Amy, Activities Coordinator';
     ACtext =
       '“At Westbourne House we pride ourselves on delivering person-centred wellbeing activities tailored to the unique needs and preferences of each resident. We organise a variety of engaging and therapeutic activities, including art and music therapy, gardening, gentle exercise classes, and social events. These activities are designed to promote physical health, mental stimulation, and emotional satisfaction, ensuring that each resident feels valued, respected, and part of a vibrant community. By focusing on individual interests and abilities, we create a supportive environment where residents can thrive and enjoy a high quality of life.”';
     facebookURL = 'https://www.facebook.com/PalmsRowHealthcare';
-  } else if (careHomeId == 'northfield') {
+  } else if (
+    careHomeId == 'northfield' ||
+    careHomeId == 'e0a05325-7bed-411b-a5c6-3ab96d552c1b'
+  ) {
     // Needs replacing with Northfield care home id
-    careHomeId = '4f0fcecc-352d-462e-a6e0-3627dcb3dac0';
+    careHomeId = 'e0a05325-7bed-411b-a5c6-3ab96d552c1b';
     // ^^^^^
     ACimage = '/assets/images/iframes/palmsRow.jpg';
     ACalt = 'Amy, Activities Coordinator';
