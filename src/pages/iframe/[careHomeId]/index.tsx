@@ -48,9 +48,7 @@ const Dashboard = () => {
     careHomeId == 'westbourne-house' ||
     careHomeId == 'e0a05325-7bed-411b-a5c6-3ab96d552c1b'
   ) {
-    // Needs replacing with Westbourne House care home id
     careHomeId = 'e0a05325-7bed-411b-a5c6-3ab96d552c1b';
-    // ^^^^^
     ACimage = '/assets/images/iframes/palmsRow.jpg';
     ACalt = 'Amy, Activities Coordinator';
     ACtext =
@@ -60,9 +58,7 @@ const Dashboard = () => {
     careHomeId == 'northfield' ||
     careHomeId == 'e0a05325-7bed-411b-a5c6-3ab96d552c1b'
   ) {
-    // Needs replacing with Northfield care home id
     careHomeId = 'e0a05325-7bed-411b-a5c6-3ab96d552c1b';
-    // ^^^^^
     ACimage = '/assets/images/iframes/palmsRow.jpg';
     ACalt = 'Amy, Activities Coordinator';
     ACtext =

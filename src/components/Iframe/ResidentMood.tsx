@@ -7,7 +7,8 @@ interface ResidentMoodProps {
 const ResidentMood: React.FC<ResidentMoodProps> = ({ rating }) => {
   const getEmotionImage = (rating: number) => {
     // Ensure rating is within 1 to 5
-    const validRating = Math.min(Math.max(rating, 1), 5);
+    const roundedRating = Math.round(rating);
+    const validRating = Math.min(Math.max(roundedRating, 1), 5);
     return `/assets/emotions/emotion-${validRating}.svg`;
   };
 
