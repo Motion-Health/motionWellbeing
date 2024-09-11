@@ -76,6 +76,12 @@ const Dashboard = () => {
     facebookURL = 'https://www.facebook.com/leeMountcare';
   }
 
+  // Conditionally set the background gradient for 'lee-mount'
+  const gradientBackgroundClass =
+    careHomeId === '99552814-387e-4f10-93ab-4752ca43f599'
+      ? 'bg-gradient-to-b from-white to-green-100 via-green-100'
+      : '';
+
   const { data: urldata } = useGetPublicAccount(careHomeId as string);
 
   // Check if urldata and urldata.account exist before logging and using them
@@ -144,10 +150,10 @@ const Dashboard = () => {
   );
 
   return (
-    <div className="font-Montserrat">
+    <div className={`font-Montserrat ${gradientBackgroundClass}`}>
       <div id="fb-root"></div>
       <div ref={scriptRef}></div>
-      <div className="p-4">
+      <div className="p-4 bg-white bg-opacity-30 rounded-lg shadow-lg">
         <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
           <div className="grid grid-cols-1 md:grid-cols-10 gap-4">
             <ResidentMood rating={account?.moodRating} />
@@ -177,6 +183,7 @@ const Dashboard = () => {
                     rating={activity.rating}
                     description={activity.details?.description ?? 'undefined'}
                     activityType={activity.details?.activityType ?? 'undefined'}
+                    careHomeId={careHomeId}
                   />
                 ))}
             </div>
