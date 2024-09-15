@@ -106,7 +106,7 @@ export const ActivityCard = (props: Props) => {
   console.log('S3 bucket URL', process.env.NEXT_PUBLIC_S3_BUCKET_URL);
   const imagePath = activity.imageFileName
     ? `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${activity.imageFileName}`
-    : '/assets/images/exercises/activity-placeholder.png';
+    : '/assets/images/iframes/square-check-regular.png';
 
   const isGreyedOut = activityDisplayType === 'greyed-out';
 

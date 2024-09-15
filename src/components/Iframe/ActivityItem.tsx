@@ -22,10 +22,10 @@ const ActivityItem: React.FC<ActivityItemProps> = ({
   careHomeId,
 }) => {
   const imagePath =
-    image && (image.startsWith('http://') || image.startsWith('https://'))
+    image && (image.startsWith('http://') || image.startsWith('https://') || image.startsWith('/'))
       ? image
       : `${process.env.NEXT_PUBLIC_S3_BUCKET_URL}/images/${image}` ||
-        '/assets/images/exercises/activity-placeholder.png';
+        '/assets/images/iframes/square-check-regular.png';
 
   const categoryIcon: string = categoryIcons[category];
 

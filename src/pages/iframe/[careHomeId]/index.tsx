@@ -178,7 +178,7 @@ const Dashboard = () => {
                     category={activity.details?.category ?? 'undefined'}
                     image={
                       activity.details?.imageFileName ??
-                      '/assets/images/exercises/activity-placeholder.png'
+                      '/assets/images/iframes/square-check-regular.png'
                     }
                     rating={activity.rating}
                     description={activity.details?.description ?? 'undefined'}
