@@ -153,7 +153,7 @@ const Dashboard = () => {
     <div className={`font-Montserrat ${gradientBackgroundClass}`}>
       <div id="fb-root"></div>
       <div ref={scriptRef}></div>
-      <div className="p-4 bg-white bg-opacity-30 rounded-lg shadow-lg">
+      <div className="bg-white bg-opacity-30 rounded-lg shadow-lg">
         <div className="bg-white m-3 p-4 shadow-md rounded-md text-center">
           <div className="grid grid-cols-1 md:grid-cols-10 gap-4">
             <ResidentMood rating={account?.moodRating} />
