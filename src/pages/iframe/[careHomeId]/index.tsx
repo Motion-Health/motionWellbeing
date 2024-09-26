@@ -6,7 +6,6 @@ import ActivitiesCompleted from '@/components/Iframe/ActivitiesCompleted';
 import ActivitiesOverTime from '@/components/Iframe/ActivitiesOverTime';
 import ActivityCoordinator from '@/components/Iframe/ActivityCoordinator';
 import ActivityItem from '@/components/Iframe/ActivityItem';
-import FacebookPage from '@/components/Iframe/FacebookPage';
 import { trackEvent, trackPageView } from '@/components/Iframe/gtag/silver';
 import ResidentMood from '@/components/Iframe/ResidentMood';
 import { useGetPublicAccount } from '@/services/account/useGetPublicAccount';
@@ -160,73 +159,32 @@ const Dashboard = () => {
             <ActivitiesCompleted number={account?.activitiesCompleted} />
             <ActivitiesOverTime dates={account?.activitiesPerMonth} />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className="mt-4 md:col-span-3">
-              <div className="bg-gray-100 shadow-md rounded text-center">
-                <h3 className="text-left p-1 text-gray-700">
-                  Recent Activities and Events
-                </h3>
-              </div>
 
-              {account?.activitiesToDisplay
-                .filter((activity) => activity.activityType === 'recent')
-                .map((activity) => (
-                  <ActivityItem
-                    key={activity.id}
-                    name={activity.details?.activityName ?? 'undefined'}
-                    time={activity.details?.timeLength ?? 'undefined'}
-                    category={activity.details?.category ?? 'undefined'}
-                    image={
-                      activity.details?.imageFileName ??
-                      '/assets/images/iframes/square-check-regular.png'
-                    }
-                    rating={activity.rating}
-                    description={activity.details?.description ?? 'undefined'}
-                    activityType={activity.details?.activityType ?? 'undefined'}
-                    careHomeId={careHomeId}
-                  />
-                ))}
-            </div>
-            <div className="md:col-span-1 flex flex-col w-full h-full">
-              <FacebookPage url={facebookURL} width="550px" height="100%" />
+          <div className="mt-4">
+            <div className="bg-gray-100 shadow-md rounded text-center">
+              <h3 className="text-left p-1 text-gray-700">
+                Recent Activities and Events
+              </h3>
             </div>
 
-            {/* For later use
-            
-            <div className="mt-4 md:col-span-3">
-              <div className="bg-gray-100 shadow-md rounded text-center">
-                <h3 className="text-left p-1 text-gray-700">
-                  Upcoming Activities and Events
-                </h3>
-              </div>
-
-              {account?.activitiesToDisplay
-                .filter((activity) => activity.activityType === 'upcoming')
-                .map(
-                  (activity) => (
-                    console.log('activity*!*!*!*!:', activity),
-                    (
-                      <ActivityItem
-                        key={activity.id}
-                        name={activity.details?.activityName ?? 'undefined'}
-                        time={activity.details?.timeLength ?? 'undefined'}
-                        category={activity.details?.category ?? 'undefined'}
-                        image={
-                          activity.details?.imageFileName ??
-                          '/assets/images/exercises/activity-placeholder.png'
-                        }
-                        rating={activity.rating}
-                        description={
-                          activity.details?.description ?? 'undefined'
-                        }
-                        activityType={
-                          activity.details?.activityType ?? 'undefined'
-                        }
-                      />
-                    )
-                  )
-                )}
-            </div> */}
+            {account?.activitiesToDisplay
+              .filter((activity) => activity.activityType === 'recent')
+              .map((activity) => (
+                <ActivityItem
+                  key={activity.id}
+                  name={activity.details?.activityName ?? 'undefined'}
+                  time={activity.details?.timeLength ?? 'undefined'}
+                  category={activity.details?.category ?? 'undefined'}
+                  image={
+                    activity.details?.imageFileName ??
+                    '/assets/images/iframes/square-check-regular.png'
+                  }
+                  rating={activity.rating}
+                  description={activity.details?.description ?? 'undefined'}
+                  activityType={activity.details?.activityType ?? 'undefined'}
+                  careHomeId={careHomeId}
+                />
+              ))}
           </div>
         </div>
 
@@ -235,7 +193,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="text-white flex-col items-center m-4 p-3  pt-0 mt-0">
+      <div className="text-white flex-col items-center m-4 p-3 pt-0 mt-0">
         <div
           className="w-full bg-[#68658F] rounded-md shadow-md py-8 text-center cursor-pointer hover:bg-[#57567E] focus:bg-[#57567E] focus:outline-none focus:ring-2 focus:ring-[#4c4b63] transition-colors duration-150 "
           onClick={handleEnquiryClick}
