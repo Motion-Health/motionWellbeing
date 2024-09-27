@@ -54,6 +54,7 @@ const Dashboard = () => {
     ACtext =
       '“At Westbourne House we pride ourselves on delivering person-centred wellbeing activities tailored to the unique needs and preferences of each resident. We organise a variety of engaging and therapeutic activities, including art and music therapy, gardening, gentle exercise classes, and social events. These activities are designed to promote physical health, mental stimulation, and emotional satisfaction, ensuring that each resident feels valued, respected, and part of a vibrant community. By focusing on individual interests and abilities, we create a supportive environment where residents can thrive and enjoy a high quality of life.”';
     facebookURL = 'https://www.facebook.com/PalmsRowHealthcare';
+    enquiryURL = 'mailto:communications@palmsrow.co.uk?subject=Enquiry';
   } else if (
     careHomeId == 'northfield' ||
     careHomeId == 'e0a05325-7bed-411b-a5c6-3ab96d552c1b'
@@ -64,6 +65,7 @@ const Dashboard = () => {
     ACtext =
       '“At Northfield Nursing Home we are dedicated to providing person-centred wellbeing activities that are tailored to each resident’s individual needs and preferences. Our caring staff facilitates a range of engaging and therapeutic experiences, including art and music therapy, gardening, light exercise sessions, and social events. These activities aim to improve physical health, stimulate the mind, and foster emotional well-being, ensuring that every resident feels cherished, respected, and connected to our lively community. By prioritising personal interests and capabilities, we cultivate an environment where residents can thrive and enjoy a fulfilling quality of life.”';
     facebookURL = 'https://www.facebook.com/PalmsRowHealthcare';
+    enquiryURL = 'mailto:communications@palmsrow.co.uk?subject=Enquiry';
   } else if (
     careHomeId == 'lee-mount' ||
     careHomeId == '99552814-387e-4f10-93ab-4752ca43f599'
@@ -205,7 +207,7 @@ const Dashboard = () => {
         </div>
         <div className="flex text-right mt-4 flex-row-reverse">
           <a
-            href="https://motion.example.com"
+            href="https://motion.org.uk/"
             className="ml-2 text-blue-600 my-auto ml-4 font-black"
           >
             Click here to learn more
