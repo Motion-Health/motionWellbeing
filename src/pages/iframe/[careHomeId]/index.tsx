@@ -31,6 +31,7 @@ const Dashboard = () => {
   var ACtext =
     '“At Silver Healthcare we have our own dedicated activities team who plan, create and deliver holistic activities on a daily basis. Activities can be on a one-to-one basis, allowing the team to focus on the individual, which is particularly beneficial for residents with dementia. Group activities provide a chance for residents to socialise, create relationships and improve physical and emotional health; and range from musical entertainment to crafts to movement”';
   var facebookURL = 'https://www.facebook.com/SilverHealthcareLtd';
+  var enquiryURL = facebookURL;
 
   // Hardcoded care home details (for now)
   if (
@@ -73,6 +74,7 @@ const Dashboard = () => {
     ACtext =
       '“At Lee Mount Care Home, we are committed to delivering person-centred wellbeing activities that are especially tailored to the individual needs and preferences of each resident. Our dedicated team offers a variety of personalised activities, including art and music therapy sessions, sensory games, and tailored exercise routines. By focusing on what each resident enjoys and can participate in, we ensure activities that promote physical health, mental engagement, and emotional well-being. This personalised approach fosters a sense of belonging and fulfilment, allowing every individual to thrive in a supportive and nurturing environment.”';
     facebookURL = 'https://www.facebook.com/leeMountcare';
+    enquiryURL = 'https://www.leemountcarehome.co.uk/contact-us/';
   }
 
   // Conditionally set the background gradient for 'lee-mount'
@@ -89,7 +91,6 @@ const Dashboard = () => {
   }
 
   const account = urldata?.account; // Use optional chaining to safely access account
-  const enquiryURL = 'https://motion.example.com';
 
   useEffect(() => {
     trackPageView(window.location.pathname);
