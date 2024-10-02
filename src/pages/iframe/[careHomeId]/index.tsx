@@ -152,7 +152,10 @@ const Dashboard = () => {
   );
 
   return (
-    <div className={`font-Montserrat ${gradientBackgroundClass}`}>
+    <div
+      className={`font-Montserrat ${gradientBackgroundClass}`}
+      style={{ width: '100%', height: '100vh' }}
+    >
       <div id="fb-root"></div>
       <div ref={scriptRef}></div>
       <div className="bg-white bg-opacity-30 rounded-lg shadow-lg">

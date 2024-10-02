@@ -16,7 +16,7 @@ const ActivitiesCompleted: React.FC<ActivitiesCompletedProps> = ({
         </h3>
       </div>
       <div className="bg-white my-2 row-span-3 p-4 shadow-md rounded-md text-center flex flex-col justify-center items-center">
-        <div className="text-5xl sm:text-7l md:text-9xl lg:text-9xl font-black">
+        <div className="text-7xl sm:text-7l md:text-9xl lg:text-9xl font-black">
           {number}
         </div>
         {/* Here for later use
