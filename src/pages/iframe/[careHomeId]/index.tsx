@@ -196,7 +196,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="text-white flex-col items-center m-4 p-3 pt-0 mt-0">
+      <div className="text-white flex-col items-center m-4 mb-0 p-3 pb-0">
         <div
           className="w-full bg-[#68658F] rounded-md shadow-md py-8 text-center cursor-pointer hover:bg-[#57567E] focus:bg-[#57567E] focus:outline-none focus:ring-2 focus:ring-[#4c4b63] transition-colors duration-150 "
           onClick={handleEnquiryClick}
