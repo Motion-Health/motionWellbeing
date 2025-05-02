@@ -64,7 +64,7 @@ const Index = () => {
       />
 
       <title>Motion - Care Home Marketing</title>
-      <link rel="canonical" href="https://marketing.motion.org.uk/" />
+      <link rel="canonical" href="https://motion.org.uk/" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat"
         rel="stylesheet"

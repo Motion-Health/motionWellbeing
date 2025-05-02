@@ -59,10 +59,10 @@ class MyDocument extends Document {
           />
           <meta
             name="og:image"
-            content="https://marketing.motion.org.uk/assets/MotionLogo.png
+            content="https://motion.org.uk/assets/MotionLogo.png
       "
           />
-          <meta name="og:url" content="https://marketing.motion.org.uk/" />
+          <meta name="og:url" content="https://motion.org.uk/" />
         </Head>
 
         <body>

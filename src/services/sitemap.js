@@ -13,7 +13,7 @@ const routes = pages
   .map((route) => (route.endsWith('/index') ? route.slice(0, -6) : route));
 
 let sitemap = new SitemapStream({
-  hostname: 'https://marketing.motion.org.uk',
+  hostname: 'https://motion.org.uk',
 });
 
 routes.forEach((route) => {

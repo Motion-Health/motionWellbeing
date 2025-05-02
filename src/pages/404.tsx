@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { closest } from 'fastest-levenshtein';
-import xml2js from 'xml2js';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import React from 'react';
+import xml2js from 'xml2js';
 
 const Custom404 = () => {
   const router = useRouter();
@@ -10,26 +10,23 @@ const Custom404 = () => {
 
   useEffect(() => {
     fetch('/sitemap.xml')
-      .then(response => response.text())
-      .then(data => {
+      .then((response) => response.text())
+      .then((data) => {
         xml2js.parseString(data, (err, result) => {
-          
           if (err) {
             console.error(err);
           } else {
             console.log('result', result);
-            const urls = result.urlset.url.map(urlEntry => urlEntry.loc[0]);
+            const urls = result.urlset.url.map((urlEntry) => urlEntry.loc[0]);
             setValidUrls(urls);
           }
         });
       });
-      
   }, []);
 
   useEffect(() => {
     if (validUrls.length > 0) {
-      const incorrectUrl = "https://marketing.motion.org.uk" +
-      router.asPath;
+      const incorrectUrl = 'https://marketing.motion.org.uk' + router.asPath;
       const correctedUrl = correctUrl(incorrectUrl, validUrls);
       router.push(correctedUrl);
     }

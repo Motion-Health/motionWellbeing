@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://marketing.motion.org.uk/sitemap.xml
+Sitemap: https://motion.org.uk/sitemap.xml
