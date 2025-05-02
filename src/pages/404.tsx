@@ -26,6 +26,7 @@ const Custom404 = () => {
 
   useEffect(() => {
     if (validUrls.length > 0) {
+      // keep this as `marketing.motion.org.uk` because it's still the incorrectUrl
       const incorrectUrl = 'https://marketing.motion.org.uk' + router.asPath;
       const correctedUrl = correctUrl(incorrectUrl, validUrls);
       router.push(correctedUrl);
