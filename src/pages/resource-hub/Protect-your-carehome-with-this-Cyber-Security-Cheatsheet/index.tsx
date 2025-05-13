@@ -8,6 +8,7 @@ import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
 import React, { useEffect, useState } from 'react';
+
 import styles from '../blogPost.module.css';
 
 const Index = () => {
@@ -22,7 +23,8 @@ const Index = () => {
   };
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -369,9 +371,9 @@ const Index = () => {
             from digital threats. Remember, in the digital world, being
             proactive is always better than being reactive. If you want to find
             out more or would like a comprehensive cyber security audit, please
-            get in touch with us today.
-            <a href="https://calendly.com/zeezy-1/motion">
-              Click here to book a 30-minute consulatation
+            get in touch with us today.{' '}
+            <a href="/get-a-demo/">
+              Click here to book a 30-minute consultation.
             </a>
           </p>
         </div>

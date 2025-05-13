@@ -24,7 +24,8 @@ const Index = () => {
   };
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -404,9 +405,9 @@ const Index = () => {
             With creativity and a focus on what truly matters to employees, your
             care home can become a magnet for dedicated carers, all while
             maintaining a responsible budget. For more information and help
-            attracting carers then
-            <a href="https://calendly.com/zeezy-1/motion">
-              Click here to book a 30-minute consulatation
+            attracting carers then{' '}
+            <a href="/get-a-demo/">
+              click here to book a 30-minute consultation.
             </a>
           </p>
         </div>
