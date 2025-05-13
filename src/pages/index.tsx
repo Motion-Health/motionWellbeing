@@ -283,8 +283,72 @@ const Index = () => {
         data-bs-version="5.1"
         className="content5 programm5 cid-tFcktY5MQz"
         id="content5-f"
+        style={{ marginTop: '80px' }}
       >
         <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <div
+                style={{
+                  borderRadius: '20px',
+                  marginBottom: '30px',
+                  boxShadow: '0px 6px 5px rgba(0, 0, 0, 0.4)',
+                  padding: '0',
+                  overflow: 'hidden',
+                }}
+              >
+                <div style={{ display: 'flex' }}>
+                  <div
+                    style={{
+                      width: '120px',
+                      height: '100%',
+                      flexShrink: 0,
+                      position: 'relative',
+                    }}
+                  >
+                    <img
+                      src="/assets/images/claire.jpg"
+                      alt="Claire - CEO"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                        position: 'relative',
+                      }}
+                    />
+                  </div>
+
+                  <div style={{ padding: '14px 30px' }}>
+                    <p
+                      style={{
+                        fontSize: '24px',
+                        lineHeight: '1.1',
+                        marginBottom: '3px',
+                        fontFamily: 'Montserrat',
+                        fontWeight: '400',
+                        textAlign: 'left',
+                      }}
+                    >
+                      "The Motion team are incredible — they're very skilled and
+                      we love having them working with our care homes."
+                    </p>
+                    <p
+                      style={{
+                        fontFamily: 'Montserrat',
+                        fontWeight: '600',
+                        marginTop: '16px',
+                        textAlign: 'left',
+                      }}
+                    >
+                      Claire, CEO, Sheffcare
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="row justify-content-center howMotionWorks">
             <div className="col-12 col-lg-8 text-center">
               <div className="title-wrapper">
@@ -294,6 +358,7 @@ const Index = () => {
               </div>
             </div>
           </div>
+
           <div className="row">
             <div className="col-4 card">
               <div
@@ -370,12 +435,20 @@ const Index = () => {
               </div>
             </div>
           </div>
+
           <div className="blueDemoButton mt-5">
             <a href="/get-a-demo">Get a Demo</a>
           </div>
         </div>
 
-        <div className="container text-center">
+        <div
+          className="container text-center"
+          style={{
+            background:
+              'radial-gradient(circle at -11% 10%, #385988 -33%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 0% 73%, #385988 -30%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 77% 48%, #385988 -30%, #FDFCED 30%, transparent 50%)',
+            paddingTop: '30px',
+          }}
+        >
           <div className="row">
             <div className="col-12 text-center">
               <div className="title-wrapper">
@@ -520,33 +593,7 @@ const Index = () => {
         data-bs-version="5.1"
         className="content4 programm5 cid-tFckpILCGl"
         id="content4-e"
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="card-wrapper p-0 nameQuoteWrap">
-                <div className="card-wrap ">
-                  <div className="icon-wrapper partnerQuoteWrapper">
-                    <img
-                      className="partnerQuote"
-                      src="/assets/images/claire.jpg"
-                      alt="Claire - CEO"
-                    />
-                  </div>
-
-                  <div className="nameQuote">
-                    <p className="mbr-text mbr-fonts-style display-7">
-                      "The Motion team are incredible — they're very skilled and
-                      we love having them working with our care homes."
-                    </p>{' '}
-                    Claire, CEO, Sheffcare
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      ></section>
       <section
         data-bs-version="5.1"
         className="features3 programm5 cid-tFcgeFyM9G"
