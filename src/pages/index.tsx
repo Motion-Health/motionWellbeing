@@ -283,7 +283,6 @@ const Index = () => {
         data-bs-version="5.1"
         className="content5 programm5 cid-tFcktY5MQz"
         id="content5-f"
-        style={{ marginTop: '80px' }}
       >
         <div className="container">
           <div className="row">
