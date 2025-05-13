@@ -159,9 +159,8 @@ const Index = () => {
                 </h1>
                 <h1 className="heroText">We’ll take care of you.</h1>
                 <p className="heroSubheadingText">
-                  A digital platform for care services to showcase improved care
-                  outcomes to existing and prospective families to boost their
-                  customer satisfaction and increase occupancy.
+                  Showcase your care and keep families connected, so you can
+                  grow.
                 </p>
                 <div className="demoButtonContainer">
                   <div className="blueDemoButton">
