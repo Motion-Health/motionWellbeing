@@ -188,7 +188,7 @@ const Index = () => {
         <div className="text-center">
           <div className="title-wrapper">
             <h2 className="mbr-section-title mbr-fonts-style display-2">
-              <strong>Trusted By</strong>
+              <strong>We're trusted by</strong>
             </h2>
           </div>
         </div>
