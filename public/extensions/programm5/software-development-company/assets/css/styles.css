@@ -1,8 +1,8 @@
 .filtered-background-section {
     position: relative;
     /* background-image: url('./../images/header.webp'); */
-    t(at left, #385988, white);
-    background-image: radial-gradient(at left, #3859888c, #fdfcedb3);
+    t(at left, #FDFCED, white);
+    background-image: radial-gradient(at left, #FDFCED, #FDFCED);
 }
 
 .filtered-background-section::before {
@@ -14,7 +14,7 @@
     left: 0;
     background: rgb(255 255 255 / 56%); /* White with adjustable opacity */
     z-index: -1;
-    background-image: radial-gradient(left to right, #385988, white);
+    background-image: radial-gradient(left to right, #FDFCED, white);
 }
 
 /* Ensure content of the section is on top of the overlay */
