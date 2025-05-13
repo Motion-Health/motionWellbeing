@@ -177,6 +177,7 @@ body{
 .testimonial-container {
   border-radius: 20px;
   margin-bottom: 30px;
+  margin-top: 80px;
   box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.4);
   padding: 0;
   overflow: hidden;
