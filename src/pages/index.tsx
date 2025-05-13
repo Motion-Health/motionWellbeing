@@ -288,61 +288,22 @@ const Index = () => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <div
-                style={{
-                  borderRadius: '20px',
-                  marginBottom: '30px',
-                  boxShadow: '0px 6px 5px rgba(0, 0, 0, 0.4)',
-                  padding: '0',
-                  overflow: 'hidden',
-                }}
-              >
+              <div className="testimonial-container">
                 <div style={{ display: 'flex' }}>
-                  <div
-                    style={{
-                      width: '120px',
-                      height: '100%',
-                      flexShrink: 0,
-                      position: 'relative',
-                    }}
-                  >
+                  <div className="testimonial-image-container">
                     <img
                       src="/assets/images/claire.jpg"
                       alt="Claire - CEO"
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        display: 'block',
-                        position: 'relative',
-                      }}
+                      className="testimonial-image"
                     />
                   </div>
 
-                  <div style={{ padding: '14px 30px' }}>
-                    <p
-                      style={{
-                        fontSize: '24px',
-                        lineHeight: '1.1',
-                        marginBottom: '3px',
-                        fontFamily: 'Montserrat',
-                        fontWeight: '400',
-                        textAlign: 'left',
-                      }}
-                    >
+                  <div className="testimonial-content">
+                    <p className="testimonial-quote">
                       "The Motion team are incredible — they're very skilled and
                       we love having them working with our care homes."
                     </p>
-                    <p
-                      style={{
-                        fontFamily: 'Montserrat',
-                        fontWeight: '600',
-                        marginTop: '16px',
-                        textAlign: 'left',
-                      }}
-                    >
-                      Claire, CEO, Sheffcare
-                    </p>
+                    <p className="testimonial-author">Claire, CEO, Sheffcare</p>
                   </div>
                 </div>
               </div>
