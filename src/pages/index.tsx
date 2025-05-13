@@ -157,7 +157,7 @@ const Index = () => {
                     repeat={Infinity}
                   />
                 </h1>
-                <h1 className="heroText">We’ll take care of you.</h1>
+                <h1 className="heroText">We'll take care of you.</h1>
                 <p className="heroSubheadingText">
                   Showcase your care and keep families connected, so you can
                   grow.
@@ -196,24 +196,6 @@ const Index = () => {
             <Slider {...settings}>
               <div
                 className="embla__slide slider-image item"
-                style={{ margin: 'auto 3rem', minWidth: 200 }}
-              >
-                <img
-                  src="extensions/programm5/assets/logos/12-trees.jpg"
-                  alt=""
-                />
-              </div>
-              <div
-                className="embla__slide slider-image item"
-                style={{ margin: 'auto 3rem', minWidth: 200 }}
-              >
-                <img
-                  src="extensions/programm5/assets/logos/age-uk.jpg"
-                  alt=""
-                />
-              </div>
-              <div
-                className="embla__slide slider-image item"
                 style={{ margin: 'auto 3rem' }}
               >
                 <img src="extensions/programm5/assets/logos/bupa.jpg" alt="" />
@@ -223,22 +205,40 @@ const Index = () => {
                 style={{ margin: 'auto 3rem' }}
               >
                 <img
-                  src="extensions/programm5/assets/logos/hc-one.jpg"
+                  src="extensions/programm5/assets/logos/12-trees.jpg"
                   alt=""
                 />
               </div>
               <div
                 className="embla__slide slider-image item"
-                style={{ margin: 'auto 3rem', minWidth: 200 }}
+                style={{ margin: 'auto 3rem' }}
               >
                 <img
-                  src="extensions/programm5/assets/logos/ideal-carehomes.jpg"
+                  src="extensions/programm5/assets/logos/carewise.webp"
                   alt=""
                 />
               </div>
               <div
                 className="embla__slide slider-image item"
-                style={{ margin: 'auto 3rem', minWidth: 150 }}
+                style={{ margin: 'auto 3rem' }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/silver.webp"
+                  alt=""
+                />
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem' }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/age-uk.jpg"
+                  alt=""
+                />
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem' }}
               >
                 <img
                   src="extensions/programm5/assets/logos/sheffcare.jpg"
@@ -250,8 +250,9 @@ const Index = () => {
                 style={{ margin: 'auto 3rem' }}
               >
                 <img
-                  src="extensions/programm5/assets/logos/silver.png"
+                  src="extensions/programm5/assets/logos/lee-mount-care-home-logo.png"
                   alt=""
+                  style={{ width: '50%', margin: '0 auto' }}
                 />
               </div>
               <div
@@ -259,8 +260,19 @@ const Index = () => {
                 style={{ margin: 'auto 3rem' }}
               >
                 <img
-                  src="extensions/programm5/assets/logos/hallamshire.png"
+                  src="extensions/programm5/assets/logos/HertsAtHomeMediumRBG.png"
                   alt=""
+                  style={{ width: '70%', margin: '0 auto' }}
+                />
+              </div>
+              <div
+                className="embla__slide slider-image item"
+                style={{ margin: 'auto 3rem' }}
+              >
+                <img
+                  src="extensions/programm5/assets/logos/palms-row.png"
+                  alt=""
+                  style={{ width: '60%', margin: '0 auto' }}
                 />
               </div>
             </Slider>
@@ -644,11 +656,11 @@ const Index = () => {
             <div className="col-12">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style display-2 setInMotionTitle">
-                  Let’s Set Things in Motion
+                  Let's Set Things in Motion
                 </h2>
                 <p className="text-center subheadingText">
                   Hit the 'Get a Demo' button below and we'll be in touch before
-                  you can say ”Jack Robinson”
+                  you can say "Jack Robinson"
                 </p>
 
                 <div className="person-wrapper">
