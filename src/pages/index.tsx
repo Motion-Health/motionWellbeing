@@ -289,79 +289,84 @@ const Index = () => {
             <div className="col-12 col-lg-8 text-center">
               <div className="title-wrapper">
                 <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2">
-                  <strong>How Motion Works</strong>
+                  <strong>How Motion helps your care organisation</strong>
                 </h2>
               </div>
-              <div className="text-wrapper">
-                <p className="subheadingText">
-                  Our all-in-one solution is easy to implement with help from
-                  our experienced team and provides you with a comprehensive and
-                  person-centred approach to improve your marketing.
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4 card">
+              <div
+                className="feature-box"
+                style={{
+                  backgroundColor: '#F7F7F7',
+                  borderRadius: '10px',
+                  padding: '25px',
+                  height: '100%',
+                }}
+              >
+                <h3
+                  className="motionBenefitsTitle mbr-fonts-style"
+                  style={{ color: '#385988', paddingBottom: '16px' }}
+                >
+                  <strong>Showcase and amplify your care</strong>
+                </h3>
+                <p className="motionBenefitsText mbr-fonts-style display-7">
+                  You're already delivering amazing, person-centred care. Motion
+                  helps make sure families and key stakeholders actually see it.
+                  Personalised, detailed updates are shared automatically, so
+                  your team can stay focused on what matters most.
                 </p>
               </div>
             </div>
-          </div>
-          <div className="row">
             <div className="col-4 card">
-              <div className="title-wrapper">
-                <div className="imageWrapper redImageWrapper">
-                  <img
-                    className="blogImage"
-                    src="/assets/images/homepage/card1.png"
-                    alt="seo"
-                  />
-                </div>
+              <div
+                className="feature-box"
+                style={{
+                  backgroundColor: '#F7F7F7',
+                  borderRadius: '10px',
+                  padding: '25px',
+                  height: '100%',
+                }}
+              >
+                <h3
+                  className="motionBenefitsTitle mbr-fonts-style"
+                  style={{ color: '#385988', paddingBottom: '16px' }}
+                >
+                  <strong>Meet families where they are</strong>
+                </h3>
+                <p className="motionBenefitsText mbr-fonts-style display-7">
+                  We've listened to over 1,000 families, and one thing is clear:
+                  what matters most is knowing their loved one is being truly
+                  looked after. Whether they're exploring care options or
+                  already part of your home, families want connection, clarity,
+                  and peace of mind. Every one of our care partners has seen a
+                  lift in family satisfaction since using Motion.
+                </p>
               </div>
             </div>
             <div className="col-4 card">
-              <div className="title-wrapper">
-                <div className="imageWrapper yellowImageWrapper">
-                  <img
-                    className="blogImage"
-                    src="/assets/images/homepage/card2.png"
-                    alt="seo"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-4 card">
-              <div className="title-wrapper">
-                <div className="imageWrapper greenImageWrapper">
-                  <img
-                    className="blogImage"
-                    src="/assets/images/homepage/card3.png"
-                    alt="seo"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-4 card howTitleCard">
-              <h3 className="motionBenefitsTitle">
-                <strong>Improve lifestyle and wellbeing outcomes</strong>
-              </h3>
-              <div className="card-wrapper motionBenefitsText">
-                A wide range of evidence-based lifestyle resources and
-                activities that are proven to improve mood.
-              </div>
-            </div>
-            <div className="col-4 card howTitleCard">
-              <h3 className="motionBenefitsTitle">
-                <strong>Showcase improved standard of care</strong>
-              </h3>
-              <div className="card-wrapper motionBenefitsText">
-                Tailored updates are automatically shared to your website,
-                making showcasing your care home effortless.
-              </div>
-            </div>
-            <div className="col-4 card howTitleCard">
-              <h3 className="motionBenefitsTitle">
-                <strong>Fill beds and improve customer satisfaction</strong>
-              </h3>
-              <div className="card-wrapper motionBenefitsText">
-                Regular reports and data insights are provided to ensure you can
-                see and understand the impact on key metrics.
+              <div
+                className="feature-box"
+                style={{
+                  backgroundColor: '#F7F7F7',
+                  borderRadius: '10px',
+                  padding: '25px',
+                  height: '100%',
+                }}
+              >
+                <h3
+                  className="motionBenefitsTitle mbr-fonts-style"
+                  style={{ color: '#385988', paddingBottom: '16px' }}
+                >
+                  <strong>Person-centred, data-driven</strong>
+                </h3>
+                <p className="motionBenefitsText mbr-fonts-style display-7">
+                  Motion has been co-designed with over 3,000 residents,
+                  families and care providers to ensure people stay at the heart
+                  of everything we do. Beyond this, our powerful technology
+                  provides you with valuable data and hands-on support to grow.
+                </p>
               </div>
             </div>
           </div>
@@ -708,7 +713,7 @@ const Index = () => {
                   <ul className="list mbr-fonts-style display-4">
                     <li className="nav-item">
                       <a className="nav-link link display-4" href="/">
-                        How Motion Works
+                        How Motion helps your care organisation
                       </a>
                     </li>
                     <li className="nav-item">
