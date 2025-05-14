@@ -9,6 +9,7 @@ import { TypeAnimation } from 'react-type-animation';
 import FAQ from '@/components/FAQExpandable';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
+import Testimonial from '@/components/Testimonial';
 import { useAccountContext } from '@/context/AccountContext';
 const Index = () => {
   const {
@@ -289,27 +290,11 @@ const Index = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-12">
-              <div className="testimonial-container">
-                <div style={{ display: 'flex' }}>
-                  <div className="testimonial-image-container">
-                    <img
-                      src="/assets/images/claire.jpg"
-                      alt="Claire - CEO"
-                      className="testimonial-image"
-                    />
-                  </div>
-
-                  <div className="testimonial-content">
-                    <p className="testimonial-quote">
-                      "The Motion team are incredible — they're very skilled and
-                      we love having them working with our care homes."
-                    </p>
-                    <p className="testimonial-author">Claire, CEO, Sheffcare</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Testimonial
+              quote="The Motion team are incredible — they're very skilled and we love having them working with our care homes."
+              author="Claire, CEO, Sheffcare"
+              image="/assets/images/claire.jpg"
+            />
           </div>
 
           <div
@@ -403,6 +388,14 @@ const Index = () => {
                   </p>
                 </div>
               </div>
+            </div>
+
+            <div className="row" style={{ marginTop: '40px' }}>
+              <Testimonial
+                quote="The Motion team are incredible — they're very skilled and we love having them working with our care homes."
+                author="Claire, CEO, Sheffcare"
+                image="/assets/images/claire.jpg"
+              />
             </div>
           </div>
         </div>
