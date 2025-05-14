@@ -7,6 +7,7 @@ import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
 import FAQ from '@/components/FAQExpandable';
+import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import { useAccountContext } from '@/context/AccountContext';
 const Index = () => {
@@ -30,7 +31,9 @@ const Index = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-  const [selectedFeature, setSelectedFeature] = useState('planner');
+  const [selectedFeature, setSelectedFeature] = useState<
+    'planner' | 'activities' | 'webpage' | 'updates' | 'analytics'
+  >('planner');
 
   const features = {
     planner:
@@ -400,6 +403,8 @@ const Index = () => {
             <a href="/get-a-demo">Get a Demo</a>
           </div>
         </div>
+
+        <MotionStoryCarousel />
 
         <div
           className="container text-center"
