@@ -312,89 +312,96 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="row justify-content-center howMotionWorks">
-            <div className="col-12 col-lg-8 text-center">
-              <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2">
-                  <strong>How Motion helps your care organisation</strong>
-                </h2>
+          <div
+            className="motion-helps-section"
+            style={{ paddingBottom: '160px' }}
+          >
+            <div className="row justify-content-center howMotionWorks">
+              <div className="col-12 col-lg-8 text-center">
+                <div className="title-wrapper">
+                  <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2">
+                    <strong>How Motion helps your care organisation</strong>
+                  </h2>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="row">
-            <div className="col-4 card">
-              <div
-                className="feature-box"
-                style={{
-                  backgroundColor: '#F7F7F7',
-                  borderRadius: '10px',
-                  padding: '25px',
-                  height: '100%',
-                }}
-              >
-                <h3
-                  className="motionBenefitsTitle mbr-fonts-style"
-                  style={{ color: '#385988', paddingBottom: '16px' }}
+            <div className="row">
+              <div className="col-4 card">
+                <div
+                  className="feature-box"
+                  style={{
+                    backgroundColor: '#F7F7F7',
+                    borderRadius: '10px',
+                    padding: '25px',
+                    height: '100%',
+                  }}
                 >
-                  <strong>Showcase and amplify your care</strong>
-                </h3>
-                <p className="motionBenefitsText mbr-fonts-style display-7">
-                  You're already delivering amazing, person-centred care. Motion
-                  helps make sure families and key stakeholders actually see it.
-                  Personalised, detailed updates are shared automatically, so
-                  your team can stay focused on what matters most.
-                </p>
+                  <h3
+                    className="motionBenefitsTitle mbr-fonts-style"
+                    style={{ color: '#385988', paddingBottom: '16px' }}
+                  >
+                    <strong>Showcase and amplify your care</strong>
+                  </h3>
+                  <p className="motionBenefitsText mbr-fonts-style display-7">
+                    You're already delivering amazing, person-centred care.
+                    Motion helps make sure families and key stakeholders
+                    actually see it. Personalised, detailed updates are shared
+                    automatically, so your team can stay focused on what matters
+                    most.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="col-4 card">
-              <div
-                className="feature-box"
-                style={{
-                  backgroundColor: '#F7F7F7',
-                  borderRadius: '10px',
-                  padding: '25px',
-                  height: '100%',
-                }}
-              >
-                <h3
-                  className="motionBenefitsTitle mbr-fonts-style"
-                  style={{ color: '#385988', paddingBottom: '16px' }}
+              <div className="col-4 card">
+                <div
+                  className="feature-box"
+                  style={{
+                    backgroundColor: '#F7F7F7',
+                    borderRadius: '10px',
+                    padding: '25px',
+                    height: '100%',
+                  }}
                 >
-                  <strong>Meet families where they are</strong>
-                </h3>
-                <p className="motionBenefitsText mbr-fonts-style display-7">
-                  We've listened to over 1,000 families, and one thing is clear:
-                  what matters most is knowing their loved one is being truly
-                  looked after. Whether they're exploring care options or
-                  already part of your home, families want connection, clarity,
-                  and peace of mind. Every one of our care partners has seen a
-                  lift in family satisfaction since using Motion.
-                </p>
+                  <h3
+                    className="motionBenefitsTitle mbr-fonts-style"
+                    style={{ color: '#385988', paddingBottom: '16px' }}
+                  >
+                    <strong>Meet families where they are</strong>
+                  </h3>
+                  <p className="motionBenefitsText mbr-fonts-style display-7">
+                    We've listened to over 1,000 families, and one thing is
+                    clear: what matters most is knowing their loved one is being
+                    truly looked after. Whether they're exploring care options
+                    or already part of your home, families want connection,
+                    clarity, and peace of mind. Every one of our care partners
+                    has seen a lift in family satisfaction since using Motion.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="col-4 card">
-              <div
-                className="feature-box"
-                style={{
-                  backgroundColor: '#F7F7F7',
-                  borderRadius: '10px',
-                  padding: '25px',
-                  height: '100%',
-                }}
-              >
-                <h3
-                  className="motionBenefitsTitle mbr-fonts-style"
-                  style={{ color: '#385988', paddingBottom: '16px' }}
+              <div className="col-4 card">
+                <div
+                  className="feature-box"
+                  style={{
+                    backgroundColor: '#F7F7F7',
+                    borderRadius: '10px',
+                    padding: '25px',
+                    height: '100%',
+                  }}
                 >
-                  <strong>Person-centred, data-driven</strong>
-                </h3>
-                <p className="motionBenefitsText mbr-fonts-style display-7">
-                  Motion has been co-designed with over 3,000 residents,
-                  families and care providers to ensure people stay at the heart
-                  of everything we do. Beyond this, our powerful technology
-                  provides you with valuable data and hands-on support to grow.
-                </p>
+                  <h3
+                    className="motionBenefitsTitle mbr-fonts-style"
+                    style={{ color: '#385988', paddingBottom: '16px' }}
+                  >
+                    <strong>Person-centred, data-driven</strong>
+                  </h3>
+                  <p className="motionBenefitsText mbr-fonts-style display-7">
+                    Motion has been co-designed with over 3,000 residents,
+                    families and care providers to ensure people stay at the
+                    heart of everything we do. Beyond this, our powerful
+                    technology provides you with valuable data and hands-on
+                    support to grow.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
