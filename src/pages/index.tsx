@@ -398,10 +398,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-
-          <div className="blueDemoButton mt-5">
-            <a href="/get-a-demo">Get a Demo</a>
-          </div>
         </div>
 
         <MotionStoryCarousel />
