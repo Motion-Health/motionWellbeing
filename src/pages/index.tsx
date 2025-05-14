@@ -407,11 +407,6 @@ const Index = () => {
 
       <section
         data-bs-version="5.1"
-        className="content4 programm5 cid-tFckpILCGl"
-        id="content4-e"
-      ></section>
-      <section
-        data-bs-version="5.1"
         className="features3 programm5 cid-tFcgeFyM9G"
         id="features3-4"
       >

@@ -259,18 +259,8 @@ p.subheadingText {
 
 section#content5-f {
     text-align: center;
-    background-image: radial-gradient(at right, #385988, white);
     color: black;
-:;
-    text-align: center;
-    background-image: radial-gradient(at right, #385988, white);
-    color: black;
-:;
-    
-          radial-gradient(
-    circle at bottom right, transparent 15px, #385988, #FDFCED) bottom right;
-     /* Bottom left transparent circle */
-    background: radial-gradient(circle at top left, #FDFCED, transparent), radial-gradient(circle at top right, #789ddc, #fdfced), radial-gradient(circle at bottom right, #FDFCED, #fdfced), radial-gradient(circle at bottom left, #789ddc, #385988);
+    background: radial-gradient(circle at 95% 30%, rgba(56, 89, 136, 0.4), #FDFCED 50%, transparent 80%);
 }
 
 .demoButtonContainer p {
