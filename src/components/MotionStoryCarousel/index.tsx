@@ -1,5 +1,4 @@
 import React from 'react';
-import Slider from 'react-slick';
 
 import styles from './MotionStoryCarousel.module.css';
 
@@ -84,75 +83,30 @@ const storyItems: StoryItem[] = [
 ];
 
 const MotionStoryCarousel: React.FC = () => {
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
     <section className={styles.storyCarouselSection}>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-12 text-center">
-            <div className="title-wrapper">
-              <h2 className="mbr-section-title mbr-fonts-style display-2">
-                <strong>Our Journey</strong>
-              </h2>
-              <p className="subheadingText text-center mb-4">
-                From volunteering to building a passionate team, the story of
-                Motion.
-              </p>
+      <h2 className={styles.sectionTitle}>
+        <strong>The Motion story</strong>
+      </h2>
+      <div className={styles.storyContainer}>
+        {storyItems.map((item, index) => (
+          <div key={index} className={styles.storyCard}>
+            <div className={styles.storyCardInner}>
+              <div className={styles.storyImageContainer}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className={styles.storyImage}
+                />
+              </div>
+              <div className={styles.storyContent}>
+                <span className={styles.storyYear}>{item.year}</span>
+                <h3 className={styles.storyTitle}>{item.title}</h3>
+                <p className={styles.storyDescription}>{item.description}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="row position-relative">
-          <div className={styles.sliderContainer}>
-            <Slider {...settings}>
-              {storyItems.map((item, index) => (
-                <div key={index} className={styles.storyCard}>
-                  <div className={styles.storyCardInner}>
-                    <div className={styles.storyImageContainer}>
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className={styles.storyImage}
-                      />
-                    </div>
-                    <div className={styles.storyContent}>
-                      <span className={styles.storyYear}>{item.year}</span>
-                      <h3 className={styles.storyTitle}>{item.title}</h3>
-                      <p className={styles.storyDescription}>
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
