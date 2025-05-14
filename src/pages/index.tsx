@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
-import FAQ from '@/components/FAQExpandable';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import Testimonial, { ImagePosition } from '@/components/Testimonial';
@@ -503,10 +502,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="blueDemoButton mt-5" role="tablist">
-          <a href="/get-a-demo">Read More</a>
-        </div>
-        <FAQ />
       </section>
 
       <section
