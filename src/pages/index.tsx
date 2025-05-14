@@ -414,8 +414,8 @@ const Index = () => {
           <div className="row">
             <div className="col-12">
               <div className="title-wrapper">
-                <h2 className="mbr-section-title mbr-fonts-style display-2 blogsTitle">
-                  Resource Hub
+                <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2 text-center">
+                  <strong>Knowledge hub</strong>
                 </h2>
                 <p className="mbr-desc mbr-fonts-style display-7 text-center">
                   We've compiled these quick and easy-to-use resources to
@@ -579,7 +579,7 @@ const Index = () => {
                         className="nav-link link display-4"
                         href="/resource-hub"
                       >
-                        Resource Hub
+                        Knowledge hub
                       </a>
                     </li>
                     {/* <li className="nav-item">
