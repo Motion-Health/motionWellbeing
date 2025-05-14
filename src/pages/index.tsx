@@ -9,7 +9,7 @@ import { TypeAnimation } from 'react-type-animation';
 import FAQ from '@/components/FAQExpandable';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
-import Testimonial from '@/components/Testimonial';
+import Testimonial, { ImagePosition } from '@/components/Testimonial';
 import { useAccountContext } from '@/context/AccountContext';
 const Index = () => {
   const {
@@ -294,6 +294,7 @@ const Index = () => {
               quote="The Motion team are incredible — they're very skilled and we love having them working with our care homes."
               author="Claire, CEO, Sheffcare"
               image="/assets/images/claire.jpg"
+              imagePosition={ImagePosition.Left}
             />
           </div>
 
@@ -392,9 +393,10 @@ const Index = () => {
 
             <div className="row" style={{ marginTop: '40px' }}>
               <Testimonial
-                quote="The Motion team are incredible — they're very skilled and we love having them working with our care homes."
-                author="Claire, CEO, Sheffcare"
-                image="/assets/images/claire.jpg"
+                quote="Knowing what mum is doing, and even more so why she's doing it, gives me peace of mind."
+                author="Gill, Daughter of Resident"
+                image="/assets/images/testimonials/Gill.png"
+                imagePosition={ImagePosition.Right}
               />
             </div>
           </div>
