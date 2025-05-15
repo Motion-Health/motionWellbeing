@@ -1,7 +1,10 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +21,58 @@ const NavBar = () => {
       document.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Handles smooth scrolling to the section when already on the homepage
+  const scrollToSection = (e: React.MouseEvent) => {
+    // Only handle scrolling if we're already on the homepage
+    if (router.pathname === '/') {
+      e.preventDefault();
+      const section = document.getElementById(
+        'how-motion-helps-your-care-organisation'
+      );
+      if (section) {
+        // Get the section's position
+        const sectionPosition = section.getBoundingClientRect().top;
+        // Calculate position with offset (100px up from the default position)
+        const offsetPosition = sectionPosition + window.pageYOffset - 100;
+
+        // Scroll to the adjusted position
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
+  // Check for hash in URL when component mounts
+  useEffect(() => {
+    // Check if there's a hash in the URL
+    if (router.asPath.includes('#how-motion-helps-your-care-organisation')) {
+      setTimeout(() => {
+        const section = document.getElementById(
+          'how-motion-helps-your-care-organisation'
+        );
+        if (section) {
+          // Get the section's position
+          const sectionPosition = section.getBoundingClientRect().top;
+          // Calculate position with offset (100px up from the default position)
+          const offsetPosition = sectionPosition + window.scrollY - 100;
+
+          // Scroll to the adjusted position
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      }, 300); // Slight delay to ensure the page is fully loaded
+    }
+  }, [router.asPath]);
+
   return (
     <section
       data-bs-version="5.1"
       className="menu menu1 programm5 cid-tFcg6m8FPY"
-      once="menu"
       id="menu1-0"
     >
       <nav
@@ -33,12 +83,12 @@ const NavBar = () => {
         <div className="menu_box container">
           <div className="navbar-brand d-flex">
             <span className="navbar-logo">
-              <a href="/">
+              <Link href="/">
                 <img
                   src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                   alt=""
                 />
-              </a>
+              </Link>
             </span>
             <button
               className="navbar-toggler"
@@ -62,41 +112,43 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav nav-dropdown" data-app-modern-menu="true">
               <li className="nav-item">
-                <a className="nav-link link display-4" href="/">
-                  How Motion Works
-                </a>
+                <Link
+                  href="/#how-motion-helps-your-care-organisation"
+                  className="nav-link link display-4"
+                  onClick={scrollToSection}
+                >
+                  Platform
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link link display-4" href="/resource-hub">
-                  Resource Hub
-                </a>
+                <Link className="nav-link link display-4" href="/knowledge-hub">
+                  Knowledge Hub
+                </Link>
               </li>
-              {/* <li className="nav-item">
-                <a className="nav-link link display-4" href="/resource-hub">
-                  Success Stories
-                </a>
-              </li> */}
-              {/* <li className="nav-item">
-                  <a className="nav-link link display-4" href="/resource-hub">
-                    About
-                  </a>
-                </li>  */}
+              <li className="nav-item">
+                <Link className="nav-link link display-4" href="/about-us">
+                  About Us
+                </Link>
+              </li>
               <li className="nav-item midHide">
-                <a className="nav-link link display-4" href="/pricing">
+                <Link className="nav-link link display-4" href="/pricing">
                   Pricing
-                </a>
+                </Link>
               </li>
               <li className="nav-item midHide">
-                <a className="nav-link link display-4" href="/other-services">
-                  Other Services
+                <a
+                  className="nav-link link display-4"
+                  href="https://careers.motion.org.uk"
+                >
+                  Careers
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="nav-link link display-4"
-                  href="https://platform.motion.org.uk/wellbeing/login/"
+                  href="https://platform.motion.org.uk/wellbeing/dashboard/"
                 >
-                  Login
+                  Log In
                 </a>
               </li>
             </ul>
@@ -105,9 +157,9 @@ const NavBar = () => {
               className="mbr-section-btn-main fixWidth blueDemoButtonContainer"
               role="tablist"
             >
-              <a className="blueDemoButton" href="/get-a-demo">
+              <Link className="blueDemoButton" href="/get-a-demo">
                 Get a Demo
-              </a>
+              </Link>
             </div>
           </div>
         </div>

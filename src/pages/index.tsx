@@ -300,6 +300,7 @@ const Index = () => {
           <div
             className="motion-helps-section"
             style={{ paddingBottom: '160px' }}
+            id="how-motion-helps-your-care-organisation"
           >
             <div className="row justify-content-center howMotionWorks">
               <div className="col-12 col-lg-8 text-center">
