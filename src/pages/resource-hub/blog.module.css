@@ -1,21 +1,20 @@
 .blogHero{
   position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #000;
-    text-align: center;
-
-    font-size: 2rem;
-    width: 100%;
-    border-radius: 0px 0px 50px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-align: center;
+  font-size: 2rem;
+  width: 100%;
+  border-radius: 0px 0px 50px 50px;
 }
-
 
 .blogContainer {
   padding: 2rem 0;
   margin-bottom: 2rem;
 }
+
 .blogHeroContent{
   padding-top: 8vh;
 }
@@ -27,8 +26,6 @@
   margin: 20px 0px;
   flex-wrap: wrap;
 }
-
-
 
 .tags button.selected{
   background-color: #385988;
@@ -47,6 +44,7 @@
   font-weight: 700;
   margin: 10px;
 }
+
 .blogHeroContent h1{
   font-family: 'Montserrat';
 }
@@ -59,6 +57,7 @@
   align-items: center;
   margin: 29px;
 }
+
 .blogHeroContent p{
   font-family: 'Montserrat';
 }
@@ -82,6 +81,7 @@
   font-size: 30px;
   text-align: center;
 }
+
 .blogHeroContent h2{
   font-size: 0.5em;
   margin-bottom: 0px;
@@ -93,11 +93,13 @@
   width: 80vw;
   line-height: inherit;
 }
+
 @media screen and (max-width: 900px) {
   .Cards > div {
     width: auto;
   }
 }
+
 @media screen and (max-width: 600px) {
   .Cards > div {
     width: auto;
@@ -105,5 +107,4 @@
   .blogContainer {
     padding: 1rem 0;
   }
-}
-
+} 

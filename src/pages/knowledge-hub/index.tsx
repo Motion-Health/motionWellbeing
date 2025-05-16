@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import { Grid } from '@mui/material';
+import Link from 'next/link';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-import BlogCard from '@/components/Blog/BlogCard';
+import BlogCard from '@/components/BlogCard';
 import NavBar from '@/components/navBar';
 
 import styles from './blog.module.css';
@@ -18,7 +18,7 @@ const Index = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-  const [selectedTags, setSelectedTags] = useState([]); // This will be used to filter the blogs based on the selected tags
+  const [selectedTags, setSelectedTags] = useState<string[]>([]); // This will be used to filter the blogs based on the selected tags
   const blogs = [
     { id: 1, name: 'SEO Explained', tags: ['Marketing', 'Technology'] },
     {
@@ -157,7 +157,7 @@ const Index = () => {
           <div className={styles.blogHeroContent}>
             <h1>Knowledge hub</h1>
             <p>
-              We've compiled these quick and easy resources to de-mystify
+              We&apos;ve compiled these quick and easy resources to de-mystify
               marketing and sales for your care home.
             </p>
           </div>
@@ -182,37 +182,61 @@ const Index = () => {
           </div>
         </div>
         <div className={styles.blogContainer}>
-          <Grid container className={styles.Cards}>
-            {blogs
-              .filter((blog) =>
-                selectedTags.length === 0
-                  ? true
-                  : blog.tags.some((tag) => selectedTags.includes(tag))
-              )
-              .slice(0, 3)
-              .map((blog) => (
-                <BlogCard key={blog.id} blog={blog} />
-              ))}
-          </Grid>
+          <div className="container">
+            <div className="row">
+              {blogs
+                .filter((blog) =>
+                  selectedTags.length === 0
+                    ? true
+                    : blog.tags.some((tag) => selectedTags.includes(tag))
+                )
+                .slice(0, 3)
+                .map((blog) => (
+                  <div key={blog.id} className="col-12 col-lg-4 col-md-6 mb-4">
+                    <BlogCard
+                      title={blog.name}
+                      imageUrl={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}
+                      imageAlt={blog.name}
+                      linkUrl={`/knowledge-hub/${blog.name
+                        .replace(/ /g, '-')
+                        .replace(/[^a-zA-Z0-9-]/g, '')}`}
+                      className="w-100"
+                    />
+                  </div>
+                ))}
+            </div>
+          </div>
           <div className={styles.KlavioForm + '  klaviyo-form-XyjpZS'}></div>
-          <Grid container className={styles.Cards}>
-            {blogs
-              .filter((blog) =>
-                selectedTags.length === 0
-                  ? true
-                  : blog.tags.some((tag) => selectedTags.includes(tag))
-              )
-              .slice(3)
-              .map((blog) => (
-                <BlogCard key={blog.id} blog={blog} />
-              ))}
-          </Grid>
+          <div className="container">
+            <div className="row">
+              {blogs
+                .filter((blog) =>
+                  selectedTags.length === 0
+                    ? true
+                    : blog.tags.some((tag) => selectedTags.includes(tag))
+                )
+                .slice(3)
+                .map((blog) => (
+                  <div key={blog.id} className="col-12 col-lg-4 col-md-6 mb-4">
+                    <BlogCard
+                      title={blog.name}
+                      imageUrl={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}
+                      imageAlt={blog.name}
+                      linkUrl={`/knowledge-hub/${blog.name
+                        .replace(/ /g, '-')
+                        .replace(/[^a-zA-Z0-9-]/g, '')}`}
+                      className="w-100"
+                    />
+                  </div>
+                ))}
+            </div>
+          </div>
         </div>
 
         <section
           data-bs-version="5.1"
           className="footer1 programm5 cid-tFcguy0QTa"
-          once="footers"
+          data-once="footers"
           id="footer1-9"
         >
           <div className="container">
@@ -220,64 +244,64 @@ const Index = () => {
               <div className="col-12">
                 <div className="title-wrapper">
                   <span className="navbar-logo">
-                    <a href="/">
+                    <Link href="/">
                       <img
                         src="/extensions/programm5/software-development-company/assets/images/logo.svg"
                         alt=""
                       />
-                    </a>
+                    </Link>
                   </span>
                   <nav>
                     <ul className="list mbr-fonts-style display-4">
                       <li className="nav-item">
-                        <a className="nav-link link display-4" href="/">
+                        <Link href="/" className="nav-link link display-4">
                           How Motion Works
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
+                        <Link
                           href="/knowledge-hub"
+                          className="nav-link link display-4"
                         >
                           Knowledge hub
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
+                        <Link
                           href="/knowledge-hub"
+                          className="nav-link link display-4"
                         >
                           Success Stories
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
+                        <Link
                           href="/knowledge-hub"
+                          className="nav-link link display-4"
                         >
                           About
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item midHide">
-                        <a className="nav-link link display-4" href="/sblog">
+                        <Link className="nav-link link display-4" href="/sblog">
                           Pricing
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item midHide">
-                        <a
-                          className="nav-link link display-4"
+                        <Link
                           href="/knowledge-hub"
+                          className="nav-link link display-4"
                         >
                           Other Services
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
+                        <Link
                           href="/knowledge-hub"
+                          className="nav-link link display-4"
                         >
                           Login
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </nav>

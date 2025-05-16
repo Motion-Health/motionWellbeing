@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
+import BlogCard from '@/components/BlogCard';
 import FeaturedInMedia from '@/components/FeaturedInMedia';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
@@ -426,85 +427,31 @@ const Index = () => {
               </div>
             </div>
             <div className="col-12 col-lg-4 col-md-6 card blogCard hide600">
-              <div className="card-wrapper">
-                <img
-                  className="blogImage"
-                  src="/assets/images/blogs/blog9/thumbnail.webp"
-                  alt="BBC News Feature"
-                />
-                <div className="title-wrap resourceItems">
-                  <p className="mbr-text mbr-fonts-style display-5">
-                    April 17th, 2024
-                  </p>
-                  <div className="title resourceItems">
-                    <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                      How to Get Your Care Homes Featured on BBC News
-                    </h3>
-                  </div>
-                </div>
-                <a
-                  className="link-wrap readBlog"
-                  href="/knowledge-hub/How-to-Get-Your-Care-Homes-Featured-on-BBC-News/"
-                >
-                  <p className="mbr-link mbr-fonts-style display-4">
-                    Read blog
-                  </p>
-                </a>
-              </div>
+              <BlogCard
+                title="How to Get Your Care Homes Featured on BBC News"
+                imageUrl="/assets/images/blogs/blog9/thumbnail.webp"
+                imageAlt="BBC News Feature"
+                linkUrl="/knowledge-hub/How-to-Get-Your-Care-Homes-Featured-on-BBC-News/"
+                className="w-100"
+              />
             </div>
             <div className="col-12 col-lg-4 col-md-6 card blogCard hide600">
-              <div className="card-wrapper">
-                <img
-                  className="blogImage"
-                  src="/extensions/programm5/assets/images/resident.webp"
-                  alt="seo"
-                />
-                <div className="title-wrap resourceItems">
-                  <p className="mbr-text mbr-fonts-style display-5">
-                    February 29th, 2024
-                  </p>
-                  <div className="title">
-                    <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                      What Families Care About When Looking for a Care Home
-                    </h3>
-                  </div>
-                </div>
-                <a
-                  className="link-wrap readBlog"
-                  href="blog/protect-your-carehome-with-this-cyber-security-cheatsheet/"
-                >
-                  <p className="mbr-link mbr-fonts-style display-4">
-                    Read blog
-                  </p>
-                </a>
-              </div>
+              <BlogCard
+                title="What Families Care About When Looking for a Care Home"
+                imageUrl="/extensions/programm5/assets/images/resident.webp"
+                imageAlt="Resident Care"
+                linkUrl="blog/protect-your-carehome-with-this-cyber-security-cheatsheet/"
+                className="w-100"
+              />
             </div>
             <div className="col-12 col-lg-4 col-md-6 card blogCard">
-              <div className="card-wrapper">
-                <img
-                  className="blogImage"
-                  src="/extensions/programm5/assets/images/funnel.webp"
-                  alt="Marketing Funnel"
-                />
-                <div className="title-wrap resourceItems">
-                  <p className="mbr-text mbr-fonts-style display-5">
-                    February 21st, 2024
-                  </p>
-                  <div className="title">
-                    <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                      Creating a Successful Sales Funnel for Your Care Home
-                    </h3>
-                  </div>
-                </div>
-                <a
-                  className="link-wrap readBlog"
-                  href="/knowledge-hub/how-to-attract-more-carers-to-your-home/"
-                >
-                  <p className="mbr-link mbr-fonts-style display-4">
-                    Read blog
-                  </p>
-                </a>
-              </div>
+              <BlogCard
+                title="Creating a Successful Sales Funnel for Your Care Home"
+                imageUrl="/extensions/programm5/assets/images/funnel.webp"
+                imageAlt="Marketing Funnel"
+                linkUrl="/knowledge-hub/how-to-attract-more-carers-to-your-home/"
+                className="w-100"
+              />
             </div>
           </div>
         </div>
@@ -553,7 +500,7 @@ const Index = () => {
       <section
         data-bs-version="5.1"
         className="footer1 programm5 cid-tFcguy0QTa"
-        once="footers"
+        data-once="footers"
         id="footer1-9"
       >
         <div className="container">
