@@ -26,15 +26,21 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,.1);
   overflow: hidden;
   border: 1px solid #eaeaea;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .titleWrap {
   padding: 16px 16px 0;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
   margin-top: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .blogTitle {
@@ -43,14 +49,18 @@
   font-size: 1.2rem;
   line-height: 1.4;
   text-align: left;
-  font-weight: 600;
+  font-weight: 700;
   color: #333;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 2.8rem; /* Ensure space for 2 lines of text */
 }
 
 .linkWrap {
   padding: 0 16px 16px;
   margin-top: auto;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 .readMore {
@@ -58,6 +68,16 @@
   font-weight: 500;
   margin: 0;
   font-size: 0.9rem;
+  text-decoration: underline;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.arrow {
+  margin-left: 6px;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .blogImage {

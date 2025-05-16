@@ -30,6 +30,13 @@ const BlogCard: React.FC<BlogCardProps> = ({
           </div>
           <div className={styles.linkWrap}>
             <p className={styles.readMore}>Read more</p>
+            <img
+              src="/assets/icons/ph_arrow-right.svg"
+              alt="Arrow right"
+              className={styles.arrow}
+              width={18}
+              height={18}
+            />
           </div>
         </div>
       </Link>

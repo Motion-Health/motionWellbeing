@@ -192,7 +192,10 @@ const Index = () => {
                 )
                 .slice(0, 3)
                 .map((blog) => (
-                  <div key={blog.id} className="col-12 col-lg-4 col-md-6 mb-4">
+                  <div
+                    key={blog.id}
+                    className="col-12 col-lg-4 col-md-6 mb-4 d-flex"
+                  >
                     <BlogCard
                       title={blog.name}
                       imageUrl={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}
@@ -217,7 +220,10 @@ const Index = () => {
                 )
                 .slice(3)
                 .map((blog) => (
-                  <div key={blog.id} className="col-12 col-lg-4 col-md-6 mb-4">
+                  <div
+                    key={blog.id}
+                    className="col-12 col-lg-4 col-md-6 mb-4 d-flex"
+                  >
                     <BlogCard
                       title={blog.name}
                       imageUrl={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}

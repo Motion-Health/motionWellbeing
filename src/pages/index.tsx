@@ -426,7 +426,7 @@ const Index = () => {
                 </p>
               </div>
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card blogCard hide600">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard hide600 d-flex">
               <BlogCard
                 title="How to Get Your Care Homes Featured on BBC News"
                 imageUrl="/assets/images/blogs/blog9/thumbnail.webp"
@@ -435,7 +435,7 @@ const Index = () => {
                 className="w-100"
               />
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card blogCard hide600">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard hide600 d-flex">
               <BlogCard
                 title="What Families Care About When Looking for a Care Home"
                 imageUrl="/extensions/programm5/assets/images/resident.webp"
@@ -444,7 +444,7 @@ const Index = () => {
                 className="w-100"
               />
             </div>
-            <div className="col-12 col-lg-4 col-md-6 card blogCard">
+            <div className="col-12 col-lg-4 col-md-6 card blogCard d-flex">
               <BlogCard
                 title="Creating a Successful Sales Funnel for Your Care Home"
                 imageUrl="/extensions/programm5/assets/images/funnel.webp"
