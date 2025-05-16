@@ -429,20 +429,23 @@ const Index = () => {
               <div className="card-wrapper">
                 <img
                   className="blogImage"
-                  src="/extensions/programm5/assets/images/tiktok.webp"
-                  alt="seo"
+                  src="/assets/images/blogs/blog9/thumbnail.webp"
+                  alt="BBC News Feature"
                 />
                 <div className="title-wrap resourceItems">
                   <p className="mbr-text mbr-fonts-style display-5">
-                    March 3rd, 2024
+                    April 17th, 2024
                   </p>
                   <div className="title resourceItems">
                     <h3 className="mbr-section-title customTitle mbr-fonts-style display-2">
-                      What is TikTok and Should Your Care Home be Using It?
+                      How to Get Your Care Homes Featured on BBC News
                     </h3>
                   </div>
                 </div>
-                <a className="link-wrap readBlog" href="/knowledge-hub/tiktok/">
+                <a
+                  className="link-wrap readBlog"
+                  href="/knowledge-hub/How-to-Get-Your-Care-Homes-Featured-on-BBC-News/"
+                >
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
                   </p>
