@@ -1,0 +1,86 @@
+.featuredMediaSection {
+  padding: 30px 0;
+  background-color: transparent;
+}
+
+.featuredText {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #385988;
+  margin-bottom: 25px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  overflow-x: auto;
+  padding: 0 15px;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.logoItem {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  flex-shrink: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.divider {
+  height: 40px;
+  width: 1px;
+  background-color: #385988;
+  margin: 0 15px;
+  flex-shrink: 0;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.mediaLogo {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 50px;
+  transition: all 0.3s ease;
+  filter: grayscale(20%);
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.timesLogo {
+  max-height: 90px;
+}
+
+.mediaLogo:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .logoContainer {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  
+  .logoItem {
+    padding: 8px;
+  }
+  
+  .divider {
+    height: 30px;
+    margin: 0 10px;
+  }
+} 

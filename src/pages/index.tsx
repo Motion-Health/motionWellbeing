@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
+import FeaturedInMedia from '@/components/FeaturedInMedia';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import Testimonial, { ImagePosition } from '@/components/Testimonial';
@@ -410,6 +411,7 @@ const Index = () => {
         className="features3 programm5 cid-tFcgeFyM9G"
         id="features3-4"
       >
+        <FeaturedInMedia />
         <div className="container miniBlogs">
           <div className="row">
             <div className="col-12">
