@@ -166,7 +166,7 @@ body{
 .footerMargin{margin-bottom: 50px;}
 
 .signupText{
-  color: black;
+  color: white;
 }
 .partnerQuote{
   border-radius: 0px;
@@ -314,7 +314,8 @@ a.btn.btn-secondary.display-4.readMoreButton {
 }
 
 .cid-tFcguy0QTa {
-    background-color: #fdfced !important;
+    background-color: #385988 !important;
+    color: white !important;
 }
 
 .pricingCard {
@@ -457,4 +458,18 @@ p.heroSubheadingText {
   text-align: left !important;
   position: relative !important;
   bottom: auto !important;
+}
+
+/* Footer styling */
+#footer1-9 {
+    background-color: #385988 !important;
+    color: white !important;
+}
+
+#footer1-9 ul, #footer1-9 a, #footer1-9 p, #footer1-9 .signupText {
+    color: white;
+}
+
+#footer1-9 .social-row .soc-item a .mbr-iconfont {
+    color: white;
 }

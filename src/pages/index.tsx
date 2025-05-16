@@ -506,6 +506,7 @@ const Index = () => {
         className="footer1 programm5 cid-tFcguy0QTa"
         data-once="footers"
         id="footer1-9"
+        style={{ backgroundColor: '#385988', color: 'white' }}
       >
         <div className="container">
           <div className="row footMargin">
@@ -523,7 +524,7 @@ const Index = () => {
                   <ul className="list mbr-fonts-style display-4">
                     <li className="nav-item">
                       <a className="nav-link link display-4" href="/">
-                        How Motion helps your care organisation
+                        Platform
                       </a>
                     </li>
                     <li className="nav-item">
@@ -574,47 +575,12 @@ const Index = () => {
             <div className="col-12 col-lg-6">
               <div className="contacts-wrapper">
                 <ul className="list mbr-fonts-style display-4">
-                  <li className="item-wrap">
-                    <strong>Address</strong>
-                  </li>
-                  <li className="item-wrap">
-                    Sheffield Science Park Cooper Buildings, Arundel St,
-                    Sheffield City Centre, Sheffield S1 2NS
-                  </li>
                   <li className="item-wrap w-100">
                     <strong>Contact</strong>
                   </li>
                   <li className="item-wrap w-100">info@motion.org.uk</li>
                   <li className="item-wrap w-100">+44 7543 858684</li>
                 </ul>
-              </div>
-              <div className="social-row">
-                <div className="soc-item">
-                  <a href="https://instagram.com/motion.org.uk" target="_blank">
-                    <span className="mbr-iconfont socicon socicon-instagram" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a href="https://facebook.com/motion.org.uk" target="_blank">
-                    <span className="mbr-iconfont socicon socicon-facebook" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a
-                    href="https://linkedin.com/company/motion-org-uk"
-                    target="_blank"
-                  >
-                    <span className="mbr-iconfont socicon socicon-linkedin" />
-                  </a>
-                </div>
-                <div className="soc-item">
-                  <a
-                    href="https://www.tiktok.com/@zeezy_motion"
-                    target="_blank"
-                  >
-                    <span className="mbr-iconfont socicon socicon-tiktok" />
-                  </a>
-                </div>
               </div>
             </div>
             <div className="col-12 col-lg-6">
@@ -627,7 +593,7 @@ const Index = () => {
             <div className="col-12 col-lg-6"></div>
             <div className="col-12">
               <p className="mbr-fonts-style copyright display-4">
-                © Copyright 2024 Motion Health Ltd - All Rights Reserved
+                © Copyright 2025 Motion Health Ltd - All Rights Reserved
               </p>
             </div>
           </div>
