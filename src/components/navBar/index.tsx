@@ -127,7 +127,7 @@ const NavBar = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link link display-4" href="/about-us">
-                  About Us
+                  About us
                 </Link>
               </li>
               <li className="nav-item midHide">
@@ -148,7 +148,7 @@ const NavBar = () => {
                   className="nav-link link display-4"
                   href="https://platform.motion.org.uk/wellbeing/dashboard/"
                 >
-                  Log In
+                  Log in
                 </a>
               </li>
             </ul>
