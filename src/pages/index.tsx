@@ -288,6 +288,10 @@ const Index = () => {
         data-bs-version="5.1"
         className="content5 programm5 cid-tFcktY5MQz"
         id="content5-f"
+        style={{
+          background:
+            'radial-gradient(circle at 30% 30%, #FDFCED, transparent 60%), radial-gradient(circle at 95% 30%, rgba(56, 89, 136, 0.6), transparent 70%)',
+        }}
       >
         <div className="container">
           <div className="row">
