@@ -9,7 +9,8 @@ const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
 const Index = () => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -22,7 +23,7 @@ const Index = () => {
       <meta name="description" content="Book a Demo" />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Resource Hub | Motion" />
+      <meta name="twitter:title" content="Knowledge hub | Motion" />
       <meta name="twitter:image" content="./og-image.jpg" />
       <meta property="twitter:description" content="Book a Demo" />
       <link
@@ -81,7 +82,6 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
 
-
       <NavBar />
 
       <div
@@ -107,7 +107,7 @@ const Index = () => {
                 </div>
               </div>
               <p className="TextOne">
-                Looking to get the wheels in Motion? Let’s jump on a video call
+                Looking to get the wheels in Motion? Let's jump on a video call
                 so we can show you around!
               </p>
               {/* icon then text */}
@@ -175,15 +175,15 @@ const Index = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
-                          Resource Hub
+                          Knowledge hub
                         </a>
                       </li>
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           Success Stories
                         </a>
@@ -191,7 +191,7 @@ const Index = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           About
                         </a>
@@ -204,7 +204,7 @@ const Index = () => {
                       <li className="nav-item midHide">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           Other Services
                         </a>
@@ -212,7 +212,7 @@ const Index = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           Login
                         </a>

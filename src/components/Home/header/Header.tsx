@@ -17,7 +17,7 @@ export const Header = () => {
     router.push('/');
   };
   const navigateToKnowledgeHub = () => {
-    router.push('/resource-hub');
+    router.push('/knowledge-hub');
   };
   const navigateToHowWeCanHelp = () => {
     router.push('/how-we-can-help');
@@ -58,6 +58,10 @@ export const Header = () => {
     } else {
       router.push('https://calendly.com/zeezy-1/motion');
     }
+  };
+
+  const openBlog = () => {
+    router.push('/knowledge-hub');
   };
 
   return (

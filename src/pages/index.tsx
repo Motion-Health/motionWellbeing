@@ -440,7 +440,7 @@ const Index = () => {
                     </h3>
                   </div>
                 </div>
-                <a className="link-wrap readBlog" href="/resource-hub/tiktok/">
+                <a className="link-wrap readBlog" href="/knowledge-hub/tiktok/">
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
                   </p>
@@ -493,7 +493,7 @@ const Index = () => {
                 </div>
                 <a
                   className="link-wrap readBlog"
-                  href="/resource-hub/how-to-attract-more-carers-to-your-home/"
+                  href="/knowledge-hub/how-to-attract-more-carers-to-your-home/"
                 >
                   <p className="mbr-link mbr-fonts-style display-4">
                     Read blog
@@ -573,7 +573,7 @@ const Index = () => {
                     <li className="nav-item">
                       <a
                         className="nav-link link display-4"
-                        href="/resource-hub"
+                        href="/knowledge-hub"
                       >
                         Knowledge hub
                       </a>

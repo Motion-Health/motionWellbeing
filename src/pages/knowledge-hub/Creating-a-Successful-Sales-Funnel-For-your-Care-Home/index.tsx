@@ -7,19 +7,19 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
-
-import styles from '../blogPost.module.css';
+import styles from '@/pages/knowledge-hub/blogPost.module.css';
 
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -27,28 +27,29 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          How can you remove bad reviews on Indeed? | Motion
+          Creating a successful sales funnel for your care home | Motion
+          Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | How can you remove bad reviews on Indeed?"
+          content="Motion | Creating a successful sales funnel for your care home"
         />
         <meta
           name="description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="Creating a successful sales funnel for your care home"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | How can you remove bad reviews on Indeed?"
+          content="Motion | Creating a successful sales funnel for your care home"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
+          content="Creating a successful sales funnel for your care home"
         />
         <link
           rel="stylesheet"
@@ -108,7 +109,7 @@ const Index = () => {
         />
 
         <link rel="stylesheet" href="/assets/blog.css" />
- 
+
         <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
@@ -125,14 +126,14 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/resource-hub')}
+        onClick={() => router.push('/knowledge-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>How can you remove bad reviews on Indeed?</h1>
+          <h1>Creating a successful sales funnel for your care home</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -213,78 +214,118 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            Indeed is not just a tool for finding new applicants for jobs, but
-            its also a window into your care home. It is a place where people
-            can see what your care home is like, and what it is like to work
-            there. It is also a place where people can leave reviews about your
-            care home, these reviews can be positive or negative, and they can
-            have a big impact on your business. Unfortunately, Indeed reviews
-            cannot be deleted, however, in this blog post, I have broken down a
-            5 step guide on how to respond and recover from bad reiews to boost
-            your Indeed profile:
+            First off, what is a sales funnel?
+            <br />A sales funnel is a marketing model that maps out a customer's
+            journey when purchasing a service or a bed in your home. The model
+            uses a funnel as an analogy because many potential customers may
+            begin at the top end of the sales process, and only a fraction of
+            these people make a purchase. For a care home, the funnel is the
+            journey the residents or their families go through when choosing a
+            care home.
+          </p>
+          <p>
+            Your job is to define the funnel stages and reduce the number of
+            people who drop out at each stage. This is a great way to grow your
+            care home and organically increase occupancy.
+            <br />
+            <br />
+            The stages of the funnel for care homes can vary, but we have broken
+            it down into four stages:
+          </p>
+          <ul>
+            <li>Cold Audience</li>
+            <li>Warm Audience</li>
+            <li>Hot Audience</li>
+            <li>Decision</li>
+          </ul>
+          <p>
+            It is common for your ideal customer to be the child of the older
+            adult who is moving into your care home, so consider this when you
+            are choosing the channels you target in step 1.
           </p>
           <img
-            src="/assets/images/blogs/blog5/thumbnail.webp"
+            src="/assets/images/blogs/blog6/thumbnail.webp"
             alt="Indeed Logo"
             className={styles.image}
           />
-          <h2 className={styles.title}>1. To Prevent:</h2>
+          <h2 className={styles.title}>1. Cold Audience:</h2>
           <p>
-            Prevention is always better than a cure. Negative reviews leave a
-            long-lasting stain on your care home's reputation. So, it's best to
-            avoid them in the first place. To do this, you must ensure a
-            positive work environment to reduce the chances of negative reviews.
-            This could be by employee engagement, regular feedback sessions, and
-            ensuring a positive workplace culture. Additionally, when letting go
-            of any staff, ensure that it is done professionally and that they
-            are treated with respect.
+            The cold audience is at the top of the funnel; here is where you are
+            trying to attract new people to your services. At this stage, you
+            are trying to create awareness of your care home and the services
+            you provide.
+            <br />
+            The main channels for attracting a cold audience are social media,
+            organic website traffic, physical marketing, word of mouth, and
+            sponsorship of community events. Social media is becoming
+            increasingly relevant and is the now most cost-effective way to
+            reach a large audience.
+            <br />
+            Your aim is to collect contact information to move them to the next
+            stage of the funnel. This can be done with a lead magnet, a free
+            piece of content you offer in exchange for their contact
+            information.
           </p>
-          <h2 className={styles.title}>2. To Respond:</h2>
+          <h2 className={styles.title}>2. Warm Audience:</h2>
           <p>
-            Have you got a negative review? No need to panic! Responding to
-            reviews, good or bad, shows you're proactively trying to make things
-            right. When responding, remember to approach this thoughtfully and
-            professionally.
+            This middle stage is crucial in building trust with potential
+            residents and their families. You will have their contact
+            information, and now you need to deliver content to help them build
+            confidence in your home. To do this, engage them with stories of
+            resident experiences, detailed information about your services, and
+            testimonials. Utilise email newsletters, informative blog posts, and
+            social media posts to keep them engaged. The potential resident may
+            not be ready to move to a care home or domiciliary care; however,
+            keeping them engaged with your content will make you the first
+            choice when they are ready.
           </p>
-          <h2 className={styles.title}>3. To Learn:</h2>
+          <h2 className={styles.title}>3. Hot Audience:</h2>
           <p>
-            Every review is a learning opportunity. Even negative reviews can
-            give you insights into areas that might need improvement. Carefully
-            understand the feedback and use it to improve your care home or
-            processes.
+            At this stage, your audience is seriously considering your care home
+            for their needs. They are likely comparing you with other options.
+            Here, <strong>personalised</strong> communication becomes critical.
+            Offer in-person or virtual tours, one-on-one consultations, and
+            detailed guides on the specifics of your care services. This could
+            include how you handle special care needs, lifestyle activities, and
+            community integration. From our survey of 50 families, wellbeing
+            activities were ranked 100% of the time as a top 3 factor in
+            choosing a care home. So, showcasing your wellbeing activities and
+            how you deliver them is vital.
           </p>
-          <h2 className={styles.title}>4. To Dilute:</h2>
+          <h2 className={styles.title}>4. Decision:</h2>
           <p>
-            Simply put - the more positive reviews you have, the less impact the
-            negative ones hold. Encourage your happy employees and satisfied
-            families to share their positive experiences. This will allow you to
-            make sure that your care home is being represented in the best
-            possible light.
+            In this final stage, a family decides to move forward with your care
+            home. Make this process as smooth as possible. Provide clear,
+            concise information on the next steps, costs, and what they can
+            expect. Ensure all their questions are answered and they feel
+            confident in their choice. After their decision, focus on a seamless
+            onboarding experience to affirm they made the right choice.
           </p>
-          <h2 className={styles.title}>5. To Monitor:</h2>
+          <h2 className={styles.title}>Post Decision/Tesimonials:</h2>
           <p>
-            Keep an eye on your Indeed profile. Regular monitoring helps you
-            stay on top of what's being said and allows you to react swiftly if
-            needed. This will also help you maintain a positive online
-            reputation.
+            Testimonials and reviews from existing residents and their families
+            are an incredibly powerful way to showcase the standard of your care
+            and, ultimately, generate more leads. This is crucial for building
+            trust with potential residents and their families.
           </p>
           <h2 className={styles.title}>Conclusion:</h2>
           <p>
-            By following these steps you can transform your Indeed profile into
-            a tool, which can attract new staff and act as a marketing asset for
-            new residents.
+            The sales funnel is a great way to grow your care home and increase
+            your occupancy organically. The key is to define the funnel stages
+            and reduce the number of people who drop out at each stage. It's
+            also important to remember that the funnel is not linear, and people
+            can jump between stages. A great example is if you offer a
+            domiciliary care service, the resident is already in the hot
+            audience stage, and you can skip the cold and warm audience stages.
           </p>
           <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
             🌟 Interested in elevating your marketing strategy and building a
-            strong brand? Discover how Motion can guide you through this
-            journey.
+            solid sales funnel? Book a Discovery Call to learn how we can take
+            your business to the next level!
           </p>
           <div className="CTA-button">
-            <a
-              className="btn btn-secondary display-4 "
-              href="https://calendly.com/zeezy-1/motion"
-            >
+            <a className="btn btn-secondary display-4 " href="/get-a-demo">
               Get a Demo.
             </a>
           </div>

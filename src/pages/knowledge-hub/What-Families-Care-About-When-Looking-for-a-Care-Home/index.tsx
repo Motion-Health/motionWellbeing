@@ -8,9 +8,9 @@ import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
 import React, { useEffect, useState } from 'react';
-
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
+
 import styles from '../blogPost.module.css';
 
 const Index = () => {
@@ -26,29 +26,29 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          Why the Adult Social Care Sector is Poised for Explosive Growth |
-          Motion
+          What Families Care About When Looking for a Care Home | Motion
+          Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion | What Families Care About When Looking for a Care Home"
         />
         <meta
           name="description"
-          content="Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="What Families Care About When Looking for a Care Home"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion | What Families Care About When Looking for a Care Home"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="What Families Care About When Looking for a Care Home"
         />
         <link
           rel="stylesheet"
@@ -125,16 +125,14 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/resource-hub')}
+        onClick={() => router.push('/knowledge-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>
-            Why the Adult Social Care Sector is Poised for Explosive Growth
-          </h1>
+          <h1>What Families Care About When Looking for a Care Home</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -216,77 +214,63 @@ const Index = () => {
           <h2 className={styles.title}>Introduction</h2>
           <p>
             <br />
-            Something that has sometimes been overlooked by some in the care
-            sector is the massive growth which is about to occur. This allows
-            for an opportunity for care homes to grow and expand their services.
+            We’re in the process of conducting research with families of care
+            home residents’ to best understand how and what they look for in a
+            care home. It’s been really interesting to hear about the good, bad
+            and ugly when it comes to navigating the challenge of searching for
+            a care home. The research hasn’t been concluded but we’ve had some
+            interesting insights already and I wanted to share these with you.
+            In this blog I’ll share three things that have consistently come up…
           </p>
-          <p>
-            The looming expansion in the adult social care sector is largely
-            fueled by an aging population, a result of advancements in
-            healthcare that extend life expectancy. This demographic evolution
-            presents a unique opportunity for care homes to adapt and meet the
-            increasing demand for quality services.
-          </p>
-          <h2 className={styles.title}>A Surge in Demand Is Coming</h2>
-          <p>
-            In terms of demographics, the current UK population is just under
-            1.8 million; however, in just 16 years, this is about to grow by
-            900,000 to 2.76 million. This is a massive shift which will require
-            the care services sector to supply these beds for this. Looking at
-            the demographic figures, now is one of the best times to be in the
-            care industry! The figure below shows the change in demographics,
-            with 2040 on the left and 2024 on the right.
-            <br />
-          </p>
+
           <img
-            src="/assets/images/blogs/blog8/Image-1.jpg"
-            alt="ONS Population pyramid"
+            src="/assets/images/blogs/blog12/Image-1.webp"
+            alt="Care Home Resident"
           />
 
-          <h2 className={styles.title}>Navigating the Challenges Ahead</h2>
+          <h2 className={styles.title}>Standard of Care and CQC Rating</h2>
           <p>
-            However, it's not all smooth sailing. The sector faces its share of
-            challenges, notably staff shortages, exacerbated by visa
-            restrictions in the UK. This squeeze on staffing is a critical issue
-            that care home directors must address proactively to ensure the
-            quality of care doesn't suffer. I see this potentially resulting in
-            an increased cost for carers due to insufficient demand.
+            The most important factor that influences a decision about a care
+            home is the standard of care that they deliver. Families can get an
+            idea of this in a number of ways: speaking to staff, reading
+            reviews, the CQC rating and visiting the home. Ensuring that your
+            approach to care is transparent and visible to prospective families
+            is key here.
           </p>
-          <h2 className={styles.title}>Opportunity Knocks</h2>
+          <h2 className={styles.title}>Location</h2>
           <p>
-            Despite these challenges, the situation spells a massive opportunity
-            for care homes. With the anticipated boom in demand, there's
-            potential for increased occupancy and growth.
-            <br />
-            But it's not just about having the capacity; it's also about
-            excelling in service delivery. The upcoming generation of care home
-            residents and families have significantly better access to{' '}
-            <strong>data</strong>, which will increasingly be used to determine
-            where to send their loved ones. This is why it's crucial to appeal
-            to this new market correctly and how they choose their care home.
+            Location was a big one, too. This makes a lot of sense, people tend
+            to look for a care home that is either close to where their loved
+            one lives or close to where they live (assuming they are different
+            parts of the country). It’s important to consider this, because your
+            care home is being compared directly to the 3 to 4 closest care
+            homes. Make it clear how you stand out and deliver superior care
+            than the others close by.
           </p>
-          <h2 className={styles.title}>A Call to Action</h2>
+          <h2 className={styles.title}>Lifestyle</h2>
           <p>
-            Is your home ready for this sustained growth? Will you be able to
-            capitilise on this market change and growth?
+            An interesting recurring theme of our research so far has shown that
+            families don’t want their loved one to be sat alone in their room or
+            sat staring at a TV all day. Your lifestyle, activities and
+            wellbeing provision is going to be the thing that a resident spends
+            most of their time doing in your home, so make sure that this is
+            visible on your marketing channels (e.g. Facebook, website) and you
+            can demonstrate a packed activity planner and vibrant environment to
+            prospects.
           </p>
+
+          <h2 className={styles.title}>Conclusion</h2>
           <p>
-            This is an exciting time to be in the care sector, but it comes with
-            the responsibility to adapt, innovate, and continually strive for
-            excellence. For care home directors, this means anticipating the
-            increase in demand and being prepared to meet it. Secondly, it means
-            correctly marketing to the next generation of residents and their
-            families using digital marketing.
-          </p>
-          <h2 className={styles.title}>How can Motion help you?</h2>
-          <p>
-            🌟If you want to see how we can help with your marketing, book a
-            demo call now!
+            🌟We’re only part-way through the research, so these aren’t
+            conclusive yet! But I wanted to share them in real-time and would
+            absolutely love to hear your thoughts. Book a Discovery Call if
+            you’d like to know more about our learnings so far, or share your
+            own perspective!
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
-              href="/get-a-demo"
+              href="https://calendly.com/zeezy-1/motion"
             >
               Get a Demo.
             </a>

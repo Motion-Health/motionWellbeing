@@ -42,4 +42,18 @@ module.exports = withBundleAnalyzer({
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/resource-hub',
+        destination: '/knowledge-hub',
+        permanent: true,
+      },
+      {
+        source: '/resource-hub/:path*',
+        destination: '/knowledge-hub/:path*',
+        permanent: true,
+      },
+    ];
+  },
 });

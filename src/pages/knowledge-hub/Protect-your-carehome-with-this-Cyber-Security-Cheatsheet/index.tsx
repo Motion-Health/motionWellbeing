@@ -14,7 +14,6 @@ import styles from '../blogPost.module.css';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
-
   const [email, setEmail] = useState('');
 
   const handleSubmit = (event) => {
@@ -32,29 +31,32 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>Carer Recruitment | Motion</title>
+        <title>Cyber Security | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | How to attract more carers to your care home"
+          content="Motion | Sharing stories about later life"
         />
         <meta
           name="description"
-          content="In the competitive field of care home management, attracting skilled carers is essential, but it often comes with the challenge of balancing quality recruitment with budget constraints. Care home directors can implement several cost-effective strategies to make their facilities more appealing to potential employees without breaking the bank."
+          content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | How to attract more carers to your care home"
+          content="Creating moments that move people | Motion"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="In the competitive field of care home management, attracting skilled carers is essential, but it often comes with the challenge of balancing quality recruitment with budget constraints. Care home directors can implement several cost-effective strategies to make their facilities more appealing to potential employees without breaking the bank."
+          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
         />
-
+        <link
+          rel="stylesheet"
+          href="/extensions/programm5/software-development-company/assets/css/styles.css"
+        />
         <link
           rel="stylesheet"
           href="/extensions/programm5/software-development-company/assets/css/styles.css"
@@ -171,8 +173,8 @@ const Index = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link link display-4" href="/resource-hub">
-                    Knowledge Hub
+                  <a className="nav-link link display-4" href="/knowledge-hub">
+                    Knowledge hub
                   </a>
                 </li>
               </ul>
@@ -190,7 +192,7 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/resource-hub')}
+        onClick={() => router.push('/knowledge-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
@@ -199,7 +201,8 @@ const Index = () => {
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
           <h1>
-            Cost-Effective Strategies to Attract More Carers to Your Care Home
+            Cyber Security Basics for Care Homes: Protecting Your Residents and
+            Business
           </h1>
           <div className={styles.shareToolbar}>
             <div>
@@ -281,133 +284,96 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            In the competitive field of care home management, attracting skilled
-            carers is essential, but it often comes with the challenge of
-            balancing quality recruitment with budget constraints. Care home
-            directors can implement several cost-effective strategies to make
-            their facilities more appealing to potential employees without
-            breaking the bank. This guide offers practical and budget-friendly
-            tips for attracting and retaining dedicated carers.
+            In today's digital age, care homes are not just about providing
+            physical safety and comfort to residents; they also need to ensure
+            the digital protection of their sensitive information. Poor cyber
+            security can have serious consequences, including the potential
+            closure of your care home. Understanding and implementing basic
+            cyber security measures is crucial. Below is a straightforward
+            checklist designed to help care home directors and staff secure
+            their digital infrastructure effectively.
           </p>
-          <img
-            src="/assets/images/blogs/blog4/Image-1.jpg"
-            alt="Landscape shot of care home"
-            className={styles.image}
-          />
           <ul>
             <li>
-              <h2 className={styles.title}>1. Personalised Recognition:</h2>
+              <h2 className={styles.title}>1. Utilising a Password Manager:</h2>
               <p>
-                Small gestures of appreciation, like handwritten thank-you
-                notes, small gifts, or flowers, can go a long way in making
-                staff feel valued. These tokens of appreciation are
-                cost-effective yet powerful in building a positive workplace
-                atmosphere.
+                A password manager is a simple yet effective tool for
+                maintaining strong, unique passwords for all your accounts. It
+                helps in avoiding common pitfalls like using easily guessable
+                passwords or repeating the same password across multiple
+                platforms. This tool can significantly reduce the risk of
+                unauthorised access to your systems.
               </p>
             </li>
             <li>
               <h2 className={styles.title}>
-                2. Foster a Supportive Work Culture:
+                2. Keeping Systems and Computers Up to Date:
               </h2>
               <p>
-                Creating a supportive and inclusive work environment doesn’t
-                have to be expensive. Encourage a team-oriented culture where
-                every staff member feels respected and heard. Regular team
-                meetings and open communication channels can enhance job
-                satisfaction without incurring significant costs.
+                Regularly updating your computers and systems is vital. Software
+                updates often include critical patches for security
+                vulnerabilities. By ensuring that all your technology is
+                up-to-date, you minimise the risk of being exploited through
+                known weaknesses.
               </p>
             </li>
             <li>
               <h2 className={styles.title}>
-                3. Utilise Social Media for Recruitment:
+                3. Having a Response Plan for Cyber Incidents:
               </h2>
               <p>
-                Leverage free or low-cost social media platforms to advertise
-                job openings. Platforms like Facebook, LinkedIn, and Twitter can
-                be effective in reaching a wide audience. Encourage your current
-                staff to share these posts, increasing their reach organically.
+                In the event of a cyber-attack, having a predefined action plan
+                is essential. This plan should outline the steps to be taken to
+                mitigate the impact, including whom to contact, how to contain
+                the breach, and how to communicate the issue to staff and
+                residents' families, if necessary.
               </p>
             </li>
             <li>
               <h2 className={styles.title}>
-                4. Implement an Employee Referral Program:
+                4. Encrypting Sensitive Information:
               </h2>
               <p>
-                Encourage your existing employees to refer friends or
-                acquaintances for open positions. Offer small but meaningful
-                incentives for successful hires. This approach can be more
-                cost-effective than traditional recruitment methods and often
-                results in more reliable candidates.
+                Encryption is a powerful tool in protecting sensitive data, such
+                as resident information and employee records. By encrypting this
+                data, you ensure that even if it falls into the wrong hands, it
+                remains unreadable and secure.
               </p>
             </li>
             <li>
-              <h2 className={styles.title}>5. Offer Flexible Working Hours:</h2>
+              <h2 className={styles.title}>5. Regular System Backups:</h2>
               <p>
-                Flexibility can be a significant draw for potential employees
-                and doesn’t necessarily require additional financial resources.
-                Offering flexible schedules or part-time roles can make your
-                care home more attractive to a diverse range of candidates,
-                including those who may be balancing other commitments.
+                Conducting regular backups of your system can save you from
+                catastrophic data loss. In case of a cyber-attack or system
+                failure, having up-to-date backups will allow you to restore
+                critical information quickly.
               </p>
             </li>
             <li>
               <h2 className={styles.title}>
-                6. Provide Opportunities for Skill Development:
+                6. Conducting Staff Cybersecurity Training:
               </h2>
               <p>
-                Invest in low-cost training programmes or in-house skill
-                development sessions. This not only enhances the capabilities of
-                your team but also shows your investment in their professional
-                growth, making your care home more appealing.
-              </p>
-            </li>
-            <li>
-              <h2 className={styles.title}>
-                7. Highlight Your Care Home’s Unique Features:
-              </h2>
-              <p>
-                Use your existing resources and environment to your advantage.
-                Whether it's a beautiful garden, a community-focused approach,
-                or specialised care services, highlighting these aspects in your
-                recruitment materials can attract candidates who share similar
-                values and interests.
-              </p>
-            </li>
-            <li>
-              <h2 className={styles.title}>8. Encourage Work-Life Balance:</h2>
-              <p>
-                Promote a healthy work-life balance with initiatives that don’t
-                necessarily require a large budget. This can include
-                acknowledging the importance of mental health days, offering
-                flexible shifts, or organising simple, in-house wellness
-                activities.
+                One of the most common ways cyber criminals gain access is
+                through uninformed or careless employees. Regular training for
+                your staff on basic cyber security practices can significantly
+                reduce this risk. This training should cover topics like
+                identifying phishing attempts, secure handling of sensitive
+                information, and best practices for digital communication.
               </p>
             </li>
           </ul>
 
-          <img
-            src="/assets/images/blogs/blog4/Image-2.jpg"
-            alt="Care home residents performing physical activity"
-            className={styles.image}
-          />
-
-          <h2 className={styles.title}>Conclusion:</h2>
+          <h2 className={styles.title}>Conclusion and Further Resources:</h2>
           <p>
-            Attracting more carers to your care home doesn't always require a
-            hefty budget. By implementing these cost-effective strategies, you
-            can create an attractive and supportive work environment that
-            appeals to potential employees. Remember, investing in your staff,
-            whether through recognition, training, or work culture, not only
-            benefits them but also enhances the quality of care provided to your
-            residents.
-          </p>
-          <p>
-            With creativity and a focus on what truly matters to employees, your
-            care home can become a magnet for dedicated carers, all while
-            maintaining a responsible budget. For more information and help
-            attracting carers then{' '}
+            Implementing these simple steps can greatly enhance your care home's
+            cyber security, protecting both your residents and your business
+            from digital threats. Remember, in the digital world, being
+            proactive is always better than being reactive. If you want to find
+            out more or would like a comprehensive cyber security audit, please
+            get in touch with us today.{' '}
             <a href="/get-a-demo/">
-              click here to book a 30-minute consultation.
+              Click here to book a 30-minute consultation.
             </a>
           </p>
         </div>

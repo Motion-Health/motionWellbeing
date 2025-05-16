@@ -122,7 +122,7 @@ const NavBar = () => {
               </li>
               <li className="nav-item">
                 <Link className="nav-link link display-4" href="/knowledge-hub">
-                  Knowledge Hub
+                  Knowledge hub
                 </Link>
               </li>
               <li className="nav-item">

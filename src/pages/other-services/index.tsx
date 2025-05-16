@@ -23,7 +23,7 @@ const Index = () => {
       <meta name="description" content="Other Services" />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Resource Hub | Motion" />
+      <meta name="twitter:title" content="Knowledge hub | Motion" />
       <meta name="twitter:image" content="./og-image.jpg" />
       <meta property="twitter:description" content="Other Services" />
       <link
@@ -218,15 +218,15 @@ const Index = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
-                          Resource Hub
+                          Knowledge hub
                         </a>
                       </li>
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           Success Stories
                         </a>
@@ -234,7 +234,7 @@ const Index = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           About
                         </a>
@@ -242,7 +242,7 @@ const Index = () => {
                       <li className="nav-item midHide">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           Other Services
                         </a>
@@ -250,7 +250,7 @@ const Index = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link link display-4"
-                          href="/resource-hub"
+                          href="/knowledge-hub"
                         >
                           Login
                         </a>

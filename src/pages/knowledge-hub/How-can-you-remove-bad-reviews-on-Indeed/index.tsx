@@ -7,7 +7,8 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
 
@@ -26,29 +27,28 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          What Families Care About When Looking for a Care Home | Motion
-          Marketing
+          How can you remove bad reviews on Indeed? | Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | What Families Care About When Looking for a Care Home"
+          content="Motion | How can you remove bad reviews on Indeed?"
         />
         <meta
           name="description"
-          content="What Families Care About When Looking for a Care Home"
+          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | What Families Care About When Looking for a Care Home"
+          content="Motion | How can you remove bad reviews on Indeed?"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="What Families Care About When Looking for a Care Home"
+          content="Motion Wellbeing is a digital wellbeing platform empowering care homes to plan, deliver and showcase outstanding, person-centred wellbeing activities."
         />
         <link
           rel="stylesheet"
@@ -108,7 +108,7 @@ const Index = () => {
         />
 
         <link rel="stylesheet" href="/assets/blog.css" />
-
+ 
         <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
@@ -125,14 +125,14 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/resource-hub')}
+        onClick={() => router.push('/knowledge-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>What Families Care About When Looking for a Care Home</h1>
+          <h1>How can you remove bad reviews on Indeed?</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -213,59 +213,72 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            <br />
-            We’re in the process of conducting research with families of care
-            home residents’ to best understand how and what they look for in a
-            care home. It’s been really interesting to hear about the good, bad
-            and ugly when it comes to navigating the challenge of searching for
-            a care home. The research hasn’t been concluded but we’ve had some
-            interesting insights already and I wanted to share these with you.
-            In this blog I’ll share three things that have consistently come up…
+            Indeed is not just a tool for finding new applicants for jobs, but
+            its also a window into your care home. It is a place where people
+            can see what your care home is like, and what it is like to work
+            there. It is also a place where people can leave reviews about your
+            care home, these reviews can be positive or negative, and they can
+            have a big impact on your business. Unfortunately, Indeed reviews
+            cannot be deleted, however, in this blog post, I have broken down a
+            5 step guide on how to respond and recover from bad reiews to boost
+            your Indeed profile:
           </p>
-
           <img
-            src="/assets/images/blogs/blog12/Image-1.webp"
-            alt="Care Home Resident"
+            src="/assets/images/blogs/blog5/thumbnail.webp"
+            alt="Indeed Logo"
+            className={styles.image}
           />
-
-          <h2 className={styles.title}>Standard of Care and CQC Rating</h2>
+          <h2 className={styles.title}>1. To Prevent:</h2>
           <p>
-            The most important factor that influences a decision about a care
-            home is the standard of care that they deliver. Families can get an
-            idea of this in a number of ways: speaking to staff, reading
-            reviews, the CQC rating and visiting the home. Ensuring that your
-            approach to care is transparent and visible to prospective families
-            is key here.
+            Prevention is always better than a cure. Negative reviews leave a
+            long-lasting stain on your care home's reputation. So, it's best to
+            avoid them in the first place. To do this, you must ensure a
+            positive work environment to reduce the chances of negative reviews.
+            This could be by employee engagement, regular feedback sessions, and
+            ensuring a positive workplace culture. Additionally, when letting go
+            of any staff, ensure that it is done professionally and that they
+            are treated with respect.
           </p>
-          <h2 className={styles.title}>Location</h2>
+          <h2 className={styles.title}>2. To Respond:</h2>
           <p>
-            Location was a big one, too. This makes a lot of sense, people tend
-            to look for a care home that is either close to where their loved
-            one lives or close to where they live (assuming they are different
-            parts of the country). It’s important to consider this, because your
-            care home is being compared directly to the 3 to 4 closest care
-            homes. Make it clear how you stand out and deliver superior care
-            than the others close by.
+            Have you got a negative review? No need to panic! Responding to
+            reviews, good or bad, shows you're proactively trying to make things
+            right. When responding, remember to approach this thoughtfully and
+            professionally.
           </p>
-          <h2 className={styles.title}>Lifestyle</h2>
+          <h2 className={styles.title}>3. To Learn:</h2>
           <p>
-            An interesting recurring theme of our research so far has shown that
-            families don’t want their loved one to be sat alone in their room or
-            sat staring at a TV all day. Your lifestyle, activities and
-            wellbeing provision is going to be the thing that a resident spends
-            most of their time doing in your home, so make sure that this is
-            visible on your marketing channels (e.g. Facebook, website) and you
-            can demonstrate a packed activity planner and vibrant environment to
-            prospects.
+            Every review is a learning opportunity. Even negative reviews can
+            give you insights into areas that might need improvement. Carefully
+            understand the feedback and use it to improve your care home or
+            processes.
           </p>
-
-          <h2 className={styles.title}>Conclusion</h2>
+          <h2 className={styles.title}>4. To Dilute:</h2>
           <p>
-            🌟We’re only part-way through the research, so these aren’t
-            conclusive yet! But I wanted to share them in real-time and would
-            absolutely love to hear your thoughts. Book a Discovery Call if
-            you’d like to know more about our learnings so far, or share your
-            own perspective!
+            Simply put - the more positive reviews you have, the less impact the
+            negative ones hold. Encourage your happy employees and satisfied
+            families to share their positive experiences. This will allow you to
+            make sure that your care home is being represented in the best
+            possible light.
+          </p>
+          <h2 className={styles.title}>5. To Monitor:</h2>
+          <p>
+            Keep an eye on your Indeed profile. Regular monitoring helps you
+            stay on top of what's being said and allows you to react swiftly if
+            needed. This will also help you maintain a positive online
+            reputation.
+          </p>
+          <h2 className={styles.title}>Conclusion:</h2>
+          <p>
+            By following these steps you can transform your Indeed profile into
+            a tool, which can attract new staff and act as a marketing asset for
+            new residents.
+          </p>
+          <h2 className={styles.title}>How can Motion help you?</h2>
+          <p>
+            🌟 Interested in elevating your marketing strategy and building a
+            strong brand? Discover how Motion can guide you through this
+            journey.
           </p>
           <div className="CTA-button">
             <a

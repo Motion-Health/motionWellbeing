@@ -8,14 +8,13 @@ export default function BlogCard({ blog }) {
   const router = useRouter();
   blog.link = blog.name.replace(/ /g, '-').replace(/[^a-zA-Z0-9-]/g, '');
 
+  const handleCardClick = () => {
+    router.push('/knowledge-hub/[link]', `/knowledge-hub/${blog.link}`);
+  };
+
   return (
     <Grid key={blog.id} item xs={12} lg={4} md={6} sm={12}>
-      <div
-        className={styles.Card}
-        onClick={() =>
-          router.push('/resource-hub/[link]', `/resource-hub/${blog.link}`)
-        }
-      >
+      <div className={styles.Card} onClick={handleCardClick}>
         <div className={styles.imageContainer}>
           <img
             src={`/assets/images/blogs/blog${blog.id}/thumbnail.webp`}
@@ -29,12 +28,7 @@ export default function BlogCard({ blog }) {
               variant="contained"
               type="button"
               className={styles.learnMore}
-              onClick={() =>
-                router.push(
-                  '/resource-hub/[link]',
-                  `/resource-hub/${blog.link}`
-                )
-              }
+              onClick={handleCardClick}
               fullWidth
             >
               Read blog

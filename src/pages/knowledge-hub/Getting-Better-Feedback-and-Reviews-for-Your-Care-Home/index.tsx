@@ -26,28 +26,28 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          How to Get Your Care Homes Featured on BBC News | Motion
+          Getting Your Care Home Better Feedback and Reviews | Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | How to Get Your Care Homes Featured on BBC News"
+          content="Motion | Getting Your Care Home Better Feedback and Reviews"
         />
         <meta
           name="description"
-          content="How to Get Your Care Homes Featured on BBC News"
+          content="Getting Your Care Home Better Feedback and Reviews"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | How to Get Your Care Homes Featured on BBC News"
+          content="Motion | Getting Your Care Home Better Feedback and Reviews"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="How to Get Your Care Homes Featured on BBC News"
+          content="Getting Your Care Home Better Feedback and Reviews"
         />
         <link
           rel="stylesheet"
@@ -124,14 +124,14 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/resource-hub')}
+        onClick={() => router.push('/knowledge-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>How to Get Your Care Homes Featured on BBC News</h1>
+          <h1>Getting Your Care Home Better Feedback and Reviews</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -213,54 +213,68 @@ const Index = () => {
           <h2 className={styles.title}>Introduction</h2>
           <p>
             <br />
-            For care homes local media outlets are absolute GOLD when it comes
-            to increasing the awareness of your service locally and, ultimately,
-            generating more leads.
+            Care home reviews and feedback are a key element of your marketing
+            and sales strategy. Whether it’s confidential feedback that a
+            residents’ family member has shared with you or a review on Google
+            that’s been left. Feedback and reviews are important pieces of
+            ‘social proof’, which your other prospects and leads will hold in
+            high-regard when searching for a care home.
           </p>
           <p>
-            We got care homes a feature on a primetime BBC News: Look North
-            slot, which translated into them being inundated with enquiries in
-            the week that followed. How we did it is more an art than a science,
-            but here a a few key things that helped us get the feature:
+            Here are three simple and easy ways to improve your care homes’
+            feedback and reviews:
+          </p>
+          <h2 className={styles.title}>Ask For It!</h2>
+          <p>
+            Our research with family members of residents showed us that 70% of
+            care homes ask for feedback either once every 6 months or not at
+            all! The first step of improving feedback is by asking for it and
+            doing so at least once per month. There are a number of ways to
+            implement this: a feedback form (Google, Typeform, Microsoft), a
+            personalised email, a phone call — whatever works best for you and
+            your team!
+            <br />
           </p>
           <img
-            src="/assets/images/blogs/blog9/Image-1.webp"
-            alt="BBC look north feature"
+            src="/assets/images/blogs/blog11/Image-1.webp"
+            alt="Net Promoter Score"
           />
-          <h2 className={styles.title}>Created a Compelling Story</h2>
+
+          <h2 className={styles.title}>
+            Improve Net-Promoter-Score and gain valuable insights
+          </h2>
           <p>
-            The news only goes after the very best stories, so we made sure that
-            we had something that was of interest to the broader news agenda
-            regarding social care and involved key stakeholders in the local
-            region, e.g. Lord Mayor.
-            <br />
+            ‘Net-Promoter-Score’ (NPS) is the gold standard metric when it comes
+            to measuring customer satisfaction and you can get it by asking one
+            simple question: “How likewise is it that you would recommend
+            *insert name of care home* to a friend or colleague?”. The best
+            thing about asking for feedback and reviews is that it actually has
+            a positive impact on your current customers and improves your NPS,
+            because it shows that you truly care about the opinion and thoughts
+            of your customers. Asking for feedback and reviews regularly
+            provides you with rich and valuable data that will help you to
+            improve your services in cost and time-effective ways.
+          </p>
+          <h2 className={styles.title}>Action and Response</h2>
+          <p>
+            Once you have care home reviews and feedback you can start to make
+            improvements and, importantly, share these with your residents’
+            families who initially asked for the feedback through your regular
+            email/form/phone call!
+          </p>
+          <h2 className={styles.title}>Keeping the loop going</h2>
+          <p>
+            Finally, this creates a positive feedback loop, which is what this
+            process is all about. A tight feedback loop is what will improve
+            your customer satisfaction, your reviews and, ultimately, your
+            residents’ experience!
           </p>
 
-          <h2 className={styles.title}>Made it Easy for Them</h2>
+          <h2 className={styles.title}>How can Motion help you?</h2>
           <p>
-            We did the leg work and essentially gave them a story on social care
-            and integrating older adults back into our community, and were
-            flexible in answering the phone to them; which in-turn made it
-            easier for them to capture and share the story.
+            🌟If you’re interested in learning how we can support your care home
+            to get better feedback and reviews, book a demo call today!
           </p>
-          <h2 className={styles.title}>Used Our Network</h2>
-          <p>
-            Sometimes who you know trumps what you know (for better or worse)
-            and we were lucky that someone in our team had a connection at BBC
-            Sheffield who was able to connect us with the Look North team. Don’t
-            be afraid to ask people, you never know who they might know!
-            <br />
-            Like I said, these things aren't an exact science and there are lots
-            of factors that will influence whether or not your story gets picked
-            up, but starting to make connections with local media outlets is a
-            great starting point and could pay off big time in the future!
-          </p>
-          <h2 className={styles.title}>How Can We Help?</h2>
-          <p>
-            Interested in learning how your care home can reach and get coverage
-            from local media outlets? Book a demo call today!
-          </p>
-
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "

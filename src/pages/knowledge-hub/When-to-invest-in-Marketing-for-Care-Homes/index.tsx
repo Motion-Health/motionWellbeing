@@ -7,12 +7,13 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+
 import { Footer } from '@/components/Home/Footer';
 import NavBar from '@/components/navBar';
 
 import styles from '../blogPost.module.css';
-
+import { useEffect } from 'react';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
@@ -26,29 +27,28 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          ​​'Nothing About Us Without Us': What We’ve Learned from Co-Designing
-          Services with Care Homes
+          When to Invest in Marketing for Your Care Home? | Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | What We’ve Learned from Co-Designing"
+          content="Motion | When to Invest in Marketing for Your Care Home?"
         />
         <meta
           name="description"
-          content="What We’ve Learned from Co-Designing"
+          content="Marketing is a crucial tool in attracting privately funded Families. Families need a way of finding you and it's your job to make that easy!"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | What We’ve Learned from Co-Designing"
+          content="Motion | When to Invest in Marketing for Your Care Home?"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="What We’ve Learned from Co-Designing"
+          content="Marketing is a crucial tool in attracting privately funded Families. Families need a way of finding you and it's your job to make that easy!"
         />
         <link
           rel="stylesheet"
@@ -125,17 +125,14 @@ const Index = () => {
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/resource-hub')}
+        onClick={() => router.push('/knowledge-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>
-            ​​'Nothing About Us Without Us': What We’ve Learned from
-            Co-Designing Services with Care Homes
-          </h1>
+          <h1> When to Invest in Marketing for Your Care Home?</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -216,68 +213,165 @@ const Index = () => {
           </div>
           <h2 className={styles.title}>Introduction</h2>
           <p>
-            Operating in the social care sector is special. It’s not like any
-            other and that can be a challenge; the combination of public and
-            private, the careful balance of doing good while being sustainable,
-            it truly makes for a unique experience.
-          </p>
-          <p>
-            That’s why the quote “Nothing About Us Without Us” is so pertinent
-            to me. It summarises the idea that you cannot do something for
-            someone without including them in the development process.
-            Fortunately, it was something I was told early on in my career and
-            has stood me in good stead while supporting care homes. Here are
-            some of the key learnings I’ve learned from this approach and some
-            ways that you may be able to benefit from it too:
+            Marketing is a crucial tool in attracting privately funded Families.
+            Families need a way of finding you and it's your job to make that
+            easy!
           </p>
           <img
-            src="/assets/images/blogs/blog10/Image-1.webp"
-            alt="The Motion team standing with care staff"
+            src="/assets/images/blogs/blog4/Image-1.jpg"
+            alt="Marketing on white drawn on white background"
+            className={styles.image}
           />
           <h2 className={styles.title}>
-            Being Person-Centred is More than a Buzzword
+            When is the Right Time to Invest in Marketing?
           </h2>
           <p>
-            In life, actions speak louder than words and those that work in
-            social care are a true testament to this. The vast majority do all
-            they can to provide the very best care possible for the humans in
-            their care. The challenge with this is that it sometimes means they
-            forget to shout about what great things they are doing.. sometimes
-            because they’re too modest, sometimes because they simply don’t have
-            the time!
-            <br />
+            Marketing your care home gets more and more effective the longer you
+            do it. This is because it enables you to build a brand and an
+            identity. If you haven't started or have let it go by the waist side
+            then NOW is the time to start investing in it again!
           </p>
 
-          <h2 className={styles.title}>The Numbers Have to Stack Up</h2>
           <p>
-            Social care has big financial problems (I know you don’t need me to
-            tell you that!), so it’s important that there is a robust business
-            case behind decisions. This usually isn’t about making heaps of
-            profit (like some corners of the media would have you believe), but
-            it is about ensuring that resources are allocated prudently and have
-            a positive RoI.
+            There are however some times when you can supercharge your
+            marketing.The best opportunity to give your marketing a push are:
           </p>
-          <h2 className={styles.title}>The Best Take This Approach As Well</h2>
-          <p>
-            I knew this approach was the right one when I learned early on that
-            leaders within the social care sector do it themselves. Two direct
-            quotes from Managing Directors of care groups are “You have two ears
-            and one mouth for a reason” and “If you want to go far, go
-            together”, highlight the importance of listening and learning from
-            others on this we’re on.
-          </p>
+
+          <ul>
+            <li>
+              <strong className={styles.title}>New Milestones:</strong>
+              <p>
+                Launching a new facility or service, or celebrating an
+                achievement? Capitalising on these events can give a huge boost
+                to your marketing efforts.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Seasonal Events:</strong>
+              <p>
+                Christmas, Easter, Halloween, and other holidays are the perfect
+                time to get creative with your marketing. These events are a
+                great way to engage with your audience and showcase your home.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Market Changes:</strong>
+              <p>
+                {' '}
+                Stay responsive to shifts in industry trends or regulations.
+                These are prime opportunities to showcase your care services as
+                a market leader. A perfect example of this is the ongoing CQC
+                changes.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Post-Improvement Phase:</strong>
+              <p>
+                How Should Care Homes Approach Market After upgrading facilities
+                or services, let your community know. It's a great way to renew
+                interest and attract new residents.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Special Offers:</strong>
+              <p>
+                {' '}
+                Offering a special deal or discount is a great way to attract
+                new residents. This is especially true if you are launching a
+                new service or facility.
+              </p>
+            </li>
+          </ul>
+          <img
+            src="/assets/images/blogs/blog4/Image-2.jpg"
+            alt="The word analytics on a creative background"
+            className={styles.image}
+          />
+
+          <h2 className={styles.title}>
+            How Should Care Homes Approach Marketing?
+          </h2>
+          <ul>
+            <li>
+              <strong className={styles.title}>Website:</strong>
+              <p>
+                {' '}
+                Your website is the first place potential residents and their
+                families will look. It is important to have a website that is
+                easy to navigate and showcases your home in the best possible
+                light. It should also be mobile-friendly and have a clear call
+                to action.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>
+                Search Engine Optimisation (SEO):
+              </strong>
+              <p>
+                {' '}
+                SEO is a great way to improve your website's visibility on
+                search engines. This is done by using keywords and phrases that
+                are relevant to your business. It also involves creating content
+                that is engaging and informative.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Content Marketing:</strong>
+              <p>
+                {' '}
+                Content marketing is a great way to attract new residents and
+                their families. It involves creating content that is relevant to
+                your target audience and sharing it on social media.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Social Media:</strong>
+              <p>
+                {' '}
+                Social media is a great way to engage with your audience and
+                build a community. It also allows you to share content that is
+                relevant to your target audience.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Online Reviews:</strong>
+              <p>
+                {' '}
+                Online reviews are a great way to build trust and credibility.
+                They also allow you to showcase your home in the best possible
+                light.
+              </p>
+            </li>
+            <li>
+              <strong className={styles.title}>Monitor and Adapt:</strong>
+              <p>
+                {' '}
+                It is really important to ask every inquiry how they found you.
+                This will help you to understand what is working and what isn't.
+                You can then adapt your marketing strategy accordingly.
+              </p>
+            </li>
+          </ul>
+
           <h2 className={styles.title}>Conclusion</h2>
           <p>
-            The evidence is clear: outcomes are better when we listen and put
-            those that we support at the heart of our services. This is true of
-            us, and you and everyone else that wants to be successful. If you’re
-            interested in how we can take these learnings and apply them to your
-            marketing strategy, book a 30-minute Discovery Call today.
+            For care homes, marketing isn't just about visibility; it's about
+            building trust and showcasing your commitment to quality care. The
+            right investment in marketing can make a significant difference.
+            Stay tuned to market trends, be strategic in your approach, and most
+            importantly, tell the story of your care home’s unique value.
+          </p>
+          <h2 className={styles.title}>
+            How can Motion help you with your marketing?
+          </h2>
+          <p>
+            🌟 Interested in elevating your marketing strategy? Discover how
+            Motion can guide you through this journey.
           </p>
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
-              href="https://calendly.com/zeezy-1/motion"
+              href="/get-a-demo"
             >
               Get a Demo.
             </a>

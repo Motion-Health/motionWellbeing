@@ -9,9 +9,8 @@ import Head from 'next/head';
 import router from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import NavBar from '@/components/navBar';
-
 import styles from '../blogPost.module.css';
+
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
@@ -25,33 +24,37 @@ const Index = () => {
   };
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
   return (
     <div className="white-background">
       <Head>
-        <title>SEO Explained | Motion</title>
+        <title>Carer Recruitment | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Motion | SEO Explained" />
+        <meta
+          property="og:title"
+          content="Motion | How to attract more carers to your care home"
+        />
         <meta
           name="description"
-          content="Understanding SEO: A Key Tool for Care Home Visibility Online"
+          content="In the competitive field of care home management, attracting skilled carers is essential, but it often comes with the challenge of balancing quality recruitment with budget constraints. Care home directors can implement several cost-effective strategies to make their facilities more appealing to potential employees without breaking the bank."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Motion | SEO Explained" />
+        <meta
+          name="twitter:title"
+          content="Motion | How to attract more carers to your care home"
+        />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Understanding SEO: A Key Tool for Care Home Visibility Online"
+          content="In the competitive field of care home management, attracting skilled carers is essential, but it often comes with the challenge of balancing quality recruitment with budget constraints. Care home directors can implement several cost-effective strategies to make their facilities more appealing to potential employees without breaking the bank."
         />
-        <link
-          rel="stylesheet"
-          href="/extensions/programm5/software-development-company/assets/css/styles.css"
-        />
+
         <link
           rel="stylesheet"
           href="/extensions/programm5/software-development-company/assets/css/styles.css"
@@ -118,19 +121,86 @@ const Index = () => {
         <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
       </Head>
 
-      <NavBar />
+      <section
+        data-bs-version="5.1"
+        className="menu menu1 programm5 cid-tFcg6m8FPY"
+        once="menu"
+        id="menu1-0"
+      >
+        <nav className="navbar navbar-dropdown navbar-expand-lg">
+          <div className="menu_box container">
+            <div className="navbar-brand d-flex">
+              <span className="navbar-logo">
+                <a href="https://motion.org.uk/">
+                  <img
+                    src="/extensions/programm5/software-development-company/assets/images/logo.svg"
+                    alt=""
+                  />
+                </a>
+              </span>
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-bs-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <div className="hamburger">
+                  <span />
+                  <span />
+                  <span />
+                  <span />
+                </div>
+              </button>
+            </div>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul
+                className="navbar-nav nav-dropdown"
+                data-app-modern-menu="true"
+              >
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/">
+                    Home
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link link display-4" href="/knowledge-hub">
+                    Knowledge hub
+                  </a>
+                </li>
+              </ul>
+
+              <div className="mbr-section-btn-main" role="tablist">
+                <a className="btn btn-secondary display-4" href="#pricing1-c">
+                  Find how we can help
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </section>
 
       <IconButton
         className={styles.backArrow}
         color="primary"
-        onClick={() => router.push('/resource-hub')}
+        onClick={() => router.push('/knowledge-hub')}
         sx={{ padding: 3 }}
       >
         <ArrowBackIcon />
       </IconButton>
+
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Understanding SEO: A Key Tool for Care Home Visibility Online</h1>
+          <h1>
+            Cost-Effective Strategies to Attract More Carers to Your Care Home
+          </h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -209,132 +279,137 @@ const Index = () => {
               )}
             </div>
           </div>
-          <h1 className={styles.biggerTitle}>Introduction</h1>
+          <h2 className={styles.title}>Introduction</h2>
           <p>
-            In today's digital era, having a strong online presence is vital for
-            any business, including care homes.With 90% of care home enquiries
-            coming from online being able to stand out in this market is more
-            important than ever. One of the fundamental ways to enhance this
-            online presence is through Search Engine Optimisation (SEO). For
-            many care home directors and staff who may not be familiar with
-            digital marketing strategies, SEO can seem like a complex concept.
-            However, it's a crucial tool to understand and utilise. In this
-            blog, we'll break down what SEO is and why it's essential for care
-            homes.
+            In the competitive field of care home management, attracting skilled
+            carers is essential, but it often comes with the challenge of
+            balancing quality recruitment with budget constraints. Care home
+            directors can implement several cost-effective strategies to make
+            their facilities more appealing to potential employees without
+            breaking the bank. This guide offers practical and budget-friendly
+            tips for attracting and retaining dedicated carers.
           </p>
           <img
-            src="/assets/images/blogs/blog3/Image-1.png"
-            alt="Interactive tablet in care home"
+            src="/assets/images/blogs/blog4/Image-1.jpg"
+            alt="Landscape shot of care home"
             className={styles.image}
           />
-          <h1 className={styles.biggerTitle}>What is SEO?</h1>
-          <p>
-            Search Engine Optimisation, or SEO, is the practice of increasing
-            the quantity and quality of traffic to your website through organic
-            search engine results. It involves optimising your website and its
-            content so that search engines like Google, Bing, or Yahoo can
-            easily find and rank it higher in search results.
-          </p>
+          <ul>
+            <li>
+              <h2 className={styles.title}>1. Personalised Recognition:</h2>
+              <p>
+                Small gestures of appreciation, like handwritten thank-you
+                notes, small gifts, or flowers, can go a long way in making
+                staff feel valued. These tokens of appreciation are
+                cost-effective yet powerful in building a positive workplace
+                atmosphere.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>
+                2. Foster a Supportive Work Culture:
+              </h2>
+              <p>
+                Creating a supportive and inclusive work environment doesn’t
+                have to be expensive. Encourage a team-oriented culture where
+                every staff member feels respected and heard. Regular team
+                meetings and open communication channels can enhance job
+                satisfaction without incurring significant costs.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>
+                3. Utilise Social Media for Recruitment:
+              </h2>
+              <p>
+                Leverage free or low-cost social media platforms to advertise
+                job openings. Platforms like Facebook, LinkedIn, and Twitter can
+                be effective in reaching a wide audience. Encourage your current
+                staff to share these posts, increasing their reach organically.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>
+                4. Implement an Employee Referral Program:
+              </h2>
+              <p>
+                Encourage your existing employees to refer friends or
+                acquaintances for open positions. Offer small but meaningful
+                incentives for successful hires. This approach can be more
+                cost-effective than traditional recruitment methods and often
+                results in more reliable candidates.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>5. Offer Flexible Working Hours:</h2>
+              <p>
+                Flexibility can be a significant draw for potential employees
+                and doesn’t necessarily require additional financial resources.
+                Offering flexible schedules or part-time roles can make your
+                care home more attractive to a diverse range of candidates,
+                including those who may be balancing other commitments.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>
+                6. Provide Opportunities for Skill Development:
+              </h2>
+              <p>
+                Invest in low-cost training programmes or in-house skill
+                development sessions. This not only enhances the capabilities of
+                your team but also shows your investment in their professional
+                growth, making your care home more appealing.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>
+                7. Highlight Your Care Home’s Unique Features:
+              </h2>
+              <p>
+                Use your existing resources and environment to your advantage.
+                Whether it's a beautiful garden, a community-focused approach,
+                or specialised care services, highlighting these aspects in your
+                recruitment materials can attract candidates who share similar
+                values and interests.
+              </p>
+            </li>
+            <li>
+              <h2 className={styles.title}>8. Encourage Work-Life Balance:</h2>
+              <p>
+                Promote a healthy work-life balance with initiatives that don’t
+                necessarily require a large budget. This can include
+                acknowledging the importance of mental health days, offering
+                flexible shifts, or organising simple, in-house wellness
+                activities.
+              </p>
+            </li>
+          </ul>
 
-          <strong>SEO is the process that helps you do that.</strong>
-          <h1 className={styles.biggerTitle}>Keywords:</h1>
-          <h2 className={styles.title}>Key Parts of SEO:</h2>
-          <p>
-            These are the words people use when they search for care homes
-            online. By knowing these words and using them on your website, you
-            can help the right people find you. When choosing keywords, you must
-            be strategic, ensuring you get the best results by balancing factors
-            such as the target demographic and the current competition.
-          </p>
+          <img
+            src="/assets/images/blogs/blog4/Image-2.jpg"
+            alt="Care home residents performing physical activity"
+            className={styles.image}
+          />
 
-          <h2 className={styles.title}>Good Content:</h2>
+          <h2 className={styles.title}>Conclusion:</h2>
           <p>
-            Your website should have helpful and interesting information about
-            your care home. This needs to be updated regularly and up to date
-            with the latest interests from your demographic.
+            Attracting more carers to your care home doesn't always require a
+            hefty budget. By implementing these cost-effective strategies, you
+            can create an attractive and supportive work environment that
+            appeals to potential employees. Remember, investing in your staff,
+            whether through recognition, training, or work culture, not only
+            benefits them but also enhances the quality of care provided to your
+            residents.
           </p>
-
-          <h2 className={styles.title}>Easy-to-Use Website: </h2>
           <p>
-            Your website should load quickly and be easy to use, even on phones.
-            On top of this the code needs to be formatted in a way that is easy
-            for bots to read.
-          </p>
-          <h2 className={styles.title}>Backlinks:</h2>
-
-          <p>
-            When other websites link to your site, it's like a vote of
-            confidence that can help you rank higher in search results. Ensuring
-            you have a good level of backlinks and ensure there from the correct
-            sources.
-          </p>
-
-          <h1 className={styles.biggerTitle}>
-            Why SEO is Important for Care Homes
-          </h1>
-          <h2 className={styles.title}>1. Be Seen by the Right People</h2>
-          <p>
-            You want families looking for care homes to find your website. Being
-            one of the first results they see increases your chances of being
-            noticed.
-          </p>
-
-          <h2 className={styles.title}>2. No Extra Cost for Traffic</h2>
-          <p>
-            Unlike ads, you don’t have to pay every time someone clicks on your
-            website through a Google search. This makes SEO a budget-friendly
-            way to attract visitors.
-          </p>
-
-          <h2 className={styles.title}>3. Build Trust</h2>
-          <p>
-            People often trust websites that appear at the top of search
-            results. A higher ranking can make your care home seem more
-            reliable.
-          </p>
-
-          <h2 className={styles.title}>4. Keep Up with Competitors</h2>
-          <p>
-            Other care homes are likely using SEO. To keep up or get ahead, you
-            should too.
-          </p>
-
-          <h1 className={styles.biggerTitle}>
-            To get started here are the basics you need to get you covered:
-          </h1>
-          <h2 className={styles.title}>Check Your Website:</h2>
-          <p>
-            People often trust websites that appear at the top of search
-            results. A higher ranking can make your care home seem more
-            reliable.
-          </p>
-          <h2 className={styles.title}>Find the Right Keywords:</h2>
-          <p>
-            Think about what words families might use to find a care home and
-            use those words on your site.
-          </p>
-          <h2 className={styles.title}>Create Helpful Content:</h2>
-          <p>Write about what makes your care home special and useful.</p>
-          <h2 className={styles.title}>Make Your Site Work Well:</h2>
-          <p>
-            Make sure your site is fast and works on mobile phones and is
-            accessible.
-          </p>
-
-          <p>
-            This will give you a good foundation to begin, however if you want
-            to further increase your rankings to be competitive and attract the
-            most customers then more advanced methods can be used. Feel free to
-            reach out to motion for help by booking a Discovery Call.{' '}
-          </p>
-          <div className="CTA-button">
-            <a
-              className="btn btn-secondary display-4 "
-              href="/get-a-demo"
-            >
-              Get a Demo.
+            With creativity and a focus on what truly matters to employees, your
+            care home can become a magnet for dedicated carers, all while
+            maintaining a responsible budget. For more information and help
+            attracting carers then{' '}
+            <a href="/get-a-demo/">
+              click here to book a 30-minute consultation.
             </a>
-          </div>
+          </p>
         </div>
       </div>
 
@@ -364,7 +439,7 @@ const Index = () => {
                 Sign up to our newsletter to be first to hear about news and
                 updates:
               </label>
-              <div className="klaviyo-form-UcvnLw"></div>
+              <div class="klaviyo-form-UcvnLw"></div>
             </div>
           </div>
           <div className="row">
