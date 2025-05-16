@@ -158,7 +158,7 @@ const NavBar = () => {
               role="tablist"
             >
               <Link className="blueDemoButton" href="/get-a-demo">
-                Get a Demo
+                Get a demo
               </Link>
             </div>
           </div>

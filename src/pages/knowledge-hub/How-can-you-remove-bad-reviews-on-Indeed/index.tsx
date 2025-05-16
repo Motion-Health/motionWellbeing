@@ -285,7 +285,7 @@ const Index = () => {
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-1/motion"
             >
-              Get a Demo.
+              Get a demo.
             </a>
           </div>
         </div>

@@ -332,7 +332,7 @@ const Index = () => {
               className="btn btn-secondary display-4 "
               href="/get-a-demo"
             >
-              Get a Demo.
+              Get a demo.
             </a>
           </div>
         </div>

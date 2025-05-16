@@ -167,7 +167,7 @@ const Index = () => {
                 </p>
                 <div className="demoButtonContainer">
                   <div className="blueDemoButton">
-                    <a href="/get-a-demo">Get a Demo</a>
+                    <a href="/get-a-demo">Get a demo</a>
                   </div>
                   <p>No credit card required.</p>
                 </div>
@@ -518,7 +518,7 @@ const Index = () => {
                   Let's Set Things in Motion
                 </h2>
                 <p className="text-center subheadingText">
-                  Hit the 'Get a Demo' button below and we'll be in touch before
+                  Hit the 'Get a demo' button below and we'll be in touch before
                   you can say "Jack Robinson"
                 </p>
 
@@ -536,7 +536,7 @@ const Index = () => {
                       href="/get-a-demo"
                       className="btn btn-secondary display-4 discoveryButton whiteDemoButton"
                     >
-                      Get a Demo
+                      Get a demo
                     </a>
                   </div>
                 </div>
