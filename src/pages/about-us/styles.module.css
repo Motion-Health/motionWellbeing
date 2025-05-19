@@ -1,0 +1,62 @@
+.pageContainer {
+  background: #FDFCED;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  margin-top: 100px;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+.headerContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contentSection {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  width: 100%;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+.textContainer {
+  flex: 1;
+  min-width: 280px;
+}
+
+.aboutText {
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  white-space: pre-line;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+.imageContainer {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.aboutImage {
+  border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+}
+
+.carouselContainer {
+  width: 100%;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+} 

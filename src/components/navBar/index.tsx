@@ -79,8 +79,12 @@ const NavBar = () => {
         className={`navbar navbar-dropdown navbar-expand-lg ${
           scrolled ? 'scrolled' : ''
         }`}
+        style={{ paddingTop: '12px', paddingBottom: '12px' }}
       >
-        <div className="menu_box container">
+        <div
+          className="menu_box container"
+          style={{ paddingTop: '0', paddingBottom: '0' }}
+        >
           <div className="navbar-brand d-flex">
             <span className="navbar-logo">
               <Link href="/">
