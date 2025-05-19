@@ -125,6 +125,40 @@ const AboutUs = () => {
 
         <MotionStoryCarousel />
 
+        <section className={styles.valuesSection}>
+          <div className={styles.valuesContainer}>
+            <h2 className={styles.valuesSectionTitle}>Our values</h2>
+            <p className={styles.valuesParagraph}>
+              Our values are a reflection of what&apos;s important to our whole
+              community across social care, so we formed them in partnership
+              with all of our stakeholders.
+            </p>
+            <p className={styles.valuesParagraph}>
+              <span className={styles.valueHeading}>Community</span> — Each and
+              every one of us is stronger united. At Motion we are proud of our
+              community of care providers, families and residents; all of whom
+              have, and continue to, shaped us as an organisation.
+            </p>
+            <p className={styles.valuesParagraph}>
+              <span className={styles.valueHeading}>People-first</span> — Every
+              action we take is centred around the people in our community and
+              their health and happiness. We act with integrity - doing the
+              right thing, always, to ensure that you and those you care for are
+              supported.
+            </p>
+            <p className={styles.valuesParagraph}>
+              <span className={styles.valueHeading}>Innovative</span> — We are
+              harnessing the power of technology for the progression of social
+              care.
+            </p>
+            <p className={styles.valuesParagraph}>
+              <span className={styles.valueHeading}>Quality</span> — We are
+              committed to delivering the highest quality service, so that you
+              can focus on delivering the highest quality care.
+            </p>
+          </div>
+        </section>
+
         <Footer />
       </div>
     </>
