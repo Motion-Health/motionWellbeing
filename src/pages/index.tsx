@@ -8,10 +8,12 @@ import { TypeAnimation } from 'react-type-animation';
 
 import BlogCard from '@/components/BlogCard';
 import FeaturedInMedia from '@/components/FeaturedInMedia';
+import Footer from '@/components/Footer';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import Testimonial, { ImagePosition } from '@/components/Testimonial';
 import { useAccountContext } from '@/context/AccountContext';
+
 const Index = () => {
   const {
     account: { accountStatus },
@@ -501,104 +503,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <section
-        data-bs-version="5.1"
-        className="footer1 programm5 cid-tFcguy0QTa"
-        data-once="footers"
-        id="footer1-9"
-        style={{ backgroundColor: '#385988', color: 'white' }}
-      >
-        <div className="container">
-          <div className="row footMargin">
-            <div className="col-12">
-              <div className="title-wrapper">
-                <span className="navbar-logo">
-                  <a href="/">
-                    <img
-                      src="extensions/programm5/software-development-company/assets/images/logo.svg"
-                      alt=""
-                    />
-                  </a>
-                </span>
-                <nav>
-                  <ul className="list mbr-fonts-style display-4">
-                    <li className="nav-item">
-                      <a className="nav-link link display-4" href="/">
-                        Platform
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link link display-4"
-                        href="/knowledge-hub"
-                      >
-                        Knowledge hub
-                      </a>
-                    </li>
-                    {/* <li className="nav-item">
-                      <a className="nav-link link display-4" href="/resource-hub">
-                        Success Stories
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a className="nav-link link display-4" href="/resource-hub">
-                        About
-                      </a>
-                    </li> */}
-                    <li className="nav-item midHide">
-                      <a className="nav-link link display-4" href="/pricing">
-                        Pricing
-                      </a>
-                    </li>
-                    <li className="nav-item midHide">
-                      <a
-                        className="nav-link link display-4"
-                        href="/other-services"
-                      >
-                        Other Services
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        className="nav-link link display-4"
-                        href="https://motion.org.uk/wellbeing/login"
-                      >
-                        Login
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-12 col-lg-6">
-              <div className="contacts-wrapper">
-                <ul className="list mbr-fonts-style display-4">
-                  <li className="item-wrap w-100">
-                    <strong>Contact</strong>
-                  </li>
-                  <li className="item-wrap w-100">info@motion.org.uk</li>
-                  <li className="item-wrap w-100">+44 7543 858684</li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-12 col-lg-6">
-              <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                Sign up to our newsletter to be first to hear about news and
-                updates:
-              </label>
-              <div className="klaviyo-form-UcvnLw"></div>
-            </div>
-            <div className="col-12 col-lg-6"></div>
-            <div className="col-12">
-              <p className="mbr-fonts-style copyright display-4">
-                © Copyright 2025 Motion Health Ltd - All Rights Reserved
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Footer />
     </>
   );
 };
