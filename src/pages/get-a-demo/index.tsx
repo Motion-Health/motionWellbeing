@@ -3,10 +3,10 @@
 import React, { useEffect } from 'react';
 
 import Footer from '@/components/Footer';
+import PageHeader from '@/components/PageHeader';
 
 import NavBar from '../../components/navBar';
-
-const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
+import styles from './styles.module.css';
 
 const Index = () => {
   useEffect(() => {
@@ -21,11 +21,11 @@ const Index = () => {
       <title>Book a Demo | Motion</title>
       <meta property="og:url" content="https://www.motion.org.uk" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Motion | Knowlegde Hub" />
+      <meta property="og:title" content="Motion | Book a Demo" />
       <meta name="description" content="Book a Demo" />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Knowledge hub | Motion" />
+      <meta name="twitter:title" content="Book a Demo | Motion" />
       <meta name="twitter:image" content="./og-image.jpg" />
       <meta property="twitter:description" content="Book a Demo" />
       <link
@@ -84,71 +84,31 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
 
-      <NavBar />
-
-      <div
-        style={{
-          background:
-            'radial-gradient(circle at -11% 10%, #385988 -33%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 0% 73%, #385988 -30%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 77% 48%, #385988 -30%, #FDFCED 30%, transparent 50%)',
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-6">
-              <h1 className="blogTitle">Let's Chat!</h1>
-              <div className="person-wrapper">
-                <div className="col-md-auto col mbr-section-btn">
-                  <a href="https://www.linkedin.com/in/zeezy-qureshi-370bbb151/">
-                    <div className="person-wrap">
-                      <img
-                        src="/extensions/programm5/assets/images/zeezy-headshot.png"
-                        alt=""
-                      />
-                    </div>
-                  </a>
-                </div>
-              </div>
+      <div className={styles.pageContainer}>
+        <NavBar />
+        <div className={`container ${styles.container}`}>
+          <div className={styles.headerContainer}>
+            <PageHeader title="Let's chat!" />
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-12 col-md-8 text-center">
               <p className="TextOne">
-                Looking to get the wheels in Motion? Let's jump on a video call
-                so we can show you around!
+                No hard-sell, no payment required, just a chat to understand
+                your needs and how we can help your care organisation to grow.
               </p>
-              {/* icon then text */}
-              <div className="iconText">
-                <img src="/assets/images/book-demo/support_agent.svg" alt="" />
-                <p>
-                  See the platform and features in action, and discuss your
-                  unique needs with us.
+              <div className={styles.reviewsContainer}>
+                <img
+                  src="/assets/images/book-demo/Stars.png"
+                  alt="5/5 Star Rating"
+                  className={styles.stars}
+                />
+                <p className={styles.googleReviews}>
+                  5/5 start | Google Reviews
                 </p>
               </div>
-              <div className="iconText">
-                <img src="/assets/images/book-demo/trending_up.svg" alt="" />
-                <p>
-                  Do you have a specific marketing goal? We'll tailor the
-                  package to whatever your business needs.
-                </p>
-              </div>
-              <div className="iconText">
-                <img src="/assets/images/book-demo/check_circle.svg" alt="" />
-                <p>
-                  {' '}
-                  No credit cards and no commitment to buy. Just a free demo and
-                  chat with one of our experts!
-                </p>
-              </div>
-
-              <img
-                src="/assets/images/book-demo/Stars.png"
-                alt="5/5 Star Rating"
-                className="stars"
-              />
-              <p className="googleReviews"> 5/5 start | Google Reviews </p>
-            </div>
-            <div className="col-12 col-md-6">
-              <div className="klaviyo-form-RmWFV9"></div>
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     </>
