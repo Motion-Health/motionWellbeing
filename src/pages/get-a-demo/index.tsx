@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-sync-scripts */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
@@ -22,26 +22,50 @@ declare global {
 }
 
 const Index = () => {
+  const calendlyContainerRef = useRef<HTMLDivElement>(null);
+  const scriptRef = useRef<HTMLScriptElement | null>(null);
+  const initializedRef = useRef(false);
+
   useEffect(() => {
+    // Only initialize once
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
+    // Check if script already exists
+    if (
+      document.querySelector(
+        'script[src="https://assets.calendly.com/assets/external/widget.js"]'
+      )
+    ) {
+      return;
+    }
+
     // Load Calendly Inline Widget script
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
-    document.body.appendChild(script);
+    scriptRef.current = script;
 
-    // Initialize Calendly
-    if (window.Calendly) {
-      window.Calendly.initInlineWidget({
-        url: 'https://calendly.com/zeezy-1/motion',
-        parentElement: document.querySelector(`.${styles.calendlyContainer}`),
-        prefill: {},
-        utm: {},
-      });
-    }
+    script.onload = () => {
+      // Initialize Calendly only after script is loaded
+      if (window.Calendly && calendlyContainerRef.current) {
+        window.Calendly.initInlineWidget({
+          url: 'https://calendly.com/zeezy-1/motion',
+          parentElement: calendlyContainerRef.current,
+          prefill: {},
+          utm: {},
+        });
+      }
+    };
+
+    document.body.appendChild(script);
 
     return () => {
       // Cleanup script on component unmount
-      document.body.removeChild(script);
+      if (scriptRef.current && document.body.contains(scriptRef.current)) {
+        document.body.removeChild(scriptRef.current);
+      }
+      initializedRef.current = false;
     };
   }, []);
 
@@ -125,7 +149,10 @@ const Index = () => {
                 No hard-sell, no payment required, just a chat to understand
                 your needs and how we can help your care organisation to grow.
               </p>
-              <div className={styles.calendlyContainer} />
+              <div
+                ref={calendlyContainerRef}
+                className={styles.calendlyContainer}
+              />
               <div className={styles.reviewsContainer}>
                 <img
                   src="/assets/images/book-demo/Stars.png"
