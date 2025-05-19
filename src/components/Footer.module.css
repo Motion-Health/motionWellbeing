@@ -47,12 +47,28 @@
   color: white;
   text-decoration: none;
   font-size: 0.875rem;
-  transition: opacity 0.2s ease;
   font-family: 'Montserrat', sans-serif;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navList a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
 }
 
 .navList a:hover {
-  opacity: 0.8;
+  color: white;
+}
+
+.navList a:hover::after {
+  width: 100%;
 }
 
 .bottomSection {
@@ -80,12 +96,29 @@
   color: white;
   text-decoration: none;
   font-size: 0.875rem;
-  transition: opacity 0.2s ease;
   font-family: 'Montserrat', sans-serif;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.contactInfo a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
 }
 
 .contactInfo a:hover {
-  opacity: 0.8;
+  color: white;
+}
+
+.contactInfo a:hover::after {
+  width: 100%;
 }
 
 .copyright {
