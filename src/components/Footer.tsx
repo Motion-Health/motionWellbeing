@@ -66,8 +66,12 @@ const Footer = () => {
           {/* Contact Info */}
           <div className={styles.contactInfo}>
             <h3>Contact Us</h3>
-            <p>info@motion.org.uk</p>
-            <p>+44 7543 858684</p>
+            <p>
+              <a href="mailto:info@motion.org.uk">info@motion.org.uk</a>
+            </p>
+            <p>
+              <a href="tel:+447543858684">+44 7543 858 684</a>
+            </p>
           </div>
 
           {/* Copyright */}

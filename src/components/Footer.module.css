@@ -2,7 +2,7 @@
   background-color: #385988;
   color: white;
   font-family: 'Montserrat', sans-serif;
-  padding: 4rem 0 2rem;
+  padding: 4rem 0 1rem;
 }
 
 .container {
@@ -42,15 +42,24 @@
   padding: 0;
 }
 
-.navList a {
+.navList a,
+.contactInfo a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
   position: relative;
   transition: color 0.3s ease;
+  opacity: 0.9;
 }
 
-.navList a::after {
+.navList a:hover,
+.contactInfo a:hover {
+  color: white;
+  opacity: 1;
+}
+
+.navList a::after,
+.contactInfo a::after {
   content: '';
   position: absolute;
   width: 0;
@@ -61,14 +70,16 @@
   transition: width 0.3s ease;
 }
 
-.navList a:hover::after {
+.navList a:hover::after,
+.contactInfo a:hover::after {
   width: 100%;
 }
 
 .newsletterSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2rem 0;
   margin-bottom: 1.5rem;
-  text-align: right;
 }
 
 .newsletterContent {
@@ -89,7 +100,7 @@
 }
 
 .newsletterForm {
-  text-align: right;
+  text-align: left;
 }
 
 .newsletterForm :global(.klaviyo_submit_button) {
@@ -106,6 +117,10 @@
   opacity: 0.9 !important;
 }
 
+.newsletterForm :global(.klaviyo_form) {
+  text-align: left !important;
+}
+
 .newsletterForm :global(.klaviyo_form input),
 .newsletterForm :global(.klaviyo_form select),
 .newsletterForm :global(.klaviyo_form option) {
@@ -116,10 +131,18 @@
   text-align: left !important;
 }
 
+.newsletterForm :global(.klaviyo_form select option:first-child) {
+  text-align: left !important;
+}
+
+.newsletterForm :global(.klaviyo_form select option[disabled]) {
+  text-align: left !important;
+}
+
 .bottomSection {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 2rem;
 }
 
@@ -141,6 +164,7 @@
   text-align: center;
   flex: 1;
   opacity: 0.9;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
