@@ -1,10 +1,19 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import AppIcon from './AppIcon';
+import AppIcon from '@/components/AppIcon';
+
 import styles from './Footer.module.css';
 
 const Footer = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -19,10 +28,10 @@ const Footer = () => {
                 <Link href="/platform">Platform</Link>
               </li>
               <li>
-                <Link href="/knowledge-hub">Knowledge hub</Link>
+                <Link href="/knowledge-hub">Knowledge Hub</Link>
               </li>
               <li>
-                <Link href="/about">About us</Link>
+                <Link href="/about">About Us</Link>
               </li>
               <li>
                 <Link href="/pricing">Pricing</Link>
@@ -40,19 +49,31 @@ const Footer = () => {
           </nav>
         </div>
 
+        <div className={styles.newsletterSection}>
+          <div className={styles.newsletterContent}>
+            <h3>
+              Sign up to our newsletter and be the first to hear about news and
+              updates
+            </h3>
+            <div
+              className={`klaviyo-form-UcvnLw ${styles.newsletterForm}`}
+            ></div>
+          </div>
+        </div>
+
         {/* Bottom Section */}
         <div className={styles.bottomSection}>
           {/* Contact Info */}
           <div className={styles.contactInfo}>
-            <h3>Contact</h3>
-            <a href="mailto:info@motion.org.uk">info@motion.org.uk</a>
-            <a href="tel:+447543858684">+44 7543 858 684</a>
+            <h3>Contact Us</h3>
+            <p>info@motion.org.uk</p>
+            <p>+44 7543 858684</p>
           </div>
 
           {/* Copyright */}
           <div className={styles.copyright}>
             <p>
-              Copyright {new Date().getFullYear()} Motion Health Ltd — All
+              © Copyright {new Date().getFullYear()} Motion Health Ltd - All
               Rights Reserved
             </p>
           </div>

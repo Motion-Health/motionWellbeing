@@ -1,9 +1,8 @@
 .footer {
   background-color: #385988;
   color: white;
-  padding: 2rem 0;
-  width: 100%;
   font-family: 'Montserrat', sans-serif;
+  padding: 4rem 0 2rem;
 }
 
 .container {
@@ -16,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .logo {
@@ -31,23 +30,22 @@
 
 .topNav {
   flex: 1;
-  margin-left: 2rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .navList {
   display: flex;
-  justify-content: flex-end;
   gap: 2rem;
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .navList a {
   color: white;
   text-decoration: none;
-  font-size: 0.875rem;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
   position: relative;
   transition: color 0.3s ease;
 }
@@ -63,97 +61,123 @@
   transition: width 0.3s ease;
 }
 
-.navList a:hover {
-  color: white;
-}
-
 .navList a:hover::after {
   width: 100%;
+}
+
+.newsletterSection {
+  padding: 2rem 0;
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.newsletterContent {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.newsletterContent h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.newsletterContent p {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
+.newsletterForm {
+  text-align: right;
+}
+
+.newsletterForm :global(.klaviyo_submit_button) {
+  background-color: white !important;
+  color: #385988 !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.newsletterForm :global(.klaviyo_submit_button:hover) {
+  opacity: 0.9 !important;
+}
+
+.newsletterForm :global(.klaviyo_form input),
+.newsletterForm :global(.klaviyo_form select),
+.newsletterForm :global(.klaviyo_form option) {
+  text-align: left !important;
+}
+
+.newsletterForm :global(.klaviyo_form input::placeholder) {
+  text-align: left !important;
 }
 
 .bottomSection {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .contactInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex: 1;
 }
 
 .contactInfo h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 0.5rem 0;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
-.contactInfo a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.875rem;
-  font-family: 'Montserrat', sans-serif;
-  position: relative;
-  display: inline-block;
-  transition: color 0.3s ease;
-}
-
-.contactInfo a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: white;
-  transition: width 0.3s ease;
-}
-
-.contactInfo a:hover {
-  color: white;
-}
-
-.contactInfo a:hover::after {
-  width: 100%;
+.contactInfo p {
+  margin: 0.5rem 0;
+  opacity: 0.9;
 }
 
 .copyright {
   text-align: center;
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-family: 'Montserrat', sans-serif;
+  flex: 1;
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
   .topSection {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-
-  .topNav {
-    margin-left: 0;
-    width: 100%;
+    gap: 2rem;
   }
 
   .navList {
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
     gap: 1rem;
   }
 
   .bottomSection {
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
     text-align: center;
   }
 
   .contactInfo {
-    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .newsletterSection {
+    text-align: center;
+  }
+  
+  .newsletterContent {
+    margin: 0 auto;
+  }
+  
+  .newsletterContent h3 {
+    text-align: center;
+  }
+  
+  .newsletterForm {
+    text-align: center;
   }
 } 
