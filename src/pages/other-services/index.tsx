@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import React, { useEffect } from 'react';
 
+import Footer from '@/components/Footer';
 import JoinUsBlock from '@/components/JoinUsBlock';
 import NavBar from '@/components/navBar';
 
@@ -190,145 +191,7 @@ const Index = () => {
 
         <JoinUsBlock />
 
-        <section
-          data-bs-version="5.1"
-          className="footer1 programm5 cid-tFcguy0QTa"
-          once="footers"
-          id="footer1-9"
-        >
-          <div className="container">
-            <div className="row footMargin">
-              <div className="col-12">
-                <div className="title-wrapper">
-                  <span className="navbar-logo">
-                    <a href="/">
-                      <img
-                        src="/extensions/programm5/software-development-company/assets/images/logo.svg"
-                        alt=""
-                      />
-                    </a>
-                  </span>
-                  <nav>
-                    <ul className="list mbr-fonts-style display-4">
-                      <li className="nav-item">
-                        <a className="nav-link link display-4" href="/">
-                          How Motion Works
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/knowledge-hub"
-                        >
-                          Knowledge hub
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/knowledge-hub"
-                        >
-                          Success Stories
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/knowledge-hub"
-                        >
-                          About
-                        </a>
-                      </li>
-                      <li className="nav-item midHide">
-                        <a
-                          className="nav-link link display-4"
-                          href="/knowledge-hub"
-                        >
-                          Other Services
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/knowledge-hub"
-                        >
-                          Login
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12 col-lg-6">
-                <div className="contacts-wrapper">
-                  <ul className="list mbr-fonts-style display-4">
-                    <li className="item-wrap">
-                      <strong>Address</strong>
-                    </li>
-                    <li className="item-wrap">
-                      Sheffield Science Park Cooper Buildings, Arundel St,
-                      Sheffield City Centre, Sheffield S1 2NS
-                    </li>
-                    <li className="item-wrap w-100">
-                      <strong>Contact</strong>
-                    </li>
-                    <li className="item-wrap w-100">info@motion.org.uk</li>
-                    <li className="item-wrap w-100">+44 7543 858684</li>
-                  </ul>
-                </div>
-                <div className="social-row">
-                  <div className="soc-item">
-                    <a
-                      href="https://instagram.com/motion.org.uk"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-instagram" />
-                    </a>
-                  </div>
-                  <div className="soc-item">
-                    <a
-                      href="https://facebook.com/motion.org.uk"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-facebook" />
-                    </a>
-                  </div>
-                  <div className="soc-item">
-                    <a
-                      href="https://linkedin.com/company/motion-org-uk"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-linkedin" />
-                    </a>
-                  </div>
-                  <div className="soc-item">
-                    <a
-                      href="https://www.tiktok.com/@zeezy_motion"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-tiktok" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-6">
-                <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                  Sign up to our newsletter to be first to hear about news and
-                  updates:
-                </label>
-                <div className="klaviyo-form-UcvnLw"></div>
-              </div>
-              <div className="col-12 col-lg-6"></div>
-              <div className="col-12">
-                <p className="mbr-fonts-style copyright display-4">
-                  © Copyright 2024 Motion Health Ltd - All Rights Reserved
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Footer />
       </div>
     </>
   );

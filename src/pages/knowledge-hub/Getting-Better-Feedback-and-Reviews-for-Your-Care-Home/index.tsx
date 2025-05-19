@@ -8,7 +8,8 @@ import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { Footer } from '@/components/Home/Footer';
+
+import Footer from '@/components/Footer';
 import NavBar from '@/components/navBar';
 
 import styles from '../blogPost.module.css';
@@ -18,7 +19,8 @@ const Index = () => {
   const [linkCopied, setLinkCopied] = useState(false);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -286,7 +288,7 @@ const Index = () => {
         </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

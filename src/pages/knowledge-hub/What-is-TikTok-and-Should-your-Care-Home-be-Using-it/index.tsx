@@ -9,7 +9,7 @@ import Head from 'next/head';
 import router from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import { Footer } from '@/components/Home/Footer';
+import Footer from '@/components/Footer';
 import NavBar from '@/components/navBar';
 
 import styles from '../blogPost.module.css';
@@ -19,7 +19,8 @@ const Index = () => {
   const [linkCopied, setLinkCopied] = useState(false);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -109,7 +110,7 @@ const Index = () => {
         />
 
         <link rel="stylesheet" href="/assets/blog.css" />
-     
+
         <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
@@ -271,27 +272,25 @@ const Index = () => {
               <strong>Resident stories:</strong> Share heartwarming stories of
               residents, showcasing their life experiences and personalities.
               This humanizes your care home and helps viewers connect
-              emotionally, demonstrating the compassionate environment you
-              have.
+              emotionally, demonstrating the compassionate environment you have.
             </li>
             <li>
               <strong>Staff stories:</strong> Highlight the dedication and
-              skills of your staff. Share their experiences and motivations
-              for working in elder care. This can help in attracting
-              like-minded professionals and showcasing the quality of care
-              provided.
+              skills of your staff. Share their experiences and motivations for
+              working in elder care. This can help in attracting like-minded
+              professionals and showcasing the quality of care provided.
             </li>
             <li>
               <strong>Events:</strong> Showcase the various events and
-              activities that take place in your care home. Whether it's
-              themed parties, music events, or art classes, this illustrates a
-              vibrant, engaging community life.
+              activities that take place in your care home. Whether it's themed
+              parties, music events, or art classes, this illustrates a vibrant,
+              engaging community life.
             </li>
             <li>
-              <strong>Activities:</strong> Share clips of daily activities,
-              from exercise sessions to craft workshops. This not only
-              demonstrates the range of activities available but also the
-              active and inclusive lifestyle residents enjoy.
+              <strong>Activities:</strong> Share clips of daily activities, from
+              exercise sessions to craft workshops. This not only demonstrates
+              the range of activities available but also the active and
+              inclusive lifestyle residents enjoy.
             </li>
           </ul>
 
@@ -318,7 +317,7 @@ const Index = () => {
         </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

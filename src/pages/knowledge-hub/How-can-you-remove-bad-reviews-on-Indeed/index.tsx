@@ -9,7 +9,8 @@ import Head from 'next/head';
 import router from 'next/router';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { Footer } from '@/components/Home/Footer';
+
+import Footer from '@/components/Footer';
 import NavBar from '@/components/navBar';
 
 import styles from '../blogPost.module.css';
@@ -19,16 +20,15 @@ const Index = () => {
   const [linkCopied, setLinkCopied] = useState(false);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
   return (
     <div className="white-background">
       <Head>
-        <title>
-          How can you remove bad reviews on Indeed? | Motion
-        </title>
+        <title>How can you remove bad reviews on Indeed? | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
@@ -108,7 +108,7 @@ const Index = () => {
         />
 
         <link rel="stylesheet" href="/assets/blog.css" />
- 
+
         <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/smoothscroll/smooth-scroll.js"></script>
         <script src="/extensions/programm5/software-development-company/assets/ytplayer/index.js"></script>
@@ -291,7 +291,7 @@ const Index = () => {
         </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

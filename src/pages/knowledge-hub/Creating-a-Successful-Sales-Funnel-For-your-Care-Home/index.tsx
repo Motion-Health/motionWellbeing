@@ -9,7 +9,7 @@ import Head from 'next/head';
 import router from 'next/router';
 import React, { useEffect, useState } from 'react';
 
-import { Footer } from '@/components/Home/Footer';
+import Footer from '@/components/Footer';
 import NavBar from '@/components/navBar';
 import styles from '@/pages/knowledge-hub/blogPost.module.css';
 
@@ -332,7 +332,7 @@ const Index = () => {
         </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };

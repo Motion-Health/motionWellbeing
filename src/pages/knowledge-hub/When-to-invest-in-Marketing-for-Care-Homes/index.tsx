@@ -8,27 +8,26 @@ import { IconButton } from '@mui/material';
 import Head from 'next/head';
 import router from 'next/router';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 
-import { Footer } from '@/components/Home/Footer';
+import Footer from '@/components/Footer';
 import NavBar from '@/components/navBar';
 
 import styles from '../blogPost.module.css';
-import { useEffect } from 'react';
 const Index = () => {
   const [showSocialLinks, setShowSocialLinks] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src =
+      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
     script.async = true;
     document.body.appendChild(script);
   }, []);
   return (
     <div className="white-background">
       <Head>
-        <title>
-          When to Invest in Marketing for Your Care Home? | Motion
-        </title>
+        <title>When to Invest in Marketing for Your Care Home? | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
@@ -369,17 +368,14 @@ const Index = () => {
             Motion can guide you through this journey.
           </p>
           <div className="CTA-button">
-            <a
-              className="btn btn-secondary display-4 "
-              href="/get-a-demo"
-            >
+            <a className="btn btn-secondary display-4 " href="/get-a-demo">
               Get a demo.
             </a>
           </div>
         </div>
       </div>
 
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 };
