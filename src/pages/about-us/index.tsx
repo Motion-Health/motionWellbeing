@@ -5,6 +5,7 @@ import React from 'react';
 import Footer from '@/components/Footer';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
+import PageHeader from '@/components/PageHeader';
 
 import styles from './styles.module.css';
 
@@ -103,9 +104,7 @@ const AboutUs = () => {
         <NavBar />
         <div className={`container ${styles.container}`}>
           <div className={styles.headerContainer}>
-            <h2 className="mbr-section-title mbr-fonts-style display-2">
-              <strong>About us</strong>
-            </h2>
+            <PageHeader title="About us" />
           </div>
           <section className={styles.contentSection}>
             <div className={styles.textContainer}>
@@ -122,10 +121,10 @@ const AboutUs = () => {
               />
             </div>
           </section>
-          <div className={styles.carouselContainer}>
-            <MotionStoryCarousel />
-          </div>
         </div>
+
+        <MotionStoryCarousel />
+
         <Footer />
       </div>
     </>
