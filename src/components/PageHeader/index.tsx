@@ -14,7 +14,11 @@ const PageHeader = (props: Props) => {
       className={styles.header}
       // style={{ display: margin ? 'none' : 'block' }}
     >
-      <Typography variant="h1" sx={{ mb: margin ? '2rem' : '16px' }}>
+      <Typography
+        variant="h1"
+        color="primary"
+        sx={{ mb: margin ? '2rem' : '16px' }}
+      >
         {title}
       </Typography>
       {children && <div style={{ alignSelf: 'baseline' }}>{children}</div>}
