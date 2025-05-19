@@ -35,12 +35,12 @@ const Footer = () => {
               <li>
                 <Link href="/about-us">About us</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/pricing">Pricing</Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="https://careers.motion.org.uk">Careers</a>
-              </li>
+              </li> */}
               <li>
                 <a href="https://platform.motion.org.uk/wellbeing/dashboard/">
                   Log in

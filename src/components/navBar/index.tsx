@@ -134,19 +134,19 @@ const NavBar = () => {
                   About us
                 </Link>
               </li>
-              <li className="nav-item midHide">
+              {/* <li className="nav-item midHide">
                 <Link className="nav-link link display-4" href="/pricing">
                   Pricing
                 </Link>
-              </li>
-              <li className="nav-item midHide">
+              </li> */}
+              {/* <li className="nav-item midHide">
                 <a
                   className="nav-link link display-4"
                   href="https://careers.motion.org.uk"
                 >
                   Careers
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <a
                   className="nav-link link display-4"
