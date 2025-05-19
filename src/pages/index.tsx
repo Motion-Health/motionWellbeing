@@ -321,7 +321,7 @@ const Index = () => {
             </div>
 
             <div className="row">
-              <div className="col-4 card">
+              <div className="col-12 col-lg-4 card mb-4">
                 <div
                   className="feature-box"
                   style={{
@@ -338,7 +338,7 @@ const Index = () => {
                     <strong>Showcase and amplify your care</strong>
                   </h3>
                   <p className="motionBenefitsText mbr-fonts-style display-7">
-                    You're already delivering amazing, person-centred care.
+                    You&apos;re already delivering amazing, person-centred care.
                     Motion helps make sure families and key stakeholders
                     actually see it. Personalised, detailed updates are shared
                     automatically, so your team can stay focused on what matters
@@ -346,7 +346,7 @@ const Index = () => {
                   </p>
                 </div>
               </div>
-              <div className="col-4 card">
+              <div className="col-12 col-lg-4 card mb-4">
                 <div
                   className="feature-box"
                   style={{
@@ -363,16 +363,17 @@ const Index = () => {
                     <strong>Meet families where they are</strong>
                   </h3>
                   <p className="motionBenefitsText mbr-fonts-style display-7">
-                    We've listened to over 1,000 families, and one thing is
+                    We&apos;ve listened to over 1,000 families, and one thing is
                     clear: what matters most is knowing their loved one is being
-                    truly looked after. Whether they're exploring care options
-                    or already part of your home, families want connection,
-                    clarity, and peace of mind. Every one of our care partners
-                    has seen a lift in family satisfaction since using Motion.
+                    truly looked after. Whether they&apos;re exploring care
+                    options or already part of your home, families want
+                    connection, clarity, and peace of mind. Every one of our
+                    care partners has seen a lift in family satisfaction since
+                    using Motion.
                   </p>
                 </div>
               </div>
-              <div className="col-4 card">
+              <div className="col-12 col-lg-4 card mb-4">
                 <div
                   className="feature-box"
                   style={{
