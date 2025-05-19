@@ -8,14 +8,43 @@ import PageHeader from '@/components/PageHeader';
 import NavBar from '../../components/navBar';
 import styles from './styles.module.css';
 
+declare global {
+  interface Window {
+    Calendly: {
+      initInlineWidget: (options: {
+        url: string;
+        parentElement: Element | null;
+        prefill: Record<string, any>;
+        utm: Record<string, any>;
+      }) => void;
+    };
+  }
+}
+
 const Index = () => {
   useEffect(() => {
+    // Load Calendly Inline Widget script
     const script = document.createElement('script');
-    script.src =
-      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
     document.body.appendChild(script);
+
+    // Initialize Calendly
+    if (window.Calendly) {
+      window.Calendly.initInlineWidget({
+        url: 'https://calendly.com/zeezy-1/motion',
+        parentElement: document.querySelector(`.${styles.calendlyContainer}`),
+        prefill: {},
+        utm: {},
+      });
+    }
+
+    return () => {
+      // Cleanup script on component unmount
+      document.body.removeChild(script);
+    };
   }, []);
+
   return (
     <>
       <title>Book a Demo | Motion</title>
@@ -96,6 +125,7 @@ const Index = () => {
                 No hard-sell, no payment required, just a chat to understand
                 your needs and how we can help your care organisation to grow.
               </p>
+              <div className={styles.calendlyContainer} />
               <div className={styles.reviewsContainer}>
                 <img
                   src="/assets/images/book-demo/Stars.png"
