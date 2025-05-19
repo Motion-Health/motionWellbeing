@@ -25,25 +25,26 @@ const Footer = () => {
           <nav className={styles.topNav}>
             <ul className={styles.navList}>
               <li>
-                <Link href="/platform">Platform</Link>
+                <Link href="/#how-motion-helps-your-care-organisation">
+                  Platform
+                </Link>
               </li>
               <li>
-                <Link href="/knowledge-hub">Knowledge Hub</Link>
+                <Link href="/knowledge-hub">Knowledge hub</Link>
               </li>
               <li>
-                <Link href="/about">About Us</Link>
+                <Link href="/about-us">About us</Link>
               </li>
               <li>
                 <Link href="/pricing">Pricing</Link>
               </li>
               <li>
-                <Link href="/careers">Careers</Link>
+                <a href="https://careers.motion.org.uk">Careers</a>
               </li>
               <li>
-                <Link href="/privacy">Privacy</Link>
-              </li>
-              <li>
-                <Link href="/help">Help</Link>
+                <a href="https://platform.motion.org.uk/wellbeing/dashboard/">
+                  Log in
+                </a>
               </li>
             </ul>
           </nav>
