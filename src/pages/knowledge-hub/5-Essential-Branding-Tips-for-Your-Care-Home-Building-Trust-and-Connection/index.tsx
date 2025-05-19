@@ -11,7 +11,6 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 
 import Footer from '@/components/Footer';
-import Footer from '@/components/Footer';
 import NavBar from '@/components/navBar';
 
 import styles from '../blogPost.module.css';
