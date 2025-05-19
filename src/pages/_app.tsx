@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 // Import useRouter
 import { QueryClientProvider } from 'react-query';
 
+import Layout from '@/components/Layout';
 import { AccountProvider } from '@/context/AccountContext';
 import { queryClient } from '@/services/query';
 
@@ -37,7 +38,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <AccountProvider>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </AccountProvider>
       </ThemeProvider>
     </QueryClientProvider>
