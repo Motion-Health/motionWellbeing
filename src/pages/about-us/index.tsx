@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Script from 'next/script';
 import React from 'react';
 
@@ -156,6 +157,15 @@ const AboutUs = () => {
               committed to delivering the highest quality service, so that you
               can focus on delivering the highest quality care.
             </p>
+
+            <div className={styles.demoButtonContainer}>
+              <Link
+                className={`blueDemoButton ${styles.demoButton}`}
+                href="/get-a-demo"
+              >
+                Get a Demo
+              </Link>
+            </div>
           </div>
         </section>
 
