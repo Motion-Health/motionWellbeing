@@ -19,7 +19,7 @@ const PageHeader = (props: Props) => {
         color="primary"
         sx={{
           mb: margin ? '2rem' : '16px',
-          mt: '2rem',
+          mt: '6rem',
           fontWeight: 'bold',
           textAlign: 'center',
         }}
