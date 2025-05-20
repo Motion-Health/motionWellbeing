@@ -28,10 +28,10 @@ const FeaturedInMedia = () => {
           <div className={styles.logoItem}>
             <div className={styles.logoWrapper}>
               <img
-                src="/assets/images/featured-in-media/Ford Philanthropy Logo.jpg"
+                src="/assets/images/featured-in-media/ford-philanthropy.png"
                 alt="Ford Philanthropy logo"
-                width={90}
-                height={45}
+                width={130}
+                height={65}
                 className={styles.mediaLogo}
               />
             </div>
@@ -50,7 +50,7 @@ const FeaturedInMedia = () => {
           <div className={styles.logoItem}>
             <div className={styles.logoWrapper}>
               <img
-                src="/assets/images/featured-in-media/fedex.webp"
+                src="/assets/images/featured-in-media/fedex.png"
                 alt="FedEx logo"
                 width={70}
                 height={45}

@@ -75,75 +75,13 @@
   width: 100%;
 }
 
-.newsletterSection {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem 0;
-  margin-bottom: 1.5rem;
-}
-
-.newsletterContent {
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.newsletterContent h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: right;
-}
-
-.newsletterContent p {
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
-}
-
-.newsletterForm {
-  text-align: left;
-}
-
-.newsletterForm :global(.klaviyo_submit_button) {
-  background-color: white !important;
-  color: #385988 !important;
-  border: none !important;
-  padding: 0.75rem 1.5rem !important;
-  border-radius: 4px !important;
-  font-weight: 600 !important;
-  transition: opacity 0.3s ease !important;
-}
-
-.newsletterForm :global(.klaviyo_submit_button:hover) {
-  opacity: 0.9 !important;
-}
-
-.newsletterForm :global(.klaviyo_form) {
-  text-align: left !important;
-}
-
-.newsletterForm :global(.klaviyo_form input),
-.newsletterForm :global(.klaviyo_form select),
-.newsletterForm :global(.klaviyo_form option) {
-  text-align: left !important;
-}
-
-.newsletterForm :global(.klaviyo_form input::placeholder) {
-  text-align: left !important;
-}
-
-.newsletterForm :global(.klaviyo_form select option:first-child) {
-  text-align: left !important;
-}
-
-.newsletterForm :global(.klaviyo_form select option[disabled]) {
-  text-align: left !important;
-}
-
 .bottomSection {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
 }
 
 .contactInfo {
@@ -187,21 +125,5 @@
 
   .contactInfo {
     margin-bottom: 2rem;
-  }
-
-  .newsletterSection {
-    text-align: center;
-  }
-  
-  .newsletterContent {
-    margin: 0 auto;
-  }
-  
-  .newsletterContent h3 {
-    text-align: center;
-  }
-  
-  .newsletterForm {
-    text-align: center;
   }
 } 

@@ -242,6 +242,8 @@ const Index = () => {
                 <img
                   src="extensions/programm5/assets/logos/age-uk.jpg"
                   alt=""
+                  width={70}
+                  height={70}
                 />
               </div>
               <div

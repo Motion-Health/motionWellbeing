@@ -1,19 +1,11 @@
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import AppIcon from '@/components/AppIcon';
 
 import styles from './Footer.module.css';
 
 const Footer = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src =
-      'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD';
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -48,18 +40,6 @@ const Footer = () => {
               </li>
             </ul>
           </nav>
-        </div>
-
-        <div className={styles.newsletterSection}>
-          <div className={styles.newsletterContent}>
-            <h3>
-              Sign up to our newsletter and be the first to hear about news and
-              updates
-            </h3>
-            <div
-              className={`klaviyo-form-UcvnLw ${styles.newsletterForm}`}
-            ></div>
-          </div>
         </div>
 
         {/* Bottom Section */}
