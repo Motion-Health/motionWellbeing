@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 
 import Footer from '@/components/Footer';
 import PageHeader from '@/components/PageHeader';
+import backgroundStyles from '@/styles/backgrounds.module.css';
 
 import NavBar from '../../components/navBar';
 import styles from './styles.module.css';
@@ -137,7 +138,9 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
 
-      <div className={styles.pageContainer}>
+      <div
+        className={`${styles.pageContainer} ${backgroundStyles.pageGradientBackground}`}
+      >
         <NavBar />
         <div className={`container ${styles.container}`}>
           <div className={styles.headerContainer}>

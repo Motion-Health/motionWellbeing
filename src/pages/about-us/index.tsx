@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import PageHeader from '@/components/PageHeader';
+import backgroundStyles from '@/styles/backgrounds.module.css';
 
 import styles from './styles.module.css';
 
@@ -101,7 +102,9 @@ const AboutUs = () => {
         src="/extensions/programm5/software-development-company/assets/formoid.min.js"
         strategy="afterInteractive"
       />
-      <div className={styles.pageContainer}>
+      <div
+        className={`${styles.pageContainer} ${backgroundStyles.pageGradientBackground}`}
+      >
         <NavBar />
         <div className={`container ${styles.container}`}>
           <div className={styles.headerContainer}>
