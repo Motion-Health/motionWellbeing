@@ -11,7 +11,7 @@ const PageHeader = (props: Props) => {
   const { title, margin = true, children } = props;
   return (
     <div
-      className={styles.header}
+      className={`${styles.header} pageHeader`}
       // style={{ display: margin ? 'none' : 'block' }}
     >
       <Typography

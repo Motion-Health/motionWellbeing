@@ -61,7 +61,13 @@
   margin: 29px;
 }
 .blogHeroContent p{
-  font-family: 'Montserrat';
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .Cards {
@@ -89,10 +95,14 @@
 }
 
 .blogHeroContent p{
-  font-size: 0.5em;
-  margin-bottom: 0px;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
   width: 80vw;
-  line-height: inherit;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media screen and (max-width: 900px) {
   .Cards > div {

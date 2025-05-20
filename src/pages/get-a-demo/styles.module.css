@@ -17,7 +17,15 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+}
+
+.headerContainer + p {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
 }
 
 .header {

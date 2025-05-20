@@ -143,12 +143,12 @@ const Index = () => {
           <div className={styles.headerContainer}>
             <PageHeader title="Let's chat!" />
           </div>
+          <p>
+            No hard-sell, no payment required, just a chat to understand your
+            needs and how we can help your care organisation to grow.
+          </p>
           <div className="row justify-content-center">
             <div className="col-12 col-md-8 text-center">
-              <p className="TextOne">
-                No hard-sell, no payment required, just a chat to understand
-                your needs and how we can help your care organisation to grow.
-              </p>
               <div
                 ref={calendlyContainerRef}
                 className={styles.calendlyContainer}
