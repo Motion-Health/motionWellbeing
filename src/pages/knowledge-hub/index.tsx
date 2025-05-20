@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import BlogCard from '@/components/BlogCard';
 import Footer from '@/components/Footer';
 import NavBar from '@/components/navBar';
+import PageHeader from '@/components/PageHeader';
 
 import styles from './blog.module.css';
 
@@ -155,7 +156,9 @@ const Index = () => {
       >
         <div className={styles.blogHero}>
           <div className={styles.blogHeroContent}>
-            <h1>Knowledge hub</h1>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <PageHeader title="Knowledge hub" />
+            </div>
             <p>
               We&apos;ve compiled these quick and easy resources to de-mystify
               marketing and sales for your care home.

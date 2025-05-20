@@ -17,7 +17,12 @@ const PageHeader = (props: Props) => {
       <Typography
         variant="h1"
         color="primary"
-        sx={{ mb: margin ? '2rem' : '16px' }}
+        sx={{
+          mb: margin ? '2rem' : '16px',
+          mt: '2rem',
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}
       >
         {title}
       </Typography>
