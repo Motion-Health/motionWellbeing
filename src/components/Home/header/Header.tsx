@@ -56,7 +56,7 @@ export const Header = () => {
     if (isLoggedIn) {
       router.push('/wellbeing/dashboard');
     } else {
-      router.push('https://calendly.com/zeezy-1/motion');
+      router.push('https://calendly.com/zeezy-fpza/30min');
     }
   };
 

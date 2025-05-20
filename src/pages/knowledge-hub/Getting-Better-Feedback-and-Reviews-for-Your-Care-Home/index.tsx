@@ -280,7 +280,7 @@ const Index = () => {
           <div className="CTA-button">
             <a
               className="btn btn-secondary display-4 "
-              href="https://calendly.com/zeezy-1/motion"
+              href="https://calendly.com/zeezy-fpza/30min"
             >
               Get a demo.
             </a>

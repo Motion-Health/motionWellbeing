@@ -50,7 +50,7 @@ const Index = () => {
       // Initialize Calendly only after script is loaded
       if (window.Calendly && calendlyContainerRef.current) {
         window.Calendly.initInlineWidget({
-          url: 'https://calendly.com/zeezy-1/motion',
+          url: 'https://calendly.com/zeezy-fpza/30min',
           parentElement: calendlyContainerRef.current,
           prefill: {},
           utm: {},
