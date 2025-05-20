@@ -147,23 +147,17 @@ const Index = () => {
             No hard-sell, no payment required, just a chat to understand your
             needs and how we can help your care organisation to grow.
           </p>
-          <div className="row justify-content-center">
-            <div className="col-12 col-md-8 text-center">
-              <div
-                ref={calendlyContainerRef}
-                className={styles.calendlyContainer}
-              />
-              <div className={styles.reviewsContainer}>
-                <img
-                  src="/assets/images/book-demo/Stars.png"
-                  alt="5/5 Star Rating"
-                  className={styles.stars}
-                />
-                <p className={styles.googleReviews}>
-                  5/5 stars | Google Reviews
-                </p>
-              </div>
-            </div>
+          <div
+            ref={calendlyContainerRef}
+            className={styles.calendlyContainer}
+          />
+          <div className={styles.reviewsContainer}>
+            <img
+              src="/assets/images/book-demo/Stars.png"
+              alt="5/5 Star Rating"
+              className={styles.stars}
+            />
+            <p className={styles.googleReviews}>5/5 stars | Google Reviews</p>
           </div>
         </div>
         <Footer />
