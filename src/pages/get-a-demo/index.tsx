@@ -160,7 +160,7 @@ const Index = () => {
                   className={styles.stars}
                 />
                 <p className={styles.googleReviews}>
-                  5/5 start | Google Reviews
+                  5/5 stars | Google Reviews
                 </p>
               </div>
             </div>
