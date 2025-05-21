@@ -28,28 +28,28 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          Getting Your Care Home Better Feedback and Reviews | Motion
+          Getting your care home better feedback and reviews | Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | Getting Your Care Home Better Feedback and Reviews"
+          content="Motion | Getting your care home better feedback and reviews"
         />
         <meta
           name="description"
-          content="Getting Your Care Home Better Feedback and Reviews"
+          content="Getting your care home better feedback and reviews"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | Getting Your Care Home Better Feedback and Reviews"
+          content="Motion | Getting your care home better feedback and reviews"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Getting Your Care Home Better Feedback and Reviews"
+          content="Getting your care home better feedback and reviews"
         />
         <link
           rel="stylesheet"
@@ -133,7 +133,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Getting Your Care Home Better Feedback and Reviews</h1>
+          <h1>Getting your care home better feedback and reviews</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -282,7 +282,7 @@ const Index = () => {
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-fpza/30min"
             >
-              Get a demo.
+              Get a demo
             </a>
           </div>
         </div>

@@ -201,7 +201,7 @@ const Index = () => {
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
           <h1>
-            Cost-Effective Strategies to Attract More Carers to Your Care Home
+            Cost-effective strategies to attract more carers to your care home
           </h1>
           <div className={styles.shareToolbar}>
             <div>

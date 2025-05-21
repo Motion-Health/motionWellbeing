@@ -27,27 +27,27 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>How to Get Your Care Homes Featured on BBC News | Motion</title>
+        <title>How to get your care homes featured on BBC News | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | How to Get Your Care Homes Featured on BBC News"
+          content="Motion | How to get your care homes featured on BBC News"
         />
         <meta
           name="description"
-          content="How to Get Your Care Homes Featured on BBC News"
+          content="How to get your care homes featured on BBC News"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | How to Get Your Care Homes Featured on BBC News"
+          content="Motion | How to get your care homes featured on BBC News"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="How to Get Your Care Homes Featured on BBC News"
+          content="How to get your care homes featured on BBC News"
         />
         <link
           rel="stylesheet"
@@ -131,7 +131,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>How to Get Your Care Homes Featured on BBC News</h1>
+          <h1>How to get your care homes featured on BBC News</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -266,7 +266,7 @@ const Index = () => {
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-fpza/30min"
             >
-              Get a demo.
+              Get a demo
             </a>
           </div>
         </div>

@@ -28,29 +28,29 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          What Families Care About When Looking for a Care Home | Motion
+          What families care about when looking for a care home | Motion
           Marketing
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | What Families Care About When Looking for a Care Home"
+          content="Motion | What families care about when looking for a care home"
         />
         <meta
           name="description"
-          content="What Families Care About When Looking for a Care Home"
+          content="What families care about when looking for a care home"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | What Families Care About When Looking for a Care Home"
+          content="Motion | What families care about when looking for a care home"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="What Families Care About When Looking for a Care Home"
+          content="What families care about when looking for a care home"
         />
         <link
           rel="stylesheet"
@@ -134,7 +134,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>What Families Care About When Looking for a Care Home</h1>
+          <h1>What families care about when looking for a care home</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -274,7 +274,7 @@ const Index = () => {
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-fpza/30min"
             >
-              Get a demo.
+              Get a demo
             </a>
           </div>
         </div>

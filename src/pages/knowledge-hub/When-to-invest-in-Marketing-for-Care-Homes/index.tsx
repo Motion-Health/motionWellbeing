@@ -27,12 +27,12 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>When to Invest in Marketing for Your Care Home? | Motion</title>
+        <title>When to invest in marketing for your care home | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | When to Invest in Marketing for Your Care Home?"
+          content="Motion | When to invest in marketing for your care home"
         />
         <meta
           name="description"
@@ -42,7 +42,7 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | When to Invest in Marketing for Your Care Home?"
+          content="Motion | When to invest in marketing for your care home"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
@@ -131,7 +131,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1> When to Invest in Marketing for Your Care Home?</h1>
+          <h1> When to invest in marketing for your care home</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -369,7 +369,7 @@ const Index = () => {
           </p>
           <div className="CTA-button">
             <a className="btn btn-secondary display-4 " href="/get-a-demo">
-              Get a demo.
+              Get a demo
             </a>
           </div>
         </div>

@@ -166,7 +166,7 @@ const AboutUs = () => {
                 className={`blueDemoButton ${styles.demoButton}`}
                 href="/get-a-demo"
               >
-                Get a Demo
+                Get a demo
               </Link>
             </div>
           </div>

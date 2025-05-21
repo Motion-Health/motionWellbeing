@@ -21,55 +21,55 @@ const Index = () => {
   }, []);
   const [selectedTags, setSelectedTags] = useState<string[]>([]); // This will be used to filter the blogs based on the selected tags
   const blogs = [
-    { id: 1, name: 'SEO Explained', tags: ['Marketing', 'Technology'] },
+    { id: 1, name: 'SEO explained', tags: ['Marketing', 'Technology'] },
     {
       id: 3,
-      name: 'How to Attract more Carers to your Home',
+      name: 'How to attract more carers to your home',
       tags: ['Sales', 'Wellbeing'],
     },
     {
       id: 4,
-      name: 'When to Invest in Marketing for Care Homes',
+      name: 'When to invest in marketing for care homes',
       tags: ['Marketing', 'News'],
     },
     {
       id: 5,
-      name: 'How can you Remove Bad Reviews on Indeed?',
+      name: 'How can you remove bad reviews on Indeed?',
       tags: ['Sales', 'Technology'],
     },
     {
       id: 6,
-      name: 'Creating a Successful Sales Funnel For your Care Home',
+      name: 'Creating a successful sales funnel for your care home',
       tags: ['Sales', 'Marketing'],
     },
     {
       id: 7,
-      name: 'What is TikTok and Should your Care Home be Using it?',
+      name: 'What is TikTok and should your care home be using it?',
       tags: ['Technology', 'News'],
     },
     {
       id: 8,
-      name: 'Why the Adult Social Care Sector is Poised for Explosive Growth',
+      name: 'Why the adult social care sector is poised for explosive growth',
       tags: ['News', 'Wellbeing'],
     },
     {
       id: 9,
-      name: 'How to Get Your Care Homes Featured on BBC News',
+      name: 'How to get your care homes featured on BBC News',
       tags: ['News', 'Marketing'],
     },
     {
       id: 10,
-      name: "'Nothing About Us Without Us': What We've Learned from Co-Designing Services with Care Homes",
+      name: "'Nothing about us without us': what we've learned from co-designing services with care homes",
       tags: ['Wellbeing', 'Technology'],
     },
     {
       id: 11,
-      name: 'Getting Better Feedback and Reviews for Your Care Home',
+      name: 'Getting better feedback and reviews for your care home',
       tags: ['Sales', 'Wellbeing'],
     },
     {
       id: 12,
-      name: 'What Families Care About When Looking for a Care Home',
+      name: 'What families care about when looking for a care home',
       tags: ['Sales', 'Marketing'],
     },
   ];

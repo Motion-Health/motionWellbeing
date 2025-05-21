@@ -34,21 +34,21 @@ const Index = () => {
   return (
     <div className="white-background">
       <Head>
-        <title>SEO Explained | Motion</title>
+        <title>SEO explained | Motion</title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Motion | SEO Explained" />
+        <meta property="og:title" content="Motion | SEO explained" />
         <meta
           name="description"
-          content="Understanding SEO: A Key Tool for Care Home Visibility Online"
+          content="Understanding SEO: a key tool for care home visibility online"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Motion | SEO Explained" />
+        <meta name="twitter:title" content="Motion | SEO explained" />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Understanding SEO: A Key Tool for Care Home Visibility Online"
+          content="Understanding SEO: a key tool for care home visibility online"
         />
         <link
           rel="stylesheet"
@@ -132,7 +132,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>Understanding SEO: A Key Tool for Care Home Visibility Online</h1>
+          <h1>Understanding SEO: a key tool for care home visibility online</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -331,7 +331,7 @@ const Index = () => {
           </p>
           <div className="CTA-button">
             <a className="btn btn-secondary display-4 " href="/get-a-demo">
-              Get a demo.
+              Get a demo
             </a>
           </div>
         </div>

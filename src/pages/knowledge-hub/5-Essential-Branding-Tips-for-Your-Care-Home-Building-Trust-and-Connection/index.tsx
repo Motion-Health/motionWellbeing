@@ -29,29 +29,29 @@ const Index = () => {
     <div className="white-background">
       <Head>
         <title>
-          Why the Adult Social Care Sector is Poised for Explosive Growth |
+          Why the adult social care sector is poised for explosive growth |
           Motion
         </title>
         <meta property="og:url" content="https://www.motion.org.uk" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Motion | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion | Why the adult social care sector is poised for explosive growth"
         />
         <meta
           name="description"
-          content="Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Why the adult social care sector is poised for explosive growth"
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Motion | Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Motion | Why the adult social care sector is poised for explosive growth"
         />
         <meta name="twitter:image" content="./og-image.jpg" />
         <meta
           property="twitter:description"
-          content="Why the Adult Social Care Sector is Poised for Explosive Growth"
+          content="Why the adult social care sector is poised for explosive growth"
         />
         <link
           rel="stylesheet"
@@ -136,7 +136,7 @@ const Index = () => {
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
           <h1>
-            Why the Adult Social Care Sector is Poised for Explosive Growth
+            Why the adult social care sector is poised for explosive growth
           </h1>
           <div className={styles.shareToolbar}>
             <div>
@@ -288,7 +288,7 @@ const Index = () => {
           </p>
           <div className="CTA-button">
             <a className="btn btn-secondary display-4 " href="/get-a-demo">
-              Get a demo.
+              Get a demo
             </a>
           </div>
         </div>

@@ -134,7 +134,7 @@ const Index = () => {
       </IconButton>
       <div className={styles.blogHero}>
         <div className={styles.blogHeroContent}>
-          <h1>What is TikTok, and Should your Care Home be Using it?</h1>
+          <h1>What is TikTok and should your care home be using it?</h1>
           <div className={styles.shareToolbar}>
             <div>
               <img src="/assets/icons/ph_time.svg" alt="share" />
@@ -311,7 +311,7 @@ const Index = () => {
               className="btn btn-secondary display-4 "
               href="https://calendly.com/zeezy-fpza/30min"
             >
-              Get a demo.
+              Get a demo
             </a>
           </div>
         </div>
