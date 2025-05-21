@@ -28,10 +28,10 @@ const FeaturedInMedia = () => {
           <div className={styles.logoItem}>
             <div className={styles.logoWrapper}>
               <img
-                src="/assets/images/featured-in-media/ford-philanthropy.png"
+                src="/assets/images/featured-in-media/ford.png"
                 alt="Ford Philanthropy logo"
-                width={130}
-                height={65}
+                width={200}
+                height={200}
                 className={styles.mediaLogo}
               />
             </div>
