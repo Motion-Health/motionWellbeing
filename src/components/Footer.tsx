@@ -30,9 +30,9 @@ const Footer = () => {
               {/* <li>
                 <Link href="/pricing">Pricing</Link>
               </li> */}
-              {/* <li>
-                <a href="https://careers.motion.org.uk">Careers</a>
-              </li> */}
+              <li>
+                <a href="/careers">Careers</a>
+              </li>
               <li>
                 <a href="https://platform.motion.org.uk/wellbeing/dashboard/">
                   Log in

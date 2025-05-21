@@ -139,14 +139,11 @@ const NavBar = () => {
                   Pricing
                 </Link>
               </li> */}
-              {/* <li className="nav-item midHide">
-                <a
-                  className="nav-link link display-4"
-                  href="https://careers.motion.org.uk"
-                >
+              <li className="nav-item midHide">
+                <a className="nav-link link display-4" href="/careers">
                   Careers
                 </a>
-              </li> */}
+              </li>
               <li className="nav-item">
                 <a
                   className="nav-link link display-4"
