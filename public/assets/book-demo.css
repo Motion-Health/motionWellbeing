@@ -19,7 +19,7 @@ h1.blogTitle {
 }
 
 p.TextOne {
-    margin-top: 25px;
+    margin-top: -25px;
     font-family: 'Montserrat';
     font-size: 20px;
 }

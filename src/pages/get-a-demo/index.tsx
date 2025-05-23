@@ -1,28 +1,85 @@
 /* eslint-disable @next/next/no-sync-scripts */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+import Footer from '@/components/Footer';
+import PageHeader from '@/components/PageHeader';
+import backgroundStyles from '@/styles/backgrounds.module.css';
 
 import NavBar from '../../components/navBar';
+import styles from './styles.module.css';
 
-const tags = ['Marketing', 'News', 'Sales', 'Technology', 'Wellbeing'];
+declare global {
+  interface Window {
+    Calendly: {
+      initInlineWidget: (options: {
+        url: string;
+        parentElement: Element | null;
+        prefill: Record<string, any>;
+        utm: Record<string, any>;
+      }) => void;
+    };
+  }
+}
 
 const Index = () => {
+  const calendlyContainerRef = useRef<HTMLDivElement>(null);
+  const scriptRef = useRef<HTMLScriptElement | null>(null);
+  const initializedRef = useRef(false);
+
   useEffect(() => {
+    // Only initialize once
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
+    // Check if script already exists
+    if (
+      document.querySelector(
+        'script[src="https://assets.calendly.com/assets/external/widget.js"]'
+      )
+    ) {
+      return;
+    }
+
+    // Load Calendly Inline Widget script
     const script = document.createElement('script');
-    script.src = "https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Wv6PpD";
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
+    scriptRef.current = script;
+
+    script.onload = () => {
+      // Initialize Calendly only after script is loaded
+      if (window.Calendly && calendlyContainerRef.current) {
+        window.Calendly.initInlineWidget({
+          url: 'https://calendly.com/zeezy-fpza/30min',
+          parentElement: calendlyContainerRef.current,
+          prefill: {},
+          utm: {},
+        });
+      }
+    };
+
     document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on component unmount
+      if (scriptRef.current && document.body.contains(scriptRef.current)) {
+        document.body.removeChild(scriptRef.current);
+      }
+      initializedRef.current = false;
+    };
   }, []);
+
   return (
     <>
       <title>Book a Demo | Motion</title>
       <meta property="og:url" content="https://www.motion.org.uk" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="Motion | Knowlegde Hub" />
+      <meta property="og:title" content="Motion | Book a Demo" />
       <meta name="description" content="Book a Demo" />
       <meta property="og:image" content="./og-image.jpg" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Resource Hub | Motion" />
+      <meta name="twitter:title" content="Book a Demo | Motion" />
       <meta name="twitter:image" content="./og-image.jpg" />
       <meta property="twitter:description" content="Book a Demo" />
       <link
@@ -81,216 +138,32 @@ const Index = () => {
       <script src="/extensions/programm5/software-development-company/assets/theme/js/script.js"></script>
       <script src="/extensions/programm5/software-development-company/assets/formoid.min.js"></script>
 
-
-      <NavBar />
-
       <div
-        style={{
-          background:
-            'radial-gradient(circle at -11% 10%, #385988 -33%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 0% 73%, #385988 -30%, #FDFCED 30%, transparent 50%), radial-gradient(circle at 77% 48%, #385988 -30%, #FDFCED 30%, transparent 50%)',
-        }}
+        className={`${styles.pageContainer} ${backgroundStyles.pageGradientBackground}`}
       >
-        <div className="container">
-          <div className="row">
-            <div className="col-12 col-md-6">
-              <h1 className="blogTitle">Let's Chat!</h1>
-              <div className="person-wrapper">
-                <div className="col-md-auto col mbr-section-btn">
-                  <a href="https://www.linkedin.com/in/zeezy-qureshi-370bbb151/">
-                    <div className="person-wrap">
-                      <img
-                        src="/extensions/programm5/assets/images/zeezy-headshot.png"
-                        alt=""
-                      />
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <p className="TextOne">
-                Looking to get the wheels in Motion? Let’s jump on a video call
-                so we can show you around!
-              </p>
-              {/* icon then text */}
-              <div className="iconText">
-                <img src="/assets/images/book-demo/support_agent.svg" alt="" />
-                <p>
-                  See the platform and features in action, and discuss your
-                  unique needs with us.
-                </p>
-              </div>
-              <div className="iconText">
-                <img src="/assets/images/book-demo/trending_up.svg" alt="" />
-                <p>
-                  Do you have a specific marketing goal? We'll tailor the
-                  package to whatever your business needs.
-                </p>
-              </div>
-              <div className="iconText">
-                <img src="/assets/images/book-demo/check_circle.svg" alt="" />
-                <p>
-                  {' '}
-                  No credit cards and no commitment to buy. Just a free demo and
-                  chat with one of our experts!
-                </p>
-              </div>
-
-              <img
-                src="/assets/images/book-demo/Stars.png"
-                alt="5/5 Star Rating"
-                className="stars"
-              />
-              <p className="googleReviews"> 5/5 start | Google Reviews </p>
-            </div>
-            <div className="col-12 col-md-6">
-              <div className="klaviyo-form-RmWFV9"></div>
-            </div>
+        <NavBar />
+        <div className={`container ${styles.container}`}>
+          <div className={styles.headerContainer}>
+            <PageHeader title="Let's chat!" />
+          </div>
+          <p>
+            No hard-sell, no payment required, just a chat to understand your
+            needs and how we can help your care organisation to grow.
+          </p>
+          <div
+            ref={calendlyContainerRef}
+            className={styles.calendlyContainer}
+          />
+          <div className={styles.reviewsContainer}>
+            <img
+              src="/assets/images/book-demo/Stars.png"
+              alt="5/5 Star Rating"
+              className={styles.stars}
+            />
+            <p className={styles.googleReviews}>5/5 stars | Google Reviews</p>
           </div>
         </div>
-
-        <section
-          data-bs-version="5.1"
-          className="footer1 programm5 cid-tFcguy0QTa"
-          once="footers"
-          id="footer1-9"
-        >
-          <div className="container">
-            <div className="row footMargin">
-              <div className="col-12">
-                <div className="title-wrapper">
-                  <span className="navbar-logo">
-                    <a href="/">
-                      <img
-                        src="/extensions/programm5/software-development-company/assets/images/logo.svg"
-                        alt=""
-                      />
-                    </a>
-                  </span>
-                  <nav>
-                    <ul className="list mbr-fonts-style display-4">
-                      <li className="nav-item">
-                        <a className="nav-link link display-4" href="/">
-                          How Motion Works
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/resource-hub"
-                        >
-                          Resource Hub
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/resource-hub"
-                        >
-                          Success Stories
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/resource-hub"
-                        >
-                          About
-                        </a>
-                      </li>
-                      <li className="nav-item midHide">
-                        <a className="nav-link link display-4" href="/sblog">
-                          Pricing
-                        </a>
-                      </li>
-                      <li className="nav-item midHide">
-                        <a
-                          className="nav-link link display-4"
-                          href="/resource-hub"
-                        >
-                          Other Services
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link link display-4"
-                          href="/resource-hub"
-                        >
-                          Login
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-12 col-lg-6">
-                <div className="contacts-wrapper">
-                  <ul className="list mbr-fonts-style display-4">
-                    <li className="item-wrap">
-                      <strong>Address</strong>
-                    </li>
-                    <li className="item-wrap">
-                      Sheffield Science Park Cooper Buildings, Arundel St,
-                      Sheffield City Centre, Sheffield S1 2NS
-                    </li>
-                    <li className="item-wrap w-100">
-                      <strong>Contact</strong>
-                    </li>
-                    <li className="item-wrap w-100">info@motion.org.uk</li>
-                    <li className="item-wrap w-100">+44 7543 858684</li>
-                  </ul>
-                </div>
-                <div className="social-row">
-                  <div className="soc-item">
-                    <a
-                      href="https://instagram.com/motion.org.uk"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-instagram" />
-                    </a>
-                  </div>
-                  <div className="soc-item">
-                    <a
-                      href="https://facebook.com/motion.org.uk"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-facebook" />
-                    </a>
-                  </div>
-                  <div className="soc-item">
-                    <a
-                      href="https://linkedin.com/company/motion-org-uk"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-linkedin" />
-                    </a>
-                  </div>
-                  <div className="soc-item">
-                    <a
-                      href="https://www.tiktok.com/@zeezy_motion"
-                      target="_blank"
-                    >
-                      <span className="mbr-iconfont socicon socicon-tiktok" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-6">
-                <label className="mbr-desc mbr-fonts-style display-7 signupText">
-                  Sign up to our newsletter to be first to hear about news and
-                  updates:
-                </label>
-                <div className="klaviyo-form-UcvnLw"></div>
-              </div>
-              <div className="col-12 col-lg-6"></div>
-              <div className="col-12">
-                <p className="mbr-fonts-style copyright display-4">
-                  © Copyright 2024 Motion Health Ltd - All Rights Reserved
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Footer />
       </div>
     </>
   );

@@ -17,7 +17,7 @@ export const Header = () => {
     router.push('/');
   };
   const navigateToKnowledgeHub = () => {
-    router.push('/resource-hub');
+    router.push('/knowledge-hub');
   };
   const navigateToHowWeCanHelp = () => {
     router.push('/how-we-can-help');
@@ -56,8 +56,12 @@ export const Header = () => {
     if (isLoggedIn) {
       router.push('/wellbeing/dashboard');
     } else {
-      router.push('https://calendly.com/zeezy-1/motion');
+      router.push('https://calendly.com/zeezy-fpza/30min');
     }
+  };
+
+  const openBlog = () => {
+    router.push('/knowledge-hub');
   };
 
   return (
@@ -188,7 +192,7 @@ export const Header = () => {
                   showDesktop
                 >
                   <span className="hidden xl:inline">
-                    {isLoggedIn ? 'My Account' : 'Get a Demo'}
+                    {isLoggedIn ? 'My Account' : 'Get a demo'}
                   </span>
                   <img
                     src={
@@ -221,7 +225,7 @@ export const Header = () => {
               showDesktop
             >
               <span className=" inline xl:hidden">
-                {isLoggedIn ? 'My Account' : 'Get a Demo'}
+                {isLoggedIn ? 'My Account' : 'Get a demo'}
               </span>
             </Button>
           )}

@@ -50,10 +50,6 @@ class MyDocument extends Document {
             }}
           />
           <meta
-            name="og:title"
-            content="Motion | Sharing stories about later life"
-          />
-          <meta
             name="og:description"
             content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
           />
@@ -73,7 +69,6 @@ class MyDocument extends Document {
             src="https://app.termly.io/embed.min.js"
             data-auto-block="off"
             data-website-uuid="cb23cb1a-800f-4e1c-8be6-2a04da33755f"
-            strategy="lazyOnload"
           />
         </body>
       </Html>

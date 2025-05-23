@@ -388,3 +388,79 @@ p {
   text-align: center;
   margin: 10px;
 }
+
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.card-link:hover {
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-link .card-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* Override homepage specific styles */
+.cid-tFcgeFyM9G .card .card-wrapper,
+.blogCard .card-wrapper {
+  height: auto !important;
+  min-height: 0 !important;
+  position: relative;
+  background: white;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.1) !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer;
+}
+
+.blogCard .title-wrap {
+  padding: 10px 12px 0;
+}
+
+.blogCard .title h3 {
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: 1.2rem !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+}
+
+.blogCard .link-wrap {
+  padding: 0 12px 10px;
+  margin-top: auto;
+  text-align: left !important;
+  position: relative !important;
+  bottom: auto !important;
+  width: auto !important;
+}
+
+.blogCard .link-wrap p {
+  color: #000 !important;
+  font-weight: 500;
+  margin: 0;
+  font-size: 0.9rem;
+  text-decoration: none !important;
+  text-align: left !important;
+  position: relative !important;
+  bottom: auto !important;
+}
+
+.blogImage {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 140px;
+  object-fit: cover;
+  width: 100%;
+}

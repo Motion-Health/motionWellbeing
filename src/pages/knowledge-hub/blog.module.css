@@ -1,0 +1,120 @@
+.blogHero{
+  position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    text-align: center;
+
+    font-size: 2rem;
+    width: 100%;
+    border-radius: 0px 0px 50px 50px;
+}
+
+
+.blogContainer {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+.blogHeroContent{
+  padding-top: 8vh;
+  text-align: center;
+}
+
+.tags{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px;
+  flex-wrap: wrap;
+}
+
+
+
+.tags button.selected{
+  background-color: #385988;
+  color: white;
+  transition: 0.3s;
+}
+
+.tags button{
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px 20px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: #385988;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  margin: 10px;
+}
+.blogHeroContent h1{
+  font-family: 'Montserrat';
+}
+
+.KlavioForm{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin: 29px;
+}
+.blogHeroContent p{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Cards > div {
+  padding: 0;
+  margin-bottom: 0;
+  width: auto;
+}
+
+.blogHeroContent h1{
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+.blogHeroContent h2{
+  font-size: 0.5em;
+  margin-bottom: 0px;
+}
+
+.blogHeroContent p{
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  width: 80vw;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 900px) {
+  .Cards > div {
+    width: auto;
+  }
+}
+@media screen and (max-width: 600px) {
+  .Cards > div {
+    width: auto;
+  }
+  .blogContainer {
+    padding: 1rem 0;
+  }
+}
+

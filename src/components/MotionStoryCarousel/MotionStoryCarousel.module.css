@@ -1,0 +1,95 @@
+.storyCarouselWrapper {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.storyCarouselSection {
+  padding: 60px 0;
+  background: white;
+  max-width: 100vw;
+  overflow-x: hidden; /* Prevent section from causing horizontal scrolling */
+}
+
+.sectionTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #385988;
+}
+
+.storyContainer {
+  display: flex;
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+.storyCard {
+  width: 320px;
+  flex-shrink: 0;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.storyCard:first-child {
+  margin-left: 40px;
+}
+
+.storyImageContainer {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.storyImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.storyContent {
+  padding: 20px 0;
+  text-align: left;
+}
+
+.storyYear {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #385988;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.storyTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.storyDescription {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+
+@media (max-width: 767px) {
+  .storyCard {
+    width: 280px;
+  }
+  
+  .storyCard:first-child {
+    margin-left: 20px;
+  }
+} 

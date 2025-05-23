@@ -42,4 +42,31 @@ module.exports = withBundleAnalyzer({
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self' https://*;",
+          },
+        ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: '/resource-hub',
+        destination: '/knowledge-hub',
+        permanent: true,
+      },
+      {
+        source: '/resource-hub/:path*',
+        destination: '/knowledge-hub/:path*',
+        permanent: true,
+      },
+    ];
+  },
 });

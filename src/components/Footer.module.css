@@ -1,0 +1,129 @@
+.footer {
+  background-color: #385988;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  padding: 4rem 0 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoIcon {
+  height: 45px;
+  width: 109px;
+}
+
+.topNav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navList a,
+.contactInfo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+  opacity: 0.9;
+}
+
+.navList a:hover,
+.contactInfo a:hover {
+  color: white;
+  opacity: 1;
+}
+
+.navList a::after,
+.contactInfo a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.navList a:hover::after,
+.contactInfo a:hover::after {
+  width: 100%;
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.contactInfo {
+  flex: 1;
+}
+
+.contactInfo h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.contactInfo p {
+  margin: 0.5rem 0;
+  opacity: 0.9;
+}
+
+.copyright {
+  text-align: center;
+  flex: 1;
+  opacity: 0.9;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .topSection {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .navList {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .bottomSection {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactInfo {
+    margin-bottom: 2rem;
+  }
+} 

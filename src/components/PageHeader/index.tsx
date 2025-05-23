@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material';
-import React, { ReactNode } from 'react';
+import React from 'react';
 type Props = {
   title: string;
   margin?: boolean;
-  children: ReactNode;
+  children?: React.ReactNode;
 };
 import styles from './PageHeader.module.css';
 
@@ -11,13 +11,22 @@ const PageHeader = (props: Props) => {
   const { title, margin = true, children } = props;
   return (
     <div
-      className={styles.header}
+      className={`${styles.header} pageHeader`}
       // style={{ display: margin ? 'none' : 'block' }}
     >
-      <Typography variant="h1" sx={{ mb: margin ? '2rem' : '16px' }}>
+      <Typography
+        variant="h1"
+        color="primary"
+        sx={{
+          mb: margin ? '2rem' : '16px',
+          mt: '6rem',
+          fontWeight: 'bold',
+          textAlign: 'center',
+        }}
+      >
         {title}
       </Typography>
-      <div style={{ alignSelf: 'baseline' }}>{children}</div>
+      {children && <div style={{ alignSelf: 'baseline' }}>{children}</div>}
     </div>
   );
 };
