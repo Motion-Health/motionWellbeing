@@ -12,14 +12,9 @@ import Footer from '@/components/Footer';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import Testimonial, { ImagePosition } from '@/components/Testimonial';
-import { useAccountContext } from '@/context/AccountContext';
 import backgroundStyles from '@/styles/backgrounds.module.css';
 
 const Index = () => {
-  const {
-    account: { accountStatus },
-  } = useAccountContext();
-
   const settings = {
     dots: false,
     infinite: true,
