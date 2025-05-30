@@ -357,7 +357,7 @@ const Index = () => {
                     <strong>Meet families where they are</strong>
                   </h3>
                   <p className="motionBenefitsText mbr-fonts-style display-7">
-                    We&apos;ve listened to over 1,000 families, and one thing is
+                    We&apos;ve spoken to over 1,000 families, and one thing is
                     clear: what matters most is knowing their loved one is being
                     truly looked after. Whether they&apos;re exploring care
                     options or already part of your home, families want
