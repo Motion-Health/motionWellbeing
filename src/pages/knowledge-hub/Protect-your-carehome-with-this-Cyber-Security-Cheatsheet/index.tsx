@@ -42,7 +42,7 @@ const Index = () => {
         />
         <meta
           name="description"
-          content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+          content="The care technology platform improving and showcasing person-centred care."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />

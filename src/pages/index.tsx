@@ -115,7 +115,7 @@ const Index = () => {
       <meta property="og:title" content="Motion" />
       <meta
         name="description"
-        content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+        content="The care technology platform improving and showcasing person-centred care."
       />
 
       <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>

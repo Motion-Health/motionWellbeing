@@ -51,7 +51,7 @@ class MyDocument extends Document {
           />
           <meta
             name="og:description"
-            content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+            content="The care technology platform improving and showcasing person-centred care."
           />
           <meta
             name="og:image"
