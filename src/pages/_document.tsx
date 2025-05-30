@@ -51,7 +51,7 @@ class MyDocument extends Document {
           />
           <meta
             name="og:description"
-            content="The care technology platform improving and showcasing person-centred care."
+            content="Motion — The care technology platform improving and showcasing person-centred care."
           />
           <meta
             name="og:image"

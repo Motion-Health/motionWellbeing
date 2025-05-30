@@ -115,7 +115,7 @@ const Index = () => {
       <meta property="og:title" content="Motion" />
       <meta
         name="description"
-        content="The care technology platform improving and showcasing person-centred care."
+        content="Motion — The care technology platform improving and showcasing person-centred care."
       />
 
       <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>

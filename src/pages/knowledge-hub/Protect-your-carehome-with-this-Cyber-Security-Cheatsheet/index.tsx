@@ -42,7 +42,7 @@ const Index = () => {
         />
         <meta
           name="description"
-          content="The care technology platform improving and showcasing person-centred care."
+          content="Motion — The care technology platform improving and showcasing person-centred care."
         />
         <meta property="og:image" content="./og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
