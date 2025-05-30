@@ -305,7 +305,7 @@ const Index = () => {
             id="how-motion-helps-your-care-organisation"
           >
             <div className="row justify-content-center howMotionWorks">
-              <div className="col-12 col-lg-8 text-center">
+              <div className="text-center">
                 <div className="title-wrapper">
                   <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2">
                     <strong>How Motion helps your care organisation</strong>
