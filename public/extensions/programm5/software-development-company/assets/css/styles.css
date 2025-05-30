@@ -1,7 +1,5 @@
 .filtered-background-section {
     position: relative;
-    /* background-image: url('./../images/header.webp'); */
-    t(at left, #FDFCED, white);
     background-image: radial-gradient(at left, #FDFCED, #FDFCED);
 }
 
@@ -123,7 +121,7 @@ body{
 }
 
 .discoveryButton{
-   margin:10px;s
+   margin:10px;
 }
 
 .tab-pane{
@@ -237,6 +235,12 @@ h1.heroText {
     font-family: 'Montserrat';
     font-size: 50px;
     font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    h1.heroText {
+        font-size: 24px;
+    }
 }
 
 h1.heroText.blueText {

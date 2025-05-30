@@ -140,7 +140,7 @@ const Index = () => {
               <div className="hero-wrapper">
                 <h1 className="heroText">You take care of </h1>
                 <h1 className="heroText blueText">
-                  yesterday's{' '}
+                  yesterday&apos;s{' '}
                   <TypeAnimation
                     sequence={[
                       'teachers.',
