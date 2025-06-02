@@ -9,6 +9,7 @@ import { TypeAnimation } from 'react-type-animation';
 import BlogCard from '@/components/BlogCard';
 import FeaturedInMedia from '@/components/FeaturedInMedia';
 import Footer from '@/components/Footer';
+import MotionBenefitsSection from '@/components/MotionBenefitsSection';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import Testimonial, { ImagePosition } from '@/components/Testimonial';
@@ -299,109 +300,15 @@ const Index = () => {
             />
           </div>
 
-          <div
-            className="motion-helps-section"
-            style={{ paddingBottom: '160px' }}
-            id="how-motion-helps-your-care-organisation"
-          >
-            <div className="row justify-content-center howMotionWorks">
-              <div className="text-center">
-                <div className="title-wrapper">
-                  <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2">
-                    <strong>How Motion helps your care organisation</strong>
-                  </h2>
-                </div>
-              </div>
-            </div>
+          <MotionBenefitsSection />
 
-            <div className="row">
-              <div className="col-12 col-lg-4 card mb-4">
-                <div
-                  className="feature-box"
-                  style={{
-                    backgroundColor: '#F7F7F7',
-                    borderRadius: '10px',
-                    padding: '25px',
-                    height: '100%',
-                  }}
-                >
-                  <h3
-                    className="motionBenefitsTitle mbr-fonts-style"
-                    style={{ color: '#385988', paddingBottom: '16px' }}
-                  >
-                    <strong>Showcase and amplify your care</strong>
-                  </h3>
-                  <p className="motionBenefitsText mbr-fonts-style display-7">
-                    You&apos;re already delivering amazing, person-centred care.
-                    Motion helps make sure families and key stakeholders
-                    actually see it. Personalised, detailed updates are shared
-                    automatically, so your team can stay focused on what matters
-                    most.
-                  </p>
-                </div>
-              </div>
-              <div className="col-12 col-lg-4 card mb-4">
-                <div
-                  className="feature-box"
-                  style={{
-                    backgroundColor: '#F7F7F7',
-                    borderRadius: '10px',
-                    padding: '25px',
-                    height: '100%',
-                  }}
-                >
-                  <h3
-                    className="motionBenefitsTitle mbr-fonts-style"
-                    style={{ color: '#385988', paddingBottom: '16px' }}
-                  >
-                    <strong>Meet families where they are</strong>
-                  </h3>
-                  <p className="motionBenefitsText mbr-fonts-style display-7">
-                    We&apos;ve spoken to over 1,000 families, and one thing is
-                    clear: what matters most is knowing their loved one is being
-                    truly looked after. Whether they&apos;re exploring care
-                    options or already part of your home, families want
-                    connection, clarity, and peace of mind. Every one of our
-                    care partners has seen a lift in family satisfaction since
-                    using Motion.
-                  </p>
-                </div>
-              </div>
-              <div className="col-12 col-lg-4 card mb-4">
-                <div
-                  className="feature-box"
-                  style={{
-                    backgroundColor: '#F7F7F7',
-                    borderRadius: '10px',
-                    padding: '25px',
-                    height: '100%',
-                  }}
-                >
-                  <h3
-                    className="motionBenefitsTitle mbr-fonts-style"
-                    style={{ color: '#385988', paddingBottom: '16px' }}
-                  >
-                    <strong>Person-centred, data-driven</strong>
-                  </h3>
-                  <p className="motionBenefitsText mbr-fonts-style display-7">
-                    Motion has been co-designed with over 3,000 residents,
-                    families and care providers to ensure people stay at the
-                    heart of everything we do. Beyond this, our powerful
-                    technology provides you with valuable data and hands-on
-                    support to grow.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="row" style={{ marginTop: '40px' }}>
-              <Testimonial
-                quote="Knowing what mum is doing, and even more so why she's doing it, gives me peace of mind."
-                author="Gill, Daughter of Resident"
-                image="/assets/images/testimonials/Gill.png"
-                imagePosition={ImagePosition.Right}
-              />
-            </div>
+          <div className="row" style={{ marginTop: '40px' }}>
+            <Testimonial
+              quote="Knowing what mum is doing, and even more so why she's doing it, gives me peace of mind."
+              author="Gill, Daughter of Resident"
+              image="/assets/images/testimonials/Gill.png"
+              imagePosition={ImagePosition.Right}
+            />
           </div>
         </div>
 

@@ -1,0 +1,55 @@
+.motionHelpsSection {
+  padding-bottom: 160px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.howMotionWorks {
+  justify-content: center;
+}
+
+.motionWorksTitle {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tilesContainer {
+  padding-top: 40px;
+}
+
+.featureGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.featureColumn {
+  flex: 1;
+  min-width: 280px;
+  margin-bottom: 1.5rem;
+}
+
+.featureBox {
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  padding: 25px;
+  height: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.motionBenefitsTitle {
+  color: #385988;
+  padding-bottom: 16px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.motionBenefitsText {
+  color: inherit;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.testimonialContainer {
+  margin-top: 40px;
+} 
