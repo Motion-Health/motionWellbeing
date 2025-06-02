@@ -2,7 +2,7 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -32,22 +32,6 @@ const Index = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-  const [selectedFeature, setSelectedFeature] = useState<
-    'planner' | 'activities' | 'webpage' | 'updates' | 'analytics'
-  >('planner');
-
-  const features = {
-    planner:
-      'Weekly and monthly planners mean that you can schedule activities ahead of time. Whether their group or one-to-one, in the home or a trip out; the planner is there to say you time and can be easily shared with residents, families and colleagues.',
-    activities:
-      'Have hundreds of evidenced-based activities at your fingertips: from music therapy to chair dancing. There truly is something for everyone!',
-    webpage:
-      "Once an activities are complete they'll pull through to your website. Importantly, you'll only share what you want to, meaning personal information is safe.",
-    updates:
-      'Providing families with peace of mind that your care home fosters a fun, active lifestyle is invaluable. Motion means that you can achieve this without any additional work.',
-    analytics:
-      'Regularly see the impact Motion is having on your care homes customer satisfaction, website visitors and lead generation with our fully transparent reports.',
-  };
 
   return (
     <>
