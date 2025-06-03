@@ -1,0 +1,36 @@
+/* Override hero section specific container padding to match standard containers */
+.standardContainer {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.heroResponsiveContainer {
+  padding-left: 2vw;
+}
+
+/* Container that replicates Bootstrap container behavior only on XL screens and up */
+@media (min-width: 1513px) {
+  .heroResponsiveContainer {
+    width: 100%;
+    padding-left: var(--bs-gutter-x, 0.75rem);
+    padding-right: var(--bs-gutter-x, 0.75rem);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
+    max-width: 1320px;
+  }
+}
+
+@media (max-width: 992px) {
+  .standardContainer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .standardContainer {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+} 

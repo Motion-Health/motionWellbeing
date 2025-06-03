@@ -2,17 +2,19 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import { TypeAnimation } from 'react-type-animation';
 
 import BlogCard from '@/components/BlogCard';
 import FeaturedInMedia from '@/components/FeaturedInMedia';
 import Footer from '@/components/Footer';
+import MotionBenefitsSection from '@/components/MotionBenefitsSection';
 import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import Testimonial, { ImagePosition } from '@/components/Testimonial';
 import backgroundStyles from '@/styles/backgrounds.module.css';
+import heroStyles from '@/styles/heroContainer.module.css';
 
 const Index = () => {
   const settings = {
@@ -31,22 +33,6 @@ const Index = () => {
     script.async = true;
     document.body.appendChild(script);
   }, []);
-  const [selectedFeature, setSelectedFeature] = useState<
-    'planner' | 'activities' | 'webpage' | 'updates' | 'analytics'
-  >('planner');
-
-  const features = {
-    planner:
-      'Weekly and monthly planners mean that you can schedule activities ahead of time. Whether their group or one-to-one, in the home or a trip out; the planner is there to say you time and can be easily shared with residents, families and colleagues.',
-    activities:
-      'Have hundreds of evidenced-based activities at your fingertips: from music therapy to chair dancing. There truly is something for everyone!',
-    webpage:
-      "Once an activities are complete they'll pull through to your website. Importantly, you'll only share what you want to, meaning personal information is safe.",
-    updates:
-      'Providing families with peace of mind that your care home fosters a fun, active lifestyle is invaluable. Motion means that you can achieve this without any additional work.',
-    analytics:
-      'Regularly see the impact Motion is having on your care homes customer satisfaction, website visitors and lead generation with our fully transparent reports.',
-  };
 
   return (
     <>
@@ -115,7 +101,7 @@ const Index = () => {
       <meta property="og:title" content="Motion" />
       <meta
         name="description"
-        content="Telling stories that move people. Motion is a marketing agency that helps brands connect with their audience through powerful storytelling."
+        content="Motion — The care technology platform improving and showcasing person-centred care."
       />
 
       <script src="/extensions/programm5/software-development-company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -134,53 +120,57 @@ const Index = () => {
         className="header1 programm5 cid-tFcg6xOSs8 filtered-background-section"
         id="header1-1"
       >
-        <div className="container heroContainer">
-          <div className="row">
-            <div className="col-7 fullWidth">
-              <div className="hero-wrapper">
-                <h1 className="heroText">You take care of </h1>
-                <h1 className="heroText blueText">
-                  yesterday's{' '}
-                  <TypeAnimation
-                    sequence={[
-                      'teachers.',
-                      3000,
-                      'nurses.',
-                      3000,
-                      'engineers.',
-                      3000,
-                      'doctors.',
-                      3000,
-                      'soldiers.',
-                      3000,
-                    ]}
-                    wrapper="span"
-                    speed={80}
-                    style={{ fontSize: '1em', display: 'inline-block' }}
-                    repeat={Infinity}
-                  />
-                </h1>
-                <h1 className="heroText">We'll take care of you.</h1>
-                <p className="heroSubheadingText">
-                  Showcase your care and keep families connected, so you can
-                  grow.
-                </p>
-                <div className="demoButtonContainer">
-                  <div className="blueDemoButton">
-                    <a href="/get-a-demo">Get a demo</a>
+        <section>
+          <div className={heroStyles.heroResponsiveContainer}>
+            <div className="container heroContainer">
+              <div className="row">
+                <div className="col-7 fullWidth">
+                  <div className="hero-wrapper">
+                    <h1 className="heroText">You take care of </h1>
+                    <h1 className="heroText blueText">
+                      yesterday&apos;s{' '}
+                      <TypeAnimation
+                        sequence={[
+                          'teachers.',
+                          3000,
+                          'nurses.',
+                          3000,
+                          'engineers.',
+                          3000,
+                          'doctors.',
+                          3000,
+                          'soldiers.',
+                          3000,
+                        ]}
+                        wrapper="span"
+                        speed={80}
+                        style={{ fontSize: '1em', display: 'inline-block' }}
+                        repeat={Infinity}
+                      />
+                    </h1>
+                    <h1 className="heroText">We'll take care of you.</h1>
+                    <p className="heroSubheadingText">
+                      Showcase your care and keep families connected, so you can
+                      grow.
+                    </p>
+                    <div className="demoButtonContainer">
+                      <div className="blueDemoButton">
+                        <a href="/get-a-demo">Get a demo</a>
+                      </div>
+                      <p>No credit card required.</p>
+                    </div>
                   </div>
-                  <p>No credit card required.</p>
+                </div>
+                <div className="col-5 motionDashboard">
+                  <img
+                    src="assets/images/dashboardImage.png"
+                    alt="Motions dashboard"
+                  />
                 </div>
               </div>
             </div>
-            <div className="col-5 motionDashboard">
-              <img
-                src="assets/images/dashboardImage.png"
-                alt="Motions dashboard"
-              />
-            </div>
           </div>
-        </div>
+        </section>
       </section>
       <section
         data-bs-version="5.1"
@@ -299,109 +289,15 @@ const Index = () => {
             />
           </div>
 
-          <div
-            className="motion-helps-section"
-            style={{ paddingBottom: '160px' }}
-            id="how-motion-helps-your-care-organisation"
-          >
-            <div className="row justify-content-center howMotionWorks">
-              <div className="col-12 col-lg-8 text-center">
-                <div className="title-wrapper">
-                  <h2 className="mbr-section-title mbr-fonts-style motionWorksTitle display-2">
-                    <strong>How Motion helps your care organisation</strong>
-                  </h2>
-                </div>
-              </div>
-            </div>
+          <MotionBenefitsSection />
 
-            <div className="row">
-              <div className="col-12 col-lg-4 card mb-4">
-                <div
-                  className="feature-box"
-                  style={{
-                    backgroundColor: '#F7F7F7',
-                    borderRadius: '10px',
-                    padding: '25px',
-                    height: '100%',
-                  }}
-                >
-                  <h3
-                    className="motionBenefitsTitle mbr-fonts-style"
-                    style={{ color: '#385988', paddingBottom: '16px' }}
-                  >
-                    <strong>Showcase and amplify your care</strong>
-                  </h3>
-                  <p className="motionBenefitsText mbr-fonts-style display-7">
-                    You&apos;re already delivering amazing, person-centred care.
-                    Motion helps make sure families and key stakeholders
-                    actually see it. Personalised, detailed updates are shared
-                    automatically, so your team can stay focused on what matters
-                    most.
-                  </p>
-                </div>
-              </div>
-              <div className="col-12 col-lg-4 card mb-4">
-                <div
-                  className="feature-box"
-                  style={{
-                    backgroundColor: '#F7F7F7',
-                    borderRadius: '10px',
-                    padding: '25px',
-                    height: '100%',
-                  }}
-                >
-                  <h3
-                    className="motionBenefitsTitle mbr-fonts-style"
-                    style={{ color: '#385988', paddingBottom: '16px' }}
-                  >
-                    <strong>Meet families where they are</strong>
-                  </h3>
-                  <p className="motionBenefitsText mbr-fonts-style display-7">
-                    We&apos;ve listened to over 1,000 families, and one thing is
-                    clear: what matters most is knowing their loved one is being
-                    truly looked after. Whether they&apos;re exploring care
-                    options or already part of your home, families want
-                    connection, clarity, and peace of mind. Every one of our
-                    care partners has seen a lift in family satisfaction since
-                    using Motion.
-                  </p>
-                </div>
-              </div>
-              <div className="col-12 col-lg-4 card mb-4">
-                <div
-                  className="feature-box"
-                  style={{
-                    backgroundColor: '#F7F7F7',
-                    borderRadius: '10px',
-                    padding: '25px',
-                    height: '100%',
-                  }}
-                >
-                  <h3
-                    className="motionBenefitsTitle mbr-fonts-style"
-                    style={{ color: '#385988', paddingBottom: '16px' }}
-                  >
-                    <strong>Person-centred, data-driven</strong>
-                  </h3>
-                  <p className="motionBenefitsText mbr-fonts-style display-7">
-                    Motion has been co-designed with over 3,000 residents,
-                    families and care providers to ensure people stay at the
-                    heart of everything we do. Beyond this, our powerful
-                    technology provides you with valuable data and hands-on
-                    support to grow.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="row" style={{ marginTop: '40px' }}>
-              <Testimonial
-                quote="Knowing what mum is doing, and even more so why she's doing it, gives me peace of mind."
-                author="Gill, Daughter of Resident"
-                image="/assets/images/testimonials/Gill.png"
-                imagePosition={ImagePosition.Right}
-              />
-            </div>
+          <div className="row" style={{ marginTop: '40px' }}>
+            <Testimonial
+              quote="Knowing what mum is doing, and even more so why she's doing it, gives me peace of mind."
+              author="Gill, Daughter of Resident"
+              image="/assets/images/testimonials/Gill.png"
+              imagePosition={ImagePosition.Right}
+            />
           </div>
         </div>
 
