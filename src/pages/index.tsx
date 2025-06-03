@@ -119,53 +119,57 @@ const Index = () => {
         className="header1 programm5 cid-tFcg6xOSs8 filtered-background-section"
         id="header1-1"
       >
-        <div className="container heroContainer">
-          <div className="row">
-            <div className="col-7 fullWidth">
-              <div className="hero-wrapper">
-                <h1 className="heroText">You take care of </h1>
-                <h1 className="heroText blueText">
-                  yesterday&apos;s{' '}
-                  <TypeAnimation
-                    sequence={[
-                      'teachers.',
-                      3000,
-                      'nurses.',
-                      3000,
-                      'engineers.',
-                      3000,
-                      'doctors.',
-                      3000,
-                      'soldiers.',
-                      3000,
-                    ]}
-                    wrapper="span"
-                    speed={80}
-                    style={{ fontSize: '1em', display: 'inline-block' }}
-                    repeat={Infinity}
-                  />
-                </h1>
-                <h1 className="heroText">We'll take care of you.</h1>
-                <p className="heroSubheadingText">
-                  Showcase your care and keep families connected, so you can
-                  grow.
-                </p>
-                <div className="demoButtonContainer">
-                  <div className="blueDemoButton">
-                    <a href="/get-a-demo">Get a demo</a>
+        <section>
+          <div className="container">
+            <div className="container heroContainer">
+              <div className="row">
+                <div className="col-7 fullWidth">
+                  <div className="hero-wrapper">
+                    <h1 className="heroText">You take care of </h1>
+                    <h1 className="heroText blueText">
+                      yesterday&apos;s{' '}
+                      <TypeAnimation
+                        sequence={[
+                          'teachers.',
+                          3000,
+                          'nurses.',
+                          3000,
+                          'engineers.',
+                          3000,
+                          'doctors.',
+                          3000,
+                          'soldiers.',
+                          3000,
+                        ]}
+                        wrapper="span"
+                        speed={80}
+                        style={{ fontSize: '1em', display: 'inline-block' }}
+                        repeat={Infinity}
+                      />
+                    </h1>
+                    <h1 className="heroText">We'll take care of you.</h1>
+                    <p className="heroSubheadingText">
+                      Showcase your care and keep families connected, so you can
+                      grow.
+                    </p>
+                    <div className="demoButtonContainer">
+                      <div className="blueDemoButton">
+                        <a href="/get-a-demo">Get a demo</a>
+                      </div>
+                      <p>No credit card required.</p>
+                    </div>
                   </div>
-                  <p>No credit card required.</p>
+                </div>
+                <div className="col-5 motionDashboard">
+                  <img
+                    src="assets/images/dashboardImage.png"
+                    alt="Motions dashboard"
+                  />
                 </div>
               </div>
             </div>
-            <div className="col-5 motionDashboard">
-              <img
-                src="assets/images/dashboardImage.png"
-                alt="Motions dashboard"
-              />
-            </div>
           </div>
-        </div>
+        </section>
       </section>
       <section
         data-bs-version="5.1"
