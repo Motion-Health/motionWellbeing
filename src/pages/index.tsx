@@ -14,6 +14,7 @@ import MotionStoryCarousel from '@/components/MotionStoryCarousel';
 import NavBar from '@/components/navBar';
 import Testimonial, { ImagePosition } from '@/components/Testimonial';
 import backgroundStyles from '@/styles/backgrounds.module.css';
+import heroStyles from '@/styles/heroContainer.module.css';
 
 const Index = () => {
   const settings = {
@@ -120,7 +121,7 @@ const Index = () => {
         id="header1-1"
       >
         <section>
-          <div className="container">
+          <div className={heroStyles.heroResponsiveContainer}>
             <div className="container heroContainer">
               <div className="row">
                 <div className="col-7 fullWidth">
