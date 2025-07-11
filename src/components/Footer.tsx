@@ -27,12 +27,6 @@ const Footer = () => {
               <li>
                 <Link href="/about-us">About us</Link>
               </li>
-              {/* <li>
-                <Link href="/pricing">Pricing</Link>
-              </li> */}
-              <li>
-                <a href="/careers">Careers</a>
-              </li>
               <li>
                 <a href="https://platform.motion.org.uk/wellbeing/dashboard/">
                   Log in
